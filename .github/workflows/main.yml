@@ -74,6 +74,9 @@ jobs:
         deactivate
         cd ../
     - name: commit
+      env:
+        JOB_ID: ${{ steps.jobs.outputs.job_id }}
+        HTML_URL: ${{ steps.jobs.outputs.html_url }}
       run: |
         cd pyvista-docs-dev-ja
         git checkout gh-pages
