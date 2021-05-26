@@ -32,6 +32,8 @@ jobs:
     - name: Checkout other repo
       uses: actions/checkout@v2
       with:
+        fetch-depth: 0
+        ref: 'gh-pages'
         path: pyvista-docs-dev-ja
     - name: Setup SSH
       uses: MrSquaare/ssh-setup-action@v1
