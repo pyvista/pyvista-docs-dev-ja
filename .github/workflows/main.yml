@@ -78,7 +78,7 @@ jobs:
         cd pyvista-docs-dev-ja
         git checkout gh-pages
         git rm -rf *
-        mv ../pyvista-doc-translations/pyvista/docs/_build/html .
+        mv ../pyvista-doc-translations/pyvista/docs/_build/html/* .
         git config --global user.email $GITHUB_REPOSITORY
         git config --global user.name $GITHUB_REPOSITORY
         git add .
