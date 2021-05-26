@@ -82,6 +82,7 @@ jobs:
         git checkout gh-pages
         git rm -rf *
         mv ../pyvista-doc-translations/pyvista/docs/_build/html/* .
+        touch .nojekyll
         git config --global user.email $GITHUB_REPOSITORY
         git config --global user.name $GITHUB_REPOSITORY
         git add .
