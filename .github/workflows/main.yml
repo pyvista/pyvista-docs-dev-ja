@@ -4,10 +4,10 @@ on:
     - cron:  '0 0 * * *'
   push:
     branches:
-      - master
+      - main
   pull_request:
     branches:
-      - master
+      - main
 jobs:
   script:
     runs-on: ubuntu-latest
@@ -68,9 +68,9 @@ jobs:
         sleep 3
         set +x
         rm ./locale/examples/*/*.py
-        mv ./locale/examples ./pyvista/docs
+        mv ./locale/examples ./pyvista/doc
         git submodule update --remote
-        (cd pyvista; make -C docs html SPHINXOPTS="-D language=ja -D locale_dirs='../../locale'")
+        (cd pyvista; make -C doc html SPHINXOPTS="-D language=ja -D locale_dirs='../../locale'")
         deactivate
         cd ../
     - name: commit
@@ -81,7 +81,7 @@ jobs:
         cd pyvista-docs-dev-ja
         git checkout gh-pages
         git rm -rf *
-        mv ../pyvista-doc-translations/pyvista/docs/_build/html/* .
+        mv ../pyvista-doc-translations/pyvista/doc/_build/html/* .
         touch .nojekyll
         git config --global user.email $GITHUB_REPOSITORY
         git config --global user.name $GITHUB_REPOSITORY
