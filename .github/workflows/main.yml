@@ -74,6 +74,7 @@ jobs:
         deactivate
         cd ../
     - name: commit
+      if: contains(github.ref, 'main')
       env:
         JOB_ID: ${{ steps.jobs.outputs.job_id }}
         HTML_URL: ${{ steps.jobs.outputs.html_url }}
