@@ -70,7 +70,9 @@ jobs:
         rm ./locale/examples/*/*.py
         mv ./locale/examples ./pyvista/doc
         git submodule update --remote
-        (cd pyvista; make -C doc html SPHINXOPTS="-D language=ja -D locale_dirs='../../locale'")
+        cd pyvista
+        make -C doc html SPHINXOPTS="-w build_errors.txt -N -D language=ja -D locale_dirs='../../locale'"
+        cd ../
         deactivate
         cd ../
     - name: commit
