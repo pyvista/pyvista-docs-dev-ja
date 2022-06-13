@@ -10,7 +10,7 @@ on:
       - main
 jobs:
   script:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
     - name: Setup Python
       uses: actions/setup-python@v1
@@ -48,33 +48,27 @@ jobs:
         sudo apt-get install -y --no-install-recommends python3-venv
         sudo apt-get install -y --no-install-recommends libgl1-mesa-glx
         sudo apt-get install -y --no-install-recommends python3-tk pandoc
-        python3 -m venv /home/runner/work/.venv
-        source /home/runner/work/.venv/bin/activate
         pip install -U pip setuptools wheel
         cd pyvista-doc-translations
         pip install -r ./requirements.txt
+        pip install Sphinx==4.4.0
         cd ../
-        deactivate
     - name: build
       env:
         JOB_ID: ${{ steps.jobs.outputs.job_id }}
         HTML_URL: ${{ steps.jobs.outputs.html_url }}
       run: |
         cd pyvista-doc-translations
-        source /home/runner/work/.venv/bin/activate
         set -x
         export DISPLAY=:99.0
         export PYVISTA_OFF_SCREEN=True
         Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
         sleep 3
         set +x
-        rm ./locale/examples/*/*.py
-        mv ./locale/examples ./pyvista/doc
         git submodule update --remote
         cd pyvista
         make -C doc html SPHINXOPTS="-w build_errors.txt -N -D language=ja -D locale_dirs='../../locale'"
         cd ../
-        deactivate
         cd ../
     - name: commit
       if: contains(github.ref, 'main')
