@@ -7,12 +7,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
     <title>計算時間 &#8212; PyVista 0.35.dev0 ドキュメント</title>
-    
-  <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<script>
+  document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+  document.documentElement.dataset.theme = localStorage.getItem("theme") || "light"
+</script>
 
-    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=92025949c220c2e29695" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=92025949c220c2e29695" rel="stylesheet">
+
+
   <link rel="stylesheet"
     href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
   <link rel="preload" as="font" type="font/woff2" crossorigin
@@ -33,9 +37,9 @@
     <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-rendered-html.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    
+
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=92025949c220c2e29695">
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -47,46 +51,52 @@
     <script src="../../_static/translations.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+    <script async="async" src="https://www.google-analytics.com/analytics.js"></script>
+    <script>
+                window.ga = window.ga || function () {
+                    (ga.q = ga.q || []).push(arguments) };
+                ga.l = +new Date;
+                ga('create', 'UA-140243896-1', 'auto');
+                ga('set', 'anonymizeIp', true);
+                ga('send', 'pageview');
+            </script>
     <link rel="index" title="索引" href="../../genindex.html" />
     <link rel="search" title="検索" href="../../search.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="ja">
-    
-
-    <!-- Google Analytics -->
-    
-<script async="" src="https://www.google-analytics.com/analytics.js"></script>
-<script>
-                        window.ga = window.ga || function () {
-                            (ga.q = ga.q || []).push(arguments) };
-                        ga.l = +new Date;
-                        ga('create', 'UA-140243896-1', 'auto');
-                        ga('set', 'anonymizeIp', true);
-                        ga('send', 'pageview');
-                    </script>
-
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="docsearch:language" content="ja">
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="180" data-default-mode="">
+    <div class="bd-header-announcement container-fluid" id="banner">
+      
+
+    </div>
 
     
-    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
+    <nav class="bd-header navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="bd-header__inner container-xl">
 
   <div id="navbar-start">
     
     
+  
 
-<a class="navbar-brand" href="../../index.html">
-  <img src="../../_static/pyvista_logo_sm.png" class="logo" alt="logo">
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+    <img src="../../_static/pyvista_logo_sm.png" class="logo__image only-light" alt="Logo image">
+    <img src="../../_static/pyvista_logo_sm.png" class="logo__image only-dark" alt="Logo image">
+  
+  
 </a>
-
-
     
   </div>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
+    <span class="fas fa-bars"></span>
   </button>
 
   
@@ -134,6 +144,14 @@
     <div id="navbar-end">
       
       <div class="navbar-end-item">
+        <span id="theme-switch" class="btn btn-sm btn-outline-primary navbar-btn rounded-circle">
+    <a class="theme-switch" data-mode="light"><i class="fas fa-sun"></i></a>
+    <a class="theme-switch" data-mode="dark"><i class="far fa-moon"></i></a>
+    <a class="theme-switch" data-mode="auto"><i class="fas fa-adjust"></i></a>
+</span>
+      </div>
+      
+      <div class="navbar-end-item">
         <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
         <li class="nav-item">
           <a class="nav-link" href="https://github.com/pyvista/pyvista" rel="noopener" target="_blank" title="GitHub"><span><i class="fab fa-github-square"></i></span>
@@ -164,13 +182,13 @@
     </nav>
     
 
-    <div class="container-xl">
-      <div class="row">
+    <div class="bd-container container-xl">
+      <div class="bd-container__inner row">
           
-            
-            <!-- Only show if we have sidebars configured, else just a small margin  -->
-            <div class="col-12 col-md-3 bd-sidebar">
-              <div class="sidebar-start-items"><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+
+<!-- Only show if we have sidebars configured, else just a small margin  -->
+<div class="bd-sidebar-primary col-12 col-md-3 bd-sidebar">
+  <div class="sidebar-start-items"><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
@@ -180,44 +198,43 @@
     
   </div>
 </nav>
-              </div>
-              <div class="sidebar-end-items">
-              </div>
-            </div>
-            
-          
+  </div>
+  <div class="sidebar-end-items">
+  </div>
+</div>
+
 
           
-          <div class="d-none d-xl-block col-xl-2 bd-toc">
-            
-              
-              <div class="toc-item">
-                
+
+
+<div class="bd-sidebar-secondary d-none d-xl-block col-xl-2 bd-toc">
+  
+    
+    <div class="toc-item">
+      
 
 <nav id="bd-toc-nav">
     
 </nav>
-              </div>
-              
-              <div class="toc-item">
-                
-              </div>
-              
-            
-          </div>
-          
+    </div>
+    
+    <div class="toc-item">
+      
+    </div>
+    
+  
+</div>
+
 
           
           
-            
-          
-          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+          <div class="bd-content col-12 col-md-9 col-xl-7">
               
-              <div>
+              <article class="bd-article" role="main">
                 
   <section id="computation-times">
 <span id="sphx-glr-examples-00-load-sg-execution-times"></span><h1>計算時間<a class="headerlink" href="#computation-times" title="このヘッドラインへのパーマリンク">#</a></h1>
-<p><strong>00:00.634</strong> total execution time for <strong>examples_00-load</strong> files:</p>
+<p><strong>01:58.648</strong> total execution time for <strong>examples_00-load</strong> files:</p>
 <table class="table">
 <colgroup>
 <col style="width: 86%" />
@@ -225,104 +242,104 @@
 <col style="width: 6%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="load-vrml.html#sphx-glr-examples-00-load-load-vrml-py"><span class="std std-ref">VRMLファイルの取り扱いについて</span></a> (<code class="docutils literal notranslate"><span class="pre">load-vrml.py</span></code>)</p></td>
-<td><p>00:00.634</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="load-gltf.html#sphx-glr-examples-00-load-load-gltf-py"><span class="std std-ref">glTFファイルの取り扱いについて</span></a> (<code class="docutils literal notranslate"><span class="pre">load-gltf.py</span></code>)</p></td>
+<td><p>00:52.978</p></td>
 <td><p>0.0 MB</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="create-explicit-structured-grid.html#sphx-glr-examples-00-load-create-explicit-structured-grid-py"><span class="std std-ref">明示的な構造グリッドの作成</span></a> (<code class="docutils literal notranslate"><span class="pre">create-explicit-structured-grid.py</span></code>)</p></td>
-<td><p>00:00.000</p></td>
-<td><p>0.0 MB</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="create-geometric-objects.html#sphx-glr-examples-00-load-create-geometric-objects-py"><span class="std std-ref">ジオメトリオブジェクト</span></a> (<code class="docutils literal notranslate"><span class="pre">create-geometric-objects.py</span></code>)</p></td>
-<td><p>00:00.000</p></td>
-<td><p>0.0 MB</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="create-kochanek-spline.html#sphx-glr-examples-00-load-create-kochanek-spline-py"><span class="std std-ref">Kochanekスプラインの作成</span></a> (<code class="docutils literal notranslate"><span class="pre">create-kochanek-spline.py</span></code>)</p></td>
-<td><p>00:00.000</p></td>
-<td><p>0.0 MB</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="create-parametric-geometric-objects.html#sphx-glr-examples-00-load-create-parametric-geometric-objects-py"><span class="std std-ref">パラメトリックジオメトリオブジェクト</span></a> (<code class="docutils literal notranslate"><span class="pre">create-parametric-geometric-objects.py</span></code>)</p></td>
-<td><p>00:00.000</p></td>
-<td><p>0.0 MB</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="create-pixel-art.html#sphx-glr-examples-00-load-create-pixel-art-py"><span class="std std-ref">ALIEN MONSTERSのピクセルアート</span></a> (<code class="docutils literal notranslate"><span class="pre">create-pixel-art.py</span></code>)</p></td>
-<td><p>00:00.000</p></td>
-<td><p>0.0 MB</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="create-platonic-solids.html#sphx-glr-examples-00-load-create-platonic-solids-py"><span class="std std-ref">プラトン立体</span></a> (<code class="docutils literal notranslate"><span class="pre">create-platonic-solids.py</span></code>)</p></td>
-<td><p>00:00.000</p></td>
-<td><p>0.0 MB</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="create-point-cloud.html#sphx-glr-examples-00-load-create-point-cloud-py"><span class="std std-ref">点群を作成</span></a> (<code class="docutils literal notranslate"><span class="pre">create-point-cloud.py</span></code>)</p></td>
-<td><p>00:00.000</p></td>
-<td><p>0.0 MB</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="create-pointset.html#sphx-glr-examples-00-load-create-pointset-py"><span class="std std-ref">PointSetの作成</span></a> (<code class="docutils literal notranslate"><span class="pre">create-pointset.py</span></code>)</p></td>
-<td><p>00:00.000</p></td>
-<td><p>0.0 MB</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="create-poly.html#sphx-glr-examples-00-load-create-poly-py"><span class="std std-ref">PolyDataを作成</span></a> (<code class="docutils literal notranslate"><span class="pre">create-poly.py</span></code>)</p></td>
-<td><p>00:00.000</p></td>
-<td><p>0.0 MB</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="create-spline.html#sphx-glr-examples-00-load-create-spline-py"><span class="std std-ref">スプラインの作成</span></a> (<code class="docutils literal notranslate"><span class="pre">create-spline.py</span></code>)</p></td>
-<td><p>00:00.000</p></td>
-<td><p>0.0 MB</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="create-structured-surface.html#sphx-glr-examples-00-load-create-structured-surface-py"><span class="std std-ref">構造化サーフェスを作成する</span></a> (<code class="docutils literal notranslate"><span class="pre">create-structured-surface.py</span></code>)</p></td>
-<td><p>00:00.000</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="create-pointset.html#sphx-glr-examples-00-load-create-pointset-py"><span class="std std-ref">PointSetの作成</span></a> (<code class="docutils literal notranslate"><span class="pre">create-pointset.py</span></code>)</p></td>
+<td><p>00:10.303</p></td>
 <td><p>0.0 MB</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="create-surface-draped.html#sphx-glr-examples-00-load-create-surface-draped-py"><span class="std std-ref">線分から2 Dサーフェスをまとう</span></a> (<code class="docutils literal notranslate"><span class="pre">create-surface-draped.py</span></code>)</p></td>
-<td><p>00:00.000</p></td>
+<td><p>00:10.164</p></td>
 <td><p>0.0 MB</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="create-tri-surface.html#sphx-glr-examples-00-load-create-tri-surface-py"><span class="std std-ref">三角形サーフェスを作成</span></a> (<code class="docutils literal notranslate"><span class="pre">create-tri-surface.py</span></code>)</p></td>
-<td><p>00:00.000</p></td>
-<td><p>0.0 MB</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="create-truss.html#sphx-glr-examples-00-load-create-truss-py"><span class="std std-ref">円柱を用いたトラス状のFEAソリューションのプロット</span></a> (<code class="docutils literal notranslate"><span class="pre">create-truss.py</span></code>)</p></td>
-<td><p>00:00.000</p></td>
-<td><p>0.0 MB</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="create-uniform-grid.html#sphx-glr-examples-00-load-create-uniform-grid-py"><span class="std std-ref">統合グリッドを作成</span></a> (<code class="docutils literal notranslate"><span class="pre">create-uniform-grid.py</span></code>)</p></td>
-<td><p>00:00.000</p></td>
-<td><p>0.0 MB</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="create-unstructured-surface.html#sphx-glr-examples-00-load-create-unstructured-surface-py"><span class="std std-ref">非構造化グリッドの作成</span></a> (<code class="docutils literal notranslate"><span class="pre">create-unstructured-surface.py</span></code>)</p></td>
-<td><p>00:00.000</p></td>
-<td><p>0.0 MB</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="load-gltf.html#sphx-glr-examples-00-load-load-gltf-py"><span class="std std-ref">glTFファイルの取り扱いについて</span></a> (<code class="docutils literal notranslate"><span class="pre">load-gltf.py</span></code>)</p></td>
-<td><p>00:00.000</p></td>
-<td><p>0.0 MB</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="read-dolfin.html#sphx-glr-examples-00-load-read-dolfin-py"><span class="std std-ref">FEniCS/Dolfinメッシュを確認．</span></a> (<code class="docutils literal notranslate"><span class="pre">read-dolfin.py</span></code>)</p></td>
-<td><p>00:00.000</p></td>
-<td><p>0.0 MB</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="read-file.html#sphx-glr-examples-00-load-read-file-py"><span class="std std-ref">ファイルからロードおよびプロットする</span></a> (<code class="docutils literal notranslate"><span class="pre">read-file.py</span></code>)</p></td>
-<td><p>00:00.000</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="create-parametric-geometric-objects.html#sphx-glr-examples-00-load-create-parametric-geometric-objects-py"><span class="std std-ref">パラメトリックジオメトリオブジェクト</span></a> (<code class="docutils literal notranslate"><span class="pre">create-parametric-geometric-objects.py</span></code>)</p></td>
+<td><p>00:08.759</p></td>
 <td><p>0.0 MB</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="read-image.html#sphx-glr-examples-00-load-read-image-py"><span class="std std-ref">イメージファイルの読み込み</span></a> (<code class="docutils literal notranslate"><span class="pre">read-image.py</span></code>)</p></td>
-<td><p>00:00.000</p></td>
+<td><p>00:06.901</p></td>
 <td><p>0.0 MB</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="read-parallel.html#sphx-glr-examples-00-load-read-parallel-py"><span class="std std-ref">並列フィルタ</span></a> (<code class="docutils literal notranslate"><span class="pre">read-parallel.py</span></code>)</p></td>
-<td><p>00:00.000</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="reader.html#sphx-glr-examples-00-load-reader-py"><span class="std std-ref">リーダーによるデータの読み込み</span></a> (<code class="docutils literal notranslate"><span class="pre">reader.py</span></code>)</p></td>
+<td><p>00:06.067</p></td>
 <td><p>0.0 MB</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="reader.html#sphx-glr-examples-00-load-reader-py"><span class="std std-ref">リーダーによるデータの読み込み</span></a> (<code class="docutils literal notranslate"><span class="pre">reader.py</span></code>)</p></td>
-<td><p>00:00.000</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="create-point-cloud.html#sphx-glr-examples-00-load-create-point-cloud-py"><span class="std std-ref">点群を作成</span></a> (<code class="docutils literal notranslate"><span class="pre">create-point-cloud.py</span></code>)</p></td>
+<td><p>00:03.027</p></td>
 <td><p>0.0 MB</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="terrain-mesh.html#sphx-glr-examples-00-load-terrain-mesh-py"><span class="std std-ref">メッシュ後の地形</span></a> (<code class="docutils literal notranslate"><span class="pre">terrain-mesh.py</span></code>)</p></td>
-<td><p>00:00.000</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="read-file.html#sphx-glr-examples-00-load-read-file-py"><span class="std std-ref">ファイルからロードおよびプロットする</span></a> (<code class="docutils literal notranslate"><span class="pre">read-file.py</span></code>)</p></td>
+<td><p>00:02.434</p></td>
 <td><p>0.0 MB</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="wrap-trimesh.html#sphx-glr-examples-00-load-wrap-trimesh-py"><span class="std std-ref">​他のオブジェクトのラップ</span></a> (<code class="docutils literal notranslate"><span class="pre">wrap-trimesh.py</span></code>)</p></td>
-<td><p>00:00.000</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="create-structured-surface.html#sphx-glr-examples-00-load-create-structured-surface-py"><span class="std std-ref">構造化サーフェスを作成する</span></a> (<code class="docutils literal notranslate"><span class="pre">create-structured-surface.py</span></code>)</p></td>
+<td><p>00:02.137</p></td>
+<td><p>0.0 MB</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="create-spline.html#sphx-glr-examples-00-load-create-spline-py"><span class="std std-ref">スプラインの作成</span></a> (<code class="docutils literal notranslate"><span class="pre">create-spline.py</span></code>)</p></td>
+<td><p>00:01.723</p></td>
+<td><p>0.0 MB</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="terrain-mesh.html#sphx-glr-examples-00-load-terrain-mesh-py"><span class="std std-ref">メッシュ後の地形</span></a> (<code class="docutils literal notranslate"><span class="pre">terrain-mesh.py</span></code>)</p></td>
+<td><p>00:01.721</p></td>
+<td><p>0.0 MB</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="create-tri-surface.html#sphx-glr-examples-00-load-create-tri-surface-py"><span class="std std-ref">三角形サーフェスを作成</span></a> (<code class="docutils literal notranslate"><span class="pre">create-tri-surface.py</span></code>)</p></td>
+<td><p>00:01.640</p></td>
+<td><p>0.0 MB</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="read-parallel.html#sphx-glr-examples-00-load-read-parallel-py"><span class="std std-ref">並列フィルタ</span></a> (<code class="docutils literal notranslate"><span class="pre">read-parallel.py</span></code>)</p></td>
+<td><p>00:01.505</p></td>
+<td><p>0.0 MB</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="create-uniform-grid.html#sphx-glr-examples-00-load-create-uniform-grid-py"><span class="std std-ref">統合グリッドを作成</span></a> (<code class="docutils literal notranslate"><span class="pre">create-uniform-grid.py</span></code>)</p></td>
+<td><p>00:01.154</p></td>
+<td><p>0.0 MB</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="create-platonic-solids.html#sphx-glr-examples-00-load-create-platonic-solids-py"><span class="std std-ref">プラトン立体</span></a> (<code class="docutils literal notranslate"><span class="pre">create-platonic-solids.py</span></code>)</p></td>
+<td><p>00:01.069</p></td>
+<td><p>0.0 MB</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="create-pixel-art.html#sphx-glr-examples-00-load-create-pixel-art-py"><span class="std std-ref">ALIEN MONSTERSのピクセルアート</span></a> (<code class="docutils literal notranslate"><span class="pre">create-pixel-art.py</span></code>)</p></td>
+<td><p>00:01.056</p></td>
+<td><p>0.0 MB</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="create-explicit-structured-grid.html#sphx-glr-examples-00-load-create-explicit-structured-grid-py"><span class="std std-ref">明示的な構造グリッドの作成</span></a> (<code class="docutils literal notranslate"><span class="pre">create-explicit-structured-grid.py</span></code>)</p></td>
+<td><p>00:00.858</p></td>
+<td><p>0.0 MB</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="create-unstructured-surface.html#sphx-glr-examples-00-load-create-unstructured-surface-py"><span class="std std-ref">非構造化グリッドの作成</span></a> (<code class="docutils literal notranslate"><span class="pre">create-unstructured-surface.py</span></code>)</p></td>
+<td><p>00:00.790</p></td>
+<td><p>0.0 MB</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="create-poly.html#sphx-glr-examples-00-load-create-poly-py"><span class="std std-ref">PolyDataを作成</span></a> (<code class="docutils literal notranslate"><span class="pre">create-poly.py</span></code>)</p></td>
+<td><p>00:00.771</p></td>
+<td><p>0.0 MB</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="read-dolfin.html#sphx-glr-examples-00-load-read-dolfin-py"><span class="std std-ref">FEniCS/Dolfinメッシュを確認．</span></a> (<code class="docutils literal notranslate"><span class="pre">read-dolfin.py</span></code>)</p></td>
+<td><p>00:00.744</p></td>
+<td><p>0.0 MB</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="create-kochanek-spline.html#sphx-glr-examples-00-load-create-kochanek-spline-py"><span class="std std-ref">Kochanekスプラインの作成</span></a> (<code class="docutils literal notranslate"><span class="pre">create-kochanek-spline.py</span></code>)</p></td>
+<td><p>00:00.678</p></td>
+<td><p>0.0 MB</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="wrap-trimesh.html#sphx-glr-examples-00-load-wrap-trimesh-py"><span class="std std-ref">​他のオブジェクトのラップ</span></a> (<code class="docutils literal notranslate"><span class="pre">wrap-trimesh.py</span></code>)</p></td>
+<td><p>00:00.661</p></td>
+<td><p>0.0 MB</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="create-geometric-objects.html#sphx-glr-examples-00-load-create-geometric-objects-py"><span class="std std-ref">ジオメトリオブジェクト</span></a> (<code class="docutils literal notranslate"><span class="pre">create-geometric-objects.py</span></code>)</p></td>
+<td><p>00:00.540</p></td>
+<td><p>0.0 MB</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="create-truss.html#sphx-glr-examples-00-load-create-truss-py"><span class="std std-ref">円柱を用いたトラス状のFEAソリューションのプロット</span></a> (<code class="docutils literal notranslate"><span class="pre">create-truss.py</span></code>)</p></td>
+<td><p>00:00.493</p></td>
+<td><p>0.0 MB</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="load-vrml.html#sphx-glr-examples-00-load-load-vrml-py"><span class="std std-ref">VRMLファイルの取り扱いについて</span></a> (<code class="docutils literal notranslate"><span class="pre">load-vrml.py</span></code>)</p></td>
+<td><p>00:00.475</p></td>
 <td><p>0.0 MB</p></td>
 </tr>
 </tbody>
@@ -330,33 +347,35 @@
 </section>
 
 
-              </div>
+              </article>
               
-              
-          </main>
-          
 
+              
+          </div>
+          
       </div>
     </div>
+
+  
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
-<footer class="footer mt-5 mt-md-0">
-  <div class="container">
-    
-    <div class="footer-item">
-      <p class="copyright">
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=92025949c220c2e29695"></script>
+
+<footer class="bd-footer"><div class="bd-footer__inner container">
+  
+  <div class="footer-item">
+    <p class="copyright">
     &copy; Copyright 2017-2022, The PyVista Developers.<br>
 </p>
-    </div>
-    
-    <div class="footer-item">
-      <p class="sphinx-version">
+  </div>
+  
+  <div class="footer-item">
+    <p class="sphinx-version">
 Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.4.0.<br>
 </p>
-    </div>
-    
   </div>
+  
+</div>
 </footer>
   </body>
 </html>

@@ -7,12 +7,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
     <title>リーダーによるデータの読み込み &#8212; PyVista 0.35.dev0 ドキュメント</title>
-    
-  <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<script>
+  document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+  document.documentElement.dataset.theme = localStorage.getItem("theme") || "light"
+</script>
 
-    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=92025949c220c2e29695" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=92025949c220c2e29695" rel="stylesheet">
+
+
   <link rel="stylesheet"
     href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
   <link rel="preload" as="font" type="font/woff2" crossorigin
@@ -33,9 +37,9 @@
     <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-rendered-html.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
-    
+
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=92025949c220c2e29695">
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -47,48 +51,54 @@
     <script src="../../_static/translations.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+    <script async="async" src="https://www.google-analytics.com/analytics.js"></script>
+    <script>
+                window.ga = window.ga || function () {
+                    (ga.q = ga.q || []).push(arguments) };
+                ga.l = +new Date;
+                ga('create', 'UA-140243896-1', 'auto');
+                ga('set', 'anonymizeIp', true);
+                ga('send', 'pageview');
+            </script>
     <link rel="index" title="索引" href="../../genindex.html" />
     <link rel="search" title="検索" href="../../search.html" />
     <link rel="next" title="メッシュ後の地形" href="terrain-mesh.html" />
     <link rel="prev" title="並列フィルタ" href="read-parallel.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="ja">
-    
-
-    <!-- Google Analytics -->
-    
-<script async="" src="https://www.google-analytics.com/analytics.js"></script>
-<script>
-                        window.ga = window.ga || function () {
-                            (ga.q = ga.q || []).push(arguments) };
-                        ga.l = +new Date;
-                        ga('create', 'UA-140243896-1', 'auto');
-                        ga('set', 'anonymizeIp', true);
-                        ga('send', 'pageview');
-                    </script>
-
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="docsearch:language" content="ja">
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-    
-    <div class="container-fluid" id="banner"></div>
+  
+  
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="180" data-default-mode="">
+    <div class="bd-header-announcement container-fluid" id="banner">
+      
+
+    </div>
 
     
-    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
+    <nav class="bd-header navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="bd-header__inner container-xl">
 
   <div id="navbar-start">
     
     
+  
 
-<a class="navbar-brand" href="../../index.html">
-  <img src="../../_static/pyvista_logo_sm.png" class="logo" alt="logo">
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+    <img src="../../_static/pyvista_logo_sm.png" class="logo__image only-light" alt="Logo image">
+    <img src="../../_static/pyvista_logo_sm.png" class="logo__image only-dark" alt="Logo image">
+  
+  
 </a>
-
-
     
   </div>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
+    <span class="fas fa-bars"></span>
   </button>
 
   
@@ -136,6 +146,14 @@
     <div id="navbar-end">
       
       <div class="navbar-end-item">
+        <span id="theme-switch" class="btn btn-sm btn-outline-primary navbar-btn rounded-circle">
+    <a class="theme-switch" data-mode="light"><i class="fas fa-sun"></i></a>
+    <a class="theme-switch" data-mode="dark"><i class="far fa-moon"></i></a>
+    <a class="theme-switch" data-mode="auto"><i class="fas fa-adjust"></i></a>
+</span>
+      </div>
+      
+      <div class="navbar-end-item">
         <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
         <li class="nav-item">
           <a class="nav-link" href="https://github.com/pyvista/pyvista" rel="noopener" target="_blank" title="GitHub"><span><i class="fab fa-github-square"></i></span>
@@ -166,13 +184,13 @@
     </nav>
     
 
-    <div class="container-xl">
-      <div class="row">
+    <div class="bd-container container-xl">
+      <div class="bd-container__inner row">
           
-            
-            <!-- Only show if we have sidebars configured, else just a small margin  -->
-            <div class="col-12 col-md-3 bd-sidebar">
-              <div class="sidebar-start-items"><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+
+<!-- Only show if we have sidebars configured, else just a small margin  -->
+<div class="bd-sidebar-primary col-12 col-md-3 bd-sidebar">
+  <div class="sidebar-start-items"><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
@@ -455,6 +473,13 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../01-filter/extrude-rotate.html">
    押し出し回転
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01-filter/extrude-trim.html">
+   Extrude Trim
   </a>
  </li>
 </ul>
@@ -1062,40 +1087,39 @@
     
   </div>
 </nav>
-              </div>
-              <div class="sidebar-end-items">
-              </div>
-            </div>
-            
-          
+  </div>
+  <div class="sidebar-end-items">
+  </div>
+</div>
+
 
           
-          <div class="d-none d-xl-block col-xl-2 bd-toc">
-            
-              
-              <div class="toc-item">
-                
+
+
+<div class="bd-sidebar-secondary d-none d-xl-block col-xl-2 bd-toc">
+  
+    
+    <div class="toc-item">
+      
 
 <nav id="bd-toc-nav">
     
 </nav>
-              </div>
-              
-              <div class="toc-item">
-                
-              </div>
-              
-            
-          </div>
-          
+    </div>
+    
+    <div class="toc-item">
+      
+    </div>
+    
+  
+</div>
+
 
           
           
-            
-          
-          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+          <div class="bd-content col-12 col-md-9 col-xl-7">
               
-              <div>
+              <article class="bd-article" role="main">
                 
   <div class="sphx-glr-download-link-note admonition note">
 <p class="admonition-title">注釈</p>
@@ -1104,7 +1128,7 @@
 <section class="sphx-glr-example-title" id="load-data-using-a-reader">
 <span id="reader-example"></span><span id="sphx-glr-examples-00-load-reader-py"></span><h1>リーダーによるデータの読み込み<a class="headerlink" href="#load-data-using-a-reader" title="このヘッドラインへのパーマリンク">#</a></h1>
 <p>データファイルの読み取りをより細かく制御するには，クラスベースのリーダーを使用します．このクラスは，ファイルからのデータセットの読み込みをより細かく制御することができます． サポートされているファイルタイプのリストは， <a class="reference internal" href="../../api/readers/_autosummary/pyvista.get_reader.html#pyvista.get_reader" title="pyvista.get_reader"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyvista.get_reader()</span></code></a> を参照してください．</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tempfile</span> <span class="kn">import</span> <span class="n">NamedTemporaryFile</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">tempfile</span> <span class="kn">import</span> <a href="https://docs.python.org/dev/library/tempfile.html#tempfile.NamedTemporaryFile" title="tempfile.NamedTemporaryFile" class="sphx-glr-backref-module-tempfile sphx-glr-backref-type-py-function"><span class="n">NamedTemporaryFile</span></a>
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
@@ -1113,23 +1137,23 @@
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">.vtp</span></code> 形式のXML PolyDataファイルが作成されます． このファイルは，今回の例では一時ファイルに保存されます．</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">temp_file</span> <span class="o">=</span> <span class="n">NamedTemporaryFile</span><span class="p">(</span><span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">suffix</span><span class="o">=</span><span class="s2">&quot;.vtp&quot;</span><span class="p">)</span>
-<span class="n">temp_file</span><span class="o">.</span><span class="n">name</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">temp_file</span> <span class="o">=</span> <a href="https://docs.python.org/dev/library/tempfile.html#tempfile.NamedTemporaryFile" title="tempfile.NamedTemporaryFile" class="sphx-glr-backref-module-tempfile sphx-glr-backref-type-py-function"><span class="n">NamedTemporaryFile</span></a><span class="p">(</span><span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">suffix</span><span class="o">=</span><span class="s2">&quot;.vtp&quot;</span><span class="p">)</span>
+<a href="https://docs.python.org/dev/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">temp_file</span><span class="o">.</span><span class="n">name</span></a>
 </pre></div>
 </div>
 <p class="sphx-glr-script-out">出力:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;/tmp/tmpt_ngme6v.vtp&#39;
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;/tmp/tmpqqicvna5.vtp&#39;
 </pre></div>
 </div>
 <p><a class="reference internal" href="../../api/utilities/_autosummary/pyvista.Sphere.html#pyvista.Sphere" title="pyvista.Sphere"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.Sphere</span></code></a> には，すでに <code class="docutils literal notranslate"><span class="pre">Normals</span></code> という点データが含まれています． さらに， <code class="docutils literal notranslate"><span class="pre">height</span></code> のポイントデータと <code class="docutils literal notranslate"><span class="pre">id</span></code> のセルデータを追加します．</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mesh</span> <span class="o">=</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">Sphere</span><span class="p">()</span>
 <span class="n">mesh</span><span class="p">[</span><span class="s1">&#39;height&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">points</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span>
-<span class="n">mesh</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">mesh</span><span class="o">.</span><span class="n">n_cells</span><span class="p">)</span>
-<span class="n">mesh</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">temp_file</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+<span class="n">mesh</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span> <span class="o">=</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.arange.html#numpy.arange" title="numpy.arange" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">arange</span></a><span class="p">(</span><span class="n">mesh</span><span class="o">.</span><span class="n">n_cells</span><span class="p">)</span>
+<span class="n">mesh</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><a href="https://docs.python.org/dev/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">temp_file</span><span class="o">.</span><span class="n">name</span></a><span class="p">)</span>
 </pre></div>
 </div>
 <p><a class="reference internal" href="../../api/utilities/_autosummary/pyvista.read.html#pyvista.read" title="pyvista.read"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyvista.read()</span></code></a> 関数は，ファイル内のすべてのデータを読み込みます．これは，ファイルからデータを読み取るための，迅速で簡単なワンライナーを提供します．</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">new_mesh</span> <span class="o">=</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">temp_file</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">new_mesh</span> <span class="o">=</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><a href="https://docs.python.org/dev/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">temp_file</span><span class="o">.</span><span class="n">name</span></a><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;All arrays: </span><span class="si">{</span><span class="n">mesh</span><span class="o">.</span><span class="n">array_names</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1138,13 +1162,13 @@
 </pre></div>
 </div>
 <p><a class="reference internal" href="../../api/readers/_autosummary/pyvista.get_reader.html#pyvista.get_reader" title="pyvista.get_reader"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyvista.get_reader()</span></code></a> を使用することで，データファイルの読み込みをより細かく制御することができます． <code class="docutils literal notranslate"><span class="pre">.vtp`</span></code> ファイルの読み込みには， <a class="reference internal" href="../../api/readers/_autosummary/pyvista.XMLPolyDataReader.html#pyvista.XMLPolyDataReader" title="pyvista.XMLPolyDataReader"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.XMLPolyDataReader</span></code></a> を使用します．</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">reader</span> <span class="o">=</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">get_reader</span><span class="p">(</span><span class="n">temp_file</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">reader</span> <span class="o">=</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">get_reader</span><span class="p">(</span><a href="https://docs.python.org/dev/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">temp_file</span><span class="o">.</span><span class="n">name</span></a><span class="p">)</span>
 <span class="n">reader</span>
 <span class="c1"># Alternative method: reader = pyvista.XMLPolyDataReader(temp_file.name)</span>
 </pre></div>
 </div>
 <p class="sphx-glr-script-out">出力:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>XMLPolyDataReader(&#39;/tmp/tmpt_ngme6v.vtp&#39;)
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>XMLPolyDataReader(&#39;/tmp/tmpqqicvna5.vtp&#39;)
 </pre></div>
 </div>
 <p>このクラスを含め，いくつかのリーダークラスは，すべてのデータを読み込む前にデータファイルを検査する機能を提供しています．例えば，点配列やセル配列の数や名前にアクセスすることができます．</p>
@@ -1187,11 +1211,11 @@ Read arrays:        [&#39;height&#39;]
 </pre></div>
 </div>
 <p>一部のリーダーでは，異なるタイムポイントやイテレーションの設定が可能です．いずれの場合も，タイムポイント機能を使って設定します．NACAデータセットには，密度を持つ2つのそのようなポイントがあります． このデータセットはEnSight形式で， <a class="reference internal" href="../../api/readers/_autosummary/pyvista.EnSightReader.html#pyvista.EnSightReader" title="pyvista.EnSightReader"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.EnSightReader</span></code></a> クラスを使用しています．</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">filename</span> <span class="o">=</span> <span class="n">examples</span><span class="o">.</span><span class="n">download_naca</span><span class="p">(</span><span class="n">load</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="n">reader</span> <span class="o">=</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">get_reader</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
-<span class="n">time_values</span> <span class="o">=</span> <span class="n">reader</span><span class="o">.</span><span class="n">time_values</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://docs.python.org/dev/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">filename</span></a> <span class="o">=</span> <span class="n">examples</span><span class="o">.</span><span class="n">download_naca</span><span class="p">(</span><span class="n">load</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">reader</span> <span class="o">=</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">get_reader</span><span class="p">(</span><a href="https://docs.python.org/dev/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">filename</span></a><span class="p">)</span>
+<a href="https://docs.python.org/dev/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">time_values</span></a> <span class="o">=</span> <span class="n">reader</span><span class="o">.</span><a href="https://docs.python.org/dev/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">time_values</span></a>
 <span class="nb">print</span><span class="p">(</span><span class="n">reader</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Available time points: </span><span class="si">{</span><span class="n">time_values</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Available time points: </span><span class="si">{</span><a href="https://docs.python.org/dev/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">time_values</span></a><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Available point arrays: </span><span class="si">{</span><span class="n">reader</span><span class="o">.</span><span class="n">point_array_names</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1202,9 +1226,9 @@ Available point arrays: [&#39;DENS&#39;]
 </pre></div>
 </div>
 <p>まず両方のタイムポイントが読み込まれ，次に密度の差が計算され，2番目のメッシュに保存されます．<a class="reference internal" href="../../api/readers/_autosummary/pyvista.EnSightReader.html#pyvista.EnSightReader" title="pyvista.EnSightReader"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.EnSightReader</span></code></a> の read メソッドは， <a class="reference internal" href="../../api/core/_autosummary/pyvista.MultiBlock.html#pyvista.MultiBlock" title="pyvista.MultiBlock"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.MultiBlock</span></code></a> インスタンスを取得します．このデータセットでは，3つのブロックがあり，新しいスカラーを各ブロックに適用する必要があります．</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">reader</span><span class="o">.</span><span class="n">set_active_time_value</span><span class="p">(</span><span class="n">time_values</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">reader</span><span class="o">.</span><span class="n">set_active_time_value</span><span class="p">(</span><a href="https://docs.python.org/dev/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">time_values</span></a><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 <span class="n">mesh_0</span> <span class="o">=</span> <span class="n">reader</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-<span class="n">reader</span><span class="o">.</span><span class="n">set_active_time_value</span><span class="p">(</span><span class="n">time_values</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">reader</span><span class="o">.</span><span class="n">set_active_time_value</span><span class="p">(</span><a href="https://docs.python.org/dev/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">time_values</span></a><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 <span class="n">mesh_1</span> <span class="o">=</span> <span class="n">reader</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
 
 <span class="k">for</span> <span class="n">block_0</span><span class="p">,</span> <span class="n">block_1</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">mesh_0</span><span class="p">,</span> <span class="n">mesh_1</span><span class="p">):</span>
@@ -1216,11 +1240,11 @@ Available point arrays: [&#39;DENS&#39;]
 
 <span class="n">plotter</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">plotter</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">mesh_0</span><span class="p">,</span> <span class="n">scalars</span><span class="o">=</span><span class="s1">&#39;DENS&#39;</span><span class="p">,</span> <span class="n">show_scalar_bar</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="n">plotter</span><span class="o">.</span><span class="n">add_text</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">time_values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">plotter</span><span class="o">.</span><span class="n">add_text</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><a href="https://docs.python.org/dev/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">time_values</span></a><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
 <span class="n">plotter</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">plotter</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">mesh_1</span><span class="p">,</span> <span class="n">scalars</span><span class="o">=</span><span class="s1">&#39;DENS&#39;</span><span class="p">,</span> <span class="n">show_scalar_bar</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="n">plotter</span><span class="o">.</span><span class="n">add_text</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">time_values</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">plotter</span><span class="o">.</span><span class="n">add_text</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><a href="https://docs.python.org/dev/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">time_values</span></a><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
 <span class="c1"># pyvista currently cannot plot the same mesh twice with different scalars</span>
 <span class="n">plotter</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
@@ -1234,8 +1258,8 @@ Available point arrays: [&#39;DENS&#39;]
 </pre></div>
 </div>
 <img src="../../_images/sphx_glr_reader_001.png" srcset="../../_images/sphx_glr_reader_001.png" alt="reader" class = "sphx-glr-single-img"/><p>タイムポイントやイタレーションを読み込んで，ムービーを作ることもできます． <a class="reference internal" href="../02-plot/gif.html#gif-movie-example"><span class="std std-ref">GIFムービーの作成</span></a> と似ていますが，ここではParaViewデータ形式のファイルを使って，ファイルセットを読み込みます．このファイルフォーマットとリーダーは， <a class="reference internal" href="../../api/core/_autosummary/pyvista.MultiBlock.html#pyvista.MultiBlock" title="pyvista.MultiBlock"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.MultiBlock</span></code></a> メッシュも取得します．</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">filename</span> <span class="o">=</span> <span class="n">examples</span><span class="o">.</span><span class="n">download_wavy</span><span class="p">(</span><span class="n">load</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="n">reader</span> <span class="o">=</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">get_reader</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://docs.python.org/dev/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">filename</span></a> <span class="o">=</span> <span class="n">examples</span><span class="o">.</span><span class="n">download_wavy</span><span class="p">(</span><span class="n">load</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">reader</span> <span class="o">=</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">get_reader</span><span class="p">(</span><a href="https://docs.python.org/dev/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">filename</span></a><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">reader</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -1248,18 +1272,18 @@ Available point arrays: [&#39;DENS&#39;]
 <span class="c1"># Open a gif</span>
 <span class="n">plotter</span><span class="o">.</span><span class="n">open_gif</span><span class="p">(</span><span class="s2">&quot;wave_pvd.gif&quot;</span><span class="p">)</span>
 
-<span class="k">for</span> <span class="n">time_value</span> <span class="ow">in</span> <span class="n">reader</span><span class="o">.</span><span class="n">time_values</span><span class="p">:</span>
-    <span class="n">reader</span><span class="o">.</span><span class="n">set_active_time_value</span><span class="p">(</span><span class="n">time_value</span><span class="p">)</span>
+<span class="k">for</span> <a href="https://docs.python.org/dev/library/functions.html#float" title="builtins.float" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">time_value</span></a> <span class="ow">in</span> <span class="n">reader</span><span class="o">.</span><a href="https://docs.python.org/dev/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">time_values</span></a><span class="p">:</span>
+    <span class="n">reader</span><span class="o">.</span><span class="n">set_active_time_value</span><span class="p">(</span><a href="https://docs.python.org/dev/library/functions.html#float" title="builtins.float" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">time_value</span></a><span class="p">)</span>
     <span class="n">mesh</span> <span class="o">=</span> <span class="n">reader</span><span class="o">.</span><span class="n">read</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># This dataset only has 1 block</span>
     <span class="n">plotter</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">scalars</span><span class="o">=</span><span class="s1">&#39;z&#39;</span><span class="p">,</span> <span class="n">show_scalar_bar</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">lighting</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-    <span class="n">plotter</span><span class="o">.</span><span class="n">add_text</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Time: </span><span class="si">{</span><span class="n">time_value</span><span class="si">:</span><span class="s2">.0f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">)</span>
+    <span class="n">plotter</span><span class="o">.</span><span class="n">add_text</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Time: </span><span class="si">{</span><a href="https://docs.python.org/dev/library/functions.html#float" title="builtins.float" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">time_value</span></a><span class="si">:</span><span class="s2">.0f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">)</span>
     <span class="n">plotter</span><span class="o">.</span><span class="n">write_frame</span><span class="p">()</span>
     <span class="n">plotter</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
 
 <span class="n">plotter</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_reader_002.png" srcset="../../_images/sphx_glr_reader_002.png" alt="reader" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  8.451 seconds)</p>
+<img src="../../_images/sphx_glr_reader_002.png" srcset="../../_images/sphx_glr_reader_002.png" alt="reader" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  6.067 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-00-load-reader-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/50c57ebb157826f0bf68d9ca2d6e414f/reader.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">reader.py</span></code></a></p>
@@ -1272,33 +1296,35 @@ Available point arrays: [&#39;DENS&#39;]
 </section>
 
 
-              </div>
+              </article>
               
-              
-          </main>
-          
 
+              
+          </div>
+          
       </div>
     </div>
+
+  
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
-<footer class="footer mt-5 mt-md-0">
-  <div class="container">
-    
-    <div class="footer-item">
-      <p class="copyright">
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=92025949c220c2e29695"></script>
+
+<footer class="bd-footer"><div class="bd-footer__inner container">
+  
+  <div class="footer-item">
+    <p class="copyright">
     &copy; Copyright 2017-2022, The PyVista Developers.<br>
 </p>
-    </div>
-    
-    <div class="footer-item">
-      <p class="sphinx-version">
+  </div>
+  
+  <div class="footer-item">
+    <p class="sphinx-version">
 Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.4.0.<br>
 </p>
-    </div>
-    
   </div>
+  
+</div>
 </footer>
   </body>
 </html>
