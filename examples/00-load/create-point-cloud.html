@@ -479,7 +479,7 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../01-filter/extrude-trim.html">
-   Extrude Trim
+   押し出しトリム
   </a>
  </li>
 </ul>
@@ -522,6 +522,13 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../01-filter/gradients.html">
    フィールドの勾配を計算する
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01-filter/integrate-data.html">
+   データの積分
   </a>
  </li>
 </ul>
@@ -1150,11 +1157,11 @@
 </pre></div>
 </div>
 <p class="sphx-glr-script-out">出力:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>pyvista_ndarray([[4.81096575e+05, 4.40009250e+06, 1.77865002e+03],
-                 [4.81095875e+05, 4.40017670e+06, 1.76778003e+03],
-                 [4.81026475e+05, 4.40009250e+06, 1.76259998e+03],
-                 [4.81105475e+05, 4.40016310e+06, 1.75897998e+03],
-                 [4.80929875e+05, 4.40016950e+06, 1.76116003e+03]])
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>pyvista_ndarray([[4.80975175e+05, 4.40018060e+06, 1.75969995e+03],
+                 [4.80964475e+05, 4.40024720e+06, 1.75745996e+03],
+                 [4.81121575e+05, 4.40010720e+06, 1.75960999e+03],
+                 [4.80936975e+05, 4.40011530e+06, 1.76889001e+03],
+                 [4.81094375e+05, 4.40019940e+06, 1.76944995e+03]])
 </pre></div>
 </div>
 <p>サンプルデータまたは独自のプロジェクトからポイント/頂点のNumPy配列を取得したので，これらのポイントのPyVistaメッシュを作成するのは簡単です．</p>
@@ -1170,7 +1177,7 @@
 <tr><td>N Points</td><td>67841</td></tr>
 <tr><td>X Bounds</td><td>4.809e+05, 4.811e+05</td></tr>
 <tr><td>Y Bounds</td><td>4.400e+06, 4.400e+06</td></tr>
-<tr><td>Z Bounds</td><td>1.754e+03, 1.787e+03</td></tr>
+<tr><td>Z Bounds</td><td>1.754e+03, 1.785e+03</td></tr>
 <tr><td>N Arrays</td><td>0</td></tr>
 </table>
 
@@ -1222,11 +1229,11 @@
 </pre></div>
 </div>
 <p class="sphx-glr-script-out">出力:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>pyvista_ndarray([[ 0.14611496, -0.93567492, -0.32118976],
-                 [ 0.98735574, -0.06858798,  0.1429137 ],
-                 [-0.53551303, -0.79512275, -0.28461485],
-                 [ 0.69424275,  0.60138809,  0.39542302],
-                 [ 0.66771187, -0.74055008, -0.0758053 ]])
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>pyvista_ndarray([[-0.24741392, -0.66789199, -0.70193065],
+                 [ 0.5459534 , -0.00833698,  0.83777407],
+                 [-0.61292044,  0.65419587,  0.44312108],
+                 [ 0.2107728 ,  0.06601167, -0.97530369],
+                 [-0.98256804,  0.0853495 , -0.16515298]])
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">point_cloud</span><span class="p">[</span><span class="s1">&#39;vectors&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">vectors</span>
@@ -1249,7 +1256,7 @@
 <span class="n">plotter</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_create-point-cloud_003.png" srcset="../../_images/sphx_glr_create-point-cloud_003.png" alt="create point cloud" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  3.027 seconds)</p>
+<img src="../../_images/sphx_glr_create-point-cloud_003.png" srcset="../../_images/sphx_glr_create-point-cloud_003.png" alt="create point cloud" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  4.698 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-00-load-create-point-cloud-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/b56f133896ca717685efadc3dcd1d66c/create-point-cloud.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">create-point-cloud.py</span></code></a></p>

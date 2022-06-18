@@ -479,7 +479,7 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="extrude-trim.html">
-   Extrude Trim
+   押し出しトリム
   </a>
  </li>
 </ul>
@@ -522,6 +522,13 @@
  <li class="toctree-l1">
   <a class="reference internal" href="gradients.html">
    フィールドの勾配を計算する
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="integrate-data.html">
+   データの積分
   </a>
  </li>
 </ul>
@@ -1165,7 +1172,7 @@
 </div>
 <p>また， <code class="docutils literal notranslate"><span class="pre">.volume</span></code> プロパティを使用してメッシュの総体積を計算することもできます．</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compute the total volume of the mesh</span>
-<span class="n">volume</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">volume</span>
+<a href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float64" title="numpy.float64" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute"><span class="n">volume</span></a> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><a href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float64" title="numpy.float64" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute"><span class="n">volume</span></a>
 </pre></div>
 </div>
 <p>わかったわ!しかし，1つのデータセットに2つのボリュームボディを残したまま閾値を設定したデータセットがあるとしたらどうでしょうか．たとえば，次のようになります．</p>
@@ -1185,13 +1192,13 @@
 
 <span class="c1"># Split volumes based on classifier and get volumes!</span>
 <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">idx</span></a> <span class="o">=</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.argwhere.html#numpy.argwhere" title="numpy.argwhere" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">argwhere</span></a><span class="p">(</span><span class="n">classifier</span><span class="p">)</span>
-<span class="n">hvol</span> <span class="o">=</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.sum.html#numpy.sum" title="numpy.sum" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">sum</span></a><span class="p">(</span><span class="n">volumes</span><span class="p">[</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">idx</span></a><span class="p">])</span>
+<a href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float64" title="numpy.float64" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute"><span class="n">hvol</span></a> <span class="o">=</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.sum.html#numpy.sum" title="numpy.sum" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">sum</span></a><span class="p">(</span><span class="n">volumes</span><span class="p">[</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">idx</span></a><span class="p">])</span>
 <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">idx</span></a> <span class="o">=</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.argwhere.html#numpy.argwhere" title="numpy.argwhere" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">argwhere</span></a><span class="p">(</span><span class="o">~</span><span class="n">classifier</span><span class="p">)</span>
-<span class="n">lvol</span> <span class="o">=</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.sum.html#numpy.sum" title="numpy.sum" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">sum</span></a><span class="p">(</span><span class="n">volumes</span><span class="p">[</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">idx</span></a><span class="p">])</span>
+<a href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float64" title="numpy.float64" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute"><span class="n">lvol</span></a> <span class="o">=</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.sum.html#numpy.sum" title="numpy.sum" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">sum</span></a><span class="p">(</span><span class="n">volumes</span><span class="p">[</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">idx</span></a><span class="p">])</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Low grade volume: </span><span class="si">{</span><span class="n">lvol</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;High grade volume: </span><span class="si">{</span><span class="n">hvol</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Original volume: </span><span class="si">{</span><span class="n">dataset</span><span class="o">.</span><span class="n">volume</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Low grade volume: </span><span class="si">{</span><a href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float64" title="numpy.float64" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute"><span class="n">lvol</span></a><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;High grade volume: </span><span class="si">{</span><a href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float64" title="numpy.float64" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute"><span class="n">hvol</span></a><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Original volume: </span><span class="si">{</span><span class="n">dataset</span><span class="o">.</span><a href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float64" title="numpy.float64" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute"><span class="n">volume</span></a><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p class="sphx-glr-script-out">出力:</p>
@@ -1206,7 +1213,7 @@ Original volume: 729.0
 <span class="c1"># or: largest = threshed.extract_largest()</span>
 
 <span class="c1"># Get volume as numeric value</span>
-<a href="https://docs.python.org/dev/library/functions.html#float" title="builtins.float" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">large_volume</span></a> <span class="o">=</span> <span class="n">largest</span><span class="o">.</span><span class="n">volume</span>
+<a href="https://docs.python.org/dev/library/functions.html#float" title="builtins.float" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">large_volume</span></a> <span class="o">=</span> <span class="n">largest</span><span class="o">.</span><a href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float64" title="numpy.float64" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute"><span class="n">volume</span></a>
 
 <span class="c1"># Display it!</span>
 <span class="n">largest</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">show_grid</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cpos</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
@@ -1224,7 +1231,7 @@ Original volume: 729.0
 <span class="n">bodies</span> <span class="o">=</span> <span class="n">threshed</span><span class="o">.</span><span class="n">split_bodies</span><span class="p">()</span>
 
 <span class="k">for</span> <a href="https://docs.python.org/dev/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">i</span></a><span class="p">,</span> <span class="n">body</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">bodies</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Body </span><span class="si">{</span><a href="https://docs.python.org/dev/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">i</span></a><span class="si">}</span><span class="s2"> volume: </span><span class="si">{</span><span class="n">body</span><span class="o">.</span><span class="n">volume</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Body </span><span class="si">{</span><a href="https://docs.python.org/dev/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">i</span></a><span class="si">}</span><span class="s2"> volume: </span><span class="si">{</span><span class="n">body</span><span class="o">.</span><a href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float64" title="numpy.float64" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute"><span class="n">volume</span></a><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p class="sphx-glr-script-out">出力:</p>
@@ -1250,7 +1257,7 @@ Body 1 volume: 35.000
 <span class="c1"># Now remove all bodies with a small volume</span>
 <span class="k">for</span> <a href="https://docs.python.org/dev/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">key</span></a> <span class="ow">in</span> <span class="n">bodies</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
     <span class="n">b</span> <span class="o">=</span> <span class="n">bodies</span><span class="p">[</span><a href="https://docs.python.org/dev/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">key</span></a><span class="p">]</span>
-    <a href="https://docs.python.org/dev/library/functions.html#float" title="builtins.float" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">vol</span></a> <span class="o">=</span> <span class="n">b</span><span class="o">.</span><span class="n">volume</span>
+    <a href="https://docs.python.org/dev/library/functions.html#float" title="builtins.float" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">vol</span></a> <span class="o">=</span> <span class="n">b</span><span class="o">.</span><a href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float64" title="numpy.float64" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute"><span class="n">volume</span></a>
     <span class="k">if</span> <a href="https://docs.python.org/dev/library/functions.html#float" title="builtins.float" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">vol</span></a> <span class="o">&lt;</span> <span class="mf">1000.0</span><span class="p">:</span>
         <span class="k">del</span> <span class="n">bodies</span><span class="p">[</span><a href="https://docs.python.org/dev/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">key</span></a><span class="p">]</span>
         <span class="k">continue</span>
@@ -1260,7 +1267,7 @@ Body 1 volume: 35.000
 </div>
 <p>各ボディの体積をプリントします．</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <a href="https://docs.python.org/dev/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">i</span></a><span class="p">,</span> <span class="n">body</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">bodies</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Body </span><span class="si">{</span><a href="https://docs.python.org/dev/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">i</span></a><span class="si">:</span><span class="s2">02d</span><span class="si">}</span><span class="s2"> volume: </span><span class="si">{</span><span class="n">body</span><span class="o">.</span><span class="n">volume</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Body </span><span class="si">{</span><a href="https://docs.python.org/dev/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">i</span></a><span class="si">:</span><span class="s2">02d</span><span class="si">}</span><span class="s2"> volume: </span><span class="si">{</span><span class="n">body</span><span class="o">.</span><a href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float64" title="numpy.float64" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute"><span class="n">volume</span></a><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p class="sphx-glr-script-out">出力:</p>
@@ -1291,7 +1298,7 @@ Body 20 volume: 2270.000
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bodies</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">scalars</span><span class="o">=</span><span class="s2">&quot;TOTAL VOLUME&quot;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;viridis&quot;</span><span class="p">,</span> <span class="n">show_grid</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_compute-volume_004.png" srcset="../../_images/sphx_glr_compute-volume_004.png" alt="compute volume" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  11.609 seconds)</p>
+<img src="../../_images/sphx_glr_compute-volume_004.png" srcset="../../_images/sphx_glr_compute-volume_004.png" alt="compute volume" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  10.801 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-01-filter-compute-volume-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/6bce5e00bc370f5ce96e59726644605e/compute-volume.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">compute-volume.py</span></code></a></p>

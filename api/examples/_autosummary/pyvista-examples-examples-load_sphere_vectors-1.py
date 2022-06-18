@@ -9,5 +9,5 @@ mesh.point_data
 ## Active Texture  : None
 ## Active Normals  : Normals
 ## Contains arrays :
-##     Normals                 float32  (842, 3)             NORMALS
-##     vectors                 float32  (842, 3)             VECTORS
+##     Normals                 float32    (842, 3)             NORMALS
+##     vectors                 float32    (842, 3)             VECTORS

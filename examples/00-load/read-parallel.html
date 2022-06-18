@@ -479,7 +479,7 @@
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../01-filter/extrude-trim.html">
-   Extrude Trim
+   押し出しトリム
   </a>
  </li>
 </ul>
@@ -522,6 +522,13 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../01-filter/gradients.html">
    フィールドの勾配を計算する
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01-filter/integrate-data.html">
+   データの積分
   </a>
  </li>
 </ul>
@@ -1135,55 +1142,25 @@
 </pre></div>
 </div>
 <p>いくつかのファイルに分割された <a class="reference internal" href="../../api/core/_autosummary/pyvista.UnstructuredGrid.html#pyvista.UnstructuredGrid" title="pyvista.UnstructuredGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.UnstructuredGrid</span></code></a> を含むサンプルデータセットをダウンロードしてみましょう．</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Do not capture output because we&#39;ll demo how to read the file</span>
-<span class="n">examples</span><span class="o">.</span><span class="n">download_blood_vessels</span><span class="p">()</span>
-</pre></div>
-</div>
-<div class="output_subarea output_html rendered_html output_result">
-<table><tr><th>Header</th><th>Data Arrays</th></tr><tr><td>
-<table>
-<tr><th>UnstructuredGrid</th><th>Information</th></tr>
-<tr><td>N Cells</td><td>39353</td></tr>
-<tr><td>N Points</td><td>48823</td></tr>
-<tr><td>X Bounds</td><td>5.300e+01, 1.210e+02</td></tr>
-<tr><td>Y Bounds</td><td>5.000e+01, 9.700e+01</td></tr>
-<tr><td>Z Bounds</td><td>6.400e+01, 1.820e+02</td></tr>
-<tr><td>N Arrays</td><td>5</td></tr>
-</table>
-
-</td><td>
-<table>
-<tr><th>Name</th><th>Field</th><th>Type</th><th>N Comp</th><th>Min</th><th>Max</th></tr>
-<tr><td>node_value</td><td>Points</td><td>int32</td><td>1</td><td>0.000e+00</td><td>3.000e+00</td></tr>
-<tr><td>simerr_type</td><td>Points</td><td>int32</td><td>1</td><td>0.000e+00</td><td>3.000e+00</td></tr>
-<tr><td>density</td><td>Cells</td><td>float32</td><td>1</td><td>2.203e-01</td><td>5.232e-01</td></tr>
-<tr><td>velocity</td><td>Cells</td><td>float32</td><td>3</td><td>-3.607e-01</td><td>8.989e-02</td></tr>
-<tr><td>shearstress</td><td>Cells</td><td>float32</td><td>1</td><td>6.160e-05</td><td>1.726e-02</td></tr>
-</table>
-
-</td></tr> </table>
-</div>
-<br />
-<br /><p>上記のコードは，血管メッシュの並列ファイルのセットを含むデータセットをダウンロードし， <a class="reference internal" href="../../api/core/_autosummary/pyvista.UnstructuredGrid.html#pyvista.UnstructuredGrid" title="pyvista.UnstructuredGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.UnstructuredGrid</span></code></a> を返しました - 私たちは，これらのタイプのファイルの使用方法をデモできるように，そのUnstructuredGridを取得しませんでした．</p>
-<p>これがデータセットをダウンロードした場所を調べてみましょう:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://docs.python.org/dev/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">path</span></a> <span class="o">=</span> <a href="https://docs.python.org/dev/library/os.path.html#os.path.join" title="os.path.join" class="sphx-glr-backref-module-os-path sphx-glr-backref-type-py-function"><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span></a><span class="p">(</span><a href="https://docs.python.org/dev/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">pv</span><span class="o">.</span><span class="n">EXAMPLES_PATH</span></a><span class="p">,</span> <span class="s2">&quot;blood_vessels&quot;</span><span class="p">)</span>
+<p><code class="docutils literal notranslate"><span class="pre">load=False</span></code> を設定し，ダウンロードしたファイルがあるディレクトリを見て，データセットがどこにダウンロードされたかを調べてみましょう．</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://docs.python.org/dev/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">filename</span></a> <span class="o">=</span> <span class="n">examples</span><span class="o">.</span><span class="n">download_blood_vessels</span><span class="p">(</span><span class="n">load</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<a href="https://docs.python.org/dev/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">path</span></a> <span class="o">=</span> <a href="https://docs.python.org/dev/library/os.path.html#os.path.dirname" title="os.path.dirname" class="sphx-glr-backref-module-os-path sphx-glr-backref-type-py-function"><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span></a><span class="p">(</span><a href="https://docs.python.org/dev/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">filename</span></a><span class="p">)</span>
 <a href="https://docs.python.org/dev/library/os.html#os.listdir" title="os.listdir" class="sphx-glr-backref-module-os sphx-glr-backref-type-py-function"><span class="n">os</span><span class="o">.</span><span class="n">listdir</span></a><span class="p">(</span><a href="https://docs.python.org/dev/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">path</span></a><span class="p">)</span>
 </pre></div>
 </div>
 <p class="sphx-glr-script-out">出力:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>[&#39;T0000000500&#39;, &#39;T0000000500.pvtu&#39;]
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>[&#39;T0000000500.pvtu&#39;, &#39;T0000000500&#39;]
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://docs.python.org/dev/library/os.html#os.listdir" title="os.listdir" class="sphx-glr-backref-module-os sphx-glr-backref-type-py-function"><span class="n">os</span><span class="o">.</span><span class="n">listdir</span></a><span class="p">(</span><a href="https://docs.python.org/dev/library/os.path.html#os.path.join" title="os.path.join" class="sphx-glr-backref-module-os-path sphx-glr-backref-type-py-function"><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span></a><span class="p">(</span><a href="https://docs.python.org/dev/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">path</span></a><span class="p">,</span> <span class="s2">&quot;T0000000500&quot;</span><span class="p">))</span>
 </pre></div>
 </div>
 <p class="sphx-glr-script-out">出力:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>[&#39;000.vtu&#39;, &#39;001.vtu&#39;, &#39;003.vtu&#39;, &#39;002.vtu&#39;]
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>[&#39;003.vtu&#39;, &#39;002.vtu&#39;, &#39;001.vtu&#39;, &#39;000.vtu&#39;]
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">.pvtu</span></code> ファイルはディレクトリの横にあるので注意してください．このディレクトリには，メッシュ全体を構成するすべての並列ファイルまたはピースが含まれています． <code class="docutils literal notranslate"><span class="pre">.pvtu</span></code> ファイルを読み取るだけで，VTKがメッシュをまとめます．</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://docs.python.org/dev/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">filename</span></a> <span class="o">=</span> <a href="https://docs.python.org/dev/library/os.path.html#os.path.join" title="os.path.join" class="sphx-glr-backref-module-os-path sphx-glr-backref-type-py-function"><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span></a><span class="p">(</span><a href="https://docs.python.org/dev/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">path</span></a><span class="p">,</span> <span class="s2">&quot;T0000000500.pvtu&quot;</span><span class="p">)</span>
-<span class="n">mesh</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><a href="https://docs.python.org/dev/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">filename</span></a><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mesh</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><a href="https://docs.python.org/dev/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">filename</span></a><span class="p">)</span>
 <span class="n">mesh</span>
 </pre></div>
 </div>
@@ -1219,7 +1196,7 @@
 <img src="../../_images/sphx_glr_read-parallel_001.png" srcset="../../_images/sphx_glr_read-parallel_001.png" alt="read parallel" class = "sphx-glr-single-img"/><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mesh</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">scalars</span><span class="o">=</span><span class="s2">&quot;density&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_read-parallel_002.png" srcset="../../_images/sphx_glr_read-parallel_002.png" alt="read parallel" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  1.505 seconds)</p>
+<img src="../../_images/sphx_glr_read-parallel_002.png" srcset="../../_images/sphx_glr_read-parallel_002.png" alt="read parallel" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  1.789 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-00-load-read-parallel-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/ecc7449e13bf5cbd0e7c76e6adc30531/read-parallel.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">read-parallel.py</span></code></a></p>

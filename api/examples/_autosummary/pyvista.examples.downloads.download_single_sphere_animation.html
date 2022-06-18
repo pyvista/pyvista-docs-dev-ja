@@ -403,6 +403,11 @@
       </a>
      </li>
      <li class="toctree-l3">
+      <a class="reference internal" href="pyvista.examples.downloads.download_cube_map_debug.html">
+       download_cube_map_debug
+      </a>
+     </li>
+     <li class="toctree-l3">
       <a class="reference internal" href="pyvista.examples.downloads.download_cylinder_crossflow.html">
        download_cylinder_crossflow
       </a>
@@ -959,12 +964,11 @@
 <span class="gp">&gt;&gt;&gt; </span><span class="n">reader</span> <span class="o">=</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">PVDReader</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Write the gif to a temporary directory. Normally you would write to a local
-path.</p>
+<p>gifを一時ディレクトリに書き込みます．通常はローカルパスに書き込みます．</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">gif_filename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">mkdtemp</span><span class="p">(),</span> <span class="s1">&#39;single_sphere.gif&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Generate the animation.</p>
+<p>アニメーションを生成します．</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">plotter</span> <span class="o">=</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">Plotter</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">plotter</span><span class="o">.</span><span class="n">open_gif</span><span class="p">(</span><span class="n">gif_filename</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">time_value</span> <span class="ow">in</span> <span class="n">reader</span><span class="o">.</span><span class="n">time_values</span><span class="p">:</span>

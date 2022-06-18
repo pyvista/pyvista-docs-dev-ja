@@ -5351,7 +5351,51 @@
             <span class="n">transform_all_input_vectors</span><span class="o">=</span><span class="n">transform_all_input_vectors</span><span class="p">,</span>
             <span class="n">inplace</span><span class="o">=</span><span class="n">inplace</span><span class="p">,</span>
             <span class="n">progress_bar</span><span class="o">=</span><span class="n">progress_bar</span><span class="p">,</span>
-        <span class="p">)</span></div></div>
+        <span class="p">)</span></div>
+
+<div class="viewcode-block" id="DataSetFilters.integrate_data"><a class="viewcode-back" href="../../../../api/core/_autosummary/pyvista.DataSetFilters.integrate_data.html#pyvista.DataSetFilters.integrate_data">[ドキュメント]</a>    <span class="k">def</span> <span class="nf">integrate_data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">progress_bar</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Integrate point and cell data.</span>
+
+<span class="sd">        Area or volume is also provided in point data.</span>
+
+<span class="sd">        This filter uses the VTK `vtkIntegrateAttributes</span>
+<span class="sd">        &lt;https://vtk.org/doc/nightly/html/classvtkIntegrateAttributes.html&gt;`_.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        progress_bar : bool, optional</span>
+<span class="sd">            Display a progress bar to indicate progress.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        pyvista.UnstructuredGird</span>
+<span class="sd">            Mesh with 1 point and 1 vertex cell with integrated data in point and cell data.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        Integrate data on a sphere mesh.</span>
+
+<span class="sd">        &gt;&gt;&gt; import pyvista</span>
+<span class="sd">        &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">        &gt;&gt;&gt; sphere = pyvista.Sphere(theta_resolution=100, phi_resolution=100)</span>
+<span class="sd">        &gt;&gt;&gt; sphere.point_data[&quot;data&quot;] = 2 * np.ones(sphere.n_points)</span>
+<span class="sd">        &gt;&gt;&gt; integrated = sphere.integrate_data()</span>
+
+<span class="sd">        There is only 1 point and cell, so access the only value.</span>
+
+<span class="sd">        &gt;&gt;&gt; integrated[&quot;Area&quot;][0]</span>
+<span class="sd">        3.14</span>
+<span class="sd">        &gt;&gt;&gt; integrated[&quot;data&quot;][0]</span>
+<span class="sd">        6.28</span>
+
+<span class="sd">        See the :ref:`integrate_example` for more examples using this filter.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">filter</span> <span class="o">=</span> <span class="n">_vtk</span><span class="o">.</span><span class="n">vtkIntegrateAttributes</span><span class="p">()</span>
+        <span class="nb">filter</span><span class="o">.</span><span class="n">SetInputData</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="nb">filter</span><span class="o">.</span><span class="n">SetDivideAllCellDataByVolume</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">_update_alg</span><span class="p">(</span><span class="nb">filter</span><span class="p">,</span> <span class="n">progress_bar</span><span class="p">,</span> <span class="s1">&#39;Integrating Variables&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">_get_output</span><span class="p">(</span><span class="nb">filter</span><span class="p">)</span></div></div>
 </pre></div>
 
               </article>

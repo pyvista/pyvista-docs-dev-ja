@@ -11,8 +11,8 @@ mesh.point_data
 ## Active Texture  : TextureCoordinates
 ## Active Normals  : Normals
 ## Contains arrays :
-##     Normals                 float32  (4, 3)               NORMALS
-##     TextureCoordinates      float32  (4, 2)               TCOORDS
+##     Normals                 float32    (4, 3)               NORMALS
+##     TextureCoordinates      float32    (4, 2)               TCOORDS
 #
 mesh.point_data.active_normals
 # Expected:
@@ -35,4 +35,4 @@ mesh.cell_data
 ## Active Texture  : None
 ## Active Normals  : Normals
 ## Contains arrays :
-##     Normals                 float64  (1, 3)               NORMALS
+##     Normals                 float64    (1, 3)               NORMALS

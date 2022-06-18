@@ -658,6 +658,11 @@
         </a>
        </li>
        <li class="toctree-l4">
+        <a class="reference internal" href="pyvista.PolyData.integrate_data.html">
+         integrate_data
+        </a>
+       </li>
+       <li class="toctree-l4">
         <a class="reference internal" href="pyvista.PolyData.interpolate.html">
          interpolate
         </a>
@@ -1565,7 +1570,7 @@
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.PolyData.copy_attributes.html#pyvista.PolyData.copy_attributes" title="pyvista.PolyData.copy_attributes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.copy_attributes</span></code></a>(dataset)</p></td>
 <td><p>入力データセットオブジェクトのデータ属性をコピーします．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.PolyData.copy_meta_from.html#pyvista.PolyData.copy_meta_from" title="pyvista.PolyData.copy_meta_from"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.copy_meta_from</span></code></a>(ido)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.PolyData.copy_meta_from.html#pyvista.PolyData.copy_meta_from" title="pyvista.PolyData.copy_meta_from"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.copy_meta_from</span></code></a>(ido[, deep])</p></td>
 <td><p>別のオブジェクトからこのオブジェクトにpyvistaメタデータをコピーします．</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.PolyData.copy_structure.html#pyvista.PolyData.copy_structure" title="pyvista.PolyData.copy_structure"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.copy_structure</span></code></a>(dataset)</p></td>
@@ -1629,7 +1634,7 @@
 <td><p>フリーエッジとフリーラインから &quot;skirt&quot; を作成し，頂点からラインを作成して，ポリゴンデータをスイープします．</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.PolyData.extrude_trim.html#pyvista.PolyData.extrude_trim" title="pyvista.PolyData.extrude_trim"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.extrude_trim</span></code></a>(direction, trim_surface)</p></td>
-<td><p>Extrude polygonal data trimmed by a surface.</p></td>
+<td><p>サーフェスでトリミングされたポリゴンデータを押し出す．</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.PolyData.fill_holes.html#pyvista.PolyData.fill_holes" title="pyvista.PolyData.fill_holes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.fill_holes</span></code></a>(hole_size[, inplace, ...])</p></td>
 <td><p>pyvista.PolyData または vtk.vtkPolyData オブジェクトの穴を埋めます．</p></td>
@@ -1685,205 +1690,208 @@
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.PolyData.head.html#pyvista.PolyData.head" title="pyvista.PolyData.head"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.head</span></code></a>([display, html])</p></td>
 <td><p>このデータセットのヘッダ統計情報を取得します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.PolyData.interpolate.html#pyvista.PolyData.interpolate" title="pyvista.PolyData.interpolate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.interpolate</span></code></a>(target[, sharpness, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.PolyData.integrate_data.html#pyvista.PolyData.integrate_data" title="pyvista.PolyData.integrate_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.integrate_data</span></code></a>([progress_bar])</p></td>
+<td><p>点データとセルデータを積分します．</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.PolyData.interpolate.html#pyvista.PolyData.interpolate" title="pyvista.PolyData.interpolate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.interpolate</span></code></a>(target[, sharpness, ...])</p></td>
 <td><p>特定のデータセットからこのメッシュに値を補間します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.PolyData.intersection.html#pyvista.PolyData.intersection" title="pyvista.PolyData.intersection"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.intersection</span></code></a>(mesh[, split_first, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.PolyData.intersection.html#pyvista.PolyData.intersection" title="pyvista.PolyData.intersection"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.intersection</span></code></a>(mesh[, split_first, ...])</p></td>
 <td><p>2つのメッシュ間の交差を計算します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.PolyData.merge.html#pyvista.PolyData.merge" title="pyvista.PolyData.merge"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.merge</span></code></a>(dataset[, merge_points, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.PolyData.merge.html#pyvista.PolyData.merge" title="pyvista.PolyData.merge"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.merge</span></code></a>(dataset[, merge_points, ...])</p></td>
 <td><p>このメッシュを1つまたは複数のデータセットと結合します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.PolyData.multi_ray_trace.html#pyvista.PolyData.multi_ray_trace" title="pyvista.PolyData.multi_ray_trace"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.multi_ray_trace</span></code></a>(origins, directions)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.PolyData.multi_ray_trace.html#pyvista.PolyData.multi_ray_trace" title="pyvista.PolyData.multi_ray_trace"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.multi_ray_trace</span></code></a>(origins, directions)</p></td>
 <td><p>複数のレイトレース計算を実行します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.PolyData.outline.html#pyvista.PolyData.outline" title="pyvista.PolyData.outline"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.outline</span></code></a>([generate_faces, progress_bar])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.PolyData.outline.html#pyvista.PolyData.outline" title="pyvista.PolyData.outline"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.outline</span></code></a>([generate_faces, progress_bar])</p></td>
 <td><p>入力データセットの全エクステントのアウトラインを作成します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.PolyData.outline_corners.html#pyvista.PolyData.outline_corners" title="pyvista.PolyData.outline_corners"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.outline_corners</span></code></a>([factor, progress_bar])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.PolyData.outline_corners.html#pyvista.PolyData.outline_corners" title="pyvista.PolyData.outline_corners"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.outline_corners</span></code></a>([factor, progress_bar])</p></td>
 <td><p>入力データセットのコーナーのアウトラインを生成します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.PolyData.overwrite.html#pyvista.PolyData.overwrite" title="pyvista.PolyData.overwrite"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.overwrite</span></code></a>(mesh)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.PolyData.overwrite.html#pyvista.PolyData.overwrite" title="pyvista.PolyData.overwrite"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.overwrite</span></code></a>(mesh)</p></td>
 <td><p>このデータセットin-placeを新しいデータセットのジオメトリとデータで上書きします．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.PolyData.plot.html#pyvista.PolyData.plot" title="pyvista.PolyData.plot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.plot</span></code></a>([off_screen, full_screen, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.PolyData.plot.html#pyvista.PolyData.plot" title="pyvista.PolyData.plot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.plot</span></code></a>([off_screen, full_screen, ...])</p></td>
 <td><p>vtkまたはnumpyオブジェクトをプロットします．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.PolyData.plot_boundaries.html#pyvista.PolyData.plot_boundaries" title="pyvista.PolyData.plot_boundaries"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.plot_boundaries</span></code></a>([edge_color, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.PolyData.plot_boundaries.html#pyvista.PolyData.plot_boundaries" title="pyvista.PolyData.plot_boundaries"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.plot_boundaries</span></code></a>([edge_color, ...])</p></td>
 <td><p>メッシュの境界をプロットします．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.PolyData.plot_curvature.html#pyvista.PolyData.plot_curvature" title="pyvista.PolyData.plot_curvature"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.plot_curvature</span></code></a>([curv_type])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.PolyData.plot_curvature.html#pyvista.PolyData.plot_curvature" title="pyvista.PolyData.plot_curvature"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.plot_curvature</span></code></a>([curv_type])</p></td>
 <td><p>曲率をプロットします．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.PolyData.plot_normals.html#pyvista.PolyData.plot_normals" title="pyvista.PolyData.plot_normals"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.plot_normals</span></code></a>([show_mesh, mag, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.PolyData.plot_normals.html#pyvista.PolyData.plot_normals" title="pyvista.PolyData.plot_normals"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.plot_normals</span></code></a>([show_mesh, mag, ...])</p></td>
 <td><p>メッシュのポイント法線をプロットします．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.PolyData.plot_over_circular_arc.html#pyvista.PolyData.plot_over_circular_arc" title="pyvista.PolyData.plot_over_circular_arc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.plot_over_circular_arc</span></code></a>(pointa, ...)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.PolyData.plot_over_circular_arc.html#pyvista.PolyData.plot_over_circular_arc" title="pyvista.PolyData.plot_over_circular_arc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.plot_over_circular_arc</span></code></a>(pointa, ...)</p></td>
 <td><p>円弧に沿ってデータセットをサンプリングし，プロットします．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.PolyData.plot_over_circular_arc_normal.html#pyvista.PolyData.plot_over_circular_arc_normal" title="pyvista.PolyData.plot_over_circular_arc_normal"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.plot_over_circular_arc_normal</span></code></a>(center)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.PolyData.plot_over_circular_arc_normal.html#pyvista.PolyData.plot_over_circular_arc_normal" title="pyvista.PolyData.plot_over_circular_arc_normal"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.plot_over_circular_arc_normal</span></code></a>(center)</p></td>
 <td><p>法線ベクトルと極ベクトルで定義された解像度の円弧に沿ってデータセットをサンプリングし，それをプロットします．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.PolyData.plot_over_line.html#pyvista.PolyData.plot_over_line" title="pyvista.PolyData.plot_over_line"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.plot_over_line</span></code></a>(pointa, pointb[, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.PolyData.plot_over_line.html#pyvista.PolyData.plot_over_line" title="pyvista.PolyData.plot_over_line"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.plot_over_line</span></code></a>(pointa, pointb[, ...])</p></td>
 <td><p>高解像度の線に沿ってデータセットをサンプリングし，プロットします．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.PolyData.point_data_to_cell_data.html#pyvista.PolyData.point_data_to_cell_data" title="pyvista.PolyData.point_data_to_cell_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.point_data_to_cell_data</span></code></a>([...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.PolyData.point_data_to_cell_data.html#pyvista.PolyData.point_data_to_cell_data" title="pyvista.PolyData.point_data_to_cell_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.point_data_to_cell_data</span></code></a>([...])</p></td>
 <td><p>点データをセルデータに変換します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.PolyData.points_to_double.html#pyvista.PolyData.points_to_double" title="pyvista.PolyData.points_to_double"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.points_to_double</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.PolyData.points_to_double.html#pyvista.PolyData.points_to_double" title="pyvista.PolyData.points_to_double"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.points_to_double</span></code></a>()</p></td>
 <td><p>pointsのデータ型を倍精度に変換します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.PolyData.probe.html#pyvista.PolyData.probe" title="pyvista.PolyData.probe"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.probe</span></code></a>(points[, tolerance, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.PolyData.probe.html#pyvista.PolyData.probe" title="pyvista.PolyData.probe"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.probe</span></code></a>(points[, tolerance, ...])</p></td>
 <td><p>指定したポイント位置のサンプルデータ値．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.PolyData.project_points_to_plane.html#pyvista.PolyData.project_points_to_plane" title="pyvista.PolyData.project_points_to_plane"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.project_points_to_plane</span></code></a>([origin, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.PolyData.project_points_to_plane.html#pyvista.PolyData.project_points_to_plane" title="pyvista.PolyData.project_points_to_plane"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.project_points_to_plane</span></code></a>([origin, ...])</p></td>
 <td><p>このメッシュの点を平面に投影します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.PolyData.ptc.html#pyvista.PolyData.ptc" title="pyvista.PolyData.ptc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.ptc</span></code></a>([pass_point_data, progress_bar])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.PolyData.ptc.html#pyvista.PolyData.ptc" title="pyvista.PolyData.ptc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.ptc</span></code></a>([pass_point_data, progress_bar])</p></td>
 <td><p>点データをセルデータに変換します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.PolyData.ray_trace.html#pyvista.PolyData.ray_trace" title="pyvista.PolyData.ray_trace"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.ray_trace</span></code></a>(origin, end_point[, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.PolyData.ray_trace.html#pyvista.PolyData.ray_trace" title="pyvista.PolyData.ray_trace"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.ray_trace</span></code></a>(origin, end_point[, ...])</p></td>
 <td><p>単一のレイトレース計算を実行します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.PolyData.reconstruct_surface.html#pyvista.PolyData.reconstruct_surface" title="pyvista.PolyData.reconstruct_surface"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.reconstruct_surface</span></code></a>([nbr_sz, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.PolyData.reconstruct_surface.html#pyvista.PolyData.reconstruct_surface" title="pyvista.PolyData.reconstruct_surface"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.reconstruct_surface</span></code></a>([nbr_sz, ...])</p></td>
 <td><p>このデータセットの点から曲面を再構成します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.PolyData.reflect.html#pyvista.PolyData.reflect" title="pyvista.PolyData.reflect"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.reflect</span></code></a>(normal[, point, inplace, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.PolyData.reflect.html#pyvista.PolyData.reflect" title="pyvista.PolyData.reflect"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.reflect</span></code></a>(normal[, point, inplace, ...])</p></td>
 <td><p>平面でデータセットを反射します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.PolyData.remove_cells.html#pyvista.PolyData.remove_cells" title="pyvista.PolyData.remove_cells"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.remove_cells</span></code></a>(ind[, inplace])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.PolyData.remove_cells.html#pyvista.PolyData.remove_cells" title="pyvista.PolyData.remove_cells"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.remove_cells</span></code></a>(ind[, inplace])</p></td>
 <td><p>セルの除去．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.PolyData.remove_points.html#pyvista.PolyData.remove_points" title="pyvista.PolyData.remove_points"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.remove_points</span></code></a>(remove[, mode, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.PolyData.remove_points.html#pyvista.PolyData.remove_points" title="pyvista.PolyData.remove_points"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.remove_points</span></code></a>(remove[, mode, ...])</p></td>
 <td><p>点を削除してメッシュを再構築します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.PolyData.rename_array.html#pyvista.PolyData.rename_array" title="pyvista.PolyData.rename_array"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.rename_array</span></code></a>(old_name, new_name[, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.PolyData.rename_array.html#pyvista.PolyData.rename_array" title="pyvista.PolyData.rename_array"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.rename_array</span></code></a>(old_name, new_name[, ...])</p></td>
 <td><p>配列名を変更するには，配列を検索して名前を変更します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.PolyData.ribbon.html#pyvista.PolyData.ribbon" title="pyvista.PolyData.ribbon"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.ribbon</span></code></a>([width, scalars, angle, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.PolyData.ribbon.html#pyvista.PolyData.ribbon" title="pyvista.PolyData.ribbon"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.ribbon</span></code></a>([width, scalars, angle, ...])</p></td>
 <td><p>このデータセットに線分のリボンを作成します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.PolyData.rotate_vector.html#pyvista.PolyData.rotate_vector" title="pyvista.PolyData.rotate_vector"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.rotate_vector</span></code></a>(vector, angle[, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.PolyData.rotate_vector.html#pyvista.PolyData.rotate_vector" title="pyvista.PolyData.rotate_vector"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.rotate_vector</span></code></a>(vector, angle[, ...])</p></td>
 <td><p>メッシュをベクトルを中心に回転します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.PolyData.rotate_x.html#pyvista.PolyData.rotate_x" title="pyvista.PolyData.rotate_x"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.rotate_x</span></code></a>(angle[, point, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.PolyData.rotate_x.html#pyvista.PolyData.rotate_x" title="pyvista.PolyData.rotate_x"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.rotate_x</span></code></a>(angle[, point, ...])</p></td>
 <td><p>メッシュをX軸を中心に回転します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.PolyData.rotate_y.html#pyvista.PolyData.rotate_y" title="pyvista.PolyData.rotate_y"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.rotate_y</span></code></a>(angle[, point, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.PolyData.rotate_y.html#pyvista.PolyData.rotate_y" title="pyvista.PolyData.rotate_y"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.rotate_y</span></code></a>(angle[, point, ...])</p></td>
 <td><p>メッシュをY軸を中心に回転します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.PolyData.rotate_z.html#pyvista.PolyData.rotate_z" title="pyvista.PolyData.rotate_z"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.rotate_z</span></code></a>(angle[, point, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.PolyData.rotate_z.html#pyvista.PolyData.rotate_z" title="pyvista.PolyData.rotate_z"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.rotate_z</span></code></a>(angle[, point, ...])</p></td>
 <td><p>メッシュをZ軸を中心に回転します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.PolyData.sample.html#pyvista.PolyData.sample" title="pyvista.PolyData.sample"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.sample</span></code></a>(target[, tolerance, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.PolyData.sample.html#pyvista.PolyData.sample" title="pyvista.PolyData.sample"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.sample</span></code></a>(target[, tolerance, ...])</p></td>
 <td><p>渡されたメッシュからこのメッシュに配列データをリサンプルします．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.PolyData.sample_over_circular_arc.html#pyvista.PolyData.sample_over_circular_arc" title="pyvista.PolyData.sample_over_circular_arc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.sample_over_circular_arc</span></code></a>(pointa, ...)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.PolyData.sample_over_circular_arc.html#pyvista.PolyData.sample_over_circular_arc" title="pyvista.PolyData.sample_over_circular_arc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.sample_over_circular_arc</span></code></a>(pointa, ...)</p></td>
 <td><p>円弧上のデータセットをサンプリングします．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.PolyData.sample_over_circular_arc_normal.html#pyvista.PolyData.sample_over_circular_arc_normal" title="pyvista.PolyData.sample_over_circular_arc_normal"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.sample_over_circular_arc_normal</span></code></a>(center)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.PolyData.sample_over_circular_arc_normal.html#pyvista.PolyData.sample_over_circular_arc_normal" title="pyvista.PolyData.sample_over_circular_arc_normal"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.sample_over_circular_arc_normal</span></code></a>(center)</p></td>
 <td><p>法線ベクトルと極ベクトルで定義された円弧上のデータセットをサンプリングし，それをプロットします．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.PolyData.sample_over_line.html#pyvista.PolyData.sample_over_line" title="pyvista.PolyData.sample_over_line"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.sample_over_line</span></code></a>(pointa, pointb[, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.PolyData.sample_over_line.html#pyvista.PolyData.sample_over_line" title="pyvista.PolyData.sample_over_line"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.sample_over_line</span></code></a>(pointa, pointb[, ...])</p></td>
 <td><p>データセットを1行に抽出します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.PolyData.sample_over_multiple_lines.html#pyvista.PolyData.sample_over_multiple_lines" title="pyvista.PolyData.sample_over_multiple_lines"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.sample_over_multiple_lines</span></code></a>(points)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.PolyData.sample_over_multiple_lines.html#pyvista.PolyData.sample_over_multiple_lines" title="pyvista.PolyData.sample_over_multiple_lines"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.sample_over_multiple_lines</span></code></a>(points)</p></td>
 <td><p>データセットを複数行に分割してサンプリングする．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.PolyData.save.html#pyvista.PolyData.save" title="pyvista.PolyData.save"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.save</span></code></a>(filename[, binary, texture])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.PolyData.save.html#pyvista.PolyData.save" title="pyvista.PolyData.save"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.save</span></code></a>(filename[, binary, texture])</p></td>
 <td><p>サーフェスメッシュをディスクに書き込みます．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.PolyData.scale.html#pyvista.PolyData.scale" title="pyvista.PolyData.scale"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.scale</span></code></a>(xyz[, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.PolyData.scale.html#pyvista.PolyData.scale" title="pyvista.PolyData.scale"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.scale</span></code></a>(xyz[, ...])</p></td>
 <td><p>メッシュをスケールします．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.PolyData.select_enclosed_points.html#pyvista.PolyData.select_enclosed_points" title="pyvista.PolyData.select_enclosed_points"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.select_enclosed_points</span></code></a>(surface[, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.PolyData.select_enclosed_points.html#pyvista.PolyData.select_enclosed_points" title="pyvista.PolyData.select_enclosed_points"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.select_enclosed_points</span></code></a>(surface[, ...])</p></td>
 <td><p>ポイントが閉じた表面の内側にあるかどうかをマークします．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.PolyData.set_active_scalars.html#pyvista.PolyData.set_active_scalars" title="pyvista.PolyData.set_active_scalars"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.set_active_scalars</span></code></a>(name[, preference])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.PolyData.set_active_scalars.html#pyvista.PolyData.set_active_scalars" title="pyvista.PolyData.set_active_scalars"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.set_active_scalars</span></code></a>(name[, preference])</p></td>
 <td><p>スカラーを名前で検索し，適切にアクティブに設定します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.PolyData.set_active_tensors.html#pyvista.PolyData.set_active_tensors" title="pyvista.PolyData.set_active_tensors"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.set_active_tensors</span></code></a>(name[, preference])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.PolyData.set_active_tensors.html#pyvista.PolyData.set_active_tensors" title="pyvista.PolyData.set_active_tensors"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.set_active_tensors</span></code></a>(name[, preference])</p></td>
 <td><p>​テンソルを名前で検索し，適切にアクティブに設定します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.PolyData.set_active_vectors.html#pyvista.PolyData.set_active_vectors" title="pyvista.PolyData.set_active_vectors"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.set_active_vectors</span></code></a>(name[, preference])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.PolyData.set_active_vectors.html#pyvista.PolyData.set_active_vectors" title="pyvista.PolyData.set_active_vectors"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.set_active_vectors</span></code></a>(name[, preference])</p></td>
 <td><p>ベクトルを名前で検索し，適切にアクティブに設定します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.PolyData.shallow_copy.html#pyvista.PolyData.shallow_copy" title="pyvista.PolyData.shallow_copy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.shallow_copy</span></code></a>(to_copy)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.PolyData.shallow_copy.html#pyvista.PolyData.shallow_copy" title="pyvista.PolyData.shallow_copy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.shallow_copy</span></code></a>(to_copy)</p></td>
 <td><p>別のデータセットからこのデータセットへの浅いコピーを作成します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.PolyData.shrink.html#pyvista.PolyData.shrink" title="pyvista.PolyData.shrink"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.shrink</span></code></a>([shrink_factor, progress_bar])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.PolyData.shrink.html#pyvista.PolyData.shrink" title="pyvista.PolyData.shrink"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.shrink</span></code></a>([shrink_factor, progress_bar])</p></td>
 <td><p>メッシュの個々の面を縮小します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.PolyData.slice.html#pyvista.PolyData.slice" title="pyvista.PolyData.slice"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.slice</span></code></a>([normal, origin, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.PolyData.slice.html#pyvista.PolyData.slice" title="pyvista.PolyData.slice"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.slice</span></code></a>([normal, origin, ...])</p></td>
 <td><p>指定した原点および法線ベクトル方向の平面でデータセットをスライスします．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.PolyData.slice_along_axis.html#pyvista.PolyData.slice_along_axis" title="pyvista.PolyData.slice_along_axis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.slice_along_axis</span></code></a>([n, axis, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.PolyData.slice_along_axis.html#pyvista.PolyData.slice_along_axis" title="pyvista.PolyData.slice_along_axis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.slice_along_axis</span></code></a>([n, axis, ...])</p></td>
 <td><p>指定した軸に沿って，入力データセットのスライスを多数作成します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.PolyData.slice_along_line.html#pyvista.PolyData.slice_along_line" title="pyvista.PolyData.slice_along_line"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.slice_along_line</span></code></a>(line[, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.PolyData.slice_along_line.html#pyvista.PolyData.slice_along_line" title="pyvista.PolyData.slice_along_line"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.slice_along_line</span></code></a>(line[, ...])</p></td>
 <td><p>パスとしてpolyline/splineを使用してデータセットをスライスします．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.PolyData.slice_orthogonal.html#pyvista.PolyData.slice_orthogonal" title="pyvista.PolyData.slice_orthogonal"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.slice_orthogonal</span></code></a>([x, y, z, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.PolyData.slice_orthogonal.html#pyvista.PolyData.slice_orthogonal" title="pyvista.PolyData.slice_orthogonal"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.slice_orthogonal</span></code></a>([x, y, z, ...])</p></td>
 <td><p>3つの直交平面上のデータセットから3つの直交スライスを作成します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.PolyData.smooth.html#pyvista.PolyData.smooth" title="pyvista.PolyData.smooth"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.smooth</span></code></a>([n_iter, relaxation_factor, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.PolyData.smooth.html#pyvista.PolyData.smooth" title="pyvista.PolyData.smooth"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.smooth</span></code></a>([n_iter, relaxation_factor, ...])</p></td>
 <td><p>Laplacianスムージングを使用してポイント座標を調整します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.PolyData.split_bodies.html#pyvista.PolyData.split_bodies" title="pyvista.PolyData.split_bodies"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.split_bodies</span></code></a>([label, progress_bar])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.PolyData.split_bodies.html#pyvista.PolyData.split_bodies" title="pyvista.PolyData.split_bodies"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.split_bodies</span></code></a>([label, progress_bar])</p></td>
 <td><p>接続されたボディ/ボリュームを検索，ラベル付け，および分割します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.PolyData.streamlines.html#pyvista.PolyData.streamlines" title="pyvista.PolyData.streamlines"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.streamlines</span></code></a>([vectors, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.PolyData.streamlines.html#pyvista.PolyData.streamlines" title="pyvista.PolyData.streamlines"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.streamlines</span></code></a>([vectors, ...])</p></td>
 <td><p>ベクトルフィールドを積分して，流線を生成します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.PolyData.streamlines_evenly_spaced_2D.html#pyvista.PolyData.streamlines_evenly_spaced_2D" title="pyvista.PolyData.streamlines_evenly_spaced_2D"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.streamlines_evenly_spaced_2D</span></code></a>([...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.PolyData.streamlines_evenly_spaced_2D.html#pyvista.PolyData.streamlines_evenly_spaced_2D" title="pyvista.PolyData.streamlines_evenly_spaced_2D"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.streamlines_evenly_spaced_2D</span></code></a>([...])</p></td>
 <td><p>2Dデータに等間隔の流線を生成します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.PolyData.streamlines_from_source.html#pyvista.PolyData.streamlines_from_source" title="pyvista.PolyData.streamlines_from_source"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.streamlines_from_source</span></code></a>(source[, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.PolyData.streamlines_from_source.html#pyvista.PolyData.streamlines_from_source" title="pyvista.PolyData.streamlines_from_source"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.streamlines_from_source</span></code></a>(source[, ...])</p></td>
 <td><p>ソースメッシュのポイントからベクトルの流線を生成します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.PolyData.strip.html#pyvista.PolyData.strip" title="pyvista.PolyData.strip"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.strip</span></code></a>([join, max_length, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.PolyData.strip.html#pyvista.PolyData.strip" title="pyvista.PolyData.strip"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.strip</span></code></a>([join, max_length, ...])</p></td>
 <td><p>ポリゴンデータセルをストリップします．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.PolyData.subdivide.html#pyvista.PolyData.subdivide" title="pyvista.PolyData.subdivide"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.subdivide</span></code></a>(nsub[, subfilter, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.PolyData.subdivide.html#pyvista.PolyData.subdivide" title="pyvista.PolyData.subdivide"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.subdivide</span></code></a>(nsub[, subfilter, ...])</p></td>
 <td><p>単一の接続された三角形メッシュ内の三角形の数を増やします．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.PolyData.subdivide_adaptive.html#pyvista.PolyData.subdivide_adaptive" title="pyvista.PolyData.subdivide_adaptive"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.subdivide_adaptive</span></code></a>([max_edge_len, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.PolyData.subdivide_adaptive.html#pyvista.PolyData.subdivide_adaptive" title="pyvista.PolyData.subdivide_adaptive"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.subdivide_adaptive</span></code></a>([max_edge_len, ...])</p></td>
 <td><p>三角形メッシュ内の三角形の数を増やします．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.PolyData.surface_indices.html#pyvista.PolyData.surface_indices" title="pyvista.PolyData.surface_indices"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.surface_indices</span></code></a>([progress_bar])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.PolyData.surface_indices.html#pyvista.PolyData.surface_indices" title="pyvista.PolyData.surface_indices"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.surface_indices</span></code></a>([progress_bar])</p></td>
 <td><p>グリッドのサーフェスインデックスを取得します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.PolyData.tessellate.html#pyvista.PolyData.tessellate" title="pyvista.PolyData.tessellate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.tessellate</span></code></a>([max_n_subdivide, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.PolyData.tessellate.html#pyvista.PolyData.tessellate" title="pyvista.PolyData.tessellate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.tessellate</span></code></a>([max_n_subdivide, ...])</p></td>
 <td><p>メッシュをテッセレーションします．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.PolyData.texture_map_to_plane.html#pyvista.PolyData.texture_map_to_plane" title="pyvista.PolyData.texture_map_to_plane"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.texture_map_to_plane</span></code></a>([origin, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.PolyData.texture_map_to_plane.html#pyvista.PolyData.texture_map_to_plane" title="pyvista.PolyData.texture_map_to_plane"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.texture_map_to_plane</span></code></a>([origin, ...])</p></td>
 <td><p>このデータセットをユーザ定義平面にテクスチャマップします．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.PolyData.texture_map_to_sphere.html#pyvista.PolyData.texture_map_to_sphere" title="pyvista.PolyData.texture_map_to_sphere"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.texture_map_to_sphere</span></code></a>([center, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.PolyData.texture_map_to_sphere.html#pyvista.PolyData.texture_map_to_sphere" title="pyvista.PolyData.texture_map_to_sphere"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.texture_map_to_sphere</span></code></a>([center, ...])</p></td>
 <td><p>このデータセットをユーザ定義球にテクスチャマップします．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.PolyData.threshold.html#pyvista.PolyData.threshold" title="pyvista.PolyData.threshold"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.threshold</span></code></a>([value, scalars, invert, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.PolyData.threshold.html#pyvista.PolyData.threshold" title="pyvista.PolyData.threshold"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.threshold</span></code></a>([value, scalars, invert, ...])</p></td>
 <td><p>入力データセットに <code class="docutils literal notranslate"><span class="pre">vtkThreshold</span></code> フィルタを適用します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.PolyData.threshold_percent.html#pyvista.PolyData.threshold_percent" title="pyvista.PolyData.threshold_percent"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.threshold_percent</span></code></a>([percent, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.PolyData.threshold_percent.html#pyvista.PolyData.threshold_percent" title="pyvista.PolyData.threshold_percent"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.threshold_percent</span></code></a>([percent, ...])</p></td>
 <td><p>データセットを，アクティブなスカラー配列上の範囲のパーセンテージでしきい値化します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.PolyData.transform.html#pyvista.PolyData.transform" title="pyvista.PolyData.transform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.transform</span></code></a>(trans[, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.PolyData.transform.html#pyvista.PolyData.transform" title="pyvista.PolyData.transform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.transform</span></code></a>(trans[, ...])</p></td>
 <td><p>このメッシュを4x4変換で変換します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.PolyData.translate.html#pyvista.PolyData.translate" title="pyvista.PolyData.translate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.translate</span></code></a>(xyz[, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.PolyData.translate.html#pyvista.PolyData.translate" title="pyvista.PolyData.translate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.translate</span></code></a>(xyz[, ...])</p></td>
 <td><p>メッシュを移動します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.PolyData.triangulate.html#pyvista.PolyData.triangulate" title="pyvista.PolyData.triangulate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.triangulate</span></code></a>([inplace, progress_bar])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.PolyData.triangulate.html#pyvista.PolyData.triangulate" title="pyvista.PolyData.triangulate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.triangulate</span></code></a>([inplace, progress_bar])</p></td>
 <td><p>すべて三角形のメッシュを取得します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.PolyData.tube.html#pyvista.PolyData.tube" title="pyvista.PolyData.tube"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.tube</span></code></a>([radius, scalars, capping, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.PolyData.tube.html#pyvista.PolyData.tube" title="pyvista.PolyData.tube"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.tube</span></code></a>([radius, scalars, capping, ...])</p></td>
 <td><p>各入力ラインの周囲にチューブを生成します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.PolyData.warp_by_scalar.html#pyvista.PolyData.warp_by_scalar" title="pyvista.PolyData.warp_by_scalar"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.warp_by_scalar</span></code></a>([scalars, factor, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.PolyData.warp_by_scalar.html#pyvista.PolyData.warp_by_scalar" title="pyvista.PolyData.warp_by_scalar"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.warp_by_scalar</span></code></a>([scalars, factor, ...])</p></td>
 <td><p>データセットのポイントをポイントデータスカラー配列の値でワープします．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.PolyData.warp_by_vector.html#pyvista.PolyData.warp_by_vector" title="pyvista.PolyData.warp_by_vector"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.warp_by_vector</span></code></a>([vectors, factor, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.PolyData.warp_by_vector.html#pyvista.PolyData.warp_by_vector" title="pyvista.PolyData.warp_by_vector"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyData.warp_by_vector</span></code></a>([vectors, factor, ...])</p></td>
 <td><p>データセットのポイントをポイントデータスカラー配列の値でワープします．</p></td>
 </tr>
 </tbody>

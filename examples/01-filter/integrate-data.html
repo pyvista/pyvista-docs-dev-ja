@@ -1,0 +1,1315 @@
+
+<!DOCTYPE html>
+
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>データの積分 &#8212; PyVista 0.35.dev0 ドキュメント</title>
+<script>
+  document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+  document.documentElement.dataset.theme = localStorage.getItem("theme") || "light"
+</script>
+
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=92025949c220c2e29695" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=92025949c220c2e29695" rel="stylesheet">
+
+
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/thebelab.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/no_search_highlight.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/summary.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-binder.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-dataframe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-rendered-html.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=92025949c220c2e29695">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/thebelab-helper.js"></script>
+    <script src="../../_static/translations.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+    <script async="async" src="https://www.google-analytics.com/analytics.js"></script>
+    <script>
+                window.ga = window.ga || function () {
+                    (ga.q = ga.q || []).push(arguments) };
+                ga.l = +new Date;
+                ga('create', 'UA-140243896-1', 'auto');
+                ga('set', 'anonymizeIp', true);
+                ga('send', 'pageview');
+            </script>
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="検索" href="../../search.html" />
+    <link rel="next" title="補間" href="interpolate.html" />
+    <link rel="prev" title="フィールドの勾配を計算する" href="gradients.html" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="docsearch:language" content="ja">
+  </head>
+  
+  
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="180" data-default-mode="">
+    <div class="bd-header-announcement container-fluid" id="banner">
+      
+
+    </div>
+
+    
+    <nav class="bd-header navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="bd-header__inner container-xl">
+
+  <div id="navbar-start">
+    
+    
+  
+
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+    <img src="../../_static/pyvista_logo_sm.png" class="logo__image only-light" alt="Logo image">
+    <img src="../../_static/pyvista_logo_sm.png" class="logo__image only-dark" alt="Logo image">
+  
+  
+</a>
+    
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="fas fa-bars"></span>
+  </button>
+
+  
+  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../getting-started/index.html">
+  はじめに
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../user-guide/index.html">
+  ユーザーガイド
+ </a>
+</li>
+
+<li class="toctree-l1 current active nav-item">
+ <a class="reference internal nav-link" href="../index.html">
+  例
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../api/index.html">
+  APIリファレンス
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../extras/index.html">
+  その他
+ </a>
+</li>
+
+    
+</ul>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+      <div class="navbar-end-item">
+        <span id="theme-switch" class="btn btn-sm btn-outline-primary navbar-btn rounded-circle">
+    <a class="theme-switch" data-mode="light"><i class="fas fa-sun"></i></a>
+    <a class="theme-switch" data-mode="dark"><i class="far fa-moon"></i></a>
+    <a class="theme-switch" data-mode="auto"><i class="fas fa-adjust"></i></a>
+</span>
+      </div>
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/pyvista/pyvista" rel="noopener" target="_blank" title="GitHub"><span><i class="fab fa-github-square"></i></span>
+            <label class="sr-only">GitHub</label></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="http://slack.pyvista.org" rel="noopener" target="_blank" title="Slack Community"><span><i class="fab fa-slack"></i></span>
+            <label class="sr-only">Slack Community</label></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/pyvista/pyvista/discussions" rel="noopener" target="_blank" title="Support"><span><i class="fa fa-comment fa-fw"></i></span>
+            <label class="sr-only">Support</label></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/pyvista/pyvista/blob/main/CONTRIBUTING.rst" rel="noopener" target="_blank" title="Contributing"><span><i class="fa fa-gavel fa-fw"></i></span>
+            <label class="sr-only">Contributing</label></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://doi.org/10.21105/joss.01450" rel="noopener" target="_blank" title="The Paper"><span><i class="fa fa-file-text fa-fw"></i></span>
+            <label class="sr-only">The Paper</label></a>
+        </li>
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+    </nav>
+    
+
+    <div class="bd-container container-xl">
+      <div class="bd-container__inner row">
+          
+
+<!-- Only show if we have sidebars configured, else just a small margin  -->
+<div class="bd-sidebar-primary col-12 col-md-3 bd-sidebar">
+  <div class="sidebar-start-items"><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    
+    <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../00-load/create-explicit-structured-grid.html">
+   明示的な構造グリッドの作成
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../00-load/create-geometric-objects.html">
+   ジオメトリオブジェクト
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../00-load/create-kochanek-spline.html">
+   Kochanekスプラインの作成
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../00-load/create-parametric-geometric-objects.html">
+   パラメトリックジオメトリオブジェクト
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../00-load/create-pixel-art.html">
+   ALIEN MONSTERSのピクセルアート
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../00-load/create-platonic-solids.html">
+   プラトン立体
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../00-load/create-point-cloud.html">
+   点群を作成
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../00-load/create-pointset.html">
+   PointSetの作成
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../00-load/create-poly.html">
+   PolyDataを作成
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../00-load/create-spline.html">
+   スプラインの作成
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../00-load/create-structured-surface.html">
+   構造化サーフェスを作成する
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../00-load/create-surface-draped.html">
+   線分から2 Dサーフェスをまとう
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../00-load/create-tri-surface.html">
+   三角形サーフェスを作成
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../00-load/create-truss.html">
+   円柱を用いたトラス状のFEAソリューションのプロット
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../00-load/create-uniform-grid.html">
+   統合グリッドを作成
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../00-load/create-unstructured-surface.html">
+   非構造化グリッドの作成
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../00-load/load-gltf.html">
+   glTFファイルの取り扱いについて
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../00-load/load-vrml.html">
+   VRMLファイルの取り扱いについて
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../00-load/read-dolfin.html">
+   FEniCS/Dolfinメッシュを確認．
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../00-load/read-file.html">
+   ファイルからロードおよびプロットする
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../00-load/read-image.html">
+   イメージファイルの読み込み
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../00-load/read-parallel.html">
+   並列フィルタ
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../00-load/reader.html">
+   リーダーによるデータの読み込み
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../00-load/terrain-mesh.html">
+   メッシュ後の地形
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../00-load/wrap-trimesh.html">
+   ​他のオブジェクトのラップ
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="boolean-operations.html">
+   ブール演算
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="cell-centers.html">
+   セルの中心を抽出
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="clipping-with-surface.html">
+   サーフェスを使用したクリップ
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="clipping.html">
+   平面とボックスでクリップします
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="collisions.html">
+   衝突
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="compute-normals.html">
+   表面の法線を計算します
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="compute-volume.html">
+   ボリューム分析
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="connectivity.html">
+   接続性
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="contouring.html">
+   コンタリング
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="decimate.html">
+   間引き
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="distance-between-surfaces.html">
+   2つのサーフェス間の距離
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="extract-cells-inside-surface.html">
+   サーフェス内のセルを抽出
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="extract-edges.html">
+   エッジを抽出
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="extract-surface.html">
+   表面を抽出
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="extrude-rotate.html">
+   押し出し回転
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="extrude-trim.html">
+   押し出しトリム
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="flying_edges.html">
+   マーチングキューブ
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="gaussian-smoothing.html">
+   Gaussianスムージング
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="geodesic.html">
+   測地パス
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="glyphs.html">
+   字形のプロット (ベクトルかPolyData)
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="glyphs_table.html">
+   字形表
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="gradients.html">
+   フィールドの勾配を計算する
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   データの積分
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="interpolate.html">
+   補間
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="mesh-quality.html">
+   メッシュ品質の計算
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="poly-ray-trace.html">
+   レイトレーシング
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="project-plane.html">
+   平面に投影
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="reflect.html">
+   メッシュを反射
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="resample.html">
+   再サンプリング
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="rotate.html">
+   回転
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="sampling_functions_2d.html">
+   サンプル関数:2DでのPerlinノイズ
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="sampling_functions_3d.html">
+   サンプル関数:3DでのPerlinノイズ
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="slicing.html">
+   スライシング
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="streamlines.html">
+   流線
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="streamlines_2D.html">
+   2D流線
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="subdivide.html">
+   セルの細分化
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="surface-smoothing.html">
+   サーフェイススムージング
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="surface_reconstruction.html">
+   サーフェスの再構築
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="using-filters.html">
+   共通フィルタの使用
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="voxelize.html">
+   サーフェスメッシュをボクセル化する
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="warp-by-vector.html">
+   ベクトルによるワープ
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02-plot/background_image.html">
+   背景イメージ
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02-plot/chart_basics.html">
+   チャートの基本
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02-plot/chart_overlays.html">
+   チャートのオーバーレイ
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02-plot/clear.html">
+   メッシュまたはプロット全体の消去
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02-plot/cmap.html">
+   カラーマップの選択肢
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02-plot/depth-peeling.html">
+   Depth Peeling
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02-plot/edges.html">
+   エッジを表示
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02-plot/edl.html">
+   Eye Dome Lighting
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02-plot/floors.html">
+   床を使用してプロットする
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02-plot/ghost-cells.html">
+   ゴーストを使用してセルを非表示にする
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02-plot/gif.html">
+   GIFムービーの作成
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02-plot/image_depth.html">
+   デプスイメージをレンダーする
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02-plot/interpolate-before-map.html">
+   マッピング前に補間
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02-plot/isovalue.html">
+   等値移動
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02-plot/labels.html">
+   ラベルポイント
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02-plot/lighting_mesh.html">
+   照明プロパティ
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02-plot/linked.html">
+   サブプロットのリンクビュー
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02-plot/mesh-picking.html">
+   メッシュのピッキング
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02-plot/movie.html">
+   MP 4ムービーを作成する
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02-plot/moving_cmap.html">
+   カラーマップが移動する静止物体のGIFムービーを作成します
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02-plot/multi-window.html">
+   マルチウィンドウプロット
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02-plot/opacity.html">
+   不透明度を指定してプロット
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02-plot/orbit.html">
+   オービット
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02-plot/ortho-slices.html">
+   直交スライス
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02-plot/pbr.html">
+   物理ベースのレンダリング
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02-plot/plot-over-circular-arc.html">
+   円形円弧上にスカラーをプロットします
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02-plot/plot-over-line.html">
+   線上のプロット
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02-plot/point-picking.html">
+   メッシュ上の点の選択
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02-plot/scalar-bars.html">
+   スカラバーをカスタマイズ
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02-plot/screenshot.html">
+   スクリーンショットを保存する
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02-plot/shading.html">
+   シェーディングのタイプ
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02-plot/silhouette.html">
+   シルエットハイライト
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02-plot/spherical.html">
+   球座標でデータをプロットする
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02-plot/surface-picking.html">
+   メッシュの表面上の点をピックします
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02-plot/texture.html">
+   テクスチャを適用する
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02-plot/themes.html">
+   グローバルおよびローカルプロットテーマの制御
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02-plot/topo-map.html">
+   地形図
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02-plot/vector-component.html">
+   プロットベクトルコンポーネント
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../02-plot/volume.html">
+   ボリュームレンダリング
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03-widgets/box-widget.html">
+   ボックスウィジェット
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03-widgets/checkbox-widget.html">
+   チェックボックスウィジェット
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03-widgets/line-widget.html">
+   線ウィジェット
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03-widgets/multi-slider-widget.html">
+   複数のスライダウィジェット
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03-widgets/plane-widget.html">
+   平面ウィジェット
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03-widgets/slider-bar-widget.html">
+   スライダバーウィジェット
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03-widgets/sphere-widget.html">
+   球体ウィジェット
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../03-widgets/spline-widget.html">
+   スプラインウィジェット
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04-lights/actors.html">
+   Lightアクター
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04-lights/attenuation.html">
+   減衰
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04-lights/beam_shape.html">
+   ビーム形状
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04-lights/light_types.html">
+   光源タイプ
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04-lights/mesh_lighting.html">
+   メッシュライティングの無効化
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04-lights/plotter_builtins.html">
+   プロッタ照明システム
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../04-lights/shadows.html">
+   シャドウ
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../99-advanced/antarctica-compare.html">
+   メッシュ領域間でフィールドを比較
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../99-advanced/extending-pyvista.html">
+   PyVistaの拡張
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../99-advanced/openfoam-example.html">
+   OpenFOAMデータのプロット
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../99-advanced/osmnx-example.html">
+   オープンストリートマップデータのプロット
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../99-advanced/ray-trace-moeller.html">
+   Moeller-Trumboreアルゴリズムの可視化
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../99-advanced/ray-trace.html">
+   レイトレーシング
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../99-advanced/warp-by-vector-eigenmodes.html">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     warp_by_vector
+    </span>
+   </code>
+   を用いた振動固有モードの表示
+  </a>
+ </li>
+</ul>
+
+    
+  </div>
+</nav>
+  </div>
+  <div class="sidebar-end-items">
+  </div>
+</div>
+
+
+          
+
+
+<div class="bd-sidebar-secondary d-none d-xl-block col-xl-2 bd-toc">
+  
+    
+    <div class="toc-item">
+      
+<div class="tocsection onthispage mt-5 pt-1 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   データの積分
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#volume-integration">
+   体積積分
+  </a>
+ </li>
+</ul>
+
+</nav>
+    </div>
+    
+    <div class="toc-item">
+      
+    </div>
+    
+  
+</div>
+
+
+          
+          
+          <div class="bd-content col-12 col-md-9 col-xl-7">
+              
+              <article class="bd-article" role="main">
+                
+  <div class="sphx-glr-download-link-note admonition note">
+<p class="admonition-title">注釈</p>
+<p>Click <a class="reference internal" href="#sphx-glr-download-examples-01-filter-integrate-data-py"><span class="std std-ref">here</span></a>
+to download the full example code</p>
+</div>
+<section class="sphx-glr-example-title" id="integrate-data">
+<span id="integrate-example"></span><span id="sphx-glr-examples-01-filter-integrate-data-py"></span><h1>データの積分<a class="headerlink" href="#integrate-data" title="このヘッドラインへのパーマリンク">#</a></h1>
+<p><a class="reference internal" href="../../api/core/_autosummary/pyvista.DataSetFilters.integrate_data.html#pyvista.DataSetFilters.integrate_data" title="pyvista.DataSetFilters.integrate_data"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyvista.DataSetFilters.integrate_data()</span></code></a> フィルタを使用して，データを表面上で積分します．</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyvista</span>
+<span class="kn">from</span> <span class="nn">pyvista</span> <span class="kn">import</span> <span class="n">examples</span>
+</pre></div>
+</div>
+<p>この例では，血管内の総流量と平均流速を計算します． 境界オブジェクトは，データセット形状のプロットにのみ使用されます． 流入面は，領域をスライスして生成します．領域内に流入する流体は負の z 方向に流れるので，新しい配列 <code class="docutils literal notranslate"><span class="pre">normal_velocity</span></code> が作成されます．</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dataset</span> <span class="o">=</span> <span class="n">examples</span><span class="o">.</span><span class="n">download_blood_vessels</span><span class="p">()</span>
+<span class="n">boundary</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">decimate_boundary</span><span class="p">()</span><span class="o">.</span><span class="n">extract_all_edges</span><span class="p">()</span>
+<span class="n">inlet_surface</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">slice</span><span class="p">(</span><span class="s1">&#39;z&#39;</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">182</span><span class="p">))</span>
+<span class="n">inlet_surface</span><span class="p">[</span><span class="s2">&quot;normal_velocity&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span> <span class="o">*</span> <span class="n">inlet_surface</span><span class="p">[</span><span class="s2">&quot;velocity&quot;</span><span class="p">][:,</span> <span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>入口の流速を示します．</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plotter</span> <span class="o">=</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">Plotter</span><span class="p">()</span>
+<span class="n">plotter</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">boundary</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;grey&quot;</span><span class="p">,</span> <span class="n">opacity</span><span class="o">=</span><span class="mf">0.25</span><span class="p">)</span>
+<span class="n">plotter</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span>
+    <span class="n">inlet_surface</span><span class="p">,</span>
+    <span class="n">scalars</span><span class="o">=</span><span class="s2">&quot;normal_velocity&quot;</span><span class="p">,</span>
+    <span class="n">component</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+    <span class="n">scalar_bar_args</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">vertical</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">title_font_size</span><span class="o">=</span><span class="mi">16</span><span class="p">),</span>
+    <span class="n">lighting</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">plotter</span><span class="o">.</span><span class="n">add_axes</span><span class="p">()</span>
+<span class="n">plotter</span><span class="o">.</span><span class="n">camera_position</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">10</span><span class="p">,</span> <span class="mf">9.5</span><span class="p">,</span> <span class="o">-</span><span class="mi">43</span><span class="p">),</span> <span class="p">(</span><span class="mf">87.0</span><span class="p">,</span> <span class="mf">73.5</span><span class="p">,</span> <span class="mf">123.0</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.7</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)]</span>
+<span class="n">plotter</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<img src="../../_images/sphx_glr_integrate-data_001.png" srcset="../../_images/sphx_glr_integrate-data_001.png" alt="integrate data" class = "sphx-glr-single-img"/><p><a class="reference internal" href="../../api/core/_autosummary/pyvista.DataSetFilters.integrate_data.html#pyvista.DataSetFilters.integrate_data" title="pyvista.DataSetFilters.integrate_data"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyvista.DataSetFilters.integrate_data()</span></code></a> フィルターを使用して，総流量が計算されます． データは <a class="reference internal" href="../../api/core/_autosummary/pyvista.UnstructuredGrid.html#pyvista.UnstructuredGrid" title="pyvista.UnstructuredGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.UnstructuredGrid</span></code></a> オブジェクトで，1 つのポイントと 1 つのセルのみであることに注意してください．</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">integrated_data</span> <span class="o">=</span> <span class="n">inlet_surface</span><span class="o">.</span><span class="n">integrate_data</span><span class="p">()</span>
+<span class="n">integrated_data</span>
+</pre></div>
+</div>
+<div class="output_subarea output_html rendered_html output_result">
+<table><tr><th>Header</th><th>Data Arrays</th></tr><tr><td>
+<table>
+<tr><th>UnstructuredGrid</th><th>Information</th></tr>
+<tr><td>N Cells</td><td>1</td></tr>
+<tr><td>N Points</td><td>1</td></tr>
+<tr><td>X Bounds</td><td>8.095e+01, 8.095e+01</td></tr>
+<tr><td>Y Bounds</td><td>6.007e+01, 6.007e+01</td></tr>
+<tr><td>Z Bounds</td><td>1.820e+02, 1.820e+02</td></tr>
+<tr><td>N Arrays</td><td>7</td></tr>
+</table>
+
+</td><td>
+<table>
+<tr><th>Name</th><th>Field</th><th>Type</th><th>N Comp</th><th>Min</th><th>Max</th></tr>
+<tr><td>node_value</td><td>Points</td><td>float64</td><td>1</td><td>0.000e+00</td><td>0.000e+00</td></tr>
+<tr><td>simerr_type</td><td>Points</td><td>float64</td><td>1</td><td>1.672e+02</td><td>1.672e+02</td></tr>
+<tr><td>density</td><td>Cells</td><td>float64</td><td>1</td><td>1.369e+02</td><td>1.369e+02</td></tr>
+<tr><td>normal_velocity</td><td>Cells</td><td>float64</td><td>1</td><td>2.580e+01</td><td>2.580e+01</td></tr>
+<tr><td>shearstress</td><td>Cells</td><td>float64</td><td>1</td><td>9.470e-01</td><td>9.470e-01</td></tr>
+<tr><td>velocity</td><td>Cells</td><td>float64</td><td>3</td><td>-2.580e+01</td><td>1.285e+00</td></tr>
+<tr><td>Area</td><td>Cells</td><td>float64</td><td>1</td><td>2.650e+02</td><td>2.650e+02</td></tr>
+</table>
+
+</td></tr> </table>
+</div>
+<br />
+<br /><p>積分データ <code class="docutils literal notranslate"><span class="pre">integrated_data</span></code> の各配列には，積分データが格納されます．</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">integrated_data</span><span class="p">[</span><span class="s2">&quot;normal_velocity&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p class="sphx-glr-script-out">出力:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>array([25.79937191])
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">Area</span></code> や <code class="docutils literal notranslate"><span class="pre">Volume</span></code> の配列が追加されます．</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Original arrays: </span><span class="si">{</span><span class="n">inlet_surface</span><span class="o">.</span><span class="n">array_names</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<a href="https://docs.python.org/dev/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">new_arrays</span></a> <span class="o">=</span> <span class="p">[</span><span class="n">name</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">integrated_data</span><span class="o">.</span><span class="n">array_names</span> <span class="k">if</span> <span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">inlet_surface</span><span class="o">.</span><span class="n">array_names</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;New arrays      : </span><span class="si">{</span><a href="https://docs.python.org/dev/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">new_arrays</span></a><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p class="sphx-glr-script-out">出力:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Original arrays: [&#39;normal_velocity&#39;, &#39;node_value&#39;, &#39;simerr_type&#39;, &#39;density&#39;, &#39;velocity&#39;, &#39;shearstress&#39;]
+New arrays      : [&#39;Area&#39;]
+</pre></div>
+</div>
+<p>総流量，吸込面面積，平均流速を表示します．</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float64" title="numpy.float64" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute"><span class="n">total_flow_rate</span></a> <span class="o">=</span> <span class="n">integrated_data</span><span class="p">[</span><span class="s2">&quot;normal_velocity&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+<a href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float64" title="numpy.float64" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute"><span class="n">area</span></a> <span class="o">=</span> <span class="n">integrated_data</span><span class="p">[</span><span class="s2">&quot;Area&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+<a href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float64" title="numpy.float64" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute"><span class="n">average_velocity</span></a> <span class="o">=</span> <a href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float64" title="numpy.float64" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute"><span class="n">total_flow_rate</span></a> <span class="o">/</span> <a href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float64" title="numpy.float64" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute"><span class="n">area</span></a>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Total flow rate : </span><span class="si">{</span><a href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float64" title="numpy.float64" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute"><span class="n">total_flow_rate</span></a><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Area            : </span><span class="si">{</span><a href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float64" title="numpy.float64" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute"><span class="n">area</span></a><span class="si">:</span><span class="s2">.0f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Average velocity: </span><span class="si">{</span><a href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float64" title="numpy.float64" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute"><span class="n">average_velocity</span></a><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p class="sphx-glr-script-out">出力:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Total flow rate : 25.8
+Area            : 265
+Average velocity: 0.097
+</pre></div>
+</div>
+</section>
+<section id="volume-integration">
+<h1>体積積分<a class="headerlink" href="#volume-integration" title="このヘッドラインへのパーマリンク">#</a></h1>
+<p>また，体積を積分することもできます．ここでは，セルと点のデータを体積全体で効果的に合計します．データセットの体積で割ることで，平均値を計算するのに使うことができます．</p>
+<p>計算された体積は <a class="reference internal" href="../../api/core/_autosummary/pyvista.DataSet.volume.html#pyvista.DataSet.volume" title="pyvista.DataSet.volume"><code class="xref py py-attr docutils literal notranslate"><span class="pre">pyvista.DataSet.volume</span></code></a> と同じであることに注意してください．</p>
+<p>また，データセットの中心は積算量の &quot;point&quot; であることに注意してください．</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">integrated_volume</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">integrate_data</span><span class="p">()</span>
+<span class="n">center</span> <span class="o">=</span> <span class="n">integrated_volume</span><span class="o">.</span><span class="n">points</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<a href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float64" title="numpy.float64" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute"><span class="n">volume</span></a> <span class="o">=</span> <span class="n">integrated_volume</span><span class="p">[</span><span class="s1">&#39;Volume&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+<a href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float64" title="numpy.float64" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute"><span class="n">mean_density</span></a> <span class="o">=</span> <span class="n">integrated_volume</span><span class="p">[</span><span class="s1">&#39;density&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <a href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float64" title="numpy.float64" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute"><span class="n">volume</span></a>
+<a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">mean_velocity</span></a> <span class="o">=</span> <span class="n">integrated_volume</span><span class="p">[</span><span class="s1">&#39;velocity&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <a href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float64" title="numpy.float64" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute"><span class="n">volume</span></a>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Center          : </span><span class="si">{</span><span class="n">center</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Volume          : </span><span class="si">{</span><a href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float64" title="numpy.float64" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute"><span class="n">volume</span></a><span class="si">:</span><span class="s2">.0f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Mean density    : </span><span class="si">{</span><a href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float64" title="numpy.float64" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute"><span class="n">mean_density</span></a><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Mean velocity   : </span><span class="si">{</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">mean_velocity</span></a><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p class="sphx-glr-script-out">出力:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Center          : [ 90.54132  78.15124 116.79401]
+Volume          : 39353
+Mean density    : 0.3361
+Mean velocity   : [-0.00754452  0.012869   -0.11734917]
+</pre></div>
+</div>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.799 seconds)</p>
+<div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-01-filter-integrate-data-py">
+<div class="sphx-glr-download sphx-glr-download-python docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/185b95d3c10c4f197a2405fcee614359/integrate-data.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">integrate-data.py</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/5941af2daa976d11f1aab9345d98a9cf/integrate-data.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">integrate-data.ipynb</span></code></a></p>
+</div>
+</div>
+<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Sphinx-Galleryによるギャラリー</a></p>
+</section>
+
+
+              </article>
+              
+
+              
+          </div>
+          
+      </div>
+    </div>
+
+  
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=92025949c220c2e29695"></script>
+
+<footer class="bd-footer"><div class="bd-footer__inner container">
+  
+  <div class="footer-item">
+    <p class="copyright">
+    &copy; Copyright 2017-2022, The PyVista Developers.<br>
+</p>
+  </div>
+  
+  <div class="footer-item">
+    <p class="sphinx-version">
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.4.0.<br>
+</p>
+  </div>
+  
+</div>
+</footer>
+  </body>
+</html>

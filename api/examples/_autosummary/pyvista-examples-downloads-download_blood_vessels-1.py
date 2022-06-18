@@ -5,3 +5,4 @@ dataset.plot()
 # This dataset is used in the following examples:
 #
 # * :ref:`read_parallel_example`
+# * :ref:`streamlines_example`

@@ -3588,6 +3588,7 @@
         <span class="n">shadow</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
         <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
         <span class="n">viewport</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="n">orientation</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>
         <span class="o">*</span><span class="p">,</span>
         <span class="n">render</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
     <span class="p">):</span>
@@ -3639,6 +3640,11 @@
 <span class="sd">            If ``True`` and position is a tuple of float, uses the</span>
 <span class="sd">            normalized viewport coordinate system (values between 0.0</span>
 <span class="sd">            and 1.0 and support for HiDPI).</span>
+
+<span class="sd">        orientation : float, optional</span>
+<span class="sd">            Angle orientation of text counterclockwise in degrees.  The text</span>
+<span class="sd">            is rotated around an anchor point that may be on the edge or</span>
+<span class="sd">            corner of the text.  The default is 0 degrees, which is horizontal.</span>
 
 <span class="sd">        render : bool, optional</span>
 <span class="sd">            Force a render when ``True`` (default).</span>
@@ -3707,11 +3713,11 @@
                 <span class="bp">self</span><span class="o">.</span><span class="n">textActor</span><span class="o">.</span><span class="n">GetActualPosition2Coordinate</span><span class="p">()</span><span class="o">.</span><span class="n">SetCoordinateSystemToNormalizedViewport</span><span class="p">()</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">textActor</span><span class="o">.</span><span class="n">GetTextProperty</span><span class="p">()</span><span class="o">.</span><span class="n">SetFontSize</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">font_size</span> <span class="o">*</span> <span class="mi">2</span><span class="p">))</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">textActor</span><span class="o">.</span><span class="n">GetTextProperty</span><span class="p">()</span><span class="o">.</span><span class="n">SetColor</span><span class="p">(</span>
-            <span class="n">Color</span><span class="p">(</span><span class="n">color</span><span class="p">,</span> <span class="n">default_color</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_theme</span><span class="o">.</span><span class="n">font</span><span class="o">.</span><span class="n">color</span><span class="p">)</span><span class="o">.</span><span class="n">float_rgb</span>
-        <span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">textActor</span><span class="o">.</span><span class="n">GetTextProperty</span><span class="p">()</span><span class="o">.</span><span class="n">SetFontFamily</span><span class="p">(</span><span class="n">FONTS</span><span class="p">[</span><span class="n">font</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">textActor</span><span class="o">.</span><span class="n">GetTextProperty</span><span class="p">()</span><span class="o">.</span><span class="n">SetShadow</span><span class="p">(</span><span class="n">shadow</span><span class="p">)</span>
+        <span class="n">text_prop</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">textActor</span><span class="o">.</span><span class="n">GetTextProperty</span><span class="p">()</span>
+        <span class="n">text_prop</span><span class="o">.</span><span class="n">SetColor</span><span class="p">(</span><span class="n">Color</span><span class="p">(</span><span class="n">color</span><span class="p">,</span> <span class="n">default_color</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_theme</span><span class="o">.</span><span class="n">font</span><span class="o">.</span><span class="n">color</span><span class="p">)</span><span class="o">.</span><span class="n">float_rgb</span><span class="p">)</span>
+        <span class="n">text_prop</span><span class="o">.</span><span class="n">SetFontFamily</span><span class="p">(</span><span class="n">FONTS</span><span class="p">[</span><span class="n">font</span><span class="p">]</span><span class="o">.</span><span class="n">value</span><span class="p">)</span>
+        <span class="n">text_prop</span><span class="o">.</span><span class="n">SetShadow</span><span class="p">(</span><span class="n">shadow</span><span class="p">)</span>
+        <span class="n">text_prop</span><span class="o">.</span><span class="n">SetOrientation</span><span class="p">(</span><span class="n">orientation</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">add_actor</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">textActor</span><span class="p">,</span> <span class="n">reset_camera</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">pickable</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">render</span><span class="o">=</span><span class="n">render</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">textActor</span>

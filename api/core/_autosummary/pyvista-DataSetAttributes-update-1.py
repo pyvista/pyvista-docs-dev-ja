@@ -18,6 +18,6 @@ mesh.point_data
 ## Active Texture  : None
 ## Active Normals  : None
 ## Contains arrays :
-##     Spatial Point Data      float64  (1000,)
-##     foo                     int64    (1000,)
-##     rand                    float64  (1000,)              SCALARS
+##     Spatial Point Data      float64    (1000,)
+##     foo                     int64      (1000,)
+##     rand                    float64    (1000,)              SCALARS

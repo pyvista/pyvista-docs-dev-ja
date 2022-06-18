@@ -441,6 +441,8 @@
 
 <span class="sd">    .. code:: python</span>
 
+<span class="sd">       &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">       &gt;&gt;&gt; import pyvista</span>
 <span class="sd">       &gt;&gt;&gt; theta = np.linspace(-4 * np.pi, 4 * np.pi, 100)</span>
 <span class="sd">       &gt;&gt;&gt; z = np.linspace(-2, 2, 100)</span>
 <span class="sd">       &gt;&gt;&gt; r = z**2 + 1</span>
@@ -480,8 +482,8 @@
 
 <span class="sd">    .. code:: python</span>
 
-<span class="sd">       &gt;&gt;&gt; mesh = pyvista.ParametricRandomHills()</span>
-<span class="sd">       &gt;&gt;&gt; mesh = mesh.elevation()</span>
+<span class="sd">       &gt;&gt;&gt; mesh = pyvista.ParametricRandomHills()  # doctest:+SKIP</span>
+<span class="sd">       &gt;&gt;&gt; mesh = mesh.elevation()  # doctest:+SKIP</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
@@ -519,8 +521,8 @@
 <span class="sd">    Active Texture  : None</span>
 <span class="sd">    Active Normals  : Normals</span>
 <span class="sd">    Contains arrays :</span>
-<span class="sd">        Normals                 float32  (842, 3)             NORMALS</span>
-<span class="sd">        vectors                 float32  (842, 3)             VECTORS</span>
+<span class="sd">        Normals                 float32    (842, 3)             NORMALS</span>
+<span class="sd">        vectors                 float32    (842, 3)             VECTORS</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">sphere</span> <span class="o">=</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">Sphere</span><span class="p">(</span><span class="n">radius</span><span class="o">=</span><span class="mf">3.14</span><span class="p">)</span>

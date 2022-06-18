@@ -1611,7 +1611,7 @@
 
 
 <div class="viewcode-block" id="cubemap"><a class="viewcode-back" href="../../../api/utilities/_autosummary/pyvista.cubemap.html#pyvista.cubemap">[ドキュメント]</a><span class="k">def</span> <span class="nf">cubemap</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">ext</span><span class="o">=</span><span class="s1">&#39;.jpg&#39;</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Construct a cubemap from 6 images.</span>
+    <span class="sd">&quot;&quot;&quot;Construct a cubemap from 6 images from a directory.</span>
 
 <span class="sd">    Each of the 6 images must be in the following format:</span>
 
@@ -1651,12 +1651,62 @@
 
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
+<span class="sd">    Load a skybox given a directory, prefex, and file extension.</span>
+
 <span class="sd">    &gt;&gt;&gt; import pyvista</span>
 <span class="sd">    &gt;&gt;&gt; skybox = pyvista.cubemap(&#39;my_directory&#39;, &#39;skybox&#39;, &#39;.jpeg&#39;)  # doctest:+SKIP</span>
+
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">sets</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;posx&#39;</span><span class="p">,</span> <span class="s1">&#39;negx&#39;</span><span class="p">,</span> <span class="s1">&#39;posy&#39;</span><span class="p">,</span> <span class="s1">&#39;negy&#39;</span><span class="p">,</span> <span class="s1">&#39;posz&#39;</span><span class="p">,</span> <span class="s1">&#39;negz&#39;</span><span class="p">]</span>
     <span class="n">image_paths</span> <span class="o">=</span> <span class="p">[</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">prefix</span><span class="si">}{</span><span class="n">suffix</span><span class="si">}{</span><span class="n">ext</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">suffix</span> <span class="ow">in</span> <span class="n">sets</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">_cubemap_from_paths</span><span class="p">(</span><span class="n">image_paths</span><span class="p">)</span></div>
 
+
+<div class="viewcode-block" id="cubemap_from_filenames"><a class="viewcode-back" href="../../../api/utilities/_autosummary/pyvista.cubemap_from_filenames.html#pyvista.cubemap_from_filenames">[ドキュメント]</a><span class="k">def</span> <span class="nf">cubemap_from_filenames</span><span class="p">(</span><span class="n">image_paths</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Construct a cubemap from 6 images.</span>
+
+<span class="sd">    Images must be in the following order:</span>
+
+<span class="sd">    - Positive X</span>
+<span class="sd">    - Negative X</span>
+<span class="sd">    - Positive Y</span>
+<span class="sd">    - Negative Y</span>
+<span class="sd">    - Positive Z</span>
+<span class="sd">    - Negative Z</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    image_paths : list</span>
+<span class="sd">        Paths of the individual cubemap images.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    pyvista.Texture</span>
+<span class="sd">        Texture with cubemap.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    Load a skybox given a list of image paths.</span>
+
+<span class="sd">    &gt;&gt;&gt; image_paths = [</span>
+<span class="sd">    ...     &#39;/home/user/_px.jpg&#39;,</span>
+<span class="sd">    ...     &#39;/home/user/_nx.jpg&#39;,</span>
+<span class="sd">    ...     &#39;/home/user/_py.jpg&#39;,</span>
+<span class="sd">    ...     &#39;/home/user/_ny.jpg&#39;,</span>
+<span class="sd">    ...     &#39;/home/user/_pz.jpg&#39;,</span>
+<span class="sd">    ...     &#39;/home/user/_nz.jpg&#39;,</span>
+<span class="sd">    ... ]</span>
+<span class="sd">    &gt;&gt;&gt; skybox = pyvista.cubemap(image_paths=image_paths)  # doctest:+SKIP</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">image_paths</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">6</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;image_paths must contain 6 paths&quot;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">_cubemap_from_paths</span><span class="p">(</span><span class="n">image_paths</span><span class="p">)</span></div>
+
+
+<span class="k">def</span> <span class="nf">_cubemap_from_paths</span><span class="p">(</span><span class="n">image_paths</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Construct a cubemap from image paths.&quot;&quot;&quot;</span>
     <span class="k">for</span> <span class="n">image_path</span> <span class="ow">in</span> <span class="n">image_paths</span><span class="p">:</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">image_path</span><span class="p">):</span>
             <span class="n">file_str</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">image_paths</span><span class="p">)</span>
@@ -1680,7 +1730,7 @@
         <span class="n">flip</span><span class="o">.</span><span class="n">Update</span><span class="p">()</span>
         <span class="n">texture</span><span class="o">.</span><span class="n">SetInputDataObject</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">flip</span><span class="o">.</span><span class="n">GetOutput</span><span class="p">())</span>
 
-    <span class="k">return</span> <span class="n">texture</span></div>
+    <span class="k">return</span> <span class="n">texture</span>
 
 
 <span class="k">def</span> <span class="nf">set_default_active_vectors</span><span class="p">(</span><span class="n">mesh</span><span class="p">:</span> <span class="s1">&#39;pyvista.DataSet&#39;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>

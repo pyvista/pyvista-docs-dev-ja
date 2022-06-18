@@ -232,6 +232,7 @@
 <span class="sd">&quot;&quot;&quot;</span>
 
 <span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">partial</span>
+<span class="kn">import</span> <span class="nn">glob</span>
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">shutil</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
@@ -243,6 +244,8 @@
 <span class="kn">import</span> <span class="nn">pyvista</span>
 <span class="kn">from</span> <span class="nn">pyvista</span> <span class="kn">import</span> <span class="n">_vtk</span>
 
+<span class="n">CACHE_VERSION</span> <span class="o">=</span> <span class="mi">2</span>
+
 
 <span class="k">def</span> <span class="nf">_check_examples_path</span><span class="p">():</span>
     <span class="sd">&quot;&quot;&quot;Check if the examples path exists.&quot;&quot;&quot;</span>
@@ -252,6 +255,34 @@
             <span class="s1">&#39;environment variable `PYVISTA_USERDATA_PATH` &#39;</span>
             <span class="s1">&#39;to a writable path and restarting python&#39;</span>
         <span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_cache_version</span><span class="p">(</span><span class="n">cache_version_file</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Return the cache version.&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">cache_version_file</span><span class="p">):</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">cache_version_file</span><span class="p">)</span> <span class="k">as</span> <span class="n">fid</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">fid</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+            <span class="k">except</span><span class="p">:</span>
+                <span class="k">pass</span>
+    <span class="k">return</span> <span class="mi">0</span>
+
+
+<span class="k">def</span> <span class="nf">_verify_cache_integrity</span><span class="p">():</span>  <span class="c1"># pragma: no cover</span>
+    <span class="sd">&quot;&quot;&quot;Verify that the version of the cache matches the expected version.</span>
+
+<span class="sd">    Clears cache when there is a version mismatch. This avoids any potential</span>
+<span class="sd">    issues with old file structures due to changed download methods.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">cache_version_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">pyvista</span><span class="o">.</span><span class="n">EXAMPLES_PATH</span><span class="p">,</span> <span class="s1">&#39;VERSION&#39;</span><span class="p">)</span>
+    <span class="n">cache_version</span> <span class="o">=</span> <span class="n">_cache_version</span><span class="p">(</span><span class="n">cache_version_file</span><span class="p">)</span>
+
+    <span class="c1"># clear with no version file or an old cache version</span>
+    <span class="k">if</span> <span class="n">cache_version</span> <span class="o">&lt;</span> <span class="n">CACHE_VERSION</span><span class="p">:</span>
+        <span class="n">delete_downloads</span><span class="p">()</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">cache_version_file</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fid</span><span class="p">:</span>
+            <span class="n">fid</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">CACHE_VERSION</span><span class="p">))</span>
 
 
 <div class="viewcode-block" id="delete_downloads"><a class="viewcode-back" href="../../../api/examples/_autosummary/pyvista.examples.downloads.delete_downloads.html#pyvista.examples.downloads.delete_downloads">[ドキュメント]</a><span class="k">def</span> <span class="nf">delete_downloads</span><span class="p">():</span>
@@ -277,10 +308,10 @@
     <span class="k">return</span> <span class="kc">True</span></div>
 
 
-<span class="k">def</span> <span class="nf">_decompress</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">_decompress</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">output_path</span><span class="p">):</span>
     <span class="n">_check_examples_path</span><span class="p">()</span>
     <span class="n">zip_ref</span> <span class="o">=</span> <span class="n">zipfile</span><span class="o">.</span><span class="n">ZipFile</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
-    <span class="n">zip_ref</span><span class="o">.</span><span class="n">extractall</span><span class="p">(</span><span class="n">pyvista</span><span class="o">.</span><span class="n">EXAMPLES_PATH</span><span class="p">)</span>
+    <span class="n">zip_ref</span><span class="o">.</span><span class="n">extractall</span><span class="p">(</span><span class="n">output_path</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">zip_ref</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 
 
@@ -297,7 +328,7 @@
 
 
 <span class="k">def</span> <span class="nf">_retrieve_file</span><span class="p">(</span><span class="n">retriever</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Retrieve file and cache it in pyvsita.EXAMPLES_PATH.</span>
+    <span class="sd">&quot;&quot;&quot;Retrieve a file and cache it in pyvsita.EXAMPLES_PATH.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -309,20 +340,30 @@
 <span class="sd">    filename : str</span>
 <span class="sd">        The name of the file.</span>
 
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    str</span>
+<span class="sd">        Path to the downloaded file.</span>
+<span class="sd">    http.client.HTTPMessage</span>
+<span class="sd">        HTTP download Response.</span>
+
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">_check_examples_path</span><span class="p">()</span>
+
     <span class="c1"># First check if file has already been downloaded</span>
-    <span class="n">local_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">pyvista</span><span class="o">.</span><span class="n">EXAMPLES_PATH</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">filename</span><span class="p">))</span>
-    <span class="n">local_path_no_zip</span> <span class="o">=</span> <span class="n">local_path</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;.zip&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">local_path_no_zip</span><span class="p">)</span> <span class="ow">or</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">local_path_no_zip</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">local_path_no_zip</span><span class="p">,</span> <span class="kc">None</span>
+    <span class="n">local_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">pyvista</span><span class="o">.</span><span class="n">EXAMPLES_PATH</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">local_path</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">local_path</span><span class="p">,</span> <span class="kc">None</span>
+
     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">retriever</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
         <span class="n">retriever</span> <span class="o">=</span> <span class="n">partial</span><span class="p">(</span><span class="n">_http_request</span><span class="p">,</span> <span class="n">retriever</span><span class="p">)</span>
     <span class="n">saved_file</span><span class="p">,</span> <span class="n">resp</span> <span class="o">=</span> <span class="n">retriever</span><span class="p">()</span>
-    <span class="c1"># new_name = saved_file.replace(os.path.basename(saved_file), os.path.basename(filename))</span>
-    <span class="c1"># Make sure folder exists!</span>
-    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">((</span><span class="n">local_path</span><span class="p">))):</span>
-        <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">((</span><span class="n">local_path</span><span class="p">)))</span>
+
+    <span class="c1"># Make sure folder exists</span>
+    <span class="n">local_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">local_path</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">local_dir</span><span class="p">):</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">local_dir</span><span class="p">)</span>
+
     <span class="k">if</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">VTK_DATA_PATH</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">shutil</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="n">saved_file</span><span class="p">,</span> <span class="n">local_path</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
@@ -330,13 +371,96 @@
             <span class="n">shutil</span><span class="o">.</span><span class="n">copytree</span><span class="p">(</span><span class="n">saved_file</span><span class="p">,</span> <span class="n">local_path</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">shutil</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">saved_file</span><span class="p">,</span> <span class="n">local_path</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">get_ext</span><span class="p">(</span><span class="n">local_path</span><span class="p">)</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;.zip&#39;</span><span class="p">]:</span>
-        <span class="n">_decompress</span><span class="p">(</span><span class="n">local_path</span><span class="p">)</span>
-        <span class="n">local_path</span> <span class="o">=</span> <span class="n">local_path</span><span class="p">[:</span><span class="o">-</span><span class="mi">4</span><span class="p">]</span>
+
     <span class="k">return</span> <span class="n">local_path</span><span class="p">,</span> <span class="n">resp</span>
 
 
+<span class="k">def</span> <span class="nf">_retrieve_zip</span><span class="p">(</span><span class="n">retriever</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Retrieve a zip and cache it in pyvista.EXAMPLES_PATH.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    retriever : str or callable</span>
+<span class="sd">        If str, it is treated as a URL.</span>
+<span class="sd">        If callable, the function must take no arguments and must</span>
+<span class="sd">        return a tuple like (file_path, resp), where file_path is</span>
+<span class="sd">        the path to the file to use.</span>
+
+<span class="sd">    filename : str</span>
+<span class="sd">        The name of the file.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    str</span>
+<span class="sd">        Path of the directory with the unzipped files.</span>
+
+<span class="sd">    http.client.HTTPMessage</span>
+<span class="sd">        HTTP download Response.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">_check_examples_path</span><span class="p">()</span>
+
+    <span class="c1"># First check if file has already been downloaded</span>
+    <span class="n">local_path_zip_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">pyvista</span><span class="o">.</span><span class="n">EXAMPLES_PATH</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">local_path_zip_dir</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">local_path_zip_dir</span><span class="p">,</span> <span class="kc">None</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">retriever</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>  <span class="c1"># pragma: no cover</span>
+        <span class="n">retriever</span> <span class="o">=</span> <span class="n">partial</span><span class="p">(</span><span class="n">_http_request</span><span class="p">,</span> <span class="n">retriever</span><span class="p">)</span>
+    <span class="n">saved_file</span><span class="p">,</span> <span class="n">resp</span> <span class="o">=</span> <span class="n">retriever</span><span class="p">()</span>
+
+    <span class="c1"># Edge case where retriever saves to an identical location as the saved</span>
+    <span class="c1"># file name.</span>
+    <span class="k">if</span> <span class="n">filename</span> <span class="o">==</span> <span class="n">saved_file</span><span class="p">:</span>  <span class="c1"># pragma: no cover</span>
+        <span class="n">new_saved_file</span> <span class="o">=</span> <span class="n">saved_file</span> <span class="o">+</span> <span class="s1">&#39;.download&#39;</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">saved_file</span><span class="p">,</span> <span class="n">new_saved_file</span><span class="p">)</span>
+        <span class="n">saved_file</span> <span class="o">=</span> <span class="n">new_saved_file</span>
+
+    <span class="c1"># Make sure directory exists</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">local_path_zip_dir</span><span class="p">):</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">local_path_zip_dir</span><span class="p">)</span>
+
+    <span class="c1"># move the tmp file to the new directory</span>
+    <span class="n">local_path_zip_file</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">local_path_zip_dir</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">filename</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">VTK_DATA_PATH</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">shutil</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="n">saved_file</span><span class="p">,</span> <span class="n">local_path_zip_file</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>  <span class="c1"># pragma: no cover</span>
+        <span class="n">shutil</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">saved_file</span><span class="p">,</span> <span class="n">local_path_zip_file</span><span class="p">)</span>
+
+    <span class="c1"># decompress and remove the zip file to save space</span>
+    <span class="n">_decompress</span><span class="p">(</span><span class="n">local_path_zip_file</span><span class="p">,</span> <span class="n">local_path_zip_dir</span><span class="p">)</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">local_path_zip_file</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">local_path_zip_dir</span><span class="p">,</span> <span class="n">resp</span>
+
+
 <span class="k">def</span> <span class="nf">_download_file</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Download a file from https://github.com/pyvista/vtk-data/master/Data.</span>
+
+<span class="sd">    If ``pyvista.VTK_DATA_PATH`` is set, then the remote repository is expected</span>
+<span class="sd">    to be a local git repository.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    filename : str</span>
+<span class="sd">        Path within https://github.com/pyvista/vtk-data/master/Data to download</span>
+<span class="sd">        the file from.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    Download the ``&#39;blood_vessels.zip&#39;`` file from</span>
+<span class="sd">    https://github.com/pyvista/vtk-data/tree/master/Data/pvtu_blood_vessels.</span>
+<span class="sd">    This returns a path of the unzipped archive.</span>
+
+<span class="sd">    &gt;&gt;&gt; path, _ = _download_file(&#39;pvtu_blood_vessels/blood_vessels.zip&#39;)  # doctest:+SKIP</span>
+<span class="sd">    &gt;&gt;&gt; path  # doctest:+SKIP</span>
+<span class="sd">    /home/user/.local/share/pyvista/examples/blood_vessels</span>
+
+<span class="sd">    Download the ``&#39;emote.jpg&#39;`` file.</span>
+
+<span class="sd">    &gt;&gt;&gt; path, _ = _download_file(&#39;emote.jpg&#39;)  # doctest:+SKIP</span>
+<span class="sd">    &gt;&gt;&gt; path  # doctest:+SKIP</span>
+<span class="sd">    /home/user/.local/share/pyvista/examples/emote.jpg</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">VTK_DATA_PATH</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">url</span> <span class="o">=</span> <span class="n">_get_vtk_file_url</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
         <span class="n">retriever</span> <span class="o">=</span> <span class="n">partial</span><span class="p">(</span><span class="n">_http_request</span><span class="p">,</span> <span class="n">url</span><span class="p">)</span>
@@ -350,11 +474,40 @@
                 <span class="sa">f</span><span class="s1">&#39;VTK data repository does not have &quot;Data&quot; folder at:</span><span class="se">\n\n</span><span class="si">{</span><span class="n">pyvista</span><span class="o">.</span><span class="n">VTK_DATA_PATH</span><span class="si">}</span><span class="s1">&#39;</span>
             <span class="p">)</span>
         <span class="n">retriever</span> <span class="o">=</span> <span class="n">partial</span><span class="p">(</span><span class="n">_repo_file_request</span><span class="p">,</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">VTK_DATA_PATH</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">get_ext</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;.zip&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">_retrieve_zip</span><span class="p">(</span><span class="n">retriever</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">_retrieve_file</span><span class="p">(</span><span class="n">retriever</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
 
 
 <span class="k">def</span> <span class="nf">_download_and_read</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">texture</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">file_format</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">load</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Download and read a file.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    filename : str</span>
+<span class="sd">        Path to the filename. This cannot be a zip file.</span>
+
+<span class="sd">    texture : bool, optional</span>
+<span class="sd">        ``True`` when file being read is a texture.</span>
+
+<span class="sd">    file_format : str, optional</span>
+<span class="sd">        Override the file format with a different extension.</span>
+
+<span class="sd">    load : bool, optional</span>
+<span class="sd">        Read the file. Default ``True``, when ``False``, return the path to the</span>
+<span class="sd">        file.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    pyvista.DataSet or str</span>
+<span class="sd">        Dataset or path to the file depending on the ``load`` parameter.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">saved_file</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">_download_file</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">get_ext</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;.zip&#39;</span><span class="p">:</span>  <span class="c1"># pragma: no cover</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Cannot download and read an archive file&#39;</span><span class="p">)</span>
+
     <span class="k">if</span> <span class="ow">not</span> <span class="n">load</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">saved_file</span>
     <span class="k">if</span> <span class="n">texture</span><span class="p">:</span>
@@ -1037,7 +1190,11 @@
 <span class="sd">    * :ref:`box_widget_example`</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="n">_download_and_read</span><span class="p">(</span><span class="s1">&#39;nefertiti.ply.zip&#39;</span><span class="p">,</span> <span class="n">load</span><span class="o">=</span><span class="n">load</span><span class="p">)</span></div>
+    <span class="n">path</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">_download_file</span><span class="p">(</span><span class="s1">&#39;nefertiti.ply.zip&#39;</span><span class="p">)</span>
+    <span class="n">filename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;nefertiti.ply&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">load</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">filename</span>
+    <span class="k">return</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="download_blood_vessels"><a class="viewcode-back" href="../../../api/examples/_autosummary/pyvista.examples.downloads.download_blood_vessels.html#pyvista.examples.downloads.download_blood_vessels">[ドキュメント]</a><span class="k">def</span> <span class="nf">download_blood_vessels</span><span class="p">(</span><span class="n">load</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>  <span class="c1"># pragma: no cover</span>
@@ -1064,10 +1221,12 @@
 
 <span class="sd">    * :ref:`read_parallel_example`</span>
 <span class="sd">    * :ref:`streamlines_example`</span>
+<span class="sd">    * :ref:`integrate_example`</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">local_path</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">_download_file</span><span class="p">(</span><span class="s1">&#39;pvtu_blood_vessels/blood_vessels.zip&#39;</span><span class="p">)</span>
-    <span class="n">filename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">local_path</span><span class="p">,</span> <span class="s1">&#39;T0000000500.pvtu&#39;</span><span class="p">)</span>
+    <span class="n">directory</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">_download_file</span><span class="p">(</span><span class="s1">&#39;pvtu_blood_vessels/blood_vessels.zip&#39;</span><span class="p">)</span>
+    <span class="n">filename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">directory</span><span class="p">,</span> <span class="s1">&#39;blood_vessels&#39;</span><span class="p">,</span> <span class="s1">&#39;T0000000500.pvtu&#39;</span><span class="p">)</span>
+
     <span class="k">if</span> <span class="ow">not</span> <span class="n">load</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">filename</span>
     <span class="n">mesh</span> <span class="o">=</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
@@ -2619,6 +2778,7 @@
 
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">local_path</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">_download_file</span><span class="p">(</span><span class="s1">&#39;dc-inversion.zip&#39;</span><span class="p">)</span>
+    <span class="n">local_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">local_path</span><span class="p">,</span> <span class="s1">&#39;dc-inversion&#39;</span><span class="p">)</span>
     <span class="n">filename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">local_path</span><span class="p">,</span> <span class="s1">&#39;mesh-forward.vtu&#39;</span><span class="p">)</span>
     <span class="n">fwd</span> <span class="o">=</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
     <span class="n">fwd</span><span class="o">.</span><span class="n">set_active_scalars</span><span class="p">(</span><span class="s1">&#39;Resistivity(log10)-fwd&#39;</span><span class="p">)</span>
@@ -3096,6 +3256,32 @@
     <span class="k">return</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">cubemap</span><span class="p">(</span><span class="n">pyvista</span><span class="o">.</span><span class="n">EXAMPLES_PATH</span><span class="p">,</span> <span class="n">prefix</span><span class="p">)</span></div>
 
 
+<div class="viewcode-block" id="download_cube_map_debug"><a class="viewcode-back" href="../../../api/examples/_autosummary/pyvista.examples.downloads.download_cube_map_debug.html#pyvista.examples.downloads.download_cube_map_debug">[ドキュメント]</a><span class="k">def</span> <span class="nf">download_cube_map_debug</span><span class="p">():</span>  <span class="c1"># pragma: no cover</span>
+    <span class="sd">&quot;&quot;&quot;Download the debug cube map texture.</span>
+
+<span class="sd">    Textures obtained from `BabylonJS/Babylon.js</span>
+<span class="sd">    &lt;https://github.com/BabylonJS/Babylon.js&gt;`_ and licensed under Apache2.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    pyvista.Texture</span>
+<span class="sd">        Texture containing a skybox.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; from pyvista import examples</span>
+<span class="sd">    &gt;&gt;&gt; import pyvista as pv</span>
+<span class="sd">    &gt;&gt;&gt; pl = pv.Plotter()</span>
+<span class="sd">    &gt;&gt;&gt; dataset = examples.download_sky_box_cube_map()</span>
+<span class="sd">    &gt;&gt;&gt; _ = pl.add_actor(dataset.to_skybox())</span>
+<span class="sd">    &gt;&gt;&gt; pl.set_environment_texture(dataset)</span>
+<span class="sd">    &gt;&gt;&gt; pl.show()</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">path</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">_download_file</span><span class="p">(</span><span class="s1">&#39;cubemapDebug/cubemapDebug.zip&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">cubemap</span><span class="p">(</span><span class="n">image_paths</span><span class="o">=</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;*.jpg&#39;</span><span class="p">))</span></div>
+
+
 <div class="viewcode-block" id="download_backward_facing_step"><a class="viewcode-back" href="../../../api/examples/_autosummary/pyvista.examples.downloads.download_backward_facing_step.html#pyvista.examples.downloads.download_backward_facing_step">[ドキュメント]</a><span class="k">def</span> <span class="nf">download_backward_facing_step</span><span class="p">(</span><span class="n">load</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>  <span class="c1"># pragma: no cover</span>
     <span class="sd">&quot;&quot;&quot;Download an ensight gold case of a fluid simulation.</span>
 
@@ -3117,8 +3303,8 @@
 <span class="sd">    &gt;&gt;&gt; dataset.plot()</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">folder</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">_download_file</span><span class="p">(</span><span class="s1">&#39;EnSight.zip&#39;</span><span class="p">)</span>
-    <span class="n">filename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">folder</span><span class="p">,</span> <span class="s2">&quot;foam_case_0_0_0_0.case&quot;</span><span class="p">)</span>
+    <span class="n">directory</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">_download_file</span><span class="p">(</span><span class="s1">&#39;EnSight.zip&#39;</span><span class="p">)</span>
+    <span class="n">filename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">directory</span><span class="p">,</span> <span class="s1">&#39;EnSight&#39;</span><span class="p">,</span> <span class="s2">&quot;foam_case_0_0_0_0.case&quot;</span><span class="p">)</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">load</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">filename</span>
     <span class="k">return</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span></div>
@@ -3437,8 +3623,8 @@
 <span class="sd">    Active Texture  : Texture Coordinates</span>
 <span class="sd">    Active Normals  : Normals</span>
 <span class="sd">    Contains arrays :</span>
-<span class="sd">        Normals                 float32  (14280, 3)           NORMALS</span>
-<span class="sd">        Texture Coordinates     float64  (14280, 2)           TCOORDS</span>
+<span class="sd">        Normals                 float32    (14280, 3)           NORMALS</span>
+<span class="sd">        Texture Coordinates     float64    (14280, 2)           TCOORDS</span>
 
 <span class="sd">    Plot with stars in the background.</span>
 
@@ -3715,8 +3901,8 @@
 <span class="sd">    &gt;&gt;&gt; plotter.close()</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">_download_file</span><span class="p">(</span><span class="s1">&#39;PVD/paraview/singleSphereAnimation.zip&#39;</span><span class="p">)</span>
-    <span class="n">filename</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">_download_file</span><span class="p">(</span><span class="s1">&#39;PVD/paraview/singleSphereAnimation.pvd&#39;</span><span class="p">)</span>
+    <span class="n">path</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">_download_file</span><span class="p">(</span><span class="s1">&#39;PVD/paraview/singleSphereAnimation.zip&#39;</span><span class="p">)</span>
+    <span class="n">filename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;singleSphereAnimation.pvd&#39;</span><span class="p">)</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">load</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">filename</span>
     <span class="k">return</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">PVDReader</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span></div>
@@ -3765,8 +3951,8 @@
 <span class="sd">    &gt;&gt;&gt; plotter.close()</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">_download_file</span><span class="p">(</span><span class="s1">&#39;PVD/paraview/dualSphereAnimation.zip&#39;</span><span class="p">)</span>
-    <span class="n">filename</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">_download_file</span><span class="p">(</span><span class="s1">&#39;PVD/paraview/dualSphereAnimation.pvd&#39;</span><span class="p">)</span>
+    <span class="n">path</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">_download_file</span><span class="p">(</span><span class="s1">&#39;PVD/paraview/dualSphereAnimation.zip&#39;</span><span class="p">)</span>
+    <span class="n">filename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;dualSphereAnimation.pvd&#39;</span><span class="p">)</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">load</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">filename</span>
     <span class="k">return</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">PVDReader</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span></div>
@@ -3834,7 +4020,7 @@
 
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">directory</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">_download_file</span><span class="p">(</span><span class="s1">&#39;OpenFOAM.zip&#39;</span><span class="p">)</span>
-    <span class="n">filename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">directory</span><span class="p">,</span> <span class="s1">&#39;cavity&#39;</span><span class="p">,</span> <span class="s1">&#39;case.foam&#39;</span><span class="p">)</span>
+    <span class="n">filename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">directory</span><span class="p">,</span> <span class="s1">&#39;OpenFOAM&#39;</span><span class="p">,</span> <span class="s1">&#39;cavity&#39;</span><span class="p">,</span> <span class="s1">&#39;case.foam&#39;</span><span class="p">)</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">load</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">filename</span>
     <span class="k">return</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">OpenFOAMReader</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span></div>
@@ -4069,6 +4255,7 @@
 
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">path</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">_download_file</span><span class="p">(</span><span class="s1">&#39;DICOM_Stack/data.zip&#39;</span><span class="p">)</span>
+    <span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s1">&#39;data&#39;</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">load</span><span class="p">:</span>
         <span class="n">reader</span> <span class="o">=</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">DICOMReader</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">reader</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>

@@ -2857,12 +2857,13 @@
         <span class="n">dradius</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>
         <span class="n">angle</span><span class="o">=</span><span class="mf">360.0</span><span class="p">,</span>
         <span class="n">capping</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">rotation_axis</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
         <span class="n">progress_bar</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
     <span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Sweep polygonal data creating &quot;skirt&quot; from free edges and lines, and lines from vertices.</span>
 
 <span class="sd">        This takes polygonal data as input and generates polygonal</span>
-<span class="sd">        data on output. The input dataset is swept around the z-axis</span>
+<span class="sd">        data on output. The input dataset is swept around the axis</span>
 <span class="sd">        to create new polygonal primitives. These primitives form a</span>
 <span class="sd">        &quot;skirt&quot; or swept surface. For example, sweeping a line results</span>
 <span class="sd">        in a cylindrical shell, and sweeping a circle creates a torus.</span>
@@ -2871,7 +2872,7 @@
 <span class="sd">        can control whether the sweep of a 2D object (i.e., polygon or</span>
 <span class="sd">        triangle strip) is capped with the generating geometry via the</span>
 <span class="sd">        ``capping`` parameter. Also, you can control the angle of</span>
-<span class="sd">        rotation, and whether translation along the z-axis is</span>
+<span class="sd">        rotation, and whether translation along the axis is</span>
 <span class="sd">        performed along with the rotation.  (Translation is useful for</span>
 <span class="sd">        creating &quot;springs&quot;.) You also can adjust the radius of the</span>
 <span class="sd">        generating geometry with the ``dradius`` parameter.</span>
@@ -2901,7 +2902,7 @@
 <span class="sd">            Overwrites the original mesh inplace.</span>
 
 <span class="sd">        translation : float, optional</span>
-<span class="sd">            Total amount of translation along the z-axis.</span>
+<span class="sd">            Total amount of translation along the axis.</span>
 
 <span class="sd">        dradius : float, optional</span>
 <span class="sd">            Change in radius during sweep process.</span>
@@ -2920,6 +2921,10 @@
 <span class="sd">               underlying VTK filter. It is recommended to explicitly pass</span>
 <span class="sd">               a value for this keyword argument to prevent future changes</span>
 <span class="sd">               in behavior and warnings.</span>
+
+<span class="sd">        rotation_axis : numpy.ndarray or sequence, optional</span>
+<span class="sd">            The direction vector of the axis around which the rotation is done.</span>
+<span class="sd">            It requires vtk&gt;=9.1.0.</span>
 
 <span class="sd">        progress_bar : bool, optional</span>
 <span class="sd">            Display a progress bar to indicate progress.</span>
@@ -2967,6 +2972,12 @@
                 <span class="n">PyvistaFutureWarning</span><span class="p">,</span>
             <span class="p">)</span>
 
+        <span class="k">if</span> <span class="p">(</span>
+            <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">rotation_axis</span><span class="p">,</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">collections</span><span class="o">.</span><span class="n">abc</span><span class="o">.</span><span class="n">Sequence</span><span class="p">))</span>
+            <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">rotation_axis</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">3</span>
+        <span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Vector must be a length three vector&#39;</span><span class="p">)</span>
+
         <span class="k">if</span> <span class="n">resolution</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;`resolution` should be positive&#39;</span><span class="p">)</span>
         <span class="n">alg</span> <span class="o">=</span> <span class="n">_vtk</span><span class="o">.</span><span class="n">vtkRotationalExtrusionFilter</span><span class="p">()</span>
@@ -2976,6 +2987,15 @@
         <span class="n">alg</span><span class="o">.</span><span class="n">SetDeltaRadius</span><span class="p">(</span><span class="n">dradius</span><span class="p">)</span>
         <span class="n">alg</span><span class="o">.</span><span class="n">SetCapping</span><span class="p">(</span><span class="n">capping</span><span class="p">)</span>
         <span class="n">alg</span><span class="o">.</span><span class="n">SetAngle</span><span class="p">(</span><span class="n">angle</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">vtk_version_info</span> <span class="o">&gt;=</span> <span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">):</span>
+            <span class="n">alg</span><span class="o">.</span><span class="n">SetRotationAxis</span><span class="p">(</span><span class="n">rotation_axis</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>  <span class="c1"># pragma: no cover</span>
+            <span class="k">if</span> <span class="n">rotation_axis</span> <span class="o">!=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>
+                <span class="k">raise</span> <span class="n">VTKVersionError</span><span class="p">(</span>
+                    <span class="s1">&#39;The installed version of VTK does not support &#39;</span>
+                    <span class="s1">&#39;setting the direction vector of the axis around which the rotation is done.&#39;</span>
+                <span class="p">)</span>
+
         <span class="n">_update_alg</span><span class="p">(</span><span class="n">alg</span><span class="p">,</span> <span class="n">progress_bar</span><span class="p">,</span> <span class="s1">&#39;Extruding&#39;</span><span class="p">)</span>
         <span class="n">output</span> <span class="o">=</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">wrap</span><span class="p">(</span><span class="n">alg</span><span class="o">.</span><span class="n">GetOutput</span><span class="p">())</span>
         <span class="k">if</span> <span class="n">inplace</span><span class="p">:</span>

@@ -578,6 +578,11 @@
         </a>
        </li>
        <li class="toctree-l4">
+        <a class="reference internal" href="pyvista.StructuredGrid.integrate_data.html">
+         integrate_data
+        </a>
+       </li>
+       <li class="toctree-l4">
         <a class="reference internal" href="pyvista.StructuredGrid.interpolate.html">
          interpolate
         </a>
@@ -1314,7 +1319,7 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.StructuredGrid.copy_attributes.html#pyvista.StructuredGrid.copy_attributes" title="pyvista.StructuredGrid.copy_attributes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StructuredGrid.copy_attributes</span></code></a>(dataset)</p></td>
 <td><p>入力データセットオブジェクトのデータ属性をコピーします．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.StructuredGrid.copy_meta_from.html#pyvista.StructuredGrid.copy_meta_from" title="pyvista.StructuredGrid.copy_meta_from"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StructuredGrid.copy_meta_from</span></code></a>(ido)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.StructuredGrid.copy_meta_from.html#pyvista.StructuredGrid.copy_meta_from" title="pyvista.StructuredGrid.copy_meta_from"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StructuredGrid.copy_meta_from</span></code></a>(ido[, deep])</p></td>
 <td><p>別のオブジェクトからこのオブジェクトにpyvistaメタデータをコピーします．</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.StructuredGrid.copy_structure.html#pyvista.StructuredGrid.copy_structure" title="pyvista.StructuredGrid.copy_structure"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StructuredGrid.copy_structure</span></code></a>(dataset)</p></td>
@@ -1407,163 +1412,166 @@
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.StructuredGrid.hide_points.html#pyvista.StructuredGrid.hide_points" title="pyvista.StructuredGrid.hide_points"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StructuredGrid.hide_points</span></code></a>(ind)</p></td>
 <td><p>ポイントを削除せずに非表示にします．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.StructuredGrid.interpolate.html#pyvista.StructuredGrid.interpolate" title="pyvista.StructuredGrid.interpolate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StructuredGrid.interpolate</span></code></a>(target[, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.StructuredGrid.integrate_data.html#pyvista.StructuredGrid.integrate_data" title="pyvista.StructuredGrid.integrate_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StructuredGrid.integrate_data</span></code></a>([progress_bar])</p></td>
+<td><p>点データとセルデータを積分します．</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.StructuredGrid.interpolate.html#pyvista.StructuredGrid.interpolate" title="pyvista.StructuredGrid.interpolate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StructuredGrid.interpolate</span></code></a>(target[, ...])</p></td>
 <td><p>特定のデータセットからこのメッシュに値を補間します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.StructuredGrid.merge.html#pyvista.StructuredGrid.merge" title="pyvista.StructuredGrid.merge"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StructuredGrid.merge</span></code></a>([grid, merge_points, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.StructuredGrid.merge.html#pyvista.StructuredGrid.merge" title="pyvista.StructuredGrid.merge"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StructuredGrid.merge</span></code></a>([grid, merge_points, ...])</p></td>
 <td><p>1つまたは複数の他のグリッドをこのグリッドに結合します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.StructuredGrid.outline.html#pyvista.StructuredGrid.outline" title="pyvista.StructuredGrid.outline"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StructuredGrid.outline</span></code></a>([generate_faces, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.StructuredGrid.outline.html#pyvista.StructuredGrid.outline" title="pyvista.StructuredGrid.outline"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StructuredGrid.outline</span></code></a>([generate_faces, ...])</p></td>
 <td><p>入力データセットの全エクステントのアウトラインを作成します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.StructuredGrid.outline_corners.html#pyvista.StructuredGrid.outline_corners" title="pyvista.StructuredGrid.outline_corners"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StructuredGrid.outline_corners</span></code></a>([factor, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.StructuredGrid.outline_corners.html#pyvista.StructuredGrid.outline_corners" title="pyvista.StructuredGrid.outline_corners"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StructuredGrid.outline_corners</span></code></a>([factor, ...])</p></td>
 <td><p>入力データセットのコーナーのアウトラインを生成します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.StructuredGrid.overwrite.html#pyvista.StructuredGrid.overwrite" title="pyvista.StructuredGrid.overwrite"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StructuredGrid.overwrite</span></code></a>(mesh)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.StructuredGrid.overwrite.html#pyvista.StructuredGrid.overwrite" title="pyvista.StructuredGrid.overwrite"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StructuredGrid.overwrite</span></code></a>(mesh)</p></td>
 <td><p>このデータセットin-placeを新しいデータセットのジオメトリとデータで上書きします．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.StructuredGrid.plot.html#pyvista.StructuredGrid.plot" title="pyvista.StructuredGrid.plot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StructuredGrid.plot</span></code></a>([off_screen, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.StructuredGrid.plot.html#pyvista.StructuredGrid.plot" title="pyvista.StructuredGrid.plot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StructuredGrid.plot</span></code></a>([off_screen, ...])</p></td>
 <td><p>vtkまたはnumpyオブジェクトをプロットします．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.StructuredGrid.plot_curvature.html#pyvista.StructuredGrid.plot_curvature" title="pyvista.StructuredGrid.plot_curvature"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StructuredGrid.plot_curvature</span></code></a>([curv_type])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.StructuredGrid.plot_curvature.html#pyvista.StructuredGrid.plot_curvature" title="pyvista.StructuredGrid.plot_curvature"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StructuredGrid.plot_curvature</span></code></a>([curv_type])</p></td>
 <td><p>グリッドの外部表面の曲率をプロットします．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.StructuredGrid.plot_over_circular_arc.html#pyvista.StructuredGrid.plot_over_circular_arc" title="pyvista.StructuredGrid.plot_over_circular_arc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StructuredGrid.plot_over_circular_arc</span></code></a>(...[, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.StructuredGrid.plot_over_circular_arc.html#pyvista.StructuredGrid.plot_over_circular_arc" title="pyvista.StructuredGrid.plot_over_circular_arc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StructuredGrid.plot_over_circular_arc</span></code></a>(...[, ...])</p></td>
 <td><p>円弧に沿ってデータセットをサンプリングし，プロットします．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.StructuredGrid.plot_over_circular_arc_normal.html#pyvista.StructuredGrid.plot_over_circular_arc_normal" title="pyvista.StructuredGrid.plot_over_circular_arc_normal"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StructuredGrid.plot_over_circular_arc_normal</span></code></a>(center)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.StructuredGrid.plot_over_circular_arc_normal.html#pyvista.StructuredGrid.plot_over_circular_arc_normal" title="pyvista.StructuredGrid.plot_over_circular_arc_normal"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StructuredGrid.plot_over_circular_arc_normal</span></code></a>(center)</p></td>
 <td><p>法線ベクトルと極ベクトルで定義された解像度の円弧に沿ってデータセットをサンプリングし，それをプロットします．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.StructuredGrid.plot_over_line.html#pyvista.StructuredGrid.plot_over_line" title="pyvista.StructuredGrid.plot_over_line"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StructuredGrid.plot_over_line</span></code></a>(pointa, pointb)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.StructuredGrid.plot_over_line.html#pyvista.StructuredGrid.plot_over_line" title="pyvista.StructuredGrid.plot_over_line"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StructuredGrid.plot_over_line</span></code></a>(pointa, pointb)</p></td>
 <td><p>高解像度の線に沿ってデータセットをサンプリングし，プロットします．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.StructuredGrid.point_data_to_cell_data.html#pyvista.StructuredGrid.point_data_to_cell_data" title="pyvista.StructuredGrid.point_data_to_cell_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StructuredGrid.point_data_to_cell_data</span></code></a>([...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.StructuredGrid.point_data_to_cell_data.html#pyvista.StructuredGrid.point_data_to_cell_data" title="pyvista.StructuredGrid.point_data_to_cell_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StructuredGrid.point_data_to_cell_data</span></code></a>([...])</p></td>
 <td><p>点データをセルデータに変換します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.StructuredGrid.points_to_double.html#pyvista.StructuredGrid.points_to_double" title="pyvista.StructuredGrid.points_to_double"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StructuredGrid.points_to_double</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.StructuredGrid.points_to_double.html#pyvista.StructuredGrid.points_to_double" title="pyvista.StructuredGrid.points_to_double"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StructuredGrid.points_to_double</span></code></a>()</p></td>
 <td><p>pointsのデータ型を倍精度に変換します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.StructuredGrid.probe.html#pyvista.StructuredGrid.probe" title="pyvista.StructuredGrid.probe"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StructuredGrid.probe</span></code></a>(points[, tolerance, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.StructuredGrid.probe.html#pyvista.StructuredGrid.probe" title="pyvista.StructuredGrid.probe"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StructuredGrid.probe</span></code></a>(points[, tolerance, ...])</p></td>
 <td><p>指定したポイント位置のサンプルデータ値．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.StructuredGrid.ptc.html#pyvista.StructuredGrid.ptc" title="pyvista.StructuredGrid.ptc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StructuredGrid.ptc</span></code></a>([pass_point_data, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.StructuredGrid.ptc.html#pyvista.StructuredGrid.ptc" title="pyvista.StructuredGrid.ptc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StructuredGrid.ptc</span></code></a>([pass_point_data, ...])</p></td>
 <td><p>点データをセルデータに変換します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.StructuredGrid.reflect.html#pyvista.StructuredGrid.reflect" title="pyvista.StructuredGrid.reflect"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StructuredGrid.reflect</span></code></a>(normal[, point, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.StructuredGrid.reflect.html#pyvista.StructuredGrid.reflect" title="pyvista.StructuredGrid.reflect"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StructuredGrid.reflect</span></code></a>(normal[, point, ...])</p></td>
 <td><p>平面でデータセットを反射します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.StructuredGrid.remove_cells.html#pyvista.StructuredGrid.remove_cells" title="pyvista.StructuredGrid.remove_cells"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StructuredGrid.remove_cells</span></code></a>(ind[, inplace])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.StructuredGrid.remove_cells.html#pyvista.StructuredGrid.remove_cells" title="pyvista.StructuredGrid.remove_cells"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StructuredGrid.remove_cells</span></code></a>(ind[, inplace])</p></td>
 <td><p>セルの除去．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.StructuredGrid.rename_array.html#pyvista.StructuredGrid.rename_array" title="pyvista.StructuredGrid.rename_array"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StructuredGrid.rename_array</span></code></a>(old_name, new_name)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.StructuredGrid.rename_array.html#pyvista.StructuredGrid.rename_array" title="pyvista.StructuredGrid.rename_array"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StructuredGrid.rename_array</span></code></a>(old_name, new_name)</p></td>
 <td><p>配列名を変更するには，配列を検索して名前を変更します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.StructuredGrid.rotate_vector.html#pyvista.StructuredGrid.rotate_vector" title="pyvista.StructuredGrid.rotate_vector"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StructuredGrid.rotate_vector</span></code></a>(vector, angle)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.StructuredGrid.rotate_vector.html#pyvista.StructuredGrid.rotate_vector" title="pyvista.StructuredGrid.rotate_vector"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StructuredGrid.rotate_vector</span></code></a>(vector, angle)</p></td>
 <td><p>メッシュをベクトルを中心に回転します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.StructuredGrid.rotate_x.html#pyvista.StructuredGrid.rotate_x" title="pyvista.StructuredGrid.rotate_x"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StructuredGrid.rotate_x</span></code></a>(angle[, point, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.StructuredGrid.rotate_x.html#pyvista.StructuredGrid.rotate_x" title="pyvista.StructuredGrid.rotate_x"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StructuredGrid.rotate_x</span></code></a>(angle[, point, ...])</p></td>
 <td><p>メッシュをX軸を中心に回転します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.StructuredGrid.rotate_y.html#pyvista.StructuredGrid.rotate_y" title="pyvista.StructuredGrid.rotate_y"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StructuredGrid.rotate_y</span></code></a>(angle[, point, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.StructuredGrid.rotate_y.html#pyvista.StructuredGrid.rotate_y" title="pyvista.StructuredGrid.rotate_y"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StructuredGrid.rotate_y</span></code></a>(angle[, point, ...])</p></td>
 <td><p>メッシュをY軸を中心に回転します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.StructuredGrid.rotate_z.html#pyvista.StructuredGrid.rotate_z" title="pyvista.StructuredGrid.rotate_z"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StructuredGrid.rotate_z</span></code></a>(angle[, point, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.StructuredGrid.rotate_z.html#pyvista.StructuredGrid.rotate_z" title="pyvista.StructuredGrid.rotate_z"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StructuredGrid.rotate_z</span></code></a>(angle[, point, ...])</p></td>
 <td><p>メッシュをZ軸を中心に回転します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.StructuredGrid.sample.html#pyvista.StructuredGrid.sample" title="pyvista.StructuredGrid.sample"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StructuredGrid.sample</span></code></a>(target[, tolerance, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.StructuredGrid.sample.html#pyvista.StructuredGrid.sample" title="pyvista.StructuredGrid.sample"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StructuredGrid.sample</span></code></a>(target[, tolerance, ...])</p></td>
 <td><p>渡されたメッシュからこのメッシュに配列データをリサンプルします．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.StructuredGrid.sample_over_circular_arc.html#pyvista.StructuredGrid.sample_over_circular_arc" title="pyvista.StructuredGrid.sample_over_circular_arc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StructuredGrid.sample_over_circular_arc</span></code></a>(...)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.StructuredGrid.sample_over_circular_arc.html#pyvista.StructuredGrid.sample_over_circular_arc" title="pyvista.StructuredGrid.sample_over_circular_arc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StructuredGrid.sample_over_circular_arc</span></code></a>(...)</p></td>
 <td><p>円弧上のデータセットをサンプリングします．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.StructuredGrid.sample_over_circular_arc_normal.html#pyvista.StructuredGrid.sample_over_circular_arc_normal" title="pyvista.StructuredGrid.sample_over_circular_arc_normal"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StructuredGrid.sample_over_circular_arc_normal</span></code></a>(center)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.StructuredGrid.sample_over_circular_arc_normal.html#pyvista.StructuredGrid.sample_over_circular_arc_normal" title="pyvista.StructuredGrid.sample_over_circular_arc_normal"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StructuredGrid.sample_over_circular_arc_normal</span></code></a>(center)</p></td>
 <td><p>法線ベクトルと極ベクトルで定義された円弧上のデータセットをサンプリングし，それをプロットします．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.StructuredGrid.sample_over_line.html#pyvista.StructuredGrid.sample_over_line" title="pyvista.StructuredGrid.sample_over_line"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StructuredGrid.sample_over_line</span></code></a>(pointa, pointb)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.StructuredGrid.sample_over_line.html#pyvista.StructuredGrid.sample_over_line" title="pyvista.StructuredGrid.sample_over_line"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StructuredGrid.sample_over_line</span></code></a>(pointa, pointb)</p></td>
 <td><p>データセットを1行に抽出します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.StructuredGrid.sample_over_multiple_lines.html#pyvista.StructuredGrid.sample_over_multiple_lines" title="pyvista.StructuredGrid.sample_over_multiple_lines"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StructuredGrid.sample_over_multiple_lines</span></code></a>(points)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.StructuredGrid.sample_over_multiple_lines.html#pyvista.StructuredGrid.sample_over_multiple_lines" title="pyvista.StructuredGrid.sample_over_multiple_lines"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StructuredGrid.sample_over_multiple_lines</span></code></a>(points)</p></td>
 <td><p>データセットを複数行に分割してサンプリングする．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.StructuredGrid.save.html#pyvista.StructuredGrid.save" title="pyvista.StructuredGrid.save"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StructuredGrid.save</span></code></a>(filename[, binary, texture])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.StructuredGrid.save.html#pyvista.StructuredGrid.save" title="pyvista.StructuredGrid.save"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StructuredGrid.save</span></code></a>(filename[, binary, texture])</p></td>
 <td><p>このvtkオブジェクトをファイルに保存します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.StructuredGrid.scale.html#pyvista.StructuredGrid.scale" title="pyvista.StructuredGrid.scale"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StructuredGrid.scale</span></code></a>(xyz[, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.StructuredGrid.scale.html#pyvista.StructuredGrid.scale" title="pyvista.StructuredGrid.scale"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StructuredGrid.scale</span></code></a>(xyz[, ...])</p></td>
 <td><p>メッシュをスケールします．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.StructuredGrid.select_enclosed_points.html#pyvista.StructuredGrid.select_enclosed_points" title="pyvista.StructuredGrid.select_enclosed_points"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StructuredGrid.select_enclosed_points</span></code></a>(surface)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.StructuredGrid.select_enclosed_points.html#pyvista.StructuredGrid.select_enclosed_points" title="pyvista.StructuredGrid.select_enclosed_points"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StructuredGrid.select_enclosed_points</span></code></a>(surface)</p></td>
 <td><p>ポイントが閉じた表面の内側にあるかどうかをマークします．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.StructuredGrid.set_active_scalars.html#pyvista.StructuredGrid.set_active_scalars" title="pyvista.StructuredGrid.set_active_scalars"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StructuredGrid.set_active_scalars</span></code></a>(name[, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.StructuredGrid.set_active_scalars.html#pyvista.StructuredGrid.set_active_scalars" title="pyvista.StructuredGrid.set_active_scalars"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StructuredGrid.set_active_scalars</span></code></a>(name[, ...])</p></td>
 <td><p>スカラーを名前で検索し，適切にアクティブに設定します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.StructuredGrid.set_active_tensors.html#pyvista.StructuredGrid.set_active_tensors" title="pyvista.StructuredGrid.set_active_tensors"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StructuredGrid.set_active_tensors</span></code></a>(name[, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.StructuredGrid.set_active_tensors.html#pyvista.StructuredGrid.set_active_tensors" title="pyvista.StructuredGrid.set_active_tensors"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StructuredGrid.set_active_tensors</span></code></a>(name[, ...])</p></td>
 <td><p>​テンソルを名前で検索し，適切にアクティブに設定します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.StructuredGrid.set_active_vectors.html#pyvista.StructuredGrid.set_active_vectors" title="pyvista.StructuredGrid.set_active_vectors"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StructuredGrid.set_active_vectors</span></code></a>(name[, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.StructuredGrid.set_active_vectors.html#pyvista.StructuredGrid.set_active_vectors" title="pyvista.StructuredGrid.set_active_vectors"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StructuredGrid.set_active_vectors</span></code></a>(name[, ...])</p></td>
 <td><p>ベクトルを名前で検索し，適切にアクティブに設定します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.StructuredGrid.shallow_copy.html#pyvista.StructuredGrid.shallow_copy" title="pyvista.StructuredGrid.shallow_copy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StructuredGrid.shallow_copy</span></code></a>(to_copy)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.StructuredGrid.shallow_copy.html#pyvista.StructuredGrid.shallow_copy" title="pyvista.StructuredGrid.shallow_copy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StructuredGrid.shallow_copy</span></code></a>(to_copy)</p></td>
 <td><p>別のデータセットからこのデータセットへの浅いコピーを作成します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.StructuredGrid.shrink.html#pyvista.StructuredGrid.shrink" title="pyvista.StructuredGrid.shrink"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StructuredGrid.shrink</span></code></a>([shrink_factor, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.StructuredGrid.shrink.html#pyvista.StructuredGrid.shrink" title="pyvista.StructuredGrid.shrink"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StructuredGrid.shrink</span></code></a>([shrink_factor, ...])</p></td>
 <td><p>メッシュの個々の面を縮小します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.StructuredGrid.slice.html#pyvista.StructuredGrid.slice" title="pyvista.StructuredGrid.slice"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StructuredGrid.slice</span></code></a>([normal, origin, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.StructuredGrid.slice.html#pyvista.StructuredGrid.slice" title="pyvista.StructuredGrid.slice"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StructuredGrid.slice</span></code></a>([normal, origin, ...])</p></td>
 <td><p>指定した原点および法線ベクトル方向の平面でデータセットをスライスします．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.StructuredGrid.slice_along_axis.html#pyvista.StructuredGrid.slice_along_axis" title="pyvista.StructuredGrid.slice_along_axis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StructuredGrid.slice_along_axis</span></code></a>([n, axis, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.StructuredGrid.slice_along_axis.html#pyvista.StructuredGrid.slice_along_axis" title="pyvista.StructuredGrid.slice_along_axis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StructuredGrid.slice_along_axis</span></code></a>([n, axis, ...])</p></td>
 <td><p>指定した軸に沿って，入力データセットのスライスを多数作成します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.StructuredGrid.slice_along_line.html#pyvista.StructuredGrid.slice_along_line" title="pyvista.StructuredGrid.slice_along_line"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StructuredGrid.slice_along_line</span></code></a>(line[, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.StructuredGrid.slice_along_line.html#pyvista.StructuredGrid.slice_along_line" title="pyvista.StructuredGrid.slice_along_line"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StructuredGrid.slice_along_line</span></code></a>(line[, ...])</p></td>
 <td><p>パスとしてpolyline/splineを使用してデータセットをスライスします．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.StructuredGrid.slice_orthogonal.html#pyvista.StructuredGrid.slice_orthogonal" title="pyvista.StructuredGrid.slice_orthogonal"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StructuredGrid.slice_orthogonal</span></code></a>([x, y, z, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.StructuredGrid.slice_orthogonal.html#pyvista.StructuredGrid.slice_orthogonal" title="pyvista.StructuredGrid.slice_orthogonal"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StructuredGrid.slice_orthogonal</span></code></a>([x, y, z, ...])</p></td>
 <td><p>3つの直交平面上のデータセットから3つの直交スライスを作成します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.StructuredGrid.split_bodies.html#pyvista.StructuredGrid.split_bodies" title="pyvista.StructuredGrid.split_bodies"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StructuredGrid.split_bodies</span></code></a>([label, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.StructuredGrid.split_bodies.html#pyvista.StructuredGrid.split_bodies" title="pyvista.StructuredGrid.split_bodies"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StructuredGrid.split_bodies</span></code></a>([label, ...])</p></td>
 <td><p>接続されたボディ/ボリュームを検索，ラベル付け，および分割します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.StructuredGrid.streamlines.html#pyvista.StructuredGrid.streamlines" title="pyvista.StructuredGrid.streamlines"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StructuredGrid.streamlines</span></code></a>([vectors, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.StructuredGrid.streamlines.html#pyvista.StructuredGrid.streamlines" title="pyvista.StructuredGrid.streamlines"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StructuredGrid.streamlines</span></code></a>([vectors, ...])</p></td>
 <td><p>ベクトルフィールドを積分して，流線を生成します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.StructuredGrid.streamlines_evenly_spaced_2D.html#pyvista.StructuredGrid.streamlines_evenly_spaced_2D" title="pyvista.StructuredGrid.streamlines_evenly_spaced_2D"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StructuredGrid.streamlines_evenly_spaced_2D</span></code></a>([...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.StructuredGrid.streamlines_evenly_spaced_2D.html#pyvista.StructuredGrid.streamlines_evenly_spaced_2D" title="pyvista.StructuredGrid.streamlines_evenly_spaced_2D"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StructuredGrid.streamlines_evenly_spaced_2D</span></code></a>([...])</p></td>
 <td><p>2Dデータに等間隔の流線を生成します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.StructuredGrid.streamlines_from_source.html#pyvista.StructuredGrid.streamlines_from_source" title="pyvista.StructuredGrid.streamlines_from_source"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StructuredGrid.streamlines_from_source</span></code></a>(source)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.StructuredGrid.streamlines_from_source.html#pyvista.StructuredGrid.streamlines_from_source" title="pyvista.StructuredGrid.streamlines_from_source"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StructuredGrid.streamlines_from_source</span></code></a>(source)</p></td>
 <td><p>ソースメッシュのポイントからベクトルの流線を生成します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.StructuredGrid.surface_indices.html#pyvista.StructuredGrid.surface_indices" title="pyvista.StructuredGrid.surface_indices"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StructuredGrid.surface_indices</span></code></a>([progress_bar])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.StructuredGrid.surface_indices.html#pyvista.StructuredGrid.surface_indices" title="pyvista.StructuredGrid.surface_indices"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StructuredGrid.surface_indices</span></code></a>([progress_bar])</p></td>
 <td><p>グリッドのサーフェスインデックスを取得します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.StructuredGrid.tessellate.html#pyvista.StructuredGrid.tessellate" title="pyvista.StructuredGrid.tessellate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StructuredGrid.tessellate</span></code></a>([max_n_subdivide, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.StructuredGrid.tessellate.html#pyvista.StructuredGrid.tessellate" title="pyvista.StructuredGrid.tessellate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StructuredGrid.tessellate</span></code></a>([max_n_subdivide, ...])</p></td>
 <td><p>メッシュをテッセレーションします．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.StructuredGrid.texture_map_to_plane.html#pyvista.StructuredGrid.texture_map_to_plane" title="pyvista.StructuredGrid.texture_map_to_plane"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StructuredGrid.texture_map_to_plane</span></code></a>([...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.StructuredGrid.texture_map_to_plane.html#pyvista.StructuredGrid.texture_map_to_plane" title="pyvista.StructuredGrid.texture_map_to_plane"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StructuredGrid.texture_map_to_plane</span></code></a>([...])</p></td>
 <td><p>このデータセットをユーザ定義平面にテクスチャマップします．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.StructuredGrid.texture_map_to_sphere.html#pyvista.StructuredGrid.texture_map_to_sphere" title="pyvista.StructuredGrid.texture_map_to_sphere"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StructuredGrid.texture_map_to_sphere</span></code></a>([...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.StructuredGrid.texture_map_to_sphere.html#pyvista.StructuredGrid.texture_map_to_sphere" title="pyvista.StructuredGrid.texture_map_to_sphere"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StructuredGrid.texture_map_to_sphere</span></code></a>([...])</p></td>
 <td><p>このデータセットをユーザ定義球にテクスチャマップします．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.StructuredGrid.threshold.html#pyvista.StructuredGrid.threshold" title="pyvista.StructuredGrid.threshold"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StructuredGrid.threshold</span></code></a>([value, scalars, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.StructuredGrid.threshold.html#pyvista.StructuredGrid.threshold" title="pyvista.StructuredGrid.threshold"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StructuredGrid.threshold</span></code></a>([value, scalars, ...])</p></td>
 <td><p>入力データセットに <code class="docutils literal notranslate"><span class="pre">vtkThreshold</span></code> フィルタを適用します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.StructuredGrid.threshold_percent.html#pyvista.StructuredGrid.threshold_percent" title="pyvista.StructuredGrid.threshold_percent"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StructuredGrid.threshold_percent</span></code></a>([percent, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.StructuredGrid.threshold_percent.html#pyvista.StructuredGrid.threshold_percent" title="pyvista.StructuredGrid.threshold_percent"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StructuredGrid.threshold_percent</span></code></a>([percent, ...])</p></td>
 <td><p>データセットを，アクティブなスカラー配列上の範囲のパーセンテージでしきい値化します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.StructuredGrid.transform.html#pyvista.StructuredGrid.transform" title="pyvista.StructuredGrid.transform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StructuredGrid.transform</span></code></a>(trans[, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.StructuredGrid.transform.html#pyvista.StructuredGrid.transform" title="pyvista.StructuredGrid.transform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StructuredGrid.transform</span></code></a>(trans[, ...])</p></td>
 <td><p>このメッシュを4x4変換で変換します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.StructuredGrid.translate.html#pyvista.StructuredGrid.translate" title="pyvista.StructuredGrid.translate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StructuredGrid.translate</span></code></a>(xyz[, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.StructuredGrid.translate.html#pyvista.StructuredGrid.translate" title="pyvista.StructuredGrid.translate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StructuredGrid.translate</span></code></a>(xyz[, ...])</p></td>
 <td><p>メッシュを移動します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.StructuredGrid.triangulate.html#pyvista.StructuredGrid.triangulate" title="pyvista.StructuredGrid.triangulate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StructuredGrid.triangulate</span></code></a>([inplace, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.StructuredGrid.triangulate.html#pyvista.StructuredGrid.triangulate" title="pyvista.StructuredGrid.triangulate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StructuredGrid.triangulate</span></code></a>([inplace, ...])</p></td>
 <td><p>すべて三角形のメッシュを取得します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.StructuredGrid.warp_by_scalar.html#pyvista.StructuredGrid.warp_by_scalar" title="pyvista.StructuredGrid.warp_by_scalar"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StructuredGrid.warp_by_scalar</span></code></a>([scalars, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.StructuredGrid.warp_by_scalar.html#pyvista.StructuredGrid.warp_by_scalar" title="pyvista.StructuredGrid.warp_by_scalar"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StructuredGrid.warp_by_scalar</span></code></a>([scalars, ...])</p></td>
 <td><p>データセットのポイントをポイントデータスカラー配列の値でワープします．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.StructuredGrid.warp_by_vector.html#pyvista.StructuredGrid.warp_by_vector" title="pyvista.StructuredGrid.warp_by_vector"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StructuredGrid.warp_by_vector</span></code></a>([vectors, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.StructuredGrid.warp_by_vector.html#pyvista.StructuredGrid.warp_by_vector" title="pyvista.StructuredGrid.warp_by_vector"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StructuredGrid.warp_by_vector</span></code></a>([vectors, ...])</p></td>
 <td><p>データセットのポイントをポイントデータスカラー配列の値でワープします．</p></td>
 </tr>
 </tbody>

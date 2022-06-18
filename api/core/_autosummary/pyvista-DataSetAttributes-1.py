@@ -41,9 +41,9 @@ mesh.point_data
 ## Active Texture  : TextureCoordinates
 ## Active Normals  : Normals
 ## Contains arrays :
-##     Normals                 float32  (4, 3)               NORMALS
-##     TextureCoordinates      float32  (4, 2)               TCOORDS
-##     my-data                 int64    (4,)
-##     my-other-data           int64    (4,)
-##     vectors1                float64  (4, 3)               VECTORS
-##     vectors0                float64  (4, 3)
+##     Normals                 float32    (4, 3)               NORMALS
+##     TextureCoordinates      float32    (4, 2)               TCOORDS
+##     my-data                 int64      (4,)
+##     my-other-data           int64      (4,)
+##     vectors1                float64    (4, 3)               VECTORS
+##     vectors0                float64    (4, 3)

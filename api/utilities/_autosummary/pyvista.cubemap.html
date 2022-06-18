@@ -62,7 +62,7 @@
             </script>
     <link rel="index" title="索引" href="../../../genindex.html" />
     <link rel="search" title="検索" href="../../../search.html" />
-    <link rel="next" title="read" href="pyvista.read.html" />
+    <link rel="next" title="cubemap_from_filenames" href="pyvista.cubemap_from_filenames.html" />
     <link rel="prev" title="vtkmatrix_from_array" href="pyvista.vtkmatrix_from_array.html" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="docsearch:language" content="ja">
@@ -298,6 +298,11 @@
       </a>
      </li>
      <li class="toctree-l3">
+      <a class="reference internal" href="pyvista.cubemap_from_filenames.html">
+       cubemap_from_filenames
+      </a>
+     </li>
+     <li class="toctree-l3">
       <a class="reference internal" href="pyvista.read.html">
        read
       </a>
@@ -445,7 +450,7 @@
 <dl class="py function">
 <dt class="sig sig-object py" id="pyvista.cubemap">
 <span class="sig-name descname"><span class="pre">cubemap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prefix</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ext</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'.jpg'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/pyvista/utilities/helpers.html#cubemap"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.cubemap" title="この定義へのパーマリンク">#</a></dt>
-<dd><p>6つのイメージからキューブマップを作成します．</p>
+<dd><p>ディレクトリにある6枚の画像からキューブマップを構築します．</p>
 <p>6つのイメージはそれぞれ次の形式である必要があります:</p>
 <ul class="simple">
 <li><p>&lt;prefix&gt;negx&lt;ext&gt;</p></li>
@@ -484,6 +489,7 @@
 </dd>
 </dl>
 <p class="rubric">例</p>
+<p>ディレクトリ，プレフィックス，およびファイル拡張子を指定してスカイボックスを読み込みます．</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyvista</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">skybox</span> <span class="o">=</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">cubemap</span><span class="p">(</span><span class="s1">&#39;my_directory&#39;</span><span class="p">,</span> <span class="s1">&#39;skybox&#39;</span><span class="p">,</span> <span class="s1">&#39;.jpeg&#39;</span><span class="p">)</span>  
 </pre></div>

@@ -339,12 +339,12 @@
 <span class="sd">    Active Texture  : TextureCoordinates</span>
 <span class="sd">    Active Normals  : Normals</span>
 <span class="sd">    Contains arrays :</span>
-<span class="sd">        Normals                 float32  (4, 3)               NORMALS</span>
-<span class="sd">        TextureCoordinates      float32  (4, 2)               TCOORDS</span>
-<span class="sd">        my-data                 int64    (4,)</span>
-<span class="sd">        my-other-data           int64    (4,)</span>
-<span class="sd">        vectors1                float64  (4, 3)               VECTORS</span>
-<span class="sd">        vectors0                float64  (4, 3)</span>
+<span class="sd">        Normals                 float32    (4, 3)               NORMALS</span>
+<span class="sd">        TextureCoordinates      float32    (4, 2)               TCOORDS</span>
+<span class="sd">        my-data                 int64      (4,)</span>
+<span class="sd">        my-other-data           int64      (4,)</span>
+<span class="sd">        vectors1                float64    (4, 3)               VECTORS</span>
+<span class="sd">        vectors0                float64    (4, 3)</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
 
@@ -365,7 +365,6 @@
             <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">array</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">items</span><span class="p">()):</span>
                 <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">23</span><span class="p">:</span>
                     <span class="n">name</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">name</span><span class="p">[:</span><span class="mi">20</span><span class="p">]</span><span class="si">}</span><span class="s1">...&#39;</span>
-                <span class="c1"># vtk_arr = array.VTKObject</span>
                 <span class="k">try</span><span class="p">:</span>
                     <span class="n">arr_type</span> <span class="o">=</span> <span class="n">attr_type</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">IsArrayAnAttribute</span><span class="p">(</span><span class="n">i</span><span class="p">)]</span>
                 <span class="k">except</span> <span class="p">(</span><span class="ne">IndexError</span><span class="p">,</span> <span class="ne">TypeError</span><span class="p">,</span> <span class="ne">AttributeError</span><span class="p">):</span>  <span class="c1"># pragma: no cover</span>
@@ -376,9 +375,7 @@
                     <span class="k">if</span> <span class="n">name</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">active_vectors_name</span><span class="p">:</span>
                         <span class="n">arr_type</span> <span class="o">=</span> <span class="s1">&#39;VECTORS&#39;</span>
 
-                <span class="n">line</span> <span class="o">=</span> <span class="p">(</span>
-                    <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">name</span><span class="p">[:</span><span class="mi">23</span><span class="p">]</span><span class="si">:</span><span class="s1">&lt;24</span><span class="si">}{</span><span class="nb">str</span><span class="p">(</span><span class="n">array</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span><span class="si">:</span><span class="s1">&lt;9</span><span class="si">}{</span><span class="nb">str</span><span class="p">(</span><span class="n">array</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span><span class="si">:</span><span class="s1">&lt;20</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="n">arr_type</span><span class="si">}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
-                <span class="p">)</span>
+                <span class="n">line</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">name</span><span class="p">[:</span><span class="mi">23</span><span class="p">]</span><span class="si">:</span><span class="s1">&lt;24</span><span class="si">}{</span><span class="nb">str</span><span class="p">(</span><span class="n">array</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span><span class="si">:</span><span class="s1">&lt;11</span><span class="si">}{</span><span class="nb">str</span><span class="p">(</span><span class="n">array</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span><span class="si">:</span><span class="s1">&lt;20</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="n">arr_type</span><span class="si">}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
                 <span class="n">lines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
             <span class="n">array_info</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">    &#39;</span> <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">    &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">lines</span><span class="p">)</span>
 
@@ -706,9 +703,7 @@
         <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">issubdtype</span><span class="p">(</span><span class="n">dtype</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">number</span><span class="p">)</span> <span class="ow">or</span> <span class="n">dtype</span> <span class="o">==</span> <span class="nb">bool</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">SetActiveScalars</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
 
-<div class="viewcode-block" id="DataSetAttributes.get_array"><a class="viewcode-back" href="../../../api/core/_autosummary/pyvista.DataSetAttributes.get_array.html#pyvista.DataSetAttributes.get_array">[ドキュメント]</a>    <span class="k">def</span> <span class="nf">get_array</span><span class="p">(</span>
-        <span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span>
-    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="n">pyvista_ndarray</span><span class="p">,</span> <span class="n">_vtk</span><span class="o">.</span><span class="n">vtkDataArray</span><span class="p">,</span> <span class="n">_vtk</span><span class="o">.</span><span class="n">vtkAbstractArray</span><span class="p">]:</span>
+<div class="viewcode-block" id="DataSetAttributes.get_array"><a class="viewcode-back" href="../../../api/core/_autosummary/pyvista.DataSetAttributes.get_array.html#pyvista.DataSetAttributes.get_array">[ドキュメント]</a>    <span class="k">def</span> <span class="nf">get_array</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">pyvista_ndarray</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;Get an array in this object.</span>
 
 <span class="sd">        Parameters</span>
@@ -720,11 +715,8 @@
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
-<span class="sd">        pyvista.pyvista_ndarray or vtkDataArray</span>
-<span class="sd">            Returns a :class:`pyvista.pyvista_ndarray` if the</span>
-<span class="sd">            underlying array is either a ``vtk.vtkDataArray`` or</span>
-<span class="sd">            ``vtk.vtkStringArray``.  Otherwise, returns a</span>
-<span class="sd">            ``vtk.vtkAbstractArray``.</span>
+<span class="sd">        pyvista.pyvista_ndarray</span>
+<span class="sd">            Returns a :class:`pyvista.pyvista_ndarray`.</span>
 
 <span class="sd">        Raises</span>
 <span class="sd">        ------</span>
@@ -764,11 +756,18 @@
             <span class="n">vtk_arr</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">GetAbstractArray</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
             <span class="k">if</span> <span class="n">vtk_arr</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
                 <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-            <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">vtk_arr</span><span class="p">)</span> <span class="o">==</span> <span class="n">_vtk</span><span class="o">.</span><span class="n">vtkAbstractArray</span><span class="p">:</span>
-                <span class="k">return</span> <span class="n">vtk_arr</span>
         <span class="n">narray</span> <span class="o">=</span> <span class="n">pyvista_ndarray</span><span class="p">(</span><span class="n">vtk_arr</span><span class="p">,</span> <span class="n">dataset</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="p">,</span> <span class="n">association</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">association</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">vtk_arr</span><span class="o">.</span><span class="n">GetName</span><span class="p">()</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">association_bitarray_names</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">association</span><span class="o">.</span><span class="n">name</span><span class="p">]:</span>
+
+        <span class="c1"># check if array needs to be represented as a different type</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="n">vtk_arr</span><span class="o">.</span><span class="n">GetName</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">_association_bitarray_names</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">association</span><span class="o">.</span><span class="n">name</span><span class="p">]:</span>
             <span class="n">narray</span> <span class="o">=</span> <span class="n">narray</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">bool_</span><span class="p">)</span>  <span class="c1"># type: ignore</span>
+        <span class="k">elif</span> <span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">_association_complex_names</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">association</span><span class="o">.</span><span class="n">name</span><span class="p">]:</span>
+            <span class="n">narray</span> <span class="o">=</span> <span class="n">narray</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">complex128</span><span class="p">)</span>  <span class="c1"># type: ignore</span>
+            <span class="c1"># remove singleton dimensions to match the behavior of the rest of 1D</span>
+            <span class="c1"># VTK arrays</span>
+            <span class="n">narray</span> <span class="o">=</span> <span class="n">narray</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span>
+
         <span class="k">return</span> <span class="n">narray</span></div>
 
 <div class="viewcode-block" id="DataSetAttributes.set_array"><a class="viewcode-back" href="../../../api/core/_autosummary/pyvista.DataSetAttributes.set_array.html#pyvista.DataSetAttributes.set_array">[ドキュメント]</a>    <span class="k">def</span> <span class="nf">set_array</span><span class="p">(</span>
@@ -830,6 +829,9 @@
 <span class="sd">        pyvista_ndarray([0, 1, 2])</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;`name` must be a string&#39;</span><span class="p">)</span>
+
         <span class="n">vtk_arr</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_prepare_array</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">deep_copy</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">VTKObject</span><span class="o">.</span><span class="n">AddArray</span><span class="p">(</span><span class="n">vtk_arr</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">VTKObject</span><span class="o">.</span><span class="n">Modified</span><span class="p">()</span></div>
@@ -864,6 +866,9 @@
 <span class="sd">        When adding directional data (such as velocity vectors), use</span>
 <span class="sd">        :func:`DataSetAttributes.set_vectors`.</span>
 
+<span class="sd">        Complex arrays will be represented internally as a 2 component float64</span>
+<span class="sd">        array. This is due to limitations of VTK&#39;s native datatypes.</span>
+
 <span class="sd">        Examples</span>
 <span class="sd">        --------</span>
 <span class="sd">        &gt;&gt;&gt; import pyvista</span>
@@ -879,7 +884,7 @@
 <span class="sd">        Active Texture  : None</span>
 <span class="sd">        Active Normals  : None</span>
 <span class="sd">        Contains arrays :</span>
-<span class="sd">            my-scalars              int64    (8,)                 SCALARS</span>
+<span class="sd">            my-scalars              int64      (8,)                 SCALARS</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">vtk_arr</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_prepare_array</span><span class="p">(</span><span class="n">scalars</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">deep_copy</span><span class="p">)</span>
@@ -942,7 +947,7 @@
 <span class="sd">        Active Texture  : None</span>
 <span class="sd">        Active Normals  : None</span>
 <span class="sd">        Contains arrays :</span>
-<span class="sd">            my-vectors              float64  (8, 3)               VECTORS</span>
+<span class="sd">            my-vectors              float64    (8, 3)               VECTORS</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="c1"># prepare the array and add an attribute so that we can track this as a vector</span>
@@ -967,7 +972,15 @@
     <span class="k">def</span> <span class="nf">_prepare_array</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Sequence</span><span class="p">[</span><span class="n">Number</span><span class="p">],</span> <span class="n">Number</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">],</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">deep_copy</span><span class="p">:</span> <span class="nb">bool</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">_vtk</span><span class="o">.</span><span class="n">vtkDataSet</span><span class="p">:</span>
-        <span class="sd">&quot;&quot;&quot;Prepare an array to be added to this dataset.&quot;&quot;&quot;</span>
+        <span class="sd">&quot;&quot;&quot;Prepare an array to be added to this dataset.</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        This method also adds metadata necessary for VTK to support non-VTK</span>
+<span class="sd">        compatible datatypes like ``numpy.complex128`` or ``numpy.bool_`` to</span>
+<span class="sd">        the underlying dataset.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">data</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;``data`` cannot be None.&#39;</span><span class="p">)</span>
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">Iterable</span><span class="p">):</span>
@@ -988,9 +1001,29 @@
         <span class="k">if</span> <span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="n">array_len</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;data length of (</span><span class="si">{</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s1">) != required length (</span><span class="si">{</span><span class="n">array_len</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">)</span>
 
+        <span class="c1"># reset data association</span>
+        <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">_association_bitarray_names</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">association</span><span class="o">.</span><span class="n">name</span><span class="p">]:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">_association_bitarray_names</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">association</span><span class="o">.</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">_association_complex_names</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">association</span><span class="o">.</span><span class="n">name</span><span class="p">]:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">_association_complex_names</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">association</span><span class="o">.</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+
         <span class="k">if</span> <span class="n">data</span><span class="o">.</span><span class="n">dtype</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">bool_</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">association_bitarray_names</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">association</span><span class="o">.</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">_association_bitarray_names</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">association</span><span class="o">.</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
             <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">np</span><span class="o">.</span><span class="n">issubdtype</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">complexfloating</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">data</span><span class="o">.</span><span class="n">dtype</span> <span class="o">!=</span> <span class="n">np</span><span class="o">.</span><span class="n">complex128</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                    <span class="s1">&#39;Only numpy.complex128 is supported when setting dataset attributes&#39;</span>
+                <span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">data</span><span class="o">.</span><span class="n">ndim</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Complex data must be single dimensional.&#39;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">_association_complex_names</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">association</span><span class="o">.</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+
+            <span class="c1"># complex data is stored internally as a contiguous 2 component</span>
+            <span class="c1"># float64 array</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 
         <span class="n">shape</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">shape</span>
         <span class="k">if</span> <span class="n">data</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
@@ -1096,7 +1129,7 @@
             <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s1"> not present.&#39;</span><span class="p">)</span>
 
         <span class="k">try</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">association_bitarray_names</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">association</span><span class="o">.</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">_association_bitarray_names</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">association</span><span class="o">.</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
         <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
             <span class="k">pass</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">VTKObject</span><span class="o">.</span><span class="n">RemoveArray</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
@@ -1220,12 +1253,7 @@
 <span class="sd">        [pyvista_ndarray([0, 0, 0, 0, 0, 0]), pyvista_ndarray([0, 1, 2, 3, 4, 5])]</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">values</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-            <span class="n">array</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">VTKObject</span><span class="o">.</span><span class="n">GetAbstractArray</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
-            <span class="n">arr</span> <span class="o">=</span> <span class="n">pyvista_ndarray</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">dataset</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="p">,</span> <span class="n">association</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">association</span><span class="p">)</span>
-            <span class="n">values</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">values</span></div>
+        <span class="k">return</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">get_array</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">keys</span><span class="p">()]</span></div>
 
 <div class="viewcode-block" id="DataSetAttributes.clear"><a class="viewcode-back" href="../../../api/core/_autosummary/pyvista.DataSetAttributes.clear.html#pyvista.DataSetAttributes.clear">[ドキュメント]</a>    <span class="k">def</span> <span class="nf">clear</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Remove all arrays in this object.</span>
@@ -1281,9 +1309,9 @@
 <span class="sd">        Active Texture  : None</span>
 <span class="sd">        Active Normals  : None</span>
 <span class="sd">        Contains arrays :</span>
-<span class="sd">            Spatial Point Data      float64  (1000,)</span>
-<span class="sd">            foo                     int64    (1000,)</span>
-<span class="sd">            rand                    float64  (1000,)              SCALARS</span>
+<span class="sd">            Spatial Point Data      float64    (1000,)</span>
+<span class="sd">            foo                     int64      (1000,)</span>
+<span class="sd">            rand                    float64    (1000,)              SCALARS</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">array</span> <span class="ow">in</span> <span class="n">array_dict</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
@@ -1415,8 +1443,8 @@
 <span class="sd">        Active Texture  : TextureCoordinates</span>
 <span class="sd">        Active Normals  : Normals</span>
 <span class="sd">        Contains arrays :</span>
-<span class="sd">            Normals                 float32  (4, 3)               NORMALS</span>
-<span class="sd">            TextureCoordinates      float32  (4, 2)               TCOORDS</span>
+<span class="sd">            Normals                 float32    (4, 3)               NORMALS</span>
+<span class="sd">            TextureCoordinates      float32    (4, 2)               TCOORDS</span>
 
 <span class="sd">        &gt;&gt;&gt; mesh.point_data.active_normals</span>
 <span class="sd">        pyvista_ndarray([[0.000000e+00,  0.000000e+00, -1.000000e+00],</span>
@@ -1437,7 +1465,7 @@
 <span class="sd">        Active Texture  : None</span>
 <span class="sd">        Active Normals  : Normals</span>
 <span class="sd">        Contains arrays :</span>
-<span class="sd">            Normals                 float64  (1, 3)               NORMALS</span>
+<span class="sd">            Normals                 float64    (1, 3)               NORMALS</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_raise_no_normals</span><span class="p">()</span>

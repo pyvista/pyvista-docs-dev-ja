@@ -12,4 +12,4 @@ mesh.point_data
 ## Active Texture  : None
 ## Active Normals  : None
 ## Contains arrays :
-##     my-scalars              int64    (8,)                 SCALARS
+##     my-scalars              int64      (8,)                 SCALARS

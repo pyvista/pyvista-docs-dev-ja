@@ -533,6 +533,11 @@
         </a>
        </li>
        <li class="toctree-l4">
+        <a class="reference internal" href="pyvista.DataSet.integrate_data.html">
+         integrate_data
+        </a>
+       </li>
+       <li class="toctree-l4">
         <a class="reference internal" href="pyvista.DataSet.interpolate.html">
          interpolate
         </a>
@@ -1173,7 +1178,7 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.DataSet.copy_attributes.html#pyvista.DataSet.copy_attributes" title="pyvista.DataSet.copy_attributes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.copy_attributes</span></code></a>(dataset)</p></td>
 <td><p>入力データセットオブジェクトのデータ属性をコピーします．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.DataSet.copy_meta_from.html#pyvista.DataSet.copy_meta_from" title="pyvista.DataSet.copy_meta_from"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.copy_meta_from</span></code></a>(ido)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.DataSet.copy_meta_from.html#pyvista.DataSet.copy_meta_from" title="pyvista.DataSet.copy_meta_from"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.copy_meta_from</span></code></a>(ido[, deep])</p></td>
 <td><p>別のオブジェクトからこのオブジェクトにpyvistaメタデータをコピーします．</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.DataSet.copy_structure.html#pyvista.DataSet.copy_structure" title="pyvista.DataSet.copy_structure"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.copy_structure</span></code></a>(dataset)</p></td>
@@ -1257,154 +1262,157 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.DataSet.head.html#pyvista.DataSet.head" title="pyvista.DataSet.head"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.head</span></code></a>([display, html])</p></td>
 <td><p>このデータセットのヘッダ統計情報を取得します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.DataSet.interpolate.html#pyvista.DataSet.interpolate" title="pyvista.DataSet.interpolate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.interpolate</span></code></a>(target[, sharpness, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.DataSet.integrate_data.html#pyvista.DataSet.integrate_data" title="pyvista.DataSet.integrate_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.integrate_data</span></code></a>([progress_bar])</p></td>
+<td><p>点データとセルデータを積分します．</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.DataSet.interpolate.html#pyvista.DataSet.interpolate" title="pyvista.DataSet.interpolate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.interpolate</span></code></a>(target[, sharpness, ...])</p></td>
 <td><p>特定のデータセットからこのメッシュに値を補間します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.DataSet.merge.html#pyvista.DataSet.merge" title="pyvista.DataSet.merge"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.merge</span></code></a>([grid, merge_points, inplace, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.DataSet.merge.html#pyvista.DataSet.merge" title="pyvista.DataSet.merge"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.merge</span></code></a>([grid, merge_points, inplace, ...])</p></td>
 <td><p>1つまたは複数の他のグリッドをこのグリッドに結合します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.DataSet.outline.html#pyvista.DataSet.outline" title="pyvista.DataSet.outline"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.outline</span></code></a>([generate_faces, progress_bar])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.DataSet.outline.html#pyvista.DataSet.outline" title="pyvista.DataSet.outline"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.outline</span></code></a>([generate_faces, progress_bar])</p></td>
 <td><p>入力データセットの全エクステントのアウトラインを作成します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.DataSet.outline_corners.html#pyvista.DataSet.outline_corners" title="pyvista.DataSet.outline_corners"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.outline_corners</span></code></a>([factor, progress_bar])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.DataSet.outline_corners.html#pyvista.DataSet.outline_corners" title="pyvista.DataSet.outline_corners"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.outline_corners</span></code></a>([factor, progress_bar])</p></td>
 <td><p>入力データセットのコーナーのアウトラインを生成します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.DataSet.overwrite.html#pyvista.DataSet.overwrite" title="pyvista.DataSet.overwrite"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.overwrite</span></code></a>(mesh)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.DataSet.overwrite.html#pyvista.DataSet.overwrite" title="pyvista.DataSet.overwrite"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.overwrite</span></code></a>(mesh)</p></td>
 <td><p>このデータセットin-placeを新しいデータセットのジオメトリとデータで上書きします．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.DataSet.plot.html#pyvista.DataSet.plot" title="pyvista.DataSet.plot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.plot</span></code></a>([off_screen, full_screen, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.DataSet.plot.html#pyvista.DataSet.plot" title="pyvista.DataSet.plot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.plot</span></code></a>([off_screen, full_screen, ...])</p></td>
 <td><p>vtkまたはnumpyオブジェクトをプロットします．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.DataSet.plot_over_circular_arc.html#pyvista.DataSet.plot_over_circular_arc" title="pyvista.DataSet.plot_over_circular_arc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.plot_over_circular_arc</span></code></a>(pointa, ...)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.DataSet.plot_over_circular_arc.html#pyvista.DataSet.plot_over_circular_arc" title="pyvista.DataSet.plot_over_circular_arc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.plot_over_circular_arc</span></code></a>(pointa, ...)</p></td>
 <td><p>円弧に沿ってデータセットをサンプリングし，プロットします．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.DataSet.plot_over_circular_arc_normal.html#pyvista.DataSet.plot_over_circular_arc_normal" title="pyvista.DataSet.plot_over_circular_arc_normal"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.plot_over_circular_arc_normal</span></code></a>(center)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.DataSet.plot_over_circular_arc_normal.html#pyvista.DataSet.plot_over_circular_arc_normal" title="pyvista.DataSet.plot_over_circular_arc_normal"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.plot_over_circular_arc_normal</span></code></a>(center)</p></td>
 <td><p>法線ベクトルと極ベクトルで定義された解像度の円弧に沿ってデータセットをサンプリングし，それをプロットします．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.DataSet.plot_over_line.html#pyvista.DataSet.plot_over_line" title="pyvista.DataSet.plot_over_line"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.plot_over_line</span></code></a>(pointa, pointb[, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.DataSet.plot_over_line.html#pyvista.DataSet.plot_over_line" title="pyvista.DataSet.plot_over_line"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.plot_over_line</span></code></a>(pointa, pointb[, ...])</p></td>
 <td><p>高解像度の線に沿ってデータセットをサンプリングし，プロットします．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.DataSet.point_data_to_cell_data.html#pyvista.DataSet.point_data_to_cell_data" title="pyvista.DataSet.point_data_to_cell_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.point_data_to_cell_data</span></code></a>([...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.DataSet.point_data_to_cell_data.html#pyvista.DataSet.point_data_to_cell_data" title="pyvista.DataSet.point_data_to_cell_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.point_data_to_cell_data</span></code></a>([...])</p></td>
 <td><p>点データをセルデータに変換します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.DataSet.probe.html#pyvista.DataSet.probe" title="pyvista.DataSet.probe"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.probe</span></code></a>(points[, tolerance, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.DataSet.probe.html#pyvista.DataSet.probe" title="pyvista.DataSet.probe"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.probe</span></code></a>(points[, tolerance, ...])</p></td>
 <td><p>指定したポイント位置のサンプルデータ値．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.DataSet.ptc.html#pyvista.DataSet.ptc" title="pyvista.DataSet.ptc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.ptc</span></code></a>([pass_point_data, progress_bar])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.DataSet.ptc.html#pyvista.DataSet.ptc" title="pyvista.DataSet.ptc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.ptc</span></code></a>([pass_point_data, progress_bar])</p></td>
 <td><p>点データをセルデータに変換します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.DataSet.reflect.html#pyvista.DataSet.reflect" title="pyvista.DataSet.reflect"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.reflect</span></code></a>(normal[, point, inplace, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.DataSet.reflect.html#pyvista.DataSet.reflect" title="pyvista.DataSet.reflect"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.reflect</span></code></a>(normal[, point, inplace, ...])</p></td>
 <td><p>平面でデータセットを反射します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.DataSet.rename_array.html#pyvista.DataSet.rename_array" title="pyvista.DataSet.rename_array"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.rename_array</span></code></a>(old_name, new_name[, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.DataSet.rename_array.html#pyvista.DataSet.rename_array" title="pyvista.DataSet.rename_array"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.rename_array</span></code></a>(old_name, new_name[, ...])</p></td>
 <td><p>配列名を変更するには，配列を検索して名前を変更します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.DataSet.rotate_vector.html#pyvista.DataSet.rotate_vector" title="pyvista.DataSet.rotate_vector"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.rotate_vector</span></code></a>(vector, angle[, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.DataSet.rotate_vector.html#pyvista.DataSet.rotate_vector" title="pyvista.DataSet.rotate_vector"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.rotate_vector</span></code></a>(vector, angle[, ...])</p></td>
 <td><p>メッシュをベクトルを中心に回転します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.DataSet.rotate_x.html#pyvista.DataSet.rotate_x" title="pyvista.DataSet.rotate_x"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.rotate_x</span></code></a>(angle[, point, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.DataSet.rotate_x.html#pyvista.DataSet.rotate_x" title="pyvista.DataSet.rotate_x"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.rotate_x</span></code></a>(angle[, point, ...])</p></td>
 <td><p>メッシュをX軸を中心に回転します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.DataSet.rotate_y.html#pyvista.DataSet.rotate_y" title="pyvista.DataSet.rotate_y"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.rotate_y</span></code></a>(angle[, point, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.DataSet.rotate_y.html#pyvista.DataSet.rotate_y" title="pyvista.DataSet.rotate_y"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.rotate_y</span></code></a>(angle[, point, ...])</p></td>
 <td><p>メッシュをY軸を中心に回転します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.DataSet.rotate_z.html#pyvista.DataSet.rotate_z" title="pyvista.DataSet.rotate_z"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.rotate_z</span></code></a>(angle[, point, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.DataSet.rotate_z.html#pyvista.DataSet.rotate_z" title="pyvista.DataSet.rotate_z"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.rotate_z</span></code></a>(angle[, point, ...])</p></td>
 <td><p>メッシュをZ軸を中心に回転します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.DataSet.sample.html#pyvista.DataSet.sample" title="pyvista.DataSet.sample"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.sample</span></code></a>(target[, tolerance, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.DataSet.sample.html#pyvista.DataSet.sample" title="pyvista.DataSet.sample"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.sample</span></code></a>(target[, tolerance, ...])</p></td>
 <td><p>渡されたメッシュからこのメッシュに配列データをリサンプルします．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.DataSet.sample_over_circular_arc.html#pyvista.DataSet.sample_over_circular_arc" title="pyvista.DataSet.sample_over_circular_arc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.sample_over_circular_arc</span></code></a>(pointa, ...)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.DataSet.sample_over_circular_arc.html#pyvista.DataSet.sample_over_circular_arc" title="pyvista.DataSet.sample_over_circular_arc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.sample_over_circular_arc</span></code></a>(pointa, ...)</p></td>
 <td><p>円弧上のデータセットをサンプリングします．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.DataSet.sample_over_circular_arc_normal.html#pyvista.DataSet.sample_over_circular_arc_normal" title="pyvista.DataSet.sample_over_circular_arc_normal"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.sample_over_circular_arc_normal</span></code></a>(center)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.DataSet.sample_over_circular_arc_normal.html#pyvista.DataSet.sample_over_circular_arc_normal" title="pyvista.DataSet.sample_over_circular_arc_normal"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.sample_over_circular_arc_normal</span></code></a>(center)</p></td>
 <td><p>法線ベクトルと極ベクトルで定義された円弧上のデータセットをサンプリングし，それをプロットします．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.DataSet.sample_over_line.html#pyvista.DataSet.sample_over_line" title="pyvista.DataSet.sample_over_line"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.sample_over_line</span></code></a>(pointa, pointb[, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.DataSet.sample_over_line.html#pyvista.DataSet.sample_over_line" title="pyvista.DataSet.sample_over_line"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.sample_over_line</span></code></a>(pointa, pointb[, ...])</p></td>
 <td><p>データセットを1行に抽出します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.DataSet.sample_over_multiple_lines.html#pyvista.DataSet.sample_over_multiple_lines" title="pyvista.DataSet.sample_over_multiple_lines"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.sample_over_multiple_lines</span></code></a>(points[, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.DataSet.sample_over_multiple_lines.html#pyvista.DataSet.sample_over_multiple_lines" title="pyvista.DataSet.sample_over_multiple_lines"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.sample_over_multiple_lines</span></code></a>(points[, ...])</p></td>
 <td><p>データセットを複数行に分割してサンプリングする．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.DataSet.save.html#pyvista.DataSet.save" title="pyvista.DataSet.save"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.save</span></code></a>(filename[, binary, texture])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.DataSet.save.html#pyvista.DataSet.save" title="pyvista.DataSet.save"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.save</span></code></a>(filename[, binary, texture])</p></td>
 <td><p>このvtkオブジェクトをファイルに保存します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.DataSet.scale.html#pyvista.DataSet.scale" title="pyvista.DataSet.scale"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.scale</span></code></a>(xyz[, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.DataSet.scale.html#pyvista.DataSet.scale" title="pyvista.DataSet.scale"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.scale</span></code></a>(xyz[, ...])</p></td>
 <td><p>メッシュをスケールします．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.DataSet.select_enclosed_points.html#pyvista.DataSet.select_enclosed_points" title="pyvista.DataSet.select_enclosed_points"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.select_enclosed_points</span></code></a>(surface[, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.DataSet.select_enclosed_points.html#pyvista.DataSet.select_enclosed_points" title="pyvista.DataSet.select_enclosed_points"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.select_enclosed_points</span></code></a>(surface[, ...])</p></td>
 <td><p>ポイントが閉じた表面の内側にあるかどうかをマークします．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.DataSet.set_active_scalars.html#pyvista.DataSet.set_active_scalars" title="pyvista.DataSet.set_active_scalars"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.set_active_scalars</span></code></a>(name[, preference])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.DataSet.set_active_scalars.html#pyvista.DataSet.set_active_scalars" title="pyvista.DataSet.set_active_scalars"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.set_active_scalars</span></code></a>(name[, preference])</p></td>
 <td><p>スカラーを名前で検索し，適切にアクティブに設定します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.DataSet.set_active_tensors.html#pyvista.DataSet.set_active_tensors" title="pyvista.DataSet.set_active_tensors"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.set_active_tensors</span></code></a>(name[, preference])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.DataSet.set_active_tensors.html#pyvista.DataSet.set_active_tensors" title="pyvista.DataSet.set_active_tensors"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.set_active_tensors</span></code></a>(name[, preference])</p></td>
 <td><p>​テンソルを名前で検索し，適切にアクティブに設定します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.DataSet.set_active_vectors.html#pyvista.DataSet.set_active_vectors" title="pyvista.DataSet.set_active_vectors"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.set_active_vectors</span></code></a>(name[, preference])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.DataSet.set_active_vectors.html#pyvista.DataSet.set_active_vectors" title="pyvista.DataSet.set_active_vectors"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.set_active_vectors</span></code></a>(name[, preference])</p></td>
 <td><p>ベクトルを名前で検索し，適切にアクティブに設定します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.DataSet.shallow_copy.html#pyvista.DataSet.shallow_copy" title="pyvista.DataSet.shallow_copy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.shallow_copy</span></code></a>(to_copy)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.DataSet.shallow_copy.html#pyvista.DataSet.shallow_copy" title="pyvista.DataSet.shallow_copy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.shallow_copy</span></code></a>(to_copy)</p></td>
 <td><p>指定されたメッシュをこのメッシュに浅くコピーします．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.DataSet.shrink.html#pyvista.DataSet.shrink" title="pyvista.DataSet.shrink"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.shrink</span></code></a>([shrink_factor, progress_bar])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.DataSet.shrink.html#pyvista.DataSet.shrink" title="pyvista.DataSet.shrink"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.shrink</span></code></a>([shrink_factor, progress_bar])</p></td>
 <td><p>メッシュの個々の面を縮小します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.DataSet.slice.html#pyvista.DataSet.slice" title="pyvista.DataSet.slice"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.slice</span></code></a>([normal, origin, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.DataSet.slice.html#pyvista.DataSet.slice" title="pyvista.DataSet.slice"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.slice</span></code></a>([normal, origin, ...])</p></td>
 <td><p>指定した原点および法線ベクトル方向の平面でデータセットをスライスします．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.DataSet.slice_along_axis.html#pyvista.DataSet.slice_along_axis" title="pyvista.DataSet.slice_along_axis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.slice_along_axis</span></code></a>([n, axis, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.DataSet.slice_along_axis.html#pyvista.DataSet.slice_along_axis" title="pyvista.DataSet.slice_along_axis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.slice_along_axis</span></code></a>([n, axis, ...])</p></td>
 <td><p>指定した軸に沿って，入力データセットのスライスを多数作成します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.DataSet.slice_along_line.html#pyvista.DataSet.slice_along_line" title="pyvista.DataSet.slice_along_line"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.slice_along_line</span></code></a>(line[, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.DataSet.slice_along_line.html#pyvista.DataSet.slice_along_line" title="pyvista.DataSet.slice_along_line"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.slice_along_line</span></code></a>(line[, ...])</p></td>
 <td><p>パスとしてpolyline/splineを使用してデータセットをスライスします．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.DataSet.slice_orthogonal.html#pyvista.DataSet.slice_orthogonal" title="pyvista.DataSet.slice_orthogonal"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.slice_orthogonal</span></code></a>([x, y, z, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.DataSet.slice_orthogonal.html#pyvista.DataSet.slice_orthogonal" title="pyvista.DataSet.slice_orthogonal"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.slice_orthogonal</span></code></a>([x, y, z, ...])</p></td>
 <td><p>3つの直交平面上のデータセットから3つの直交スライスを作成します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.DataSet.split_bodies.html#pyvista.DataSet.split_bodies" title="pyvista.DataSet.split_bodies"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.split_bodies</span></code></a>([label, progress_bar])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.DataSet.split_bodies.html#pyvista.DataSet.split_bodies" title="pyvista.DataSet.split_bodies"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.split_bodies</span></code></a>([label, progress_bar])</p></td>
 <td><p>接続されたボディ/ボリュームを検索，ラベル付け，および分割します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.DataSet.streamlines.html#pyvista.DataSet.streamlines" title="pyvista.DataSet.streamlines"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.streamlines</span></code></a>([vectors, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.DataSet.streamlines.html#pyvista.DataSet.streamlines" title="pyvista.DataSet.streamlines"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.streamlines</span></code></a>([vectors, ...])</p></td>
 <td><p>ベクトルフィールドを積分して，流線を生成します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.DataSet.streamlines_evenly_spaced_2D.html#pyvista.DataSet.streamlines_evenly_spaced_2D" title="pyvista.DataSet.streamlines_evenly_spaced_2D"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.streamlines_evenly_spaced_2D</span></code></a>([...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.DataSet.streamlines_evenly_spaced_2D.html#pyvista.DataSet.streamlines_evenly_spaced_2D" title="pyvista.DataSet.streamlines_evenly_spaced_2D"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.streamlines_evenly_spaced_2D</span></code></a>([...])</p></td>
 <td><p>2Dデータに等間隔の流線を生成します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.DataSet.streamlines_from_source.html#pyvista.DataSet.streamlines_from_source" title="pyvista.DataSet.streamlines_from_source"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.streamlines_from_source</span></code></a>(source[, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.DataSet.streamlines_from_source.html#pyvista.DataSet.streamlines_from_source" title="pyvista.DataSet.streamlines_from_source"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.streamlines_from_source</span></code></a>(source[, ...])</p></td>
 <td><p>ソースメッシュのポイントからベクトルの流線を生成します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.DataSet.surface_indices.html#pyvista.DataSet.surface_indices" title="pyvista.DataSet.surface_indices"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.surface_indices</span></code></a>([progress_bar])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.DataSet.surface_indices.html#pyvista.DataSet.surface_indices" title="pyvista.DataSet.surface_indices"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.surface_indices</span></code></a>([progress_bar])</p></td>
 <td><p>グリッドのサーフェスインデックスを取得します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.DataSet.tessellate.html#pyvista.DataSet.tessellate" title="pyvista.DataSet.tessellate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.tessellate</span></code></a>([max_n_subdivide, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.DataSet.tessellate.html#pyvista.DataSet.tessellate" title="pyvista.DataSet.tessellate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.tessellate</span></code></a>([max_n_subdivide, ...])</p></td>
 <td><p>メッシュをテッセレーションします．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.DataSet.texture_map_to_plane.html#pyvista.DataSet.texture_map_to_plane" title="pyvista.DataSet.texture_map_to_plane"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.texture_map_to_plane</span></code></a>([origin, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.DataSet.texture_map_to_plane.html#pyvista.DataSet.texture_map_to_plane" title="pyvista.DataSet.texture_map_to_plane"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.texture_map_to_plane</span></code></a>([origin, ...])</p></td>
 <td><p>このデータセットをユーザ定義平面にテクスチャマップします．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.DataSet.texture_map_to_sphere.html#pyvista.DataSet.texture_map_to_sphere" title="pyvista.DataSet.texture_map_to_sphere"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.texture_map_to_sphere</span></code></a>([center, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.DataSet.texture_map_to_sphere.html#pyvista.DataSet.texture_map_to_sphere" title="pyvista.DataSet.texture_map_to_sphere"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.texture_map_to_sphere</span></code></a>([center, ...])</p></td>
 <td><p>このデータセットをユーザ定義球にテクスチャマップします．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.DataSet.threshold.html#pyvista.DataSet.threshold" title="pyvista.DataSet.threshold"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.threshold</span></code></a>([value, scalars, invert, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.DataSet.threshold.html#pyvista.DataSet.threshold" title="pyvista.DataSet.threshold"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.threshold</span></code></a>([value, scalars, invert, ...])</p></td>
 <td><p>入力データセットに <code class="docutils literal notranslate"><span class="pre">vtkThreshold</span></code> フィルタを適用します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.DataSet.threshold_percent.html#pyvista.DataSet.threshold_percent" title="pyvista.DataSet.threshold_percent"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.threshold_percent</span></code></a>([percent, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.DataSet.threshold_percent.html#pyvista.DataSet.threshold_percent" title="pyvista.DataSet.threshold_percent"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.threshold_percent</span></code></a>([percent, ...])</p></td>
 <td><p>データセットを，アクティブなスカラー配列上の範囲のパーセンテージでしきい値化します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.DataSet.transform.html#pyvista.DataSet.transform" title="pyvista.DataSet.transform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.transform</span></code></a>(trans[, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.DataSet.transform.html#pyvista.DataSet.transform" title="pyvista.DataSet.transform"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.transform</span></code></a>(trans[, ...])</p></td>
 <td><p>このメッシュを4x4変換で変換します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.DataSet.translate.html#pyvista.DataSet.translate" title="pyvista.DataSet.translate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.translate</span></code></a>(xyz[, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.DataSet.translate.html#pyvista.DataSet.translate" title="pyvista.DataSet.translate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.translate</span></code></a>(xyz[, ...])</p></td>
 <td><p>メッシュを移動します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.DataSet.triangulate.html#pyvista.DataSet.triangulate" title="pyvista.DataSet.triangulate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.triangulate</span></code></a>([inplace, progress_bar])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.DataSet.triangulate.html#pyvista.DataSet.triangulate" title="pyvista.DataSet.triangulate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.triangulate</span></code></a>([inplace, progress_bar])</p></td>
 <td><p>すべて三角形のメッシュを取得します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.DataSet.warp_by_scalar.html#pyvista.DataSet.warp_by_scalar" title="pyvista.DataSet.warp_by_scalar"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.warp_by_scalar</span></code></a>([scalars, factor, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.DataSet.warp_by_scalar.html#pyvista.DataSet.warp_by_scalar" title="pyvista.DataSet.warp_by_scalar"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.warp_by_scalar</span></code></a>([scalars, factor, ...])</p></td>
 <td><p>データセットのポイントをポイントデータスカラー配列の値でワープします．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.DataSet.warp_by_vector.html#pyvista.DataSet.warp_by_vector" title="pyvista.DataSet.warp_by_vector"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.warp_by_vector</span></code></a>([vectors, factor, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.DataSet.warp_by_vector.html#pyvista.DataSet.warp_by_vector" title="pyvista.DataSet.warp_by_vector"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.warp_by_vector</span></code></a>([vectors, factor, ...])</p></td>
 <td><p>データセットのポイントをポイントデータスカラー配列の値でワープします．</p></td>
 </tr>
 </tbody>

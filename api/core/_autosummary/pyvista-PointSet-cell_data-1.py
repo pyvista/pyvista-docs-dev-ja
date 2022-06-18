@@ -15,8 +15,8 @@ mesh.cell_data
 ## Active Texture  : None
 ## Active Normals  : None
 ## Contains arrays :
-##     my_array                float64  (6,)
-##     my_other_array          int64    (6,)                 SCALARS
+##     my_array                float64    (6,)
+##     my_other_array          int64      (6,)                 SCALARS
 #
 # Access an array from ``cell_data``.
 #

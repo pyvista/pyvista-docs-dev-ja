@@ -221,6 +221,7 @@
 <span></span><span class="sd">&quot;&quot;&quot;Attributes common to PolyData and Grid Objects.&quot;&quot;&quot;</span>
 
 <span class="kn">import</span> <span class="nn">collections.abc</span>
+<span class="kn">from</span> <span class="nn">copy</span> <span class="kn">import</span> <span class="n">deepcopy</span>
 <span class="kn">import</span> <span class="nn">logging</span>
 <span class="kn">import</span> <span class="nn">sys</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Iterable</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Union</span>
@@ -269,6 +270,10 @@
         <span class="sd">&quot;&quot;&quot;Initialize.&quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">association</span> <span class="o">=</span> <span class="n">association</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+
+    <span class="k">def</span> <span class="nf">copy</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return a copy of this object.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">ActiveArrayInfo</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">association</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">__getstate__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Support pickling.&quot;&quot;&quot;</span>
@@ -1627,7 +1632,7 @@
             <span class="n">t</span><span class="p">,</span> <span class="n">transform_all_input_vectors</span><span class="o">=</span><span class="n">transform_all_input_vectors</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="n">inplace</span>
         <span class="p">)</span></div>
 
-<div class="viewcode-block" id="DataSet.copy_meta_from"><a class="viewcode-back" href="../../../api/core/_autosummary/pyvista.DataSet.copy_meta_from.html#pyvista.DataSet.copy_meta_from">[ドキュメント]</a>    <span class="k">def</span> <span class="nf">copy_meta_from</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ido</span><span class="p">:</span> <span class="s1">&#39;DataSet&#39;</span><span class="p">):</span>
+<div class="viewcode-block" id="DataSet.copy_meta_from"><a class="viewcode-back" href="../../../api/core/_autosummary/pyvista.DataSet.copy_meta_from.html#pyvista.DataSet.copy_meta_from">[ドキュメント]</a>    <span class="k">def</span> <span class="nf">copy_meta_from</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ido</span><span class="p">:</span> <span class="s1">&#39;DataSet&#39;</span><span class="p">,</span> <span class="n">deep</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Copy pyvista meta data onto this object from another object.</span>
 
 <span class="sd">        Parameters</span>
@@ -1635,11 +1640,27 @@
 <span class="sd">        ido : pyvista.DataSet</span>
 <span class="sd">            Dataset to copy the metadata from.</span>
 
+<span class="sd">        deep : bool, optional</span>
+<span class="sd">            Deep or shallow copy.</span>
+
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_active_scalars_info</span> <span class="o">=</span> <span class="n">ido</span><span class="o">.</span><span class="n">active_scalars_info</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_active_vectors_info</span> <span class="o">=</span> <span class="n">ido</span><span class="o">.</span><span class="n">active_vectors_info</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">clear_textures</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_textures</span> <span class="o">=</span> <span class="p">{</span><span class="n">name</span><span class="p">:</span> <span class="n">tex</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span> <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">tex</span> <span class="ow">in</span> <span class="n">ido</span><span class="o">.</span><span class="n">textures</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span></div>
+
+        <span class="k">if</span> <span class="n">deep</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_association_complex_names</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">ido</span><span class="o">.</span><span class="n">_association_complex_names</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_association_bitarray_names</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">ido</span><span class="o">.</span><span class="n">_association_bitarray_names</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_active_scalars_info</span> <span class="o">=</span> <span class="n">ido</span><span class="o">.</span><span class="n">active_scalars_info</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_active_vectors_info</span> <span class="o">=</span> <span class="n">ido</span><span class="o">.</span><span class="n">active_vectors_info</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_active_tensors_info</span> <span class="o">=</span> <span class="n">ido</span><span class="o">.</span><span class="n">active_tensors_info</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_textures</span> <span class="o">=</span> <span class="p">{</span><span class="n">name</span><span class="p">:</span> <span class="n">tex</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span> <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">tex</span> <span class="ow">in</span> <span class="n">ido</span><span class="o">.</span><span class="n">textures</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># pass by reference</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_association_complex_names</span> <span class="o">=</span> <span class="n">ido</span><span class="o">.</span><span class="n">_association_complex_names</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_association_bitarray_names</span> <span class="o">=</span> <span class="n">ido</span><span class="o">.</span><span class="n">_association_bitarray_names</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_active_scalars_info</span> <span class="o">=</span> <span class="n">ido</span><span class="o">.</span><span class="n">active_scalars_info</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_active_vectors_info</span> <span class="o">=</span> <span class="n">ido</span><span class="o">.</span><span class="n">active_vectors_info</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_active_tensors_info</span> <span class="o">=</span> <span class="n">ido</span><span class="o">.</span><span class="n">active_tensors_info</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_textures</span> <span class="o">=</span> <span class="n">ido</span><span class="o">.</span><span class="n">textures</span></div>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">point_arrays</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DataSetAttributes</span><span class="p">:</span>  <span class="c1"># pragma: no cover</span>
@@ -1677,8 +1698,8 @@
 <span class="sd">        Active Texture  : None</span>
 <span class="sd">        Active Normals  : None</span>
 <span class="sd">        Contains arrays :</span>
-<span class="sd">            my_array                float64  (8,)</span>
-<span class="sd">            my_other_array          int64    (8,)                 SCALARS</span>
+<span class="sd">            my_array                float64    (8,)</span>
+<span class="sd">            my_other_array          int64      (8,)                 SCALARS</span>
 
 <span class="sd">        Access an array from ``point_data``.</span>
 
@@ -1814,8 +1835,8 @@
 <span class="sd">        Active Texture  : None</span>
 <span class="sd">        Active Normals  : None</span>
 <span class="sd">        Contains arrays :</span>
-<span class="sd">            my_array                float64  (6,)</span>
-<span class="sd">            my_other_array          int64    (6,)                 SCALARS</span>
+<span class="sd">            my_array                float64    (6,)</span>
+<span class="sd">            my_other_array          int64      (6,)                 SCALARS</span>
 
 <span class="sd">        Access an array from ``cell_data``.</span>
 
@@ -2255,7 +2276,7 @@
             <span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">deep_copy</span><span class="p">(</span><span class="n">mesh</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">is_pyvista_dataset</span><span class="p">(</span><span class="n">mesh</span><span class="p">):</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">copy_meta_from</span><span class="p">(</span><span class="n">mesh</span><span class="p">)</span></div>
+            <span class="bp">self</span><span class="o">.</span><span class="n">copy_meta_from</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">deep</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="DataSet.cast_to_unstructured_grid"><a class="viewcode-back" href="../../../api/core/_autosummary/pyvista.DataSet.cast_to_unstructured_grid.html#pyvista.DataSet.cast_to_unstructured_grid">[ドキュメント]</a>    <span class="k">def</span> <span class="nf">cast_to_unstructured_grid</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;pyvista.UnstructuredGrid&#39;</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;Get a new representation of this object as a :class:`pyvista.UnstructuredGrid`.</span>

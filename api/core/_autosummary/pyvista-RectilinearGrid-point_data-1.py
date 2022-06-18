@@ -15,8 +15,8 @@ mesh.point_data
 ## Active Texture  : None
 ## Active Normals  : None
 ## Contains arrays :
-##     my_array                float64  (8,)
-##     my_other_array          int64    (8,)                 SCALARS
+##     my_array                float64    (8,)
+##     my_other_array          int64      (8,)                 SCALARS
 #
 # Access an array from ``point_data``.
 #

@@ -15,4 +15,4 @@ mesh.point_data
 ## Active Texture  : None
 ## Active Normals  : None
 ## Contains arrays :
-##     my-vectors              float64  (8, 3)               VECTORS
+##     my-vectors              float64    (8, 3)               VECTORS
