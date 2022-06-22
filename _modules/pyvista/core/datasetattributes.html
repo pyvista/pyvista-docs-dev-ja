@@ -220,7 +220,6 @@
   <h1>pyvista.core.datasetattributes のソースコード</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot;Implements DataSetAttributes, which represents and manipulates datasets.&quot;&quot;&quot;</span>
 
-<span class="kn">from</span> <span class="nn">collections.abc</span> <span class="kn">import</span> <span class="n">Iterable</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Iterator</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Union</span>
 <span class="kn">import</span> <span class="nn">warnings</span>
 
@@ -229,7 +228,7 @@
 <span class="kn">from</span> <span class="nn">pyvista</span> <span class="kn">import</span> <span class="n">_vtk</span>
 <span class="kn">import</span> <span class="nn">pyvista.utilities.helpers</span> <span class="k">as</span> <span class="nn">helpers</span>
 <span class="kn">from</span> <span class="nn">pyvista.utilities.helpers</span> <span class="kn">import</span> <span class="n">FieldAssociation</span>
-<span class="kn">from</span> <span class="nn">pyvista.utilities.misc</span> <span class="kn">import</span> <span class="n">PyvistaDeprecationWarning</span>
+<span class="kn">from</span> <span class="nn">pyvista.utilities.misc</span> <span class="kn">import</span> <span class="n">PyvistaDeprecationWarning</span><span class="p">,</span> <span class="n">copy_vtk_array</span>
 
 <span class="kn">from</span> <span class="nn">.._typing</span> <span class="kn">import</span> <span class="n">Number</span>
 <span class="kn">from</span> <span class="nn">.pyvista_ndarray</span> <span class="kn">import</span> <span class="n">pyvista_ndarray</span>
@@ -983,8 +982,23 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">data</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;``data`` cannot be None.&#39;</span><span class="p">)</span>
-        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">Iterable</span><span class="p">):</span>
-            <span class="n">data</span> <span class="o">=</span> <span class="n">pyvista_ndarray</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+        <span class="c1"># attempt to reuse the existing pointer to underlying VTK data</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">pyvista_ndarray</span><span class="p">):</span>
+            <span class="c1"># pyvista_ndarray already contains the reference to the vtk object</span>
+            <span class="c1"># pyvista needs to use the copy of this object rather than wrapping</span>
+            <span class="c1"># the array (which leaves a C++ pointer uncollected.</span>
+            <span class="k">if</span> <span class="n">data</span><span class="o">.</span><span class="n">VTKObject</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="c1"># VTK doesn&#39;t support strides, therefore we can&#39;t directly</span>
+                <span class="c1"># point to the underlying object</span>
+                <span class="k">if</span> <span class="n">data</span><span class="o">.</span><span class="n">flags</span><span class="o">.</span><span class="n">c_contiguous</span><span class="p">:</span>
+                    <span class="n">vtk_arr</span> <span class="o">=</span> <span class="n">copy_vtk_array</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">VTKObject</span><span class="p">,</span> <span class="n">deep</span><span class="o">=</span><span class="n">deep_copy</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+                        <span class="n">vtk_arr</span><span class="o">.</span><span class="n">SetName</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+                    <span class="k">return</span> <span class="n">vtk_arr</span>
+
+        <span class="c1"># convert to numpy type if necessary</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asanyarray</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">association</span> <span class="o">==</span> <span class="n">FieldAssociation</span><span class="o">.</span><span class="n">POINT</span><span class="p">:</span>
             <span class="n">array_len</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">GetNumberOfPoints</span><span class="p">()</span>
@@ -1318,10 +1332,10 @@
             <span class="bp">self</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">array</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span></div>
 
     <span class="k">def</span> <span class="nf">_raise_index_out_of_bounds</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">:</span> <span class="n">Any</span><span class="p">):</span>
-        <span class="n">max_index</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">VTKObject</span><span class="o">.</span><span class="n">GetNumberOfArrays</span><span class="p">()</span>
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
-            <span class="k">if</span> <span class="n">index</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">index</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">VTKObject</span><span class="o">.</span><span class="n">GetNumberOfArrays</span><span class="p">():</span>
-                <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Array index (</span><span class="si">{</span><span class="n">index</span><span class="si">}</span><span class="s1">) out of range [0, </span><span class="si">{</span><span class="n">max_index</span><span class="si">}</span><span class="s1">]&#39;</span><span class="p">)</span>
+            <span class="n">max_index</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">VTKObject</span><span class="o">.</span><span class="n">GetNumberOfArrays</span><span class="p">()</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">index</span> <span class="o">&lt;</span> <span class="n">max_index</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Array index (</span><span class="si">{</span><span class="n">index</span><span class="si">}</span><span class="s1">) out of range [0, </span><span class="si">{</span><span class="n">max_index</span> <span class="o">-</span> <span class="mi">1</span><span class="si">}</span><span class="s1">]&#39;</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">_raise_field_data_no_scalars_vectors</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Raise a TypeError if FieldData.&quot;&quot;&quot;</span>

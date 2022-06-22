@@ -8,7 +8,7 @@ _ = sphere.compute_implicit_distance(plane, inplace=True)
 dist = sphere['implicit_distance']
 type(dist)
 # Expected:
-## <class 'numpy.ndarray'>
+## <class 'pyvista.core.pyvista_ndarray.pyvista_ndarray'>
 #
 # Plot these distances as a heatmap
 #

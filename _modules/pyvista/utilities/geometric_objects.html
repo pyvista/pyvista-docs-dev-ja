@@ -1666,7 +1666,7 @@
     <span class="n">solid</span><span class="o">.</span><span class="n">Update</span><span class="p">()</span>
     <span class="n">solid</span> <span class="o">=</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">wrap</span><span class="p">(</span><span class="n">solid</span><span class="o">.</span><span class="n">GetOutput</span><span class="p">())</span>
     <span class="c1"># rename and activate cell scalars</span>
-    <span class="n">cell_data</span> <span class="o">=</span> <span class="n">solid</span><span class="o">.</span><span class="n">get_array</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">cell_data</span> <span class="o">=</span> <span class="n">solid</span><span class="o">.</span><span class="n">cell_data</span><span class="o">.</span><span class="n">get_array</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
     <span class="n">solid</span><span class="o">.</span><span class="n">clear_data</span><span class="p">()</span>
     <span class="n">solid</span><span class="o">.</span><span class="n">cell_data</span><span class="p">[</span><span class="s1">&#39;FaceIndex&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">cell_data</span>
     <span class="c1"># scale and translate</span>

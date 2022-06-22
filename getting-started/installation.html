@@ -345,6 +345,11 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#optional-dependencies">
+   オプションの依存関係
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#pypi">
    PyPI
   </a>
@@ -360,7 +365,7 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#optional-dependencies">
+  <a class="reference internal nav-link" href="#id2">
    オプションの依存関係
   </a>
  </li>
@@ -442,8 +447,19 @@
 <li><p><a class="reference external" href="https://pypi.org/project/numpy/">NumPy</a> - NumPy配列は，PyVistaのデータ配列アクセスのためのコア基盤を提供します．</p></li>
 <li><p><a class="reference external" href="https://pypi.org/project/imageio/">imageio</a> - このライブラリは，スクリーンショットの保存に使用されます．</p></li>
 <li><p><a class="reference external" href="https://pypi.org/project/appdirs/">appdirs</a> - サンプルデータセットのデータ管理により，ユーザはチュートリアルをその場でダウンロードできます．</p></li>
+<li><p><a class="reference external" href="https://github.com/banesullivan/scooby">scooby</a> - Reporting and debugging tools.</p></li>
+</ul>
+</section>
+<section id="optional-dependencies">
+<h2>オプションの依存関係<a class="headerlink" href="#optional-dependencies" title="このヘッドラインへのパーマリンク">#</a></h2>
+<p>PyVista includes several optional dependencies for visualization and reading a variety of additional file formats, including:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://pypi.org/project/cmocean/">cmocean</a> - Colormaps for Oceanography.</p></li>
+<li><p><a class="reference external" href="https://colorcet.holoviz.org/">colorcet</a> - Perceptually accurate 256-color colormaps for use with Python.</p></li>
+<li><p><a class="reference external" href="https://github.com/Kitware/ipyvtklink">ipyvtklink</a> - Minimalist ipywidget to interface with any Python vtkRenderWindow.</p></li>
+<li><p><a class="reference external" href="https://pypi.org/project/matplotlib/">matplotlib</a> - Used for colormaps and 2D plotting with <a class="reference internal" href="../api/plotting/charts/_autosummary/pyvista.ChartMPL.html#pyvista.ChartMPL" title="pyvista.ChartMPL"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.ChartMPL</span></code></a>.</p></li>
 <li><p><a class="reference external" href="https://pypi.org/project/meshio/">meshio</a> - 多くのメッシュ形式の入力/出力．</p></li>
-<li><p><a class="reference external" href="https://github.com/banesullivan/scooby">scooby</a> - デバッグツール</p></li>
+<li><p><a class="reference external" href="https://pythreejs.readthedocs.io/en/stable/">pythreejs</a> - Jupyter widgets based notebook extension that allows Jupyter to leverage the WebGL capabilities of modern browsers.</p></li>
 </ul>
 </section>
 <section id="pypi">
@@ -451,6 +467,11 @@
 <a class="reference external image-reference" href="https://pypi.org/project/pyvista/"><img alt="https://img.shields.io/pypi/v/pyvista.svg?logo=python&amp;logoColor=white" src="https://img.shields.io/pypi/v/pyvista.svg?logo=python&amp;logoColor=white" /></a>
 <p>PyVistaは <a class="reference external" href="https://pypi.org/project/pyvista/">PyPI</a> から <code class="docutils literal notranslate"><span class="pre">pip</span></code> を使ってインストールできます:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">pyvista</span>
+</pre></div>
+</div>
+<p>To install all the additional packages that extend PyVista, install using
+<code class="docutils literal notranslate"><span class="pre">pip</span></code> with:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">pyvista</span><span class="p">[</span><span class="nb">all</span><span class="p">]</span>
 </pre></div>
 </div>
 </section>
@@ -476,8 +497,8 @@
 </div>
 <p>開発フラグ <code class="docutils literal notranslate"><span class="pre">-e</span></code> に注意してください． これにより，pyvistaを変更するたびに再インストールすることなく，その場で変更することができます．</p>
 </section>
-<section id="optional-dependencies">
-<h2>オプションの依存関係<a class="headerlink" href="#optional-dependencies" title="このヘッドラインへのパーマリンク">#</a></h2>
+<section id="id2">
+<h2>オプションの依存関係<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">#</a></h2>
 <p>次に，オプションの依存関係とその目的の一覧を示します:</p>
 <table class="table">
 <colgroup>

@@ -8,4 +8,4 @@ cube['my_array'] = range(cube.n_points)
 cube.rename_array('my_array', 'my_renamed_array')
 cube['my_renamed_array']
 # Expected:
-## array([0, 1, 2, 3, 4, 5, 6, 7])
+## pyvista_ndarray([0, 1, 2, 3, 4, 5, 6, 7])

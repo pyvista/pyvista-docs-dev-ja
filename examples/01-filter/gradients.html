@@ -667,6 +667,13 @@
 </ul>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
+  <a class="reference internal" href="../02-plot/bounds.html">
+   Plotting Bounds
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
   <a class="reference internal" href="../02-plot/chart_basics.html">
    チャートの基本
   </a>
@@ -1177,19 +1184,20 @@
 </pre></div>
 </div>
 <p class="sphx-glr-script-out">出力:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>array([[ 7.2189998e-03,  7.6569999e-03,  3.8799997e-03, ...,
-        -7.3850001e-03,  1.0060001e-03, -2.1000043e-05],
-       [ 4.2885002e-03,  9.3000010e-04, -6.5520001e-03, ...,
-        -6.1399997e-03,  3.6770001e-03,  1.1730000e-02],
-       [ 5.4014996e-03,  1.2539998e-03, -4.6510003e-03, ...,
-         3.4900010e-04,  8.0140000e-03,  8.1439996e-03],
-       ...,
-       [-6.3999998e-04, -2.6340000e-03,  6.1740000e-03, ...,
-        -4.3205000e-03, -1.2229999e-03, -1.8960000e-03],
-       [-1.5900000e-03, -3.4460002e-03,  4.1279998e-03, ...,
-        -2.9000000e-03, -5.9960000e-03, -5.8140000e-03],
-       [-9.1199996e-04, -4.0670000e-03, -1.5819999e-03, ...,
-        -2.4759998e-03, -8.5290000e-03, -5.3939996e-03]], dtype=float32)
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>pyvista_ndarray([[ 7.2189998e-03,  7.6569999e-03,  3.8799997e-03, ...,
+                  -7.3850001e-03,  1.0060001e-03, -2.1000043e-05],
+                 [ 4.2885002e-03,  9.3000010e-04, -6.5520001e-03, ...,
+                  -6.1399997e-03,  3.6770001e-03,  1.1730000e-02],
+                 [ 5.4014996e-03,  1.2539998e-03, -4.6510003e-03, ...,
+                   3.4900010e-04,  8.0140000e-03,  8.1439996e-03],
+                 ...,
+                 [-6.3999998e-04, -2.6340000e-03,  6.1740000e-03, ...,
+                  -4.3205000e-03, -1.2229999e-03, -1.8960000e-03],
+                 [-1.5900000e-03, -3.4460002e-03,  4.1279998e-03, ...,
+                  -2.9000000e-03, -5.9960000e-03, -5.8140000e-03],
+                 [-9.1199996e-04, -4.0670000e-03, -1.5819999e-03, ...,
+                  -2.4759998e-03, -8.5290000e-03, -5.3939996e-03]],
+                dtype=float32)
 </pre></div>
 </div>
 <div class="admonition note">
@@ -1211,16 +1219,18 @@
 </pre></div>
 </div>
 <p class="sphx-glr-script-out">出力:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>{&#39;du/dx&#39;: array([ 0.007219 ,  0.0042885,  0.0054015, ..., -0.00064  , -0.00159  ,
-       -0.000912 ], dtype=float32), &#39;du/dy&#39;: array([ 0.007657,  0.00093 ,  0.001254, ..., -0.002634, -0.003446,
-       -0.004067], dtype=float32), &#39;du/dz&#39;: array([ 0.00388 , -0.006552, -0.004651, ...,  0.006174,  0.004128,
-       -0.001582], dtype=float32), &#39;dv/dx&#39;: array([-7.5999997e-04, -1.0585000e-03, -2.9600000e-03, ...,
-       -1.9554999e-03,  9.9999888e-06,  2.6600000e-03], dtype=float32), &#39;dv/dy&#39;: array([ 0.000226, -0.00503 , -0.003388, ..., -0.0059  , -0.008274,
-       -0.000512], dtype=float32), &#39;dv/dz&#39;: array([-0.006821, -0.000382,  0.006909, ..., -0.001991, -0.003061,
-       -0.00189 ], dtype=float32), &#39;dw/dx&#39;: array([-0.007385 , -0.00614  ,  0.000349 , ..., -0.0043205, -0.0029   ,
-       -0.002476 ], dtype=float32), &#39;dw/dy&#39;: array([ 0.001006,  0.003677,  0.008014, ..., -0.001223, -0.005996,
-       -0.008529], dtype=float32), &#39;dw/dz&#39;: array([-2.1000043e-05,  1.1730000e-02,  8.1439996e-03, ...,
-       -1.8960000e-03, -5.8140000e-03, -5.3939996e-03], dtype=float32)}
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>{&#39;du/dx&#39;: pyvista_ndarray([ 0.007219 ,  0.0042885,  0.0054015, ..., -0.00064  ,
+                 -0.00159  , -0.000912 ], dtype=float32), &#39;du/dy&#39;: pyvista_ndarray([ 0.007657,  0.00093 ,  0.001254, ..., -0.002634,
+                 -0.003446, -0.004067], dtype=float32), &#39;du/dz&#39;: pyvista_ndarray([ 0.00388 , -0.006552, -0.004651, ...,  0.006174,
+                  0.004128, -0.001582], dtype=float32), &#39;dv/dx&#39;: pyvista_ndarray([-7.5999997e-04, -1.0585000e-03, -2.9600000e-03, ...,
+                 -1.9554999e-03,  9.9999888e-06,  2.6600000e-03],
+                dtype=float32), &#39;dv/dy&#39;: pyvista_ndarray([ 0.000226, -0.00503 , -0.003388, ..., -0.0059  ,
+                 -0.008274, -0.000512], dtype=float32), &#39;dv/dz&#39;: pyvista_ndarray([-0.006821, -0.000382,  0.006909, ..., -0.001991,
+                 -0.003061, -0.00189 ], dtype=float32), &#39;dw/dx&#39;: pyvista_ndarray([-0.007385 , -0.00614  ,  0.000349 , ..., -0.0043205,
+                 -0.0029   , -0.002476 ], dtype=float32), &#39;dw/dy&#39;: pyvista_ndarray([ 0.001006,  0.003677,  0.008014, ..., -0.001223,
+                 -0.005996, -0.008529], dtype=float32), &#39;dw/dz&#39;: pyvista_ndarray([-2.1000043e-05,  1.1730000e-02,  8.1439996e-03, ...,
+                 -1.8960000e-03, -5.8140000e-03, -5.3939996e-03],
+                dtype=float32)}
 </pre></div>
 </div>
 <p>これらのコンポーネントを個別の配列としてメッシュに追加するには，次のようにします．</p>
@@ -1284,7 +1294,7 @@
 </pre></div>
 </div>
 <p class="sphx-glr-script-out">出力:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>{&#39;du/dx&#39;: array([-7. , -7. , -4. , ..., -0.5, -1.5, -2. ], dtype=float32), &#39;du/dy&#39;: array([ 0.,  5., 12., ..., -3., -1., -3.], dtype=float32), &#39;du/dz&#39;: array([-13.,  -8.,  -3., ...,   4.,   4.,   1.], dtype=float32)}
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>{&#39;du/dx&#39;: pyvista_ndarray([-7. , -7. , -4. , ..., -0.5, -1.5, -2. ], dtype=float32), &#39;du/dy&#39;: pyvista_ndarray([ 0.,  5., 12., ..., -3., -1., -3.], dtype=float32), &#39;du/dz&#39;: pyvista_ndarray([-13.,  -8.,  -3., ...,   4.,   4.,   1.], dtype=float32)}
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mesh_g</span><span class="o">.</span><span class="n">point_data</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><a href="https://docs.python.org/dev/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">gradients</span></a><span class="p">)</span>
@@ -1304,7 +1314,7 @@
 <span class="n">p</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_gradients_002.png" srcset="../../_images/sphx_glr_gradients_002.png" alt="gradients" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  1.643 seconds)</p>
+<img src="../../_images/sphx_glr_gradients_002.png" srcset="../../_images/sphx_glr_gradients_002.png" alt="gradients" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  1.528 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-01-filter-gradients-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/9ba0865c39fb7f9702932a22ec8064b7/gradients.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">gradients.py</span></code></a></p>

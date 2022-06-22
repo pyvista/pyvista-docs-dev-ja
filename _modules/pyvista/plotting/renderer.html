@@ -1267,6 +1267,7 @@
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">mesh</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
         <span class="n">bounds</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">axes_ranges</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
         <span class="n">show_xaxis</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
         <span class="n">show_yaxis</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
         <span class="n">show_zaxis</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
@@ -1304,6 +1305,14 @@
 <span class="sd">        bounds : list or tuple, optional</span>
 <span class="sd">            Bounds to override mesh bounds in the form ``[xmin, xmax,</span>
 <span class="sd">            ymin, ymax, zmin, zmax]``.</span>
+
+<span class="sd">        axes_ranges : list, tuple, or numpy.ndarray, optional</span>
+<span class="sd">            When set, these values override the values that are shown on the</span>
+<span class="sd">            axes. This can be useful when plotting scaled datasets or you wish</span>
+<span class="sd">            to manually display different values. These values must be in the</span>
+<span class="sd">            form:</span>
+
+<span class="sd">            ``[xmin, xmax, ymin, ymax, zmin, zmax]``.</span>
 
 <span class="sd">        show_xaxis : bool, optional</span>
 <span class="sd">            Makes x axis visible.  Default ``True``.</span>
@@ -1365,12 +1374,11 @@
 <span class="sd">            ``&#39;frontface&#39;``) of the axes actor.</span>
 
 <span class="sd">        location : str, optional</span>
-<span class="sd">            Set how the axes are drawn: either static (``&#39;all&#39;``),</span>
-<span class="sd">            closest triad (``front``), furthest triad (``&#39;back&#39;``),</span>
-<span class="sd">            static closest to the origin (``&#39;origin&#39;``), or outer</span>
-<span class="sd">            edges (``&#39;outer&#39;``) in relation to the camera</span>
-<span class="sd">            position. Options include: ``&#39;all&#39;, &#39;front&#39;, &#39;back&#39;,</span>
-<span class="sd">            &#39;origin&#39;, &#39;outer&#39;``.</span>
+<span class="sd">            Set how the axes are drawn: either static (``&#39;all&#39;``), closest</span>
+<span class="sd">            triad (``&#39;front&#39;``, ``&#39;closest&#39;``, ``&#39;default&#39;``), furthest triad</span>
+<span class="sd">            (``&#39;back&#39;``, ``&#39;furthest&#39;``), static closest to the origin</span>
+<span class="sd">            (``&#39;origin&#39;``), or outer edges (``&#39;outer&#39;``) in relation to the</span>
+<span class="sd">            camera position.</span>
 
 <span class="sd">        ticks : str, optional</span>
 <span class="sd">            Set how the ticks are drawn on the axes grid. Options include:</span>
@@ -1412,8 +1420,11 @@
 <span class="sd">        &gt;&gt;&gt; mesh = pyvista.Sphere()</span>
 <span class="sd">        &gt;&gt;&gt; plotter = pyvista.Plotter()</span>
 <span class="sd">        &gt;&gt;&gt; actor = plotter.add_mesh(mesh)</span>
-<span class="sd">        &gt;&gt;&gt; actor = plotter.show_bounds(grid=&#39;front&#39;, location=&#39;outer&#39;,</span>
-<span class="sd">        ...                             all_edges=True)</span>
+<span class="sd">        &gt;&gt;&gt; actor = plotter.show_bounds(</span>
+<span class="sd">        ...     grid=&#39;front&#39;,</span>
+<span class="sd">        ...     location=&#39;outer&#39;,</span>
+<span class="sd">        ...     all_edges=True,</span>
+<span class="sd">        ... )</span>
 <span class="sd">        &gt;&gt;&gt; plotter.show()</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -1428,9 +1439,14 @@
 
         <span class="n">color</span> <span class="o">=</span> <span class="n">Color</span><span class="p">(</span><span class="n">color</span><span class="p">,</span> <span class="n">default_color</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_theme</span><span class="o">.</span><span class="n">font</span><span class="o">.</span><span class="n">color</span><span class="p">)</span>
 
-        <span class="c1"># Use the bounds of all data in the rendering window</span>
         <span class="k">if</span> <span class="n">mesh</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">bounds</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">bounds</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">bounds</span>
+            <span class="c1"># Use the bounds of all data in the rendering window</span>
+            <span class="n">bounds</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">bounds</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">bounds</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="c1"># otherwise, use the bounds of the mesh (if available)</span>
+            <span class="n">bounds</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">mesh</span><span class="o">.</span><span class="n">bounds</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">bounds</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asanyarray</span><span class="p">(</span><span class="n">bounds</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
 
         <span class="c1"># create actor</span>
         <span class="n">cube_axes_actor</span> <span class="o">=</span> <span class="n">_vtk</span><span class="o">.</span><span class="n">vtkCubeAxesActor</span><span class="p">()</span>
@@ -1464,7 +1480,12 @@
             <span class="k">elif</span> <span class="n">ticks</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;both&#39;</span><span class="p">):</span>
                 <span class="n">cube_axes_actor</span><span class="o">.</span><span class="n">SetTickLocationToBoth</span><span class="p">()</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Value of ticks (</span><span class="si">{</span><span class="n">ticks</span><span class="si">}</span><span class="s1">) not understood.&#39;</span><span class="p">)</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                    <span class="sa">f</span><span class="s1">&#39;Value of ticks (&quot;</span><span class="si">{</span><span class="n">ticks</span><span class="si">}</span><span class="s1">&quot;) should be either &quot;inside&quot;, &quot;outside&quot;, &#39;</span>
+                    <span class="s1">&#39;or &quot;both&quot;.&#39;</span>
+                <span class="p">)</span>
+        <span class="k">elif</span> <span class="n">ticks</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;ticks must be a string&#39;</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">location</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
             <span class="n">location</span> <span class="o">=</span> <span class="n">location</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
@@ -1479,11 +1500,13 @@
             <span class="k">elif</span> <span class="n">location</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;furthest&#39;</span><span class="p">,</span> <span class="s1">&#39;back&#39;</span><span class="p">):</span>
                 <span class="n">cube_axes_actor</span><span class="o">.</span><span class="n">SetFlyModeToFurthestTriad</span><span class="p">()</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Value of location (</span><span class="si">{</span><span class="n">location</span><span class="si">}</span><span class="s1">) not understood.&#39;</span><span class="p">)</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                    <span class="sa">f</span><span class="s1">&#39;Value of location (&quot;</span><span class="si">{</span><span class="n">location</span><span class="si">}</span><span class="s1">&quot;) should be either &quot;all&quot;, &quot;origin&quot;,&#39;</span>
+                    <span class="s1">&#39; &quot;outer&quot;, &quot;default&quot;, &quot;closest&quot;, &quot;front&quot;, &quot;furthest&quot;, or &quot;back&quot;.&#39;</span>
+                <span class="p">)</span>
+        <span class="k">elif</span> <span class="n">location</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;location must be a string&#39;</span><span class="p">)</span>
 
-        <span class="c1"># set bounds</span>
-        <span class="k">if</span> <span class="n">bounds</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">bounds</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">mesh</span><span class="o">.</span><span class="n">GetBounds</span><span class="p">())</span>
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">padding</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">))</span> <span class="ow">and</span> <span class="mf">0.0</span> <span class="o">&lt;=</span> <span class="n">padding</span> <span class="o">&lt;</span> <span class="mf">1.0</span><span class="p">:</span>
             <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">bounds</span><span class="p">)</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">):</span>
                 <span class="n">cushion</span> <span class="o">=</span> <span class="p">(</span>
@@ -1501,6 +1524,26 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;padding (</span><span class="si">{</span><span class="n">padding</span><span class="si">}</span><span class="s1">) not understood. Must be float between 0 and 1&#39;</span><span class="p">)</span>
         <span class="n">cube_axes_actor</span><span class="o">.</span><span class="n">SetBounds</span><span class="p">(</span><span class="n">bounds</span><span class="p">)</span>
+
+        <span class="c1"># set axes ranges if input</span>
+        <span class="k">if</span> <span class="n">axes_ranges</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">axes_ranges</span><span class="p">,</span> <span class="p">(</span><span class="n">collections</span><span class="o">.</span><span class="n">abc</span><span class="o">.</span><span class="n">Sequence</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)):</span>
+                <span class="n">axes_ranges</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asanyarray</span><span class="p">(</span><span class="n">axes_ranges</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;Input axes_ranges must be a numeric sequence.&#39;</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">issubdtype</span><span class="p">(</span><span class="n">axes_ranges</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">number</span><span class="p">):</span>
+                <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;All of the elements of axes_ranges must be numbers.&#39;</span><span class="p">)</span>
+
+            <span class="c1"># set the axes ranges</span>
+            <span class="k">if</span> <span class="n">axes_ranges</span><span class="o">.</span><span class="n">shape</span> <span class="o">!=</span> <span class="p">(</span><span class="mi">6</span><span class="p">,):</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                    <span class="s1">&#39;`axes_ranges` must be passed as a [xmin, xmax, ymin, ymax, zmin, zmax] sequence.&#39;</span>
+                <span class="p">)</span>
+
+            <span class="n">cube_axes_actor</span><span class="o">.</span><span class="n">SetXAxisRange</span><span class="p">(</span><span class="n">axes_ranges</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">axes_ranges</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+            <span class="n">cube_axes_actor</span><span class="o">.</span><span class="n">SetYAxisRange</span><span class="p">(</span><span class="n">axes_ranges</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">axes_ranges</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+            <span class="n">cube_axes_actor</span><span class="o">.</span><span class="n">SetZAxisRange</span><span class="p">(</span><span class="n">axes_ranges</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">axes_ranges</span><span class="p">[</span><span class="mi">5</span><span class="p">])</span>
 
         <span class="c1"># show or hide axes</span>
         <span class="n">cube_axes_actor</span><span class="o">.</span><span class="n">SetXAxisVisibility</span><span class="p">(</span><span class="n">show_xaxis</span><span class="p">)</span>
@@ -1595,7 +1638,7 @@
 <span class="sd">        vtk.vtkAxesActor</span>
 <span class="sd">            Bounds actor.</span>
 
-<span class="sd">         Examples</span>
+<span class="sd">        Examples</span>
 <span class="sd">        --------</span>
 <span class="sd">        &gt;&gt;&gt; import pyvista</span>
 <span class="sd">        &gt;&gt;&gt; from pyvista import examples</span>

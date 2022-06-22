@@ -422,6 +422,27 @@
     <span class="k">return</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="p">(</span><span class="n">pyvista</span><span class="o">.</span><span class="n">DataSet</span><span class="p">,</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">MultiBlock</span><span class="p">))</span></div>
 
 
+<span class="k">def</span> <span class="nf">_assoc_array</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">association</span><span class="o">=</span><span class="s1">&#39;point&#39;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Return a point, cell, or field array from a pyvista.DataSet or VTK object.</span>
+
+<span class="sd">    If the array or index doesn&#39;t exist, return nothing. This matches VTK&#39;s</span>
+<span class="sd">    behavior when using ``GetAbstractArray`` with an invalid key or index.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">vtk_attr</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;Get</span><span class="si">{</span><span class="n">association</span><span class="o">.</span><span class="n">title</span><span class="p">()</span><span class="si">}</span><span class="s1">Data&#39;</span>
+    <span class="n">python_attr</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">association</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="si">}</span><span class="s1">_data&#39;</span>
+
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">DataSet</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">return</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">python_attr</span><span class="p">)</span><span class="o">.</span><span class="n">get_array</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>  <span class="c1"># pragma: no cover</span>
+            <span class="k">return</span> <span class="kc">None</span>
+    <span class="n">abstract_array</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">vtk_attr</span><span class="p">)()</span><span class="o">.</span><span class="n">GetAbstractArray</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">abstract_array</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">pyvista_ndarray</span><span class="p">(</span><span class="n">abstract_array</span><span class="p">)</span>
+    <span class="k">return</span> <span class="kc">None</span>
+
+
 <div class="viewcode-block" id="point_array"><a class="viewcode-back" href="../../../api/utilities/_autosummary/pyvista.point_array.html#pyvista.point_array">[ドキュメント]</a><span class="k">def</span> <span class="nf">point_array</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Return point array of a pyvista or vtk object.</span>
 
@@ -430,17 +451,16 @@
 <span class="sd">    obj : pyvista.DataSet or vtk.vtkDataSet</span>
 <span class="sd">        PyVista or VTK dataset.</span>
 
-<span class="sd">    name : str</span>
-<span class="sd">        Name of the array.</span>
+<span class="sd">    name : str or int</span>
+<span class="sd">        Name or index of the array.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-<span class="sd">    numpy.ndarray</span>
-<span class="sd">        Wrapped array.</span>
+<span class="sd">    pyvista.pyvista_ndarray or None</span>
+<span class="sd">        Wrapped array if the index or name is valid. Otherwise, ``None``.</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">vtkarr</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">GetPointData</span><span class="p">()</span><span class="o">.</span><span class="n">GetAbstractArray</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">convert_array</span><span class="p">(</span><span class="n">vtkarr</span><span class="p">)</span></div>
+    <span class="k">return</span> <span class="n">_assoc_array</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="s1">&#39;point&#39;</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="field_array"><a class="viewcode-back" href="../../../api/utilities/_autosummary/pyvista.field_array.html#pyvista.field_array">[ドキュメント]</a><span class="k">def</span> <span class="nf">field_array</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
@@ -451,17 +471,16 @@
 <span class="sd">    obj : pyvista.DataSet or vtk.vtkDataSet</span>
 <span class="sd">        PyVista or VTK dataset.</span>
 
-<span class="sd">    name : str</span>
-<span class="sd">        Name of the array.</span>
+<span class="sd">    name : str or int</span>
+<span class="sd">        Name or index of the array.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-<span class="sd">    numpy.ndarray</span>
-<span class="sd">        Wrapped array.</span>
+<span class="sd">    pyvista.pyvista_ndarray or None</span>
+<span class="sd">        Wrapped array if the index or name is valid. Otherwise, ``None``.</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">vtkarr</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">GetFieldData</span><span class="p">()</span><span class="o">.</span><span class="n">GetAbstractArray</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">convert_array</span><span class="p">(</span><span class="n">vtkarr</span><span class="p">)</span></div>
+    <span class="k">return</span> <span class="n">_assoc_array</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="s1">&#39;field&#39;</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="cell_array"><a class="viewcode-back" href="../../../api/utilities/_autosummary/pyvista.cell_array.html#pyvista.cell_array">[ドキュメント]</a><span class="k">def</span> <span class="nf">cell_array</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
@@ -472,17 +491,16 @@
 <span class="sd">    obj : pyvista.DataSet or vtk.vtkDataSet</span>
 <span class="sd">        PyVista or VTK dataset.</span>
 
-<span class="sd">    name : str</span>
-<span class="sd">        Name of the array.</span>
+<span class="sd">    name : str or int</span>
+<span class="sd">        Name or index of the array.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-<span class="sd">    numpy.ndarray</span>
-<span class="sd">        Wrapped array.</span>
+<span class="sd">    pyvista.pyvista_ndarray or None</span>
+<span class="sd">        Wrapped array if the index or name is valid. Otherwise, ``None``.</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">vtkarr</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">GetCellData</span><span class="p">()</span><span class="o">.</span><span class="n">GetAbstractArray</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">convert_array</span><span class="p">(</span><span class="n">vtkarr</span><span class="p">)</span></div>
+    <span class="k">return</span> <span class="n">_assoc_array</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="s1">&#39;cell&#39;</span><span class="p">)</span></div>
 
 
 <span class="k">def</span> <span class="nf">row_array</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
@@ -536,7 +554,7 @@
     <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">field</span><span class="p">,</span> <span class="n">FieldAssociation</span><span class="p">):</span>
         <span class="k">pass</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Data field (</span><span class="si">{</span><span class="n">field</span><span class="si">}</span><span class="s1">) not supported.&#39;</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Data field (</span><span class="si">{</span><span class="n">field</span><span class="si">}</span><span class="s1">) not supported.&#39;</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">field</span>
 
 
@@ -1651,7 +1669,7 @@
 
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
-<span class="sd">    Load a skybox given a directory, prefex, and file extension.</span>
+<span class="sd">    Load a skybox given a directory, prefix, and file extension.</span>
 
 <span class="sd">    &gt;&gt;&gt; import pyvista</span>
 <span class="sd">    &gt;&gt;&gt; skybox = pyvista.cubemap(&#39;my_directory&#39;, &#39;skybox&#39;, &#39;.jpeg&#39;)  # doctest:+SKIP</span>

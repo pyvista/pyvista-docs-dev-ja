@@ -14,16 +14,16 @@ mesh.array_names
 #
 mesh.get_array('point-data')
 # Expected:
-## array([0, 1, 2, 3, 4, 5, 6, 7])
+## pyvista_ndarray([0, 1, 2, 3, 4, 5, 6, 7])
 #
 # Get the cell data array.
 #
 mesh.get_array('cell-data')
 # Expected:
-## array([0, 1, 2, 3, 4, 5])
+## pyvista_ndarray([0, 1, 2, 3, 4, 5])
 #
 # Get the field data array.
 #
 mesh.get_array('field-data')
 # Expected:
-## array(['a', 'b', 'c'], dtype='<U1')
+## pyvista_ndarray(['a', 'b', 'c'], dtype='<U1')

@@ -667,6 +667,13 @@
 </ul>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
+  <a class="reference internal" href="../02-plot/bounds.html">
+   Plotting Bounds
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
   <a class="reference internal" href="../02-plot/chart_basics.html">
    チャートの基本
   </a>
@@ -1153,8 +1160,8 @@
 </div>
 <p>グリフィイングは <a class="reference internal" href="../../api/core/_autosummary/pyvista.DataSetFilters.glyph.html#pyvista.DataSetFilters.glyph" title="pyvista.DataSetFilters.glyph"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyvista.DataSetFilters.glyph()</span></code></a> フィルターを介して行うことができる</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mesh</span> <span class="o">=</span> <span class="n">examples</span><span class="o">.</span><span class="n">download_carotid</span><span class="p">()</span><span class="o">.</span><span class="n">threshold</span><span class="p">(</span><span class="mi">145</span><span class="p">,</span> <span class="n">scalars</span><span class="o">=</span><span class="s2">&quot;scalars&quot;</span><span class="p">)</span>
-<a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">mask</span></a> <span class="o">=</span> <span class="n">mesh</span><span class="p">[</span><span class="s1">&#39;scalars&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">210</span>
-<span class="n">mesh</span><span class="p">[</span><span class="s1">&#39;scalars&#39;</span><span class="p">][</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">mask</span></a><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># null out smaller vectors</span>
+<span class="n">mask</span> <span class="o">=</span> <span class="n">mesh</span><span class="p">[</span><span class="s1">&#39;scalars&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">210</span>
+<span class="n">mesh</span><span class="p">[</span><span class="s1">&#39;scalars&#39;</span><span class="p">][</span><span class="n">mask</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># null out smaller vectors</span>
 
 <span class="c1"># Make a geometric object to use as the glyph</span>
 <span class="n">geom</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Arrow</span><span class="p">()</span>  <span class="c1"># This could be any dataset</span>
@@ -1215,7 +1222,7 @@
 <span class="n">p</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_glyphs_004.png" srcset="../../_images/sphx_glr_glyphs_004.png" alt="glyphs" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  3.111 seconds)</p>
+<img src="../../_images/sphx_glr_glyphs_004.png" srcset="../../_images/sphx_glr_glyphs_004.png" alt="glyphs" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  2.884 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-01-filter-glyphs-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/5db33286abede0c4fe05c1e55b284ece/glyphs.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">glyphs.py</span></code></a></p>

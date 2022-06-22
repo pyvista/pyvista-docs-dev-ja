@@ -988,7 +988,7 @@
 <span class="sd">        &gt;&gt;&gt; cube[&#39;my_array&#39;] = range(cube.n_points)</span>
 <span class="sd">        &gt;&gt;&gt; cube.rename_array(&#39;my_array&#39;, &#39;my_renamed_array&#39;)</span>
 <span class="sd">        &gt;&gt;&gt; cube[&#39;my_renamed_array&#39;]</span>
-<span class="sd">        array([0, 1, 2, 3, 4, 5, 6, 7])</span>
+<span class="sd">        pyvista_ndarray([0, 1, 2, 3, 4, 5, 6, 7])</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">field</span> <span class="o">=</span> <span class="n">get_array_association</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">old_name</span><span class="p">,</span> <span class="n">preference</span><span class="o">=</span><span class="n">preference</span><span class="p">)</span>
@@ -1997,7 +1997,7 @@
 
 <div class="viewcode-block" id="DataSet.get_array"><a class="viewcode-back" href="../../../api/core/_autosummary/pyvista.DataSet.get_array.html#pyvista.DataSet.get_array">[ドキュメント]</a>    <span class="k">def</span> <span class="nf">get_array</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">preference</span><span class="p">:</span> <span class="n">Literal</span><span class="p">[</span><span class="s1">&#39;cell&#39;</span><span class="p">,</span> <span class="s1">&#39;point&#39;</span><span class="p">,</span> <span class="s1">&#39;field&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;cell&#39;</span>
-    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">&#39;pyvista.pyvista_ndarray&#39;</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;Search both point, cell and field data for an array.</span>
 
 <span class="sd">        Parameters</span>
@@ -2031,17 +2031,17 @@
 <span class="sd">        Get the point data array.</span>
 
 <span class="sd">        &gt;&gt;&gt; mesh.get_array(&#39;point-data&#39;)</span>
-<span class="sd">        array([0, 1, 2, 3, 4, 5, 6, 7])</span>
+<span class="sd">        pyvista_ndarray([0, 1, 2, 3, 4, 5, 6, 7])</span>
 
 <span class="sd">        Get the cell data array.</span>
 
 <span class="sd">        &gt;&gt;&gt; mesh.get_array(&#39;cell-data&#39;)</span>
-<span class="sd">        array([0, 1, 2, 3, 4, 5])</span>
+<span class="sd">        pyvista_ndarray([0, 1, 2, 3, 4, 5])</span>
 
 <span class="sd">        Get the field data array.</span>
 
 <span class="sd">        &gt;&gt;&gt; mesh.get_array(&#39;field-data&#39;)</span>
-<span class="sd">        array([&#39;a&#39;, &#39;b&#39;, &#39;c&#39;], dtype=&#39;&lt;U1&#39;)</span>
+<span class="sd">        pyvista_ndarray([&#39;a&#39;, &#39;b&#39;, &#39;c&#39;], dtype=&#39;&lt;U1&#39;)</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">arr</span> <span class="o">=</span> <span class="n">get_array</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">preference</span><span class="o">=</span><span class="n">preference</span><span class="p">,</span> <span class="n">err</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>

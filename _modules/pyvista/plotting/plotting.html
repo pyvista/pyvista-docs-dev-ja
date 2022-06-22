@@ -227,6 +227,7 @@
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">pathlib</span>
 <span class="kn">import</span> <span class="nn">platform</span>
+<span class="kn">import</span> <span class="nn">re</span>
 <span class="kn">import</span> <span class="nn">textwrap</span>
 <span class="kn">from</span> <span class="nn">threading</span> <span class="kn">import</span> <span class="n">Thread</span>
 <span class="kn">import</span> <span class="nn">time</span>
@@ -490,6 +491,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">last_image_depth</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">last_image</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_has_background_layer</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_added_scalars</span> <span class="o">=</span> <span class="p">[]</span>
 
         <span class="c1"># set hidden line removal based on theme</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">theme</span><span class="o">.</span><span class="n">hidden_line_removal</span><span class="p">:</span>
@@ -2263,9 +2265,9 @@
 <span class="sd">        preference : str, optional</span>
 <span class="sd">            When ``mesh.n_points == mesh.n_cells`` and setting</span>
 <span class="sd">            scalars, this parameter sets how the scalars will be</span>
-<span class="sd">            mapped to the mesh.  Default ``&#39;points&#39;``, causes the</span>
+<span class="sd">            mapped to the mesh.  Default ``&#39;point&#39;``, causes the</span>
 <span class="sd">            scalars will be associated with the mesh points.  Can be</span>
-<span class="sd">            either ``&#39;points&#39;`` or ``&#39;cells&#39;``.</span>
+<span class="sd">            either ``&#39;point&#39;`` or ``&#39;cell&#39;``.</span>
 
 <span class="sd">        log_scale : bool, optional</span>
 <span class="sd">            Use log scale when mapping data to colors. Scalars less</span>
@@ -2596,8 +2598,9 @@
         <span class="p">)</span>
 
         <span class="c1"># Scalars formatting ==================================================</span>
+        <span class="n">added_scalar_info</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="k">if</span> <span class="n">scalars</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">show_scalar_bar</span><span class="p">,</span> <span class="n">n_colors</span><span class="p">,</span> <span class="n">clim</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mapper</span><span class="o">.</span><span class="n">set_scalars</span><span class="p">(</span>
+            <span class="n">show_scalar_bar</span><span class="p">,</span> <span class="n">n_colors</span><span class="p">,</span> <span class="n">clim</span><span class="p">,</span> <span class="n">added_scalar_info</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mapper</span><span class="o">.</span><span class="n">set_scalars</span><span class="p">(</span>
                 <span class="n">mesh</span><span class="p">,</span>
                 <span class="n">scalars</span><span class="p">,</span>
                 <span class="n">scalar_bar_args</span><span class="p">,</span>
@@ -2621,7 +2624,7 @@
                 <span class="n">show_scalar_bar</span><span class="p">,</span>
             <span class="p">)</span>
         <span class="k">elif</span> <span class="n">custom_opac</span><span class="p">:</span>  <span class="c1"># no scalars but custom opacity</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">mapper</span><span class="o">.</span><span class="n">set_custom_opacity</span><span class="p">(</span>
+            <span class="n">added_scalar_info</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mapper</span><span class="o">.</span><span class="n">set_custom_opacity</span><span class="p">(</span>
                 <span class="n">opacity</span><span class="p">,</span>
                 <span class="n">color</span><span class="p">,</span>
                 <span class="n">mesh</span><span class="p">,</span>
@@ -2633,6 +2636,10 @@
             <span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">mapper</span><span class="o">.</span><span class="n">SetScalarModeToUseFieldData</span><span class="p">()</span>
+
+        <span class="c1"># track if any data arrays have been added</span>
+        <span class="k">if</span> <span class="n">added_scalar_info</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">added_scalar_info</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_added_scalars</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">mesh</span><span class="p">,</span> <span class="n">added_scalar_info</span><span class="p">))</span>
 
         <span class="c1"># Set actor properties ================================================</span>
 
@@ -2864,9 +2871,9 @@
 <span class="sd">        preference : str, optional</span>
 <span class="sd">            When ``mesh.n_points == mesh.n_cells`` and setting</span>
 <span class="sd">            scalars, this parameter sets how the scalars will be</span>
-<span class="sd">            mapped to the mesh.  Default ``&#39;points&#39;``, causes the</span>
+<span class="sd">            mapped to the mesh.  Default ``&#39;point&#39;``, causes the</span>
 <span class="sd">            scalars will be associated with the mesh points.  Can be</span>
-<span class="sd">            either ``&#39;points&#39;`` or ``&#39;cells&#39;``.</span>
+<span class="sd">            either ``&#39;point&#39;`` or ``&#39;cell&#39;``.</span>
 
 <span class="sd">        opacity_unit_distance : float</span>
 <span class="sd">            Set/Get the unit distance on which the scalar opacity</span>
@@ -3562,6 +3569,9 @@
 
         <span class="c1"># this helps managing closed plotters</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_closed</span> <span class="o">=</span> <span class="kc">True</span>
+
+        <span class="c1"># remove any added scalars</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_remove_added_scalars</span><span class="p">()</span>
 
     <span class="k">def</span> <span class="nf">deep_clean</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Clean the plotter of the memory.&quot;&quot;&quot;</span>
@@ -4805,6 +4815,65 @@
         <span class="n">exporter</span><span class="o">.</span><span class="n">SetRenderWindow</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ren_win</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">exporter</span><span class="o">.</span><span class="n">Write</span><span class="p">()</span>
 
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">_datasets</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return a list of all datasets associated with this plotter.&quot;&quot;&quot;</span>
+        <span class="n">datasets</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">renderer</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">renderers</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">actor</span> <span class="ow">in</span> <span class="n">renderer</span><span class="o">.</span><span class="n">actors</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+                <span class="n">mapper</span> <span class="o">=</span> <span class="n">actor</span><span class="o">.</span><span class="n">GetMapper</span><span class="p">()</span>
+
+                <span class="c1"># ignore any mappers whose inputs are not datasets</span>
+                <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">mapper</span><span class="p">,</span> <span class="s1">&#39;GetInputAsDataSet&#39;</span><span class="p">):</span>
+                    <span class="n">datasets</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">mapper</span><span class="o">.</span><span class="n">GetInputAsDataSet</span><span class="p">())</span>
+
+        <span class="k">return</span> <span class="n">datasets</span>
+
+    <span class="k">def</span> <span class="nf">_remove_added_scalars</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Remove any scalars added to this plotter&#39;s datasets by this plotter.</span>
+
+<span class="sd">        Additional point or cell data may be added to be able to correctly plot</span>
+<span class="sd">        scalars. This usually occurs in one of the following cases:</span>
+
+<span class="sd">        * ``&lt;scalar-name&gt;-real`` for complex data</span>
+<span class="sd">        * ``&lt;scalar-name&gt;-normed`` for normalized multi-component arrays.</span>
+<span class="sd">        * ``&lt;scalars-name&gt;-&lt;index&gt;`` when setting ``component=&lt;index&gt;`` in</span>
+<span class="sd">          ``add_mesh`` when plotting multi-component arrays.</span>
+<span class="sd">        * ``Data`` when passing an array as ``scalars`` with ``add_mesh`` rather than</span>
+<span class="sd">          selecting an existing array using a string.</span>
+<span class="sd">        * ``__custom_rgba`` when the color mode is set to map directly to the</span>
+<span class="sd">          scalars (an RGBA array).</span>
+
+<span class="sd">        This method removes those arrays, which are tracked in</span>
+<span class="sd">        ``self._added_scalars``. It also tries to restore the original scalars</span>
+<span class="sd">        as active scalars.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">def</span> <span class="nf">remove_and_reactivate_prior_scalars</span><span class="p">(</span><span class="n">dsattr</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+            <span class="sd">&quot;&quot;&quot;Remove ``name`` and reactivate prior scalars if applicable.&quot;&quot;&quot;</span>
+            <span class="c1"># reactivate prior active scalars</span>
+            <span class="k">if</span> <span class="n">name</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;-normed&#39;</span><span class="p">):</span>
+                <span class="n">orig_name</span> <span class="o">=</span> <span class="n">name</span><span class="p">[:</span><span class="o">-</span><span class="mi">7</span><span class="p">]</span>
+                <span class="k">if</span> <span class="n">orig_name</span> <span class="ow">in</span> <span class="n">dsattr</span><span class="p">:</span>
+                    <span class="n">dsattr</span><span class="o">.</span><span class="n">active_scalars_name</span> <span class="o">=</span> <span class="n">orig_name</span>
+            <span class="k">elif</span> <span class="n">name</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;-real&#39;</span><span class="p">):</span>
+                <span class="n">orig_name</span> <span class="o">=</span> <span class="n">name</span><span class="p">[:</span><span class="o">-</span><span class="mi">5</span><span class="p">]</span>
+                <span class="k">if</span> <span class="n">orig_name</span> <span class="ow">in</span> <span class="n">dsattr</span><span class="p">:</span>
+                    <span class="n">dsattr</span><span class="o">.</span><span class="n">active_scalars_name</span> <span class="o">=</span> <span class="n">orig_name</span>
+            <span class="k">elif</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;-[0-9]+$&#39;</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+                <span class="c1"># component</span>
+                <span class="n">orig_scalars</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s1">&#39;-[0-9]+$&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">orig_scalars</span> <span class="ow">in</span> <span class="n">dsattr</span><span class="p">:</span>
+                    <span class="n">dsattr</span><span class="o">.</span><span class="n">active_scalars_name</span> <span class="o">=</span> <span class="n">orig_scalars</span>
+
+            <span class="n">dsattr</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">mesh</span><span class="p">,</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">assoc</span><span class="p">)</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_added_scalars</span><span class="p">:</span>
+            <span class="n">dsattr</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">point_data</span> <span class="k">if</span> <span class="n">assoc</span> <span class="o">==</span> <span class="s1">&#39;point&#39;</span> <span class="k">else</span> <span class="n">mesh</span><span class="o">.</span><span class="n">cell_data</span>
+            <span class="n">remove_and_reactivate_prior_scalars</span><span class="p">(</span><span class="n">dsattr</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_added_scalars</span> <span class="o">=</span> <span class="p">[]</span>
+
     <span class="k">def</span> <span class="fm">__del__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Delete the plotter.&quot;&quot;&quot;</span>
         <span class="c1"># We have to check here if it has the closed attribute as it</span>
@@ -5570,6 +5639,12 @@
                 <span class="n">jupyter_backend</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_theme</span><span class="o">.</span><span class="n">jupyter_backend</span>
 
             <span class="k">if</span> <span class="n">jupyter_backend</span> <span class="o">!=</span> <span class="s1">&#39;none&#39;</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">screenshot</span><span class="p">:</span>
+                    <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+                        <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Set `jupyter_backend` backend to `&quot;none&quot;` to take a screenshot&#39;</span>
+                        <span class="s1">&#39; within a notebook environment.&#39;</span>
+                    <span class="p">)</span>
+
                 <span class="n">disp</span> <span class="o">=</span> <span class="n">handle_plotter</span><span class="p">(</span>
                     <span class="bp">self</span><span class="p">,</span> <span class="n">backend</span><span class="o">=</span><span class="n">jupyter_backend</span><span class="p">,</span> <span class="n">return_viewer</span><span class="o">=</span><span class="n">return_viewer</span><span class="p">,</span> <span class="o">**</span><span class="n">jupyter_kwargs</span>
                 <span class="p">)</span>
