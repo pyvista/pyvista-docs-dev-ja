@@ -2,7 +2,7 @@ import pyvista
 import vtk
 import numpy as np
 #
-# Create an empty grid
+# Create an empty grid.
 #
 grid = pyvista.RectilinearGrid()
 #
@@ -11,7 +11,7 @@ grid = pyvista.RectilinearGrid()
 vtkgrid = vtk.vtkRectilinearGrid()
 grid = pyvista.RectilinearGrid(vtkgrid)
 #
-# Create from NumPy arrays
+# Create from NumPy arrays.
 #
 xrng = np.arange(-10, 10, 2)
 yrng = np.arange(-10, 10, 5)

@@ -1141,8 +1141,29 @@
 <h1>extent<a class="headerlink" href="#extent" title="このヘッドラインへのパーマリンク">#</a></h1>
 <dl class="py property">
 <dt class="sig sig-object py" id="pyvista.UniformGrid.extent">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">UniformGrid.</span></span><span class="sig-name descname"><span class="pre">extent</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/dev/library/stdtypes.html#tuple" title="(in Python v3.12)"><span class="pre">tuple</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#pyvista.UniformGrid.extent" title="この定義へのパーマリンク">#</a></dt>
-<dd><p>バウンディングボックスの範囲を取得します．</p>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">UniformGrid.</span></span><span class="sig-name descname"><span class="pre">extent</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/dev/library/stdtypes.html#tuple" title="(in Python v3.12)"><span class="pre">tuple</span></a></em><a class="headerlink" href="#pyvista.UniformGrid.extent" title="この定義へのパーマリンク">#</a></dt>
+<dd><p>UniformGridの範囲を返すか設定します．</p>
+<p>extent は，単に3つの軸のそれぞれの最初と最後のインデックスです．</p>
+<p class="rubric">例</p>
+<p><code class="docutils literal notranslate"><span class="pre">UniformGrid</span></code> を作成し，その範囲を表示します．</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyvista</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">grid</span> <span class="o">=</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">UniformGrid</span><span class="p">(</span><span class="n">dims</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">grid</span><span class="o">.</span><span class="n">extent</span>
+<span class="go">(0, 9, 0, 9, 0, 9)</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">grid</span><span class="o">.</span><span class="n">extent</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">grid</span><span class="o">.</span><span class="n">extent</span>
+<span class="go">(2, 5, 2, 5, 2, 5)</span>
+</pre></div>
+</div>
+<p>これはグリッドの境界と寸法も変更することに注意してください．ここではデフォルトの間隔1を使用しているため，境界は範囲と正確に一致しています．</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">grid</span><span class="o">.</span><span class="n">bounds</span>
+<span class="go">(2.0, 5.0, 2.0, 5.0, 2.0, 5.0)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">grid</span><span class="o">.</span><span class="n">dimensions</span>
+<span class="go">(4, 4, 4)</span>
+</pre></div>
+</div>
 </dd></dl>
 
 </section>

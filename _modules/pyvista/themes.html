@@ -1776,8 +1776,15 @@
 
     <span class="nd">@cmap</span><span class="o">.</span><span class="n">setter</span>
     <span class="k">def</span> <span class="nf">cmap</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cmap</span><span class="p">):</span>
-        <span class="n">get_cmap_safe</span><span class="p">(</span><span class="n">cmap</span><span class="p">)</span>  <span class="c1"># for validation</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_cmap</span> <span class="o">=</span> <span class="n">cmap</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">get_cmap_safe</span><span class="p">(</span><span class="n">cmap</span><span class="p">)</span>  <span class="c1"># for validation</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_cmap</span> <span class="o">=</span> <span class="n">cmap</span>
+        <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>  <span class="c1"># pragma: no cover</span>
+            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+                <span class="s1">&#39;Unable to set a default theme colormap without matplotlib. &#39;</span>
+                <span class="s1">&#39;The builtin VTK &quot;jet&quot; colormap will be used.&#39;</span>
+            <span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_cmap</span> <span class="o">=</span> <span class="kc">None</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">color</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Color</span><span class="p">:</span>

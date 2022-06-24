@@ -898,11 +898,6 @@
         </a>
        </li>
        <li class="toctree-l4">
-        <a class="reference internal" href="pyvista.RectilinearGrid.extent.html">
-         extent
-        </a>
-       </li>
-       <li class="toctree-l4">
         <a class="reference internal" href="pyvista.RectilinearGrid.field_arrays.html">
          field_arrays
         </a>
@@ -1121,7 +1116,7 @@
 </dd>
 <dt><strong>y</strong><span class="classifier"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>点の y 方向の座標．これが渡された場合， <code class="docutils literal notranslate"><span class="pre">uinput</span></code> は <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> でなければなりません．</p>
 </dd>
-<dt><strong>z</strong><span class="classifier"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">np.ndarray</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>点の z 方向の座標．これが渡された場合， <code class="docutils literal notranslate"><span class="pre">uinput</span></code> と <code class="docutils literal notranslate"><span class="pre">y</span></code> は <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> でなければなりません．</p>
+<dt><strong>z</strong><span class="classifier"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>点の z 方向の座標．これが渡された場合， <code class="docutils literal notranslate"><span class="pre">uinput</span></code> と <code class="docutils literal notranslate"><span class="pre">y</span></code> は <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> でなければなりません．</p>
 </dd>
 <dt><strong>check_duplicates</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/dev/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.12)"><span class="xref std std-ref">bool</span></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>渡された配列の重複をチェックします．デフォルトは <code class="docutils literal notranslate"><span class="pre">False</span></code> です．もし <code class="docutils literal notranslate"><span class="pre">True</span></code> ならば，配列で指定された入力引数に重複する値があった場合にエラーとなります．</p>
 </dd>
@@ -1134,7 +1129,7 @@
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 </pre></div>
 </div>
-<p>空のグリッドを作成</p>
+<p>空のグリッドを作成します．</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">grid</span> <span class="o">=</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">RectilinearGrid</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1143,7 +1138,7 @@
 <span class="gp">&gt;&gt;&gt; </span><span class="n">grid</span> <span class="o">=</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">RectilinearGrid</span><span class="p">(</span><span class="n">vtkgrid</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>NumPyの配列からの作成</p>
+<p>NumPyの配列から作成します．</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">xrng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">yrng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">zrng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
@@ -1556,67 +1551,64 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.RectilinearGrid.dimensions.html#pyvista.RectilinearGrid.dimensions" title="pyvista.RectilinearGrid.dimensions"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RectilinearGrid.dimensions</span></code></a></p></td>
 <td><p>グリッドの大きさを返します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.RectilinearGrid.extent.html#pyvista.RectilinearGrid.extent" title="pyvista.RectilinearGrid.extent"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RectilinearGrid.extent</span></code></a></p></td>
-<td><p>バウンディングボックスの範囲を取得します．</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.RectilinearGrid.field_arrays.html#pyvista.RectilinearGrid.field_arrays" title="pyvista.RectilinearGrid.field_arrays"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RectilinearGrid.field_arrays</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.RectilinearGrid.field_arrays.html#pyvista.RectilinearGrid.field_arrays" title="pyvista.RectilinearGrid.field_arrays"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RectilinearGrid.field_arrays</span></code></a></p></td>
 <td><p>DataSetAttributesとしてvtkFieldDataを取得します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.RectilinearGrid.field_data.html#pyvista.RectilinearGrid.field_data" title="pyvista.RectilinearGrid.field_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RectilinearGrid.field_data</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.RectilinearGrid.field_data.html#pyvista.RectilinearGrid.field_data" title="pyvista.RectilinearGrid.field_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RectilinearGrid.field_data</span></code></a></p></td>
 <td><p>DataSetAttributesとしてFieldData を取得します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.RectilinearGrid.length.html#pyvista.RectilinearGrid.length" title="pyvista.RectilinearGrid.length"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RectilinearGrid.length</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.RectilinearGrid.length.html#pyvista.RectilinearGrid.length" title="pyvista.RectilinearGrid.length"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RectilinearGrid.length</span></code></a></p></td>
 <td><p>境界ボックスの対角線の長さを取得します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.RectilinearGrid.memory_address.html#pyvista.RectilinearGrid.memory_address" title="pyvista.RectilinearGrid.memory_address"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RectilinearGrid.memory_address</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.RectilinearGrid.memory_address.html#pyvista.RectilinearGrid.memory_address" title="pyvista.RectilinearGrid.memory_address"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RectilinearGrid.memory_address</span></code></a></p></td>
 <td><p>基盤となるVTK C++オブジェクトのアドレスを取得します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.RectilinearGrid.meshgrid.html#pyvista.RectilinearGrid.meshgrid" title="pyvista.RectilinearGrid.meshgrid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RectilinearGrid.meshgrid</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.RectilinearGrid.meshgrid.html#pyvista.RectilinearGrid.meshgrid" title="pyvista.RectilinearGrid.meshgrid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RectilinearGrid.meshgrid</span></code></a></p></td>
 <td><p>このメッシュの配列のメッシュグリッドを取得します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.RectilinearGrid.n_arrays.html#pyvista.RectilinearGrid.n_arrays" title="pyvista.RectilinearGrid.n_arrays"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RectilinearGrid.n_arrays</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.RectilinearGrid.n_arrays.html#pyvista.RectilinearGrid.n_arrays" title="pyvista.RectilinearGrid.n_arrays"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RectilinearGrid.n_arrays</span></code></a></p></td>
 <td><p>データセット内に存在する配列の数を取得します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.RectilinearGrid.n_cells.html#pyvista.RectilinearGrid.n_cells" title="pyvista.RectilinearGrid.n_cells"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RectilinearGrid.n_cells</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.RectilinearGrid.n_cells.html#pyvista.RectilinearGrid.n_cells" title="pyvista.RectilinearGrid.n_cells"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RectilinearGrid.n_cells</span></code></a></p></td>
 <td><p>データセット全体のセル数を取得します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.RectilinearGrid.n_points.html#pyvista.RectilinearGrid.n_points" title="pyvista.RectilinearGrid.n_points"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RectilinearGrid.n_points</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.RectilinearGrid.n_points.html#pyvista.RectilinearGrid.n_points" title="pyvista.RectilinearGrid.n_points"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RectilinearGrid.n_points</span></code></a></p></td>
 <td><p>データセット全体のポイント数を取得します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.RectilinearGrid.number_of_cells.html#pyvista.RectilinearGrid.number_of_cells" title="pyvista.RectilinearGrid.number_of_cells"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RectilinearGrid.number_of_cells</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.RectilinearGrid.number_of_cells.html#pyvista.RectilinearGrid.number_of_cells" title="pyvista.RectilinearGrid.number_of_cells"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RectilinearGrid.number_of_cells</span></code></a></p></td>
 <td><p>セルの数を取得します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.RectilinearGrid.number_of_points.html#pyvista.RectilinearGrid.number_of_points" title="pyvista.RectilinearGrid.number_of_points"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RectilinearGrid.number_of_points</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.RectilinearGrid.number_of_points.html#pyvista.RectilinearGrid.number_of_points" title="pyvista.RectilinearGrid.number_of_points"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RectilinearGrid.number_of_points</span></code></a></p></td>
 <td><p>ポイント数を取得します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.RectilinearGrid.point_arrays.html#pyvista.RectilinearGrid.point_arrays" title="pyvista.RectilinearGrid.point_arrays"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RectilinearGrid.point_arrays</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.RectilinearGrid.point_arrays.html#pyvista.RectilinearGrid.point_arrays" title="pyvista.RectilinearGrid.point_arrays"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RectilinearGrid.point_arrays</span></code></a></p></td>
 <td><p>DataSetAttributesとしてvtkPointDataを取得します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.RectilinearGrid.point_data.html#pyvista.RectilinearGrid.point_data" title="pyvista.RectilinearGrid.point_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RectilinearGrid.point_data</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.RectilinearGrid.point_data.html#pyvista.RectilinearGrid.point_data" title="pyvista.RectilinearGrid.point_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RectilinearGrid.point_data</span></code></a></p></td>
 <td><p>DataSetAttributesとしてvtkPointDataを取得します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.RectilinearGrid.points.html#pyvista.RectilinearGrid.points" title="pyvista.RectilinearGrid.points"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RectilinearGrid.points</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.RectilinearGrid.points.html#pyvista.RectilinearGrid.points" title="pyvista.RectilinearGrid.points"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RectilinearGrid.points</span></code></a></p></td>
 <td><p>点のコピーをn x 3 numpy配列として取得します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.RectilinearGrid.t_coords.html#pyvista.RectilinearGrid.t_coords" title="pyvista.RectilinearGrid.t_coords"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RectilinearGrid.t_coords</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.RectilinearGrid.t_coords.html#pyvista.RectilinearGrid.t_coords" title="pyvista.RectilinearGrid.t_coords"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RectilinearGrid.t_coords</span></code></a></p></td>
 <td><p>ポイント上のアクティブなテクスチャ座標を取得します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.RectilinearGrid.textures.html#pyvista.RectilinearGrid.textures" title="pyvista.RectilinearGrid.textures"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RectilinearGrid.textures</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.RectilinearGrid.textures.html#pyvista.RectilinearGrid.textures" title="pyvista.RectilinearGrid.textures"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RectilinearGrid.textures</span></code></a></p></td>
 <td><p>互換性のある <code class="docutils literal notranslate"><span class="pre">vtk.vtkTexture</span></code> オブジェクトを保持する辞書を取得します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.RectilinearGrid.vectors.html#pyvista.RectilinearGrid.vectors" title="pyvista.RectilinearGrid.vectors"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RectilinearGrid.vectors</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.RectilinearGrid.vectors.html#pyvista.RectilinearGrid.vectors" title="pyvista.RectilinearGrid.vectors"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RectilinearGrid.vectors</span></code></a></p></td>
 <td><p>アクティブなベクトルを取得します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.RectilinearGrid.volume.html#pyvista.RectilinearGrid.volume" title="pyvista.RectilinearGrid.volume"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RectilinearGrid.volume</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.RectilinearGrid.volume.html#pyvista.RectilinearGrid.volume" title="pyvista.RectilinearGrid.volume"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RectilinearGrid.volume</span></code></a></p></td>
 <td><p>メッシュボリュームを取得します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.RectilinearGrid.x.html#pyvista.RectilinearGrid.x" title="pyvista.RectilinearGrid.x"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RectilinearGrid.x</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.RectilinearGrid.x.html#pyvista.RectilinearGrid.x" title="pyvista.RectilinearGrid.x"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RectilinearGrid.x</span></code></a></p></td>
 <td><p>X方向に沿った座標を返すか設定します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.RectilinearGrid.y.html#pyvista.RectilinearGrid.y" title="pyvista.RectilinearGrid.y"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RectilinearGrid.y</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.RectilinearGrid.y.html#pyvista.RectilinearGrid.y" title="pyvista.RectilinearGrid.y"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RectilinearGrid.y</span></code></a></p></td>
 <td><p>Y方向に沿った座標を返すか設定します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.RectilinearGrid.z.html#pyvista.RectilinearGrid.z" title="pyvista.RectilinearGrid.z"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RectilinearGrid.z</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.RectilinearGrid.z.html#pyvista.RectilinearGrid.z" title="pyvista.RectilinearGrid.z"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RectilinearGrid.z</span></code></a></p></td>
 <td><p>Z方向に沿った座標を返すか設定します．</p></td>
 </tr>
 </tbody>
