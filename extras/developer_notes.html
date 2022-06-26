@@ -360,11 +360,6 @@
     <a class="reference internal nav-link" href="#branching-model">
      ブランチモデル
     </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#labels">
-     Labels
-    </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#minor-release-steps">
@@ -600,16 +595,6 @@ codespell................................................................Passed
 <li><p>マイナーリリース(例えば <code class="docutils literal notranslate"><span class="pre">release/0.24</span></code> )をベースにした <code class="docutils literal notranslate"><span class="pre">release/</span></code> ブランチがいくつかあり，そこには PyPI/ にも反映される安定版のコードベースが含まれています． <code class="docutils literal notranslate"><span class="pre">fix/</span></code> ブランチの修正パッチは，mainブランチとこれらのブランチの両方にマージする必要があります．新しいパッチリリースを作成する必要がある場合，これらのリリースブランチの <code class="docutils literal notranslate"><span class="pre">__version__.py</span></code> が更新され，パッチされたセマンティックバージョン(例えば <code class="docutils literal notranslate"><span class="pre">0.24.1</span></code> )がタグ付けされます．これによりCIはPyPIにプッシュし，テストされていない機能を気にすることなく，過去のバージョンの <code class="docutils literal notranslate"><span class="pre">pyvista</span></code> のホットフィックスを迅速にプッシュすることができます．</p></li>
 <li><p>マイナーリリース候補が準備できたら， <code class="docutils literal notranslate"><span class="pre">main</span></code> から新しい <code class="docutils literal notranslate"><span class="pre">release</span></code> ブランチが作成され，次のマイナーバージョン(例えば  <code class="docutils literal notranslate"><span class="pre">release/0.25</span></code> )がインクリメントされ，徹底的にテストされます．安定していると判断された場合，リリースブランチにはバージョン(この場合の <code class="docutils literal notranslate"><span class="pre">0.25.0</span></code> )のタグが付けられ，必要に応じて変更が加えられた場合にはmainとマージされます． <code class="docutils literal notranslate"><span class="pre">main</span></code> で機能開発が継続され，ホットフィックスはこのリリースに統合されます．必要に応じてパッチを適用できるように，古いリリースブランチは削除しないでください．</p></li>
 </ul>
-</section>
-<section id="labels">
-<h3>Labels<a class="headerlink" href="#labels" title="このヘッドラインへのパーマリンク">#</a></h3>
-<p>The appropriate label will be added to pull request by CI. This will
-be used for future release notes. CI will also verify that the necessary
-labels have been added. If CI doesn't add a label, please it manually.
-The <code class="docutils literal notranslate"><span class="pre">community-reviewed</span></code> label is required for merging. This is added
-when there has been no reviewer action for one day since the last
-pull request action. This system is designed to give reviewers in all
-time zones a chance to review.</p>
 <section id="minor-release-steps">
 <h4>マイナーリリース手順<a class="headerlink" href="#minor-release-steps" title="このヘッドラインへのパーマリンク">#</a></h4>
 <p>マイナーリリースは， <code class="docutils literal notranslate"><span class="pre">pyvista</span></code> の機能と安定性を改善する機能およびバグリリースです．マイナーリリースが作成される前に，次のことが発生します．</p>

@@ -896,7 +896,7 @@
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        n_iter : int</span>
+<span class="sd">        n_iter : int, optional</span>
 <span class="sd">            Number of iterations for Laplacian smoothing.</span>
 
 <span class="sd">        relaxation_factor : float, optional</span>
@@ -915,10 +915,13 @@
 <span class="sd">            Feature angle for sharp edge identification.</span>
 
 <span class="sd">        boundary_smoothing : bool, optional</span>
-<span class="sd">            Boolean flag to control smoothing of boundary edges.</span>
+<span class="sd">            Flag to control smoothing of boundary edges. When ``True``,</span>
+<span class="sd">            boundary edges remain fixed. Default ``True``.</span>
 
 <span class="sd">        feature_smoothing : bool, optional</span>
-<span class="sd">            Boolean flag to control smoothing of feature edges.</span>
+<span class="sd">            Flag to control smoothing of feature edges.  When ``True``,</span>
+<span class="sd">            boundary edges remain fixed as defined by ``feature_angle`` and</span>
+<span class="sd">            ``edge_angle``. Default ``False``.</span>
 
 <span class="sd">        inplace : bool, optional</span>
 <span class="sd">            Updates mesh in-place.</span>
@@ -964,7 +967,130 @@
         <span class="k">if</span> <span class="n">inplace</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">overwrite</span><span class="p">(</span><span class="n">mesh</span><span class="p">)</span>
             <span class="k">return</span> <span class="bp">self</span>
+        <span class="k">return</span> <span class="n">mesh</span></div>
 
+<div class="viewcode-block" id="PolyDataFilters.smooth_taubin"><a class="viewcode-back" href="../../../../api/core/_autosummary/pyvista.PolyDataFilters.smooth_taubin.html#pyvista.PolyDataFilters.smooth_taubin">[ドキュメント]</a>    <span class="k">def</span> <span class="nf">smooth_taubin</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">n_iter</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+        <span class="n">pass_band</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
+        <span class="n">edge_angle</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span>
+        <span class="n">feature_angle</span><span class="o">=</span><span class="mi">45</span><span class="p">,</span>
+        <span class="n">boundary_smoothing</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">feature_smoothing</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="n">non_manifold_smoothing</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="n">normalize_coordinates</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="n">inplace</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="n">progress_bar</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Smooth a PolyData DataSet with Taubin smoothing.</span>
+
+<span class="sd">        This filter allows you to smooth the mesh as in the Laplacian smoothing</span>
+<span class="sd">        implementation in :func:`smooth() &lt;PolyDataFilters.smooth&gt;`. However,</span>
+<span class="sd">        unlike Laplacian smoothing the surface does not &quot;shrink&quot; since this</span>
+<span class="sd">        filter relies on an alternative approach to smoothing. This filter is</span>
+<span class="sd">        more akin to a low pass filter where undesirable high frequency features</span>
+<span class="sd">        are removed.</span>
+
+<span class="sd">        This PyVista filter uses the VTK `vtkWindowedSincPolyDataFilter</span>
+<span class="sd">        &lt;https://vtk.org/doc/nightly/html/classvtkWindowedSincPolyDataFilter.html&gt;`_</span>
+<span class="sd">        filter.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        n_iter : int, optional</span>
+<span class="sd">            This is the degree of the polynomial used to approximate the</span>
+<span class="sd">            windowed sync function. This is generally much less than the number</span>
+<span class="sd">            needed by :func:`smooth() &lt;PolyDataFilters.smooth&gt;`.</span>
+
+<span class="sd">        pass_band : float, optional</span>
+<span class="sd">            The passband value for the windowed sinc filter. This should be</span>
+<span class="sd">            between 0 and 2, where lower values cause more smoothing.</span>
+
+<span class="sd">        edge_angle : float, optional</span>
+<span class="sd">            Edge angle to control smoothing along edges (either interior or</span>
+<span class="sd">            boundary).</span>
+
+<span class="sd">        feature_angle : float, optional</span>
+<span class="sd">            Feature angle for sharp edge identification.</span>
+
+<span class="sd">        boundary_smoothing : bool, optional</span>
+<span class="sd">            Flag to control smoothing of boundary edges. When ``True``,</span>
+<span class="sd">            boundary edges remain fixed. Default ``True``.</span>
+
+<span class="sd">        feature_smoothing : bool, optional</span>
+<span class="sd">            Flag to control smoothing of feature edges.  When ``True``,</span>
+<span class="sd">            boundary edges remain fixed as defined by ``feature_angle`` and</span>
+<span class="sd">            ``edge_angle``. Default ``False``.</span>
+
+<span class="sd">        non_manifold_smoothing : bool, optional</span>
+<span class="sd">            Smooth non-manifold points, default ``False``.</span>
+
+<span class="sd">        normalize_coordinates : bool, optional</span>
+<span class="sd">            Flag to control coordinate normalization. To improve the</span>
+<span class="sd">            numerical stability of the solution and minimize the scaling the</span>
+<span class="sd">            translation effects, the algorithm can translate and scale the</span>
+<span class="sd">            position coordinates to within the unit cube ``[-1, 1]``, perform the</span>
+<span class="sd">            smoothing, and translate and scale the position coordinates back to</span>
+<span class="sd">            the original coordinate frame. This defaults to ``False``.</span>
+
+<span class="sd">        inplace : bool, optional</span>
+<span class="sd">            Updates mesh in-place.</span>
+
+<span class="sd">        progress_bar : bool, optional</span>
+<span class="sd">            Display a progress bar to indicate progress.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        pyvista.PolyData</span>
+<span class="sd">            Smoothed mesh.</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        For maximum performance, do not enable ``feature_smoothing`` or</span>
+<span class="sd">        ``boundary_smoothing``. ``feature_smoothing`` is especially expensive.</span>
+
+<span class="sd">        References</span>
+<span class="sd">        ----------</span>
+<span class="sd">        See `Optimal Surface Smoothing as Filter Design</span>
+<span class="sd">        &lt;https://dl.acm.org/doi/pdf/10.1145/218380.218473&gt;` for details</span>
+<span class="sd">        regarding the implementation of Taubin smoothing.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        Smooth the example bone mesh. Here, it&#39;s necessary to subdivide the</span>
+<span class="sd">        mesh to increase the number of faces as the original mesh is so coarse.</span>
+
+<span class="sd">        &gt;&gt;&gt; import pyvista as pv</span>
+<span class="sd">        &gt;&gt;&gt; from pyvista import examples</span>
+<span class="sd">        &gt;&gt;&gt; mesh = examples.download_foot_bones().subdivide(2)</span>
+<span class="sd">        &gt;&gt;&gt; smoothed_mesh = mesh.smooth_taubin()</span>
+<span class="sd">        &gt;&gt;&gt; pl = pv.Plotter(shape=(1, 2))</span>
+<span class="sd">        &gt;&gt;&gt; _ = pl.add_mesh(mesh)</span>
+<span class="sd">        &gt;&gt;&gt; _ = pl.add_text(&#39;Original Mesh&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; pl.subplot(0, 1)</span>
+<span class="sd">        &gt;&gt;&gt; _ = pl.add_mesh(smoothed_mesh)</span>
+<span class="sd">        &gt;&gt;&gt; _ = pl.add_text(&#39;Smoothed Mesh&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; pl.show()</span>
+
+<span class="sd">        See :ref:`surface_smoothing_example` for more examples using this filter.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">alg</span> <span class="o">=</span> <span class="n">_vtk</span><span class="o">.</span><span class="n">vtkWindowedSincPolyDataFilter</span><span class="p">()</span>
+        <span class="n">alg</span><span class="o">.</span><span class="n">SetInputData</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">alg</span><span class="o">.</span><span class="n">SetNumberOfIterations</span><span class="p">(</span><span class="n">n_iter</span><span class="p">)</span>
+        <span class="n">alg</span><span class="o">.</span><span class="n">SetFeatureEdgeSmoothing</span><span class="p">(</span><span class="n">feature_smoothing</span><span class="p">)</span>
+        <span class="n">alg</span><span class="o">.</span><span class="n">SetNonManifoldSmoothing</span><span class="p">(</span><span class="n">non_manifold_smoothing</span><span class="p">)</span>
+        <span class="n">alg</span><span class="o">.</span><span class="n">SetFeatureAngle</span><span class="p">(</span><span class="n">feature_angle</span><span class="p">)</span>
+        <span class="n">alg</span><span class="o">.</span><span class="n">SetEdgeAngle</span><span class="p">(</span><span class="n">edge_angle</span><span class="p">)</span>
+        <span class="n">alg</span><span class="o">.</span><span class="n">SetBoundarySmoothing</span><span class="p">(</span><span class="n">boundary_smoothing</span><span class="p">)</span>
+        <span class="n">alg</span><span class="o">.</span><span class="n">SetPassBand</span><span class="p">(</span><span class="n">pass_band</span><span class="p">)</span>
+        <span class="n">alg</span><span class="o">.</span><span class="n">SetNormalizeCoordinates</span><span class="p">(</span><span class="n">normalize_coordinates</span><span class="p">)</span>
+        <span class="n">_update_alg</span><span class="p">(</span><span class="n">alg</span><span class="p">,</span> <span class="n">progress_bar</span><span class="p">,</span> <span class="s1">&#39;Smoothing Mesh using Taubin Smoothing&#39;</span><span class="p">)</span>
+
+        <span class="n">mesh</span> <span class="o">=</span> <span class="n">_get_output</span><span class="p">(</span><span class="n">alg</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">inplace</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">overwrite</span><span class="p">(</span><span class="n">mesh</span><span class="p">)</span>
+            <span class="k">return</span> <span class="bp">self</span>
         <span class="k">return</span> <span class="n">mesh</span></div>
 
 <div class="viewcode-block" id="PolyDataFilters.decimate_pro"><a class="viewcode-back" href="../../../../api/core/_autosummary/pyvista.PolyDataFilters.decimate_pro.html#pyvista.PolyDataFilters.decimate_pro">[ドキュメント]</a>    <span class="k">def</span> <span class="nf">decimate_pro</span><span class="p">(</span>

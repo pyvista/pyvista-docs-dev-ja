@@ -1115,9 +1115,24 @@
     
     <div class="toc-item">
       
+<div class="tocsection onthispage mt-5 pt-1 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
 
 <nav id="bd-toc-nav">
-    
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   サーフェイススムージング
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#taubin-smoothing">
+   Taubin Smoothing
+  </a>
+ </li>
+</ul>
+
 </nav>
     </div>
     
@@ -1142,7 +1157,8 @@
 <section class="sphx-glr-example-title" id="surface-smoothing">
 <span id="surface-smoothing-example"></span><span id="sphx-glr-examples-01-filter-surface-smoothing-py"></span><h1>サーフェイススムージング<a class="headerlink" href="#surface-smoothing" title="このヘッドラインへのパーマリンク">#</a></h1>
 <p>サーフェスメッシュの粗いエッジをスムージングする</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyvista</span> <span class="kn">import</span> <span class="n">examples</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyvista</span> <span class="k">as</span> <span class="nn">pv</span>
+<span class="kn">from</span> <span class="nn">pyvista</span> <span class="kn">import</span> <span class="n">examples</span>
 </pre></div>
 </div>
 <p>大まかに定義されたエッジを持つデータセットのボリュームサブセットを抽出するとします．おそらく，そのモデル領域をスムーズに表現する必要があります．これは，ボリュームの境界サーフェスを抽出し， <a class="reference internal" href="../../api/core/_autosummary/pyvista.PolyData.smooth.html#pyvista.PolyData.smooth" title="pyvista.PolyData.smooth"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyvista.PolyData.smooth()</span></code></a> フィルタを適用することで実現できます．</p>
@@ -1154,7 +1170,7 @@
 <span class="n">data</span> <span class="o">=</span> <span class="n">examples</span><span class="o">.</span><span class="n">load_uniform</span><span class="p">()</span>
 <span class="c1"># Extract a rugged volume</span>
 <span class="n">vol</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">threshold_percent</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="n">invert</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">vol</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">show_edges</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <a href="https://docs.python.org/dev/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">cpos</span></a><span class="o">=</span><a href="https://docs.python.org/dev/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">cpos</span></a><span class="p">)</span>
+<span class="n">vol</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">show_edges</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <a href="https://docs.python.org/dev/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">cpos</span></a><span class="o">=</span><a href="https://docs.python.org/dev/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">cpos</span></a><span class="p">,</span> <span class="n">show_scalar_bar</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 <img src="../../_images/sphx_glr_surface-smoothing_001.png" srcset="../../_images/sphx_glr_surface-smoothing_001.png" alt="surface smoothing" class = "sphx-glr-single-img"/><p><a class="reference internal" href="../../api/core/_autosummary/pyvista.DataSetFilters.extract_geometry.html#pyvista.DataSetFilters.extract_geometry" title="pyvista.DataSetFilters.extract_geometry"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyvista.DataSetFilters.extract_geometry()</span></code></a> フィルタを使用してボリュームの外側サーフェスを抽出し，次にスムージングフィルタを適用します．</p>
@@ -1162,22 +1178,59 @@
 <span class="n">surf</span> <span class="o">=</span> <span class="n">vol</span><span class="o">.</span><span class="n">extract_geometry</span><span class="p">()</span>
 <span class="c1"># Smooth the surface</span>
 <span class="n">smooth</span> <span class="o">=</span> <span class="n">surf</span><span class="o">.</span><span class="n">smooth</span><span class="p">()</span>
-<span class="n">smooth</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">show_edges</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <a href="https://docs.python.org/dev/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">cpos</span></a><span class="o">=</span><a href="https://docs.python.org/dev/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">cpos</span></a><span class="p">)</span>
+<span class="n">smooth</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">show_edges</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <a href="https://docs.python.org/dev/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">cpos</span></a><span class="o">=</span><a href="https://docs.python.org/dev/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">cpos</span></a><span class="p">,</span> <span class="n">show_scalar_bar</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 <img src="../../_images/sphx_glr_surface-smoothing_002.png" srcset="../../_images/sphx_glr_surface-smoothing_002.png" alt="surface smoothing" class = "sphx-glr-single-img"/><p>滑らかさが足りませんか?Laplacianスムージングアルゴリズムの反復回数を増やしてみます．</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Smooth the surface even more</span>
 <span class="n">smooth</span> <span class="o">=</span> <span class="n">surf</span><span class="o">.</span><span class="n">smooth</span><span class="p">(</span><span class="n">n_iter</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
-<span class="n">smooth</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">show_edges</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <a href="https://docs.python.org/dev/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">cpos</span></a><span class="o">=</span><a href="https://docs.python.org/dev/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">cpos</span></a><span class="p">)</span>
+<span class="n">smooth</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">show_edges</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <a href="https://docs.python.org/dev/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">cpos</span></a><span class="o">=</span><a href="https://docs.python.org/dev/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">cpos</span></a><span class="p">,</span> <span class="n">show_scalar_bar</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_surface-smoothing_003.png" srcset="../../_images/sphx_glr_surface-smoothing_003.png" alt="surface smoothing" class = "sphx-glr-single-img"/><p>まだ滑らかではありませんか?ラプラシアン平滑化アルゴリズムの反復回数を非常に高い値に増やします．</p>
+<img src="../../_images/sphx_glr_surface-smoothing_003.png" srcset="../../_images/sphx_glr_surface-smoothing_003.png" alt="surface smoothing" class = "sphx-glr-single-img"/><p>Still not smooth enough? Increase the number of iterations for the Laplacian
+smoothing algorithm to a crazy high value. Note how this causes the mesh to
+&quot;shrink&quot;:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Smooth the surface EVEN MORE</span>
 <span class="n">smooth</span> <span class="o">=</span> <span class="n">surf</span><span class="o">.</span><span class="n">smooth</span><span class="p">(</span><span class="n">n_iter</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
-<span class="n">smooth</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">show_edges</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <a href="https://docs.python.org/dev/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">cpos</span></a><span class="o">=</span><a href="https://docs.python.org/dev/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">cpos</span></a><span class="p">)</span>
+
+<span class="c1"># extract the edges of the original unsmoothed mesh</span>
+<span class="n">orig_edges</span> <span class="o">=</span> <span class="n">surf</span><span class="o">.</span><span class="n">extract_feature_edges</span><span class="p">()</span>
+
+<span class="n">pl</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Plotter</span><span class="p">()</span>
+<span class="n">pl</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">smooth</span><span class="p">,</span> <span class="n">show_edges</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">show_scalar_bar</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">pl</span><span class="o">.</span><span class="n">camera_position</span> <span class="o">=</span> <a href="https://docs.python.org/dev/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">cpos</span></a>
+<span class="n">pl</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">orig_edges</span><span class="p">,</span> <span class="n">show_scalar_bar</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">line_width</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">pl</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_surface-smoothing_004.png" srcset="../../_images/sphx_glr_surface-smoothing_004.png" alt="surface smoothing" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  1.431 seconds)</p>
+<img src="../../_images/sphx_glr_surface-smoothing_004.png" srcset="../../_images/sphx_glr_surface-smoothing_004.png" alt="surface smoothing" class = "sphx-glr-single-img"/></section>
+<section id="taubin-smoothing">
+<h1>Taubin Smoothing<a class="headerlink" href="#taubin-smoothing" title="このヘッドラインへのパーマリンク">#</a></h1>
+<p>You can reduce the amount of surface shrinkage by using Taubin smoothing
+rather than the default laplacian smoothing implemented in <a class="reference internal" href="../../api/core/_autosummary/pyvista.PolyDataFilters.smooth.html#pyvista.PolyDataFilters.smooth" title="pyvista.PolyDataFilters.smooth"><code class="xref py py-func docutils literal notranslate"><span class="pre">smooth()</span></code></a>. In this example, you can see how Taubin
+smoothing maintains the volume relative to the original mesh.</p>
+<p>Also note that the number of iterations can be reduced to get the same approximate amount of smoothing. This is because Taubin smoothing is more efficient.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">smooth_w_taubin</span> <span class="o">=</span> <span class="n">surf</span><span class="o">.</span><span class="n">smooth_taubin</span><span class="p">(</span><span class="n">n_iter</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">pass_band</span><span class="o">=</span><span class="mf">0.05</span><span class="p">)</span>
+
+<span class="n">pl</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Plotter</span><span class="p">()</span>
+<span class="n">pl</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">smooth_w_taubin</span><span class="p">,</span> <span class="n">show_edges</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">show_scalar_bar</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">pl</span><span class="o">.</span><span class="n">camera_position</span> <span class="o">=</span> <a href="https://docs.python.org/dev/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">cpos</span></a>
+<span class="n">pl</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">orig_edges</span><span class="p">,</span> <span class="n">show_scalar_bar</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">line_width</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">pl</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+<span class="c1"># output the volumes of the original and smoothed meshes</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Original surface volume:   </span><span class="si">{</span><span class="n">surf</span><span class="o">.</span><span class="n">volume</span><span class="si">:</span><span class="s1">.1f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Laplacian smoothed volume: </span><span class="si">{</span><span class="n">smooth</span><span class="o">.</span><span class="n">volume</span><span class="si">:</span><span class="s1">.1f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Taubin smoothed volume:    </span><span class="si">{</span><span class="n">smooth_w_taubin</span><span class="o">.</span><span class="n">volume</span><span class="si">:</span><span class="s1">.1f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<img src="../../_images/sphx_glr_surface-smoothing_005.png" srcset="../../_images/sphx_glr_surface-smoothing_005.png" alt="surface smoothing" class = "sphx-glr-single-img"/><p class="sphx-glr-script-out">出力:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Original surface volume:   676.0
+Laplacian smoothed volume: 468.3
+Taubin smoothed volume:    680.0
+</pre></div>
+</div>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  1.715 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-01-filter-surface-smoothing-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/6de5d2d3a9b4343c812aaa8ce651000d/surface-smoothing.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">surface-smoothing.py</span></code></a></p>
