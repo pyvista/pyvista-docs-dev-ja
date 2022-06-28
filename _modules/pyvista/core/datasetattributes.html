@@ -992,6 +992,11 @@
                 <span class="c1"># VTK doesn&#39;t support strides, therefore we can&#39;t directly</span>
                 <span class="c1"># point to the underlying object</span>
                 <span class="k">if</span> <span class="n">data</span><span class="o">.</span><span class="n">flags</span><span class="o">.</span><span class="n">c_contiguous</span><span class="p">:</span>
+                    <span class="c1"># no reason to return a shallow copy if the array and name</span>
+                    <span class="c1"># are identical, just return the underlying array name</span>
+                    <span class="k">if</span> <span class="ow">not</span> <span class="n">deep_copy</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="ow">and</span> <span class="n">data</span><span class="o">.</span><span class="n">VTKObject</span><span class="o">.</span><span class="n">GetName</span><span class="p">()</span> <span class="o">==</span> <span class="n">name</span><span class="p">:</span>
+                        <span class="k">return</span> <span class="n">data</span><span class="o">.</span><span class="n">VTKObject</span>
+
                     <span class="n">vtk_arr</span> <span class="o">=</span> <span class="n">copy_vtk_array</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">VTKObject</span><span class="p">,</span> <span class="n">deep</span><span class="o">=</span><span class="n">deep_copy</span><span class="p">)</span>
                     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
                         <span class="n">vtk_arr</span><span class="o">.</span><span class="n">SetName</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>

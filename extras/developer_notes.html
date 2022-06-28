@@ -629,7 +629,7 @@ git push origin --tags
 <p>パッチリリースは重要なバグフィックスのためのもので，マイナーリリースまで待つことはできないものです．パッチリリースの手順は</p>
 <ol class="arabic simple">
 <li><p>必要な(複数の)バグフィックスを該当するリリースブランチにプッシュします．これは通常，最新のリリースブランチ(例  <code class="docutils literal notranslate"><span class="pre">release/0.25</span></code>)です．</p></li>
-<li><p>次のパッチ増分で <code class="docutils literal notranslate"><span class="pre">__version__.py</span></code> を更新し(例: <code class="docutils literal notranslate"><span class="pre">0.25.1</span></code> )，コミットし，リリースブランチとマージするPRをオープンします．これにより， <code class="docutils literal notranslate"><span class="pre">pyvista</span></code> コミュニティはバグ修正リリースを検証し，承認する機会を得ます．追加のホットフィックスは，このPRの範囲外でなければなりません．</p></li>
+<li><p>次のパッチ増分で <code class="docutils literal notranslate"><span class="pre">pyvista/_version.py</span></code> を更新し(例: <code class="docutils literal notranslate"><span class="pre">0.25.1</span></code> )，コミットし，リリースブランチとマージするPRをオープンします．これにより， <code class="docutils literal notranslate"><span class="pre">pyvista</span></code> コミュニティはバグ修正リリースを検証し，承認する機会を得ます．追加のホットフィックスは，このPRの範囲外でなければなりません．</p></li>
 <li><p>承認されたら，リリースブランチとマージしますが， <code class="docutils literal notranslate"><span class="pre">main</span></code> ブランチのバージョンを増やす理由がないため， <code class="docutils literal notranslate"><span class="pre">main</span></code> とはマージしません．次に，リリースブランチから適切なバージョン番号(正しい手順については上記を参照してください．)のタグを作成します．</p></li>
 <li><p>必要に応じて，リリースノートページを作成します．また，condaからPRを開き，マイナーリリースセクションの手順10の指示に従います．</p></li>
 </ol>

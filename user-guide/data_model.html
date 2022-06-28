@@ -461,25 +461,25 @@
 <p>三角形の点を定義してみましょう．VTKのAPIを使えば，このようなことができます．</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">vtk</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">vtk_array</span> <span class="o">=</span> <span class="n">vtk</span><span class="o">.</span><span class="n">vtkDoubleArray</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">vtk_array</span><span class="o">.</span><span class="n">SetNumberOfComponents</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">vtk_array</span><span class="o">.</span><span class="n">SetNumberOfValues</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">vtk_array</span><span class="o">.</span><span class="n">SetValue</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">vtk_array</span><span class="o">.</span><span class="n">SetValue</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">vtk_array</span><span class="o">.</span><span class="n">SetValue</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">vtk_array</span><span class="o">.</span><span class="n">SetValue</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">vtk_array</span><span class="o">.</span><span class="n">SetValue</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">vtk_array</span><span class="o">.</span><span class="n">SetValue</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">vtk_array</span><span class="o">.</span><span class="n">SetValue</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">vtk_array</span><span class="o">.</span><span class="n">SetValue</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mf">0.667</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">vtk_array</span><span class="o">.</span><span class="n">SetValue</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">vtk_array</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">vtk</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">vtk_array</span> <span class="o">=</span> <span class="n">vtk</span><span class="o">.</span><span class="n">vtkDoubleArray</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">vtk_array</span><span class="o">.</span><span class="n">SetNumberOfComponents</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">vtk_array</span><span class="o">.</span><span class="n">SetNumberOfValues</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">vtk_array</span><span class="o">.</span><span class="n">SetValue</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">vtk_array</span><span class="o">.</span><span class="n">SetValue</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">vtk_array</span><span class="o">.</span><span class="n">SetValue</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">vtk_array</span><span class="o">.</span><span class="n">SetValue</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">vtk_array</span><span class="o">.</span><span class="n">SetValue</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">vtk_array</span><span class="o">.</span><span class="n">SetValue</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">vtk_array</span><span class="o">.</span><span class="n">SetValue</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">vtk_array</span><span class="o">.</span><span class="n">SetValue</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mf">0.667</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">vtk_array</span><span class="o">.</span><span class="n">SetValue</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">vtk_array</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>vtkDoubleArray (0x55b12aca3bc0)
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>vtkDoubleArray (0x561a6783e480)
   Debug: Off
   Modified Time: 55954
   Reference Count: 1
@@ -509,11 +509,11 @@
 <p><a class="reference external" href="https://numpy.org/">NumPy</a> ポイントの配列を作ることができます．</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">np_points</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
-<span class="gp">... </span>                      <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
-<span class="gp">... </span>                      <span class="p">[</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.667</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">np_points</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">np_points</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+<span class="o">...</span>                       <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+<span class="o">...</span>                       <span class="p">[</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.667</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">np_points</span>
 </pre></div>
 </div>
 </div>
@@ -529,9 +529,9 @@
 <p>VTKオブジェクトをPyVistaで使用したい場合は，これも可能です．実際， <a class="reference internal" href="../api/utilities/_autosummary/pyvista.wrap.html#pyvista.wrap" title="pyvista.wrap"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyvista.wrap()</span></code></a> を使用すると，データの numpy ライクな表現を得ることもできます．例えば，次のようになります．</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyvista</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">wrapped</span> <span class="o">=</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">wrap</span><span class="p">(</span><span class="n">vtk_array</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">wrapped</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">pyvista</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">wrapped</span> <span class="o">=</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">wrap</span><span class="p">(</span><span class="n">vtk_array</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">wrapped</span>
 </pre></div>
 </div>
 </div>
@@ -546,8 +546,8 @@
 <p>基礎となるVTK配列をラップする際には，実際にデータの浅いコピーを行うことに注意してください．つまり，基礎となるC配列からのポインタを <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> に渡すことで，2つの配列が効率的にリンクされることになります（NumPyの用語では，返される配列は基礎となるVTKデータへのビューとなります）．つまり，numpyの配列インデックスを使って配列を変更し，それを &quot;VTK側&quot; で修正させることができるのです．</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">wrapped</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">vtk_array</span><span class="o">.</span><span class="n">GetValue</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">wrapped</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">vtk_array</span><span class="o">.</span><span class="n">GetValue</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -560,8 +560,8 @@
 <p>あるいは，VTK配列から値を変更して，それがnumpyのラップ配列に反映されるのを確認することもできます．それでは，値を戻してみましょう．</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">vtk_array</span><span class="o">.</span><span class="n">SetValue</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">wrapped</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">vtk_array</span><span class="o">.</span><span class="n">SetValue</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">wrapped</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -577,9 +577,9 @@
 <p>PyVistaでは，Pythonのシーケンス（ <a class="reference external" href="https://docs.python.org/dev/library/stdtypes.html#list" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> や  <a class="reference external" href="https://docs.python.org/dev/library/stdtypes.html#tuple" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a> ）の使用をサポートしており，リストのネストを使ってポイントを定義することができます．</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">points</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
-<span class="gp">... </span>          <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
-<span class="gp">... </span>          <span class="p">[</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.667</span><span class="p">,</span> <span class="mi">0</span><span class="p">]]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">points</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+<span class="o">...</span>           <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+<span class="o">...</span>           <span class="p">[</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.667</span><span class="p">,</span> <span class="mi">0</span><span class="p">]]</span>
 </pre></div>
 </div>
 </div>
@@ -590,9 +590,9 @@
 <p>最後に，この3つのオブジェクトをPyVistaのジオメトリクラスでどのように使うかを説明します．ここでは，3つの点だけを含む単純なポイントメッシュを作成します．</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">from_vtk</span> <span class="o">=</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">PolyData</span><span class="p">(</span><span class="n">vtk_array</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">from_np</span> <span class="o">=</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">PolyData</span><span class="p">(</span><span class="n">np_points</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">from_list</span> <span class="o">=</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">PolyData</span><span class="p">(</span><span class="n">points</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">from_vtk</span> <span class="o">=</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">PolyData</span><span class="p">(</span><span class="n">vtk_array</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">from_np</span> <span class="o">=</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">PolyData</span><span class="p">(</span><span class="n">np_points</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">from_list</span> <span class="o">=</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">PolyData</span><span class="p">(</span><span class="n">points</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -602,7 +602,7 @@
 <p>これらのポイントメッシュはすべて3つのポイントを含んでおり，実質的には同じものです． <code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.pyvista_ndarray</span></code> として表現されているメッシュから，基礎となるポイント配列にアクセスしてこれを示しましょう．</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">from_vtk</span><span class="o">.</span><span class="n">points</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">from_vtk</span><span class="o">.</span><span class="n">points</span>
 </pre></div>
 </div>
 </div>
@@ -617,9 +617,9 @@
 <p>そして，これらがすべて同一であることを示します</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">array_equal</span><span class="p">(</span><span class="n">from_vtk</span><span class="o">.</span><span class="n">points</span><span class="p">,</span> <span class="n">from_np</span><span class="o">.</span><span class="n">points</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">array_equal</span><span class="p">(</span><span class="n">from_vtk</span><span class="o">.</span><span class="n">points</span><span class="p">,</span> <span class="n">from_list</span><span class="o">.</span><span class="n">points</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">array_equal</span><span class="p">(</span><span class="n">from_np</span><span class="o">.</span><span class="n">points</span><span class="p">,</span> <span class="n">from_list</span><span class="o">.</span><span class="n">points</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">array_equal</span><span class="p">(</span><span class="n">from_vtk</span><span class="o">.</span><span class="n">points</span><span class="p">,</span> <span class="n">from_np</span><span class="o">.</span><span class="n">points</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">array_equal</span><span class="p">(</span><span class="n">from_vtk</span><span class="o">.</span><span class="n">points</span><span class="p">,</span> <span class="n">from_list</span><span class="o">.</span><span class="n">points</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">array_equal</span><span class="p">(</span><span class="n">from_np</span><span class="o">.</span><span class="n">points</span><span class="p">,</span> <span class="n">from_list</span><span class="o">.</span><span class="n">points</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -646,7 +646,7 @@
 <p>先ほどの例では， &quot;メッシュ&quot; を切断された3つの点として定義しました．これは &quot;点群&quot; を表現するのには便利ですが，サーフェイスを作成したい場合は，メッシュの接続性を記述する必要があります．そのためには，先ほど定義したのと同じ順番で3つの点からなる1つのセルを定義しましょう．</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cells</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">cells</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -660,8 +660,8 @@
 <p>これで，単一の三角形を含む <a class="reference internal" href="../api/core/_autosummary/pyvista.PolyData.html#pyvista.PolyData" title="pyvista.PolyData"><code class="xref py py-class docutils literal notranslate"><span class="pre">PolyData</span></code></a> のインスタンスを組み立てるために必要なすべての要素が揃いました．これを実現するには，単に <code class="docutils literal notranslate"><span class="pre">points</span></code> と <code class="docutils literal notranslate"><span class="pre">cells</span></code> を <a class="reference internal" href="../api/core/_autosummary/pyvista.PolyData.html#pyvista.PolyData" title="pyvista.PolyData"><code class="xref py py-class docutils literal notranslate"><span class="pre">PolyData</span></code></a> のコンストラクタに与えればよいのです．表現から，このジオメトリには3つのポイントと1つのセルが含まれていることがわかります．</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mesh</span> <span class="o">=</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">PolyData</span><span class="p">(</span><span class="n">points</span><span class="p">,</span> <span class="n">cells</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mesh</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">mesh</span> <span class="o">=</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">PolyData</span><span class="p">(</span><span class="n">points</span><span class="p">,</span> <span class="n">cells</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">mesh</span>
 </pre></div>
 </div>
 </div>
@@ -705,7 +705,7 @@
 <p>このインスタンスには，メッシュの基礎データにアクセスするためのいくつかの属性があります．例えば，メッシュのポイントにアクセスしたり，変更したりしたい場合は，単純に <a class="reference internal" href="../api/core/_autosummary/pyvista.DataSet.points.html#pyvista.DataSet.points" title="pyvista.DataSet.points"><code class="xref py py-attr docutils literal notranslate"><span class="pre">points</span></code></a> でpoints属性にアクセスすることができます．</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mesh</span><span class="o">.</span><span class="n">points</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">mesh</span><span class="o">.</span><span class="n">points</span>
 </pre></div>
 </div>
 </div>
@@ -720,7 +720,7 @@
 <p>接続性は， <a class="reference internal" href="../api/core/_autosummary/pyvista.PolyData.faces.html#pyvista.PolyData.faces" title="pyvista.PolyData.faces"><code class="xref py py-attr docutils literal notranslate"><span class="pre">faces</span></code></a> 属性からもアクセスできます．</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mesh</span><span class="o">.</span><span class="n">faces</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">mesh</span><span class="o">.</span><span class="n">faces</span>
 </pre></div>
 </div>
 </div>
@@ -733,7 +733,7 @@
 <p>あるいは，単純にメッシュの表現を得ることができます</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mesh</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">mesh</span>
 </pre></div>
 </div>
 </div>
@@ -775,9 +775,9 @@
 <p>PyVistaでのデータ配列を説明するために，まず先ほどの例よりも少し複雑なメッシュを作ってみましょう． ここでは，まず <a class="reference internal" href="../api/core/_autosummary/pyvista.UniformGrid.html#pyvista.UniformGrid" title="pyvista.UniformGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">UniformGrid</span></code></a> から始めて， <a class="reference internal" href="../api/core/_autosummary/pyvista.DataSet.cast_to_unstructured_grid.html#pyvista.DataSet.cast_to_unstructured_grid" title="pyvista.DataSet.cast_to_unstructured_grid"><code class="xref py py-func docutils literal notranslate"><span class="pre">cast_to_unstructured_grid()</span></code></a> で <a class="reference internal" href="../api/core/_autosummary/pyvista.UnstructuredGrid.html#pyvista.UnstructuredGrid" title="pyvista.UnstructuredGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">UnstructuredGrid</span></code></a> にキャストすることで，4つのアイソメトリックなセルを含む単純なメッシュを作成します．</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">grid</span> <span class="o">=</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">UniformGrid</span><span class="p">(</span><span class="n">dims</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ugrid</span> <span class="o">=</span> <span class="n">grid</span><span class="o">.</span><span class="n">cast_to_unstructured_grid</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ugrid</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">grid</span> <span class="o">=</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">UniformGrid</span><span class="p">(</span><span class="n">dims</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">ugrid</span> <span class="o">=</span> <span class="n">grid</span><span class="o">.</span><span class="n">cast_to_unstructured_grid</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">ugrid</span>
 </pre></div>
 </div>
 </div>
@@ -818,9 +818,9 @@
 <p><a class="reference internal" href="../api/core/_autosummary/pyvista.DataSet.html#pyvista.DataSet" title="pyvista.DataSet"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataSet</span></code></a> にスカラデータを追加する最も簡単な方法は， <code class="docutils literal notranslate"><span class="pre">[]</span></code> 演算子を使うことです．上の例を続けて，各セルに1つの整数を割り当ててみましょう． これにはPythonの <a class="reference external" href="https://docs.python.org/dev/library/stdtypes.html#list" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> を使い， <a class="reference internal" href="../api/core/_autosummary/pyvista.UnstructuredGrid.html#pyvista.UnstructuredGrid" title="pyvista.UnstructuredGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">UnstructuredGrid</span></code></a> のセル数と同じ長さにすることができます．また，もっと単純な例として，適切な長さの <a class="reference external" href="https://docs.python.org/dev/library/stdtypes.html#range" title="(in Python v3.12)"><code class="xref py py-class docutils literal notranslate"><span class="pre">range</span></code></a> を使用することもできます． ここでは，レンジを作成して <a class="reference internal" href="../api/core/_autosummary/pyvista.DataSet.cell_data.html#pyvista.DataSet.cell_data" title="pyvista.DataSet.cell_data"><code class="xref py py-attr docutils literal notranslate"><span class="pre">cell_data</span></code></a> に追加し， <code class="docutils literal notranslate"><span class="pre">[]</span></code> 演算子を使ってアクセスしています．</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">simple_range</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="n">ugrid</span><span class="o">.</span><span class="n">n_cells</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ugrid</span><span class="o">.</span><span class="n">cell_data</span><span class="p">[</span><span class="s1">&#39;my-data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">simple_range</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ugrid</span><span class="o">.</span><span class="n">cell_data</span><span class="p">[</span><span class="s1">&#39;my-data&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">simple_range</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="n">ugrid</span><span class="o">.</span><span class="n">n_cells</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">ugrid</span><span class="o">.</span><span class="n">cell_data</span><span class="p">[</span><span class="s1">&#39;my-data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">simple_range</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">ugrid</span><span class="o">.</span><span class="n">cell_data</span><span class="p">[</span><span class="s1">&#39;my-data&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -840,7 +840,7 @@
 <p><code class="docutils literal notranslate"><span class="pre">[]</span></code> 演算子が自動的にアクティブなスカラーを設定するので，どのセルデータをプロットするかを指定する必要がないことに注目してください．</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ugrid</span><span class="o">.</span><span class="n">cell_data</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">ugrid</span><span class="o">.</span><span class="n">cell_data</span>
 </pre></div>
 </div>
 </div>
@@ -872,9 +872,9 @@ Contains arrays :
 <p><code class="docutils literal notranslate"><span class="pre">[]</span></code> 演算子を使って <a class="reference internal" href="../api/core/_autosummary/pyvista.DataSet.html#pyvista.DataSet" title="pyvista.DataSet"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataSet</span></code></a> にセルデータを割り当て続けることができますが，新しいアレイをアクティブなアレイにしたくない場合は， <a class="reference internal" href="../api/core/_autosummary/pyvista.DataSetAttributes.set_array.html#pyvista.DataSetAttributes.set_array" title="pyvista.DataSetAttributes.set_array"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_array()</span></code></a> を使って追加することができます．</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">ugrid</span><span class="o">.</span><span class="n">n_cells</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ugrid</span><span class="o">.</span><span class="n">cell_data</span><span class="o">.</span><span class="n">set_array</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s1">&#39;my-cell-data&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ugrid</span><span class="o">.</span><span class="n">cell_data</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">ugrid</span><span class="o">.</span><span class="n">n_cells</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">ugrid</span><span class="o">.</span><span class="n">cell_data</span><span class="o">.</span><span class="n">set_array</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s1">&#39;my-cell-data&#39;</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">ugrid</span><span class="o">.</span><span class="n">cell_data</span>
 </pre></div>
 </div>
 </div>
@@ -896,8 +896,8 @@ Contains arrays :
 <p>また，アクティブなスカラーは <a class="reference internal" href="../api/core/_autosummary/pyvista.DataSet.active_scalars.html#pyvista.DataSet.active_scalars" title="pyvista.DataSet.active_scalars"><code class="xref py py-attr docutils literal notranslate"><span class="pre">active_scalars</span></code></a> でアクセスでき，アクティブなスカラー配列の名前は <a class="reference internal" href="../api/core/_autosummary/pyvista.DataSet.active_scalars_name.html#pyvista.DataSet.active_scalars_name" title="pyvista.DataSet.active_scalars_name"><code class="xref py py-attr docutils literal notranslate"><span class="pre">active_scalars_name</span></code></a> でアクセスまたは設定することができます．</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ugrid</span><span class="o">.</span><span class="n">cell_data</span><span class="o">.</span><span class="n">active_scalars_name</span> <span class="o">=</span> <span class="s1">&#39;my-cell-data&#39;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ugrid</span><span class="o">.</span><span class="n">cell_data</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">ugrid</span><span class="o">.</span><span class="n">cell_data</span><span class="o">.</span><span class="n">active_scalars_name</span> <span class="o">=</span> <span class="s1">&#39;my-cell-data&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">ugrid</span><span class="o">.</span><span class="n">cell_data</span>
 </pre></div>
 </div>
 </div>
@@ -921,9 +921,9 @@ Contains arrays :
 <p>データは <a class="reference internal" href="#pyvista-data-model-cell-data"><span class="std std-ref">セルデータ</span></a> と同様の方法でポイントに関連付けることができます． <a class="reference internal" href="../api/core/_autosummary/pyvista.DataSet.point_data.html#pyvista.DataSet.point_data" title="pyvista.DataSet.point_data"><code class="xref py py-attr docutils literal notranslate"><span class="pre">point_data</span></code></a> 属性を使うと， <a class="reference internal" href="../api/core/_autosummary/pyvista.DataSet.html#pyvista.DataSet" title="pyvista.DataSet"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataSet</span></code></a> のポイントにポイントデータを関連付けることができます． ここでは， <code class="docutils literal notranslate"><span class="pre">[]</span></code> 演算子を使って，単純なリストをポイントに関連付けることにします．</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">simple_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">ugrid</span><span class="o">.</span><span class="n">n_points</span><span class="p">))</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ugrid</span><span class="o">.</span><span class="n">point_data</span><span class="p">[</span><span class="s1">&#39;my-data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">simple_list</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ugrid</span><span class="o">.</span><span class="n">point_data</span><span class="p">[</span><span class="s1">&#39;my-data&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">simple_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">ugrid</span><span class="o">.</span><span class="n">n_points</span><span class="p">))</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">ugrid</span><span class="o">.</span><span class="n">point_data</span><span class="p">[</span><span class="s1">&#39;my-data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">simple_list</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">ugrid</span><span class="o">.</span><span class="n">point_data</span><span class="p">[</span><span class="s1">&#39;my-data&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -936,7 +936,7 @@ Contains arrays :
 <p>繰り返しになりますが，これらの値は， <code class="docutils literal notranslate"><span class="pre">[]</span></code> 演算子を用いることで，デフォルトで点群のアクティブなスカラーとなります．</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ugrid</span><span class="o">.</span><span class="n">point_data</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">ugrid</span><span class="o">.</span><span class="n">point_data</span>
 </pre></div>
 </div>
 </div>
@@ -970,9 +970,9 @@ Contains arrays :
 <p>また， <a class="reference internal" href="#pyvista-data-model-cell-data"><span class="std std-ref">セルデータ</span></a> と同様に， <a class="reference internal" href="../api/core/_autosummary/pyvista.DataSetAttributes.set_array.html#pyvista.DataSetAttributes.set_array" title="pyvista.DataSetAttributes.set_array"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_array()</span></code></a> を使って， <a class="reference internal" href="../api/core/_autosummary/pyvista.DataSet.point_data.html#pyvista.DataSet.point_data" title="pyvista.DataSet.point_data"><code class="xref py py-attr docutils literal notranslate"><span class="pre">point_data</span></code></a> に複数の配列を割り当てることができます．</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">ugrid</span><span class="o">.</span><span class="n">n_points</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ugrid</span><span class="o">.</span><span class="n">point_data</span><span class="o">.</span><span class="n">set_array</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s1">&#39;my-point-data&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ugrid</span><span class="o">.</span><span class="n">point_data</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">ugrid</span><span class="o">.</span><span class="n">n_points</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">ugrid</span><span class="o">.</span><span class="n">point_data</span><span class="o">.</span><span class="n">set_array</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s1">&#39;my-point-data&#39;</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">ugrid</span><span class="o">.</span><span class="n">point_data</span>
 </pre></div>
 </div>
 </div>
@@ -993,8 +993,8 @@ Contains arrays :
 <p>ここでも，ポイントデータには2つの配列が関連付けられており，1つだけが &quot;アクティブ&quot; なスカラー配列となっています． また，アクティブなスカラー配列の名前は， <a class="reference internal" href="../api/core/_autosummary/pyvista.DataSet.active_scalars_name.html#pyvista.DataSet.active_scalars_name" title="pyvista.DataSet.active_scalars_name"><code class="xref py py-attr docutils literal notranslate"><span class="pre">active_scalars_name</span></code></a> でアクセスまたは設定することができます．</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ugrid</span><span class="o">.</span><span class="n">point_data</span><span class="o">.</span><span class="n">active_scalars_name</span> <span class="o">=</span> <span class="s1">&#39;my-point-data&#39;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ugrid</span><span class="o">.</span><span class="n">point_data</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">ugrid</span><span class="o">.</span><span class="n">point_data</span><span class="o">.</span><span class="n">active_scalars_name</span> <span class="o">=</span> <span class="s1">&#39;my-point-data&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">ugrid</span><span class="o">.</span><span class="n">point_data</span>
 </pre></div>
 </div>
 </div>
@@ -1018,7 +1018,7 @@ Contains arrays :
 <p>前節に引き続き，今回の <code class="docutils literal notranslate"><span class="pre">ugrid</span></code> データセットには，ポイントデータとセルデータの両方が含まれています．</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ugrid</span><span class="o">.</span><span class="n">point_data</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">ugrid</span><span class="o">.</span><span class="n">point_data</span>
 </pre></div>
 </div>
 </div>
@@ -1038,7 +1038,7 @@ Contains arrays :
 </div>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ugrid</span><span class="o">.</span><span class="n">cell_data</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">ugrid</span><span class="o">.</span><span class="n">cell_data</span>
 </pre></div>
 </div>
 </div>
@@ -1059,7 +1059,7 @@ Contains arrays :
 <p>(ポイントデータにもセルデータにも)アクティブなスカラーがありますが，データセットレベルでは1種類のスカラーしか &quot;アクティブ&quot; にできません． このデータは <a class="reference internal" href="../api/core/_autosummary/pyvista.DataSet.active_scalars_info.html#pyvista.DataSet.active_scalars_info" title="pyvista.DataSet.active_scalars_info"><code class="xref py py-attr docutils literal notranslate"><span class="pre">active_scalars_info</span></code></a> から得ることができます．</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ugrid</span><span class="o">.</span><span class="n">active_scalars_info</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">ugrid</span><span class="o">.</span><span class="n">active_scalars_info</span>
 </pre></div>
 </div>
 </div>
@@ -1072,8 +1072,8 @@ Contains arrays :
 <p>アクティブなスカラはデフォルトではポイントスカラであることに注意してください． これは <a class="reference internal" href="../api/core/_autosummary/pyvista.DataSet.set_active_scalars.html#pyvista.DataSet.set_active_scalars" title="pyvista.DataSet.set_active_scalars"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_active_scalars()</span></code></a> でアクティブなスカラを設定することで変更することができます． アクティブなスカラーを設定したいときに，ポイントデータとセルデータの両方に同じ名前の配列がある場合は， <code class="docutils literal notranslate"><span class="pre">preference</span></code> を指定しなければならないことに注意してください．</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ugrid</span><span class="o">.</span><span class="n">set_active_scalars</span><span class="p">(</span><span class="s1">&#39;my-data&#39;</span><span class="p">,</span> <span class="n">preference</span><span class="o">=</span><span class="s1">&#39;cell&#39;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ugrid</span><span class="o">.</span><span class="n">active_scalars_info</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">ugrid</span><span class="o">.</span><span class="n">set_active_scalars</span><span class="p">(</span><span class="s1">&#39;my-data&#39;</span><span class="p">,</span> <span class="n">preference</span><span class="o">=</span><span class="s1">&#39;cell&#39;</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">ugrid</span><span class="o">.</span><span class="n">active_scalars_info</span>
 </pre></div>
 </div>
 </div>
@@ -1090,8 +1090,8 @@ Contains arrays :
 <p>フィールド配列は， <a class="reference internal" href="../api/core/_autosummary/pyvista.DataSet.point_data.html#pyvista.DataSet.point_data" title="pyvista.DataSet.point_data"><code class="xref py py-attr docutils literal notranslate"><span class="pre">point_data</span></code></a> や <a class="reference internal" href="../api/core/_autosummary/pyvista.DataSet.cell_data.html#pyvista.DataSet.cell_data" title="pyvista.DataSet.cell_data"><code class="xref py py-attr docutils literal notranslate"><span class="pre">cell_data</span></code></a> とは異なり， <a class="reference internal" href="../api/core/_autosummary/pyvista.DataSet.html#pyvista.DataSet" title="pyvista.DataSet"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataSet</span></code></a> のジオメトリとは関連付けられていません．つまり，フィールドデータをアクティブなスカラーやベクターとして指定することはできませんが，これを使って任意の形状の配列を &quot;添付&quot; することができます． フィールドデータに文字列配列を追加することもできます．</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ugrid</span><span class="o">.</span><span class="n">field_data</span><span class="p">[</span><span class="s1">&#39;my-field-data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;hello&#39;</span><span class="p">,</span> <span class="s1">&#39;world&#39;</span><span class="p">]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ugrid</span><span class="o">.</span><span class="n">field_data</span><span class="p">[</span><span class="s1">&#39;my-field-data&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">ugrid</span><span class="o">.</span><span class="n">field_data</span><span class="p">[</span><span class="s1">&#39;my-field-data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;hello&#39;</span><span class="p">,</span> <span class="s1">&#39;world&#39;</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">ugrid</span><span class="o">.</span><span class="n">field_data</span><span class="p">[</span><span class="s1">&#39;my-field-data&#39;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -1105,7 +1105,7 @@ Contains arrays :
 <p>現在のフィールドデータをリストアップする際には，associationが &quot;NONE &quot;であることに注意してください．</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ugrid</span><span class="o">.</span><span class="n">field_data</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">ugrid</span><span class="o">.</span><span class="n">field_data</span>
 </pre></div>
 </div>
 </div>

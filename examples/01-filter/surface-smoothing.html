@@ -1128,7 +1128,7 @@
  </li>
  <li class="toc-h1 nav-item toc-entry">
   <a class="reference internal nav-link" href="#taubin-smoothing">
-   Taubin Smoothing
+   Taubin スムージング
   </a>
  </li>
 </ul>
@@ -1187,9 +1187,7 @@
 <span class="n">smooth</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">show_edges</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <a href="https://docs.python.org/dev/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">cpos</span></a><span class="o">=</span><a href="https://docs.python.org/dev/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">cpos</span></a><span class="p">,</span> <span class="n">show_scalar_bar</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_surface-smoothing_003.png" srcset="../../_images/sphx_glr_surface-smoothing_003.png" alt="surface smoothing" class = "sphx-glr-single-img"/><p>Still not smooth enough? Increase the number of iterations for the Laplacian
-smoothing algorithm to a crazy high value. Note how this causes the mesh to
-&quot;shrink&quot;:</p>
+<img src="../../_images/sphx_glr_surface-smoothing_003.png" srcset="../../_images/sphx_glr_surface-smoothing_003.png" alt="surface smoothing" class = "sphx-glr-single-img"/><p>まだ滑らかではありませんか?ラプラシアン平滑化アルゴリズムの反復回数を非常に高い値に増やします．これにより，メッシュが &quot;shrink&quot; されることに注意してください．</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Smooth the surface EVEN MORE</span>
 <span class="n">smooth</span> <span class="o">=</span> <span class="n">surf</span><span class="o">.</span><span class="n">smooth</span><span class="p">(</span><span class="n">n_iter</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
 
@@ -1205,11 +1203,9 @@ smoothing algorithm to a crazy high value. Note how this causes the mesh to
 </div>
 <img src="../../_images/sphx_glr_surface-smoothing_004.png" srcset="../../_images/sphx_glr_surface-smoothing_004.png" alt="surface smoothing" class = "sphx-glr-single-img"/></section>
 <section id="taubin-smoothing">
-<h1>Taubin Smoothing<a class="headerlink" href="#taubin-smoothing" title="このヘッドラインへのパーマリンク">#</a></h1>
-<p>You can reduce the amount of surface shrinkage by using Taubin smoothing
-rather than the default laplacian smoothing implemented in <a class="reference internal" href="../../api/core/_autosummary/pyvista.PolyDataFilters.smooth.html#pyvista.PolyDataFilters.smooth" title="pyvista.PolyDataFilters.smooth"><code class="xref py py-func docutils literal notranslate"><span class="pre">smooth()</span></code></a>. In this example, you can see how Taubin
-smoothing maintains the volume relative to the original mesh.</p>
-<p>Also note that the number of iterations can be reduced to get the same approximate amount of smoothing. This is because Taubin smoothing is more efficient.</p>
+<h1>Taubin スムージング<a class="headerlink" href="#taubin-smoothing" title="このヘッドラインへのパーマリンク">#</a></h1>
+<p><a class="reference internal" href="../../api/core/_autosummary/pyvista.PolyDataFilters.smooth.html#pyvista.PolyDataFilters.smooth" title="pyvista.PolyDataFilters.smooth"><code class="xref py py-func docutils literal notranslate"><span class="pre">smooth()</span></code></a> で実装されているデフォルトのラプラシアンスムージングではなく，タウビンスムージングを使用すると，表面の縮小の量を減らすことができます．この例では，タウビンスムージングが元のメッシュに対してどのようにボリュームを維持しているかを見ることができます．</p>
+<p>Also, note that the number of iterations can be reduced to get the same approximate amount of smoothing. This is because Taubin smoothing is more efficient.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">smooth_w_taubin</span> <span class="o">=</span> <span class="n">surf</span><span class="o">.</span><span class="n">smooth_taubin</span><span class="p">(</span><span class="n">n_iter</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">pass_band</span><span class="o">=</span><span class="mf">0.05</span><span class="p">)</span>
 
 <span class="n">pl</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Plotter</span><span class="p">()</span>
@@ -1230,7 +1226,7 @@ Laplacian smoothed volume: 468.3
 Taubin smoothed volume:    680.0
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  1.715 seconds)</p>
+<p class="sphx-glr-timing"><strong>スクリプトの合計実行時間:</strong> ( 0 分  1.869 秒)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-01-filter-surface-smoothing-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/6de5d2d3a9b4343c812aaa8ce651000d/surface-smoothing.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">surface-smoothing.py</span></code></a></p>
