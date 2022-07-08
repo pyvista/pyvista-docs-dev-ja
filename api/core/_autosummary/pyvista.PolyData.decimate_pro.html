@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>decimate_pro &#8212; PyVista 0.35.dev0 ドキュメント</title>
+    <title>decimate_pro &#8212; PyVista 0.36.dev0 ドキュメント</title>
 <script>
   document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
   document.documentElement.dataset.theme = localStorage.getItem("theme") || "light"
@@ -310,6 +310,11 @@
        <li class="toctree-l4">
         <a class="reference internal" href="pyvista.PolyData.cell_n_points.html">
          cell_n_points
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="pyvista.PolyData.cell_point_ids.html">
+         cell_point_ids
         </a>
        </li>
        <li class="toctree-l4">
@@ -735,6 +740,11 @@
        <li class="toctree-l4">
         <a class="reference internal" href="pyvista.PolyData.point_data_to_cell_data.html">
          point_data_to_cell_data
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="pyvista.PolyData.point_is_inside_cell.html">
+         point_is_inside_cell
         </a>
        </li>
        <li class="toctree-l4">
@@ -1366,7 +1376,7 @@
 <h1>decimate_pro<a class="headerlink" href="#decimate-pro" title="このヘッドラインへのパーマリンク">#</a></h1>
 <dl class="py method">
 <dt class="sig sig-object py" id="pyvista.PolyData.decimate_pro">
-<span class="sig-prename descclassname"><span class="pre">PolyData.</span></span><span class="sig-name descname"><span class="pre">decimate_pro</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">reduction</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">feature_angle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">45.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">split_angle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">75.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">splitting</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pre_split_mesh</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">preserve_topology</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inplace</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">progress_bar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyvista.PolyData.decimate_pro" title="この定義へのパーマリンク">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">PolyData.</span></span><span class="sig-name descname"><span class="pre">decimate_pro</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">reduction</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">feature_angle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">45.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">split_angle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">75.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">splitting</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pre_split_mesh</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">preserve_topology</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boundary_vertex_deletion</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_degree</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inplace</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">progress_bar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#pyvista.PolyData.decimate_pro" title="この定義へのパーマリンク">#</a></dt>
 <dd><p>三角形メッシュ内の三角形の数を減らします．</p>
 <p>元のジオメトリによく似ています．元々&quot;三角形メッシュの間引き&quot;で記述されたアルゴリズム，Proc Siggraph 92に基づきます(<a class="reference external" href="https://doi.org/10.1145/133994.134010">https://doi.org/10.1145/133994.134010</a>)．</p>
 <dl class="field-list">
@@ -1383,6 +1393,10 @@
 <dt><strong>pre_split_mesh</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/dev/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.12)"><span class="xref std std-ref">bool</span></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>メッシュを，互いに切り離された半平面パッチに分離します．これにより，場合によっては優れた結果が得られます． <code class="docutils literal notranslate"><span class="pre">pre_split_mesh</span></code> が <code class="docutils literal notranslate"><span class="pre">True</span></code> に設定されている場合，メッシュは指定された <code class="docutils literal notranslate"><span class="pre">split_angle</span></code> で分割されます．それ以外の場合，メッシュ分割は可能な限り延期されます．</p>
 </dd>
 <dt><strong>preserve_topology</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/dev/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.12)"><span class="xref std std-ref">bool</span></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>トポロジの保存をコントロールします．オンの場合，メッシュの分割と穴の除去は行われません．これは，達成され得る最大減少を制限し得ます．</p>
+</dd>
+<dt><strong>boundary_vertex_deletion</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/dev/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.12)"><span class="xref std std-ref">bool</span></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>メッシュの境界線上の頂点の削除を許可します．デフォルトは <code class="docutils literal notranslate"><span class="pre">True</span></code> です．これをオフにすると，最大限の削減が制限される場合があります．</p>
+</dd>
+<dt><strong>max_degree</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/dev/library/functions.html#float" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>頂点の最大次数．ある頂点に接続する三角形の数が <code class="docutils literal notranslate"><span class="pre">max_degree</span></code> を超えると，その頂点は分割されます．三角形分割アルゴリズムの複雑さは <code class="docutils literal notranslate"><span class="pre">max_degree**2</span></code> に比例します． <code class="docutils literal notranslate"><span class="pre">max_degree</span></code> を小さく設定することで，アルゴリズムのパフォーマンスを向上させることができます．</p>
 </dd>
 <dt><strong>inplace</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/dev/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.12)"><span class="xref std std-ref">bool</span></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>インプレースでメッシュを更新するかどうか．</p>
 </dd>

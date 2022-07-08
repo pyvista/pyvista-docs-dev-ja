@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>平面ウィジェット &#8212; PyVista 0.35.dev0 ドキュメント</title>
+    <title>平面ウィジェット &#8212; PyVista 0.36.dev0 ドキュメント</title>
 <script>
   document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
   document.documentElement.dataset.theme = localStorage.getItem("theme") || "light"
@@ -522,6 +522,20 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../01-filter/gradients.html">
    フィールドの勾配を計算する
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01-filter/image-fft-perlin-noise.html">
+   Perlinノイズによる高速フーリエ変換
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01-filter/image-fft.html">
+   高速Fourier変換
   </a>
  </li>
 </ul>
@@ -1158,7 +1172,7 @@
 </pre></div>
 </div>
 <p class="sphx-glr-script-out">出力:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>[UnstructuredGrid (0x7f1f85c89b80)
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>[UnstructuredGrid (0x7f8c4beb29a0)
   N Cells:  3538080
   N Points: 3613484
   X Bounds: 9.000e+01, 1.800e+02
@@ -1181,7 +1195,7 @@
 </pre></div>
 </div>
 <p class="sphx-glr-script-out">出力:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>[PolyData (0x7f1f0ab9fb20)
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>[PolyData (0x7f8c4bf2fac0)
   N Cells:  38880
   N Points: 39277
   X Bounds: 9.000e+01, 9.000e+01
@@ -1229,7 +1243,17 @@
 <span class="n">p</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_plane-widget_005.png" srcset="../../_images/sphx_glr_plane-widget_005.png" alt="plane widget" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  6.862 seconds)</p>
+<img src="../../_images/sphx_glr_plane-widget_005.png" srcset="../../_images/sphx_glr_plane-widget_005.png" alt="plane widget" class = "sphx-glr-single-img"/><p>さらに，ユーザは <code class="docutils literal notranslate"><span class="pre">interaction_event</span></code> キーワード引数を通して，利用可能な場合，異なるプレーンウィジェットヘルパーが処理するコールバック関数をトリガーするインタラクションイベントを変更することができます．例えば， <code class="docutils literal notranslate"><span class="pre">InteractionEvent</span></code> オブザーバを使用することで，連続的なスライスを行うことができます．</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">vtk</span>
+
+<span class="n">p</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Plotter</span><span class="p">()</span>
+<span class="n">p</span><span class="o">.</span><span class="n">add_mesh_slice</span><span class="p">(</span><span class="n">vol</span><span class="p">,</span> <span class="n">assign_to_axis</span><span class="o">=</span><span class="s1">&#39;z&#39;</span><span class="p">,</span> <span class="n">interaction_event</span><span class="o">=</span><span class="n">vtk</span><span class="o">.</span><span class="n">vtkCommand</span><span class="o">.</span><span class="n">InteractionEvent</span><span class="p">)</span>
+<span class="n">p</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<img src="../../_images/sphx_glr_plane-widget_006.png" srcset="../../_images/sphx_glr_plane-widget_006.png" alt="plane widget" class = "sphx-glr-single-img"/><p>そして，これは <code class="docutils literal notranslate"><span class="pre">InteractionEvent</span></code> オブザーバを介して，ユーザーが継続的にこのイベントを操作している画面のキャプチャです．</p>
+<img alt="../../_images/plane-slice-continuous.gif" src="../../_images/plane-slice-continuous.gif" />
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  8.561 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-03-widgets-plane-widget-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/ccc181afa61cc70f112f6b4cac71ff47/plane-widget.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plane-widget.py</span></code></a></p>

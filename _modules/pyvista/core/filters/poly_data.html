@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>pyvista.core.filters.poly_data &#8212; PyVista 0.35.dev0 ドキュメント</title>
+    <title>pyvista.core.filters.poly_data &#8212; PyVista 0.36.dev0 ドキュメント</title>
 <script>
   document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
   document.documentElement.dataset.theme = localStorage.getItem("theme") || "light"
@@ -1101,6 +1101,8 @@
         <span class="n">splitting</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
         <span class="n">pre_split_mesh</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
         <span class="n">preserve_topology</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="n">boundary_vertex_deletion</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">max_degree</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
         <span class="n">inplace</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
         <span class="n">progress_bar</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
     <span class="p">):</span>
@@ -1147,6 +1149,18 @@
 <span class="sd">            hole elimination will not occur. This may limit the</span>
 <span class="sd">            maximum reduction that may be achieved.</span>
 
+<span class="sd">        boundary_vertex_deletion : bool, optional</span>
+<span class="sd">            Allow deletion of vertices on the boundary of the mesh.</span>
+<span class="sd">            Defaults to ``True``. Turning this off may limit the</span>
+<span class="sd">            maximum reduction that may be achieved.</span>
+
+<span class="sd">        max_degree : float, optional</span>
+<span class="sd">            The maximum vertex degree. If the number of triangles</span>
+<span class="sd">            connected to a vertex exceeds ``max_degree``, then the</span>
+<span class="sd">            vertex will be split. The complexity of the triangulation</span>
+<span class="sd">            algorithm is proportional to ``max_degree**2``. Setting ``max_degree``</span>
+<span class="sd">            small can improve the performance of the algorithm.</span>
+
 <span class="sd">        inplace : bool, optional</span>
 <span class="sd">            Whether to update the mesh in-place.</span>
 
@@ -1174,6 +1188,9 @@
 <span class="sd">        See :ref:`decimate_example` for more examples using this filter.</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_all_triangles</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">NotAllTrianglesError</span><span class="p">(</span><span class="s2">&quot;Input mesh for decimation must be all triangles.&quot;</span><span class="p">)</span>
+
         <span class="n">alg</span> <span class="o">=</span> <span class="n">_vtk</span><span class="o">.</span><span class="n">vtkDecimatePro</span><span class="p">()</span>
         <span class="n">alg</span><span class="o">.</span><span class="n">SetInputData</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
         <span class="n">alg</span><span class="o">.</span><span class="n">SetTargetReduction</span><span class="p">(</span><span class="n">reduction</span><span class="p">)</span>
@@ -1182,6 +1199,11 @@
         <span class="n">alg</span><span class="o">.</span><span class="n">SetSplitting</span><span class="p">(</span><span class="n">splitting</span><span class="p">)</span>
         <span class="n">alg</span><span class="o">.</span><span class="n">SetSplitAngle</span><span class="p">(</span><span class="n">split_angle</span><span class="p">)</span>
         <span class="n">alg</span><span class="o">.</span><span class="n">SetPreSplitMesh</span><span class="p">(</span><span class="n">pre_split_mesh</span><span class="p">)</span>
+        <span class="n">alg</span><span class="o">.</span><span class="n">SetBoundaryVertexDeletion</span><span class="p">(</span><span class="n">boundary_vertex_deletion</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">max_degree</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">alg</span><span class="o">.</span><span class="n">SetDegree</span><span class="p">(</span><span class="n">max_degree</span><span class="p">)</span>
+
         <span class="n">_update_alg</span><span class="p">(</span><span class="n">alg</span><span class="p">,</span> <span class="n">progress_bar</span><span class="p">,</span> <span class="s1">&#39;Decimating Mesh&#39;</span><span class="p">)</span>
 
         <span class="n">mesh</span> <span class="o">=</span> <span class="n">_get_output</span><span class="p">(</span><span class="n">alg</span><span class="p">)</span>
@@ -1360,6 +1382,9 @@
 <span class="sd">        &gt;&gt;&gt; submesh.plot(show_edges=True, line_width=3)</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_all_triangles</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">NotAllTrianglesError</span><span class="p">(</span><span class="s2">&quot;Input mesh for subdivision must be all triangles.&quot;</span><span class="p">)</span>
+
         <span class="n">subfilter</span> <span class="o">=</span> <span class="n">subfilter</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
         <span class="k">if</span> <span class="n">subfilter</span> <span class="o">==</span> <span class="s1">&#39;linear&#39;</span><span class="p">:</span>
             <span class="n">sfilter</span> <span class="o">=</span> <span class="n">_vtk</span><span class="o">.</span><span class="n">vtkLinearSubdivisionFilter</span><span class="p">()</span>
@@ -1466,6 +1491,9 @@
 <span class="sd">        &gt;&gt;&gt; submesh.plot(show_edges=True)</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_all_triangles</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">NotAllTrianglesError</span><span class="p">(</span><span class="s2">&quot;Input mesh for subdivision must be all triangles.&quot;</span><span class="p">)</span>
+
         <span class="n">sfilter</span> <span class="o">=</span> <span class="n">_vtk</span><span class="o">.</span><span class="n">vtkAdaptiveSubdivisionFilter</span><span class="p">()</span>
         <span class="k">if</span> <span class="n">max_edge_len</span><span class="p">:</span>
             <span class="n">sfilter</span><span class="o">.</span><span class="n">SetMaximumEdgeLength</span><span class="p">(</span><span class="n">max_edge_len</span><span class="p">)</span>
@@ -1595,6 +1623,9 @@
 <span class="sd">        See :ref:`decimate_example` for more examples using this filter.</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_all_triangles</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">NotAllTrianglesError</span><span class="p">(</span><span class="s2">&quot;Input mesh for decimation must be all triangles.&quot;</span><span class="p">)</span>
+
         <span class="c1"># create decimation filter</span>
         <span class="n">alg</span> <span class="o">=</span> <span class="n">_vtk</span><span class="o">.</span><span class="n">vtkQuadricDecimation</span><span class="p">()</span>
 
@@ -2229,7 +2260,9 @@
 
         <span class="k">return</span> <span class="n">intersection_points</span><span class="p">,</span> <span class="n">intersection_cells</span></div>
 
-<div class="viewcode-block" id="PolyDataFilters.multi_ray_trace"><a class="viewcode-back" href="../../../../api/core/_autosummary/pyvista.PolyDataFilters.multi_ray_trace.html#pyvista.PolyDataFilters.multi_ray_trace">[ドキュメント]</a>    <span class="k">def</span> <span class="nf">multi_ray_trace</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">origins</span><span class="p">,</span> <span class="n">directions</span><span class="p">,</span> <span class="n">first_point</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">retry</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="viewcode-block" id="PolyDataFilters.multi_ray_trace"><a class="viewcode-back" href="../../../../api/core/_autosummary/pyvista.PolyDataFilters.multi_ray_trace.html#pyvista.PolyDataFilters.multi_ray_trace">[ドキュメント]</a>    <span class="k">def</span> <span class="nf">multi_ray_trace</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">origins</span><span class="p">,</span> <span class="n">directions</span><span class="p">,</span> <span class="n">first_point</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">retry</span><span class="o">=</span><span class="kc">False</span>
+    <span class="p">):</span>  <span class="c1"># pragma: no cover</span>
         <span class="sd">&quot;&quot;&quot;Perform multiple ray trace calculations.</span>
 
 <span class="sd">        This requires a mesh with only triangular faces, an array of</span>
@@ -2287,7 +2320,7 @@
 
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_all_triangles</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="n">NotAllTrianglesError</span>
+            <span class="k">raise</span> <span class="n">NotAllTrianglesError</span><span class="p">(</span><span class="s2">&quot;Input mesh for multi_ray_trace must be all triangles.&quot;</span><span class="p">)</span>
 
         <span class="k">try</span><span class="p">:</span>
             <span class="kn">import</span> <span class="nn">pyembree</span>  <span class="c1"># noqa</span>

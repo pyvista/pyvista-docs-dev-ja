@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>pyvista.UniformGridFilters &#8212; PyVista 0.35.dev0 ドキュメント</title>
+    <title>pyvista.UniformGridFilters &#8212; PyVista 0.36.dev0 ドキュメント</title>
 <script>
   document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
   document.documentElement.dataset.theme = localStorage.getItem("theme") || "light"
@@ -393,6 +393,11 @@
         </a>
        </li>
        <li class="toctree-l4">
+        <a class="reference internal" href="pyvista.UniformGridFilters.fft.html">
+         fft
+        </a>
+       </li>
+       <li class="toctree-l4">
         <a class="reference internal" href="pyvista.UniformGridFilters.gaussian_smooth.html">
          gaussian_smooth
         </a>
@@ -400,6 +405,11 @@
        <li class="toctree-l4">
         <a class="reference internal" href="pyvista.UniformGridFilters.glyph.html">
          glyph
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="pyvista.UniformGridFilters.high_pass.html">
+         high_pass
         </a>
        </li>
        <li class="toctree-l4">
@@ -420,6 +430,11 @@
        <li class="toctree-l4">
         <a class="reference internal" href="pyvista.UniformGridFilters.interpolate.html">
          interpolate
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="pyvista.UniformGridFilters.low_pass.html">
+         low_pass
         </a>
        </li>
        <li class="toctree-l4">
@@ -475,6 +490,11 @@
        <li class="toctree-l4">
         <a class="reference internal" href="pyvista.UniformGridFilters.reflect.html">
          reflect
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="pyvista.UniformGridFilters.rfft.html">
+         rfft
         </a>
        </li>
        <li class="toctree-l4">
@@ -777,11 +797,17 @@
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.UniformGridFilters.extract_surface.html#pyvista.UniformGridFilters.extract_surface" title="pyvista.UniformGridFilters.extract_surface"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGridFilters.extract_surface</span></code></a>([...])</p></td>
 <td><p>グリッドのサーフェスメッシュを抽出します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.UniformGridFilters.gaussian_smooth.html#pyvista.UniformGridFilters.gaussian_smooth" title="pyvista.UniformGridFilters.gaussian_smooth"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGridFilters.gaussian_smooth</span></code></a>([...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.UniformGridFilters.fft.html#pyvista.UniformGridFilters.fft" title="pyvista.UniformGridFilters.fft"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGridFilters.fft</span></code></a>([...])</p></td>
+<td><p>アクティブスカラーに高速フーリエ変換(FFT)を適用します．</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.UniformGridFilters.gaussian_smooth.html#pyvista.UniformGridFilters.gaussian_smooth" title="pyvista.UniformGridFilters.gaussian_smooth"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGridFilters.gaussian_smooth</span></code></a>([...])</p></td>
 <td><p>Gaussカーネルでデータを平滑化します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.UniformGridFilters.glyph.html#pyvista.UniformGridFilters.glyph" title="pyvista.UniformGridFilters.glyph"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGridFilters.glyph</span></code></a>([orient, scale, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.UniformGridFilters.glyph.html#pyvista.UniformGridFilters.glyph" title="pyvista.UniformGridFilters.glyph"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGridFilters.glyph</span></code></a>([orient, scale, ...])</p></td>
 <td><p>入力データセットに(グリフと呼ばれる)ジオメトリ表示をコピーします．</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.UniformGridFilters.high_pass.html#pyvista.UniformGridFilters.high_pass" title="pyvista.UniformGridFilters.high_pass"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGridFilters.high_pass</span></code></a>(x_cutoff, ...)</p></td>
+<td><p>Butterworth型ハイパスフィルターを周波数領域で実行します．</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.UniformGridFilters.image_dilate_erode.html#pyvista.UniformGridFilters.image_dilate_erode" title="pyvista.UniformGridFilters.image_dilate_erode"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGridFilters.image_dilate_erode</span></code></a>([...])</p></td>
 <td><p>ある値を希釈し，別の値を侵食します．</p></td>
@@ -795,38 +821,44 @@
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.UniformGridFilters.interpolate.html#pyvista.UniformGridFilters.interpolate" title="pyvista.UniformGridFilters.interpolate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGridFilters.interpolate</span></code></a>(target[, ...])</p></td>
 <td><p>特定のデータセットからこのメッシュに値を補間します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.UniformGridFilters.median_smooth.html#pyvista.UniformGridFilters.median_smooth" title="pyvista.UniformGridFilters.median_smooth"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGridFilters.median_smooth</span></code></a>([...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.UniformGridFilters.low_pass.html#pyvista.UniformGridFilters.low_pass" title="pyvista.UniformGridFilters.low_pass"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGridFilters.low_pass</span></code></a>(x_cutoff, ...[, ...])</p></td>
+<td><p>Butterworth型ローパスフィルターを周波数領域で実行します．</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.UniformGridFilters.median_smooth.html#pyvista.UniformGridFilters.median_smooth" title="pyvista.UniformGridFilters.median_smooth"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGridFilters.median_smooth</span></code></a>([...])</p></td>
 <td><p>medianフィルターでデータを平滑化します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.UniformGridFilters.merge.html#pyvista.UniformGridFilters.merge" title="pyvista.UniformGridFilters.merge"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGridFilters.merge</span></code></a>([grid, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.UniformGridFilters.merge.html#pyvista.UniformGridFilters.merge" title="pyvista.UniformGridFilters.merge"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGridFilters.merge</span></code></a>([grid, ...])</p></td>
 <td><p>1つまたは複数の他のグリッドをこのグリッドに結合します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.UniformGridFilters.outline.html#pyvista.UniformGridFilters.outline" title="pyvista.UniformGridFilters.outline"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGridFilters.outline</span></code></a>([generate_faces, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.UniformGridFilters.outline.html#pyvista.UniformGridFilters.outline" title="pyvista.UniformGridFilters.outline"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGridFilters.outline</span></code></a>([generate_faces, ...])</p></td>
 <td><p>入力データセットの全エクステントのアウトラインを作成します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.UniformGridFilters.outline_corners.html#pyvista.UniformGridFilters.outline_corners" title="pyvista.UniformGridFilters.outline_corners"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGridFilters.outline_corners</span></code></a>([factor, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.UniformGridFilters.outline_corners.html#pyvista.UniformGridFilters.outline_corners" title="pyvista.UniformGridFilters.outline_corners"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGridFilters.outline_corners</span></code></a>([factor, ...])</p></td>
 <td><p>入力データセットのコーナーのアウトラインを生成します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.UniformGridFilters.plot_over_circular_arc.html#pyvista.UniformGridFilters.plot_over_circular_arc" title="pyvista.UniformGridFilters.plot_over_circular_arc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGridFilters.plot_over_circular_arc</span></code></a>(...)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.UniformGridFilters.plot_over_circular_arc.html#pyvista.UniformGridFilters.plot_over_circular_arc" title="pyvista.UniformGridFilters.plot_over_circular_arc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGridFilters.plot_over_circular_arc</span></code></a>(...)</p></td>
 <td><p>円弧に沿ってデータセットをサンプリングし，プロットします．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.UniformGridFilters.plot_over_circular_arc_normal.html#pyvista.UniformGridFilters.plot_over_circular_arc_normal" title="pyvista.UniformGridFilters.plot_over_circular_arc_normal"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGridFilters.plot_over_circular_arc_normal</span></code></a>(center)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.UniformGridFilters.plot_over_circular_arc_normal.html#pyvista.UniformGridFilters.plot_over_circular_arc_normal" title="pyvista.UniformGridFilters.plot_over_circular_arc_normal"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGridFilters.plot_over_circular_arc_normal</span></code></a>(center)</p></td>
 <td><p>法線ベクトルと極ベクトルで定義された解像度の円弧に沿ってデータセットをサンプリングし，それをプロットします．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.UniformGridFilters.plot_over_line.html#pyvista.UniformGridFilters.plot_over_line" title="pyvista.UniformGridFilters.plot_over_line"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGridFilters.plot_over_line</span></code></a>(pointa, pointb)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.UniformGridFilters.plot_over_line.html#pyvista.UniformGridFilters.plot_over_line" title="pyvista.UniformGridFilters.plot_over_line"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGridFilters.plot_over_line</span></code></a>(pointa, pointb)</p></td>
 <td><p>高解像度の線に沿ってデータセットをサンプリングし，プロットします．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.UniformGridFilters.point_data_to_cell_data.html#pyvista.UniformGridFilters.point_data_to_cell_data" title="pyvista.UniformGridFilters.point_data_to_cell_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGridFilters.point_data_to_cell_data</span></code></a>([...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.UniformGridFilters.point_data_to_cell_data.html#pyvista.UniformGridFilters.point_data_to_cell_data" title="pyvista.UniformGridFilters.point_data_to_cell_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGridFilters.point_data_to_cell_data</span></code></a>([...])</p></td>
 <td><p>点データをセルデータに変換します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.UniformGridFilters.probe.html#pyvista.UniformGridFilters.probe" title="pyvista.UniformGridFilters.probe"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGridFilters.probe</span></code></a>(points[, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.UniformGridFilters.probe.html#pyvista.UniformGridFilters.probe" title="pyvista.UniformGridFilters.probe"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGridFilters.probe</span></code></a>(points[, ...])</p></td>
 <td><p>指定したポイント位置のサンプルデータ値．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.UniformGridFilters.ptc.html#pyvista.UniformGridFilters.ptc" title="pyvista.UniformGridFilters.ptc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGridFilters.ptc</span></code></a>([pass_point_data, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.UniformGridFilters.ptc.html#pyvista.UniformGridFilters.ptc" title="pyvista.UniformGridFilters.ptc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGridFilters.ptc</span></code></a>([pass_point_data, ...])</p></td>
 <td><p>点データをセルデータに変換します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.UniformGridFilters.reflect.html#pyvista.UniformGridFilters.reflect" title="pyvista.UniformGridFilters.reflect"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGridFilters.reflect</span></code></a>(normal[, point, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.UniformGridFilters.reflect.html#pyvista.UniformGridFilters.reflect" title="pyvista.UniformGridFilters.reflect"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGridFilters.reflect</span></code></a>(normal[, point, ...])</p></td>
 <td><p>平面でデータセットを反射します．</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.UniformGridFilters.rfft.html#pyvista.UniformGridFilters.rfft" title="pyvista.UniformGridFilters.rfft"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGridFilters.rfft</span></code></a>([...])</p></td>
+<td><p>アクティブスカラーに逆高速フーリエ変換(RFFT)を適用します．</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.UniformGridFilters.sample.html#pyvista.UniformGridFilters.sample" title="pyvista.UniformGridFilters.sample"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGridFilters.sample</span></code></a>(target[, ...])</p></td>
 <td><p>渡されたメッシュからこのメッシュに配列データをリサンプルします．</p></td>

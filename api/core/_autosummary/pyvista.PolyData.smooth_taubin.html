@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>smooth_taubin &#8212; PyVista 0.35.dev0 ドキュメント</title>
+    <title>smooth_taubin &#8212; PyVista 0.36.dev0 ドキュメント</title>
 <script>
   document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
   document.documentElement.dataset.theme = localStorage.getItem("theme") || "light"
@@ -310,6 +310,11 @@
        <li class="toctree-l4">
         <a class="reference internal" href="pyvista.PolyData.cell_n_points.html">
          cell_n_points
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="pyvista.PolyData.cell_point_ids.html">
+         cell_point_ids
         </a>
        </li>
        <li class="toctree-l4">
@@ -735,6 +740,11 @@
        <li class="toctree-l4">
         <a class="reference internal" href="pyvista.PolyData.point_data_to_cell_data.html">
          point_data_to_cell_data
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="pyvista.PolyData.point_is_inside_cell.html">
+         point_is_inside_cell
         </a>
        </li>
        <li class="toctree-l4">
@@ -1387,12 +1397,7 @@
 </dd>
 <dt><strong>non_manifold_smoothing</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/dev/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.12)"><span class="xref std std-ref">bool</span></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>非多様体の点を滑らかにする，デフォルトは <code class="docutils literal notranslate"><span class="pre">False</span></code> です．</p>
 </dd>
-<dt><strong>normalize_coordinates</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/dev/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.12)"><span class="xref std std-ref">bool</span></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>Flag to control coordinate normalization. To improve the
-numerical stability of the solution and minimize the scaling of the
-translation effects, the algorithm can translate and scale the
-position coordinates to within the unit cube <code class="docutils literal notranslate"><span class="pre">[-1,</span> <span class="pre">1]</span></code>, perform the
-smoothing, and translate and scale the position coordinates back to
-the original coordinate frame. This defaults to <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+<dt><strong>normalize_coordinates</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/dev/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.12)"><span class="xref std std-ref">bool</span></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>フラグを使用して座標の正規化を制御します．解の数値的安定性を向上させ，並進効果のスケーリングを最小化するために，このアルゴリズムは，位置座標を単位立方体 <code class="docutils literal notranslate"><span class="pre">[-1,</span> <span class="pre">1]</span></code> 以内に変換・スケーリングし，平滑化を行い，位置座標を元の座標系に変換・スケーリングして戻すことが可能です．デフォルトでは <code class="docutils literal notranslate"><span class="pre">False</span></code> に設定されています．</p>
 </dd>
 <dt><strong>inplace</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/dev/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.12)"><span class="xref std std-ref">bool</span></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>in-placeメッシュを更新します．</p>
 </dd>

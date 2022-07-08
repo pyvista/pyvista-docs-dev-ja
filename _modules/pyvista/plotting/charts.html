@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>pyvista.plotting.charts &#8212; PyVista 0.35.dev0 ドキュメント</title>
+    <title>pyvista.plotting.charts &#8212; PyVista 0.36.dev0 ドキュメント</title>
 <script>
   document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
   document.documentElement.dataset.theme = localStorage.getItem("theme") || "light"
@@ -1281,6 +1281,12 @@
 
 <span class="sd">        Resize this chart such that it always occupies the specified</span>
 <span class="sd">        geometry (matching the specified location and size).</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        bool</span>
+<span class="sd">            ``True`` if the chart was resized, ``False`` otherwise.</span>
+
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">r_w</span><span class="p">,</span> <span class="n">r_h</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_renderer</span><span class="o">.</span><span class="n">GetSize</span><span class="p">()</span>
         <span class="c1"># Alternatively: self.scene.GetViewWidth(), self.scene.GetViewHeight()</span>
@@ -1288,9 +1294,11 @@
         <span class="c1"># Target size is calculated from specified normalized width and height and the renderer&#39;s current size</span>
         <span class="n">t_w</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_size</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">r_w</span>
         <span class="n">t_h</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_size</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">r_h</span>
-        <span class="k">if</span> <span class="n">c_w</span> <span class="o">!=</span> <span class="n">t_w</span> <span class="ow">or</span> <span class="n">c_h</span> <span class="o">!=</span> <span class="n">t_h</span><span class="p">:</span>
+        <span class="n">resize</span> <span class="o">=</span> <span class="n">c_w</span> <span class="o">!=</span> <span class="n">t_w</span> <span class="ow">or</span> <span class="n">c_h</span> <span class="o">!=</span> <span class="n">t_h</span>
+        <span class="k">if</span> <span class="n">resize</span><span class="p">:</span>
             <span class="c1"># Mismatch between current size and target size, so resize chart:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_geometry</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_loc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">r_w</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_loc</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">r_h</span><span class="p">,</span> <span class="n">t_w</span><span class="p">,</span> <span class="n">t_h</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">resize</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">_geometry</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -4440,12 +4448,14 @@
         <span class="c1"># Calculate target size from specified normalized width and height and the renderer&#39;s current size</span>
         <span class="n">t_w</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_size</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">r_w</span>
         <span class="n">t_h</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_size</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">r_h</span>
-        <span class="k">if</span> <span class="n">c_w</span> <span class="o">!=</span> <span class="n">t_w</span> <span class="ow">or</span> <span class="n">c_h</span> <span class="o">!=</span> <span class="n">t_h</span><span class="p">:</span>
+        <span class="n">resize</span> <span class="o">=</span> <span class="n">c_w</span> <span class="o">!=</span> <span class="n">t_w</span> <span class="ow">or</span> <span class="n">c_h</span> <span class="o">!=</span> <span class="n">t_h</span>
+        <span class="k">if</span> <span class="n">resize</span><span class="p">:</span>
             <span class="c1"># Mismatch between canvas size and target size, so resize figure:</span>
             <span class="n">f_w</span> <span class="o">=</span> <span class="n">t_w</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fig</span><span class="o">.</span><span class="n">dpi</span>
             <span class="n">f_h</span> <span class="o">=</span> <span class="n">t_h</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fig</span><span class="o">.</span><span class="n">dpi</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_fig</span><span class="o">.</span><span class="n">set_size_inches</span><span class="p">(</span><span class="n">f_w</span><span class="p">,</span> <span class="n">f_h</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">position</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_loc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">r_w</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_loc</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">r_h</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">resize</span>
 
     <span class="k">def</span> <span class="nf">_redraw</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Redraw the chart.&quot;&quot;&quot;</span>
@@ -4463,8 +4473,8 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">SetImage</span><span class="p">(</span><span class="n">img_data</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">_render_event</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_resize</span><span class="p">()</span>  <span class="c1"># Update figure dimensions if needed</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_redraw</span><span class="p">()</span>  <span class="c1"># Redraw figure</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_resize</span><span class="p">():</span>  <span class="c1"># Update figure dimensions if needed</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_redraw</span><span class="p">()</span>  <span class="c1"># Redraw figure when geometry has changed</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">_geometry</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>

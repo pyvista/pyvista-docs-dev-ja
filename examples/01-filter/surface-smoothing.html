@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>サーフェイススムージング &#8212; PyVista 0.35.dev0 ドキュメント</title>
+    <title>サーフェイススムージング &#8212; PyVista 0.36.dev0 ドキュメント</title>
 <script>
   document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
   document.documentElement.dataset.theme = localStorage.getItem("theme") || "light"
@@ -522,6 +522,20 @@
  <li class="toctree-l1">
   <a class="reference internal" href="gradients.html">
    フィールドの勾配を計算する
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="image-fft-perlin-noise.html">
+   Perlinノイズによる高速フーリエ変換
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="image-fft.html">
+   高速Fourier変換
   </a>
  </li>
 </ul>
@@ -1205,7 +1219,7 @@
 <section id="taubin-smoothing">
 <h1>Taubin スムージング<a class="headerlink" href="#taubin-smoothing" title="このヘッドラインへのパーマリンク">#</a></h1>
 <p><a class="reference internal" href="../../api/core/_autosummary/pyvista.PolyDataFilters.smooth.html#pyvista.PolyDataFilters.smooth" title="pyvista.PolyDataFilters.smooth"><code class="xref py py-func docutils literal notranslate"><span class="pre">smooth()</span></code></a> で実装されているデフォルトのラプラシアンスムージングではなく，タウビンスムージングを使用すると，表面の縮小の量を減らすことができます．この例では，タウビンスムージングが元のメッシュに対してどのようにボリュームを維持しているかを見ることができます．</p>
-<p>Also, note that the number of iterations can be reduced to get the same approximate amount of smoothing. This is because Taubin smoothing is more efficient.</p>
+<p>また，反復回数を減らすことで，同じ程度の平滑化量を得ることができることに注意してください．これは，タウバンスムージングがより効率的であるためです．</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">smooth_w_taubin</span> <span class="o">=</span> <span class="n">surf</span><span class="o">.</span><span class="n">smooth_taubin</span><span class="p">(</span><span class="n">n_iter</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">pass_band</span><span class="o">=</span><span class="mf">0.05</span><span class="p">)</span>
 
 <span class="n">pl</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Plotter</span><span class="p">()</span>
@@ -1226,7 +1240,7 @@ Laplacian smoothed volume: 468.3
 Taubin smoothed volume:    680.0
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>スクリプトの合計実行時間:</strong> ( 0 分  1.869 秒)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  2.028 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-01-filter-surface-smoothing-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/6de5d2d3a9b4343c812aaa8ce651000d/surface-smoothing.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">surface-smoothing.py</span></code></a></p>

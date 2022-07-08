@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>pyvista.UniformGrid &#8212; PyVista 0.35.dev0 ドキュメント</title>
+    <title>pyvista.UniformGrid &#8212; PyVista 0.36.dev0 ドキュメント</title>
 <script>
   document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
   document.documentElement.dataset.theme = localStorage.getItem("theme") || "light"
@@ -303,6 +303,11 @@
         </a>
        </li>
        <li class="toctree-l4">
+        <a class="reference internal" href="pyvista.UniformGrid.cell_point_ids.html">
+         cell_point_ids
+        </a>
+       </li>
+       <li class="toctree-l4">
         <a class="reference internal" href="pyvista.UniformGrid.cell_points.html">
          cell_points
         </a>
@@ -493,6 +498,11 @@
         </a>
        </li>
        <li class="toctree-l4">
+        <a class="reference internal" href="pyvista.UniformGrid.fft.html">
+         fft
+        </a>
+       </li>
+       <li class="toctree-l4">
         <a class="reference internal" href="pyvista.UniformGrid.find_cells_along_line.html">
          find_cells_along_line
         </a>
@@ -568,6 +578,11 @@
         </a>
        </li>
        <li class="toctree-l4">
+        <a class="reference internal" href="pyvista.UniformGrid.high_pass.html">
+         high_pass
+        </a>
+       </li>
+       <li class="toctree-l4">
         <a class="reference internal" href="pyvista.UniformGrid.image_dilate_erode.html">
          image_dilate_erode
         </a>
@@ -585,6 +600,11 @@
        <li class="toctree-l4">
         <a class="reference internal" href="pyvista.UniformGrid.interpolate.html">
          interpolate
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="pyvista.UniformGrid.low_pass.html">
+         low_pass
         </a>
        </li>
        <li class="toctree-l4">
@@ -638,6 +658,11 @@
         </a>
        </li>
        <li class="toctree-l4">
+        <a class="reference internal" href="pyvista.UniformGrid.point_is_inside_cell.html">
+         point_is_inside_cell
+        </a>
+       </li>
+       <li class="toctree-l4">
         <a class="reference internal" href="pyvista.UniformGrid.probe.html">
          probe
         </a>
@@ -655,6 +680,11 @@
        <li class="toctree-l4">
         <a class="reference internal" href="pyvista.UniformGrid.rename_array.html">
          rename_array
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="pyvista.UniformGrid.rfft.html">
+         rfft
         </a>
        </li>
        <li class="toctree-l4">
@@ -1245,119 +1275,125 @@
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.UniformGrid.cell_n_points.html#pyvista.UniformGrid.cell_n_points" title="pyvista.UniformGrid.cell_n_points"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGrid.cell_n_points</span></code></a>(ind)</p></td>
 <td><p>セル内のポイント数を取得します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.UniformGrid.cell_points.html#pyvista.UniformGrid.cell_points" title="pyvista.UniformGrid.cell_points"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGrid.cell_points</span></code></a>(ind)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.UniformGrid.cell_point_ids.html#pyvista.UniformGrid.cell_point_ids" title="pyvista.UniformGrid.cell_point_ids"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGrid.cell_point_ids</span></code></a>(ind)</p></td>
+<td><p>セル内の点座標を返します．</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.UniformGrid.cell_points.html#pyvista.UniformGrid.cell_points" title="pyvista.UniformGrid.cell_points"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGrid.cell_points</span></code></a>(ind)</p></td>
 <td><p>セル内の点を取得します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.UniformGrid.cell_type.html#pyvista.UniformGrid.cell_type" title="pyvista.UniformGrid.cell_type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGrid.cell_type</span></code></a>(ind)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.UniformGrid.cell_type.html#pyvista.UniformGrid.cell_type" title="pyvista.UniformGrid.cell_type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGrid.cell_type</span></code></a>(ind)</p></td>
 <td><p>セルの型を取得します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.UniformGrid.clear_arrays.html#pyvista.UniformGrid.clear_arrays" title="pyvista.UniformGrid.clear_arrays"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGrid.clear_arrays</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.UniformGrid.clear_arrays.html#pyvista.UniformGrid.clear_arrays" title="pyvista.UniformGrid.clear_arrays"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGrid.clear_arrays</span></code></a>()</p></td>
 <td><p>点/セル/フィールドデータからすべての配列を削除します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.UniformGrid.clear_cell_arrays.html#pyvista.UniformGrid.clear_cell_arrays" title="pyvista.UniformGrid.clear_cell_arrays"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGrid.clear_cell_arrays</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.UniformGrid.clear_cell_arrays.html#pyvista.UniformGrid.clear_cell_arrays" title="pyvista.UniformGrid.clear_cell_arrays"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGrid.clear_cell_arrays</span></code></a>()</p></td>
 <td><p>すべてのセルデータを削除します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.UniformGrid.clear_cell_data.html#pyvista.UniformGrid.clear_cell_data" title="pyvista.UniformGrid.clear_cell_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGrid.clear_cell_data</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.UniformGrid.clear_cell_data.html#pyvista.UniformGrid.clear_cell_data" title="pyvista.UniformGrid.clear_cell_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGrid.clear_cell_data</span></code></a>()</p></td>
 <td><p>すべてのセル配列を削除します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.UniformGrid.clear_data.html#pyvista.UniformGrid.clear_data" title="pyvista.UniformGrid.clear_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGrid.clear_data</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.UniformGrid.clear_data.html#pyvista.UniformGrid.clear_data" title="pyvista.UniformGrid.clear_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGrid.clear_data</span></code></a>()</p></td>
 <td><p>点/セル/フィールドデータからすべての配列を削除します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.UniformGrid.clear_field_arrays.html#pyvista.UniformGrid.clear_field_arrays" title="pyvista.UniformGrid.clear_field_arrays"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGrid.clear_field_arrays</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.UniformGrid.clear_field_arrays.html#pyvista.UniformGrid.clear_field_arrays" title="pyvista.UniformGrid.clear_field_arrays"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGrid.clear_field_arrays</span></code></a>()</p></td>
 <td><p>すべてのフィールドデータを削除します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.UniformGrid.clear_field_data.html#pyvista.UniformGrid.clear_field_data" title="pyvista.UniformGrid.clear_field_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGrid.clear_field_data</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.UniformGrid.clear_field_data.html#pyvista.UniformGrid.clear_field_data" title="pyvista.UniformGrid.clear_field_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGrid.clear_field_data</span></code></a>()</p></td>
 <td><p>すべてのフィールドデータを削除します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.UniformGrid.clear_point_arrays.html#pyvista.UniformGrid.clear_point_arrays" title="pyvista.UniformGrid.clear_point_arrays"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGrid.clear_point_arrays</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.UniformGrid.clear_point_arrays.html#pyvista.UniformGrid.clear_point_arrays" title="pyvista.UniformGrid.clear_point_arrays"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGrid.clear_point_arrays</span></code></a>()</p></td>
 <td><p>すべての点データを削除します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.UniformGrid.clear_point_data.html#pyvista.UniformGrid.clear_point_data" title="pyvista.UniformGrid.clear_point_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGrid.clear_point_data</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.UniformGrid.clear_point_data.html#pyvista.UniformGrid.clear_point_data" title="pyvista.UniformGrid.clear_point_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGrid.clear_point_data</span></code></a>()</p></td>
 <td><p>すべての点配列を削除します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.UniformGrid.clear_textures.html#pyvista.UniformGrid.clear_textures" title="pyvista.UniformGrid.clear_textures"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGrid.clear_textures</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.UniformGrid.clear_textures.html#pyvista.UniformGrid.clear_textures" title="pyvista.UniformGrid.clear_textures"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGrid.clear_textures</span></code></a>()</p></td>
 <td><p>このメッシュからテクスチャをクリアします．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.UniformGrid.clip.html#pyvista.UniformGrid.clip" title="pyvista.UniformGrid.clip"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGrid.clip</span></code></a>([normal, origin, invert, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.UniformGrid.clip.html#pyvista.UniformGrid.clip" title="pyvista.UniformGrid.clip"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGrid.clip</span></code></a>([normal, origin, invert, ...])</p></td>
 <td><p>原点と法線を指定して，データセットを平面でクリップします．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.UniformGrid.clip_box.html#pyvista.UniformGrid.clip_box" title="pyvista.UniformGrid.clip_box"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGrid.clip_box</span></code></a>([bounds, invert, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.UniformGrid.clip_box.html#pyvista.UniformGrid.clip_box" title="pyvista.UniformGrid.clip_box"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGrid.clip_box</span></code></a>([bounds, invert, ...])</p></td>
 <td><p>境界によって定義された境界ボックスによってデータセットをクリップします．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.UniformGrid.clip_scalar.html#pyvista.UniformGrid.clip_scalar" title="pyvista.UniformGrid.clip_scalar"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGrid.clip_scalar</span></code></a>([scalars, invert, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.UniformGrid.clip_scalar.html#pyvista.UniformGrid.clip_scalar" title="pyvista.UniformGrid.clip_scalar"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGrid.clip_scalar</span></code></a>([scalars, invert, ...])</p></td>
 <td><p>データセットをスカラーでクリップします．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.UniformGrid.clip_surface.html#pyvista.UniformGrid.clip_surface" title="pyvista.UniformGrid.clip_surface"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGrid.clip_surface</span></code></a>(surface[, invert, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.UniformGrid.clip_surface.html#pyvista.UniformGrid.clip_surface" title="pyvista.UniformGrid.clip_surface"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGrid.clip_surface</span></code></a>(surface[, invert, ...])</p></td>
 <td><p><a class="reference internal" href="pyvista.PolyData.html#pyvista.PolyData" title="pyvista.PolyData"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.PolyData</span></code></a> サーフェスメッシュを使用して任意のメッシュタイプをクリップします．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.UniformGrid.compute_cell_quality.html#pyvista.UniformGrid.compute_cell_quality" title="pyvista.UniformGrid.compute_cell_quality"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGrid.compute_cell_quality</span></code></a>([...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.UniformGrid.compute_cell_quality.html#pyvista.UniformGrid.compute_cell_quality" title="pyvista.UniformGrid.compute_cell_quality"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGrid.compute_cell_quality</span></code></a>([...])</p></td>
 <td><p>メッシュのセルごとに (ジオメトリ) 精度の関数を計算します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.UniformGrid.compute_cell_sizes.html#pyvista.UniformGrid.compute_cell_sizes" title="pyvista.UniformGrid.compute_cell_sizes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGrid.compute_cell_sizes</span></code></a>([length, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.UniformGrid.compute_cell_sizes.html#pyvista.UniformGrid.compute_cell_sizes" title="pyvista.UniformGrid.compute_cell_sizes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGrid.compute_cell_sizes</span></code></a>([length, ...])</p></td>
 <td><p>1 D (長さ) ，2 D (面積) ，および3 D (体積) セルのサイズを計算します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.UniformGrid.compute_derivative.html#pyvista.UniformGrid.compute_derivative" title="pyvista.UniformGrid.compute_derivative"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGrid.compute_derivative</span></code></a>([scalars, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.UniformGrid.compute_derivative.html#pyvista.UniformGrid.compute_derivative" title="pyvista.UniformGrid.compute_derivative"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGrid.compute_derivative</span></code></a>([scalars, ...])</p></td>
 <td><p>点/セル スカラフィールドの派生ベースの量を計算します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.UniformGrid.compute_implicit_distance.html#pyvista.UniformGrid.compute_implicit_distance" title="pyvista.UniformGrid.compute_implicit_distance"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGrid.compute_implicit_distance</span></code></a>(surface)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.UniformGrid.compute_implicit_distance.html#pyvista.UniformGrid.compute_implicit_distance" title="pyvista.UniformGrid.compute_implicit_distance"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGrid.compute_implicit_distance</span></code></a>(surface)</p></td>
 <td><p>ポイントから表面までのインプリシット距離を計算します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.UniformGrid.connectivity.html#pyvista.UniformGrid.connectivity" title="pyvista.UniformGrid.connectivity"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGrid.connectivity</span></code></a>([largest, progress_bar])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.UniformGrid.connectivity.html#pyvista.UniformGrid.connectivity" title="pyvista.UniformGrid.connectivity"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGrid.connectivity</span></code></a>([largest, progress_bar])</p></td>
 <td><p>接続されたボディ/ボリュームを検索し，ラベル付けします．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.UniformGrid.contour.html#pyvista.UniformGrid.contour" title="pyvista.UniformGrid.contour"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGrid.contour</span></code></a>([isosurfaces, scalars, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.UniformGrid.contour.html#pyvista.UniformGrid.contour" title="pyvista.UniformGrid.contour"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGrid.contour</span></code></a>([isosurfaces, scalars, ...])</p></td>
 <td><p>入力されたコンターを配列で表現します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.UniformGrid.copy.html#pyvista.UniformGrid.copy" title="pyvista.UniformGrid.copy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGrid.copy</span></code></a>([deep])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.UniformGrid.copy.html#pyvista.UniformGrid.copy" title="pyvista.UniformGrid.copy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGrid.copy</span></code></a>([deep])</p></td>
 <td><p>オブジェクトのコピーを取得します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.UniformGrid.copy_attributes.html#pyvista.UniformGrid.copy_attributes" title="pyvista.UniformGrid.copy_attributes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGrid.copy_attributes</span></code></a>(dataset)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.UniformGrid.copy_attributes.html#pyvista.UniformGrid.copy_attributes" title="pyvista.UniformGrid.copy_attributes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGrid.copy_attributes</span></code></a>(dataset)</p></td>
 <td><p>入力データセットオブジェクトのデータ属性をコピーします．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.UniformGrid.copy_meta_from.html#pyvista.UniformGrid.copy_meta_from" title="pyvista.UniformGrid.copy_meta_from"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGrid.copy_meta_from</span></code></a>(ido[, deep])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.UniformGrid.copy_meta_from.html#pyvista.UniformGrid.copy_meta_from" title="pyvista.UniformGrid.copy_meta_from"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGrid.copy_meta_from</span></code></a>(ido[, deep])</p></td>
 <td><p>別のオブジェクトからこのオブジェクトにpyvistaメタデータをコピーします．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.UniformGrid.copy_structure.html#pyvista.UniformGrid.copy_structure" title="pyvista.UniformGrid.copy_structure"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGrid.copy_structure</span></code></a>(dataset)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.UniformGrid.copy_structure.html#pyvista.UniformGrid.copy_structure" title="pyvista.UniformGrid.copy_structure"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGrid.copy_structure</span></code></a>(dataset)</p></td>
 <td><p>入力データセットオブジェクトの構造(ジオメトリとトポロジ)をコピーします．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.UniformGrid.ctp.html#pyvista.UniformGrid.ctp" title="pyvista.UniformGrid.ctp"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGrid.ctp</span></code></a>([pass_cell_data, progress_bar])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.UniformGrid.ctp.html#pyvista.UniformGrid.ctp" title="pyvista.UniformGrid.ctp"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGrid.ctp</span></code></a>([pass_cell_data, progress_bar])</p></td>
 <td><p>データから日付へのセル変換</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.UniformGrid.decimate_boundary.html#pyvista.UniformGrid.decimate_boundary" title="pyvista.UniformGrid.decimate_boundary"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGrid.decimate_boundary</span></code></a>([...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.UniformGrid.decimate_boundary.html#pyvista.UniformGrid.decimate_boundary" title="pyvista.UniformGrid.decimate_boundary"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGrid.decimate_boundary</span></code></a>([...])</p></td>
 <td><p>境界の三角形分割の小数点付きバージョンを取得します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.UniformGrid.deep_copy.html#pyvista.UniformGrid.deep_copy" title="pyvista.UniformGrid.deep_copy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGrid.deep_copy</span></code></a>(to_copy)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.UniformGrid.deep_copy.html#pyvista.UniformGrid.deep_copy" title="pyvista.UniformGrid.deep_copy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGrid.deep_copy</span></code></a>(to_copy)</p></td>
 <td><p>このデータオブジェクトをディープコピーとして別のデータオブジェクトで上書きします．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.UniformGrid.delaunay_3d.html#pyvista.UniformGrid.delaunay_3d" title="pyvista.UniformGrid.delaunay_3d"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGrid.delaunay_3d</span></code></a>([alpha, tol, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.UniformGrid.delaunay_3d.html#pyvista.UniformGrid.delaunay_3d" title="pyvista.UniformGrid.delaunay_3d"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGrid.delaunay_3d</span></code></a>([alpha, tol, ...])</p></td>
 <td><p>メッシュの3D Delaunay三角形分割を作成します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.UniformGrid.elevation.html#pyvista.UniformGrid.elevation" title="pyvista.UniformGrid.elevation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGrid.elevation</span></code></a>([low_point, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.UniformGrid.elevation.html#pyvista.UniformGrid.elevation" title="pyvista.UniformGrid.elevation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGrid.elevation</span></code></a>([low_point, ...])</p></td>
 <td><p>データセットにスカラー値を生成します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.UniformGrid.extract_all_edges.html#pyvista.UniformGrid.extract_all_edges" title="pyvista.UniformGrid.extract_all_edges"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGrid.extract_all_edges</span></code></a>([progress_bar])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.UniformGrid.extract_all_edges.html#pyvista.UniformGrid.extract_all_edges" title="pyvista.UniformGrid.extract_all_edges"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGrid.extract_all_edges</span></code></a>([progress_bar])</p></td>
 <td><p>データセットのすべての内部/外部エッジをPolyDataとして抽出します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.UniformGrid.extract_cells.html#pyvista.UniformGrid.extract_cells" title="pyvista.UniformGrid.extract_cells"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGrid.extract_cells</span></code></a>(ind[, progress_bar])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.UniformGrid.extract_cells.html#pyvista.UniformGrid.extract_cells" title="pyvista.UniformGrid.extract_cells"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGrid.extract_cells</span></code></a>(ind[, progress_bar])</p></td>
 <td><p>グリッドのサブセットを取得します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.UniformGrid.extract_feature_edges.html#pyvista.UniformGrid.extract_feature_edges" title="pyvista.UniformGrid.extract_feature_edges"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGrid.extract_feature_edges</span></code></a>([...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.UniformGrid.extract_feature_edges.html#pyvista.UniformGrid.extract_feature_edges" title="pyvista.UniformGrid.extract_feature_edges"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGrid.extract_feature_edges</span></code></a>([...])</p></td>
 <td><p>メッシュの表面からエッジを抽出します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.UniformGrid.extract_geometry.html#pyvista.UniformGrid.extract_geometry" title="pyvista.UniformGrid.extract_geometry"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGrid.extract_geometry</span></code></a>([progress_bar])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.UniformGrid.extract_geometry.html#pyvista.UniformGrid.extract_geometry" title="pyvista.UniformGrid.extract_geometry"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGrid.extract_geometry</span></code></a>([progress_bar])</p></td>
 <td><p>ボリュームまたは構造格子データセットの外側サーフェスを抽出します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.UniformGrid.extract_largest.html#pyvista.UniformGrid.extract_largest" title="pyvista.UniformGrid.extract_largest"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGrid.extract_largest</span></code></a>([inplace, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.UniformGrid.extract_largest.html#pyvista.UniformGrid.extract_largest" title="pyvista.UniformGrid.extract_largest"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGrid.extract_largest</span></code></a>([inplace, ...])</p></td>
 <td><p>メッシュ内の最大接続セットを抽出します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.UniformGrid.extract_points.html#pyvista.UniformGrid.extract_points" title="pyvista.UniformGrid.extract_points"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGrid.extract_points</span></code></a>(ind[, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.UniformGrid.extract_points.html#pyvista.UniformGrid.extract_points" title="pyvista.UniformGrid.extract_points"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGrid.extract_points</span></code></a>(ind[, ...])</p></td>
 <td><p>指定されたポイントインデックスのいずれかを含む(セルの)グリッドのサブセットを取得します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.UniformGrid.extract_subset.html#pyvista.UniformGrid.extract_subset" title="pyvista.UniformGrid.extract_subset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGrid.extract_subset</span></code></a>(voi[, rate, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.UniformGrid.extract_subset.html#pyvista.UniformGrid.extract_subset" title="pyvista.UniformGrid.extract_subset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGrid.extract_subset</span></code></a>(voi[, rate, ...])</p></td>
 <td><p>部品を選択します．(例えば，関心のあるボリューム)</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.UniformGrid.extract_surface.html#pyvista.UniformGrid.extract_surface" title="pyvista.UniformGrid.extract_surface"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGrid.extract_surface</span></code></a>([pass_pointid, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.UniformGrid.extract_surface.html#pyvista.UniformGrid.extract_surface" title="pyvista.UniformGrid.extract_surface"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGrid.extract_surface</span></code></a>([pass_pointid, ...])</p></td>
 <td><p>グリッドのサーフェスメッシュを抽出します．</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.UniformGrid.fft.html#pyvista.UniformGrid.fft" title="pyvista.UniformGrid.fft"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGrid.fft</span></code></a>([output_scalars_name, ...])</p></td>
+<td><p>アクティブスカラーに高速フーリエ変換(FFT)を適用します．</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.UniformGrid.find_cells_along_line.html#pyvista.UniformGrid.find_cells_along_line" title="pyvista.UniformGrid.find_cells_along_line"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGrid.find_cells_along_line</span></code></a>(pointa, pointb)</p></td>
 <td><p>このメッシュのセルのインデックスを，線に沿って求めます．</p></td>
@@ -1404,17 +1440,23 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.UniformGrid.head.html#pyvista.UniformGrid.head" title="pyvista.UniformGrid.head"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGrid.head</span></code></a>([display, html])</p></td>
 <td><p>このデータセットのヘッダ統計情報を取得します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.UniformGrid.image_dilate_erode.html#pyvista.UniformGrid.image_dilate_erode" title="pyvista.UniformGrid.image_dilate_erode"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGrid.image_dilate_erode</span></code></a>([...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.UniformGrid.high_pass.html#pyvista.UniformGrid.high_pass" title="pyvista.UniformGrid.high_pass"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGrid.high_pass</span></code></a>(x_cutoff, y_cutoff, ...)</p></td>
+<td><p>Butterworth型ハイパスフィルターを周波数領域で実行します．</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.UniformGrid.image_dilate_erode.html#pyvista.UniformGrid.image_dilate_erode" title="pyvista.UniformGrid.image_dilate_erode"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGrid.image_dilate_erode</span></code></a>([...])</p></td>
 <td><p>ある値を希釈し，別の値を侵食します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.UniformGrid.image_threshold.html#pyvista.UniformGrid.image_threshold" title="pyvista.UniformGrid.image_threshold"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGrid.image_threshold</span></code></a>(threshold[, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.UniformGrid.image_threshold.html#pyvista.UniformGrid.image_threshold" title="pyvista.UniformGrid.image_threshold"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGrid.image_threshold</span></code></a>(threshold[, ...])</p></td>
 <td><p>一様なグリッドのスカラー値に対して閾値を適用します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.UniformGrid.integrate_data.html#pyvista.UniformGrid.integrate_data" title="pyvista.UniformGrid.integrate_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGrid.integrate_data</span></code></a>([progress_bar])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.UniformGrid.integrate_data.html#pyvista.UniformGrid.integrate_data" title="pyvista.UniformGrid.integrate_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGrid.integrate_data</span></code></a>([progress_bar])</p></td>
 <td><p>点データとセルデータを積分します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.UniformGrid.interpolate.html#pyvista.UniformGrid.interpolate" title="pyvista.UniformGrid.interpolate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGrid.interpolate</span></code></a>(target[, sharpness, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.UniformGrid.interpolate.html#pyvista.UniformGrid.interpolate" title="pyvista.UniformGrid.interpolate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGrid.interpolate</span></code></a>(target[, sharpness, ...])</p></td>
 <td><p>特定のデータセットからこのメッシュに値を補間します．</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.UniformGrid.low_pass.html#pyvista.UniformGrid.low_pass" title="pyvista.UniformGrid.low_pass"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGrid.low_pass</span></code></a>(x_cutoff, y_cutoff, ...)</p></td>
+<td><p>Butterworth型ローパスフィルターを周波数領域で実行します．</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.UniformGrid.median_smooth.html#pyvista.UniformGrid.median_smooth" title="pyvista.UniformGrid.median_smooth"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGrid.median_smooth</span></code></a>([kernel_size, ...])</p></td>
 <td><p>medianフィルターでデータを平滑化します．</p></td>
@@ -1446,17 +1488,23 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.UniformGrid.point_data_to_cell_data.html#pyvista.UniformGrid.point_data_to_cell_data" title="pyvista.UniformGrid.point_data_to_cell_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGrid.point_data_to_cell_data</span></code></a>([...])</p></td>
 <td><p>点データをセルデータに変換します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.UniformGrid.probe.html#pyvista.UniformGrid.probe" title="pyvista.UniformGrid.probe"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGrid.probe</span></code></a>(points[, tolerance, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.UniformGrid.point_is_inside_cell.html#pyvista.UniformGrid.point_is_inside_cell" title="pyvista.UniformGrid.point_is_inside_cell"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGrid.point_is_inside_cell</span></code></a>(ind, point)</p></td>
+<td><p>Return whether one or more points are inside a cell.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.UniformGrid.probe.html#pyvista.UniformGrid.probe" title="pyvista.UniformGrid.probe"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGrid.probe</span></code></a>(points[, tolerance, ...])</p></td>
 <td><p>指定したポイント位置のサンプルデータ値．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.UniformGrid.ptc.html#pyvista.UniformGrid.ptc" title="pyvista.UniformGrid.ptc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGrid.ptc</span></code></a>([pass_point_data, progress_bar])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.UniformGrid.ptc.html#pyvista.UniformGrid.ptc" title="pyvista.UniformGrid.ptc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGrid.ptc</span></code></a>([pass_point_data, progress_bar])</p></td>
 <td><p>点データをセルデータに変換します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.UniformGrid.reflect.html#pyvista.UniformGrid.reflect" title="pyvista.UniformGrid.reflect"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGrid.reflect</span></code></a>(normal[, point, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.UniformGrid.reflect.html#pyvista.UniformGrid.reflect" title="pyvista.UniformGrid.reflect"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGrid.reflect</span></code></a>(normal[, point, ...])</p></td>
 <td><p>平面でデータセットを反射します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.UniformGrid.rename_array.html#pyvista.UniformGrid.rename_array" title="pyvista.UniformGrid.rename_array"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGrid.rename_array</span></code></a>(old_name, new_name)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.UniformGrid.rename_array.html#pyvista.UniformGrid.rename_array" title="pyvista.UniformGrid.rename_array"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGrid.rename_array</span></code></a>(old_name, new_name)</p></td>
 <td><p>配列名を変更するには，配列を検索して名前を変更します．</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.UniformGrid.rfft.html#pyvista.UniformGrid.rfft" title="pyvista.UniformGrid.rfft"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGrid.rfft</span></code></a>([output_scalars_name, ...])</p></td>
+<td><p>アクティブスカラーに逆高速フーリエ変換(RFFT)を適用します．</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.UniformGrid.rotate_vector.html#pyvista.UniformGrid.rotate_vector" title="pyvista.UniformGrid.rotate_vector"><code class="xref py py-obj docutils literal notranslate"><span class="pre">UniformGrid.rotate_vector</span></code></a>(vector, angle[, ...])</p></td>
 <td><p>メッシュをベクトルを中心に回転します．</p></td>

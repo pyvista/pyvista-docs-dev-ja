@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>pyvista.examples.downloads &#8212; PyVista 0.35.dev0 ドキュメント</title>
+    <title>pyvista.examples.downloads &#8212; PyVista 0.36.dev0 ドキュメント</title>
 <script>
   document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
   document.documentElement.dataset.theme = localStorage.getItem("theme") || "light"
@@ -243,6 +243,7 @@
 
 <span class="kn">import</span> <span class="nn">pyvista</span>
 <span class="kn">from</span> <span class="nn">pyvista</span> <span class="kn">import</span> <span class="n">_vtk</span>
+<span class="kn">from</span> <span class="nn">pyvista.core.errors</span> <span class="kn">import</span> <span class="n">VTKVersionError</span>
 
 <span class="n">CACHE_VERSION</span> <span class="o">=</span> <span class="mi">2</span>
 
@@ -4106,10 +4107,16 @@
 
 <span class="sd">    &gt;&gt;&gt; from pyvista import examples</span>
 <span class="sd">    &gt;&gt;&gt; import pyvista</span>
-<span class="sd">    &gt;&gt;&gt; dataset = examples.download_can()</span>
-<span class="sd">    &gt;&gt;&gt; dataset.plot(scalars=&#39;VEL&#39;, smooth_shading=True)</span>
+<span class="sd">    &gt;&gt;&gt; dataset = examples.download_can()  # doctest:+SKIP</span>
+<span class="sd">    &gt;&gt;&gt; dataset.plot(scalars=&#39;VEL&#39;, smooth_shading=True)  # doctest:+SKIP</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">vtk_version_info</span> <span class="o">&gt;</span> <span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="n">VTKVersionError</span><span class="p">(</span>
+            <span class="s1">&#39;This example file is deprecated for VTK v9.2.0 and newer. &#39;</span>
+            <span class="s1">&#39;Use `download_can_crushed_hdf` instead.&#39;</span>
+        <span class="p">)</span>
+
     <span class="n">can_0</span> <span class="o">=</span> <span class="n">_download_and_read</span><span class="p">(</span><span class="s1">&#39;hdf/can_0.hdf&#39;</span><span class="p">,</span> <span class="n">load</span><span class="o">=</span><span class="n">load</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">partial</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">can_0</span>
@@ -4123,6 +4130,40 @@
     <span class="k">if</span> <span class="n">load</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">cans</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">cans</span></div>
+
+
+<div class="viewcode-block" id="download_can_crushed_hdf"><a class="viewcode-back" href="../../../api/examples/_autosummary/pyvista.examples.downloads.download_can_crushed_hdf.html#pyvista.examples.downloads.download_can_crushed_hdf">[ドキュメント]</a><span class="k">def</span> <span class="nf">download_can_crushed_hdf</span><span class="p">(</span><span class="n">load</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>  <span class="c1"># pragma: no cover</span>
+    <span class="sd">&quot;&quot;&quot;Download the crushed can dataset.</span>
+
+<span class="sd">    File obtained from `Kitware &lt;https://www.kitware.com/&gt;`_. Used</span>
+<span class="sd">    for testing hdf files.</span>
+
+<span class="sd">    Originally built using VTK v9.2.0rc from:</span>
+
+<span class="sd">    ``VTK/build/ExternalData/Testing/Data/can-vtu.hdf``</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    load : bool, optional</span>
+<span class="sd">        Load the dataset after downloading it when ``True``.  Set this</span>
+<span class="sd">        to ``False`` and only the filename will be returned.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    pyvista.UnstructuredGrid or str</span>
+<span class="sd">        Crushed can dataset or path depending on the value of ``load``.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    Plot the crushed can dataset.</span>
+
+<span class="sd">    &gt;&gt;&gt; from pyvista import examples</span>
+<span class="sd">    &gt;&gt;&gt; import pyvista</span>
+<span class="sd">    &gt;&gt;&gt; dataset = examples.download_can_crushed_hdf()</span>
+<span class="sd">    &gt;&gt;&gt; dataset.plot(smooth_shading=True)</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_download_and_read</span><span class="p">(</span><span class="s1">&#39;hdf/can-vtu.hdf&#39;</span><span class="p">,</span> <span class="n">load</span><span class="o">=</span><span class="n">load</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="download_cgns_structured"><a class="viewcode-back" href="../../../api/examples/_autosummary/pyvista.examples.downloads.download_cgns_structured.html#pyvista.examples.downloads.download_cgns_structured">[ドキュメント]</a><span class="k">def</span> <span class="nf">download_cgns_structured</span><span class="p">(</span><span class="n">load</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>  <span class="c1"># pragma: no cover</span>
@@ -4155,6 +4196,41 @@
 
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">filename</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">_download_file</span><span class="p">(</span><span class="s1">&#39;cgns/sqnz_s.adf.cgns&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">load</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">filename</span>
+    <span class="k">return</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">get_reader</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="download_tecplot_ascii"><a class="viewcode-back" href="../../../api/examples/_autosummary/pyvista.examples.downloads.download_tecplot_ascii.html#pyvista.examples.downloads.download_tecplot_ascii">[ドキュメント]</a><span class="k">def</span> <span class="nf">download_tecplot_ascii</span><span class="p">(</span><span class="n">load</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>  <span class="c1"># pragma: no cover</span>
+    <span class="sd">&quot;&quot;&quot;Download the single block ASCII Tecplot dataset.</span>
+
+<span class="sd">    Originally downloaded from Paul Bourke&#39;s</span>
+<span class="sd">    `Sample file &lt;http://paulbourke.net/dataformats/tp/sample.tp&gt;`_</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    load : bool, optional</span>
+<span class="sd">        Load the dataset after downloading it when ``True``.  Set this</span>
+<span class="sd">        to ``False`` and only the filename will be returned.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    pyvista.MultiBlock</span>
+<span class="sd">        Multiblock format with only 1 data block, simple geometric shape.</span>
+<span class="sd">        If ``load`` is ``False``, then the path of the example Tecplot file</span>
+<span class="sd">        is returned.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    Plot the example Tecplot dataset.</span>
+
+<span class="sd">    &gt;&gt;&gt; from pyvista import examples</span>
+<span class="sd">    &gt;&gt;&gt; import pyvista</span>
+<span class="sd">    &gt;&gt;&gt; dataset = examples.download_tecplot_ascii()</span>
+<span class="sd">    &gt;&gt;&gt; dataset.plot()</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">filename</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">_download_file</span><span class="p">(</span><span class="s1">&#39;tecplot_ascii.dat&#39;</span><span class="p">)</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">load</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">filename</span>
     <span class="k">return</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">get_reader</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span></div>
@@ -4308,6 +4384,40 @@
 
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">_download_and_read</span><span class="p">(</span><span class="s2">&quot;cellsnd.ascii.inp&quot;</span><span class="p">,</span> <span class="n">load</span><span class="o">=</span><span class="n">load</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="download_moonlanding_image"><a class="viewcode-back" href="../../../api/examples/_autosummary/pyvista.examples.downloads.download_moonlanding_image.html#pyvista.examples.downloads.download_moonlanding_image">[ドキュメント]</a><span class="k">def</span> <span class="nf">download_moonlanding_image</span><span class="p">(</span><span class="n">load</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>  <span class="c1"># pragma: no cover</span>
+    <span class="sd">&quot;&quot;&quot;Download the Moon landing image.</span>
+
+<span class="sd">    This is a noisy image originally obtained from `Scipy Lecture Notes</span>
+<span class="sd">    &lt;https://scipy-lectures.org/index.html&gt;`_ and can be used to demonstrate a</span>
+<span class="sd">    low pass filter.</span>
+
+<span class="sd">    See the `scipy-lectures license</span>
+<span class="sd">    &lt;http://scipy-lectures.org/preface.html#license&gt;`_ for more details</span>
+<span class="sd">    regarding this image&#39;s use and distribution.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    load : bool, optional</span>
+<span class="sd">        Load the dataset after downloading it when ``True``.  Set this</span>
+<span class="sd">        to ``False`` and only the filename will be returned.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    pyvista.UniformGrid or str</span>
+<span class="sd">        ``DataSet`` or filename depending on ``load``.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; from pyvista import examples</span>
+<span class="sd">    &gt;&gt;&gt; dataset = examples.download_moonlanding_image()</span>
+<span class="sd">    &gt;&gt;&gt; dataset.plot(cpos=&#39;xy&#39;, cmap=&#39;gray&#39;, background=&#39;w&#39;, show_scalar_bar=False)</span>
+
+<span class="sd">    See :ref:`image_fft_example` for a full example using this dataset.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_download_and_read</span><span class="p">(</span><span class="s1">&#39;moonlanding.png&#39;</span><span class="p">,</span> <span class="n">load</span><span class="o">=</span><span class="n">load</span><span class="p">)</span></div>
 </pre></div>
 
               </article>

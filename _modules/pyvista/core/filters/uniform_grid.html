@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>pyvista.core.filters.uniform_grid &#8212; PyVista 0.35.dev0 ドキュメント</title>
+    <title>pyvista.core.filters.uniform_grid &#8212; PyVista 0.36.dev0 ドキュメント</title>
 <script>
   document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
   document.documentElement.dataset.theme = localStorage.getItem("theme") || "light"
@@ -218,7 +218,7 @@
               <article class="bd-article" role="main">
                 
   <h1>pyvista.core.filters.uniform_grid のソースコード</h1><div class="highlight"><pre>
-<span></span><span class="sd">&quot;&quot;&quot;Filters module with a class to manage filters/algorithms for uniform grid datasets.&quot;&quot;&quot;</span>
+<span></span><span class="sd">&quot;&quot;&quot;Filters with a class to manage filters/algorithms for uniform grid datasets.&quot;&quot;&quot;</span>
 <span class="kn">import</span> <span class="nn">collections.abc</span>
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -227,6 +227,7 @@
 <span class="kn">from</span> <span class="nn">pyvista</span> <span class="kn">import</span> <span class="n">_vtk</span><span class="p">,</span> <span class="n">abstract_class</span>
 <span class="kn">from</span> <span class="nn">pyvista.core.filters</span> <span class="kn">import</span> <span class="n">_get_output</span><span class="p">,</span> <span class="n">_update_alg</span>
 <span class="kn">from</span> <span class="nn">pyvista.core.filters.data_set</span> <span class="kn">import</span> <span class="n">DataSetFilters</span>
+<span class="kn">from</span> <span class="nn">pyvista.errors</span> <span class="kn">import</span> <span class="n">AmbiguousDataError</span><span class="p">,</span> <span class="n">MissingDataError</span>
 
 
 <div class="viewcode-block" id="UniformGridFilters"><a class="viewcode-back" href="../../../../api/core/_autosummary/pyvista.UniformGridFilters.html#pyvista.UniformGridFilters">[ドキュメント]</a><span class="nd">@abstract_class</span>
@@ -633,7 +634,350 @@
             <span class="n">alg</span><span class="o">.</span><span class="n">ReplaceOutOff</span><span class="p">()</span>
         <span class="c1"># run the algorithm</span>
         <span class="n">_update_alg</span><span class="p">(</span><span class="n">alg</span><span class="p">,</span> <span class="n">progress_bar</span><span class="p">,</span> <span class="s1">&#39;Performing Image Thresholding&#39;</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">_get_output</span><span class="p">(</span><span class="n">alg</span><span class="p">)</span></div></div>
+        <span class="k">return</span> <span class="n">_get_output</span><span class="p">(</span><span class="n">alg</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="UniformGridFilters.fft"><a class="viewcode-back" href="../../../../api/core/_autosummary/pyvista.UniformGridFilters.fft.html#pyvista.UniformGridFilters.fft">[ドキュメント]</a>    <span class="k">def</span> <span class="nf">fft</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">output_scalars_name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">progress_bar</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Apply a fast Fourier transform (FFT) to the active scalars.</span>
+
+<span class="sd">        The input can be real or complex data, but the output is always</span>
+<span class="sd">        :attr:`numpy.complex128`. The filter is fastest for images that have</span>
+<span class="sd">        power of two sizes.</span>
+
+<span class="sd">        The filter uses a butterfly diagram for each prime factor of the</span>
+<span class="sd">        dimension. This makes images with prime number dimensions (i.e. 17x17)</span>
+<span class="sd">        much slower to compute. FFTs of multidimensional meshes (i.e volumes)</span>
+<span class="sd">        are decomposed so that each axis executes serially.</span>
+
+<span class="sd">        The frequencies of the output assume standard order: along each axis</span>
+<span class="sd">        first positive frequencies are assumed from 0 to the maximum, then</span>
+<span class="sd">        negative frequencies are listed from the largest absolute value to</span>
+<span class="sd">        smallest. This implies that the corners of the grid correspond to low</span>
+<span class="sd">        frequencies, while the center of the grid corresponds to high</span>
+<span class="sd">        frequencies.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        output_scalars_name : str, optional</span>
+<span class="sd">            The name of the output scalars. By default, this is the same as the</span>
+<span class="sd">            active scalars of the dataset.</span>
+
+<span class="sd">        progress_bar : bool, optional</span>
+<span class="sd">            Display a progress bar to indicate progress.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        pyvista.UniformGrid</span>
+<span class="sd">            :class:`pyvista.UniformGrid` with applied FFT.</span>
+
+<span class="sd">        See Also</span>
+<span class="sd">        --------</span>
+<span class="sd">        rfft: The reverse transform.</span>
+<span class="sd">        low_pass: Low-pass filtering of FFT output.</span>
+<span class="sd">        high_pass: High-pass filtering of FFT output.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        Apply FFT to an example image.</span>
+
+<span class="sd">        &gt;&gt;&gt; from pyvista import examples</span>
+<span class="sd">        &gt;&gt;&gt; image = examples.download_moonlanding_image()</span>
+<span class="sd">        &gt;&gt;&gt; fft_image = image.fft()</span>
+<span class="sd">        &gt;&gt;&gt; fft_image.point_data  # doctest:+SKIP</span>
+<span class="sd">        pyvista DataSetAttributes</span>
+<span class="sd">        Association     : POINT</span>
+<span class="sd">        Active Scalars  : PNGImage</span>
+<span class="sd">        Active Vectors  : None</span>
+<span class="sd">        Active Texture  : None</span>
+<span class="sd">        Active Normals  : None</span>
+<span class="sd">        Contains arrays :</span>
+<span class="sd">        PNGImage                complex128 (298620,)          SCALARS</span>
+
+<span class="sd">        See :ref:`image_fft_example` for a full example using this filter.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># check for active scalars, otherwise risk of segfault</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">point_data</span><span class="o">.</span><span class="n">active_scalars_name</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">pyvista</span><span class="o">.</span><span class="n">set_default_active_scalars</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+            <span class="k">except</span> <span class="n">MissingDataError</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">MissingDataError</span><span class="p">(</span><span class="s1">&#39;FFT filter requires point scalars.&#39;</span><span class="p">)</span> <span class="kn">from</span> <span class="bp">None</span>
+
+            <span class="c1"># possible only cell scalars were made active</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">point_data</span><span class="o">.</span><span class="n">active_scalars_name</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">MissingDataError</span><span class="p">(</span><span class="s1">&#39;FFT filter requires point scalars.&#39;</span><span class="p">)</span>
+
+        <span class="n">alg</span> <span class="o">=</span> <span class="n">_vtk</span><span class="o">.</span><span class="n">vtkImageFFT</span><span class="p">()</span>
+        <span class="n">alg</span><span class="o">.</span><span class="n">SetInputDataObject</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">_update_alg</span><span class="p">(</span><span class="n">alg</span><span class="p">,</span> <span class="n">progress_bar</span><span class="p">,</span> <span class="s1">&#39;Performing Fast Fourier Transform&#39;</span><span class="p">)</span>
+        <span class="n">output</span> <span class="o">=</span> <span class="n">_get_output</span><span class="p">(</span><span class="n">alg</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_change_fft_output_scalars</span><span class="p">(</span>
+            <span class="n">output</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">point_data</span><span class="o">.</span><span class="n">active_scalars_name</span><span class="p">,</span> <span class="n">output_scalars_name</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">output</span></div>
+
+<div class="viewcode-block" id="UniformGridFilters.rfft"><a class="viewcode-back" href="../../../../api/core/_autosummary/pyvista.UniformGridFilters.rfft.html#pyvista.UniformGridFilters.rfft">[ドキュメント]</a>    <span class="k">def</span> <span class="nf">rfft</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">output_scalars_name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">progress_bar</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Apply a reverse fast Fourier transform (RFFT) to the active scalars.</span>
+
+<span class="sd">        The input can be real or complex data, but the output is always</span>
+<span class="sd">        :attr:`numpy.complex128`. The filter is fastest for images that have power</span>
+<span class="sd">        of two sizes.</span>
+
+<span class="sd">        The filter uses a butterfly diagram for each prime factor of the</span>
+<span class="sd">        dimension. This makes images with prime number dimensions (i.e. 17x17)</span>
+<span class="sd">        much slower to compute. FFTs of multidimensional meshes (i.e volumes)</span>
+<span class="sd">        are decomposed so that each axis executes serially.</span>
+
+<span class="sd">        The frequencies of the input assume standard order: along each axis</span>
+<span class="sd">        first positive frequencies are assumed from 0 to the maximum, then</span>
+<span class="sd">        negative frequencies are listed from the largest absolute value to</span>
+<span class="sd">        smallest. This implies that the corners of the grid correspond to low</span>
+<span class="sd">        frequencies, while the center of the grid corresponds to high</span>
+<span class="sd">        frequencies.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        output_scalars_name : str, optional</span>
+<span class="sd">            The name of the output scalars. By default, this is the same as the</span>
+<span class="sd">            active scalars of the dataset.</span>
+
+<span class="sd">        progress_bar : bool, optional</span>
+<span class="sd">            Display a progress bar to indicate progress.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        pyvista.UniformGrid</span>
+<span class="sd">            :class:`pyvista.UniformGrid` with the applied reverse FFT.</span>
+
+<span class="sd">        See Also</span>
+<span class="sd">        --------</span>
+<span class="sd">        fft: The direct transform.</span>
+<span class="sd">        low_pass: Low-pass filtering of FFT output.</span>
+<span class="sd">        high_pass: High-pass filtering of FFT output.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        Apply reverse FFT to an example image.</span>
+
+<span class="sd">        &gt;&gt;&gt; from pyvista import examples</span>
+<span class="sd">        &gt;&gt;&gt; image = examples.download_moonlanding_image()</span>
+<span class="sd">        &gt;&gt;&gt; fft_image = image.fft()</span>
+<span class="sd">        &gt;&gt;&gt; image_again = fft_image.rfft()</span>
+<span class="sd">        &gt;&gt;&gt; image_again.point_data  # doctest:+SKIP</span>
+<span class="sd">        pyvista DataSetAttributes</span>
+<span class="sd">        Association     : POINT</span>
+<span class="sd">        Active Scalars  : PNGImage</span>
+<span class="sd">        Active Vectors  : None</span>
+<span class="sd">        Active Texture  : None</span>
+<span class="sd">        Active Normals  : None</span>
+<span class="sd">        Contains arrays :</span>
+<span class="sd">            PNGImage                complex128 (298620,)            SCALARS</span>
+
+<span class="sd">        See :ref:`image_fft_example` for a full example using this filter.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_check_fft_scalars</span><span class="p">()</span>
+        <span class="n">alg</span> <span class="o">=</span> <span class="n">_vtk</span><span class="o">.</span><span class="n">vtkImageRFFT</span><span class="p">()</span>
+        <span class="n">alg</span><span class="o">.</span><span class="n">SetInputDataObject</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">_update_alg</span><span class="p">(</span><span class="n">alg</span><span class="p">,</span> <span class="n">progress_bar</span><span class="p">,</span> <span class="s1">&#39;Performing Reverse Fast Fourier Transform.&#39;</span><span class="p">)</span>
+        <span class="n">output</span> <span class="o">=</span> <span class="n">_get_output</span><span class="p">(</span><span class="n">alg</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_change_fft_output_scalars</span><span class="p">(</span>
+            <span class="n">output</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">point_data</span><span class="o">.</span><span class="n">active_scalars_name</span><span class="p">,</span> <span class="n">output_scalars_name</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">output</span></div>
+
+<div class="viewcode-block" id="UniformGridFilters.low_pass"><a class="viewcode-back" href="../../../../api/core/_autosummary/pyvista.UniformGridFilters.low_pass.html#pyvista.UniformGridFilters.low_pass">[ドキュメント]</a>    <span class="k">def</span> <span class="nf">low_pass</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">x_cutoff</span><span class="p">,</span>
+        <span class="n">y_cutoff</span><span class="p">,</span>
+        <span class="n">z_cutoff</span><span class="p">,</span>
+        <span class="n">order</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+        <span class="n">output_scalars_name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">progress_bar</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Perform a Butterworth low pass filter in the frequency domain.</span>
+
+<span class="sd">        This filter requires that the :class:`UniformGrid` have a complex point</span>
+<span class="sd">        scalars, usually generated after the :class:`UniformGrid` has been</span>
+<span class="sd">        converted to the frequency domain by a :func:`UniformGridFilters.fft`</span>
+<span class="sd">        filter.</span>
+
+<span class="sd">        A :func:`UniformGridFilters.rfft` filter can be used to convert the</span>
+<span class="sd">        output back into the spatial domain. This filter attenuates high</span>
+<span class="sd">        frequency components.  Input and output are complex arrays with</span>
+<span class="sd">        datatype :attr:`numpy.complex128`.</span>
+
+<span class="sd">        The frequencies of the input assume standard order: along each axis</span>
+<span class="sd">        first positive frequencies are assumed from 0 to the maximum, then</span>
+<span class="sd">        negative frequencies are listed from the largest absolute value to</span>
+<span class="sd">        smallest. This implies that the corners of the grid correspond to low</span>
+<span class="sd">        frequencies, while the center of the grid corresponds to high</span>
+<span class="sd">        frequencies.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        x_cutoff : double</span>
+<span class="sd">            The cutoff frequency for the x axis.</span>
+
+<span class="sd">        y_cutoff : double</span>
+<span class="sd">            The cutoff frequency for the y axis.</span>
+
+<span class="sd">        z_cutoff : double</span>
+<span class="sd">            The cutoff frequency for the z axis.</span>
+
+<span class="sd">        order : int, optional</span>
+<span class="sd">            The order of the cutoff curve. Given from the equation</span>
+<span class="sd">            ``1 + (cutoff/freq(i, j))**(2*order)``.</span>
+
+<span class="sd">        output_scalars_name : str, optional</span>
+<span class="sd">            The name of the output scalars. By default, this is the same as the</span>
+<span class="sd">            active scalars of the dataset.</span>
+
+<span class="sd">        progress_bar : bool, optional</span>
+<span class="sd">            Display a progress bar to indicate progress.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        pyvista.UniformGrid</span>
+<span class="sd">            :class:`pyvista.UniformGrid` with the applied low pass filter.</span>
+
+<span class="sd">        See Also</span>
+<span class="sd">        --------</span>
+<span class="sd">        fft: Direct fast Fourier transform.</span>
+<span class="sd">        rfft: Reverse fast Fourier transform.</span>
+<span class="sd">        high_pass: High-pass filtering of FFT output.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        See :ref:`image_fft_perlin_example` for a full example using this filter.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_check_fft_scalars</span><span class="p">()</span>
+        <span class="n">alg</span> <span class="o">=</span> <span class="n">_vtk</span><span class="o">.</span><span class="n">vtkImageButterworthLowPass</span><span class="p">()</span>
+        <span class="n">alg</span><span class="o">.</span><span class="n">SetInputDataObject</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">alg</span><span class="o">.</span><span class="n">SetCutOff</span><span class="p">(</span><span class="n">x_cutoff</span><span class="p">,</span> <span class="n">y_cutoff</span><span class="p">,</span> <span class="n">z_cutoff</span><span class="p">)</span>
+        <span class="n">alg</span><span class="o">.</span><span class="n">SetOrder</span><span class="p">(</span><span class="n">order</span><span class="p">)</span>
+        <span class="n">_update_alg</span><span class="p">(</span><span class="n">alg</span><span class="p">,</span> <span class="n">progress_bar</span><span class="p">,</span> <span class="s1">&#39;Performing Low Pass Filter&#39;</span><span class="p">)</span>
+        <span class="n">output</span> <span class="o">=</span> <span class="n">_get_output</span><span class="p">(</span><span class="n">alg</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_change_fft_output_scalars</span><span class="p">(</span>
+            <span class="n">output</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">point_data</span><span class="o">.</span><span class="n">active_scalars_name</span><span class="p">,</span> <span class="n">output_scalars_name</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">output</span></div>
+
+<div class="viewcode-block" id="UniformGridFilters.high_pass"><a class="viewcode-back" href="../../../../api/core/_autosummary/pyvista.UniformGridFilters.high_pass.html#pyvista.UniformGridFilters.high_pass">[ドキュメント]</a>    <span class="k">def</span> <span class="nf">high_pass</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">x_cutoff</span><span class="p">,</span>
+        <span class="n">y_cutoff</span><span class="p">,</span>
+        <span class="n">z_cutoff</span><span class="p">,</span>
+        <span class="n">order</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+        <span class="n">output_scalars_name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">progress_bar</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Perform a Butterworth high pass filter in the frequency domain.</span>
+
+<span class="sd">        This filter requires that the :class:`UniformGrid` have a complex point</span>
+<span class="sd">        scalars, usually generated after the :class:`UniformGrid` has been</span>
+<span class="sd">        converted to the frequency domain by a :func:`UniformGridFilters.fft`</span>
+<span class="sd">        filter.</span>
+
+<span class="sd">        A :func:`UniformGridFilters.rfft` filter can be used to convert the</span>
+<span class="sd">        output back into the spatial domain. This filter attenuates low</span>
+<span class="sd">        frequency components.  Input and output are complex arrays with</span>
+<span class="sd">        datatype :attr:`numpy.complex128`.</span>
+
+<span class="sd">        The frequencies of the input assume standard order: along each axis</span>
+<span class="sd">        first positive frequencies are assumed from 0 to the maximum, then</span>
+<span class="sd">        negative frequencies are listed from the largest absolute value to</span>
+<span class="sd">        smallest. This implies that the corners of the grid correspond to low</span>
+<span class="sd">        frequencies, while the center of the grid corresponds to high</span>
+<span class="sd">        frequencies.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        x_cutoff : double</span>
+<span class="sd">            The cutoff frequency for the x axis.</span>
+
+<span class="sd">        y_cutoff : double</span>
+<span class="sd">            The cutoff frequency for the y axis.</span>
+
+<span class="sd">        z_cutoff : double</span>
+<span class="sd">            The cutoff frequency for the z axis.</span>
+
+<span class="sd">        order : int, optional</span>
+<span class="sd">            The order of the cutoff curve. Given from the equation</span>
+<span class="sd">            ``1/(1 + (cutoff/freq(i, j))**(2*order))``.</span>
+
+<span class="sd">        output_scalars_name : str, optional</span>
+<span class="sd">            The name of the output scalars. By default, this is the same as the</span>
+<span class="sd">            active scalars of the dataset.</span>
+
+<span class="sd">        progress_bar : bool, optional</span>
+<span class="sd">            Display a progress bar to indicate progress.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        pyvista.UniformGrid</span>
+<span class="sd">            :class:`pyvista.UniformGrid` with the applied high pass filter.</span>
+
+<span class="sd">        See Also</span>
+<span class="sd">        --------</span>
+<span class="sd">        fft: Direct fast Fourier transform.</span>
+<span class="sd">        rfft: Reverse fast Fourier transform.</span>
+<span class="sd">        low_pass: Low-pass filtering of FFT output.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        See :ref:`image_fft_perlin_example` for a full example using this filter.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_check_fft_scalars</span><span class="p">()</span>
+        <span class="n">alg</span> <span class="o">=</span> <span class="n">_vtk</span><span class="o">.</span><span class="n">vtkImageButterworthHighPass</span><span class="p">()</span>
+        <span class="n">alg</span><span class="o">.</span><span class="n">SetInputDataObject</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">alg</span><span class="o">.</span><span class="n">SetCutOff</span><span class="p">(</span><span class="n">x_cutoff</span><span class="p">,</span> <span class="n">y_cutoff</span><span class="p">,</span> <span class="n">z_cutoff</span><span class="p">)</span>
+        <span class="n">alg</span><span class="o">.</span><span class="n">SetOrder</span><span class="p">(</span><span class="n">order</span><span class="p">)</span>
+        <span class="n">_update_alg</span><span class="p">(</span><span class="n">alg</span><span class="p">,</span> <span class="n">progress_bar</span><span class="p">,</span> <span class="s1">&#39;Performing High Pass Filter&#39;</span><span class="p">)</span>
+        <span class="n">output</span> <span class="o">=</span> <span class="n">_get_output</span><span class="p">(</span><span class="n">alg</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_change_fft_output_scalars</span><span class="p">(</span>
+            <span class="n">output</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">point_data</span><span class="o">.</span><span class="n">active_scalars_name</span><span class="p">,</span> <span class="n">output_scalars_name</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">output</span></div>
+
+    <span class="k">def</span> <span class="nf">_change_fft_output_scalars</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataset</span><span class="p">,</span> <span class="n">orig_name</span><span class="p">,</span> <span class="n">out_name</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Modify the name and dtype of the output scalars for an FFT filter.&quot;&quot;&quot;</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="n">orig_name</span> <span class="k">if</span> <span class="n">out_name</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">out_name</span>
+        <span class="n">pdata</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">point_data</span>
+        <span class="k">if</span> <span class="n">pdata</span><span class="o">.</span><span class="n">active_scalars_name</span> <span class="o">!=</span> <span class="n">name</span><span class="p">:</span>
+            <span class="n">pdata</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">pdata</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">pdata</span><span class="o">.</span><span class="n">active_scalars_name</span><span class="p">)</span>
+
+        <span class="c1"># always view the datatype of the point_data as complex128</span>
+        <span class="n">dataset</span><span class="o">.</span><span class="n">_association_complex_names</span><span class="p">[</span><span class="s1">&#39;POINT&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_check_fft_scalars</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Check for complex active scalars.</span>
+
+<span class="sd">        This is necessary for rfft, low_pass, and high_pass filters.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># check for complex active point scalars, otherwise the risk of segfault</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">point_data</span><span class="o">.</span><span class="n">active_scalars_name</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">possible_scalars</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">point_data</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">possible_scalars</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">set_active_scalars</span><span class="p">(</span><span class="n">possible_scalars</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">preference</span><span class="o">=</span><span class="s1">&#39;point&#39;</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">possible_scalars</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">AmbiguousDataError</span><span class="p">(</span>
+                    <span class="s1">&#39;There are multiple point scalars available. Set one to be &#39;</span>
+                    <span class="s1">&#39;active with `point_data.active_scalars_name = `&#39;</span>
+                <span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">MissingDataError</span><span class="p">(</span><span class="s1">&#39;FFT filters require point scalars.&#39;</span><span class="p">)</span>
+
+        <span class="n">scalars</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">point_data</span><span class="o">.</span><span class="n">active_scalars</span>
+
+        <span class="n">meets_req</span> <span class="o">=</span> <span class="n">scalars</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">and</span> <span class="n">scalars</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">meets_req</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="s1">&#39;Active scalars must be complex data for this filter, represented &#39;</span>
+                <span class="s1">&#39;as an array with `dtype=numpy.complex128`.&#39;</span>
+            <span class="p">)</span></div>
 </pre></div>
 
               </article>

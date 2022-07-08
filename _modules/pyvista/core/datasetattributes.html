@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>pyvista.core.datasetattributes &#8212; PyVista 0.35.dev0 ドキュメント</title>
+    <title>pyvista.core.datasetattributes &#8212; PyVista 0.36.dev0 ドキュメント</title>
 <script>
   document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
   document.documentElement.dataset.theme = localStorage.getItem("theme") || "light"
@@ -696,11 +696,15 @@
 
     <span class="nd">@active_t_coords_name</span><span class="o">.</span><span class="n">setter</span>
     <span class="k">def</span> <span class="nf">active_t_coords_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">name</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">SetActiveTCoords</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+            <span class="k">return</span>
+
         <span class="bp">self</span><span class="o">.</span><span class="n">_raise_no_t_coords</span><span class="p">()</span>
         <span class="n">dtype</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span>
         <span class="c1"># only vtkDataArray subclasses can be set as active attributes</span>
         <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">issubdtype</span><span class="p">(</span><span class="n">dtype</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">number</span><span class="p">)</span> <span class="ow">or</span> <span class="n">dtype</span> <span class="o">==</span> <span class="nb">bool</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">SetActiveScalars</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">SetActiveTCoords</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
 
 <div class="viewcode-block" id="DataSetAttributes.get_array"><a class="viewcode-back" href="../../../api/core/_autosummary/pyvista.DataSetAttributes.get_array.html#pyvista.DataSetAttributes.get_array">[ドキュメント]</a>    <span class="k">def</span> <span class="nf">get_array</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">pyvista_ndarray</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;Get an array in this object.</span>
@@ -1375,6 +1379,10 @@
 
     <span class="nd">@active_scalars_name</span><span class="o">.</span><span class="n">setter</span>
     <span class="k">def</span> <span class="nf">active_scalars_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="c1"># permit setting no active scalars</span>
+        <span class="k">if</span> <span class="n">name</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">SetActiveScalars</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+            <span class="k">return</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_raise_field_data_no_scalars_vectors</span><span class="p">()</span>
         <span class="n">dtype</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span>
         <span class="c1"># only vtkDataArray subclasses can be set as active attributes</span>
@@ -1402,6 +1410,10 @@
 
     <span class="nd">@active_vectors_name</span><span class="o">.</span><span class="n">setter</span>
     <span class="k">def</span> <span class="nf">active_vectors_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="c1"># permit setting no active</span>
+        <span class="k">if</span> <span class="n">name</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">SetActiveVectors</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+            <span class="k">return</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_raise_field_data_no_scalars_vectors</span><span class="p">()</span>
         <span class="k">if</span> <span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;DataSetAttribute does not contain &quot;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1">&quot;&#39;</span><span class="p">)</span>
@@ -1538,6 +1550,10 @@
 
     <span class="nd">@active_normals_name</span><span class="o">.</span><span class="n">setter</span>
     <span class="k">def</span> <span class="nf">active_normals_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="c1"># permit setting no active</span>
+        <span class="k">if</span> <span class="n">name</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">SetActiveNormals</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+            <span class="k">return</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_raise_no_normals</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">SetActiveNormals</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
 

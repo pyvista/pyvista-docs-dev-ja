@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>pyvista.utilities.geometric_objects &#8212; PyVista 0.35.dev0 ドキュメント</title>
+    <title>pyvista.utilities.geometric_objects &#8212; PyVista 0.36.dev0 ドキュメント</title>
 <script>
   document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
   document.documentElement.dataset.theme = localStorage.getItem("theme") || "light"
@@ -707,7 +707,7 @@
 <span class="sd">    &gt;&gt;&gt; mesh = pyvista.MultipleLines(points=[[0, 0, 0], [1, 1, 1], [0, 0, 1]])</span>
 <span class="sd">    &gt;&gt;&gt; mesh.plot(color=&#39;k&#39;, line_width=10)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">points</span> <span class="o">=</span> <span class="n">_coerce_pointslike_arg</span><span class="p">(</span><span class="n">points</span><span class="p">)</span>
+    <span class="n">points</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">_coerce_pointslike_arg</span><span class="p">(</span><span class="n">points</span><span class="p">)</span>
     <span class="n">src</span> <span class="o">=</span> <span class="n">_vtk</span><span class="o">.</span><span class="n">vtkLineSource</span><span class="p">()</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">points</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">2</span><span class="p">):</span>
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;&gt;=2 points need to define multiple lines.&#39;</span><span class="p">)</span>

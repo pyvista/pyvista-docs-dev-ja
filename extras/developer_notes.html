@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>貢献 &#8212; PyVista 0.35.dev0 ドキュメント</title>
+    <title>貢献 &#8212; PyVista 0.36.dev0 ドキュメント</title>
 <script>
   document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
   document.documentElement.dataset.theme = localStorage.getItem("theme") || "light"
@@ -592,8 +592,8 @@ codespell................................................................Passed
 <p>ブランチモデルの主な特徴は次のとおりです．</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">main</span></code> ブランチは主要な開発ブランチです．すべてのフィーチャー，パッチ，およびその他のブランチをここにマージする必要があります．すべてのPRは適用可能なCIチェックをすべてパスする必要がありますが，変更によって予期しない副作用や単体テストで検出されなかったバグが発生する可能性があるため，このブランチは機能的に不安定になる可能性があります．</p></li>
-<li><p>マイナーリリース(例えば <code class="docutils literal notranslate"><span class="pre">release/0.24</span></code> )をベースにした <code class="docutils literal notranslate"><span class="pre">release/</span></code> ブランチがいくつかあり，そこには PyPI/ にも反映される安定版のコードベースが含まれています． <code class="docutils literal notranslate"><span class="pre">fix/</span></code> ブランチの修正パッチは，mainブランチとこれらのブランチの両方にマージする必要があります．新しいパッチリリースを作成する必要がある場合，これらのリリースブランチの <code class="docutils literal notranslate"><span class="pre">__version__.py</span></code> が更新され，パッチされたセマンティックバージョン(例えば <code class="docutils literal notranslate"><span class="pre">0.24.1</span></code> )がタグ付けされます．これによりCIはPyPIにプッシュし，テストされていない機能を気にすることなく，過去のバージョンの <code class="docutils literal notranslate"><span class="pre">pyvista</span></code> のホットフィックスを迅速にプッシュすることができます．</p></li>
-<li><p>マイナーリリース候補が準備できたら， <code class="docutils literal notranslate"><span class="pre">main</span></code> から新しい <code class="docutils literal notranslate"><span class="pre">release</span></code> ブランチが作成され，次のマイナーバージョン(例えば  <code class="docutils literal notranslate"><span class="pre">release/0.25</span></code> )がインクリメントされ，徹底的にテストされます．安定していると判断された場合，リリースブランチにはバージョン(この場合の <code class="docutils literal notranslate"><span class="pre">0.25.0</span></code> )のタグが付けられ，必要に応じて変更が加えられた場合にはmainとマージされます． <code class="docutils literal notranslate"><span class="pre">main</span></code> で機能開発が継続され，ホットフィックスはこのリリースに統合されます．必要に応じてパッチを適用できるように，古いリリースブランチは削除しないでください．</p></li>
+<li><p>マイナーリリース(例えば <code class="docutils literal notranslate"><span class="pre">release/0.24</span></code> )をベースにした <code class="docutils literal notranslate"><span class="pre">release/</span></code> ブランチがいくつかあり，そこには PyPI/ にも反映される安定版のコードベースが含まれています． <code class="docutils literal notranslate"><span class="pre">fix/</span></code> ブランチの修正パッチは，mainブランチとこれらのブランチの両方にマージする必要があります．新しいパッチリリースを作成する必要がある場合，これらのリリースブランチの <code class="docutils literal notranslate"><span class="pre">pyvista/_version.py</span></code> が更新され，セマンティックバージョン(例えば <code class="docutils literal notranslate"><span class="pre">v0.24.1</span></code> )がタグ付けされます．これによりCIはPyPIにプッシュし，テストされていない機能を気にすることなく，過去のバージョンの <code class="docutils literal notranslate"><span class="pre">pyvista</span></code> のホットフィックスを迅速にプッシュすることができます．</p></li>
+<li><p>マイナーリリース候補が準備できたら， <code class="docutils literal notranslate"><span class="pre">main</span></code> から新しい <code class="docutils literal notranslate"><span class="pre">release</span></code> ブランチが作成され，次のマイナーバージョン(例えば  <code class="docutils literal notranslate"><span class="pre">release/0.25</span></code> )がインクリメントされ，徹底的にテストされます．安定していると判断された場合，リリースブランチにはバージョン(この場合の <code class="docutils literal notranslate"><span class="pre">v0.25.0</span></code> )のタグが付けられ，必要に応じて変更が加えられた場合にはmainとマージされます． <code class="docutils literal notranslate"><span class="pre">main</span></code> で機能開発が継続され，ホットフィックスはこのリリースに統合されます．必要に応じてパッチを適用できるように，古いリリースブランチは削除しないでください．</p></li>
 </ul>
 <section id="minor-release-steps">
 <h4>マイナーリリース手順<a class="headerlink" href="#minor-release-steps" title="このヘッドラインへのパーマリンク">#</a></h4>
@@ -610,10 +610,10 @@ make html -b linkcheck
 </div>
 </li>
 <li><p>ドキュメントをビルドしたら，ローカル・ビルドを開き，サンプル・ギャラリーで明らかな問題がないか調べてください．</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">pyvista/_version.py</span></code> のバージョン番号を更新し，コミットします．ブランチをGitHubにプッシュし，mainにマージする今回のリリースの新しいPRを作成します．リリースに注力している間は，mainへの開発はこの時点では制限されるべきです．</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pyvista/_version.py</span></code> の開発バージョン番号を更新し，コミットします(例: <code class="docutils literal notranslate"><span class="pre">0,</span> <span class="pre">26,</span> <span class="pre">'dev0'</span></code>)．ブランチをGitHubにプッシュし，mainにマージする今回のリリースの新しいPRを作成します．リリースに注力している間は，mainへの開発はこの時点では制限されるべきです．</p></li>
 <li><p>新しいリリースを機能的にテストするのは <code class="docutils literal notranslate"><span class="pre">pyvista</span></code> コミュニティの責任です．このブランチをローカルにインストールして運用環境で使用することをお勧めします．検出されたバグについては，ホットフィックスをこのリリースブランチにプッシュする必要があります．</p></li>
-<li><p>ブランチが一般リリース用に安定しているとみなされた場合，PRはmainにマージされ， <code class="docutils literal notranslate"><span class="pre">main</span></code> ブランチは <code class="docutils literal notranslate"><span class="pre">MAJOR.MINOR.0</span></code> リリースでタグ付けされます．リリースブランチは削除されません．リリースに次のタグを付けます．</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git tag MAJOR.MINOR.0
+<li><p>このブランチが安定版として一般公開されると，PR は main にマージされます． <code class="docutils literal notranslate"><span class="pre">release/MAJOR.MINOR</span></code> ブランチのバージョン番号を更新した後， <code class="docutils literal notranslate"><span class="pre">release/MAJOR.MINOR</span></code> ブランチは <code class="docutils literal notranslate"><span class="pre">vMAJOR.MINOR.0</span></code> リリースというタグが付けられます．リリースブランチは削除されません．次のようにリリースにタグを付けます:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git tag v<span class="k">$(</span>python -c <span class="s2">&quot;import pyvista as pv; print(pv.__version__)&quot;</span><span class="k">)</span>
 git push origin --tags
 </pre></div>
 </div>
@@ -629,7 +629,7 @@ git push origin --tags
 <p>パッチリリースは重要なバグフィックスのためのもので，マイナーリリースまで待つことはできないものです．パッチリリースの手順は</p>
 <ol class="arabic simple">
 <li><p>必要な(複数の)バグフィックスを該当するリリースブランチにプッシュします．これは通常，最新のリリースブランチ(例  <code class="docutils literal notranslate"><span class="pre">release/0.25</span></code>)です．</p></li>
-<li><p>次のパッチ増分で <code class="docutils literal notranslate"><span class="pre">pyvista/_version.py</span></code> を更新し(例: <code class="docutils literal notranslate"><span class="pre">0.25.1</span></code> )，コミットし，リリースブランチとマージするPRをオープンします．これにより， <code class="docutils literal notranslate"><span class="pre">pyvista</span></code> コミュニティはバグ修正リリースを検証し，承認する機会を得ます．追加のホットフィックスは，このPRの範囲外でなければなりません．</p></li>
+<li><p>次のパッチ増分で <code class="docutils literal notranslate"><span class="pre">pyvista/_version.py</span></code> を更新し(例: <code class="docutils literal notranslate"><span class="pre">v0.25.1</span></code> )，コミットし，リリースブランチとマージするPRをオープンします．これにより， <code class="docutils literal notranslate"><span class="pre">pyvista</span></code> コミュニティはバグ修正リリースを検証し，承認する機会を得ます．追加のホットフィックスは，このPRの範囲外でなければなりません．</p></li>
 <li><p>承認されたら，リリースブランチとマージしますが， <code class="docutils literal notranslate"><span class="pre">main</span></code> ブランチのバージョンを増やす理由がないため， <code class="docutils literal notranslate"><span class="pre">main</span></code> とはマージしません．次に，リリースブランチから適切なバージョン番号(正しい手順については上記を参照してください．)のタグを作成します．</p></li>
 <li><p>必要に応じて，リリースノートページを作成します．また，condaからPRを開き，マイナーリリースセクションの手順10の指示に従います．</p></li>
 </ol>

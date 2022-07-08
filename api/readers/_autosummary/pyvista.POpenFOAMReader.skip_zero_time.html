@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>skip_zero_time &#8212; PyVista 0.35.dev0 ドキュメント</title>
+    <title>skip_zero_time &#8212; PyVista 0.36.dev0 ドキュメント</title>
 <script>
   document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
   document.documentElement.dataset.theme = localStorage.getItem("theme") || "light"
@@ -238,6 +238,11 @@
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="pyvista.BMPReader.html">
+     pyvista.BMPReader
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="pyvista.BYUReader.html">
      pyvista.BYUReader
     </a>
@@ -245,11 +250,6 @@
    <li class="toctree-l2">
     <a class="reference internal" href="pyvista.BinaryMarchingCubesReader.html">
      pyvista.BinaryMarchingCubesReader
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="pyvista.BMPReader.html">
-     pyvista.BMPReader
     </a>
    </li>
    <li class="toctree-l2">
@@ -303,13 +303,13 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="pyvista.MetaImageReader.html">
-     pyvista.MetaImageReader
+    <a class="reference internal" href="pyvista.MFIXReader.html">
+     pyvista.MFIXReader
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="pyvista.MFIXReader.html">
-     pyvista.MFIXReader
+    <a class="reference internal" href="pyvista.MetaImageReader.html">
+     pyvista.MetaImageReader
     </a>
    </li>
    <li class="toctree-l2">
@@ -330,6 +330,21 @@
    <li class="toctree-l2">
     <a class="reference internal" href="pyvista.OpenFOAMReader.html">
      pyvista.OpenFOAMReader
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="pyvista.PLYReader.html">
+     pyvista.PLYReader
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="pyvista.PNGReader.html">
+     pyvista.PNGReader
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="pyvista.PNMReader.html">
+     pyvista.PNMReader
     </a>
    </li>
    <li class="toctree-l2 current active has-children">
@@ -540,21 +555,6 @@
     </ul>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="pyvista.PLYReader.html">
-     pyvista.PLYReader
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="pyvista.PNGReader.html">
-     pyvista.PNGReader
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="pyvista.PNMReader.html">
-     pyvista.PNMReader
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="pyvista.PTSReader.html">
      pyvista.PTSReader
     </a>
@@ -570,11 +570,6 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="pyvista.SegYReader.html">
-     pyvista.SegYReader
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="pyvista.SLCReader.html">
      pyvista.SLCReader
     </a>
@@ -585,8 +580,18 @@
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="pyvista.SegYReader.html">
+     pyvista.SegYReader
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="pyvista.TIFFReader.html">
      pyvista.TIFFReader
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="pyvista.TecplotReader.html">
+     pyvista.TecplotReader
     </a>
    </li>
    <li class="toctree-l2">
@@ -710,11 +715,11 @@
 <dl class="py property">
 <dt class="sig sig-object py" id="pyvista.POpenFOAMReader.skip_zero_time">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">POpenFOAMReader.</span></span><span class="sig-name descname"><span class="pre">skip_zero_time</span></span><a class="headerlink" href="#pyvista.POpenFOAMReader.skip_zero_time" title="この定義へのパーマリンク">#</a></dt>
-<dd><p>'/0' タイムディレクトリを無視するかどうかを示します。</p>
+<dd><p>'/0' タイムディレクトリを無視するかどうかを示します．</p>
 <dl class="field-list simple">
 <dt class="field-odd">戻り値</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><a class="reference external" href="https://docs.python.org/dev/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.12)"><span class="xref std std-ref">bool</span></a></dt><dd><p>もし <code class="docutils literal notranslate"><span class="pre">True</span></code> ならば、 '/0' のタイムディレクトリを無視します。</p>
+<dt><a class="reference external" href="https://docs.python.org/dev/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.12)"><span class="xref std std-ref">bool</span></a></dt><dd><p>もし <code class="docutils literal notranslate"><span class="pre">True</span></code> ならば， '/0' のタイムディレクトリを無視します．</p>
 </dd>
 </dl>
 </dd>

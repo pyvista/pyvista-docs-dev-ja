@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>pyvista.plotting.plotting &#8212; PyVista 0.35.dev0 ドキュメント</title>
+    <title>pyvista.plotting.plotting &#8212; PyVista 0.36.dev0 ドキュメント</title>
 <script>
   document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
   document.documentElement.dataset.theme = localStorage.getItem("theme") || "light"
@@ -227,7 +227,6 @@
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">pathlib</span>
 <span class="kn">import</span> <span class="nn">platform</span>
-<span class="kn">import</span> <span class="nn">re</span>
 <span class="kn">import</span> <span class="nn">textwrap</span>
 <span class="kn">from</span> <span class="nn">threading</span> <span class="kn">import</span> <span class="n">Thread</span>
 <span class="kn">import</span> <span class="nn">time</span>
@@ -492,6 +491,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">last_image</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_has_background_layer</span> <span class="o">=</span> <span class="kc">False</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_added_scalars</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_prev_active_scalars</span> <span class="o">=</span> <span class="p">{}</span>
 
         <span class="c1"># set hidden line removal based on theme</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">theme</span><span class="o">.</span><span class="n">hidden_line_removal</span><span class="p">:</span>
@@ -2602,6 +2602,14 @@
         <span class="c1"># Scalars formatting ==================================================</span>
         <span class="n">added_scalar_info</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="k">if</span> <span class="n">scalars</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="c1"># track the previous active scalars</span>
+            <span class="k">if</span> <span class="n">mesh</span><span class="o">.</span><span class="n">memory_address</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_prev_active_scalars</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_prev_active_scalars</span><span class="p">[</span><span class="n">mesh</span><span class="o">.</span><span class="n">memory_address</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+                    <span class="n">mesh</span><span class="p">,</span>
+                    <span class="n">mesh</span><span class="o">.</span><span class="n">point_data</span><span class="o">.</span><span class="n">active_scalars_name</span><span class="p">,</span>
+                    <span class="n">mesh</span><span class="o">.</span><span class="n">cell_data</span><span class="o">.</span><span class="n">active_scalars_name</span><span class="p">,</span>
+                <span class="p">)</span>
+
             <span class="n">show_scalar_bar</span><span class="p">,</span> <span class="n">n_colors</span><span class="p">,</span> <span class="n">clim</span><span class="p">,</span> <span class="n">added_scalar_info</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mapper</span><span class="o">.</span><span class="n">set_scalars</span><span class="p">(</span>
                 <span class="n">mesh</span><span class="p">,</span>
                 <span class="n">scalars</span><span class="p">,</span>
@@ -4852,30 +4860,20 @@
 <span class="sd">        as active scalars.</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
-
-        <span class="k">def</span> <span class="nf">remove_and_reactivate_prior_scalars</span><span class="p">(</span><span class="n">dsattr</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
-            <span class="sd">&quot;&quot;&quot;Remove ``name`` and reactivate prior scalars if applicable.&quot;&quot;&quot;</span>
-            <span class="c1"># reactivate prior active scalars</span>
-            <span class="k">if</span> <span class="n">name</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;-normed&#39;</span><span class="p">):</span>
-                <span class="n">orig_name</span> <span class="o">=</span> <span class="n">name</span><span class="p">[:</span><span class="o">-</span><span class="mi">7</span><span class="p">]</span>
-                <span class="k">if</span> <span class="n">orig_name</span> <span class="ow">in</span> <span class="n">dsattr</span><span class="p">:</span>
-                    <span class="n">dsattr</span><span class="o">.</span><span class="n">active_scalars_name</span> <span class="o">=</span> <span class="n">orig_name</span>
-            <span class="k">elif</span> <span class="n">name</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;-real&#39;</span><span class="p">):</span>
-                <span class="n">orig_name</span> <span class="o">=</span> <span class="n">name</span><span class="p">[:</span><span class="o">-</span><span class="mi">5</span><span class="p">]</span>
-                <span class="k">if</span> <span class="n">orig_name</span> <span class="ow">in</span> <span class="n">dsattr</span><span class="p">:</span>
-                    <span class="n">dsattr</span><span class="o">.</span><span class="n">active_scalars_name</span> <span class="o">=</span> <span class="n">orig_name</span>
-            <span class="k">elif</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="s1">&#39;-[0-9]+$&#39;</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
-                <span class="c1"># component</span>
-                <span class="n">orig_scalars</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s1">&#39;-[0-9]+$&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
-                <span class="k">if</span> <span class="n">orig_scalars</span> <span class="ow">in</span> <span class="n">dsattr</span><span class="p">:</span>
-                    <span class="n">dsattr</span><span class="o">.</span><span class="n">active_scalars_name</span> <span class="o">=</span> <span class="n">orig_scalars</span>
-
-            <span class="n">dsattr</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
-
+        <span class="c1"># remove the added scalars</span>
         <span class="k">for</span> <span class="n">mesh</span><span class="p">,</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">assoc</span><span class="p">)</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_added_scalars</span><span class="p">:</span>
             <span class="n">dsattr</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">point_data</span> <span class="k">if</span> <span class="n">assoc</span> <span class="o">==</span> <span class="s1">&#39;point&#39;</span> <span class="k">else</span> <span class="n">mesh</span><span class="o">.</span><span class="n">cell_data</span>
-            <span class="n">remove_and_reactivate_prior_scalars</span><span class="p">(</span><span class="n">dsattr</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+            <span class="n">dsattr</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+
+        <span class="c1"># reactivate prior active scalars</span>
+        <span class="k">for</span> <span class="n">mesh</span><span class="p">,</span> <span class="n">point_name</span><span class="p">,</span> <span class="n">cell_name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_prev_active_scalars</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">point_name</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">mesh</span><span class="o">.</span><span class="n">point_data</span><span class="o">.</span><span class="n">active_scalars_name</span> <span class="o">!=</span> <span class="n">point_name</span><span class="p">:</span>
+                <span class="n">mesh</span><span class="o">.</span><span class="n">point_data</span><span class="o">.</span><span class="n">active_scalars_name</span> <span class="o">=</span> <span class="n">point_name</span>
+            <span class="k">if</span> <span class="n">cell_name</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">mesh</span><span class="o">.</span><span class="n">cell_data</span><span class="o">.</span><span class="n">active_scalars_name</span> <span class="o">!=</span> <span class="n">cell_name</span><span class="p">:</span>
+                <span class="n">mesh</span><span class="o">.</span><span class="n">cell_data</span><span class="o">.</span><span class="n">active_scalars_name</span> <span class="o">=</span> <span class="n">cell_name</span>
+
         <span class="bp">self</span><span class="o">.</span><span class="n">_added_scalars</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_prev_active_scalars</span> <span class="o">=</span> <span class="p">{}</span>
 
     <span class="k">def</span> <span class="fm">__del__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Delete the plotter.&quot;&quot;&quot;</span>

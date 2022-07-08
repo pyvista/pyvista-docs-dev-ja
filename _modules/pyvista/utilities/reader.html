@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>pyvista.utilities.reader &#8212; PyVista 0.35.dev0 ドキュメント</title>
+    <title>pyvista.utilities.reader &#8212; PyVista 0.36.dev0 ドキュメント</title>
 <script>
   document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
   document.documentElement.dataset.theme = localStorage.getItem("theme") || "light"
@@ -221,6 +221,7 @@
 <span></span><span class="sd">&quot;&quot;&quot;Fine-grained control of reading data files.&quot;&quot;&quot;</span>
 <span class="kn">from</span> <span class="nn">abc</span> <span class="kn">import</span> <span class="n">ABC</span><span class="p">,</span> <span class="n">abstractmethod</span>
 <span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span>
+<span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">wraps</span>
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">pathlib</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">List</span>
@@ -231,6 +232,8 @@
 <span class="kn">from</span> <span class="nn">pyvista.utilities</span> <span class="kn">import</span> <span class="n">abstract_class</span><span class="p">,</span> <span class="n">wrap</span>
 
 <span class="kn">from</span> <span class="nn">.fileio</span> <span class="kn">import</span> <span class="n">_get_ext_force</span><span class="p">,</span> <span class="n">_process_filename</span>
+
+<span class="n">HDF_HELP</span> <span class="o">=</span> <span class="s1">&#39;https://kitware.github.io/vtk-examples/site/VTKFileFormats/#hdf-file-formats&#39;</span>
 
 
 <div class="viewcode-block" id="get_reader"><a class="viewcode-back" href="../../../api/readers/_autosummary/pyvista.get_reader.html#pyvista.get_reader">[ドキュメント]</a><span class="k">def</span> <span class="nf">get_reader</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">force_ext</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
@@ -248,6 +251,8 @@
 <span class="sd">    | ``.case``      | :class:`pyvista.EnSightReader`              |</span>
 <span class="sd">    +----------------+---------------------------------------------+</span>
 <span class="sd">    | ``.cgns``      | :class:`pyvista.CGNSReader`                 |</span>
+<span class="sd">    +----------------+---------------------------------------------+</span>
+<span class="sd">    | ``.dat``       | :class:`pyvista.TecplotReader`              |</span>
 <span class="sd">    +----------------+---------------------------------------------+</span>
 <span class="sd">    | ``.dcm``       | :class:`pyvista.DICOMReader`                |</span>
 <span class="sd">    +----------------+---------------------------------------------+</span>
@@ -514,6 +519,8 @@
 
         <span class="n">_update_alg</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">reader</span><span class="p">,</span> <span class="n">progress_bar</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_progress_bar</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_progress_msg</span><span class="p">)</span>
         <span class="n">data</span> <span class="o">=</span> <span class="n">wrap</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">reader</span><span class="o">.</span><span class="n">GetOutputDataObject</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">data</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>  <span class="c1"># pragma: no cover</span>
+            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Failed to read file.&quot;</span><span class="p">)</span>
         <span class="n">data</span><span class="o">.</span><span class="n">_post_file_load_processing</span><span class="p">()</span>
         <span class="k">return</span> <span class="n">data</span></div>
 
@@ -1360,6 +1367,23 @@
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">_class_reader</span> <span class="o">=</span> <span class="n">_vtk</span><span class="o">.</span><span class="n">vtkSTLReader</span></div>
+
+
+<div class="viewcode-block" id="TecplotReader"><a class="viewcode-back" href="../../../api/readers/_autosummary/pyvista.TecplotReader.html#pyvista.TecplotReader">[ドキュメント]</a><span class="k">class</span> <span class="nc">TecplotReader</span><span class="p">(</span><span class="n">BaseReader</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Tecplot Reader for ascii .dat files.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; import pyvista</span>
+<span class="sd">    &gt;&gt;&gt; from pyvista import examples</span>
+<span class="sd">    &gt;&gt;&gt; filename = examples.download_tecplot_ascii(load=False)</span>
+<span class="sd">    &gt;&gt;&gt; reader = pyvista.get_reader(filename)</span>
+<span class="sd">    &gt;&gt;&gt; mesh = reader.read()</span>
+<span class="sd">    &gt;&gt;&gt; mesh[0].plot()</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">_class_reader</span> <span class="o">=</span> <span class="n">_vtk</span><span class="o">.</span><span class="n">vtkTecplotReader</span></div>
 
 
 <div class="viewcode-block" id="VTKDataSetReader"><a class="viewcode-back" href="../../../api/readers/_autosummary/pyvista.VTKDataSetReader.html#pyvista.VTKDataSetReader">[ドキュメント]</a><span class="k">class</span> <span class="nc">VTKDataSetReader</span><span class="p">(</span><span class="n">BaseReader</span><span class="p">):</span>
@@ -2222,16 +2246,32 @@
 <span class="sd">    --------</span>
 <span class="sd">    &gt;&gt;&gt; import pyvista</span>
 <span class="sd">    &gt;&gt;&gt; from pyvista import examples</span>
-<span class="sd">    &gt;&gt;&gt; filename = examples.download_can(partial=True, load=False)</span>
+<span class="sd">    &gt;&gt;&gt; filename = examples.download_can_crushed_hdf(load=False)</span>
 <span class="sd">    &gt;&gt;&gt; filename.split(&quot;/&quot;)[-1]  # omit the path</span>
-<span class="sd">    &#39;can_0.hdf&#39;</span>
+<span class="sd">    &#39;can-vtu.hdf&#39;</span>
 <span class="sd">    &gt;&gt;&gt; reader = pyvista.get_reader(filename)</span>
 <span class="sd">    &gt;&gt;&gt; mesh = reader.read()</span>
 <span class="sd">    &gt;&gt;&gt; mesh.plot()</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="n">_class_reader</span> <span class="o">=</span> <span class="nb">staticmethod</span><span class="p">(</span><span class="n">_vtk</span><span class="o">.</span><span class="n">lazy_vtkHDFReader</span><span class="p">)</span></div>
+    <span class="n">_class_reader</span> <span class="o">=</span> <span class="nb">staticmethod</span><span class="p">(</span><span class="n">_vtk</span><span class="o">.</span><span class="n">lazy_vtkHDFReader</span><span class="p">)</span>
+
+<div class="viewcode-block" id="HDFReader.read"><a class="viewcode-back" href="../../../api/readers/_autosummary/pyvista.HDFReader.read.html#pyvista.HDFReader.read">[ドキュメント]</a>    <span class="nd">@wraps</span><span class="p">(</span><span class="n">BaseReader</span><span class="o">.</span><span class="n">read</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Wrap the base reader to handle the vtk 9.1 --&gt; 9.2 change.&quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">with</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">VtkErrorCatcher</span><span class="p">(</span><span class="n">raise_errors</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+                <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+        <span class="k">except</span> <span class="ne">RuntimeError</span> <span class="k">as</span> <span class="n">err</span><span class="p">:</span>  <span class="c1"># pragma: no cover</span>
+            <span class="k">if</span> <span class="s2">&quot;Can&#39;t find the `Type` attribute.&quot;</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">err</span><span class="p">):</span>
+                <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span>
+                    <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="si">}</span><span class="s1"> is missing the Type attribute. &#39;</span>
+                    <span class="s1">&#39;The VTKHDF format has changed as of 9.2.0, &#39;</span>
+                    <span class="sa">f</span><span class="s1">&#39;see </span><span class="si">{</span><span class="n">HDF_HELP</span><span class="si">}</span><span class="s1"> for more details.&#39;</span>
+                <span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">err</span></div></div>
 
 
 <div class="viewcode-block" id="GLTFReader"><a class="viewcode-back" href="../../../api/readers/_autosummary/pyvista.GLTFReader.html#pyvista.GLTFReader">[ドキュメント]</a><span class="k">class</span> <span class="nc">GLTFReader</span><span class="p">(</span><span class="n">BaseReader</span><span class="p">):</span>
@@ -2264,6 +2304,7 @@
     <span class="s1">&#39;.cas&#39;</span><span class="p">:</span> <span class="n">FluentReader</span><span class="p">,</span>
     <span class="s1">&#39;.case&#39;</span><span class="p">:</span> <span class="n">EnSightReader</span><span class="p">,</span>
     <span class="s1">&#39;.cgns&#39;</span><span class="p">:</span> <span class="n">CGNSReader</span><span class="p">,</span>
+    <span class="s1">&#39;.dat&#39;</span><span class="p">:</span> <span class="n">TecplotReader</span><span class="p">,</span>
     <span class="s1">&#39;.dcm&#39;</span><span class="p">:</span> <span class="n">DICOMReader</span><span class="p">,</span>
     <span class="s1">&#39;.dem&#39;</span><span class="p">:</span> <span class="n">DEMReader</span><span class="p">,</span>
     <span class="s1">&#39;.facet&#39;</span><span class="p">:</span> <span class="n">FacetReader</span><span class="p">,</span>

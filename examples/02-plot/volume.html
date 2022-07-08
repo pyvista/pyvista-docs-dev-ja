@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>ボリュームレンダリング &#8212; PyVista 0.35.dev0 ドキュメント</title>
+    <title>ボリュームレンダリング &#8212; PyVista 0.36.dev0 ドキュメント</title>
 <script>
   document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
   document.documentElement.dataset.theme = localStorage.getItem("theme") || "light"
@@ -522,6 +522,20 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../01-filter/gradients.html">
    フィールドの勾配を計算する
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01-filter/image-fft-perlin-noise.html">
+   Perlinノイズによる高速フーリエ変換
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01-filter/image-fft.html">
+   高速Fourier変換
   </a>
  </li>
 </ul>
@@ -1167,7 +1181,7 @@
 <section class="sphx-glr-example-title" id="volume-rendering">
 <span id="volume-rendering-example"></span><span id="sphx-glr-examples-02-plot-volume-py"></span><h1>ボリュームレンダリング<a class="headerlink" href="#volume-rendering" title="このヘッドラインへのパーマリンク">#</a></h1>
 <p><a class="reference internal" href="../../api/core/_autosummary/pyvista.UniformGrid.html#pyvista.UniformGrid" title="pyvista.UniformGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.UniformGrid</span></code></a> または3 D NumPy配列のようなボリュームレンダリングの均一メッシュタイプ．</p>
-<p>これはまた <a class="reference internal" href="../../api/core/_autosummary/pyvista.UniformGridFilters.extract_subset.html#pyvista.UniformGridFilters.extract_subset" title="pyvista.UniformGridFilters.extract_subset"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyvista.UniformGridFilters.extract_subset()</span></code></a> フィルタを使用して <a class="reference internal" href="../../api/core/_autosummary/pyvista.UniformGrid.html#pyvista.UniformGrid" title="pyvista.UniformGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.UniformGrid</span></code></a> から関心領域 (VOI) を抽出する方法を探求する．</p>
+<p>これはまた <a class="reference internal" href="../../api/core/_autosummary/pyvista.UniformGridFilters.extract_subset.html#pyvista.UniformGridFilters.extract_subset" title="pyvista.UniformGridFilters.extract_subset"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyvista.UniformGridFilters.extract_subset()</span></code></a> フィルタを使用して <a class="reference internal" href="../../api/core/_autosummary/pyvista.UniformGrid.html#pyvista.UniformGrid" title="pyvista.UniformGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.UniformGrid</span></code></a> から関心領域 (VOI) を抽出する方法を探求します．</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyvista</span> <span class="k">as</span> <span class="nn">pv</span>
 <span class="kn">from</span> <span class="nn">pyvista</span> <span class="kn">import</span> <span class="n">examples</span>
 
@@ -1332,7 +1346,7 @@
 <span class="n">p</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_volume_010.png" srcset="../../_images/sphx_glr_volume_010.png" alt="volume" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  40.971 seconds)</p>
+<img src="../../_images/sphx_glr_volume_010.png" srcset="../../_images/sphx_glr_volume_010.png" alt="volume" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  39.862 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-02-plot-volume-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/7cf948a195b75b24dc0265afd19f7c30/volume.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">volume.py</span></code></a></p>

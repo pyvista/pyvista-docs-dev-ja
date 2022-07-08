@@ -33,7 +33,7 @@ grid = pv.UniformGrid(
 x, y, z = grid.points.T
 values = f(x, y, z)
 out = grid.contour(
-    1, scalars=values, rng=[0, 0], method='flying_edges'
+    1, scalars=values, rng=[0, 0], method='flying_edges',
 )
 out.plot(color='tan', smooth_shading=True)
 #

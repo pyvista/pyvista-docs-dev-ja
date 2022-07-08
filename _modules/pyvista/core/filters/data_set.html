@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>pyvista.core.filters.data_set &#8212; PyVista 0.35.dev0 ドキュメント</title>
+    <title>pyvista.core.filters.data_set &#8212; PyVista 0.36.dev0 ドキュメント</title>
 <script>
   document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
   document.documentElement.dataset.theme = localStorage.getItem("theme") || "light"
@@ -1680,9 +1680,10 @@
 <span class="sd">            Number of isosurfaces to compute across valid data range or a</span>
 <span class="sd">            sequence of float values to explicitly use as the isosurfaces.</span>
 
-<span class="sd">        scalars : str, numpy.ndarray, optional</span>
-<span class="sd">            Name or array of scalars to threshold on. Defaults to</span>
-<span class="sd">            currently active scalars.</span>
+<span class="sd">        scalars : str, collections.abc.Sequence, numpy.ndarray, optional</span>
+<span class="sd">            Name or array of scalars to threshold on. If this is an array, the</span>
+<span class="sd">            output of this filter will save them as ``&quot;Contour Data&quot;``.</span>
+<span class="sd">            Defaults to currently active scalars.</span>
 
 <span class="sd">        compute_normals : bool, optional</span>
 <span class="sd">            Compute normals for the dataset.</span>
@@ -1753,7 +1754,7 @@
 <span class="sd">        &gt;&gt;&gt; x, y, z = grid.points.T</span>
 <span class="sd">        &gt;&gt;&gt; values = f(x, y, z)</span>
 <span class="sd">        &gt;&gt;&gt; out = grid.contour(</span>
-<span class="sd">        ...     1, scalars=values, rng=[0, 0], method=&#39;flying_edges&#39;</span>
+<span class="sd">        ...     1, scalars=values, rng=[0, 0], method=&#39;flying_edges&#39;,</span>
 <span class="sd">        ... )</span>
 <span class="sd">        &gt;&gt;&gt; out.plot(color=&#39;tan&#39;, smooth_shading=True)</span>
 
@@ -1771,10 +1772,25 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Method &#39;</span><span class="si">{</span><span class="n">method</span><span class="si">}</span><span class="s2">&#39; is not supported&quot;</span><span class="p">)</span>
 
-        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">scalars</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
-            <span class="n">scalars_name</span> <span class="o">=</span> <span class="s1">&#39;Contour Input&#39;</span>
+        <span class="k">if</span> <span class="n">rng</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">rng</span><span class="p">,</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">collections</span><span class="o">.</span><span class="n">abc</span><span class="o">.</span><span class="n">Sequence</span><span class="p">)):</span>
+                <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Array-like rng expected, got </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">rng</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s1">.&#39;</span><span class="p">)</span>
+            <span class="n">rng_shape</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">rng</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">rng_shape</span> <span class="o">!=</span> <span class="p">(</span><span class="mi">2</span><span class="p">,):</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;rng must be a two-length array-like, not </span><span class="si">{</span><span class="n">rng</span><span class="si">}</span><span class="s1">.&#39;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">rng</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">rng</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;rng must be a sorted min-max pair, not </span><span class="si">{</span><span class="n">rng</span><span class="si">}</span><span class="s1">.&#39;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">scalars</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="n">scalars_name</span> <span class="o">=</span> <span class="n">scalars</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">scalars</span><span class="p">,</span> <span class="p">(</span><span class="n">collections</span><span class="o">.</span><span class="n">abc</span><span class="o">.</span><span class="n">Sequence</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)):</span>
+            <span class="n">scalars_name</span> <span class="o">=</span> <span class="s1">&#39;Contour Data&#39;</span>
             <span class="bp">self</span><span class="p">[</span><span class="n">scalars_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">scalars</span>
-            <span class="n">scalars</span> <span class="o">=</span> <span class="n">scalars_name</span>
+        <span class="k">elif</span> <span class="n">scalars</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s1">&#39;Invalid type for `scalars` (</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">scalars</span><span class="p">)</span><span class="si">}</span><span class="s1">). Should be either &#39;</span>
+                <span class="s1">&#39;a numpy.ndarray, a string, or None.&#39;</span>
+            <span class="p">)</span>
 
         <span class="c1"># Make sure the input has scalars to contour on</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_arrays</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
@@ -1787,22 +1803,24 @@
         <span class="c1"># set the array to contour on</span>
         <span class="k">if</span> <span class="n">scalars</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">pyvista</span><span class="o">.</span><span class="n">set_default_active_scalars</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
-            <span class="n">field</span><span class="p">,</span> <span class="n">scalars</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">active_scalars_info</span>
+            <span class="n">field</span><span class="p">,</span> <span class="n">scalars_name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">active_scalars_info</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">field</span> <span class="o">=</span> <span class="n">get_array_association</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scalars</span><span class="p">,</span> <span class="n">preference</span><span class="o">=</span><span class="n">preference</span><span class="p">)</span>
+            <span class="n">field</span> <span class="o">=</span> <span class="n">get_array_association</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scalars_name</span><span class="p">,</span> <span class="n">preference</span><span class="o">=</span><span class="n">preference</span><span class="p">)</span>
         <span class="c1"># NOTE: only point data is allowed? well cells works but seems buggy?</span>
         <span class="k">if</span> <span class="n">field</span> <span class="o">!=</span> <span class="n">FieldAssociation</span><span class="o">.</span><span class="n">POINT</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
-                <span class="sa">f</span><span class="s1">&#39;Contour filter only works on Point data. Array (</span><span class="si">{</span><span class="n">scalars</span><span class="si">}</span><span class="s1">) is in the Cell data.&#39;</span>
-            <span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;Contour filter only works on point data.&#39;</span><span class="p">)</span>
         <span class="n">alg</span><span class="o">.</span><span class="n">SetInputArrayToProcess</span><span class="p">(</span>
-            <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">field</span><span class="o">.</span><span class="n">value</span><span class="p">,</span> <span class="n">scalars</span>
+            <span class="mi">0</span><span class="p">,</span>
+            <span class="mi">0</span><span class="p">,</span>
+            <span class="mi">0</span><span class="p">,</span>
+            <span class="n">field</span><span class="o">.</span><span class="n">value</span><span class="p">,</span>
+            <span class="n">scalars_name</span><span class="p">,</span>
         <span class="p">)</span>  <span class="c1"># args: (idx, port, connection, field, name)</span>
         <span class="c1"># set the isosurfaces</span>
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">isosurfaces</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
             <span class="c1"># generate values</span>
             <span class="k">if</span> <span class="n">rng</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-                <span class="n">rng</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_data_range</span><span class="p">(</span><span class="n">scalars</span><span class="p">)</span>
+                <span class="n">rng</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_data_range</span><span class="p">(</span><span class="n">scalars_name</span><span class="p">)</span>
             <span class="n">alg</span><span class="o">.</span><span class="n">GenerateValues</span><span class="p">(</span><span class="n">isosurfaces</span><span class="p">,</span> <span class="n">rng</span><span class="p">)</span>
         <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">isosurfaces</span><span class="p">,</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">collections</span><span class="o">.</span><span class="n">abc</span><span class="o">.</span><span class="n">Sequence</span><span class="p">)):</span>
             <span class="n">alg</span><span class="o">.</span><span class="n">SetNumberOfContours</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">isosurfaces</span><span class="p">))</span>
@@ -1811,7 +1829,14 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;isosurfaces not understood.&#39;</span><span class="p">)</span>
         <span class="n">_update_alg</span><span class="p">(</span><span class="n">alg</span><span class="p">,</span> <span class="n">progress_bar</span><span class="p">,</span> <span class="s1">&#39;Computing Contour&#39;</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">_get_output</span><span class="p">(</span><span class="n">alg</span><span class="p">)</span></div>
+        <span class="n">output</span> <span class="o">=</span> <span class="n">_get_output</span><span class="p">(</span><span class="n">alg</span><span class="p">)</span>
+
+        <span class="c1"># some of these filters fail to correctly name the array</span>
+        <span class="k">if</span> <span class="n">scalars_name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">output</span><span class="o">.</span><span class="n">point_data</span><span class="p">:</span>
+            <span class="k">if</span> <span class="s1">&#39;Unnamed_0&#39;</span> <span class="ow">in</span> <span class="n">output</span><span class="o">.</span><span class="n">point_data</span><span class="p">:</span>
+                <span class="n">output</span><span class="o">.</span><span class="n">point_data</span><span class="p">[</span><span class="n">scalars_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">output</span><span class="o">.</span><span class="n">point_data</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;Unnamed_0&#39;</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">output</span></div>
 
 <div class="viewcode-block" id="DataSetFilters.texture_map_to_plane"><a class="viewcode-back" href="../../../../api/core/_autosummary/pyvista.DataSetFilters.texture_map_to_plane.html#pyvista.DataSetFilters.texture_map_to_plane">[ドキュメント]</a>    <span class="k">def</span> <span class="nf">texture_map_to_plane</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
@@ -4829,37 +4854,45 @@
 
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">alg</span> <span class="o">=</span> <span class="n">_vtk</span><span class="o">.</span><span class="n">vtkCellQuality</span><span class="p">()</span>
-        <span class="n">measure_setters</span> <span class="o">=</span> <span class="p">{</span>
-            <span class="s1">&#39;area&#39;</span><span class="p">:</span> <span class="n">alg</span><span class="o">.</span><span class="n">SetQualityMeasureToArea</span><span class="p">,</span>
-            <span class="s1">&#39;aspect_beta&#39;</span><span class="p">:</span> <span class="n">alg</span><span class="o">.</span><span class="n">SetQualityMeasureToAspectBeta</span><span class="p">,</span>
-            <span class="s1">&#39;aspect_frobenius&#39;</span><span class="p">:</span> <span class="n">alg</span><span class="o">.</span><span class="n">SetQualityMeasureToAspectFrobenius</span><span class="p">,</span>
-            <span class="s1">&#39;aspect_gamma&#39;</span><span class="p">:</span> <span class="n">alg</span><span class="o">.</span><span class="n">SetQualityMeasureToAspectGamma</span><span class="p">,</span>
-            <span class="s1">&#39;aspect_ratio&#39;</span><span class="p">:</span> <span class="n">alg</span><span class="o">.</span><span class="n">SetQualityMeasureToAspectRatio</span><span class="p">,</span>
-            <span class="s1">&#39;collapse_ratio&#39;</span><span class="p">:</span> <span class="n">alg</span><span class="o">.</span><span class="n">SetQualityMeasureToCollapseRatio</span><span class="p">,</span>
-            <span class="s1">&#39;condition&#39;</span><span class="p">:</span> <span class="n">alg</span><span class="o">.</span><span class="n">SetQualityMeasureToCondition</span><span class="p">,</span>
-            <span class="s1">&#39;diagonal&#39;</span><span class="p">:</span> <span class="n">alg</span><span class="o">.</span><span class="n">SetQualityMeasureToDiagonal</span><span class="p">,</span>
-            <span class="s1">&#39;dimension&#39;</span><span class="p">:</span> <span class="n">alg</span><span class="o">.</span><span class="n">SetQualityMeasureToDimension</span><span class="p">,</span>
-            <span class="s1">&#39;distortion&#39;</span><span class="p">:</span> <span class="n">alg</span><span class="o">.</span><span class="n">SetQualityMeasureToDistortion</span><span class="p">,</span>
-            <span class="s1">&#39;jacobian&#39;</span><span class="p">:</span> <span class="n">alg</span><span class="o">.</span><span class="n">SetQualityMeasureToJacobian</span><span class="p">,</span>
-            <span class="s1">&#39;max_angle&#39;</span><span class="p">:</span> <span class="n">alg</span><span class="o">.</span><span class="n">SetQualityMeasureToMaxAngle</span><span class="p">,</span>
-            <span class="s1">&#39;max_aspect_frobenius&#39;</span><span class="p">:</span> <span class="n">alg</span><span class="o">.</span><span class="n">SetQualityMeasureToMaxAspectFrobenius</span><span class="p">,</span>
-            <span class="s1">&#39;max_edge_ratio&#39;</span><span class="p">:</span> <span class="n">alg</span><span class="o">.</span><span class="n">SetQualityMeasureToMaxEdgeRatio</span><span class="p">,</span>
-            <span class="s1">&#39;med_aspect_frobenius&#39;</span><span class="p">:</span> <span class="n">alg</span><span class="o">.</span><span class="n">SetQualityMeasureToMedAspectFrobenius</span><span class="p">,</span>
-            <span class="s1">&#39;min_angle&#39;</span><span class="p">:</span> <span class="n">alg</span><span class="o">.</span><span class="n">SetQualityMeasureToMinAngle</span><span class="p">,</span>
-            <span class="s1">&#39;oddy&#39;</span><span class="p">:</span> <span class="n">alg</span><span class="o">.</span><span class="n">SetQualityMeasureToOddy</span><span class="p">,</span>
-            <span class="s1">&#39;radius_ratio&#39;</span><span class="p">:</span> <span class="n">alg</span><span class="o">.</span><span class="n">SetQualityMeasureToRadiusRatio</span><span class="p">,</span>
-            <span class="s1">&#39;relative_size_squared&#39;</span><span class="p">:</span> <span class="n">alg</span><span class="o">.</span><span class="n">SetQualityMeasureToRelativeSizeSquared</span><span class="p">,</span>
-            <span class="s1">&#39;scaled_jacobian&#39;</span><span class="p">:</span> <span class="n">alg</span><span class="o">.</span><span class="n">SetQualityMeasureToScaledJacobian</span><span class="p">,</span>
-            <span class="s1">&#39;shape&#39;</span><span class="p">:</span> <span class="n">alg</span><span class="o">.</span><span class="n">SetQualityMeasureToShape</span><span class="p">,</span>
-            <span class="s1">&#39;shape_and_size&#39;</span><span class="p">:</span> <span class="n">alg</span><span class="o">.</span><span class="n">SetQualityMeasureToShapeAndSize</span><span class="p">,</span>
-            <span class="s1">&#39;shear&#39;</span><span class="p">:</span> <span class="n">alg</span><span class="o">.</span><span class="n">SetQualityMeasureToShear</span><span class="p">,</span>
-            <span class="s1">&#39;shear_and_size&#39;</span><span class="p">:</span> <span class="n">alg</span><span class="o">.</span><span class="n">SetQualityMeasureToShearAndSize</span><span class="p">,</span>
-            <span class="s1">&#39;skew&#39;</span><span class="p">:</span> <span class="n">alg</span><span class="o">.</span><span class="n">SetQualityMeasureToSkew</span><span class="p">,</span>
-            <span class="s1">&#39;stretch&#39;</span><span class="p">:</span> <span class="n">alg</span><span class="o">.</span><span class="n">SetQualityMeasureToStretch</span><span class="p">,</span>
-            <span class="s1">&#39;taper&#39;</span><span class="p">:</span> <span class="n">alg</span><span class="o">.</span><span class="n">SetQualityMeasureToTaper</span><span class="p">,</span>
-            <span class="s1">&#39;volume&#39;</span><span class="p">:</span> <span class="n">alg</span><span class="o">.</span><span class="n">SetQualityMeasureToVolume</span><span class="p">,</span>
-            <span class="s1">&#39;warpage&#39;</span><span class="p">:</span> <span class="n">alg</span><span class="o">.</span><span class="n">SetQualityMeasureToWarpage</span><span class="p">,</span>
+        <span class="n">possible_measure_setters</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s1">&#39;area&#39;</span><span class="p">:</span> <span class="s1">&#39;SetQualityMeasureToArea&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;aspect_beta&#39;</span><span class="p">:</span> <span class="s1">&#39;SetQualityMeasureToAspectBeta&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;aspect_frobenius&#39;</span><span class="p">:</span> <span class="s1">&#39;SetQualityMeasureToAspectFrobenius&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;aspect_gamma&#39;</span><span class="p">:</span> <span class="s1">&#39;SetQualityMeasureToAspectGamma&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;aspect_ratio&#39;</span><span class="p">:</span> <span class="s1">&#39;SetQualityMeasureToAspectRatio&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;collapse_ratio&#39;</span><span class="p">:</span> <span class="s1">&#39;SetQualityMeasureToCollapseRatio&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;condition&#39;</span><span class="p">:</span> <span class="s1">&#39;SetQualityMeasureToCondition&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;diagonal&#39;</span><span class="p">:</span> <span class="s1">&#39;SetQualityMeasureToDiagonal&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;dimension&#39;</span><span class="p">:</span> <span class="s1">&#39;SetQualityMeasureToDimension&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;distortion&#39;</span><span class="p">:</span> <span class="s1">&#39;SetQualityMeasureToDistortion&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;jacobian&#39;</span><span class="p">:</span> <span class="s1">&#39;SetQualityMeasureToJacobian&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;max_angle&#39;</span><span class="p">:</span> <span class="s1">&#39;SetQualityMeasureToMaxAngle&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;max_aspect_frobenius&#39;</span><span class="p">:</span> <span class="s1">&#39;SetQualityMeasureToMaxAspectFrobenius&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;max_edge_ratio&#39;</span><span class="p">:</span> <span class="s1">&#39;SetQualityMeasureToMaxEdgeRatio&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;med_aspect_frobenius&#39;</span><span class="p">:</span> <span class="s1">&#39;SetQualityMeasureToMedAspectFrobenius&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;min_angle&#39;</span><span class="p">:</span> <span class="s1">&#39;SetQualityMeasureToMinAngle&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;oddy&#39;</span><span class="p">:</span> <span class="s1">&#39;SetQualityMeasureToOddy&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;radius_ratio&#39;</span><span class="p">:</span> <span class="s1">&#39;SetQualityMeasureToRadiusRatio&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;relative_size_squared&#39;</span><span class="p">:</span> <span class="s1">&#39;SetQualityMeasureToRelativeSizeSquared&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;scaled_jacobian&#39;</span><span class="p">:</span> <span class="s1">&#39;SetQualityMeasureToScaledJacobian&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;shape&#39;</span><span class="p">:</span> <span class="s1">&#39;SetQualityMeasureToShape&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;shape_and_size&#39;</span><span class="p">:</span> <span class="s1">&#39;SetQualityMeasureToShapeAndSize&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;shear&#39;</span><span class="p">:</span> <span class="s1">&#39;SetQualityMeasureToShear&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;shear_and_size&#39;</span><span class="p">:</span> <span class="s1">&#39;SetQualityMeasureToShearAndSize&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;skew&#39;</span><span class="p">:</span> <span class="s1">&#39;SetQualityMeasureToSkew&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;stretch&#39;</span><span class="p">:</span> <span class="s1">&#39;SetQualityMeasureToStretch&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;taper&#39;</span><span class="p">:</span> <span class="s1">&#39;SetQualityMeasureToTaper&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;volume&#39;</span><span class="p">:</span> <span class="s1">&#39;SetQualityMeasureToVolume&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;warpage&#39;</span><span class="p">:</span> <span class="s1">&#39;SetQualityMeasureToWarpage&#39;</span><span class="p">,</span>
         <span class="p">}</span>
+
+        <span class="c1"># we need to check if these quality measures exist as VTK API changes</span>
+        <span class="n">measure_setters</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">attr</span> <span class="ow">in</span> <span class="n">possible_measure_setters</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">setter_candidate</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">alg</span><span class="p">,</span> <span class="n">attr</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">setter_candidate</span><span class="p">:</span>
+                <span class="n">measure_setters</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">setter_candidate</span>
+
         <span class="k">try</span><span class="p">:</span>
             <span class="c1"># Set user specified quality measure</span>
             <span class="n">measure_setters</span><span class="p">[</span><span class="n">quality_measure</span><span class="p">]()</span>

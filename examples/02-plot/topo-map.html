@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>地形図 &#8212; PyVista 0.35.dev0 ドキュメント</title>
+    <title>地形図 &#8212; PyVista 0.36.dev0 ドキュメント</title>
 <script>
   document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
   document.documentElement.dataset.theme = localStorage.getItem("theme") || "light"
@@ -522,6 +522,20 @@
  <li class="toctree-l1">
   <a class="reference internal" href="../01-filter/gradients.html">
    フィールドの勾配を計算する
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01-filter/image-fft-perlin-noise.html">
+   Perlinノイズによる高速フーリエ変換
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../01-filter/image-fft.html">
+   高速Fourier変換
   </a>
  </li>
 </ul>
@@ -1164,7 +1178,7 @@
 </pre></div>
 </div>
 <img src="../../_images/sphx_glr_topo-map_001.png" srcset="../../_images/sphx_glr_topo-map_001.png" alt="topo map" class = "sphx-glr-single-img"/><p class="sphx-glr-script-out">出力:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage object at 0x7f1f0aa34130&gt;
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage object at 0x7f8bf70d29a0&gt;
 </pre></div>
 </div>
 <p>サーフェスメッシュ(ここでは <a class="reference internal" href="../../api/core/_autosummary/pyvista.StructuredGrid.html#pyvista.StructuredGrid" title="pyvista.StructuredGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.StructuredGrid</span></code></a> を使います)として地形メッシュをロードし， <a class="reference internal" href="../../api/utilities/_autosummary/pyvista.read_texture.html#pyvista.read_texture" title="pyvista.read_texture"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyvista.read_texture()</span></code></a> メソッドを使用して:class:<cite>pyvista.Texture</cite> オブジェクトとしてイメージをロードしたら，次のようにイメージをサーフェスメッシュにマッピングできます．</p>
@@ -1223,7 +1237,7 @@
 <span class="n">p</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_topo-map_004.png" srcset="../../_images/sphx_glr_topo-map_004.png" alt="topo map" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  16.958 seconds)</p>
+<img src="../../_images/sphx_glr_topo-map_004.png" srcset="../../_images/sphx_glr_topo-map_004.png" alt="topo map" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  17.839 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-02-plot-topo-map-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/f1b56aa0cbb2e0a31a51ee9be24000e8/topo-map.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">topo-map.py</span></code></a></p>
