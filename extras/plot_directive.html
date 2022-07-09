@@ -300,17 +300,14 @@
                 
   <section id="sphinx-pyvista-plot-directive">
 <span id="ref-plot-directive-docs"></span><h1>Sphinx PyVista Plot ディレクティブ<a class="headerlink" href="#sphinx-pyvista-plot-directive" title="このヘッドラインへのパーマリンク">#</a></h1>
-<p>You can generate static images of pyvista plots using the
-<code class="docutils literal notranslate"><span class="pre">..</span> <span class="pre">pyvista-plot::</span></code> directive by adding the following to your
-<code class="docutils literal notranslate"><span class="pre">conf.py</span></code> when building your documentation using Sphinx.</p>
+<p>Sphinxを使ってドキュメントを作成する際に，以下の内容を <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> に追加することで， <code class="docutils literal notranslate"><span class="pre">..</span> <span class="pre">pyvista-plot::</span></code> ディレクティブを使用して，pyvistaのプロットの静的なイメージを生成することができます．</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">extensions</span> <span class="o">=</span> <span class="p">[</span>
     <span class="s2">&quot;sphinx.ext.napoleon&quot;</span><span class="p">,</span>
     <span class="s2">&quot;pyvista.ext.plot_directive&quot;</span><span class="p">,</span>
 <span class="p">]</span>
 </pre></div>
 </div>
-<p>You can then issue the plotting directive within your sphinx
-documentation files:</p>
+<p>そうすれば，sphinxのドキュメントファイルの中で，plottingディレクティブを発行することができます:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">pyvista</span><span class="o">-</span><span class="n">plot</span><span class="p">::</span>
    <span class="p">:</span><span class="n">caption</span><span class="p">:</span> <span class="n">A</span> <span class="n">sphere</span>
    <span class="p">:</span><span class="n">include</span><span class="o">-</span><span class="n">source</span><span class="p">:</span> <span class="kc">True</span>
@@ -335,8 +332,7 @@ documentation files:</p>
 <span class="target" id="module-pyvista.ext.plot_directive"></span><p>プロットディレクティブモジュール．</p>
 <section id="a-directive-for-including-a-pyvista-plot-in-a-sphinx-document">
 <h2>SphinxドキュメントにPyVistaプロットを含めるためのディレクティブ<a class="headerlink" href="#a-directive-for-including-a-pyvista-plot-in-a-sphinx-document" title="このヘッドラインへのパーマリンク">#</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">..</span> <span class="pre">pyvista-plot::</span></code> sphinx directive will include an inline
-<code class="docutils literal notranslate"><span class="pre">.png</span></code> image.</p>
+<p><code class="docutils literal notranslate"><span class="pre">..</span> <span class="pre">pyvista-plot::</span></code> ディレクティブは，インラインの <code class="docutils literal notranslate"><span class="pre">.png</span></code> イメージを含みます．</p>
 <p>プロットのソースコードは，次の2つの方法のいずれかで含まれます．</p>
 <ol class="arabic">
 <li><p><strong>doctest</strong> 構文を使用しています．</p>
@@ -396,24 +392,21 @@ documentation files:</p>
 <p>plotディレクティブには，以下の設定項目があります．</p>
 <blockquote>
 <div><dl class="simple">
-<dt>plot_include_source<span class="classifier">bool</span></dt><dd><p>Default value for the include-source option. Default is <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
+<dt>plot_include_source<span class="classifier">bool</span></dt><dd><p>include-sourceオプションのデフォルト値．デフォルトは <code class="docutils literal notranslate"><span class="pre">True</span></code> ．</p>
 </dd>
-<dt>plot_basedir<span class="classifier">str</span></dt><dd><p>Base directory, to which <code class="docutils literal notranslate"><span class="pre">plot::</span></code> file names are relative
-to.  If <code class="docutils literal notranslate"><span class="pre">None</span></code> or unset, file names are relative to the
-directory where the file containing the directive is.</p>
+<dt>plot_basedir<span class="classifier">str</span></dt><dd><p>ベースとなるディレクトリで， <code class="docutils literal notranslate"><span class="pre">plot::</span></code> のファイル名の相対パスを指定します．  <code class="docutils literal notranslate"><span class="pre">None</span></code> または未設定の場合には，ファイル名はそのディレクティブを含むファイルがあるディレクトリに相対します．</p>
 </dd>
-<dt>plot_html_show_formats<span class="classifier">bool</span></dt><dd><p>Whether to show links to the files in HTML. Default <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
+<dt>plot_html_show_formats<span class="classifier">bool</span></dt><dd><p>ファイルへのリンクをHTMLで表示するかどうか．デフォルトは <code class="docutils literal notranslate"><span class="pre">True</span></code> ．</p>
 </dd>
-<dt>plot_template<span class="classifier">str</span></dt><dd><p>Provide a customized Jinja2 template for preparing restructured text.</p>
+<dt>plot_template<span class="classifier">str</span></dt><dd><p>再構成されたテキストを作成するためのカスタマイズされた Jinja2 テンプレートを提供します．</p>
 </dd>
-<dt>plot_setup<span class="classifier">str</span></dt><dd><p>Python code to be run before every plot directive block.</p>
+<dt>plot_setup<span class="classifier">str</span></dt><dd><p>各プロットディレクティブブロックの前に実行されるPythonコード．</p>
 </dd>
-<dt>plot_cleanup<span class="classifier">str</span></dt><dd><p>Python code to be run after every plot directive block.</p>
+<dt>plot_cleanup<span class="classifier">str</span></dt><dd><p>各プロットディレクティブブロックの後に実行されるPythonコード．</p>
 </dd>
 </dl>
 </div></blockquote>
-<p>These options can be set by defining global variables of the same name in
-<code class="file docutils literal notranslate"><span class="pre">conf.py</span></code>.</p>
+<p>これらのオプションは， <code class="file docutils literal notranslate"><span class="pre">conf.py</span></code> で同名のグローバル変数を定義することで設定できます．</p>
 </section>
 </section>
 </section>
