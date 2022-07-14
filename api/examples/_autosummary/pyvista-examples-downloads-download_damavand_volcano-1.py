@@ -5,4 +5,4 @@ cpos = [
     [ 4.10000000e-01, -2.90000000e-01, -8.60000000e-01]
 ]
 dataset = examples.download_damavand_volcano()
-dataset.plot(cpos=cpos, cmap="reds", show_scalar_bar=False)
+dataset.plot(cpos=cpos, cmap="reds", show_scalar_bar=False, volume=True)

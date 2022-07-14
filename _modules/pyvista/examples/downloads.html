@@ -3022,7 +3022,7 @@
 <span class="sd">    ...     [ 4.10000000e-01, -2.90000000e-01, -8.60000000e-01]</span>
 <span class="sd">    ... ]</span>
 <span class="sd">    &gt;&gt;&gt; dataset = examples.download_damavand_volcano()</span>
-<span class="sd">    &gt;&gt;&gt; dataset.plot(cpos=cpos, cmap=&quot;reds&quot;, show_scalar_bar=False)</span>
+<span class="sd">    &gt;&gt;&gt; dataset.plot(cpos=cpos, cmap=&quot;reds&quot;, show_scalar_bar=False, volume=True)</span>
 
 <span class="sd">    See :ref:`volume_rendering_example` for an example using this dataset.</span>
 
@@ -4418,6 +4418,65 @@
 
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">_download_and_read</span><span class="p">(</span><span class="s1">&#39;moonlanding.png&#39;</span><span class="p">,</span> <span class="n">load</span><span class="o">=</span><span class="n">load</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="download_angular_sector"><a class="viewcode-back" href="../../../api/examples/_autosummary/pyvista.examples.downloads.download_angular_sector.html#pyvista.examples.downloads.download_angular_sector">[ドキュメント]</a><span class="k">def</span> <span class="nf">download_angular_sector</span><span class="p">(</span><span class="n">load</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>  <span class="c1"># pragma: no cover</span>
+    <span class="sd">&quot;&quot;&quot;Download the angular sector dataset.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    load : bool, optional</span>
+<span class="sd">        Load the dataset after downloading it when ``True``.  Set this</span>
+<span class="sd">        to ``False`` and only the filename will be returned.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    pyvista.UnstructuredGrid or str</span>
+<span class="sd">        DataSet or filename depending on ``load``.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; from pyvista import examples</span>
+<span class="sd">    &gt;&gt;&gt; dataset = examples.download_angular_sector()</span>
+<span class="sd">    &gt;&gt;&gt; dataset.plot(scalars=&#39;PointId&#39;)</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_download_and_read</span><span class="p">(</span><span class="s1">&#39;AngularSector.vtk&#39;</span><span class="p">,</span> <span class="n">load</span><span class="o">=</span><span class="n">load</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="download_mount_damavand"><a class="viewcode-back" href="../../../api/examples/_autosummary/pyvista.examples.downloads.download_mount_damavand.html#pyvista.examples.downloads.download_mount_damavand">[ドキュメント]</a><span class="k">def</span> <span class="nf">download_mount_damavand</span><span class="p">(</span><span class="n">load</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>  <span class="c1"># pragma: no cover</span>
+    <span class="sd">&quot;&quot;&quot;Download the Mount Damavand dataset.</span>
+
+<span class="sd">    Visualize 3D models of Damavand Volcano, Alborz, Iran. This is a 2D map</span>
+<span class="sd">    with the altitude embedded as ``&#39;z&#39;`` cell data within the</span>
+<span class="sd">    :class:`pyvista.PolyData`.</span>
+
+<span class="sd">    Originally posted at `banesullivan/damavand-volcano</span>
+<span class="sd">    &lt;https://github.com/banesullivan/damavand-volcano&gt;`_.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    load : bool, optional</span>
+<span class="sd">        Load the dataset after downloading it when ``True``.  Set this</span>
+<span class="sd">        to ``False`` and only the filename will be returned.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    pyvista.PolyData or str</span>
+<span class="sd">        DataSet or filename depending on ``load``.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    Download the Damavand dataset and plot it after warping it by its altitude.</span>
+
+<span class="sd">    &gt;&gt;&gt; from pyvista import examples</span>
+<span class="sd">    &gt;&gt;&gt; dataset = examples.download_mount_damavand()</span>
+<span class="sd">    &gt;&gt;&gt; dataset = dataset.cell_data_to_point_data()</span>
+<span class="sd">    &gt;&gt;&gt; dataset = dataset.warp_by_scalar(&#39;z&#39;, factor=2)</span>
+<span class="sd">    &gt;&gt;&gt; dataset.plot(cmap=&#39;gist_earth&#39;, show_scalar_bar=False)</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_download_and_read</span><span class="p">(</span><span class="s1">&#39;AOI.Damavand.32639.vtp&#39;</span><span class="p">,</span> <span class="n">load</span><span class="o">=</span><span class="n">load</span><span class="p">)</span></div>
 </pre></div>
 
               </article>
