@@ -609,9 +609,7 @@
             <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Unable to locate </span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 
         <span class="c1"># lazy import here to avoid importing unused modules</span>
-        <span class="kn">from</span> <span class="nn">vtkmodules.vtkIOImport</span> <span class="kn">import</span> <span class="n">vtkVRMLImporter</span>
-
-        <span class="n">importer</span> <span class="o">=</span> <span class="n">vtkVRMLImporter</span><span class="p">()</span>
+        <span class="n">importer</span> <span class="o">=</span> <span class="n">_vtk</span><span class="o">.</span><span class="n">lazy_vtkVRMLImporter</span><span class="p">()</span>
         <span class="n">importer</span><span class="o">.</span><span class="n">SetFileName</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
         <span class="n">importer</span><span class="o">.</span><span class="n">SetRenderWindow</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ren_win</span><span class="p">)</span>
         <span class="n">importer</span><span class="o">.</span><span class="n">Update</span><span class="p">()</span>
@@ -864,10 +862,7 @@
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;ren_win&quot;</span><span class="p">):</span>
             <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;This plotter has been closed and cannot be shown.&quot;</span><span class="p">)</span>
 
-        <span class="c1"># lazy import here to avoid importing unused modules</span>
-        <span class="kn">from</span> <span class="nn">vtkmodules.vtkIOExport</span> <span class="kn">import</span> <span class="n">vtkVRMLExporter</span>
-
-        <span class="n">exporter</span> <span class="o">=</span> <span class="n">vtkVRMLExporter</span><span class="p">()</span>
+        <span class="n">exporter</span> <span class="o">=</span> <span class="n">_vtk</span><span class="o">.</span><span class="n">lazy_vtkVRMLExporter</span><span class="p">()</span>
         <span class="n">exporter</span><span class="o">.</span><span class="n">SetFileName</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
         <span class="n">exporter</span><span class="o">.</span><span class="n">SetRenderWindow</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ren_win</span><span class="p">)</span>
         <span class="n">exporter</span><span class="o">.</span><span class="n">Write</span><span class="p">()</span>

@@ -5392,7 +5392,8 @@
 <span class="sd">        Area or volume is also provided in point data.</span>
 
 <span class="sd">        This filter uses the VTK `vtkIntegrateAttributes</span>
-<span class="sd">        &lt;https://vtk.org/doc/nightly/html/classvtkIntegrateAttributes.html&gt;`_.</span>
+<span class="sd">        &lt;https://vtk.org/doc/nightly/html/classvtkIntegrateAttributes.html&gt;`_</span>
+<span class="sd">        and requires VTK v9.1.0 or newer.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -5402,7 +5403,8 @@
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">        pyvista.UnstructuredGird</span>
-<span class="sd">            Mesh with 1 point and 1 vertex cell with integrated data in point and cell data.</span>
+<span class="sd">            Mesh with 1 point and 1 vertex cell with integrated data in point</span>
+<span class="sd">            and cell data.</span>
 
 <span class="sd">        Examples</span>
 <span class="sd">        --------</span>
@@ -5424,11 +5426,14 @@
 <span class="sd">        See the :ref:`integrate_example` for more examples using this filter.</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="nb">filter</span> <span class="o">=</span> <span class="n">_vtk</span><span class="o">.</span><span class="n">vtkIntegrateAttributes</span><span class="p">()</span>
-        <span class="nb">filter</span><span class="o">.</span><span class="n">SetInputData</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
-        <span class="nb">filter</span><span class="o">.</span><span class="n">SetDivideAllCellDataByVolume</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
-        <span class="n">_update_alg</span><span class="p">(</span><span class="nb">filter</span><span class="p">,</span> <span class="n">progress_bar</span><span class="p">,</span> <span class="s1">&#39;Integrating Variables&#39;</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">_get_output</span><span class="p">(</span><span class="nb">filter</span><span class="p">)</span></div></div>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">_vtk</span><span class="p">,</span> <span class="s1">&#39;vtkIntegrateAttributes&#39;</span><span class="p">):</span>  <span class="c1"># pragma: no cover</span>
+            <span class="k">raise</span> <span class="n">VTKVersionError</span><span class="p">(</span><span class="s1">&#39;`integrate_data` requires VTK 9.1.0 or newer.&#39;</span><span class="p">)</span>
+
+        <span class="n">alg</span> <span class="o">=</span> <span class="n">_vtk</span><span class="o">.</span><span class="n">vtkIntegrateAttributes</span><span class="p">()</span>
+        <span class="n">alg</span><span class="o">.</span><span class="n">SetInputData</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">alg</span><span class="o">.</span><span class="n">SetDivideAllCellDataByVolume</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">_update_alg</span><span class="p">(</span><span class="n">alg</span><span class="p">,</span> <span class="n">progress_bar</span><span class="p">,</span> <span class="s1">&#39;Integrating Variables&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">_get_output</span><span class="p">(</span><span class="n">alg</span><span class="p">)</span></div></div>
 </pre></div>
 
               </article>
