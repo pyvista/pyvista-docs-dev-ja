@@ -221,7 +221,6 @@
 <span></span><span class="sd">&quot;&quot;&quot;This module contains some convenience helper functions.&quot;&quot;&quot;</span>
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">scooby</span>
 
 <span class="kn">import</span> <span class="nn">pyvista</span>
 <span class="kn">from</span> <span class="nn">pyvista.utilities</span> <span class="kn">import</span> <span class="n">is_pyvista_dataset</span>
@@ -257,12 +256,12 @@
     <span class="n">zoom</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
 <span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Plot a vtk or numpy object.</span>
+    <span class="sd">&quot;&quot;&quot;Plot a PyVista, numpy, or vtk object.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    var_item : pyvista.DataSet, vtk, or numpy object</span>
-<span class="sd">        VTK object or ``numpy`` array to be plotted.</span>
+<span class="sd">        PyVista, VTK, or ``numpy`` object to be plotted.</span>
 
 <span class="sd">    off_screen : bool, optional</span>
 <span class="sd">        Plots off screen when ``True``.  Helpful for saving</span>
@@ -401,90 +400,91 @@
 <span class="sd">    --------</span>
 <span class="sd">    Plot a simple sphere while showing its edges.</span>
 
-<span class="sd">    &gt;&gt;&gt; import pyvista</span>
-<span class="sd">    &gt;&gt;&gt; mesh = pyvista.Sphere()</span>
+<span class="sd">    &gt;&gt;&gt; import pyvista as pv</span>
+<span class="sd">    &gt;&gt;&gt; mesh = pv.Sphere()</span>
 <span class="sd">    &gt;&gt;&gt; mesh.plot(show_edges=True)</span>
 
+<span class="sd">    Plot a volume mesh. Color by distance from the center of the</span>
+<span class="sd">    UniformGrid. Note ``volume=True`` is passed.</span>
+
+<span class="sd">    &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">    &gt;&gt;&gt; grid = pv.UniformGrid(dims=(32, 32, 32), spacing=(0.5, 0.5, 0.5))</span>
+<span class="sd">    &gt;&gt;&gt; grid[&#39;data&#39;] = np.linalg.norm(grid.center - grid.points, axis=1)</span>
+<span class="sd">    &gt;&gt;&gt; grid[&#39;data&#39;] = np.abs(grid[&#39;data&#39;] - grid[&#39;data&#39;].max())**3</span>
+<span class="sd">    &gt;&gt;&gt; grid.plot(volume=True)</span>
+
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">if</span> <span class="n">notebook</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">notebook</span> <span class="o">=</span> <span class="n">scooby</span><span class="o">.</span><span class="n">in_ipykernel</span><span class="p">()</span>
-
-    <span class="k">if</span> <span class="n">theme</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">theme</span> <span class="o">=</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">global_theme</span>
-
-    <span class="k">if</span> <span class="n">anti_aliasing</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">theme</span><span class="o">.</span><span class="n">antialiasing</span> <span class="o">=</span> <span class="n">anti_aliasing</span>
-
     <span class="k">if</span> <span class="n">jupyter_kwargs</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">jupyter_kwargs</span> <span class="o">=</span> <span class="p">{}</span>
 
     <span class="c1"># undocumented kwarg used within pytest to run a function before closing</span>
     <span class="n">before_close_callback</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;before_close_callback&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
 
+    <span class="c1"># pop from kwargs here to avoid including them in add_mesh or add_volumex</span>
     <span class="n">eye_dome_lighting</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;edl&quot;</span><span class="p">,</span> <span class="n">eye_dome_lighting</span><span class="p">)</span>
     <span class="n">show_grid</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;show_grid&#39;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
-    <span class="n">auto_close</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;auto_close&#39;</span><span class="p">,</span> <span class="n">theme</span><span class="o">.</span><span class="n">auto_close</span><span class="p">)</span>
+    <span class="n">auto_close</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;auto_close&#39;</span><span class="p">)</span>
 
-    <span class="k">if</span> <span class="n">notebook</span><span class="p">:</span>
-        <span class="n">off_screen</span> <span class="o">=</span> <span class="n">notebook</span>
-    <span class="n">plotter</span> <span class="o">=</span> <span class="n">Plotter</span><span class="p">(</span><span class="n">off_screen</span><span class="o">=</span><span class="n">off_screen</span><span class="p">,</span> <span class="n">notebook</span><span class="o">=</span><span class="n">notebook</span><span class="p">,</span> <span class="n">theme</span><span class="o">=</span><span class="n">theme</span><span class="p">)</span>
+    <span class="n">pl</span> <span class="o">=</span> <span class="n">Plotter</span><span class="p">(</span><span class="n">off_screen</span><span class="o">=</span><span class="n">off_screen</span><span class="p">,</span> <span class="n">notebook</span><span class="o">=</span><span class="n">notebook</span><span class="p">,</span> <span class="n">theme</span><span class="o">=</span><span class="n">theme</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="n">show_axes</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">show_axes</span> <span class="o">=</span> <span class="n">theme</span><span class="o">.</span><span class="n">axes</span><span class="o">.</span><span class="n">show</span>
+        <span class="n">show_axes</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">theme</span><span class="o">.</span><span class="n">axes</span><span class="o">.</span><span class="n">show</span>
     <span class="k">if</span> <span class="n">show_axes</span><span class="p">:</span>
-        <span class="n">plotter</span><span class="o">.</span><span class="n">add_axes</span><span class="p">()</span>
+        <span class="n">pl</span><span class="o">.</span><span class="n">add_axes</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">anti_aliasing</span><span class="p">:</span>
+        <span class="n">pl</span><span class="o">.</span><span class="n">enable_anti_aliasing</span><span class="p">()</span>
 
-    <span class="n">plotter</span><span class="o">.</span><span class="n">set_background</span><span class="p">(</span><span class="n">background</span><span class="p">)</span>
+    <span class="n">pl</span><span class="o">.</span><span class="n">set_background</span><span class="p">(</span><span class="n">background</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">var_item</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">var_item</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>  <span class="c1"># might be arrows</span>
             <span class="n">isarr_0</span> <span class="o">=</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">var_item</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span>
             <span class="n">isarr_1</span> <span class="o">=</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">var_item</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span>
             <span class="k">if</span> <span class="n">isarr_0</span> <span class="ow">and</span> <span class="n">isarr_1</span><span class="p">:</span>
-                <span class="n">plotter</span><span class="o">.</span><span class="n">add_arrows</span><span class="p">(</span><span class="n">var_item</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">var_item</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+                <span class="n">pl</span><span class="o">.</span><span class="n">add_arrows</span><span class="p">(</span><span class="n">var_item</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">var_item</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">var_item</span><span class="p">:</span>
                     <span class="k">if</span> <span class="n">volume</span> <span class="ow">or</span> <span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="ow">and</span> <span class="n">item</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">3</span><span class="p">):</span>
-                        <span class="n">plotter</span><span class="o">.</span><span class="n">add_volume</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+                        <span class="n">pl</span><span class="o">.</span><span class="n">add_volume</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
                     <span class="k">else</span><span class="p">:</span>
-                        <span class="n">plotter</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+                        <span class="n">pl</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">var_item</span><span class="p">:</span>
                 <span class="k">if</span> <span class="n">volume</span> <span class="ow">or</span> <span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="ow">and</span> <span class="n">item</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">3</span><span class="p">):</span>
-                    <span class="n">plotter</span><span class="o">.</span><span class="n">add_volume</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+                    <span class="n">pl</span><span class="o">.</span><span class="n">add_volume</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
                 <span class="k">else</span><span class="p">:</span>
-                    <span class="n">plotter</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+                    <span class="n">pl</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">volume</span> <span class="ow">or</span> <span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">var_item</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="ow">and</span> <span class="n">var_item</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">3</span><span class="p">):</span>
-            <span class="n">plotter</span><span class="o">.</span><span class="n">add_volume</span><span class="p">(</span><span class="n">var_item</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+            <span class="n">pl</span><span class="o">.</span><span class="n">add_volume</span><span class="p">(</span><span class="n">var_item</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">plotter</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">var_item</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+            <span class="n">pl</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">var_item</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="n">text</span><span class="p">:</span>
-        <span class="n">plotter</span><span class="o">.</span><span class="n">add_text</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
+        <span class="n">pl</span><span class="o">.</span><span class="n">add_text</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="n">show_grid</span><span class="p">:</span>
-        <span class="n">plotter</span><span class="o">.</span><span class="n">show_grid</span><span class="p">()</span>
+        <span class="n">pl</span><span class="o">.</span><span class="n">show_grid</span><span class="p">()</span>
     <span class="k">elif</span> <span class="n">show_bounds</span><span class="p">:</span>
-        <span class="n">plotter</span><span class="o">.</span><span class="n">show_bounds</span><span class="p">()</span>
+        <span class="n">pl</span><span class="o">.</span><span class="n">show_bounds</span><span class="p">()</span>
 
     <span class="k">if</span> <span class="n">cpos</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">cpos</span> <span class="o">=</span> <span class="n">plotter</span><span class="o">.</span><span class="n">get_default_cam_pos</span><span class="p">()</span>
-        <span class="n">plotter</span><span class="o">.</span><span class="n">camera_position</span> <span class="o">=</span> <span class="n">cpos</span>
-        <span class="n">plotter</span><span class="o">.</span><span class="n">camera_set</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="n">cpos</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">get_default_cam_pos</span><span class="p">()</span>
+        <span class="n">pl</span><span class="o">.</span><span class="n">camera_position</span> <span class="o">=</span> <span class="n">cpos</span>
+        <span class="n">pl</span><span class="o">.</span><span class="n">camera_set</span> <span class="o">=</span> <span class="kc">False</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">plotter</span><span class="o">.</span><span class="n">camera_position</span> <span class="o">=</span> <span class="n">cpos</span>
+        <span class="n">pl</span><span class="o">.</span><span class="n">camera_position</span> <span class="o">=</span> <span class="n">cpos</span>
 
     <span class="k">if</span> <span class="n">zoom</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">plotter</span><span class="o">.</span><span class="n">camera</span><span class="o">.</span><span class="n">zoom</span><span class="p">(</span><span class="n">zoom</span><span class="p">)</span>
+        <span class="n">pl</span><span class="o">.</span><span class="n">camera</span><span class="o">.</span><span class="n">zoom</span><span class="p">(</span><span class="n">zoom</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="n">eye_dome_lighting</span><span class="p">:</span>
-        <span class="n">plotter</span><span class="o">.</span><span class="n">enable_eye_dome_lighting</span><span class="p">()</span>
+        <span class="n">pl</span><span class="o">.</span><span class="n">enable_eye_dome_lighting</span><span class="p">()</span>
 
     <span class="k">if</span> <span class="n">parallel_projection</span><span class="p">:</span>
-        <span class="n">plotter</span><span class="o">.</span><span class="n">enable_parallel_projection</span><span class="p">()</span>
+        <span class="n">pl</span><span class="o">.</span><span class="n">enable_parallel_projection</span><span class="p">()</span>
 
-    <span class="k">return</span> <span class="n">plotter</span><span class="o">.</span><span class="n">show</span><span class="p">(</span>
+    <span class="k">return</span> <span class="n">pl</span><span class="o">.</span><span class="n">show</span><span class="p">(</span>
         <span class="n">window_size</span><span class="o">=</span><span class="n">window_size</span><span class="p">,</span>
         <span class="n">auto_close</span><span class="o">=</span><span class="n">auto_close</span><span class="p">,</span>
         <span class="n">interactive</span><span class="o">=</span><span class="n">interactive</span><span class="p">,</span>

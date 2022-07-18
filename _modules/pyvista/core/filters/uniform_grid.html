@@ -623,15 +623,15 @@
             <span class="n">alg</span><span class="o">.</span><span class="n">ThresholdByUpper</span><span class="p">(</span><span class="n">threshold</span><span class="p">)</span>
         <span class="c1"># set the replacement values / modes</span>
         <span class="k">if</span> <span class="n">in_value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">alg</span><span class="o">.</span><span class="n">ReplaceInOn</span><span class="p">()</span>
+            <span class="n">alg</span><span class="o">.</span><span class="n">SetReplaceIn</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
             <span class="n">alg</span><span class="o">.</span><span class="n">SetInValue</span><span class="p">(</span><span class="n">in_value</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">alg</span><span class="o">.</span><span class="n">ReplaceInOff</span><span class="p">()</span>
+            <span class="n">alg</span><span class="o">.</span><span class="n">SetReplaceIn</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">out_value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">alg</span><span class="o">.</span><span class="n">ReplaceOutOn</span><span class="p">()</span>
+            <span class="n">alg</span><span class="o">.</span><span class="n">SetReplaceOut</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
             <span class="n">alg</span><span class="o">.</span><span class="n">SetOutValue</span><span class="p">(</span><span class="n">out_value</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">alg</span><span class="o">.</span><span class="n">ReplaceOutOff</span><span class="p">()</span>
+            <span class="n">alg</span><span class="o">.</span><span class="n">SetReplaceOut</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
         <span class="c1"># run the algorithm</span>
         <span class="n">_update_alg</span><span class="p">(</span><span class="n">alg</span><span class="p">,</span> <span class="n">progress_bar</span><span class="p">,</span> <span class="s1">&#39;Performing Image Thresholding&#39;</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">_get_output</span><span class="p">(</span><span class="n">alg</span><span class="p">)</span></div>

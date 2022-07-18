@@ -272,8 +272,7 @@
         <span class="n">alg</span><span class="o">.</span><span class="n">SetValue</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
         <span class="n">alg</span><span class="o">.</span><span class="n">SetClipFunction</span><span class="p">(</span><span class="n">function</span><span class="p">)</span>  <span class="c1"># the implicit function</span>
         <span class="n">alg</span><span class="o">.</span><span class="n">SetInsideOut</span><span class="p">(</span><span class="n">invert</span><span class="p">)</span>  <span class="c1"># invert the clip if needed</span>
-        <span class="k">if</span> <span class="n">return_clipped</span><span class="p">:</span>
-            <span class="n">alg</span><span class="o">.</span><span class="n">GenerateClippedOutputOn</span><span class="p">()</span>
+        <span class="n">alg</span><span class="o">.</span><span class="n">SetGenerateClippedOutput</span><span class="p">(</span><span class="n">return_clipped</span><span class="p">)</span>
         <span class="n">_update_alg</span><span class="p">(</span><span class="n">alg</span><span class="p">,</span> <span class="n">progress_bar</span><span class="p">,</span> <span class="s1">&#39;Clipping with Function&#39;</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="n">return_clipped</span><span class="p">:</span>
@@ -2035,7 +2034,7 @@
 <span class="sd">        &gt;&gt;&gt; from pyvista import examples</span>
 <span class="sd">        &gt;&gt;&gt; surf = examples.load_airplane()</span>
 <span class="sd">        &gt;&gt;&gt; surf = surf.compute_cell_sizes(length=False, volume=False)</span>
-<span class="sd">        &gt;&gt;&gt; surf.plot(show_edges=True)</span>
+<span class="sd">        &gt;&gt;&gt; surf.plot(show_edges=True, scalars=&#39;Area&#39;)</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">alg</span> <span class="o">=</span> <span class="n">_vtk</span><span class="o">.</span><span class="n">vtkCellSizeFilter</span><span class="p">()</span>
@@ -2647,7 +2646,7 @@
 <span class="sd">        &gt;&gt;&gt; from pyvista import examples</span>
 <span class="sd">        &gt;&gt;&gt; surf = examples.load_airplane()</span>
 <span class="sd">        &gt;&gt;&gt; surf = surf.compute_cell_sizes(length=False, volume=False)</span>
-<span class="sd">        &gt;&gt;&gt; surf.plot(smooth_shading=True)</span>
+<span class="sd">        &gt;&gt;&gt; surf.plot(scalars=&#39;Area&#39;)</span>
 
 <span class="sd">        These cell scalars can be applied to individual points to</span>
 <span class="sd">        effectively smooth out the cell data onto the points.</span>
@@ -2656,7 +2655,7 @@
 <span class="sd">        &gt;&gt;&gt; surf = examples.load_airplane()</span>
 <span class="sd">        &gt;&gt;&gt; surf = surf.compute_cell_sizes(length=False, volume=False)</span>
 <span class="sd">        &gt;&gt;&gt; surf = surf.cell_data_to_point_data()</span>
-<span class="sd">        &gt;&gt;&gt; surf.plot(smooth_shading=True)</span>
+<span class="sd">        &gt;&gt;&gt; surf.plot(scalars=&#39;Area&#39;)</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">alg</span> <span class="o">=</span> <span class="n">_vtk</span><span class="o">.</span><span class="n">vtkCellDataToPointData</span><span class="p">()</span>

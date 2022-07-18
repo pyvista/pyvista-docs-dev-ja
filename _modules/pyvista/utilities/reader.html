@@ -1030,10 +1030,7 @@
 
     <span class="nd">@decompose_polyhedra</span><span class="o">.</span><span class="n">setter</span>
     <span class="k">def</span> <span class="nf">decompose_polyhedra</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">value</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">reader</span><span class="o">.</span><span class="n">DecomposePolyhedraOn</span><span class="p">()</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">reader</span><span class="o">.</span><span class="n">DecomposePolyhedraOff</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">reader</span><span class="o">.</span><span class="n">SetDecomposePolyhedra</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">skip_zero_time</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -1059,11 +1056,7 @@
 
     <span class="nd">@skip_zero_time</span><span class="o">.</span><span class="n">setter</span>
     <span class="k">def</span> <span class="nf">skip_zero_time</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">value</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">reader</span><span class="o">.</span><span class="n">SkipZeroTimeOn</span><span class="p">()</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">reader</span><span class="o">.</span><span class="n">SkipZeroTimeOff</span><span class="p">()</span>
-
+        <span class="bp">self</span><span class="o">.</span><span class="n">reader</span><span class="o">.</span><span class="n">SetSkipZeroTime</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_update_information</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">reader</span><span class="o">.</span><span class="n">SetRefresh</span><span class="p">()</span>
 
@@ -1096,10 +1089,7 @@
 
     <span class="nd">@cell_to_point_creation</span><span class="o">.</span><span class="n">setter</span>
     <span class="k">def</span> <span class="nf">cell_to_point_creation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">value</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">reader</span><span class="o">.</span><span class="n">CreateCellToPointOn</span><span class="p">()</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">reader</span><span class="o">.</span><span class="n">CreateCellToPointOff</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">reader</span><span class="o">.</span><span class="n">SetCreateCellToPoint</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">number_patch_arrays</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>

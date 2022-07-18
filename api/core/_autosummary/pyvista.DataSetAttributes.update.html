@@ -472,18 +472,18 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="pyvista.DataSetAttributes.update">
 <span class="sig-prename descclassname"><span class="pre">DataSetAttributes.</span></span><span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">array_dict</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/dev/library/typing.html#typing.Union" title="(in Python v3.12)"><span class="pre">Union</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/dev/library/typing.html#typing.Dict" title="(in Python v3.12)"><span class="pre">Dict</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/dev/library/stdtypes.html#str" title="(in Python v3.12)"><span class="pre">str</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.23)"><span class="pre">numpy.ndarray</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="pyvista.DataSetAttributes.html#pyvista.DataSetAttributes" title="pyvista.core.datasetattributes.DataSetAttributes"><span class="pre">pyvista.core.datasetattributes.DataSetAttributes</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../_modules/pyvista/core/datasetattributes.html#DataSetAttributes.update"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.DataSetAttributes.update" title="この定義へのパーマリンク">#</a></dt>
-<dd><p>このオブジェクトの配列を更新します．</p>
-<p>与えられたキー，値それぞれについて，ペアを追加します．すでに存在する場合は，更新します．</p>
+<dd><p>他の辞書やデータセットの属性から，このオブジェクトの配列を更新します．</p>
+<p>与えられたキー，値それぞれについて，そのペアを追加します．すでに存在する場合は，新しい配列に置き換えます．これらの配列はコピーされます．</p>
 <dl class="field-list">
 <dt class="field-odd">パラメータ</dt>
 <dd class="field-odd"><dl>
-<dt><strong>array_dict</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/dev/library/stdtypes.html#dict" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">dict</span></code></a></span></dt><dd><p>(配列名, numpy.ndarray)`` の辞書．</p>
+<dt><strong>array_dict</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/dev/library/stdtypes.html#dict" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">dict</span></code></a>, <a class="reference internal" href="pyvista.DataSetAttributes.html#pyvista.DataSetAttributes" title="pyvista.DataSetAttributes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSetAttributes</span></code></a></span></dt><dd><p><code class="docutils literal notranslate"><span class="pre">(array</span> <span class="pre">name,</span> <span class="pre">:class:`numpy.ndarray`)</span></code> や <a class="reference internal" href="pyvista.DataSetAttributes.html#pyvista.DataSetAttributes" title="pyvista.DataSetAttributes"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.DataSetAttributes</span></code></a> の辞書．</p>
 </dd>
 </dl>
 </dd>
 </dl>
 <p class="rubric">例</p>
-<p><code class="docutils literal notranslate"><span class="pre">update</span></code> を使用して，2 つの配列を追加します．</p>
+<p><code class="docutils literal notranslate"><span class="pre">update</span></code> を使用して，2 つの配列を <code class="docutils literal notranslate"><span class="pre">point_data</span></code> に追加します．</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pyvista</span> <span class="kn">import</span> <span class="n">examples</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mesh</span> <span class="o">=</span> <span class="n">examples</span><span class="o">.</span><span class="n">load_uniform</span><span class="p">()</span>

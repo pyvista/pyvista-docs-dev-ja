@@ -318,6 +318,11 @@
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#docstrings">
+       Docstrings
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
       <a class="reference internal nav-link" href="#branch-naming-conventions">
        ブランチの命名規則
       </a>
@@ -472,6 +477,15 @@ python -m pip install -e .
 </pre></div>
 </div>
 <p>PyVistaは <a class="reference external" href="https://pre-commit.com/">pre-commit</a> を使用して，PEP8やその他のスタイルを自動的に強制します．詳しくは <a class="reference external" href="#style-checking">スタイルチェックのセクション</a> を参照してください．</p>
+</section>
+<section id="docstrings">
+<h4>Docstrings<a class="headerlink" href="#docstrings" title="このヘッドラインへのパーマリンク">#</a></h4>
+<p>PyVistaでは，Python docstringsを使用して，Python APIのリファレンスドキュメントを作成しています．Docstringsは，開発者や対話型のPythonユーザー，そしてオンラインドキュメントの読者に読まれます．このページでは，PyVista用のdocstringの書き方について説明します．</p>
+<ul class="simple">
+<li><p>PyVistaはdocstringのスタイルとして <code class="docutils literal notranslate"><span class="pre">numpydoc</span></code> に従っています． <a class="reference external" href="https://numpydoc.readthedocs.io/en/latest/format.html">numpydoc Style Guide</a> に従ってください．</p></li>
+<li><p>すべてのパブリックメソッドの <code class="docutils literal notranslate"><span class="pre">Parameters</span></code> と <code class="docutils literal notranslate"><span class="pre">Returns</span></code> を必ず記述してください．</p></li>
+<li><p>Exampleのセクションを追加することを強くお勧めします．PyVistaは，ジュアルなライブラリなので，プロットを示す例を追加することは，ユーザーが個々のメソッドが何を行うかを理解するのにとても役立ちます．</p></li>
+</ul>
 </section>
 <section id="branch-naming-conventions">
 <h4>ブランチの命名規則<a class="headerlink" href="#branch-naming-conventions" title="このヘッドラインへのパーマリンク">#</a></h4>

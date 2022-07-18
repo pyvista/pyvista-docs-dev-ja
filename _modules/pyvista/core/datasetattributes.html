@@ -1301,19 +1301,20 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="n">array_name</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="DataSetAttributes.update"><a class="viewcode-back" href="../../../api/core/_autosummary/pyvista.DataSetAttributes.update.html#pyvista.DataSetAttributes.update">[ドキュメント]</a>    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">array_dict</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">],</span> <span class="s1">&#39;DataSetAttributes&#39;</span><span class="p">]):</span>
-        <span class="sd">&quot;&quot;&quot;Update arrays in this object.</span>
+        <span class="sd">&quot;&quot;&quot;Update arrays in this object from another dictionary or dataset attributes.</span>
 
-<span class="sd">        For each key, value given, add the pair. If it already exists,</span>
-<span class="sd">        update it.</span>
+<span class="sd">        For each key, value given, add the pair. If it already exists, replace</span>
+<span class="sd">        it with the new array. These arrays will be copied.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        array_dict : dict</span>
-<span class="sd">            A dictionary of ``(array name, numpy.ndarray)``.</span>
+<span class="sd">        array_dict : dict, DataSetAttributes</span>
+<span class="sd">            A dictionary of ``(array name, :class:`numpy.ndarray`)`` or a</span>
+<span class="sd">            :class:`pyvista.DataSetAttributes`.</span>
 
 <span class="sd">        Examples</span>
 <span class="sd">        --------</span>
-<span class="sd">        Add two arrays using ``update``.</span>
+<span class="sd">        Add two arrays to ``point_data`` using ``update``.</span>
 
 <span class="sd">        &gt;&gt;&gt; import numpy as np</span>
 <span class="sd">        &gt;&gt;&gt; from pyvista import examples</span>

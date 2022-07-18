@@ -1,4 +1,4 @@
-# Add two arrays using ``update``.
+# Add two arrays to ``point_data`` using ``update``.
 #
 import numpy as np
 from pyvista import examples

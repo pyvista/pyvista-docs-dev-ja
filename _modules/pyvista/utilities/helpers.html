@@ -590,6 +590,14 @@
             <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Data array (</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1">) not present in this dataset.&#39;</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">arr</span>
 
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">preference</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;`preference` must be a string&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">preference</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;cell&#39;</span><span class="p">,</span> <span class="s1">&#39;point&#39;</span><span class="p">,</span> <span class="s1">&#39;field&#39;</span><span class="p">]:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s1">&#39;`preference` must be either &quot;cell&quot;, &quot;point&quot;, &quot;field&quot; for a &#39;</span>
+            <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">mesh</span><span class="p">)</span><span class="si">}</span><span class="s1">, not &quot;</span><span class="si">{</span><span class="n">preference</span><span class="si">}</span><span class="s1">&quot;.&#39;</span>
+        <span class="p">)</span>
+
     <span class="n">parr</span> <span class="o">=</span> <span class="n">point_array</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
     <span class="n">carr</span> <span class="o">=</span> <span class="n">cell_array</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
     <span class="n">farr</span> <span class="o">=</span> <span class="n">field_array</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
@@ -599,10 +607,8 @@
             <span class="k">return</span> <span class="n">carr</span>
         <span class="k">elif</span> <span class="n">preference</span> <span class="o">==</span> <span class="n">FieldAssociation</span><span class="o">.</span><span class="n">POINT</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">parr</span>
-        <span class="k">elif</span> <span class="n">preference</span> <span class="o">==</span> <span class="n">FieldAssociation</span><span class="o">.</span><span class="n">NONE</span><span class="p">:</span>
+        <span class="k">else</span><span class="p">:</span>  <span class="c1"># must be field</span>
             <span class="k">return</span> <span class="n">farr</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Data field (</span><span class="si">{</span><span class="n">preference</span><span class="si">}</span><span class="s1">) not supported.&#39;</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="n">parr</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">parr</span>

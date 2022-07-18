@@ -240,10 +240,12 @@
 <span class="kn">import</span> <span class="nn">pyvista</span>
 <span class="kn">from</span> <span class="nn">pyvista</span> <span class="kn">import</span> <span class="n">_vtk</span>
 <span class="kn">from</span> <span class="nn">pyvista.utilities</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">FieldAssociation</span><span class="p">,</span>
     <span class="n">abstract_class</span><span class="p">,</span>
     <span class="n">assert_empty_kwargs</span><span class="p">,</span>
     <span class="n">convert_array</span><span class="p">,</span>
     <span class="n">get_array</span><span class="p">,</span>
+    <span class="n">get_array_association</span><span class="p">,</span>
     <span class="n">is_pyvista_dataset</span><span class="p">,</span>
     <span class="n">numpy_to_texture</span><span class="p">,</span>
     <span class="n">raise_not_matching</span><span class="p">,</span>
@@ -490,8 +492,6 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">last_image_depth</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">last_image</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_has_background_layer</span> <span class="o">=</span> <span class="kc">False</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_added_scalars</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_prev_active_scalars</span> <span class="o">=</span> <span class="p">{}</span>
 
         <span class="c1"># set hidden line removal based on theme</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">theme</span><span class="o">.</span><span class="n">hidden_line_removal</span><span class="p">:</span>
@@ -1528,7 +1528,45 @@
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">camera_position</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Return camera position of the active render window.&quot;&quot;&quot;</span>
+        <span class="sd">&quot;&quot;&quot;Return camera position of the active render window.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        Return camera&#39;s position and then reposition it via a list of tuples.</span>
+
+<span class="sd">        &gt;&gt;&gt; import pyvista as pv</span>
+<span class="sd">        &gt;&gt;&gt; from pyvista import examples</span>
+<span class="sd">        &gt;&gt;&gt; mesh = examples.download_bunny_coarse()</span>
+<span class="sd">        &gt;&gt;&gt; pl = pv.Plotter()</span>
+<span class="sd">        &gt;&gt;&gt; _ = pl.add_mesh(mesh, show_edges=True)</span>
+<span class="sd">        &gt;&gt;&gt; pl.camera_position</span>
+<span class="sd">        [(0.02430, 0.0336, 0.9446),</span>
+<span class="sd">         (0.02430, 0.0336, -0.02225),</span>
+<span class="sd">         (0.0, 1.0, 0.0)]</span>
+<span class="sd">        &gt;&gt;&gt; pl.camera_position = [</span>
+<span class="sd">        ...     (0.3914, 0.4542, 0.7670),</span>
+<span class="sd">        ...     (0.0243, 0.0336, -0.0222),</span>
+<span class="sd">        ...     (-0.2148, 0.8998, -0.3796),</span>
+<span class="sd">        ... ]</span>
+<span class="sd">        &gt;&gt;&gt; pl.show()</span>
+
+<span class="sd">        Set the camera position using a string and look at the ``&#39;xy&#39;`` plane.</span>
+
+<span class="sd">        &gt;&gt;&gt; pl = pv.Plotter()</span>
+<span class="sd">        &gt;&gt;&gt; _ = pl.add_mesh(mesh, show_edges=True)</span>
+<span class="sd">        &gt;&gt;&gt; pl.camera_position = &#39;xy&#39;</span>
+<span class="sd">        &gt;&gt;&gt; pl.show()</span>
+
+<span class="sd">        Set the camera position using a string and look at the ``&#39;zy&#39;`` plane.</span>
+
+<span class="sd">        &gt;&gt;&gt; pl = pv.Plotter()</span>
+<span class="sd">        &gt;&gt;&gt; _ = pl.add_mesh(mesh, show_edges=True)</span>
+<span class="sd">        &gt;&gt;&gt; pl.camera_position = &#39;zy&#39;</span>
+<span class="sd">        &gt;&gt;&gt; pl.show()</span>
+
+<span class="sd">        For more examples, see :ref:`cameras_api`.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">renderer</span><span class="o">.</span><span class="n">camera_position</span>
 
     <span class="nd">@camera_position</span><span class="o">.</span><span class="n">setter</span>
@@ -1538,7 +1576,21 @@
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">background_color</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Return the background color of the active render window.&quot;&quot;&quot;</span>
+        <span class="sd">&quot;&quot;&quot;Return the background color of the active render window.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        Set the background color to ``&quot;pink&quot;`` and plot it.</span>
+
+<span class="sd">        &gt;&gt;&gt; import pyvista as pv</span>
+<span class="sd">        &gt;&gt;&gt; pl = pv.Plotter()</span>
+<span class="sd">        &gt;&gt;&gt; _ = pl.add_mesh(pv.Cube(), show_edges=True)</span>
+<span class="sd">        &gt;&gt;&gt; pl.background_color = &quot;pink&quot;</span>
+<span class="sd">        &gt;&gt;&gt; pl.background_color</span>
+<span class="sd">        Color(name=&#39;pink&#39;, hex=&#39;#ffc0cbff&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; pl.show()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">renderers</span><span class="o">.</span><span class="n">active_renderer</span><span class="o">.</span><span class="n">background_color</span>
 
     <span class="nd">@background_color</span><span class="o">.</span><span class="n">setter</span>
@@ -2150,7 +2202,7 @@
 <span class="sd">            updated.  If an actor of this name already exists in the</span>
 <span class="sd">            rendering window, it will be replaced by the new actor.</span>
 
-<span class="sd">        texture : vtk.vtkTexture or np.ndarray or bool, optional</span>
+<span class="sd">        texture : vtk.vtkTexture or np.ndarray or bool or str, optional</span>
 <span class="sd">            A texture to apply if the input mesh has texture</span>
 <span class="sd">            coordinates.  This will not work with MultiBlock</span>
 <span class="sd">            datasets. If set to ``True``, the first available texture</span>
@@ -2360,10 +2412,13 @@
                 <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
                     <span class="sa">f</span><span class="s1">&#39;Object type (</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">mesh</span><span class="p">)</span><span class="si">}</span><span class="s1">) not supported for plotting in PyVista.&#39;</span>
                 <span class="p">)</span>
-
-        <span class="c1"># cast to PointSet to PolyData</span>
-        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">PointSet</span><span class="p">):</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">PointSet</span><span class="p">):</span>
+            <span class="c1"># cast to PointSet to PolyData</span>
             <span class="n">mesh</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">cast_to_polydata</span><span class="p">(</span><span class="n">deep</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># A shallow copy of `mesh` is here so when we set (or add) scalars</span>
+            <span class="c1"># active, it doesn&#39;t modify the original input mesh.</span>
+            <span class="n">mesh</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">deep</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
         <span class="c1">##### Parse arguments to be used for all meshes #####</span>
 
@@ -2544,6 +2599,17 @@
             <span class="n">scalar_bar_args</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">,</span> <span class="n">original_scalar_name</span><span class="p">)</span>
             <span class="n">scalars_name</span> <span class="o">=</span> <span class="n">original_scalar_name</span>
 
+            <span class="c1"># Set the active scalars name here. If the name already exists in</span>
+            <span class="c1"># the input mesh, it may not be set as the active scalars within</span>
+            <span class="c1"># the mapper. This should be refactored by 0.36.0</span>
+            <span class="n">field</span> <span class="o">=</span> <span class="n">get_array_association</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">original_scalar_name</span><span class="p">,</span> <span class="n">preference</span><span class="o">=</span><span class="n">preference</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">field</span> <span class="o">==</span> <span class="n">FieldAssociation</span><span class="o">.</span><span class="n">POINT</span><span class="p">:</span>
+                <span class="n">mesh</span><span class="o">.</span><span class="n">point_data</span><span class="o">.</span><span class="n">active_scalars_name</span> <span class="o">=</span> <span class="n">original_scalar_name</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">mapper</span><span class="o">.</span><span class="n">SetScalarModeToUsePointData</span><span class="p">()</span>
+            <span class="k">elif</span> <span class="n">field</span> <span class="o">==</span> <span class="n">FieldAssociation</span><span class="o">.</span><span class="n">CELL</span><span class="p">:</span>
+                <span class="n">mesh</span><span class="o">.</span><span class="n">cell_data</span><span class="o">.</span><span class="n">active_scalars_name</span> <span class="o">=</span> <span class="n">original_scalar_name</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">mapper</span><span class="o">.</span><span class="n">SetScalarModeToUseCellData</span><span class="p">()</span>
+
         <span class="c1"># Compute surface normals if using smooth shading</span>
         <span class="k">if</span> <span class="n">smooth_shading</span><span class="p">:</span>
             <span class="n">mesh</span><span class="p">,</span> <span class="n">scalars</span> <span class="o">=</span> <span class="n">prepare_smooth_shading</span><span class="p">(</span>
@@ -2595,17 +2661,8 @@
         <span class="p">)</span>
 
         <span class="c1"># Scalars formatting ==================================================</span>
-        <span class="n">added_scalar_info</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="k">if</span> <span class="n">scalars</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="c1"># track the previous active scalars</span>
-            <span class="k">if</span> <span class="n">mesh</span><span class="o">.</span><span class="n">memory_address</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_prev_active_scalars</span><span class="p">:</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">_prev_active_scalars</span><span class="p">[</span><span class="n">mesh</span><span class="o">.</span><span class="n">memory_address</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
-                    <span class="n">mesh</span><span class="p">,</span>
-                    <span class="n">mesh</span><span class="o">.</span><span class="n">point_data</span><span class="o">.</span><span class="n">active_scalars_name</span><span class="p">,</span>
-                    <span class="n">mesh</span><span class="o">.</span><span class="n">cell_data</span><span class="o">.</span><span class="n">active_scalars_name</span><span class="p">,</span>
-                <span class="p">)</span>
-
-            <span class="n">show_scalar_bar</span><span class="p">,</span> <span class="n">n_colors</span><span class="p">,</span> <span class="n">clim</span><span class="p">,</span> <span class="n">added_scalar_info</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mapper</span><span class="o">.</span><span class="n">set_scalars</span><span class="p">(</span>
+            <span class="n">show_scalar_bar</span><span class="p">,</span> <span class="n">n_colors</span><span class="p">,</span> <span class="n">clim</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mapper</span><span class="o">.</span><span class="n">set_scalars</span><span class="p">(</span>
                 <span class="n">mesh</span><span class="p">,</span>
                 <span class="n">scalars</span><span class="p">,</span>
                 <span class="n">scalars_name</span><span class="p">,</span>
@@ -2630,7 +2687,7 @@
                 <span class="n">show_scalar_bar</span><span class="p">,</span>
             <span class="p">)</span>
         <span class="k">elif</span> <span class="n">custom_opac</span><span class="p">:</span>  <span class="c1"># no scalars but custom opacity</span>
-            <span class="n">added_scalar_info</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mapper</span><span class="o">.</span><span class="n">set_custom_opacity</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">mapper</span><span class="o">.</span><span class="n">set_custom_opacity</span><span class="p">(</span>
                 <span class="n">opacity</span><span class="p">,</span>
                 <span class="n">color</span><span class="p">,</span>
                 <span class="n">mesh</span><span class="p">,</span>
@@ -2642,10 +2699,6 @@
             <span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">mapper</span><span class="o">.</span><span class="n">SetScalarModeToUseFieldData</span><span class="p">()</span>
-
-        <span class="c1"># track if any data arrays have been added</span>
-        <span class="k">if</span> <span class="n">added_scalar_info</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">added_scalar_info</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_added_scalars</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">mesh</span><span class="p">,</span> <span class="n">added_scalar_info</span><span class="p">))</span>
 
         <span class="c1"># Set actor properties ================================================</span>
 
@@ -3072,7 +3125,6 @@
 
         <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">issubdtype</span><span class="p">(</span><span class="n">scalars</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">number</span><span class="p">):</span>
             <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;Non-numeric scalars are currently not supported for volume rendering.&#39;</span><span class="p">)</span>
-
         <span class="k">if</span> <span class="n">scalars</span><span class="o">.</span><span class="n">ndim</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
             <span class="n">scalars</span> <span class="o">=</span> <span class="n">scalars</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
 
@@ -3357,6 +3409,58 @@
 <span class="sd">            index or if ``views`` is a tuple or a list, link the given</span>
 <span class="sd">            views cameras.</span>
 
+<span class="sd">        Examples</span>
+<span class="sd">        ---------</span>
+<span class="sd">        Not linked view case.</span>
+
+<span class="sd">        &gt;&gt;&gt; import pyvista</span>
+<span class="sd">        &gt;&gt;&gt; from pyvista import demos</span>
+<span class="sd">        &gt;&gt;&gt; ocube = demos.orientation_cube()</span>
+<span class="sd">        &gt;&gt;&gt; pl = pyvista.Plotter(shape=(1, 2))</span>
+<span class="sd">        &gt;&gt;&gt; pl.subplot(0, 0)</span>
+<span class="sd">        &gt;&gt;&gt; _ = pl.add_mesh(ocube[&#39;cube&#39;], show_edges=True)</span>
+<span class="sd">        &gt;&gt;&gt; _ = pl.add_mesh(ocube[&#39;x_p&#39;], color=&#39;blue&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; _ = pl.add_mesh(ocube[&#39;x_n&#39;], color=&#39;blue&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; _ = pl.add_mesh(ocube[&#39;y_p&#39;], color=&#39;green&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; _ = pl.add_mesh(ocube[&#39;y_n&#39;], color=&#39;green&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; _ = pl.add_mesh(ocube[&#39;z_p&#39;], color=&#39;red&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; _ = pl.add_mesh(ocube[&#39;z_n&#39;], color=&#39;red&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; pl.camera_position = &#39;yz&#39;</span>
+<span class="sd">        &gt;&gt;&gt; pl.subplot(0, 1)</span>
+<span class="sd">        &gt;&gt;&gt; _ = pl.add_mesh(ocube[&#39;cube&#39;], show_edges=True)</span>
+<span class="sd">        &gt;&gt;&gt; _ = pl.add_mesh(ocube[&#39;x_p&#39;], color=&#39;blue&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; _ = pl.add_mesh(ocube[&#39;x_n&#39;], color=&#39;blue&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; _ = pl.add_mesh(ocube[&#39;y_p&#39;], color=&#39;green&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; _ = pl.add_mesh(ocube[&#39;y_n&#39;], color=&#39;green&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; _ = pl.add_mesh(ocube[&#39;z_p&#39;], color=&#39;red&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; _ = pl.add_mesh(ocube[&#39;z_n&#39;], color=&#39;red&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; pl.show_axes()</span>
+<span class="sd">        &gt;&gt;&gt; pl.show()</span>
+
+<span class="sd">        Linked view case.</span>
+
+
+<span class="sd">        &gt;&gt;&gt; pl = pyvista.Plotter(shape=(1, 2))</span>
+<span class="sd">        &gt;&gt;&gt; pl.subplot(0, 0)</span>
+<span class="sd">        &gt;&gt;&gt; _ = pl.add_mesh(ocube[&#39;cube&#39;], show_edges=True)</span>
+<span class="sd">        &gt;&gt;&gt; _ = pl.add_mesh(ocube[&#39;x_p&#39;], color=&#39;blue&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; _ = pl.add_mesh(ocube[&#39;x_n&#39;], color=&#39;blue&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; _ = pl.add_mesh(ocube[&#39;y_p&#39;], color=&#39;green&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; _ = pl.add_mesh(ocube[&#39;y_n&#39;], color=&#39;green&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; _ = pl.add_mesh(ocube[&#39;z_p&#39;], color=&#39;red&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; _ = pl.add_mesh(ocube[&#39;z_n&#39;], color=&#39;red&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; pl.camera_position = &#39;yz&#39;</span>
+<span class="sd">        &gt;&gt;&gt; pl.subplot(0, 1)</span>
+<span class="sd">        &gt;&gt;&gt; _ = pl.add_mesh(ocube[&#39;cube&#39;], show_edges=True)</span>
+<span class="sd">        &gt;&gt;&gt; _ = pl.add_mesh(ocube[&#39;x_p&#39;], color=&#39;blue&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; _ = pl.add_mesh(ocube[&#39;x_n&#39;], color=&#39;blue&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; _ = pl.add_mesh(ocube[&#39;y_p&#39;], color=&#39;green&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; _ = pl.add_mesh(ocube[&#39;y_n&#39;], color=&#39;green&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; _ = pl.add_mesh(ocube[&#39;z_p&#39;], color=&#39;red&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; _ = pl.add_mesh(ocube[&#39;z_n&#39;], color=&#39;red&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; pl.show_axes()</span>
+<span class="sd">        &gt;&gt;&gt; pl.link_views()</span>
+<span class="sd">        &gt;&gt;&gt; pl.show()</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">views</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">integer</span><span class="p">)):</span>
             <span class="k">for</span> <span class="n">renderer</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">renderers</span><span class="p">:</span>
@@ -3575,9 +3679,6 @@
 
         <span class="c1"># this helps managing closed plotters</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_closed</span> <span class="o">=</span> <span class="kc">True</span>
-
-        <span class="c1"># remove any added scalars</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_remove_added_scalars</span><span class="p">()</span>
 
     <span class="k">def</span> <span class="nf">deep_clean</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Clean the plotter of the memory.&quot;&quot;&quot;</span>
@@ -4792,20 +4893,20 @@
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        filename : str</span>
-<span class="sd">            Filename to export the scene to.  Should end in ``&#39;.obj&#39;``.</span>
+<span class="sd">            Filename to export the scene to.  Must end in ``&#39;.obj&#39;``.</span>
 
-<span class="sd">        Returns</span>
-<span class="sd">        -------</span>
-<span class="sd">        vtkOBJExporter</span>
-<span class="sd">            Object exporter.</span>
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        Export the scene to &quot;scene.obj&quot;</span>
+
+<span class="sd">        &gt;&gt;&gt; import pyvista as pv</span>
+<span class="sd">        &gt;&gt;&gt; pl = pv.Plotter()</span>
+<span class="sd">        &gt;&gt;&gt; _ = pl.add_mesh(pv.Sphere())</span>
+<span class="sd">        &gt;&gt;&gt; pl.export_obj(&#39;scene.obj&#39;)  # doctest:+SKIP</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="c1"># lazy import vtkOBJExporter here as it takes a long time to</span>
-        <span class="c1"># load and is not always used</span>
-        <span class="k">try</span><span class="p">:</span>
-            <span class="kn">from</span> <span class="nn">vtkmodules.vtkIOExport</span> <span class="kn">import</span> <span class="n">vtkOBJExporter</span>
-        <span class="k">except</span><span class="p">:</span>  <span class="c1"># noqa: E722</span>
-            <span class="kn">from</span> <span class="nn">vtk</span> <span class="kn">import</span> <span class="n">vtkOBJExporter</span>
+        <span class="k">if</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">vtk_version_info</span> <span class="o">&lt;=</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">core</span><span class="o">.</span><span class="n">errors</span><span class="o">.</span><span class="n">VTKVersionError</span><span class="p">()</span>
 
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;ren_win&quot;</span><span class="p">):</span>
             <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;This plotter must still have a render window open.&quot;</span><span class="p">)</span>
@@ -4813,10 +4914,15 @@
             <span class="n">filename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">pyvista</span><span class="o">.</span><span class="n">FIGURE_PATH</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">filename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="n">filename</span><span class="p">))</span>
-        <span class="n">exporter</span> <span class="o">=</span> <span class="n">vtkOBJExporter</span><span class="p">()</span>
-        <span class="n">exporter</span><span class="o">.</span><span class="n">SetFilePrefix</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">filename</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;.obj&#39;</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;`filename` must end with &quot;.obj&quot;&#39;</span><span class="p">)</span>
+
+        <span class="n">exporter</span> <span class="o">=</span> <span class="n">_vtk</span><span class="o">.</span><span class="n">lazy_vtkOBJExporter</span><span class="p">()</span>
+        <span class="c1"># remove the extension as VTK always adds it in</span>
+        <span class="n">exporter</span><span class="o">.</span><span class="n">SetFilePrefix</span><span class="p">(</span><span class="n">filename</span><span class="p">[:</span><span class="o">-</span><span class="mi">4</span><span class="p">])</span>
         <span class="n">exporter</span><span class="o">.</span><span class="n">SetRenderWindow</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ren_win</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">exporter</span><span class="o">.</span><span class="n">Write</span><span class="p">()</span>
+        <span class="n">exporter</span><span class="o">.</span><span class="n">Write</span><span class="p">()</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">_datasets</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -4831,41 +4937,6 @@
                     <span class="n">datasets</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">mapper</span><span class="o">.</span><span class="n">GetInputAsDataSet</span><span class="p">())</span>
 
         <span class="k">return</span> <span class="n">datasets</span>
-
-    <span class="k">def</span> <span class="nf">_remove_added_scalars</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Remove any scalars added to this plotter&#39;s datasets by this plotter.</span>
-
-<span class="sd">        Additional point or cell data may be added to be able to correctly plot</span>
-<span class="sd">        scalars. This usually occurs in one of the following cases:</span>
-
-<span class="sd">        * ``&lt;scalar-name&gt;-real`` for complex data</span>
-<span class="sd">        * ``&lt;scalar-name&gt;-normed`` for normalized multi-component arrays.</span>
-<span class="sd">        * ``&lt;scalars-name&gt;-&lt;index&gt;`` when setting ``component=&lt;index&gt;`` in</span>
-<span class="sd">          ``add_mesh`` when plotting multi-component arrays.</span>
-<span class="sd">        * ``Data`` when passing an array as ``scalars`` with ``add_mesh`` rather than</span>
-<span class="sd">          selecting an existing array using a string.</span>
-<span class="sd">        * ``__custom_rgba`` when the color mode is set to map directly to the</span>
-<span class="sd">          scalars (an RGBA array).</span>
-
-<span class="sd">        This method removes those arrays, which are tracked in</span>
-<span class="sd">        ``self._added_scalars``. It also tries to restore the original scalars</span>
-<span class="sd">        as active scalars.</span>
-
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="c1"># remove the added scalars</span>
-        <span class="k">for</span> <span class="n">mesh</span><span class="p">,</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">assoc</span><span class="p">)</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_added_scalars</span><span class="p">:</span>
-            <span class="n">dsattr</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">point_data</span> <span class="k">if</span> <span class="n">assoc</span> <span class="o">==</span> <span class="s1">&#39;point&#39;</span> <span class="k">else</span> <span class="n">mesh</span><span class="o">.</span><span class="n">cell_data</span>
-            <span class="n">dsattr</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
-
-        <span class="c1"># reactivate prior active scalars</span>
-        <span class="k">for</span> <span class="n">mesh</span><span class="p">,</span> <span class="n">point_name</span><span class="p">,</span> <span class="n">cell_name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_prev_active_scalars</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
-            <span class="k">if</span> <span class="n">point_name</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">mesh</span><span class="o">.</span><span class="n">point_data</span><span class="o">.</span><span class="n">active_scalars_name</span> <span class="o">!=</span> <span class="n">point_name</span><span class="p">:</span>
-                <span class="n">mesh</span><span class="o">.</span><span class="n">point_data</span><span class="o">.</span><span class="n">active_scalars_name</span> <span class="o">=</span> <span class="n">point_name</span>
-            <span class="k">if</span> <span class="n">cell_name</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">mesh</span><span class="o">.</span><span class="n">cell_data</span><span class="o">.</span><span class="n">active_scalars_name</span> <span class="o">!=</span> <span class="n">cell_name</span><span class="p">:</span>
-                <span class="n">mesh</span><span class="o">.</span><span class="n">cell_data</span><span class="o">.</span><span class="n">active_scalars_name</span> <span class="o">=</span> <span class="n">cell_name</span>
-
-        <span class="bp">self</span><span class="o">.</span><span class="n">_added_scalars</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_prev_active_scalars</span> <span class="o">=</span> <span class="p">{}</span>
 
     <span class="k">def</span> <span class="fm">__del__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Delete the plotter.&quot;&quot;&quot;</span>

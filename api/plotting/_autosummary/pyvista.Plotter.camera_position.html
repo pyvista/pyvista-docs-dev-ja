@@ -1281,6 +1281,49 @@
 <dt class="sig sig-object py" id="pyvista.Plotter.camera_position">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Plotter.</span></span><span class="sig-name descname"><span class="pre">camera_position</span></span><a class="headerlink" href="#pyvista.Plotter.camera_position" title="この定義へのパーマリンク">#</a></dt>
 <dd><p>アクティブなレンダウィンドウのカメラ位置を取得します．</p>
+<p class="rubric">例</p>
+<p>Return camera's position and then reposition it via a list of tuples.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyvista</span> <span class="k">as</span> <span class="nn">pv</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pyvista</span> <span class="kn">import</span> <span class="n">examples</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mesh</span> <span class="o">=</span> <span class="n">examples</span><span class="o">.</span><span class="n">download_bunny_coarse</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pl</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Plotter</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">show_edges</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pl</span><span class="o">.</span><span class="n">camera_position</span>
+<span class="go">[(0.02430, 0.0336, 0.9446),</span>
+<span class="go"> (0.02430, 0.0336, -0.02225),</span>
+<span class="go"> (0.0, 1.0, 0.0)]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pl</span><span class="o">.</span><span class="n">camera_position</span> <span class="o">=</span> <span class="p">[</span>
+<span class="gp">... </span>    <span class="p">(</span><span class="mf">0.3914</span><span class="p">,</span> <span class="mf">0.4542</span><span class="p">,</span> <span class="mf">0.7670</span><span class="p">),</span>
+<span class="gp">... </span>    <span class="p">(</span><span class="mf">0.0243</span><span class="p">,</span> <span class="mf">0.0336</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0222</span><span class="p">),</span>
+<span class="gp">... </span>    <span class="p">(</span><span class="o">-</span><span class="mf">0.2148</span><span class="p">,</span> <span class="mf">0.8998</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.3796</span><span class="p">),</span>
+<span class="gp">... </span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pl</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<figure class="align-default">
+<img alt="../../../_images/pyvista-Plotter-camera_position-1_00_00.png" src="../../../_images/pyvista-Plotter-camera_position-1_00_00.png" />
+</figure>
+<p>Set the camera position using a string and look at the <code class="docutils literal notranslate"><span class="pre">'xy'</span></code> plane.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pl</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Plotter</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">show_edges</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pl</span><span class="o">.</span><span class="n">camera_position</span> <span class="o">=</span> <span class="s1">&#39;xy&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pl</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<figure class="align-default">
+<img alt="../../../_images/pyvista-Plotter-camera_position-1_01_00.png" src="../../../_images/pyvista-Plotter-camera_position-1_01_00.png" />
+</figure>
+<p>Set the camera position using a string and look at the <code class="docutils literal notranslate"><span class="pre">'zy'</span></code> plane.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pl</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Plotter</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">show_edges</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pl</span><span class="o">.</span><span class="n">camera_position</span> <span class="o">=</span> <span class="s1">&#39;zy&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pl</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<figure class="align-default">
+<img alt="../../../_images/pyvista-Plotter-camera_position-1_02_00.png" src="../../../_images/pyvista-Plotter-camera_position-1_02_00.png" />
+</figure>
+<p>For more examples, see <a class="reference internal" href="../../core/camera.html#cameras-api"><span class="std std-ref">カメラ</span></a>.</p>
 </dd></dl>
 
 </section>

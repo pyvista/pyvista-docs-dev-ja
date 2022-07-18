@@ -892,10 +892,7 @@
         <span class="p">)</span>
     <span class="n">src</span> <span class="o">=</span> <span class="n">_vtk</span><span class="o">.</span><span class="n">vtkTessellatedBoxSource</span><span class="p">()</span>
     <span class="n">src</span><span class="o">.</span><span class="n">SetLevel</span><span class="p">(</span><span class="n">level</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">quads</span><span class="p">:</span>
-        <span class="n">src</span><span class="o">.</span><span class="n">QuadsOn</span><span class="p">()</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">src</span><span class="o">.</span><span class="n">QuadsOff</span><span class="p">()</span>
+    <span class="n">src</span><span class="o">.</span><span class="n">SetQuads</span><span class="p">(</span><span class="n">quads</span><span class="p">)</span>
     <span class="n">src</span><span class="o">.</span><span class="n">SetBounds</span><span class="p">(</span><span class="n">bounds</span><span class="p">)</span>
     <span class="n">src</span><span class="o">.</span><span class="n">Update</span><span class="p">()</span>
     <span class="k">return</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">wrap</span><span class="p">(</span><span class="n">src</span><span class="o">.</span><span class="n">GetOutput</span><span class="p">())</span></div>

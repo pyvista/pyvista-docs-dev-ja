@@ -2088,6 +2088,8 @@
                 <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
                     <span class="k">pass</span>
 
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">__charts</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_charts</span><span class="o">.</span><span class="n">deep_clean</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">remove_all_lights</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">RemoveAllViewProps</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">Modified</span><span class="p">()</span>
@@ -2893,10 +2895,10 @@
 
         <span class="bp">self</span><span class="o">.</span><span class="n">SetBackground</span><span class="p">(</span><span class="n">Color</span><span class="p">(</span><span class="n">color</span><span class="p">,</span> <span class="n">default_color</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_theme</span><span class="o">.</span><span class="n">background</span><span class="p">)</span><span class="o">.</span><span class="n">float_rgb</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">use_gradient</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">GradientBackgroundOn</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">SetGradientBackground</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">SetBackground2</span><span class="p">(</span><span class="n">Color</span><span class="p">(</span><span class="n">top</span><span class="p">)</span><span class="o">.</span><span class="n">float_rgb</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">GradientBackgroundOff</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">SetGradientBackground</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">Modified</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="Renderer.set_environment_texture"><a class="viewcode-back" href="../../../api/plotting/_autosummary/pyvista.Renderer.set_environment_texture.html#pyvista.Renderer.set_environment_texture">[ドキュメント]</a>    <span class="k">def</span> <span class="nf">set_environment_texture</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">texture</span><span class="p">,</span> <span class="n">is_srgb</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
@@ -3200,9 +3202,9 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">_legend</span><span class="o">.</span><span class="n">SetPosition2</span><span class="p">(</span><span class="n">size</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">size</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 
         <span class="k">if</span> <span class="n">bcolor</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_legend</span><span class="o">.</span><span class="n">UseBackgroundOff</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_legend</span><span class="o">.</span><span class="n">SetUseBackground</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_legend</span><span class="o">.</span><span class="n">UseBackgroundOn</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_legend</span><span class="o">.</span><span class="n">SetUseBackground</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_legend</span><span class="o">.</span><span class="n">SetBackgroundColor</span><span class="p">(</span><span class="n">Color</span><span class="p">(</span><span class="n">bcolor</span><span class="p">)</span><span class="o">.</span><span class="n">float_rgb</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">_legend</span><span class="o">.</span><span class="n">SetBorder</span><span class="p">(</span><span class="n">border</span><span class="p">)</span>

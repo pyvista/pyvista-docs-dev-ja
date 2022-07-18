@@ -1284,17 +1284,19 @@
 <dl class="field-list">
 <dt class="field-odd">パラメータ</dt>
 <dd class="field-odd"><dl>
-<dt><strong>filename</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/dev/library/stdtypes.html#str" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a></span></dt><dd><p>シーンをエクスポートする際のファイル名． <code class="docutils literal notranslate"><span class="pre">'.obj'</span></code> で終わる必要があります．</p>
-</dd>
-</dl>
-</dd>
-<dt class="field-even">戻り値</dt>
-<dd class="field-even"><dl class="simple">
-<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">vtkOBJExporter</span></code></dt><dd><p>オブジェクトエクスポーター．</p>
+<dt><strong>filename</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/dev/library/stdtypes.html#str" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a></span></dt><dd><p>Filename to export the scene to.  Must end in <code class="docutils literal notranslate"><span class="pre">'.obj'</span></code>.</p>
 </dd>
 </dl>
 </dd>
 </dl>
+<p class="rubric">例</p>
+<p>Export the scene to &quot;scene.obj&quot;</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyvista</span> <span class="k">as</span> <span class="nn">pv</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pl</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Plotter</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">pv</span><span class="o">.</span><span class="n">Sphere</span><span class="p">())</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pl</span><span class="o">.</span><span class="n">export_obj</span><span class="p">(</span><span class="s1">&#39;scene.obj&#39;</span><span class="p">)</span>  
+</pre></div>
+</div>
 </dd></dl>
 
 </section>
