@@ -8,4 +8,4 @@ _ = mesh.compute_normals(inplace=True)
 mesh.active_vectors_name = 'Normals'
 mesh.active_vectors_info
 # Expected:
-## ActiveArrayInfo(association=<FieldAssociation.POINT: 0>, name='Normals')
+## ActiveArrayInfoTuple(association=<FieldAssociation.POINT: 0>, name='Normals')

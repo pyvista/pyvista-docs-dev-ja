@@ -7,4 +7,4 @@ mesh = pyvista.Sphere()
 mesh['Z Height'] = mesh.points[:, 2]
 mesh.active_scalars_info
 # Expected:
-## ActiveArrayInfo(association=<FieldAssociation.POINT: 0>, name='Z Height')
+## ActiveArrayInfoTuple(association=<FieldAssociation.POINT: 0>, name='Z Height')
