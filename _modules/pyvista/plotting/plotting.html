@@ -252,9 +252,9 @@
     <span class="n">wrap</span><span class="p">,</span>
 <span class="p">)</span>
 
-<span class="kn">from</span> <span class="nn">..utilities.misc</span> <span class="kn">import</span> <span class="n">PyvistaDeprecationWarning</span><span class="p">,</span> <span class="n">uses_egl</span>
+<span class="kn">from</span> <span class="nn">..utilities.misc</span> <span class="kn">import</span> <span class="n">PyvistaDeprecationWarning</span><span class="p">,</span> <span class="n">has_module</span><span class="p">,</span> <span class="n">uses_egl</span>
 <span class="kn">from</span> <span class="nn">..utilities.regression</span> <span class="kn">import</span> <span class="n">image_from_window</span>
-<span class="kn">from</span> <span class="nn">._plotting</span> <span class="kn">import</span> <span class="n">_has_matplotlib</span><span class="p">,</span> <span class="n">prepare_smooth_shading</span><span class="p">,</span> <span class="n">process_opacity</span>
+<span class="kn">from</span> <span class="nn">._plotting</span> <span class="kn">import</span> <span class="n">prepare_smooth_shading</span><span class="p">,</span> <span class="n">process_opacity</span>
 <span class="kn">from</span> <span class="nn">.colors</span> <span class="kn">import</span> <span class="n">Color</span><span class="p">,</span> <span class="n">get_cmap_safe</span>
 <span class="kn">from</span> <span class="nn">.export_vtkjs</span> <span class="kn">import</span> <span class="n">export_plotter_vtkjs</span>
 <span class="kn">from</span> <span class="nn">.mapper</span> <span class="kn">import</span> <span class="n">make_mapper</span>
@@ -2508,7 +2508,7 @@
 
             <span class="k">if</span> <span class="n">multi_colors</span><span class="p">:</span>
                 <span class="c1"># Compute unique colors for each index of the block</span>
-                <span class="k">if</span> <span class="n">_has_matplotlib</span><span class="p">():</span>
+                <span class="k">if</span> <span class="n">has_module</span><span class="p">(</span><span class="s1">&#39;matplotlib&#39;</span><span class="p">):</span>
                     <span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">cycle</span>
 
                     <span class="kn">import</span> <span class="nn">matplotlib</span>
@@ -3184,11 +3184,11 @@
                 <span class="n">table</span><span class="o">.</span><span class="n">SetAnnotation</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">val</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">anno</span><span class="p">))</span>
 
         <span class="k">if</span> <span class="n">cmap</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>  <span class="c1"># Set default map if matplotlib is available</span>
-            <span class="k">if</span> <span class="n">_has_matplotlib</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">has_module</span><span class="p">(</span><span class="s1">&#39;matplotlib&#39;</span><span class="p">):</span>
                 <span class="n">cmap</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_theme</span><span class="o">.</span><span class="n">cmap</span>
 
         <span class="k">if</span> <span class="n">cmap</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="k">if</span> <span class="ow">not</span> <span class="n">_has_matplotlib</span><span class="p">():</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">has_module</span><span class="p">(</span><span class="s1">&#39;matplotlib&#39;</span><span class="p">):</span>
                 <span class="k">raise</span> <span class="ne">ImportError</span><span class="p">(</span><span class="s1">&#39;Please install matplotlib for volume rendering.&#39;</span><span class="p">)</span>
 
             <span class="n">cmap</span> <span class="o">=</span> <span class="n">get_cmap_safe</span><span class="p">(</span><span class="n">cmap</span><span class="p">)</span>
@@ -3410,7 +3410,7 @@
 <span class="sd">            views cameras.</span>
 
 <span class="sd">        Examples</span>
-<span class="sd">        ---------</span>
+<span class="sd">        --------</span>
 <span class="sd">        Not linked view case.</span>
 
 <span class="sd">        &gt;&gt;&gt; import pyvista</span>
@@ -3439,7 +3439,6 @@
 
 <span class="sd">        Linked view case.</span>
 
-
 <span class="sd">        &gt;&gt;&gt; pl = pyvista.Plotter(shape=(1, 2))</span>
 <span class="sd">        &gt;&gt;&gt; pl.subplot(0, 0)</span>
 <span class="sd">        &gt;&gt;&gt; _ = pl.add_mesh(ocube[&#39;cube&#39;], show_edges=True)</span>
@@ -3461,6 +3460,7 @@
 <span class="sd">        &gt;&gt;&gt; pl.show_axes()</span>
 <span class="sd">        &gt;&gt;&gt; pl.link_views()</span>
 <span class="sd">        &gt;&gt;&gt; pl.show()</span>
+
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">views</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">integer</span><span class="p">)):</span>
             <span class="k">for</span> <span class="n">renderer</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">renderers</span><span class="p">:</span>
