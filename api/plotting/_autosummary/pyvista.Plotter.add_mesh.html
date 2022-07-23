@@ -1318,7 +1318,11 @@
 </dd>
 <dt><strong>label</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/dev/library/stdtypes.html#str" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p><code class="xref py py-func docutils literal notranslate"><span class="pre">pyvista.BasePlotter.add_legend()</span></code> でシーンに凡例を追加するときに使用する文字列ラベル．</p>
 </dd>
-<dt><strong>reset_camera</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/dev/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.12)"><span class="xref std std-ref">bool</span></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>このメッシュをシーンに追加した後，カメラをリセットします．</p>
+<dt><strong>reset_camera</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/dev/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.12)"><span class="xref std std-ref">bool</span></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>Reset the camera after adding this mesh to the scene. The default
+setting is <code class="docutils literal notranslate"><span class="pre">None</span></code>, where the camera is only reset if this plotter
+has already been shown. If <code class="docutils literal notranslate"><span class="pre">False</span></code>, the camera is not reset
+regardless of the state of the <code class="docutils literal notranslate"><span class="pre">Plotter</span></code>. When <code class="docutils literal notranslate"><span class="pre">True</span></code>, the
+camera is always reset.</p>
 </dd>
 <dt><strong>scalar_bar_args</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/dev/library/stdtypes.html#dict" title="(in Python v3.12)"><code class="docutils literal notranslate"><span class="pre">dict</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>スカラーバーをシーンに追加するときに渡すキーワード引数のディクショナリ．オプションについては <code class="xref py py-func docutils literal notranslate"><span class="pre">pyvista.BasePlotter.add_scalar_bar()</span></code> を参照してください．</p>
 </dd>

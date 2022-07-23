@@ -423,7 +423,7 @@
         <span class="sd">&quot;&quot;&quot;Initialize the renderer.&quot;&quot;&quot;</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_actors</span> <span class="o">=</span> <span class="p">{}</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">parent</span> <span class="o">=</span> <span class="n">parent</span>  <span class="c1"># the plotter</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parent</span> <span class="o">=</span> <span class="n">parent</span>  <span class="c1"># weakref.proxy to the plotter from Renderers</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_theme</span> <span class="o">=</span> <span class="n">parent</span><span class="o">.</span><span class="n">theme</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">camera_set</span> <span class="o">=</span> <span class="kc">False</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">bounding_box_actor</span> <span class="o">=</span> <span class="kc">None</span>
@@ -841,7 +841,14 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_actors</span>
 
 <div class="viewcode-block" id="Renderer.add_actor"><a class="viewcode-back" href="../../../api/plotting/_autosummary/pyvista.Renderer.add_actor.html#pyvista.Renderer.add_actor">[ドキュメント]</a>    <span class="k">def</span> <span class="nf">add_actor</span><span class="p">(</span>
-        <span class="bp">self</span><span class="p">,</span> <span class="n">uinput</span><span class="p">,</span> <span class="n">reset_camera</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">culling</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">pickable</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">render</span><span class="o">=</span><span class="kc">True</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">uinput</span><span class="p">,</span>
+        <span class="n">reset_camera</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">culling</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="n">pickable</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">render</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">remove_existing_actor</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
     <span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Add an actor to render window.</span>
 
@@ -873,6 +880,10 @@
 <span class="sd">            If the render window is being shown, trigger a render</span>
 <span class="sd">            after adding the actor.</span>
 
+<span class="sd">        remove_existing_actor : bool, optional</span>
+<span class="sd">            Removes any existing actor if the named actor ``name`` is already</span>
+<span class="sd">            present.</span>
+
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">        actor : vtk.vtkActor</span>
@@ -882,7 +893,8 @@
 <span class="sd">            Actor properties.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="c1"># Remove actor by that name if present</span>
-        <span class="n">rv</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">remove_actor</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">reset_camera</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">render</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">name</span> <span class="ow">and</span> <span class="n">remove_existing_actor</span><span class="p">:</span>
+            <span class="n">rv</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">remove_actor</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">reset_camera</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">render</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">uinput</span><span class="p">,</span> <span class="n">_vtk</span><span class="o">.</span><span class="n">vtkMapper</span><span class="p">):</span>
             <span class="n">actor</span> <span class="o">=</span> <span class="n">_vtk</span><span class="o">.</span><span class="n">vtkActor</span><span class="p">()</span>
@@ -925,7 +937,6 @@
                 <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Culling option (</span><span class="si">{</span><span class="n">culling</span><span class="si">}</span><span class="s1">) not understood.&#39;</span><span class="p">)</span>
 
         <span class="n">actor</span><span class="o">.</span><span class="n">SetPickable</span><span class="p">(</span><span class="n">pickable</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">ResetCameraClippingRange</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">Modified</span><span class="p">()</span>
 
         <span class="n">prop</span> <span class="o">=</span> <span class="kc">None</span>
@@ -2157,13 +2168,17 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">camera_set</span> <span class="o">=</span> <span class="kc">True</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">Modified</span><span class="p">()</span></div>
 
-<div class="viewcode-block" id="Renderer.set_viewup"><a class="viewcode-back" href="../../../api/plotting/_autosummary/pyvista.Renderer.set_viewup.html#pyvista.Renderer.set_viewup">[ドキュメント]</a>    <span class="k">def</span> <span class="nf">set_viewup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vector</span><span class="p">):</span>
+<div class="viewcode-block" id="Renderer.set_viewup"><a class="viewcode-back" href="../../../api/plotting/_autosummary/pyvista.Renderer.set_viewup.html#pyvista.Renderer.set_viewup">[ドキュメント]</a>    <span class="k">def</span> <span class="nf">set_viewup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vector</span><span class="p">,</span> <span class="n">reset</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Set camera viewup vector.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        vector : sequence</span>
 <span class="sd">            New 3 value camera viewup vector.</span>
+
+<span class="sd">        reset : bool, optional</span>
+<span class="sd">            Whether to reset the camera after setting the camera</span>
+<span class="sd">            position.</span>
 
 <span class="sd">        Examples</span>
 <span class="sd">        --------</span>
@@ -2179,7 +2194,11 @@
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">vector</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
             <span class="k">if</span> <span class="n">vector</span><span class="o">.</span><span class="n">ndim</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
                 <span class="n">vector</span> <span class="o">=</span> <span class="n">vector</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
+
         <span class="bp">self</span><span class="o">.</span><span class="n">camera</span><span class="o">.</span><span class="n">up</span> <span class="o">=</span> <span class="n">vector</span>
+        <span class="k">if</span> <span class="n">reset</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">reset_camera</span><span class="p">()</span>
+
         <span class="bp">self</span><span class="o">.</span><span class="n">camera_set</span> <span class="o">=</span> <span class="kc">True</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">Modified</span><span class="p">()</span></div>
 
@@ -2493,6 +2512,9 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">ResetCamera</span><span class="p">(</span><span class="o">*</span><span class="n">bounds</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">ResetCamera</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">reset_camera_clipping_range</span><span class="p">()</span>
+
         <span class="k">if</span> <span class="n">render</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">render</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">Modified</span><span class="p">()</span></div>
@@ -2980,6 +3002,7 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">disable_shadows</span><span class="p">()</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">__charts</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">__charts</span><span class="o">.</span><span class="n">deep_clean</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__charts</span> <span class="o">=</span> <span class="kc">None</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">remove_floors</span><span class="p">(</span><span class="n">render</span><span class="o">=</span><span class="n">render</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">remove_legend</span><span class="p">(</span><span class="n">render</span><span class="o">=</span><span class="n">render</span><span class="p">)</span>

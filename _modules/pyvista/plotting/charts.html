@@ -4590,7 +4590,16 @@
         <span class="c1"># needed.</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_scene</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_actor</span> <span class="o">=</span> <span class="kc">None</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_renderer</span> <span class="o">=</span> <span class="n">renderer</span>
+
+        <span class="c1"># a weakref.proxy would be nice here, but that doesn&#39;t play</span>
+        <span class="c1"># nicely with SetRenderer, so instead we&#39;ll use a weak reference</span>
+        <span class="c1"># plus a property to call it</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__renderer</span> <span class="o">=</span> <span class="n">weakref</span><span class="o">.</span><span class="n">ref</span><span class="p">(</span><span class="n">renderer</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">_renderer</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return the weakly dereferenced renderer, maybe None.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__renderer</span><span class="p">()</span>
 
     <span class="k">def</span> <span class="nf">_setup_scene</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Set up a new context scene and actor for these charts.&quot;&quot;&quot;</span>
@@ -4679,7 +4688,7 @@
         <span class="k">for</span> <span class="n">chart</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_charts</span><span class="p">:</span>
             <span class="k">yield</span> <span class="n">chart</span>
 
-    <span class="k">def</span> <span class="fm">__del__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>  <span class="c1"># pragma: no cover</span>
+    <span class="k">def</span> <span class="fm">__del__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Clean up before being destroyed.&quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">deep_clean</span><span class="p">()</span>
 </pre></div>
