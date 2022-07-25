@@ -304,7 +304,8 @@
 
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">_check_examples_path</span><span class="p">()</span>
-    <span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="n">pyvista</span><span class="o">.</span><span class="n">EXAMPLES_PATH</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">pyvista</span><span class="o">.</span><span class="n">EXAMPLES_PATH</span><span class="p">):</span>
+        <span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="n">pyvista</span><span class="o">.</span><span class="n">EXAMPLES_PATH</span><span class="p">)</span>
     <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">pyvista</span><span class="o">.</span><span class="n">EXAMPLES_PATH</span><span class="p">)</span>
     <span class="k">return</span> <span class="kc">True</span></div>
 
