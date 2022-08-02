@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>pyvista.Renderer &#8212; PyVista 0.36.dev0 ドキュメント</title>
+    <title>pyvista.Renderer &#8212; PyVista 0.37.dev0 ドキュメント</title>
 <script>
   document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
   document.documentElement.dataset.theme = localStorage.getItem("theme") || "light"
@@ -428,6 +428,11 @@
       </a>
      </li>
      <li class="toctree-l3">
+      <a class="reference internal" href="pyvista.Renderer.remove_environment_texture.html">
+       remove_environment_texture
+      </a>
+     </li>
+     <li class="toctree-l3">
       <a class="reference internal" href="pyvista.Renderer.remove_floors.html">
        remove_floors
       </a>
@@ -821,70 +826,73 @@
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.Renderer.remove_chart.html#pyvista.Renderer.remove_chart" title="pyvista.Renderer.remove_chart"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Renderer.remove_chart</span></code></a>(chart_or_index)</p></td>
 <td><p>このレンダラーからチャートを削除します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Renderer.remove_floors.html#pyvista.Renderer.remove_floors" title="pyvista.Renderer.remove_floors"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Renderer.remove_floors</span></code></a>([clear_kwargs, render])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Renderer.remove_environment_texture.html#pyvista.Renderer.remove_environment_texture" title="pyvista.Renderer.remove_environment_texture"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Renderer.remove_environment_texture</span></code></a>()</p></td>
+<td><p>環境テクスチャを削除します．</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Renderer.remove_floors.html#pyvista.Renderer.remove_floors" title="pyvista.Renderer.remove_floors"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Renderer.remove_floors</span></code></a>([clear_kwargs, render])</p></td>
 <td><p>すべてのフロアアクターを削除します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Renderer.remove_legend.html#pyvista.Renderer.remove_legend" title="pyvista.Renderer.remove_legend"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Renderer.remove_legend</span></code></a>([render])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Renderer.remove_legend.html#pyvista.Renderer.remove_legend" title="pyvista.Renderer.remove_legend"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Renderer.remove_legend</span></code></a>([render])</p></td>
 <td><p>凡例アクターを削除します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Renderer.reset_camera.html#pyvista.Renderer.reset_camera" title="pyvista.Renderer.reset_camera"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Renderer.reset_camera</span></code></a>([render, bounds])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Renderer.reset_camera.html#pyvista.Renderer.reset_camera" title="pyvista.Renderer.reset_camera"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Renderer.reset_camera</span></code></a>([render, bounds])</p></td>
 <td><p>アクティブなレンダウィンドウのカメラをリセットします．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Renderer.reset_camera_clipping_range.html#pyvista.Renderer.reset_camera_clipping_range" title="pyvista.Renderer.reset_camera_clipping_range"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Renderer.reset_camera_clipping_range</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Renderer.reset_camera_clipping_range.html#pyvista.Renderer.reset_camera_clipping_range" title="pyvista.Renderer.reset_camera_clipping_range"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Renderer.reset_camera_clipping_range</span></code></a>()</p></td>
 <td><p>可視アクターの境界に基づいてカメラのクリッピング範囲をリセットします．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Renderer.set_background.html#pyvista.Renderer.set_background" title="pyvista.Renderer.set_background"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Renderer.set_background</span></code></a>(color[, top])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Renderer.set_background.html#pyvista.Renderer.set_background" title="pyvista.Renderer.set_background"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Renderer.set_background</span></code></a>(color[, top])</p></td>
 <td><p>このレンダラーの背景色を設定します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Renderer.set_environment_texture.html#pyvista.Renderer.set_environment_texture" title="pyvista.Renderer.set_environment_texture"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Renderer.set_environment_texture</span></code></a>(texture[, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Renderer.set_environment_texture.html#pyvista.Renderer.set_environment_texture" title="pyvista.Renderer.set_environment_texture"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Renderer.set_environment_texture</span></code></a>(texture[, ...])</p></td>
 <td><p>イメージベースのライティングに使用する環境テクスチャを設定します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Renderer.set_focus.html#pyvista.Renderer.set_focus" title="pyvista.Renderer.set_focus"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Renderer.set_focus</span></code></a>(point)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Renderer.set_focus.html#pyvista.Renderer.set_focus" title="pyvista.Renderer.set_focus"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Renderer.set_focus</span></code></a>(point)</p></td>
 <td><p>ポイントにフォーカスを設定します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Renderer.set_position.html#pyvista.Renderer.set_position" title="pyvista.Renderer.set_position"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Renderer.set_position</span></code></a>(point[, reset])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Renderer.set_position.html#pyvista.Renderer.set_position" title="pyvista.Renderer.set_position"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Renderer.set_position</span></code></a>(point[, reset])</p></td>
 <td><p>カメラ位置をポイントに設定します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Renderer.set_scale.html#pyvista.Renderer.set_scale" title="pyvista.Renderer.set_scale"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Renderer.set_scale</span></code></a>([xscale, yscale, zscale, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Renderer.set_scale.html#pyvista.Renderer.set_scale" title="pyvista.Renderer.set_scale"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Renderer.set_scale</span></code></a>([xscale, yscale, zscale, ...])</p></td>
 <td><p>シーン内のすべてのデータセットをスケールします．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Renderer.set_viewup.html#pyvista.Renderer.set_viewup" title="pyvista.Renderer.set_viewup"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Renderer.set_viewup</span></code></a>(vector[, reset])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Renderer.set_viewup.html#pyvista.Renderer.set_viewup" title="pyvista.Renderer.set_viewup"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Renderer.set_viewup</span></code></a>(vector[, reset])</p></td>
 <td><p>カメラのビューアップベクトルを設定します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Renderer.show_axes.html#pyvista.Renderer.show_axes" title="pyvista.Renderer.show_axes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Renderer.show_axes</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Renderer.show_axes.html#pyvista.Renderer.show_axes" title="pyvista.Renderer.show_axes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Renderer.show_axes</span></code></a>()</p></td>
 <td><p>軸方向ウィジェットを表示します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Renderer.show_bounds.html#pyvista.Renderer.show_bounds" title="pyvista.Renderer.show_bounds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Renderer.show_bounds</span></code></a>([mesh, bounds, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Renderer.show_bounds.html#pyvista.Renderer.show_bounds" title="pyvista.Renderer.show_bounds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Renderer.show_bounds</span></code></a>([mesh, bounds, ...])</p></td>
 <td><p>境界軸を追加します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Renderer.show_grid.html#pyvista.Renderer.show_grid" title="pyvista.Renderer.show_grid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Renderer.show_grid</span></code></a>(**kwargs)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Renderer.show_grid.html#pyvista.Renderer.show_grid" title="pyvista.Renderer.show_grid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Renderer.show_grid</span></code></a>(**kwargs)</p></td>
 <td><p>目盛線と軸ラベルを表示します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Renderer.update_bounds_axes.html#pyvista.Renderer.update_bounds_axes" title="pyvista.Renderer.update_bounds_axes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Renderer.update_bounds_axes</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Renderer.update_bounds_axes.html#pyvista.Renderer.update_bounds_axes" title="pyvista.Renderer.update_bounds_axes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Renderer.update_bounds_axes</span></code></a>()</p></td>
 <td><p>レンダーウィンドウの境界軸を更新します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Renderer.view_isometric.html#pyvista.Renderer.view_isometric" title="pyvista.Renderer.view_isometric"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Renderer.view_isometric</span></code></a>([negative])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Renderer.view_isometric.html#pyvista.Renderer.view_isometric" title="pyvista.Renderer.view_isometric"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Renderer.view_isometric</span></code></a>([negative])</p></td>
 <td><p>カメラを既定のアイソメビューにリセットします．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Renderer.view_vector.html#pyvista.Renderer.view_vector" title="pyvista.Renderer.view_vector"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Renderer.view_vector</span></code></a>(vector[, viewup])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Renderer.view_vector.html#pyvista.Renderer.view_vector" title="pyvista.Renderer.view_vector"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Renderer.view_vector</span></code></a>(vector[, viewup])</p></td>
 <td><p>指定したベクトルの方向にカメラを向けます．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Renderer.view_xy.html#pyvista.Renderer.view_xy" title="pyvista.Renderer.view_xy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Renderer.view_xy</span></code></a>([negative])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Renderer.view_xy.html#pyvista.Renderer.view_xy" title="pyvista.Renderer.view_xy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Renderer.view_xy</span></code></a>([negative])</p></td>
 <td><p>XY平面を表示します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Renderer.view_xz.html#pyvista.Renderer.view_xz" title="pyvista.Renderer.view_xz"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Renderer.view_xz</span></code></a>([negative])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Renderer.view_xz.html#pyvista.Renderer.view_xz" title="pyvista.Renderer.view_xz"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Renderer.view_xz</span></code></a>([negative])</p></td>
 <td><p>XZ平面を表示します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Renderer.view_yx.html#pyvista.Renderer.view_yx" title="pyvista.Renderer.view_yx"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Renderer.view_yx</span></code></a>([negative])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Renderer.view_yx.html#pyvista.Renderer.view_yx" title="pyvista.Renderer.view_yx"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Renderer.view_yx</span></code></a>([negative])</p></td>
 <td><p>YX平面を表示します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Renderer.view_yz.html#pyvista.Renderer.view_yz" title="pyvista.Renderer.view_yz"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Renderer.view_yz</span></code></a>([negative])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Renderer.view_yz.html#pyvista.Renderer.view_yz" title="pyvista.Renderer.view_yz"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Renderer.view_yz</span></code></a>([negative])</p></td>
 <td><p>YZ平面を表示します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Renderer.view_zx.html#pyvista.Renderer.view_zx" title="pyvista.Renderer.view_zx"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Renderer.view_zx</span></code></a>([negative])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Renderer.view_zx.html#pyvista.Renderer.view_zx" title="pyvista.Renderer.view_zx"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Renderer.view_zx</span></code></a>([negative])</p></td>
 <td><p>ZX平面を表示します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Renderer.view_zy.html#pyvista.Renderer.view_zy" title="pyvista.Renderer.view_zy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Renderer.view_zy</span></code></a>([negative])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Renderer.view_zy.html#pyvista.Renderer.view_zy" title="pyvista.Renderer.view_zy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Renderer.view_zy</span></code></a>([negative])</p></td>
 <td><p>ZY平面を表示します．</p></td>
 </tr>
 </tbody>

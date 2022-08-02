@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>pyvista.utilities.reader &#8212; PyVista 0.36.dev0 ドキュメント</title>
+    <title>pyvista.utilities.reader &#8212; PyVista 0.37.dev0 ドキュメント</title>
 <script>
   document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
   document.documentElement.dataset.theme = localStorage.getItem("theme") || "light"
@@ -224,8 +224,10 @@
 <span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">wraps</span>
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">pathlib</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">List</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Union</span>
 <span class="kn">from</span> <span class="nn">xml.etree</span> <span class="kn">import</span> <span class="n">ElementTree</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <span class="kn">import</span> <span class="nn">pyvista</span>
 <span class="kn">from</span> <span class="nn">pyvista</span> <span class="kn">import</span> <span class="n">_vtk</span>
@@ -263,6 +265,8 @@
 <span class="sd">    | ``.foam``      | :class:`pyvista.POpenFOAMReader`            |</span>
 <span class="sd">    +----------------+---------------------------------------------+</span>
 <span class="sd">    | ``.g``         | :class:`pyvista.BYUReader`                  |</span>
+<span class="sd">    +----------------+---------------------------------------------+</span>
+<span class="sd">    | ``.gif``       | :class:`pyvista.GIFReader`                  |</span>
 <span class="sd">    +----------------+---------------------------------------------+</span>
 <span class="sd">    | ``.glb``       | :class:`pyvista.GLTFReader`                 |</span>
 <span class="sd">    +----------------+---------------------------------------------+</span>
@@ -2288,6 +2292,85 @@
     <span class="n">_class_reader</span> <span class="o">=</span> <span class="nb">staticmethod</span><span class="p">(</span><span class="n">_vtk</span><span class="o">.</span><span class="n">lazy_vtkSegYReader</span><span class="p">)</span></div>
 
 
+<span class="k">class</span> <span class="nc">_GIFReader</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Simulate a VTK reader for GIF files.&quot;&quot;&quot;</span>
+
+    <span class="n">_data_object</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">_observers</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">Callable</span><span class="p">]]</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">_n_frames</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">_current_frame</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="k">def</span> <span class="nf">SetFileName</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Needed for VTK-like compatibility with BaseReader.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_filename</span> <span class="o">=</span> <span class="n">filename</span>
+
+    <span class="k">def</span> <span class="nf">UpdateInformation</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Needed for VTK-like compatibility with BaseReader.&quot;&quot;&quot;</span>
+        <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="nf">AddObserver</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event_type</span><span class="p">,</span> <span class="n">callback</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Needed for VTK-like compatibility with BaseReader.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_observers</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">event_type</span><span class="p">,</span> <span class="n">callback</span><span class="p">])</span>
+
+    <span class="k">def</span> <span class="nf">RemoveObservers</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Needed for VTK-like compatibility with BaseReader.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_observers</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">def</span> <span class="nf">GetProgress</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_current_frame</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">_n_frames</span>
+
+    <span class="k">def</span> <span class="nf">UpdateObservers</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event_type</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">event_type_allowed</span><span class="p">,</span> <span class="n">observer</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_observers</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">event_type_allowed</span> <span class="o">==</span> <span class="n">event_type</span><span class="p">:</span>
+                <span class="n">observer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event_type</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">Update</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Read the GIF and store internally to `_data_object`.&quot;&quot;&quot;</span>
+        <span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span><span class="p">,</span> <span class="n">ImageSequence</span>
+
+        <span class="n">img</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_filename</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_data_object</span> <span class="o">=</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">UniformGrid</span><span class="p">(</span><span class="n">dims</span><span class="o">=</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">size</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">img</span><span class="o">.</span><span class="n">size</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="mi">1</span><span class="p">))</span>
+
+        <span class="c1"># load each frame to the grid (RGB since gifs do not support transparency</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_n_frames</span> <span class="o">=</span> <span class="n">img</span><span class="o">.</span><span class="n">n_frames</span>
+        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">frame</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">ImageSequence</span><span class="o">.</span><span class="n">Iterator</span><span class="p">(</span><span class="n">img</span><span class="p">)):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_current_frame</span> <span class="o">=</span> <span class="n">i</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">frame</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="s1">&#39;RGB&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">getdata</span><span class="p">(),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_data_object</span><span class="o">.</span><span class="n">point_data</span><span class="o">.</span><span class="n">set_array</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;frame</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">UpdateObservers</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="s1">&#39;frame0&#39;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data_object</span><span class="o">.</span><span class="n">point_data</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_data_object</span><span class="o">.</span><span class="n">point_data</span><span class="o">.</span><span class="n">active_scalars_name</span> <span class="o">=</span> <span class="s1">&#39;frame0&#39;</span>
+
+    <span class="k">def</span> <span class="nf">GetOutputDataObject</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Needed for VTK-like compatibility with BaseReader.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data_object</span>
+
+
+<div class="viewcode-block" id="GIFReader"><a class="viewcode-back" href="../../../api/readers/_autosummary/pyvista.GIFReader.html#pyvista.GIFReader">[ドキュメント]</a><span class="k">class</span> <span class="nc">GIFReader</span><span class="p">(</span><span class="n">BaseReader</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;GIFReader for .gif files.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    path : str</span>
+<span class="sd">        Path of the GIF to read.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; import pyvista</span>
+<span class="sd">    &gt;&gt;&gt; from pyvista import examples</span>
+<span class="sd">    &gt;&gt;&gt; filename = examples.download_gif_simple(load=False)</span>
+<span class="sd">    &gt;&gt;&gt; filename.split(&quot;/&quot;)[-1]  # omit the path</span>
+<span class="sd">    &#39;sample.gif&#39;</span>
+<span class="sd">    &gt;&gt;&gt; reader = pyvista.get_reader(filename)</span>
+<span class="sd">    &gt;&gt;&gt; mesh = reader.read()</span>
+<span class="sd">    &gt;&gt;&gt; mesh.plot(rgba=True, zoom=&#39;tight&#39;, border=True, border_width=2)</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">_class_reader</span> <span class="o">=</span> <span class="n">_GIFReader</span></div>
+
+
 <span class="n">CLASS_READERS</span> <span class="o">=</span> <span class="p">{</span>
     <span class="c1"># Standard dataset readers:</span>
     <span class="s1">&#39;.bmp&#39;</span><span class="p">:</span> <span class="n">BMPReader</span><span class="p">,</span>
@@ -2300,6 +2383,7 @@
     <span class="s1">&#39;.facet&#39;</span><span class="p">:</span> <span class="n">FacetReader</span><span class="p">,</span>
     <span class="s1">&#39;.foam&#39;</span><span class="p">:</span> <span class="n">POpenFOAMReader</span><span class="p">,</span>
     <span class="s1">&#39;.g&#39;</span><span class="p">:</span> <span class="n">BYUReader</span><span class="p">,</span>
+    <span class="s1">&#39;.gif&#39;</span><span class="p">:</span> <span class="n">GIFReader</span><span class="p">,</span>
     <span class="s1">&#39;.glb&#39;</span><span class="p">:</span> <span class="n">GLTFReader</span><span class="p">,</span>
     <span class="s1">&#39;.gltf&#39;</span><span class="p">:</span> <span class="n">GLTFReader</span><span class="p">,</span>
     <span class="s1">&#39;.img&#39;</span><span class="p">:</span> <span class="n">DICOMReader</span><span class="p">,</span>

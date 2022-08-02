@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>pyvista.plotting.camera &#8212; PyVista 0.36.dev0 ドキュメント</title>
+    <title>pyvista.plotting.camera &#8212; PyVista 0.37.dev0 ドキュメント</title>
 <script>
   document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
   document.documentElement.dataset.theme = localStorage.getItem("theme") || "light"
@@ -503,16 +503,42 @@
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        value : float</span>
-<span class="sd">            Zoom of the camera.  Must be greater than 0.</span>
+<span class="sd">        value : float or str</span>
+<span class="sd">            Zoom of the camera. If a float, must be greater than 0. Otherwise,</span>
+<span class="sd">            if a string, must be ``&quot;tight&quot;``. If tight, the plot will be zoomed</span>
+<span class="sd">            such that the actors fill the entire viewport.</span>
 
 <span class="sd">        Examples</span>
 <span class="sd">        --------</span>
-<span class="sd">        &gt;&gt;&gt; import pyvista</span>
-<span class="sd">        &gt;&gt;&gt; pl = pyvista.Plotter()</span>
+<span class="sd">        Show the Default zoom.</span>
+
+<span class="sd">        &gt;&gt;&gt; import pyvista as pv</span>
+<span class="sd">        &gt;&gt;&gt; pl = pv.Plotter()</span>
+<span class="sd">        &gt;&gt;&gt; _ = pl.add_mesh(pv.Sphere())</span>
+<span class="sd">        &gt;&gt;&gt; pl.camera.zoom(1.0)</span>
+<span class="sd">        &gt;&gt;&gt; pl.show()</span>
+
+<span class="sd">        Show 2x zoom.</span>
+
+<span class="sd">        &gt;&gt;&gt; pl = pv.Plotter()</span>
+<span class="sd">        &gt;&gt;&gt; _ = pl.add_mesh(pv.Sphere())</span>
 <span class="sd">        &gt;&gt;&gt; pl.camera.zoom(2.0)</span>
+<span class="sd">        &gt;&gt;&gt; pl.show()</span>
+
+<span class="sd">        Zoom so the actor fills the entire render window.</span>
+
+<span class="sd">        &gt;&gt;&gt; pl = pv.Plotter()</span>
+<span class="sd">        &gt;&gt;&gt; _ = pl.add_mesh(pv.Sphere())</span>
+<span class="sd">        &gt;&gt;&gt; pl.camera.zoom(&#39;tight&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; pl.show()</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">value</span> <span class="o">==</span> <span class="s1">&#39;tight&#39;</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;If a string, ``zoom`` can only be &quot;tight&quot;&#39;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">tight</span><span class="p">()</span>
+            <span class="k">return</span>
+
         <span class="bp">self</span><span class="o">.</span><span class="n">Zoom</span><span class="p">(</span><span class="n">value</span><span class="p">)</span></div>
 
     <span class="nd">@property</span>
@@ -837,7 +863,81 @@
             <span class="n">value</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attr</span><span class="p">)</span>
             <span class="nb">setattr</span><span class="p">(</span><span class="n">new_camera</span><span class="p">,</span> <span class="n">attr</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
 
-        <span class="k">return</span> <span class="n">new_camera</span></div></div>
+        <span class="k">return</span> <span class="n">new_camera</span></div>
+
+<div class="viewcode-block" id="Camera.tight"><a class="viewcode-back" href="../../../api/core/_autosummary/pyvista.Camera.tight.html#pyvista.Camera.tight">[ドキュメント]</a>    <span class="k">def</span> <span class="nf">tight</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">adjust_render_window</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Adjust the camera position so that the actors fill the entire renderer.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        padding : float, optional</span>
+<span class="sd">            Additional padding around the actor(s). This is effectively a zoom,</span>
+<span class="sd">            where a value of 0.01 results in a zoom out of 1%.</span>
+
+<span class="sd">        adjust_render_window : bool, optional</span>
+<span class="sd">            Adjust the size of the render window as to match the dimensions of</span>
+<span class="sd">            the visible actors.</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        This resets the view direction to look at the XY plane.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        Display the puppy image with a tight view.</span>
+
+<span class="sd">        &gt;&gt;&gt; import pyvista as pv</span>
+<span class="sd">        &gt;&gt;&gt; from pyvista import examples</span>
+<span class="sd">        &gt;&gt;&gt; puppy = examples.download_puppy()</span>
+<span class="sd">        &gt;&gt;&gt; pl = pv.Plotter(border=True, border_width=5)</span>
+<span class="sd">        &gt;&gt;&gt; _ = pl.add_mesh(puppy, rgb=True)</span>
+<span class="sd">        &gt;&gt;&gt; pl.camera.tight()</span>
+<span class="sd">        &gt;&gt;&gt; pl.show()</span>
+
+<span class="sd">        Set the background to blue use a 5% padding around the image.</span>
+
+<span class="sd">        &gt;&gt;&gt; pl = pv.Plotter()</span>
+<span class="sd">        &gt;&gt;&gt; _ = pl.add_mesh(puppy, rgb=True)</span>
+<span class="sd">        &gt;&gt;&gt; pl.background_color = &#39;b&#39;</span>
+<span class="sd">        &gt;&gt;&gt; pl.camera.tight(padding=0.05)</span>
+<span class="sd">        &gt;&gt;&gt; pl.show()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># inspired by vedo resetCamera. Thanks @marcomusy!</span>
+        <span class="n">x0</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">z0</span><span class="p">,</span> <span class="n">z1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_renderer</span><span class="o">.</span><span class="n">ComputeVisiblePropBounds</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">enable_parallel_projection</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_renderer</span><span class="o">.</span><span class="n">ComputeAspect</span><span class="p">()</span>
+        <span class="n">aspect</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_renderer</span><span class="o">.</span><span class="n">GetAspect</span><span class="p">()</span>
+        <span class="n">angle</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">view_angle</span> <span class="o">/</span> <span class="mf">180.0</span>
+        <span class="n">dx</span><span class="p">,</span> <span class="n">dy</span> <span class="o">=</span> <span class="p">(</span><span class="n">x1</span> <span class="o">-</span> <span class="n">x0</span><span class="p">),</span> <span class="p">(</span><span class="n">y1</span> <span class="o">-</span> <span class="n">y0</span><span class="p">)</span>
+        <span class="n">dist</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">dx</span> <span class="o">/</span> <span class="n">aspect</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">dy</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">angle</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">SetViewUp</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">SetPosition</span><span class="p">(</span><span class="n">x0</span> <span class="o">+</span> <span class="n">dx</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="n">y0</span> <span class="o">+</span> <span class="n">dy</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="n">dist</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">padding</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">SetFocalPoint</span><span class="p">(</span><span class="n">x0</span> <span class="o">+</span> <span class="n">dx</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="n">y0</span> <span class="o">+</span> <span class="n">dy</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+        <span class="n">ps</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">dx</span> <span class="o">/</span> <span class="n">aspect</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">dy</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">parallel_scale</span> <span class="o">=</span> <span class="n">ps</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">padding</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_renderer</span><span class="o">.</span><span class="n">ResetCameraClippingRange</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">z0</span><span class="p">,</span> <span class="n">z1</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">adjust_render_window</span><span class="p">:</span>
+            <span class="n">ren_win</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_renderer</span><span class="o">.</span><span class="n">GetRenderWindow</span><span class="p">()</span>
+            <span class="n">size</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">ren_win</span><span class="o">.</span><span class="n">GetSize</span><span class="p">())</span>
+            <span class="n">size_ratio</span> <span class="o">=</span> <span class="n">size</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="n">size</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+            <span class="n">tight_ratio</span> <span class="o">=</span> <span class="n">dx</span> <span class="o">/</span> <span class="n">dy</span>
+            <span class="n">resize_ratio</span> <span class="o">=</span> <span class="n">tight_ratio</span> <span class="o">/</span> <span class="n">size_ratio</span>
+            <span class="k">if</span> <span class="n">resize_ratio</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">size</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">size</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">resize_ratio</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">size</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">size</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">/</span> <span class="n">resize_ratio</span><span class="p">)</span>
+
+            <span class="n">ren_win</span><span class="o">.</span><span class="n">SetSize</span><span class="p">(</span><span class="n">size</span><span class="p">)</span>
+
+            <span class="c1"># simply call tight again to reset the parallel scale due to the</span>
+            <span class="c1"># resized window</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">tight</span><span class="p">(</span><span class="n">padding</span><span class="o">=</span><span class="n">padding</span><span class="p">,</span> <span class="n">adjust_render_window</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span></div></div>
 </pre></div>
 
               </article>

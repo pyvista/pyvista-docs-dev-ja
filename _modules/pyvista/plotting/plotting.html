@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>pyvista.plotting.plotting &#8212; PyVista 0.36.dev0 ドキュメント</title>
+    <title>pyvista.plotting.plotting &#8212; PyVista 0.37.dev0 ドキュメント</title>
 <script>
   document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
   document.documentElement.dataset.theme = localStorage.getItem("theme") || "light"
@@ -1444,6 +1444,11 @@
         <span class="sd">&quot;&quot;&quot;Wrap ``Renderer.set_environment_texture``.&quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">renderer</span><span class="o">.</span><span class="n">set_environment_texture</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
+    <span class="nd">@wraps</span><span class="p">(</span><span class="n">Renderer</span><span class="o">.</span><span class="n">remove_environment_texture</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">remove_environment_texture</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Wrap ``Renderer.remove_environment_texture``.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">renderer</span><span class="o">.</span><span class="n">remove_environment_texture</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
     <span class="c1">#### Properties from Renderer ####</span>
 
     <span class="nd">@property</span>
@@ -2081,6 +2086,7 @@
         <span class="n">roughness</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
         <span class="n">render</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
         <span class="n">component</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">copy_mesh</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
         <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
     <span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Add any PyVista/VTK mesh or dataset that PyVista can wrap to the scene.</span>
@@ -2353,6 +2359,14 @@
 <span class="sd">            nonnegative, if supplied. If ``None``, the magnitude of</span>
 <span class="sd">            the vector is plotted.</span>
 
+<span class="sd">        copy_mesh : bool, optional</span>
+<span class="sd">            If ``True``, a copy of the mesh will be made before adding it to the plotter.</span>
+<span class="sd">            This is useful if e.g. you would like to add the same mesh to a plotter multiple</span>
+<span class="sd">            times and display different scalars. Setting ``copy_mesh`` to ``False`` is necessary</span>
+<span class="sd">            if you would like to update the mesh after adding it to the plotter and have these</span>
+<span class="sd">            updates rendered, e.g. by changing the active scalars or through an interactive widget.</span>
+<span class="sd">            Defaults to ``False``.</span>
+
 <span class="sd">        **kwargs : dict, optional</span>
 <span class="sd">            Optional developer keyword arguments.</span>
 
@@ -2423,8 +2437,8 @@
         <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">PointSet</span><span class="p">):</span>
             <span class="c1"># cast to PointSet to PolyData</span>
             <span class="n">mesh</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">cast_to_polydata</span><span class="p">(</span><span class="n">deep</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="c1"># A shallow copy of `mesh` is here so when we set (or add) scalars</span>
+        <span class="k">elif</span> <span class="n">copy_mesh</span><span class="p">:</span>
+            <span class="c1"># A shallow copy of `mesh` is made here so when we set (or add) scalars</span>
             <span class="c1"># active, it doesn&#39;t modify the original input mesh.</span>
             <span class="n">mesh</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">deep</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 

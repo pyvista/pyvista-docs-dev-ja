@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>pyvista.plotting.helpers &#8212; PyVista 0.36.dev0 ドキュメント</title>
+    <title>pyvista.plotting.helpers &#8212; PyVista 0.37.dev0 ドキュメント</title>
 <script>
   document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
   document.documentElement.dataset.theme = localStorage.getItem("theme") || "light"
@@ -254,6 +254,9 @@
     <span class="n">hidden_line_removal</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">anti_aliasing</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">zoom</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">border</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">border_color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span>
+    <span class="n">border_width</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span>
     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
 <span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Plot a PyVista, numpy, or vtk object.</span>
@@ -367,9 +370,23 @@
 <span class="sd">        setting :attr:`pyvista.global_theme.antialiasing</span>
 <span class="sd">        &lt;pyvista.themes.DefaultTheme.antialiasing&gt;`.</span>
 
-<span class="sd">    zoom : float, optional</span>
-<span class="sd">        Camera zoom.  A value greater than 1 is a zoom-in, a value</span>
-<span class="sd">        less than 1 is a zoom-out.  Must be greater than 0.</span>
+<span class="sd">    zoom : float, str, optional</span>
+<span class="sd">        Camera zoom.  Either ``&#39;tight&#39;`` or a float. A value greater than 1 is</span>
+<span class="sd">        a zoom-in, a value less than 1 is a zoom-out.  Must be greater than 0.</span>
+
+<span class="sd">    border : bool, optional</span>
+<span class="sd">        Draw a border around each render window.  Default ``False``.</span>
+
+<span class="sd">    border_color : color_like, optional</span>
+<span class="sd">        Either a string, rgb list, or hex color string.  For example:</span>
+
+<span class="sd">            * ``color=&#39;white&#39;``</span>
+<span class="sd">            * ``color=&#39;w&#39;``</span>
+<span class="sd">            * ``color=[1.0, 1.0, 1.0]``</span>
+<span class="sd">            * ``color=&#39;#FFFFFF&#39;``</span>
+
+<span class="sd">    border_width : float, optional</span>
+<span class="sd">        Width of the border in pixels when enabled.</span>
 
 <span class="sd">    **kwargs : optional keyword arguments</span>
 <span class="sd">        See :func:`pyvista.Plotter.add_mesh` for additional options.</span>
@@ -420,12 +437,20 @@
     <span class="c1"># undocumented kwarg used within pytest to run a function before closing</span>
     <span class="n">before_close_callback</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;before_close_callback&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
 
-    <span class="c1"># pop from kwargs here to avoid including them in add_mesh or add_volumex</span>
+    <span class="c1"># pop from kwargs here to avoid including them in add_mesh or add_volume</span>
     <span class="n">eye_dome_lighting</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;edl&quot;</span><span class="p">,</span> <span class="n">eye_dome_lighting</span><span class="p">)</span>
     <span class="n">show_grid</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;show_grid&#39;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
     <span class="n">auto_close</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;auto_close&#39;</span><span class="p">)</span>
 
-    <span class="n">pl</span> <span class="o">=</span> <span class="n">Plotter</span><span class="p">(</span><span class="n">off_screen</span><span class="o">=</span><span class="n">off_screen</span><span class="p">,</span> <span class="n">notebook</span><span class="o">=</span><span class="n">notebook</span><span class="p">,</span> <span class="n">theme</span><span class="o">=</span><span class="n">theme</span><span class="p">)</span>
+    <span class="n">pl</span> <span class="o">=</span> <span class="n">Plotter</span><span class="p">(</span>
+        <span class="n">window_size</span><span class="o">=</span><span class="n">window_size</span><span class="p">,</span>
+        <span class="n">off_screen</span><span class="o">=</span><span class="n">off_screen</span><span class="p">,</span>
+        <span class="n">notebook</span><span class="o">=</span><span class="n">notebook</span><span class="p">,</span>
+        <span class="n">theme</span><span class="o">=</span><span class="n">theme</span><span class="p">,</span>
+        <span class="n">border</span><span class="o">=</span><span class="n">border</span><span class="p">,</span>
+        <span class="n">border_color</span><span class="o">=</span><span class="n">border_color</span><span class="p">,</span>
+        <span class="n">border_width</span><span class="o">=</span><span class="n">border_width</span><span class="p">,</span>
+    <span class="p">)</span>
 
     <span class="k">if</span> <span class="n">show_axes</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">show_axes</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">theme</span><span class="o">.</span><span class="n">axes</span><span class="o">.</span><span class="n">show</span>
@@ -475,17 +500,16 @@
     <span class="k">else</span><span class="p">:</span>
         <span class="n">pl</span><span class="o">.</span><span class="n">camera_position</span> <span class="o">=</span> <span class="n">cpos</span>
 
-    <span class="k">if</span> <span class="n">zoom</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">pl</span><span class="o">.</span><span class="n">camera</span><span class="o">.</span><span class="n">zoom</span><span class="p">(</span><span class="n">zoom</span><span class="p">)</span>
-
     <span class="k">if</span> <span class="n">eye_dome_lighting</span><span class="p">:</span>
         <span class="n">pl</span><span class="o">.</span><span class="n">enable_eye_dome_lighting</span><span class="p">()</span>
 
     <span class="k">if</span> <span class="n">parallel_projection</span><span class="p">:</span>
         <span class="n">pl</span><span class="o">.</span><span class="n">enable_parallel_projection</span><span class="p">()</span>
 
+    <span class="k">if</span> <span class="n">zoom</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">pl</span><span class="o">.</span><span class="n">camera</span><span class="o">.</span><span class="n">zoom</span><span class="p">(</span><span class="n">zoom</span><span class="p">)</span>
+
     <span class="k">return</span> <span class="n">pl</span><span class="o">.</span><span class="n">show</span><span class="p">(</span>
-        <span class="n">window_size</span><span class="o">=</span><span class="n">window_size</span><span class="p">,</span>
         <span class="n">auto_close</span><span class="o">=</span><span class="n">auto_close</span><span class="p">,</span>
         <span class="n">interactive</span><span class="o">=</span><span class="n">interactive</span><span class="p">,</span>
         <span class="n">full_screen</span><span class="o">=</span><span class="n">full_screen</span><span class="p">,</span>

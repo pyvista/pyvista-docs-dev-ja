@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>pyvista.plotting.renderer &#8212; PyVista 0.36.dev0 ドキュメント</title>
+    <title>pyvista.plotting.renderer &#8212; PyVista 0.37.dev0 ドキュメント</title>
 <script>
   document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
   document.documentElement.dataset.theme = localStorage.getItem("theme") || "light"
@@ -2968,6 +2968,26 @@
 
         <span class="bp">self</span><span class="o">.</span><span class="n">UseImageBasedLightingOn</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">SetEnvironmentTexture</span><span class="p">(</span><span class="n">texture</span><span class="p">,</span> <span class="n">is_srgb</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Modified</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="Renderer.remove_environment_texture"><a class="viewcode-back" href="../../../api/plotting/_autosummary/pyvista.Renderer.remove_environment_texture.html#pyvista.Renderer.remove_environment_texture">[ドキュメント]</a>    <span class="k">def</span> <span class="nf">remove_environment_texture</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Remove the environment texture.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; from pyvista import examples</span>
+<span class="sd">        &gt;&gt;&gt; import pyvista as pv</span>
+<span class="sd">        &gt;&gt;&gt; pl = pv.Plotter(lighting=None)</span>
+<span class="sd">        &gt;&gt;&gt; cubemap = examples.download_sky_box_cube_map()</span>
+<span class="sd">        &gt;&gt;&gt; _ = pl.add_mesh(pv.Sphere(), pbr=True, metallic=0.9, roughness=0.4)</span>
+<span class="sd">        &gt;&gt;&gt; pl.set_environment_texture(cubemap)</span>
+<span class="sd">        &gt;&gt;&gt; pl.remove_environment_texture()</span>
+<span class="sd">        &gt;&gt;&gt; pl.camera_position = &#39;xy&#39;</span>
+<span class="sd">        &gt;&gt;&gt; pl.show()</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">UseImageBasedLightingOff</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">SetEnvironmentTexture</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">Modified</span><span class="p">()</span></div>
 
 <div class="viewcode-block" id="Renderer.close"><a class="viewcode-back" href="../../../api/plotting/_autosummary/pyvista.Renderer.close.html#pyvista.Renderer.close">[ドキュメント]</a>    <span class="k">def</span> <span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
