@@ -66,7 +66,9 @@ jobs:
         set +x
         git submodule update --remote
         cd pyvista
-        make -C doc html SPHINXOPTS="-w build_errors.txt -N -D language=ja -D locale_dirs='../../locale'"
+        cd doc
+        make phtml DEFAULTS="" SPHINXOPTS="-D language=ja -D locale_dirs='../../../locale'"
+        cd ../
         cd ../
         cd ../
     - name: commit
