@@ -1,0 +1,907 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="ja" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Readers &#8212; PyVista 0.40.dev0 ドキュメント</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/thebelab.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/asciinema-player_2.6.1.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/asciinema-custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/no_search_highlight.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/summary.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-binder.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-dataframe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-rendered-html.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/cards.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/no_italic.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/thebelab-helper.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/asciinema-player_2.6.1.js"></script>
+    <script src="../../_static/translations.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-140243896-1"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'UA-140243896-1');
+            </script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'api/readers/index';</script>
+    <script>
+        DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://docs.pyvista.org/versions.json';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = 'dev';
+        </script>
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="検索" href="../../search.html" />
+    <link rel="next" title="pyvista.get_reader" href="_autosummary/pyvista.get_reader.html" />
+    <link rel="prev" title="pyvista.Report" href="../utilities/_autosummary/pyvista.Report.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="ja"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+    <span class="fa-solid fa-bars"></span>
+  </label>
+  
+  <div class="navbar-header-items__start">
+    
+      <div class="navbar-item">
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/pyvista_logo_sm.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../_static/pyvista_logo_sm.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+    
+  </div>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item"><nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../getting-started/index.html">
+                        Getting Started
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../user-guide/index.html">
+                        User Guide
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../examples/index.html">
+                        Examples
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="../index.html">
+                        API Reference
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../extras/index.html">
+                        Extras
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="検索" aria-label="検索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+        </div>
+      
+      
+        <div class="navbar-item">
+<script>
+document.write(`
+  <div class="version-switcher__container dropdown">
+    <button type="button" class="version-switcher__button btn btn-sm navbar-btn dropdown-toggle" data-bs-toggle="dropdown">
+      dev  <!-- this text may get changed later by javascript -->
+      <span class="caret"></span>
+    </button>
+    <div class="version-switcher__menu dropdown-menu list-group-flush py-0">
+    <!-- dropdown will be populated by javascript on page load -->
+    </div>
+  </div>
+`);
+</script></div>
+      
+        <div class="navbar-item">
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/pyvista/pyvista" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github"></i></span>
+            <label class="sr-only">GitHub</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="http://slack.pyvista.org" title="Slack Community" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fab fa-slack"></i></span>
+            <label class="sr-only">Slack Community</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/pyvista/pyvista/discussions" title="Support" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-comment fa-fw"></i></span>
+            <label class="sr-only">Support</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/pyvista/pyvista/blob/main/CONTRIBUTING.rst" title="Contributing" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-gavel fa-fw"></i></span>
+            <label class="sr-only">Contributing</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://doi.org/10.21105/joss.01450" title="The Paper" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-file-text fa-fw"></i></span>
+            <label class="sr-only">The Paper</label></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="検索" aria-label="検索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+    </div>
+  
+
+  
+    <label class="sidebar-toggle secondary-toggle" for="__secondary">
+      <span class="fa-solid fa-outdent"></span>
+    </label>
+  
+</div>
+
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          <div class="navbar-item"><nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../getting-started/index.html">
+                        Getting Started
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../user-guide/index.html">
+                        User Guide
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../examples/index.html">
+                        Examples
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="../index.html">
+                        API Reference
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../extras/index.html">
+                        Extras
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+<script>
+document.write(`
+  <div class="version-switcher__container dropdown">
+    <button type="button" class="version-switcher__button btn btn-sm navbar-btn dropdown-toggle" data-bs-toggle="dropdown">
+      dev  <!-- this text may get changed later by javascript -->
+      <span class="caret"></span>
+    </button>
+    <div class="version-switcher__menu dropdown-menu list-group-flush py-0">
+    <!-- dropdown will be populated by javascript on page load -->
+    </div>
+  </div>
+`);
+</script></div>
+        
+          <div class="navbar-item">
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/pyvista/pyvista" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github"></i></span>
+            <label class="sr-only">GitHub</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="http://slack.pyvista.org" title="Slack Community" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fab fa-slack"></i></span>
+            <label class="sr-only">Slack Community</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/pyvista/pyvista/discussions" title="Support" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-comment fa-fw"></i></span>
+            <label class="sr-only">Support</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/pyvista/pyvista/blob/main/CONTRIBUTING.rst" title="Contributing" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-gavel fa-fw"></i></span>
+            <label class="sr-only">Contributing</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://doi.org/10.21105/joss.01450" title="The Paper" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-file-text fa-fw"></i></span>
+            <label class="sr-only">The Paper</label></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item"><nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><p aria-level="2" class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../core/index.html">Core API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plotting/index.html">Plotting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../utilities/index.html">Utilities</a></li>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Readers</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="_autosummary/pyvista.get_reader.html">pyvista.get_reader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_autosummary/pyvista.AVSucdReader.html">pyvista.AVSucdReader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_autosummary/pyvista.BMPReader.html">pyvista.BMPReader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_autosummary/pyvista.BYUReader.html">pyvista.BYUReader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_autosummary/pyvista.BinaryMarchingCubesReader.html">pyvista.BinaryMarchingCubesReader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_autosummary/pyvista.CGNSReader.html">pyvista.CGNSReader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_autosummary/pyvista.DEMReader.html">pyvista.DEMReader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_autosummary/pyvista.DICOMReader.html">pyvista.DICOMReader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_autosummary/pyvista.EnSightReader.html">pyvista.EnSightReader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_autosummary/pyvista.FacetReader.html">pyvista.FacetReader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_autosummary/pyvista.FluentReader.html">pyvista.FluentReader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_autosummary/pyvista.GIFReader.html">pyvista.GIFReader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_autosummary/pyvista.GLTFReader.html">pyvista.GLTFReader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_autosummary/pyvista.HDFReader.html">pyvista.HDFReader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_autosummary/pyvista.HDRReader.html">pyvista.HDRReader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_autosummary/pyvista.JPEGReader.html">pyvista.JPEGReader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_autosummary/pyvista.MFIXReader.html">pyvista.MFIXReader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_autosummary/pyvista.MetaImageReader.html">pyvista.MetaImageReader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_autosummary/pyvista.MultiBlockPlot3DReader.html">pyvista.MultiBlockPlot3DReader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_autosummary/pyvista.NIFTIReader.html">pyvista.NIFTIReader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_autosummary/pyvista.NRRDReader.html">pyvista.NRRDReader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_autosummary/pyvista.OBJReader.html">pyvista.OBJReader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_autosummary/pyvista.OpenFOAMReader.html">pyvista.OpenFOAMReader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_autosummary/pyvista.PLYReader.html">pyvista.PLYReader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_autosummary/pyvista.PNGReader.html">pyvista.PNGReader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_autosummary/pyvista.PNMReader.html">pyvista.PNMReader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_autosummary/pyvista.POpenFOAMReader.html">pyvista.POpenFOAMReader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_autosummary/pyvista.PTSReader.html">pyvista.PTSReader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_autosummary/pyvista.PVDReader.html">pyvista.PVDReader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_autosummary/pyvista.Plot3DMetaReader.html">pyvista.Plot3DMetaReader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_autosummary/pyvista.SLCReader.html">pyvista.SLCReader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_autosummary/pyvista.STLReader.html">pyvista.STLReader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_autosummary/pyvista.SegYReader.html">pyvista.SegYReader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_autosummary/pyvista.TIFFReader.html">pyvista.TIFFReader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_autosummary/pyvista.TecplotReader.html">pyvista.TecplotReader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_autosummary/pyvista.VTKDataSetReader.html">pyvista.VTKDataSetReader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_autosummary/pyvista.VTKPDataSetReader.html">pyvista.VTKPDataSetReader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_autosummary/pyvista.XMLImageDataReader.html">pyvista.XMLImageDataReader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_autosummary/pyvista.XMLMultiBlockDataReader.html">pyvista.XMLMultiBlockDataReader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_autosummary/pyvista.XMLPImageDataReader.html">pyvista.XMLPImageDataReader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_autosummary/pyvista.XMLPRectilinearGridReader.html">pyvista.XMLPRectilinearGridReader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_autosummary/pyvista.XMLPUnstructuredGridReader.html">pyvista.XMLPUnstructuredGridReader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_autosummary/pyvista.XMLPolyDataReader.html">pyvista.XMLPolyDataReader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_autosummary/pyvista.XMLRectilinearGridReader.html">pyvista.XMLRectilinearGridReader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_autosummary/pyvista.XMLStructuredGridReader.html">pyvista.XMLStructuredGridReader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_autosummary/pyvista.XMLUnstructuredGridReader.html">pyvista.XMLUnstructuredGridReader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_autosummary/pyvista.XdmfReader.html">pyvista.XdmfReader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_autosummary/pyvista.BaseReader.html">pyvista.BaseReader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_autosummary/pyvista.PointCellDataSelection.html">pyvista.PointCellDataSelection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_autosummary/pyvista.TimeReader.html">pyvista.TimeReader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enums.html">Reader Enumerations</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Examples</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumbs">
+  <ul class="bd-breadcrumbs" role="navigation" aria-label="Breadcrumb">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../index.html" class="nav-link">API Reference</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">Readers</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="readers">
+<span id="reader-api"></span><h1>Readers<a class="headerlink" href="#readers" title="このヘッドラインへのパーマリンク">#</a></h1>
+<p>PyVista provides class based readers to have more control over reading
+data files. These classes allows for more fine-grained control over
+reading datasets from files. See <a class="reference internal" href="_autosummary/pyvista.get_reader.html#pyvista.get_reader" title="pyvista.get_reader"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyvista.get_reader()</span></code></a> for a
+list of file types supported.</p>
+<p>Also, see <a class="reference internal" href="../../examples/00-load/reader.html#reader-example"><span class="std std-ref">Load data using a Reader</span></a> for a full example using reader classes.</p>
+<table class="longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="_autosummary/pyvista.get_reader.html#pyvista.get_reader" title="pyvista.get_reader"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_reader</span></code></a>(filename[, force_ext])</p></td>
+<td><p>Get a reader for fine-grained control of reading data files.</p></td>
+</tr>
+</tbody>
+</table>
+<section id="reader-classes">
+<h2>Reader Classes<a class="headerlink" href="#reader-classes" title="このヘッドラインへのパーマリンク">#</a></h2>
+<table class="longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="_autosummary/pyvista.AVSucdReader.html#pyvista.AVSucdReader" title="pyvista.AVSucdReader"><code class="xref py py-obj docutils literal notranslate"><span class="pre">AVSucdReader</span></code></a>(*args, **kwargs)</p></td>
+<td><p>AVSucdReader for .inp files.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="_autosummary/pyvista.BMPReader.html#pyvista.BMPReader" title="pyvista.BMPReader"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BMPReader</span></code></a>(*args, **kwargs)</p></td>
+<td><p>BMP Reader for .bmp files.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="_autosummary/pyvista.BYUReader.html#pyvista.BYUReader" title="pyvista.BYUReader"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BYUReader</span></code></a>(*args, **kwargs)</p></td>
+<td><p>BYU Reader for .g files.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="_autosummary/pyvista.BinaryMarchingCubesReader.html#pyvista.BinaryMarchingCubesReader" title="pyvista.BinaryMarchingCubesReader"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BinaryMarchingCubesReader</span></code></a>(*args, **kwargs)</p></td>
+<td><p>BinaryMarchingCubes Reader for .tri files.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="_autosummary/pyvista.CGNSReader.html#pyvista.CGNSReader" title="pyvista.CGNSReader"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CGNSReader</span></code></a>(*args, **kwargs)</p></td>
+<td><p>CGNS Reader for .cgns files.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="_autosummary/pyvista.DEMReader.html#pyvista.DEMReader" title="pyvista.DEMReader"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DEMReader</span></code></a>(*args, **kwargs)</p></td>
+<td><p>DEM Reader for .dem files.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="_autosummary/pyvista.DICOMReader.html#pyvista.DICOMReader" title="pyvista.DICOMReader"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DICOMReader</span></code></a>(*args, **kwargs)</p></td>
+<td><p>DICOM Reader for reading <code class="docutils literal notranslate"><span class="pre">.dcm</span></code> files.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="_autosummary/pyvista.EnSightReader.html#pyvista.EnSightReader" title="pyvista.EnSightReader"><code class="xref py py-obj docutils literal notranslate"><span class="pre">EnSightReader</span></code></a>(*args, **kwargs)</p></td>
+<td><p>EnSight Reader for .case files.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="_autosummary/pyvista.FacetReader.html#pyvista.FacetReader" title="pyvista.FacetReader"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FacetReader</span></code></a>(*args, **kwargs)</p></td>
+<td><p>Facet Reader for .facet files.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="_autosummary/pyvista.FluentReader.html#pyvista.FluentReader" title="pyvista.FluentReader"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FluentReader</span></code></a>(*args, **kwargs)</p></td>
+<td><p>FluentReader for .cas files.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="_autosummary/pyvista.GIFReader.html#pyvista.GIFReader" title="pyvista.GIFReader"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GIFReader</span></code></a>(*args, **kwargs)</p></td>
+<td><p>GIFReader for .gif files.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="_autosummary/pyvista.GLTFReader.html#pyvista.GLTFReader" title="pyvista.GLTFReader"><code class="xref py py-obj docutils literal notranslate"><span class="pre">GLTFReader</span></code></a>(*args, **kwargs)</p></td>
+<td><p>GLTFeader for .gltf and .glb files.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="_autosummary/pyvista.HDFReader.html#pyvista.HDFReader" title="pyvista.HDFReader"><code class="xref py py-obj docutils literal notranslate"><span class="pre">HDFReader</span></code></a>(*args, **kwargs)</p></td>
+<td><p>HDFReader for .hdf files.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="_autosummary/pyvista.HDRReader.html#pyvista.HDRReader" title="pyvista.HDRReader"><code class="xref py py-obj docutils literal notranslate"><span class="pre">HDRReader</span></code></a>(*args, **kwargs)</p></td>
+<td><p>HDRReader for .hdr files.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="_autosummary/pyvista.JPEGReader.html#pyvista.JPEGReader" title="pyvista.JPEGReader"><code class="xref py py-obj docutils literal notranslate"><span class="pre">JPEGReader</span></code></a>(*args, **kwargs)</p></td>
+<td><p>JPEG Reader for .jpeg and .jpg files.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="_autosummary/pyvista.MFIXReader.html#pyvista.MFIXReader" title="pyvista.MFIXReader"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MFIXReader</span></code></a>(*args, **kwargs)</p></td>
+<td><p>MFIXReader for .res files.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="_autosummary/pyvista.MetaImageReader.html#pyvista.MetaImageReader" title="pyvista.MetaImageReader"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MetaImageReader</span></code></a>(*args, **kwargs)</p></td>
+<td><p>Meta Image Reader for .mha and .mhd files.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="_autosummary/pyvista.MultiBlockPlot3DReader.html#pyvista.MultiBlockPlot3DReader" title="pyvista.MultiBlockPlot3DReader"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MultiBlockPlot3DReader</span></code></a>(*args, **kwargs)</p></td>
+<td><p>MultiBlock Plot3D Reader.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="_autosummary/pyvista.NIFTIReader.html#pyvista.NIFTIReader" title="pyvista.NIFTIReader"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NIFTIReader</span></code></a>(*args, **kwargs)</p></td>
+<td><p>NIFTI Reader for .nii and .nii.gz files.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="_autosummary/pyvista.NRRDReader.html#pyvista.NRRDReader" title="pyvista.NRRDReader"><code class="xref py py-obj docutils literal notranslate"><span class="pre">NRRDReader</span></code></a>(*args, **kwargs)</p></td>
+<td><p>NRRDReader for .nrrd and .nhdr files.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="_autosummary/pyvista.OBJReader.html#pyvista.OBJReader" title="pyvista.OBJReader"><code class="xref py py-obj docutils literal notranslate"><span class="pre">OBJReader</span></code></a>(*args, **kwargs)</p></td>
+<td><p>OBJ Reader for reading .obj files.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="_autosummary/pyvista.OpenFOAMReader.html#pyvista.OpenFOAMReader" title="pyvista.OpenFOAMReader"><code class="xref py py-obj docutils literal notranslate"><span class="pre">OpenFOAMReader</span></code></a>(*args, **kwargs)</p></td>
+<td><p>OpenFOAM Reader for .foam files.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="_autosummary/pyvista.PLYReader.html#pyvista.PLYReader" title="pyvista.PLYReader"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PLYReader</span></code></a>(*args, **kwargs)</p></td>
+<td><p>PLY Reader for reading .ply files.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="_autosummary/pyvista.PNGReader.html#pyvista.PNGReader" title="pyvista.PNGReader"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PNGReader</span></code></a>(*args, **kwargs)</p></td>
+<td><p>PNGReader for .png files.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="_autosummary/pyvista.PNMReader.html#pyvista.PNMReader" title="pyvista.PNMReader"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PNMReader</span></code></a>(*args, **kwargs)</p></td>
+<td><p>PNMReader for .pnm files.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="_autosummary/pyvista.POpenFOAMReader.html#pyvista.POpenFOAMReader" title="pyvista.POpenFOAMReader"><code class="xref py py-obj docutils literal notranslate"><span class="pre">POpenFOAMReader</span></code></a>(*args, **kwargs)</p></td>
+<td><p>Parallel OpenFOAM Reader for .foam files.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="_autosummary/pyvista.PTSReader.html#pyvista.PTSReader" title="pyvista.PTSReader"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PTSReader</span></code></a>(*args, **kwargs)</p></td>
+<td><p>PTSReader for .pts files.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="_autosummary/pyvista.PVDReader.html#pyvista.PVDReader" title="pyvista.PVDReader"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PVDReader</span></code></a>(*args, **kwargs)</p></td>
+<td><p>PVD Reader for .pvd files.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="_autosummary/pyvista.Plot3DMetaReader.html#pyvista.Plot3DMetaReader" title="pyvista.Plot3DMetaReader"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plot3DMetaReader</span></code></a>(*args, **kwargs)</p></td>
+<td><p>Plot3DMeta Reader for .p3d files.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="_autosummary/pyvista.SLCReader.html#pyvista.SLCReader" title="pyvista.SLCReader"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SLCReader</span></code></a>(*args, **kwargs)</p></td>
+<td><p>SLCReader for .slc files.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="_autosummary/pyvista.STLReader.html#pyvista.STLReader" title="pyvista.STLReader"><code class="xref py py-obj docutils literal notranslate"><span class="pre">STLReader</span></code></a>(*args, **kwargs)</p></td>
+<td><p>STL Reader for .stl files.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="_autosummary/pyvista.SegYReader.html#pyvista.SegYReader" title="pyvista.SegYReader"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SegYReader</span></code></a>(*args, **kwargs)</p></td>
+<td><p>SegYReader for .sgy and .segy files.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="_autosummary/pyvista.TIFFReader.html#pyvista.TIFFReader" title="pyvista.TIFFReader"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TIFFReader</span></code></a>(*args, **kwargs)</p></td>
+<td><p>TIFFReader for .tif and .tiff files.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="_autosummary/pyvista.TecplotReader.html#pyvista.TecplotReader" title="pyvista.TecplotReader"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TecplotReader</span></code></a>(*args, **kwargs)</p></td>
+<td><p>Tecplot Reader for ascii .dat files.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="_autosummary/pyvista.VTKDataSetReader.html#pyvista.VTKDataSetReader" title="pyvista.VTKDataSetReader"><code class="xref py py-obj docutils literal notranslate"><span class="pre">VTKDataSetReader</span></code></a>(*args, **kwargs)</p></td>
+<td><p>VTK Data Set Reader for .vtk files.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="_autosummary/pyvista.VTKPDataSetReader.html#pyvista.VTKPDataSetReader" title="pyvista.VTKPDataSetReader"><code class="xref py py-obj docutils literal notranslate"><span class="pre">VTKPDataSetReader</span></code></a>(*args, **kwargs)</p></td>
+<td><p>Parallel VTK Data Set Reader for .pvtk files.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="_autosummary/pyvista.XMLImageDataReader.html#pyvista.XMLImageDataReader" title="pyvista.XMLImageDataReader"><code class="xref py py-obj docutils literal notranslate"><span class="pre">XMLImageDataReader</span></code></a>(*args, **kwargs)</p></td>
+<td><p>XML Image Data Reader for .vti files.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="_autosummary/pyvista.XMLMultiBlockDataReader.html#pyvista.XMLMultiBlockDataReader" title="pyvista.XMLMultiBlockDataReader"><code class="xref py py-obj docutils literal notranslate"><span class="pre">XMLMultiBlockDataReader</span></code></a>(*args, **kwargs)</p></td>
+<td><p>XML MultiBlock Data Reader for .vtm or .vtmb files.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="_autosummary/pyvista.XMLPImageDataReader.html#pyvista.XMLPImageDataReader" title="pyvista.XMLPImageDataReader"><code class="xref py py-obj docutils literal notranslate"><span class="pre">XMLPImageDataReader</span></code></a>(*args, **kwargs)</p></td>
+<td><p>Parallel XML Image Data Reader for .pvti files.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="_autosummary/pyvista.XMLPRectilinearGridReader.html#pyvista.XMLPRectilinearGridReader" title="pyvista.XMLPRectilinearGridReader"><code class="xref py py-obj docutils literal notranslate"><span class="pre">XMLPRectilinearGridReader</span></code></a>(*args, **kwargs)</p></td>
+<td><p>Parallel XML RectilinearGrid Reader for .pvtr files.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="_autosummary/pyvista.XMLPUnstructuredGridReader.html#pyvista.XMLPUnstructuredGridReader" title="pyvista.XMLPUnstructuredGridReader"><code class="xref py py-obj docutils literal notranslate"><span class="pre">XMLPUnstructuredGridReader</span></code></a>(*args, **kwargs)</p></td>
+<td><p>Parallel XML UnstructuredGrid Reader for .pvtu files.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="_autosummary/pyvista.XMLPolyDataReader.html#pyvista.XMLPolyDataReader" title="pyvista.XMLPolyDataReader"><code class="xref py py-obj docutils literal notranslate"><span class="pre">XMLPolyDataReader</span></code></a>(*args, **kwargs)</p></td>
+<td><p>XML PolyData Reader for .vtp files.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="_autosummary/pyvista.XMLRectilinearGridReader.html#pyvista.XMLRectilinearGridReader" title="pyvista.XMLRectilinearGridReader"><code class="xref py py-obj docutils literal notranslate"><span class="pre">XMLRectilinearGridReader</span></code></a>(*args, **kwargs)</p></td>
+<td><p>XML RectilinearGrid Reader for .vtr files.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="_autosummary/pyvista.XMLStructuredGridReader.html#pyvista.XMLStructuredGridReader" title="pyvista.XMLStructuredGridReader"><code class="xref py py-obj docutils literal notranslate"><span class="pre">XMLStructuredGridReader</span></code></a>(*args, **kwargs)</p></td>
+<td><p>XML StructuredGrid Reader for .vts files.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="_autosummary/pyvista.XMLUnstructuredGridReader.html#pyvista.XMLUnstructuredGridReader" title="pyvista.XMLUnstructuredGridReader"><code class="xref py py-obj docutils literal notranslate"><span class="pre">XMLUnstructuredGridReader</span></code></a>(*args, **kwargs)</p></td>
+<td><p>XML UnstructuredGrid Reader for .vtu files.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="_autosummary/pyvista.XdmfReader.html#pyvista.XdmfReader" title="pyvista.XdmfReader"><code class="xref py py-obj docutils literal notranslate"><span class="pre">XdmfReader</span></code></a>(*args, **kwargs)</p></td>
+<td><p>XdmfReader for .xdmf files.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="inherited-classes">
+<h2>Inherited Classes<a class="headerlink" href="#inherited-classes" title="このヘッドラインへのパーマリンク">#</a></h2>
+<p>The <a class="reference internal" href="_autosummary/pyvista.BaseReader.html#pyvista.BaseReader" title="pyvista.BaseReader"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.BaseReader</span></code></a> is inherited by all sub-readers. It
+has the basic functionality of all readers to set filename and read
+the data.</p>
+<p>The <a class="reference internal" href="_autosummary/pyvista.PointCellDataSelection.html#pyvista.PointCellDataSelection" title="pyvista.PointCellDataSelection"><code class="xref py py-class docutils literal notranslate"><span class="pre">PointCellDataSelection</span></code></a> is inherited by readers that
+support inspecting and setting data related to point and cell arrays.</p>
+<p>The <a class="reference internal" href="_autosummary/pyvista.TimeReader.html#pyvista.TimeReader" title="pyvista.TimeReader"><code class="xref py py-class docutils literal notranslate"><span class="pre">TimeReader</span></code></a> is inherited by readers that support inspecting
+and setting time or iterations for reading.</p>
+<table class="longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="_autosummary/pyvista.BaseReader.html#pyvista.BaseReader" title="pyvista.BaseReader"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BaseReader</span></code></a>(*args, **kwargs)</p></td>
+<td><p>The Base Reader class.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="_autosummary/pyvista.PointCellDataSelection.html#pyvista.PointCellDataSelection" title="pyvista.PointCellDataSelection"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PointCellDataSelection</span></code></a>()</p></td>
+<td><p>Mixin for readers that support data array selections.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="_autosummary/pyvista.TimeReader.html#pyvista.TimeReader" title="pyvista.TimeReader"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TimeReader</span></code></a>()</p></td>
+<td><p>Abstract class for readers supporting time.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="enumerations">
+<h2>Enumerations<a class="headerlink" href="#enumerations" title="このヘッドラインへのパーマリンク">#</a></h2>
+<p>Enumerations are available to simplify inputs to certain readers.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="enums.html">Reader Enumerations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="enums.html#plot3dfunctionenum">Plot3DFunctionEnum</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reader-classes">Reader Classes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inherited-classes">Inherited Classes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#enumerations">Enumerations</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  
+  <div class="tocsection editthispage">
+    <a href="https://github.com/pyvista/pyvista/edit/main/doc/source/api/readers/index.rst">
+      <i class="fa-solid fa-pencil"></i>
+      
+      
+        
+          Edit on GitHub
+        
+      
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+  <p class="copyright">
+    
+      © Copyright 2017-2023, The PyVista Developers.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item"><p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.13.3.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

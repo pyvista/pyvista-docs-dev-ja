@@ -1,0 +1,1455 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="ja" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>pyvista.Color &#8212; PyVista 0.40.dev0 ドキュメント</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/jupyter-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/thebelab.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/asciinema-player_2.6.1.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/asciinema-custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/no_search_highlight.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/summary.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-binder.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-dataframe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-rendered-html.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/cards.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/no_italic.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/thebelab-helper.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/asciinema-player_2.6.1.js"></script>
+    <script src="../../../_static/translations.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-140243896-1"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'UA-140243896-1');
+            </script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'api/utilities/_autosummary/pyvista.Color';</script>
+    <script>
+        DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://docs.pyvista.org/versions.json';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = 'dev';
+        </script>
+    <link rel="index" title="索引" href="../../../genindex.html" />
+    <link rel="search" title="検索" href="../../../search.html" />
+    <link rel="next" title="pyvista.Color.convert_color_channel" href="pyvista.Color.convert_color_channel.html" />
+    <link rel="prev" title="pyvista.compare_images" href="pyvista.compare_images.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="ja"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+    <span class="fa-solid fa-bars"></span>
+  </label>
+  
+  <div class="navbar-header-items__start">
+    
+      <div class="navbar-item">
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/pyvista_logo_sm.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../../_static/pyvista_logo_sm.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+    
+  </div>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item"><nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../getting-started/index.html">
+                        Getting Started
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../user-guide/index.html">
+                        User Guide
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../examples/index.html">
+                        Examples
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="../../index.html">
+                        API Reference
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../extras/index.html">
+                        Extras
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="検索" aria-label="検索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+        </div>
+      
+      
+        <div class="navbar-item">
+<script>
+document.write(`
+  <div class="version-switcher__container dropdown">
+    <button type="button" class="version-switcher__button btn btn-sm navbar-btn dropdown-toggle" data-bs-toggle="dropdown">
+      dev  <!-- this text may get changed later by javascript -->
+      <span class="caret"></span>
+    </button>
+    <div class="version-switcher__menu dropdown-menu list-group-flush py-0">
+    <!-- dropdown will be populated by javascript on page load -->
+    </div>
+  </div>
+`);
+</script></div>
+      
+        <div class="navbar-item">
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/pyvista/pyvista" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github"></i></span>
+            <label class="sr-only">GitHub</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="http://slack.pyvista.org" title="Slack Community" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fab fa-slack"></i></span>
+            <label class="sr-only">Slack Community</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/pyvista/pyvista/discussions" title="Support" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-comment fa-fw"></i></span>
+            <label class="sr-only">Support</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/pyvista/pyvista/blob/main/CONTRIBUTING.rst" title="Contributing" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-gavel fa-fw"></i></span>
+            <label class="sr-only">Contributing</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://doi.org/10.21105/joss.01450" title="The Paper" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-file-text fa-fw"></i></span>
+            <label class="sr-only">The Paper</label></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="検索" aria-label="検索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+    </div>
+  
+
+  
+    <label class="sidebar-toggle secondary-toggle" for="__secondary">
+      <span class="fa-solid fa-outdent"></span>
+    </label>
+  
+</div>
+
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          <div class="navbar-item"><nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../getting-started/index.html">
+                        Getting Started
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../user-guide/index.html">
+                        User Guide
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../examples/index.html">
+                        Examples
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="../../index.html">
+                        API Reference
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../extras/index.html">
+                        Extras
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+<script>
+document.write(`
+  <div class="version-switcher__container dropdown">
+    <button type="button" class="version-switcher__button btn btn-sm navbar-btn dropdown-toggle" data-bs-toggle="dropdown">
+      dev  <!-- this text may get changed later by javascript -->
+      <span class="caret"></span>
+    </button>
+    <div class="version-switcher__menu dropdown-menu list-group-flush py-0">
+    <!-- dropdown will be populated by javascript on page load -->
+    </div>
+  </div>
+`);
+</script></div>
+        
+          <div class="navbar-item">
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/pyvista/pyvista" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github"></i></span>
+            <label class="sr-only">GitHub</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="http://slack.pyvista.org" title="Slack Community" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fab fa-slack"></i></span>
+            <label class="sr-only">Slack Community</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/pyvista/pyvista/discussions" title="Support" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-comment fa-fw"></i></span>
+            <label class="sr-only">Support</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/pyvista/pyvista/blob/main/CONTRIBUTING.rst" title="Contributing" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-gavel fa-fw"></i></span>
+            <label class="sr-only">Contributing</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://doi.org/10.21105/joss.01450" title="The Paper" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-file-text fa-fw"></i></span>
+            <label class="sr-only">The Paper</label></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item"><nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><p aria-level="2" class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../core/index.html">Core API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../plotting/index.html">Plotting</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../index.html">Utilities</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../geometric.html">Geometric Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../parametric.html">Parametric Objects</a></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="../utilities.html">General Utilities</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="pyvista.utilities.VtkErrorCatcher.html">pyvista.utilities.VtkErrorCatcher</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.utilities.axis_rotation.html">pyvista.utilities.axis_rotation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.utilities.is_inside_bounds.html">pyvista.utilities.is_inside_bounds</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.utilities.set_error_output_file.html">pyvista.utilities.set_error_output_file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.array_from_vtkmatrix.html">pyvista.array_from_vtkmatrix</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.cubemap.html">pyvista.cubemap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.cubemap_from_filenames.html">pyvista.cubemap_from_filenames</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.image_to_texture.html">pyvista.image_to_texture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.is_pyvista_dataset.html">pyvista.is_pyvista_dataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.numpy_to_texture.html">pyvista.numpy_to_texture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.pyvista_ndarray.html">pyvista.pyvista_ndarray</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.vtkmatrix_from_array.html">pyvista.vtkmatrix_from_array</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.wrap.html">pyvista.wrap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.read.html">pyvista.read</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.read_exodus.html">pyvista.read_exodus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.read_legacy.html">pyvista.read_legacy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.read_texture.html">pyvista.read_texture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.save_meshio.html">pyvista.save_meshio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.CellType.html">pyvista.CellType</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.fit_plane_to_points.html">pyvista.fit_plane_to_points</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.lines_from_points.html">pyvista.lines_from_points</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.vector_poly_data.html">pyvista.vector_poly_data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.vtk_points.html">pyvista.vtk_points</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.cell_array.html">pyvista.cell_array</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.convert_array.html">pyvista.convert_array</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.field_array.html">pyvista.field_array</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.get_array.html">pyvista.get_array</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.point_array.html">pyvista.point_array</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.compare_images.html">pyvista.compare_images</a></li>
+<li class="toctree-l3 current active has-children"><a class="current reference internal" href="#">pyvista.Color</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="pyvista.Color.convert_color_channel.html">pyvista.Color.convert_color_channel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyvista.Color.from_dict.html">pyvista.Color.from_dict</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyvista.Color.linear_to_srgb.html">pyvista.Color.linear_to_srgb</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyvista.Color.srgb_to_linear.html">pyvista.Color.srgb_to_linear</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyvista.Color.strip_hex_prefix.html">pyvista.Color.strip_hex_prefix</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyvista.Color.to_dict.html">pyvista.Color.to_dict</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyvista.Color.float_rgb.html">pyvista.Color.float_rgb</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyvista.Color.float_rgba.html">pyvista.Color.float_rgba</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyvista.Color.hex_rgb.html">pyvista.Color.hex_rgb</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyvista.Color.hex_rgba.html">pyvista.Color.hex_rgba</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyvista.Color.int_rgb.html">pyvista.Color.int_rgb</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyvista.Color.int_rgba.html">pyvista.Color.int_rgba</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyvista.Color.name.html">pyvista.Color.name</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyvista.Color.opacity.html">pyvista.Color.opacity</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyvista.Color.vtk_c3ub.html">pyvista.Color.vtk_c3ub</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.ColorLike.html">pyvista.ColorLike</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.start_xvfb.html">pyvista.start_xvfb</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Report.html">pyvista.Report</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../readers/index.html">Readers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/index.html">Examples</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+
+
+<nav aria-label="Breadcrumbs">
+  <ul class="bd-breadcrumbs" role="navigation" aria-label="Breadcrumb">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../index.html" class="nav-link">API Reference</a></li>
+    
+    
+    <li class="breadcrumb-item"><i class="fa-solid fa-ellipsis"></i></li>
+    
+    
+    <li class="breadcrumb-item"><a href="../utilities.html" class="nav-link">General Utilities</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">pyvista.Color</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="pyvista-color">
+<h1>pyvista.Color<a class="headerlink" href="#pyvista-color" title="このヘッドラインへのパーマリンク">#</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="pyvista.Color">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Color</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">ColorLike</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">opacity</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><span class="pre">float</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default_color</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">ColorLike</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default_opacity</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><span class="pre">float</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">255</span></span></em><span class="sig-paren">)</span><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/plotting/colors.py#L637-L1187"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.Color" title="この定義へのパーマリンク">#</a></dt>
+<dd><p>Helper class to convert between different color representations used in the pyvista library.</p>
+<p>Many pyvista methods accept <a class="reference internal" href="pyvista.ColorLike.html#pyvista.ColorLike" title="pyvista.ColorLike"><code class="xref py py-data docutils literal notranslate"><span class="pre">ColorLike</span></code></a> parameters. This helper class
+is used to convert such parameters to the necessary format, used by
+underlying (VTK) methods. Any color name (<code class="docutils literal notranslate"><span class="pre">str</span></code>), hex string (<code class="docutils literal notranslate"><span class="pre">str</span></code>)
+or RGB(A) sequence (<code class="docutils literal notranslate"><span class="pre">tuple</span></code>, <code class="docutils literal notranslate"><span class="pre">list</span></code> or <code class="docutils literal notranslate"><span class="pre">numpy.ndarray</span></code> of <code class="docutils literal notranslate"><span class="pre">int</span></code>
+or <code class="docutils literal notranslate"><span class="pre">float</span></code>) is considered a <a class="reference internal" href="pyvista.ColorLike.html#pyvista.ColorLike" title="pyvista.ColorLike"><code class="xref py py-data docutils literal notranslate"><span class="pre">ColorLike</span></code></a> parameter and can be converted
+by this class.
+See <a class="reference internal" href="pyvista.Color.name.html#pyvista.Color.name" title="pyvista.Color.name"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Color.name</span></code></a> for a list of supported color names.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl>
+<dt><strong>color</strong><span class="classifier"><a class="reference internal" href="pyvista.ColorLike.html#pyvista.ColorLike" title="pyvista.ColorLike"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ColorLike</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>Either a string, RGB sequence, RGBA sequence, or hex color string.
+RGB(A) sequences should either be provided as floats between 0 and 1
+or as ints between 0 and 255. Hex color strings can contain optional
+<code class="docutils literal notranslate"><span class="pre">'#'</span></code> or <code class="docutils literal notranslate"><span class="pre">'0x'</span></code> prefixes. If no opacity is provided, the
+<code class="docutils literal notranslate"><span class="pre">default_opacity</span></code> will be used. If <code class="docutils literal notranslate"><span class="pre">color</span></code> is <code class="docutils literal notranslate"><span class="pre">None</span></code>, the
+<code class="docutils literal notranslate"><span class="pre">default_color</span></code> is used instead.
+The following examples all denote the color 'white':</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">'white'</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'w'</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[1.0,</span> <span class="pre">1.0,</span> <span class="pre">1.0]</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[255,</span> <span class="pre">255,</span> <span class="pre">255,</span> <span class="pre">255]</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'#FFFFFF'</span></code></p></li>
+</ul>
+</dd>
+<dt><strong>opacity</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">int</span></code></a> | <a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a> | <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>Opacity of the represented color. Overrides any opacity associated
+with the provided <code class="docutils literal notranslate"><span class="pre">color</span></code>. Allowed opacities are floats between 0
+and 1, ints between 0 and 255 or hexadecimal strings of length 2
+(plus the length of the optional prefix).
+The following examples all denote a fully opaque color:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">1.0</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">255</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'#ff'</span></code></p></li>
+</ul>
+</dd>
+<dt><strong>default_color</strong><span class="classifier"><a class="reference internal" href="pyvista.ColorLike.html#pyvista.ColorLike" title="pyvista.ColorLike"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ColorLike</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>Default color to use when <code class="docutils literal notranslate"><span class="pre">color</span></code> is <code class="docutils literal notranslate"><span class="pre">None</span></code>. If this value is
+<code class="docutils literal notranslate"><span class="pre">None</span></code>, then defaults to the global theme color. Format is
+identical to <code class="docutils literal notranslate"><span class="pre">color</span></code>.</p>
+</dd>
+<dt><strong>default_opacity</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">int</span></code></a> | <a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a> | <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>Default opacity of the represented color. Used when <code class="docutils literal notranslate"><span class="pre">color</span></code>
+does not specify an opacity and <code class="docutils literal notranslate"><span class="pre">opacity</span></code> is <code class="docutils literal notranslate"><span class="pre">None</span></code>. Format
+is identical to <code class="docutils literal notranslate"><span class="pre">opacity</span></code>.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>The internally used representation is an integer RGBA sequence (values
+between 0 and 255). This might however change in future releases.</p>
+<details><summary>Refer to the table below for a list of supported colors.</summary><table class="colwidths-given table">
+<colgroup>
+<col style="width: 50%" />
+<col style="width: 20%" />
+<col style="width: 30%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Hex value</p></th>
+<th class="head"><p>Example</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;aliceblue&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#F0F8FF</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #F0F8FF;'>&nbsp;</span></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;antiquewhite&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#FAEBD7</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #FAEBD7;'>&nbsp;</span></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;aquamarine&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#7FFFD4</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #7FFFD4;'>&nbsp;</span></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;azure&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#F0FFFF</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #F0FFFF;'>&nbsp;</span></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;beige&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#F5F5DC</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #F5F5DC;'>&nbsp;</span></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;bisque&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#FFE4C4</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #FFE4C4;'>&nbsp;</span></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;black&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;k&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#000000</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #000000;'>&nbsp;</span></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;blanchedalmond&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#FFEBCD</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #FFEBCD;'>&nbsp;</span></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;blue&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;b&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#0000FF</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #0000FF;'>&nbsp;</span></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;blueviolet&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#8A2BE2</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #8A2BE2;'>&nbsp;</span></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;brown&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#654321</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #654321;'>&nbsp;</span></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;burlywood&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#DEB887</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #DEB887;'>&nbsp;</span></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;cadetblue&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#5F9EA0</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #5F9EA0;'>&nbsp;</span></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;chartreuse&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#7FFF00</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #7FFF00;'>&nbsp;</span></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;chocolate&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#D2691E</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #D2691E;'>&nbsp;</span></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;coral&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#FF7F50</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #FF7F50;'>&nbsp;</span></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;cornflowerblue&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#6495ED</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #6495ED;'>&nbsp;</span></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;cornsilk&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#FFF8DC</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #FFF8DC;'>&nbsp;</span></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;crimson&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#DC143C</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #DC143C;'>&nbsp;</span></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;cyan&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;c&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;aqua&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#00FFFF</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #00FFFF;'>&nbsp;</span></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;darkblue&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#00008B</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #00008B;'>&nbsp;</span></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;darkcyan&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#008B8B</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #008B8B;'>&nbsp;</span></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;darkgoldenrod&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#B8860B</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #B8860B;'>&nbsp;</span></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;darkgray&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;darkgrey&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#A9A9A9</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #A9A9A9;'>&nbsp;</span></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;darkgreen&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#006400</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #006400;'>&nbsp;</span></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;darkkhaki&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#BDB76B</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #BDB76B;'>&nbsp;</span></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;darkmagenta&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#8B008B</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #8B008B;'>&nbsp;</span></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;darkolivegreen&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#556B2F</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #556B2F;'>&nbsp;</span></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;darkorange&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#FF8C00</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #FF8C00;'>&nbsp;</span></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;darkorchid&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#9932CC</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #9932CC;'>&nbsp;</span></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;darkred&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#8B0000</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #8B0000;'>&nbsp;</span></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;darksalmon&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#E9967A</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #E9967A;'>&nbsp;</span></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;darkseagreen&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#8FBC8F</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #8FBC8F;'>&nbsp;</span></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;darkslateblue&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#483D8B</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #483D8B;'>&nbsp;</span></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;darkslategray&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;darkslategrey&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#2F4F4F</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #2F4F4F;'>&nbsp;</span></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;darkturquoise&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#00CED1</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #00CED1;'>&nbsp;</span></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;darkviolet&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#9400D3</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #9400D3;'>&nbsp;</span></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;deeppink&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#FF1493</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #FF1493;'>&nbsp;</span></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;deepskyblue&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#00BFFF</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #00BFFF;'>&nbsp;</span></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;dimgray&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;dimgrey&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#696969</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #696969;'>&nbsp;</span></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;dodgerblue&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#1E90FF</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #1E90FF;'>&nbsp;</span></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;firebrick&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#B22222</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #B22222;'>&nbsp;</span></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;floralwhite&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#FFFAF0</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #FFFAF0;'>&nbsp;</span></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;forestgreen&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#228B22</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #228B22;'>&nbsp;</span></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;gainsboro&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#DCDCDC</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #DCDCDC;'>&nbsp;</span></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;ghostwhite&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#F8F8FF</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #F8F8FF;'>&nbsp;</span></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;gold&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#FFD700</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #FFD700;'>&nbsp;</span></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;goldenrod&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#DAA520</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #DAA520;'>&nbsp;</span></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;gray&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;grey&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#808080</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #808080;'>&nbsp;</span></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;green&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;g&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#008000</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #008000;'>&nbsp;</span></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;greenyellow&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#ADFF2F</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #ADFF2F;'>&nbsp;</span></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;honeydew&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#F0FFF0</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #F0FFF0;'>&nbsp;</span></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;hotpink&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#FF69B4</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #FF69B4;'>&nbsp;</span></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;indianred&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#CD5C5C</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #CD5C5C;'>&nbsp;</span></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;indigo&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#4B0082</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #4B0082;'>&nbsp;</span></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;ivory&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#FFFFF0</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #FFFFF0;'>&nbsp;</span></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;khaki&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#F0E68C</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #F0E68C;'>&nbsp;</span></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;lavender&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#E6E6FA</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #E6E6FA;'>&nbsp;</span></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;lavenderblush&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#FFF0F5</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #FFF0F5;'>&nbsp;</span></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;lawngreen&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#7CFC00</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #7CFC00;'>&nbsp;</span></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;lemonchiffon&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#FFFACD</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #FFFACD;'>&nbsp;</span></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;lightblue&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#ADD8E6</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #ADD8E6;'>&nbsp;</span></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;lightcoral&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#F08080</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #F08080;'>&nbsp;</span></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;lightcyan&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#E0FFFF</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #E0FFFF;'>&nbsp;</span></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;lightgoldenrodyellow&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#FAFAD2</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #FAFAD2;'>&nbsp;</span></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;lightgray&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;lightgrey&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#D3D3D3</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #D3D3D3;'>&nbsp;</span></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;lightgreen&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#90EE90</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #90EE90;'>&nbsp;</span></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;lightpink&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#FFB6C1</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #FFB6C1;'>&nbsp;</span></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;lightsalmon&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#FFA07A</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #FFA07A;'>&nbsp;</span></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;lightseagreen&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#20B2AA</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #20B2AA;'>&nbsp;</span></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;lightskyblue&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#87CEFA</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #87CEFA;'>&nbsp;</span></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;lightslategray&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;lightslategrey&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#778899</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #778899;'>&nbsp;</span></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;lightsteelblue&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#B0C4DE</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #B0C4DE;'>&nbsp;</span></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;lightyellow&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#FFFFE0</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #FFFFE0;'>&nbsp;</span></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;lime&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#00FF00</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #00FF00;'>&nbsp;</span></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;limegreen&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#32CD32</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #32CD32;'>&nbsp;</span></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;linen&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#FAF0E6</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #FAF0E6;'>&nbsp;</span></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;magenta&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;m&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;fuchsia&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#FF00FF</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #FF00FF;'>&nbsp;</span></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;maroon&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#800000</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #800000;'>&nbsp;</span></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;mediumaquamarine&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#66CDAA</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #66CDAA;'>&nbsp;</span></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;mediumblue&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#0000CD</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #0000CD;'>&nbsp;</span></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;mediumorchid&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#BA55D3</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #BA55D3;'>&nbsp;</span></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;mediumpurple&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#9370DB</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #9370DB;'>&nbsp;</span></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;mediumseagreen&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#3CB371</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #3CB371;'>&nbsp;</span></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;mediumslateblue&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#7B68EE</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #7B68EE;'>&nbsp;</span></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;mediumspringgreen&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#00FA9A</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #00FA9A;'>&nbsp;</span></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;mediumturquoise&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#48D1CC</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #48D1CC;'>&nbsp;</span></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;mediumvioletred&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#C71585</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #C71585;'>&nbsp;</span></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;midnightblue&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#191970</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #191970;'>&nbsp;</span></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;mintcream&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#F5FFFA</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #F5FFFA;'>&nbsp;</span></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;mistyrose&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#FFE4E1</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #FFE4E1;'>&nbsp;</span></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;moccasin&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#FFE4B5</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #FFE4B5;'>&nbsp;</span></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;navajowhite&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#FFDEAD</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #FFDEAD;'>&nbsp;</span></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;navy&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#000080</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #000080;'>&nbsp;</span></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;oldlace&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#FDF5E6</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #FDF5E6;'>&nbsp;</span></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;olive&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#808000</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #808000;'>&nbsp;</span></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;olivedrab&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#6B8E23</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #6B8E23;'>&nbsp;</span></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;orange&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#FFA500</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #FFA500;'>&nbsp;</span></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;orangered&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#FF4500</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #FF4500;'>&nbsp;</span></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;orchid&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#DA70D6</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #DA70D6;'>&nbsp;</span></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;palegoldenrod&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#EEE8AA</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #EEE8AA;'>&nbsp;</span></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;palegreen&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#98FB98</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #98FB98;'>&nbsp;</span></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;paleturquoise&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#AFEEEE</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #AFEEEE;'>&nbsp;</span></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;palevioletred&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#DB7093</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #DB7093;'>&nbsp;</span></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;papayawhip&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#FFEFD5</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #FFEFD5;'>&nbsp;</span></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;paraview_background&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;pv&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;paraview&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#52576e</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #52576e;'>&nbsp;</span></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;peachpuff&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#FFDAB9</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #FFDAB9;'>&nbsp;</span></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;peru&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#CD853F</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #CD853F;'>&nbsp;</span></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;pink&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#FFC0CB</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #FFC0CB;'>&nbsp;</span></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;plum&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#DDA0DD</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #DDA0DD;'>&nbsp;</span></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;powderblue&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#B0E0E6</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #B0E0E6;'>&nbsp;</span></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;purple&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#800080</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #800080;'>&nbsp;</span></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;raw_sienna&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#965434</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #965434;'>&nbsp;</span></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;rebeccapurple&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#663399</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #663399;'>&nbsp;</span></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;red&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;r&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#FF0000</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #FF0000;'>&nbsp;</span></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;rosybrown&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#BC8F8F</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #BC8F8F;'>&nbsp;</span></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;royalblue&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#4169E1</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #4169E1;'>&nbsp;</span></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;saddlebrown&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#8B4513</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #8B4513;'>&nbsp;</span></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;salmon&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#FA8072</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #FA8072;'>&nbsp;</span></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;sandybrown&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#F4A460</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #F4A460;'>&nbsp;</span></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;seagreen&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#2E8B57</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #2E8B57;'>&nbsp;</span></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;seashell&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#FFF5EE</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #FFF5EE;'>&nbsp;</span></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;sienna&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#A0522D</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #A0522D;'>&nbsp;</span></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;silver&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#C0C0C0</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #C0C0C0;'>&nbsp;</span></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;skyblue&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#87CEEB</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #87CEEB;'>&nbsp;</span></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;slateblue&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#6A5ACD</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #6A5ACD;'>&nbsp;</span></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;slategray&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;slategrey&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#708090</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #708090;'>&nbsp;</span></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;snow&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#FFFAFA</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #FFFAFA;'>&nbsp;</span></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;springgreen&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#00FF7F</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #00FF7F;'>&nbsp;</span></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;steelblue&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#4682B4</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #4682B4;'>&nbsp;</span></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;tan&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#D2B48C</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #D2B48C;'>&nbsp;</span></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;teal&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#008080</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #008080;'>&nbsp;</span></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;thistle&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#D8BFD8</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #D8BFD8;'>&nbsp;</span></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;tomato&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#FF6347</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #FF6347;'>&nbsp;</span></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;turquoise&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#40E0D0</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #40E0D0;'>&nbsp;</span></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;violet&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#EE82EE</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #EE82EE;'>&nbsp;</span></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;wheat&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#F5DEB3</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #F5DEB3;'>&nbsp;</span></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;white&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;w&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#FFFFFF</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #FFFFFF;'>&nbsp;</span></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;whitesmoke&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#F5F5F5</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #F5F5F5;'>&nbsp;</span></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;yellow&quot;</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;y&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#FFFF00</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #FFFF00;'>&nbsp;</span></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;yellowgreen&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#9ACD32</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #9ACD32;'>&nbsp;</span></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;tab:blue&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#1f77b4</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #1f77b4;'>&nbsp;</span></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;tab:orange&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#ff7f0e</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #ff7f0e;'>&nbsp;</span></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;tab:green&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#2ca02c</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #2ca02c;'>&nbsp;</span></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;tab:red&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#d62728</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #d62728;'>&nbsp;</span></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;tab:purple&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#9467bd</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #9467bd;'>&nbsp;</span></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;tab:brown&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#8c564b</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #8c564b;'>&nbsp;</span></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;tab:pink&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#e377c2</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #e377c2;'>&nbsp;</span></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;tab:gray&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#7f7f7f</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #7f7f7f;'>&nbsp;</span></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;tab:olive&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#bcbd22</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #bcbd22;'>&nbsp;</span></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">&quot;tab:cyan&quot;</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">#17becf</span></code></p></td>
+<td><span style='width:100%; height:100%; display:block; background-color: #17becf;'>&nbsp;</span></td>
+</tr>
+</tbody>
+</table>
+</details><p class="rubric">Examples</p>
+<p>Create a transparent green color using a color name, float RGBA sequence,
+integer RGBA sequence and RGBA hexadecimal string.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyvista</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pyvista</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s2">&quot;green&quot;</span><span class="p">,</span> <span class="n">opacity</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="go">Color(name=&#39;green&#39;, hex=&#39;#00800080&#39;, opacity=128)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pyvista</span><span class="o">.</span><span class="n">Color</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">])</span>
+<span class="go">Color(name=&#39;green&#39;, hex=&#39;#00800080&#39;, opacity=128)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pyvista</span><span class="o">.</span><span class="n">Color</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">128</span><span class="p">])</span>
+<span class="go">Color(name=&#39;green&#39;, hex=&#39;#00800080&#39;, opacity=128)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pyvista</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s2">&quot;#00800080&quot;</span><span class="p">)</span>
+<span class="go">Color(name=&#39;green&#39;, hex=&#39;#00800080&#39;, opacity=128)</span>
+</pre></div>
+</div>
+<p class="rubric">Methods</p>
+<table class="longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Color.convert_color_channel.html#pyvista.Color.convert_color_channel" title="pyvista.Color.convert_color_channel"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Color.convert_color_channel</span></code></a>(val)</p></td>
+<td><p>Convert the given color channel value to the integer representation.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Color.from_dict.html#pyvista.Color.from_dict" title="pyvista.Color.from_dict"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Color.from_dict</span></code></a>(dict_)</p></td>
+<td><p>Construct from dictionary for JSON deserialization.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Color.linear_to_srgb.html#pyvista.Color.linear_to_srgb" title="pyvista.Color.linear_to_srgb"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Color.linear_to_srgb</span></code></a>()</p></td>
+<td><p>Convert from linear color values to sRGB color values.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Color.srgb_to_linear.html#pyvista.Color.srgb_to_linear" title="pyvista.Color.srgb_to_linear"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Color.srgb_to_linear</span></code></a>()</p></td>
+<td><p>Convert from sRGB color values to linear color values.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Color.strip_hex_prefix.html#pyvista.Color.strip_hex_prefix" title="pyvista.Color.strip_hex_prefix"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Color.strip_hex_prefix</span></code></a>(h)</p></td>
+<td><p>Strip any <code class="docutils literal notranslate"><span class="pre">'#'</span></code> or <code class="docutils literal notranslate"><span class="pre">'0x'</span></code> prefix from a hexadecimal string.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Color.to_dict.html#pyvista.Color.to_dict" title="pyvista.Color.to_dict"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Color.to_dict</span></code></a>()</p></td>
+<td><p>Convert to dictionary for JSON serialization.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Attributes</p>
+<table class="longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Color.float_rgb.html#pyvista.Color.float_rgb" title="pyvista.Color.float_rgb"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Color.float_rgb</span></code></a></p></td>
+<td><p>Get the color value as an RGB float tuple.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Color.float_rgba.html#pyvista.Color.float_rgba" title="pyvista.Color.float_rgba"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Color.float_rgba</span></code></a></p></td>
+<td><p>Get the color value as an RGBA float tuple.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Color.hex_rgb.html#pyvista.Color.hex_rgb" title="pyvista.Color.hex_rgb"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Color.hex_rgb</span></code></a></p></td>
+<td><p>Get the color value as an RGB hexadecimal value.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Color.hex_rgba.html#pyvista.Color.hex_rgba" title="pyvista.Color.hex_rgba"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Color.hex_rgba</span></code></a></p></td>
+<td><p>Get the color value as an RGBA hexadecimal value.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Color.int_rgb.html#pyvista.Color.int_rgb" title="pyvista.Color.int_rgb"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Color.int_rgb</span></code></a></p></td>
+<td><p>Get the color value as an RGB integer tuple.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Color.int_rgba.html#pyvista.Color.int_rgba" title="pyvista.Color.int_rgba"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Color.int_rgba</span></code></a></p></td>
+<td><p>Get the color value as an RGBA integer tuple.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Color.name.html#pyvista.Color.name" title="pyvista.Color.name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Color.name</span></code></a></p></td>
+<td><p>Get the color name.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Color.opacity.html#pyvista.Color.opacity" title="pyvista.Color.opacity"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Color.opacity</span></code></a></p></td>
+<td><p>Return the opacity of this color in the range of <code class="docutils literal notranslate"><span class="pre">(0-255)</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Color.vtk_c3ub.html#pyvista.Color.vtk_c3ub" title="pyvista.Color.vtk_c3ub"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Color.vtk_c3ub</span></code></a></p></td>
+<td><p>Get the color value as a VTK Color3ub instance.</p></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</section>
+
+
+                </article>
+              
+              
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  
+  <div class="tocsection editthispage">
+    <a href="http://github.com/pyvista/pyvista/edit/main/pyvista/plotting/colors.py">
+      <i class="fa-solid fa-pencil"></i>
+      
+      
+        
+          Edit on GitHub
+        
+      
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+  <p class="copyright">
+    
+      © Copyright 2017-2023, The PyVista Developers.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item"><p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.13.3.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,894 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="ja" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>pyvista.Light &#8212; PyVista 0.40.dev0 ドキュメント</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/jupyter-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/thebelab.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/asciinema-player_2.6.1.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/asciinema-custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/no_search_highlight.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/summary.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-binder.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-dataframe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-rendered-html.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/cards.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/no_italic.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/thebelab-helper.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/asciinema-player_2.6.1.js"></script>
+    <script src="../../../_static/translations.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-140243896-1"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'UA-140243896-1');
+            </script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'api/core/_autosummary/pyvista.Light';</script>
+    <script>
+        DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://docs.pyvista.org/versions.json';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = 'dev';
+        </script>
+    <link rel="index" title="索引" href="../../../genindex.html" />
+    <link rel="search" title="検索" href="../../../search.html" />
+    <link rel="next" title="pyvista.Light.add_renderer" href="pyvista.Light.add_renderer.html" />
+    <link rel="prev" title="Lights" href="../lights.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="ja"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+    <span class="fa-solid fa-bars"></span>
+  </label>
+  
+  <div class="navbar-header-items__start">
+    
+      <div class="navbar-item">
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/pyvista_logo_sm.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../../_static/pyvista_logo_sm.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+    
+  </div>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item"><nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../getting-started/index.html">
+                        Getting Started
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../user-guide/index.html">
+                        User Guide
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../examples/index.html">
+                        Examples
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="../../index.html">
+                        API Reference
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../extras/index.html">
+                        Extras
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="検索" aria-label="検索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+        </div>
+      
+      
+        <div class="navbar-item">
+<script>
+document.write(`
+  <div class="version-switcher__container dropdown">
+    <button type="button" class="version-switcher__button btn btn-sm navbar-btn dropdown-toggle" data-bs-toggle="dropdown">
+      dev  <!-- this text may get changed later by javascript -->
+      <span class="caret"></span>
+    </button>
+    <div class="version-switcher__menu dropdown-menu list-group-flush py-0">
+    <!-- dropdown will be populated by javascript on page load -->
+    </div>
+  </div>
+`);
+</script></div>
+      
+        <div class="navbar-item">
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/pyvista/pyvista" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github"></i></span>
+            <label class="sr-only">GitHub</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="http://slack.pyvista.org" title="Slack Community" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fab fa-slack"></i></span>
+            <label class="sr-only">Slack Community</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/pyvista/pyvista/discussions" title="Support" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-comment fa-fw"></i></span>
+            <label class="sr-only">Support</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/pyvista/pyvista/blob/main/CONTRIBUTING.rst" title="Contributing" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-gavel fa-fw"></i></span>
+            <label class="sr-only">Contributing</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://doi.org/10.21105/joss.01450" title="The Paper" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-file-text fa-fw"></i></span>
+            <label class="sr-only">The Paper</label></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="検索" aria-label="検索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+    </div>
+  
+
+  
+    <label class="sidebar-toggle secondary-toggle" for="__secondary">
+      <span class="fa-solid fa-outdent"></span>
+    </label>
+  
+</div>
+
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          <div class="navbar-item"><nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../getting-started/index.html">
+                        Getting Started
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../user-guide/index.html">
+                        User Guide
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../examples/index.html">
+                        Examples
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="../../index.html">
+                        API Reference
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../extras/index.html">
+                        Extras
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+<script>
+document.write(`
+  <div class="version-switcher__container dropdown">
+    <button type="button" class="version-switcher__button btn btn-sm navbar-btn dropdown-toggle" data-bs-toggle="dropdown">
+      dev  <!-- this text may get changed later by javascript -->
+      <span class="caret"></span>
+    </button>
+    <div class="version-switcher__menu dropdown-menu list-group-flush py-0">
+    <!-- dropdown will be populated by javascript on page load -->
+    </div>
+  </div>
+`);
+</script></div>
+        
+          <div class="navbar-item">
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/pyvista/pyvista" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github"></i></span>
+            <label class="sr-only">GitHub</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="http://slack.pyvista.org" title="Slack Community" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fab fa-slack"></i></span>
+            <label class="sr-only">Slack Community</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/pyvista/pyvista/discussions" title="Support" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-comment fa-fw"></i></span>
+            <label class="sr-only">Support</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/pyvista/pyvista/blob/main/CONTRIBUTING.rst" title="Contributing" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-gavel fa-fw"></i></span>
+            <label class="sr-only">Contributing</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://doi.org/10.21105/joss.01450" title="The Paper" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-file-text fa-fw"></i></span>
+            <label class="sr-only">The Paper</label></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item"><nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><p aria-level="2" class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../index.html">Core API</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../objects.html">DataObject</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dataset.html">Data Sets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pointsets.html">Point Sets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../grids.html">Gridded Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../composite.html">Composite Datasets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../filters.html">Filters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../camera.html">Cameras</a></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="../lights.html">Lights</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l3 current active has-children"><a class="current reference internal" href="#">pyvista.Light</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="pyvista.Light.add_renderer.html">pyvista.Light.add_renderer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyvista.Light.copy.html">pyvista.Light.copy</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyvista.Light.from_vtk.html">pyvista.Light.from_vtk</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyvista.Light.hide_actor.html">pyvista.Light.hide_actor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyvista.Light.set_camera_light.html">pyvista.Light.set_camera_light</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyvista.Light.set_direction_angle.html">pyvista.Light.set_direction_angle</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyvista.Light.set_headlight.html">pyvista.Light.set_headlight</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyvista.Light.set_scene_light.html">pyvista.Light.set_scene_light</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyvista.Light.show_actor.html">pyvista.Light.show_actor</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyvista.Light.switch_off.html">pyvista.Light.switch_off</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyvista.Light.switch_on.html">pyvista.Light.switch_on</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyvista.Light.ambient_color.html">pyvista.Light.ambient_color</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyvista.Light.attenuation_values.html">pyvista.Light.attenuation_values</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyvista.Light.cone_angle.html">pyvista.Light.cone_angle</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyvista.Light.diffuse_color.html">pyvista.Light.diffuse_color</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyvista.Light.exponent.html">pyvista.Light.exponent</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyvista.Light.focal_point.html">pyvista.Light.focal_point</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyvista.Light.intensity.html">pyvista.Light.intensity</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyvista.Light.is_camera_light.html">pyvista.Light.is_camera_light</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyvista.Light.is_headlight.html">pyvista.Light.is_headlight</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyvista.Light.is_scene_light.html">pyvista.Light.is_scene_light</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyvista.Light.light_type.html">pyvista.Light.light_type</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyvista.Light.on.html">pyvista.Light.on</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyvista.Light.position.html">pyvista.Light.position</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyvista.Light.positional.html">pyvista.Light.positional</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyvista.Light.renderers.html">pyvista.Light.renderers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyvista.Light.shadow_attenuation.html">pyvista.Light.shadow_attenuation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyvista.Light.specular_color.html">pyvista.Light.specular_color</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyvista.Light.transform_matrix.html">pyvista.Light.transform_matrix</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyvista.Light.world_focal_point.html">pyvista.Light.world_focal_point</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyvista.Light.world_position.html">pyvista.Light.world_position</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../cells.html">Cells</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers.html">Helpers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../misc.html">Miscellaneous</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../plotting/index.html">Plotting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../utilities/index.html">Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../readers/index.html">Readers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/index.html">Examples</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+
+
+<nav aria-label="Breadcrumbs">
+  <ul class="bd-breadcrumbs" role="navigation" aria-label="Breadcrumb">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../index.html" class="nav-link">API Reference</a></li>
+    
+    
+    <li class="breadcrumb-item"><i class="fa-solid fa-ellipsis"></i></li>
+    
+    
+    <li class="breadcrumb-item"><a href="../lights.html" class="nav-link">Lights</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">pyvista.Light</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="pyvista-light">
+<h1>pyvista.Light<a class="headerlink" href="#pyvista-light" title="このヘッドラインへのパーマリンク">#</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="pyvista.Light">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Light</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">position</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">focal_point</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">light_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'scene</span> <span class="pre">light'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">intensity</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">positional</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cone_angle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_actor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exponent</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shadow_attenuation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attenuation_values</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/plotting/lights.py#L30-L1242"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.Light" title="この定義へのパーマリンク">#</a></dt>
+<dd><p>Light class.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl>
+<dt><strong>position</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/glossary.html#term-sequence" title="(in Python v3.11)"><span>sequence</span></a>[<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a>], <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>The position of the light. The interpretation of the position
+depends on the type of the light and whether the light has a
+transformation matrix.  See also the <a class="reference internal" href="pyvista.Light.position.html#pyvista.Light.position" title="pyvista.Light.position"><code class="xref py py-attr docutils literal notranslate"><span class="pre">position</span></code></a>
+property.</p>
+</dd>
+<dt><strong>focal_point</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/glossary.html#term-sequence" title="(in Python v3.11)"><span>sequence</span></a>[<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a>], <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>The focal point of the light. The interpretation of the focal
+point depends on the type of the light and whether the light
+has a transformation matrix.  See also the
+<a class="reference internal" href="pyvista.Light.focal_point.html#pyvista.Light.focal_point" title="pyvista.Light.focal_point"><code class="xref py py-attr docutils literal notranslate"><span class="pre">focal_point</span></code></a> property.</p>
+</dd>
+<dt><strong>color</strong><span class="classifier"><a class="reference internal" href="../../utilities/_autosummary/pyvista.ColorLike.html#pyvista.ColorLike" title="pyvista.ColorLike"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ColorLike</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>The color of the light. The ambient, diffuse and specular
+colors will all be set to this color on creation.</p>
+</dd>
+<dt><strong>light_type</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a> | <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">int</span></code></a>, default: 'scene light'</span></dt><dd><p>The type of the light. If a string, one of <code class="docutils literal notranslate"><span class="pre">'headlight'</span></code>,
+<code class="docutils literal notranslate"><span class="pre">'camera</span> <span class="pre">light'</span></code> or <code class="docutils literal notranslate"><span class="pre">'scene</span> <span class="pre">light'</span></code>. If an int, one of 1,
+2 or 3, respectively. The class constants <code class="docutils literal notranslate"><span class="pre">Light.HEADLIGHT</span></code>,
+<code class="docutils literal notranslate"><span class="pre">Light.CAMERA_LIGHT</span></code> and <code class="docutils literal notranslate"><span class="pre">Light.SCENE_LIGHT</span></code> are also
+available, respectively.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>A headlight is attached to the camera, looking at its
+focal point along the axis of the camera.</p></li>
+<li><p>A camera light also moves with the camera, but it can
+occupy a general position with respect to it.</p></li>
+<li><p>A scene light is stationary with respect to the scene,
+as it does not follow the camera. This is the default.</p></li>
+</ul>
+</div></blockquote>
+</dd>
+<dt><strong>intensity</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>The brightness of the light (between 0 and 1).</p>
+</dd>
+<dt><strong>positional</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.11)"><span class="xref std std-ref">bool</span></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>Set if the light is positional.</p>
+<p>The default is a directional light, i.e. an infinitely distant
+point source. A positional light with a cone angle of at least
+90 degrees acts like a spherical point source. A positional
+light with a cone angle that is less than 90 degrees is known
+as a spotlight.</p>
+</dd>
+<dt><strong>cone_angle</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>Cone angle of a positional light in degrees.</p>
+</dd>
+<dt><strong>show_actor</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.11)"><span class="xref std std-ref">bool</span></a>, default: <a class="reference external" href="https://docs.python.org/3/library/constants.html#False" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">False</span></code></a></span></dt><dd><p>Show an actor for a spotlight that depicts the geometry of the
+beam.</p>
+</dd>
+<dt><strong>exponent</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>The exponent of the cosine used for spotlights. See also the
+<a class="reference internal" href="pyvista.Light.exponent.html#pyvista.Light.exponent" title="pyvista.Light.exponent"><code class="xref py py-attr docutils literal notranslate"><span class="pre">exponent</span></code></a> property.</p>
+</dd>
+<dt><strong>shadow_attenuation</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>The value of shadow attenuation.</p>
+<p>By default a light will be completely blocked when in shadow.
+By setting this value to less than 1.0 you can control how
+much light is attenuated when in shadow. Note that changing
+the <a class="reference internal" href="pyvista.Light.attenuation_values.html#pyvista.Light.attenuation_values" title="pyvista.Light.attenuation_values"><code class="xref py py-attr docutils literal notranslate"><span class="pre">attenuation_values</span></code></a> of the light can make it pass
+through objects even if its shadow attenuation is 1.</p>
+</dd>
+<dt><strong>attenuation_values</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/glossary.html#term-sequence" title="(in Python v3.11)"><span>sequence</span></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>Quadratic attenuation constants.</p>
+<p>The values are a 3-length sequence which specifies the constant,
+linear and quadratic constants in this order. These parameters
+only have an effect for positional lights.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p>Create a light at (10, 10, 10) and set its diffuse color to red.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyvista</span> <span class="k">as</span> <span class="nn">pv</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">light</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Light</span><span class="p">(</span><span class="n">position</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">light</span><span class="o">.</span><span class="n">diffuse_color</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span>
+</pre></div>
+</div>
+<p>Create a positional light at (0, 0, 3) with a cone angle of
+30, exponent of 20, and a visible actor.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">light</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Light</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">position</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>
+<span class="gp">... </span>    <span class="n">show_actor</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">positional</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">cone_angle</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">exponent</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+<span class="gp">... </span><span class="p">)</span>
+</pre></div>
+</div>
+<p class="rubric">Methods</p>
+<table class="longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Light.add_renderer.html#pyvista.Light.add_renderer" title="pyvista.Light.add_renderer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Light.add_renderer</span></code></a>(renderer)</p></td>
+<td><p>Attach a renderer to this light.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Light.copy.html#pyvista.Light.copy" title="pyvista.Light.copy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Light.copy</span></code></a>([deep])</p></td>
+<td><p>Return a shallow or a deep copy of the light.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Light.from_vtk.html#pyvista.Light.from_vtk" title="pyvista.Light.from_vtk"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Light.from_vtk</span></code></a>(vtk_light)</p></td>
+<td><p>Create a light from a <code class="docutils literal notranslate"><span class="pre">vtk.vtkLight</span></code>, resulting in a copy.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Light.hide_actor.html#pyvista.Light.hide_actor" title="pyvista.Light.hide_actor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Light.hide_actor</span></code></a>()</p></td>
+<td><p>Hide the actor for a positional light that depicts the geometry of the beam.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Light.set_camera_light.html#pyvista.Light.set_camera_light" title="pyvista.Light.set_camera_light"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Light.set_camera_light</span></code></a>()</p></td>
+<td><p>Set the light to be a camera light.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Light.set_direction_angle.html#pyvista.Light.set_direction_angle" title="pyvista.Light.set_direction_angle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Light.set_direction_angle</span></code></a>(elev, azim)</p></td>
+<td><p>Set the position and focal point of a directional light.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Light.set_headlight.html#pyvista.Light.set_headlight" title="pyvista.Light.set_headlight"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Light.set_headlight</span></code></a>()</p></td>
+<td><p>Set the light to be a headlight.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Light.set_scene_light.html#pyvista.Light.set_scene_light" title="pyvista.Light.set_scene_light"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Light.set_scene_light</span></code></a>()</p></td>
+<td><p>Set the light to be a scene light.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Light.show_actor.html#pyvista.Light.show_actor" title="pyvista.Light.show_actor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Light.show_actor</span></code></a>()</p></td>
+<td><p>Show an actor for a spotlight that depicts the geometry of the beam.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Light.switch_off.html#pyvista.Light.switch_off" title="pyvista.Light.switch_off"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Light.switch_off</span></code></a>()</p></td>
+<td><p>Switch off the light.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Light.switch_on.html#pyvista.Light.switch_on" title="pyvista.Light.switch_on"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Light.switch_on</span></code></a>()</p></td>
+<td><p>Switch on the light.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Attributes</p>
+<table class="longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Light.ambient_color.html#pyvista.Light.ambient_color" title="pyvista.Light.ambient_color"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Light.ambient_color</span></code></a></p></td>
+<td><p>Return or set the ambient color of the light.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Light.attenuation_values.html#pyvista.Light.attenuation_values" title="pyvista.Light.attenuation_values"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Light.attenuation_values</span></code></a></p></td>
+<td><p>Return the quadratic attenuation constants.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Light.cone_angle.html#pyvista.Light.cone_angle" title="pyvista.Light.cone_angle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Light.cone_angle</span></code></a></p></td>
+<td><p>Return the cone angle of a positional light.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Light.diffuse_color.html#pyvista.Light.diffuse_color" title="pyvista.Light.diffuse_color"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Light.diffuse_color</span></code></a></p></td>
+<td><p>Return or set the diffuse color of the light.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Light.exponent.html#pyvista.Light.exponent" title="pyvista.Light.exponent"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Light.exponent</span></code></a></p></td>
+<td><p>Return the exponent of the cosine used for spotlights.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Light.focal_point.html#pyvista.Light.focal_point" title="pyvista.Light.focal_point"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Light.focal_point</span></code></a></p></td>
+<td><p>Return the focal point of the light.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Light.intensity.html#pyvista.Light.intensity" title="pyvista.Light.intensity"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Light.intensity</span></code></a></p></td>
+<td><p>Return the brightness of the light (between 0 and 1).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Light.is_camera_light.html#pyvista.Light.is_camera_light" title="pyvista.Light.is_camera_light"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Light.is_camera_light</span></code></a></p></td>
+<td><p>Return whether the light is a camera light.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Light.is_headlight.html#pyvista.Light.is_headlight" title="pyvista.Light.is_headlight"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Light.is_headlight</span></code></a></p></td>
+<td><p>Return whether the light is a headlight.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Light.is_scene_light.html#pyvista.Light.is_scene_light" title="pyvista.Light.is_scene_light"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Light.is_scene_light</span></code></a></p></td>
+<td><p>Return whether the light is a scene light.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Light.light_type.html#pyvista.Light.light_type" title="pyvista.Light.light_type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Light.light_type</span></code></a></p></td>
+<td><p>Return the light type.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Light.on.html#pyvista.Light.on" title="pyvista.Light.on"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Light.on</span></code></a></p></td>
+<td><p>Return whether the light is on.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Light.position.html#pyvista.Light.position" title="pyvista.Light.position"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Light.position</span></code></a></p></td>
+<td><p>Return the position of the light.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Light.positional.html#pyvista.Light.positional" title="pyvista.Light.positional"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Light.positional</span></code></a></p></td>
+<td><p>Return whether the light is positional.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Light.renderers.html#pyvista.Light.renderers" title="pyvista.Light.renderers"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Light.renderers</span></code></a></p></td>
+<td><p>Return the renderers associated with this light.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Light.shadow_attenuation.html#pyvista.Light.shadow_attenuation" title="pyvista.Light.shadow_attenuation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Light.shadow_attenuation</span></code></a></p></td>
+<td><p>Return or set the value of shadow attenuation.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Light.specular_color.html#pyvista.Light.specular_color" title="pyvista.Light.specular_color"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Light.specular_color</span></code></a></p></td>
+<td><p>Return or set the specular color of the light.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Light.transform_matrix.html#pyvista.Light.transform_matrix" title="pyvista.Light.transform_matrix"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Light.transform_matrix</span></code></a></p></td>
+<td><p>Return the transformation matrix of the light (if any).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Light.world_focal_point.html#pyvista.Light.world_focal_point" title="pyvista.Light.world_focal_point"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Light.world_focal_point</span></code></a></p></td>
+<td><p>Return the world space focal point of the light.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Light.world_position.html#pyvista.Light.world_position" title="pyvista.Light.world_position"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Light.world_position</span></code></a></p></td>
+<td><p>Return the world space position of the light.</p></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</section>
+
+
+                </article>
+              
+              
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  
+  <div class="tocsection editthispage">
+    <a href="http://github.com/pyvista/pyvista/edit/main/pyvista/plotting/lights.py">
+      <i class="fa-solid fa-pencil"></i>
+      
+      
+        
+          Edit on GitHub
+        
+      
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+  <p class="copyright">
+    
+      © Copyright 2017-2023, The PyVista Developers.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item"><p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.13.3.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

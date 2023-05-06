@@ -1,0 +1,1621 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="ja" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>pyvista.Plotter &#8212; PyVista 0.40.dev0 ドキュメント</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/jupyter-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/thebelab.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/asciinema-player_2.6.1.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/asciinema-custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/no_search_highlight.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/summary.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-binder.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-dataframe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-rendered-html.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/cards.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/no_italic.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/thebelab-helper.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/asciinema-player_2.6.1.js"></script>
+    <script src="../../../_static/translations.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-140243896-1"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'UA-140243896-1');
+            </script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'api/plotting/_autosummary/pyvista.Plotter';</script>
+    <script>
+        DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://docs.pyvista.org/versions.json';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = 'dev';
+        </script>
+    <link rel="index" title="索引" href="../../../genindex.html" />
+    <link rel="search" title="検索" href="../../../search.html" />
+    <link rel="next" title="pyvista.Plotter.add_actor" href="pyvista.Plotter.add_actor.html" />
+    <link rel="prev" title="pyvista.LookupTable.values" href="pyvista.LookupTable.values.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="ja"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+    <span class="fa-solid fa-bars"></span>
+  </label>
+  
+  <div class="navbar-header-items__start">
+    
+      <div class="navbar-item">
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/pyvista_logo_sm.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../../_static/pyvista_logo_sm.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+    
+  </div>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item"><nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../getting-started/index.html">
+                        Getting Started
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../user-guide/index.html">
+                        User Guide
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../examples/index.html">
+                        Examples
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="../../index.html">
+                        API Reference
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../extras/index.html">
+                        Extras
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="検索" aria-label="検索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+        </div>
+      
+      
+        <div class="navbar-item">
+<script>
+document.write(`
+  <div class="version-switcher__container dropdown">
+    <button type="button" class="version-switcher__button btn btn-sm navbar-btn dropdown-toggle" data-bs-toggle="dropdown">
+      dev  <!-- this text may get changed later by javascript -->
+      <span class="caret"></span>
+    </button>
+    <div class="version-switcher__menu dropdown-menu list-group-flush py-0">
+    <!-- dropdown will be populated by javascript on page load -->
+    </div>
+  </div>
+`);
+</script></div>
+      
+        <div class="navbar-item">
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/pyvista/pyvista" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github"></i></span>
+            <label class="sr-only">GitHub</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="http://slack.pyvista.org" title="Slack Community" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fab fa-slack"></i></span>
+            <label class="sr-only">Slack Community</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/pyvista/pyvista/discussions" title="Support" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-comment fa-fw"></i></span>
+            <label class="sr-only">Support</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/pyvista/pyvista/blob/main/CONTRIBUTING.rst" title="Contributing" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-gavel fa-fw"></i></span>
+            <label class="sr-only">Contributing</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://doi.org/10.21105/joss.01450" title="The Paper" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-file-text fa-fw"></i></span>
+            <label class="sr-only">The Paper</label></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="検索" aria-label="検索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+    </div>
+  
+
+  
+    <label class="sidebar-toggle secondary-toggle" for="__secondary">
+      <span class="fa-solid fa-outdent"></span>
+    </label>
+  
+</div>
+
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          <div class="navbar-item"><nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../getting-started/index.html">
+                        Getting Started
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../user-guide/index.html">
+                        User Guide
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../examples/index.html">
+                        Examples
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="../../index.html">
+                        API Reference
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../extras/index.html">
+                        Extras
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+<script>
+document.write(`
+  <div class="version-switcher__container dropdown">
+    <button type="button" class="version-switcher__button btn btn-sm navbar-btn dropdown-toggle" data-bs-toggle="dropdown">
+      dev  <!-- this text may get changed later by javascript -->
+      <span class="caret"></span>
+    </button>
+    <div class="version-switcher__menu dropdown-menu list-group-flush py-0">
+    <!-- dropdown will be populated by javascript on page load -->
+    </div>
+  </div>
+`);
+</script></div>
+        
+          <div class="navbar-item">
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/pyvista/pyvista" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github"></i></span>
+            <label class="sr-only">GitHub</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="http://slack.pyvista.org" title="Slack Community" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fab fa-slack"></i></span>
+            <label class="sr-only">Slack Community</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/pyvista/pyvista/discussions" title="Support" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-comment fa-fw"></i></span>
+            <label class="sr-only">Support</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/pyvista/pyvista/blob/main/CONTRIBUTING.rst" title="Contributing" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-gavel fa-fw"></i></span>
+            <label class="sr-only">Contributing</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://doi.org/10.21105/joss.01450" title="The Paper" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-file-text fa-fw"></i></span>
+            <label class="sr-only">The Paper</label></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item"><nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><p aria-level="2" class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../core/index.html">Core API</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../index.html">Plotting</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../plotting.html">Plotting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../qt_plotting.html">PyVista and PyQt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../theme.html">Themes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../trame.html">Trame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyvista.Actor.html">pyvista.Actor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyvista.CameraPosition.html">pyvista.CameraPosition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyvista.CubeAxesActor.html">pyvista.CubeAxesActor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyvista.DataSetMapper.html">pyvista.DataSetMapper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyvista.LookupTable.html">pyvista.LookupTable</a></li>
+<li class="toctree-l2 current active has-children"><a class="current reference internal" href="#">pyvista.Plotter</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.add_actor.html">pyvista.Plotter.add_actor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.add_arrows.html">pyvista.Plotter.add_arrows</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.add_axes.html">pyvista.Plotter.add_axes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.add_axes_at_origin.html">pyvista.Plotter.add_axes_at_origin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.add_background_image.html">pyvista.Plotter.add_background_image</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.add_blurring.html">pyvista.Plotter.add_blurring</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.add_bounding_box.html">pyvista.Plotter.add_bounding_box</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.add_box_widget.html">pyvista.Plotter.add_box_widget</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.add_camera_orientation_widget.html">pyvista.Plotter.add_camera_orientation_widget</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.add_chart.html">pyvista.Plotter.add_chart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.add_checkbox_button_widget.html">pyvista.Plotter.add_checkbox_button_widget</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.add_composite.html">pyvista.Plotter.add_composite</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.add_cursor.html">pyvista.Plotter.add_cursor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.add_floor.html">pyvista.Plotter.add_floor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.add_key_event.html">pyvista.Plotter.add_key_event</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.add_legend.html">pyvista.Plotter.add_legend</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.add_legend_scale.html">pyvista.Plotter.add_legend_scale</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.add_light.html">pyvista.Plotter.add_light</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.add_line_widget.html">pyvista.Plotter.add_line_widget</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.add_lines.html">pyvista.Plotter.add_lines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.add_mesh.html">pyvista.Plotter.add_mesh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.add_mesh_clip_box.html">pyvista.Plotter.add_mesh_clip_box</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.add_mesh_clip_plane.html">pyvista.Plotter.add_mesh_clip_plane</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.add_mesh_isovalue.html">pyvista.Plotter.add_mesh_isovalue</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.add_mesh_slice.html">pyvista.Plotter.add_mesh_slice</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.add_mesh_slice_orthogonal.html">pyvista.Plotter.add_mesh_slice_orthogonal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.add_mesh_slice_spline.html">pyvista.Plotter.add_mesh_slice_spline</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.add_mesh_threshold.html">pyvista.Plotter.add_mesh_threshold</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.add_on_render_callback.html">pyvista.Plotter.add_on_render_callback</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.add_orientation_widget.html">pyvista.Plotter.add_orientation_widget</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.add_plane_widget.html">pyvista.Plotter.add_plane_widget</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.add_point_labels.html">pyvista.Plotter.add_point_labels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.add_point_scalar_labels.html">pyvista.Plotter.add_point_scalar_labels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.add_points.html">pyvista.Plotter.add_points</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.add_ruler.html">pyvista.Plotter.add_ruler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.add_scalar_bar.html">pyvista.Plotter.add_scalar_bar</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.add_silhouette.html">pyvista.Plotter.add_silhouette</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.add_slider_widget.html">pyvista.Plotter.add_slider_widget</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.add_sphere_widget.html">pyvista.Plotter.add_sphere_widget</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.add_spline_widget.html">pyvista.Plotter.add_spline_widget</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.add_text.html">pyvista.Plotter.add_text</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.add_text_slider_widget.html">pyvista.Plotter.add_text_slider_widget</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.add_title.html">pyvista.Plotter.add_title</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.add_volume.html">pyvista.Plotter.add_volume</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.add_volume_clip_plane.html">pyvista.Plotter.add_volume_clip_plane</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.clear.html">pyvista.Plotter.clear</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.clear_actors.html">pyvista.Plotter.clear_actors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.clear_box_widgets.html">pyvista.Plotter.clear_box_widgets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.clear_button_widgets.html">pyvista.Plotter.clear_button_widgets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.clear_camera_widgets.html">pyvista.Plotter.clear_camera_widgets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.clear_events_for_key.html">pyvista.Plotter.clear_events_for_key</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.clear_line_widgets.html">pyvista.Plotter.clear_line_widgets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.clear_on_render_callbacks.html">pyvista.Plotter.clear_on_render_callbacks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.clear_plane_widgets.html">pyvista.Plotter.clear_plane_widgets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.clear_slider_widgets.html">pyvista.Plotter.clear_slider_widgets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.clear_sphere_widgets.html">pyvista.Plotter.clear_sphere_widgets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.clear_spline_widgets.html">pyvista.Plotter.clear_spline_widgets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.close.html">pyvista.Plotter.close</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.deep_clean.html">pyvista.Plotter.deep_clean</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.disable.html">pyvista.Plotter.disable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.disable_3_lights.html">pyvista.Plotter.disable_3_lights</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.disable_anti_aliasing.html">pyvista.Plotter.disable_anti_aliasing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.disable_depth_of_field.html">pyvista.Plotter.disable_depth_of_field</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.disable_depth_peeling.html">pyvista.Plotter.disable_depth_peeling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.disable_eye_dome_lighting.html">pyvista.Plotter.disable_eye_dome_lighting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.disable_hidden_line_removal.html">pyvista.Plotter.disable_hidden_line_removal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.disable_parallel_projection.html">pyvista.Plotter.disable_parallel_projection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.disable_picking.html">pyvista.Plotter.disable_picking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.disable_shadows.html">pyvista.Plotter.disable_shadows</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.disable_ssao.html">pyvista.Plotter.disable_ssao</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.disable_stereo_render.html">pyvista.Plotter.disable_stereo_render</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.enable.html">pyvista.Plotter.enable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.enable_3_lights.html">pyvista.Plotter.enable_3_lights</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.enable_anti_aliasing.html">pyvista.Plotter.enable_anti_aliasing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.enable_block_picking.html">pyvista.Plotter.enable_block_picking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.enable_cell_picking.html">pyvista.Plotter.enable_cell_picking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.enable_depth_of_field.html">pyvista.Plotter.enable_depth_of_field</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.enable_depth_peeling.html">pyvista.Plotter.enable_depth_peeling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.enable_eye_dome_lighting.html">pyvista.Plotter.enable_eye_dome_lighting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.enable_fly_to_right_click.html">pyvista.Plotter.enable_fly_to_right_click</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.enable_geodesic_picking.html">pyvista.Plotter.enable_geodesic_picking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.enable_hidden_line_removal.html">pyvista.Plotter.enable_hidden_line_removal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.enable_horizon_picking.html">pyvista.Plotter.enable_horizon_picking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.enable_image_style.html">pyvista.Plotter.enable_image_style</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.enable_joystick_actor_style.html">pyvista.Plotter.enable_joystick_actor_style</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.enable_joystick_style.html">pyvista.Plotter.enable_joystick_style</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.enable_lightkit.html">pyvista.Plotter.enable_lightkit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.enable_mesh_picking.html">pyvista.Plotter.enable_mesh_picking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.enable_parallel_projection.html">pyvista.Plotter.enable_parallel_projection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.enable_path_picking.html">pyvista.Plotter.enable_path_picking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.enable_point_picking.html">pyvista.Plotter.enable_point_picking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.enable_rubber_band_2d_style.html">pyvista.Plotter.enable_rubber_band_2d_style</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.enable_rubber_band_style.html">pyvista.Plotter.enable_rubber_band_style</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.enable_shadows.html">pyvista.Plotter.enable_shadows</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.enable_ssao.html">pyvista.Plotter.enable_ssao</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.enable_stereo_render.html">pyvista.Plotter.enable_stereo_render</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.enable_surface_picking.html">pyvista.Plotter.enable_surface_picking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.enable_terrain_style.html">pyvista.Plotter.enable_terrain_style</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.enable_trackball_actor_style.html">pyvista.Plotter.enable_trackball_actor_style</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.enable_trackball_style.html">pyvista.Plotter.enable_trackball_style</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.enable_zoom_style.html">pyvista.Plotter.enable_zoom_style</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.export_gltf.html">pyvista.Plotter.export_gltf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.export_html.html">pyvista.Plotter.export_html</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.export_obj.html">pyvista.Plotter.export_obj</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.export_vrml.html">pyvista.Plotter.export_vrml</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.export_vtkjs.html">pyvista.Plotter.export_vtkjs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.fly_to.html">pyvista.Plotter.fly_to</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.fly_to_mouse_position.html">pyvista.Plotter.fly_to_mouse_position</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.generate_orbital_path.html">pyvista.Plotter.generate_orbital_path</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.get_default_cam_pos.html">pyvista.Plotter.get_default_cam_pos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.get_image_depth.html">pyvista.Plotter.get_image_depth</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.get_pick_position.html">pyvista.Plotter.get_pick_position</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.hide_axes.html">pyvista.Plotter.hide_axes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.hide_axes_all.html">pyvista.Plotter.hide_axes_all</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.image_scale_context.html">pyvista.Plotter.image_scale_context</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.import_gltf.html">pyvista.Plotter.import_gltf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.import_vrml.html">pyvista.Plotter.import_vrml</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.increment_point_size_and_line_width.html">pyvista.Plotter.increment_point_size_and_line_width</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.isometric_view.html">pyvista.Plotter.isometric_view</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.isometric_view_interactive.html">pyvista.Plotter.isometric_view_interactive</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.key_press_event.html">pyvista.Plotter.key_press_event</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.left_button_down.html">pyvista.Plotter.left_button_down</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.link_views.html">pyvista.Plotter.link_views</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.open_gif.html">pyvista.Plotter.open_gif</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.open_movie.html">pyvista.Plotter.open_movie</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.orbit_on_path.html">pyvista.Plotter.orbit_on_path</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.pick_click_position.html">pyvista.Plotter.pick_click_position</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.pick_mouse_position.html">pyvista.Plotter.pick_mouse_position</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.remove_actor.html">pyvista.Plotter.remove_actor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.remove_all_lights.html">pyvista.Plotter.remove_all_lights</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.remove_background_image.html">pyvista.Plotter.remove_background_image</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.remove_blurring.html">pyvista.Plotter.remove_blurring</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.remove_bounding_box.html">pyvista.Plotter.remove_bounding_box</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.remove_bounds_axes.html">pyvista.Plotter.remove_bounds_axes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.remove_chart.html">pyvista.Plotter.remove_chart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.remove_environment_texture.html">pyvista.Plotter.remove_environment_texture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.remove_floors.html">pyvista.Plotter.remove_floors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.remove_legend.html">pyvista.Plotter.remove_legend</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.remove_scalar_bar.html">pyvista.Plotter.remove_scalar_bar</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.render.html">pyvista.Plotter.render</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.reset_camera.html">pyvista.Plotter.reset_camera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.reset_camera_clipping_range.html">pyvista.Plotter.reset_camera_clipping_range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.reset_key_events.html">pyvista.Plotter.reset_key_events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.save_graphic.html">pyvista.Plotter.save_graphic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.screenshot.html">pyvista.Plotter.screenshot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.set_background.html">pyvista.Plotter.set_background</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.set_chart_interaction.html">pyvista.Plotter.set_chart_interaction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.set_color_cycler.html">pyvista.Plotter.set_color_cycler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.set_environment_texture.html">pyvista.Plotter.set_environment_texture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.set_focus.html">pyvista.Plotter.set_focus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.set_position.html">pyvista.Plotter.set_position</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.set_scale.html">pyvista.Plotter.set_scale</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.set_viewup.html">pyvista.Plotter.set_viewup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.show.html">pyvista.Plotter.show</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.show_axes.html">pyvista.Plotter.show_axes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.show_axes_all.html">pyvista.Plotter.show_axes_all</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.show_bounds.html">pyvista.Plotter.show_bounds</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.show_grid.html">pyvista.Plotter.show_grid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.store_click_position.html">pyvista.Plotter.store_click_position</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.store_mouse_position.html">pyvista.Plotter.store_mouse_position</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.subplot.html">pyvista.Plotter.subplot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.to_pythreejs.html">pyvista.Plotter.to_pythreejs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.track_click_position.html">pyvista.Plotter.track_click_position</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.track_mouse_position.html">pyvista.Plotter.track_mouse_position</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.unlink_views.html">pyvista.Plotter.unlink_views</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.untrack_click_position.html">pyvista.Plotter.untrack_click_position</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.untrack_mouse_position.html">pyvista.Plotter.untrack_mouse_position</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.update.html">pyvista.Plotter.update</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.update_bounds_axes.html">pyvista.Plotter.update_bounds_axes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.update_coordinates.html">pyvista.Plotter.update_coordinates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.update_scalar_bar_range.html">pyvista.Plotter.update_scalar_bar_range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.update_scalars.html">pyvista.Plotter.update_scalars</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.view_isometric.html">pyvista.Plotter.view_isometric</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.view_vector.html">pyvista.Plotter.view_vector</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.view_xy.html">pyvista.Plotter.view_xy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.view_xz.html">pyvista.Plotter.view_xz</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.view_yx.html">pyvista.Plotter.view_yx</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.view_yz.html">pyvista.Plotter.view_yz</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.view_zx.html">pyvista.Plotter.view_zx</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.view_zy.html">pyvista.Plotter.view_zy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.where_is.html">pyvista.Plotter.where_is</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.window_size_context.html">pyvista.Plotter.window_size_context</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.write_frame.html">pyvista.Plotter.write_frame</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.actors.html">pyvista.Plotter.actors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.background_color.html">pyvista.Plotter.background_color</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.bounds.html">pyvista.Plotter.bounds</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.camera.html">pyvista.Plotter.camera</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.camera_position.html">pyvista.Plotter.camera_position</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.camera_set.html">pyvista.Plotter.camera_set</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.center.html">pyvista.Plotter.center</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.click_position.html">pyvista.Plotter.click_position</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.image.html">pyvista.Plotter.image</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.image_depth.html">pyvista.Plotter.image_depth</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.image_scale.html">pyvista.Plotter.image_scale</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.last_update_time.html">pyvista.Plotter.last_update_time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.legend.html">pyvista.Plotter.legend</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.length.html">pyvista.Plotter.length</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.mouse_position.html">pyvista.Plotter.mouse_position</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.parallel_projection.html">pyvista.Plotter.parallel_projection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.parallel_scale.html">pyvista.Plotter.parallel_scale</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.pickable_actors.html">pyvista.Plotter.pickable_actors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.picked_block_index.html">pyvista.Plotter.picked_block_index</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.picked_mesh.html">pyvista.Plotter.picked_mesh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.picked_point.html">pyvista.Plotter.picked_point</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.render_window.html">pyvista.Plotter.render_window</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.renderer.html">pyvista.Plotter.renderer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.scalar_bar.html">pyvista.Plotter.scalar_bar</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.scalar_bars.html">pyvista.Plotter.scalar_bars</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.scale.html">pyvista.Plotter.scale</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.shape.html">pyvista.Plotter.shape</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.store_image.html">pyvista.Plotter.store_image</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.suppress_rendering.html">pyvista.Plotter.suppress_rendering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.theme.html">pyvista.Plotter.theme</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.window_size.html">pyvista.Plotter.window_size</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyvista.Property.html">pyvista.Property</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyvista.Renderer.html">pyvista.Renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyvista.plotting._BaseMapper.html">pyvista.plotting._BaseMapper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyvista.plotting.opts.InterpolationType.html">pyvista.plotting.opts.InterpolationType</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyvista.plotting.volume.Volume.html">pyvista.plotting.volume.Volume</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyvista.plotting.volume_property.VolumeProperty.html">pyvista.plotting.volume_property.VolumeProperty</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyvista.CompositePolyDataMapper.html">pyvista.CompositePolyDataMapper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyvista.CompositeAttributes.html">pyvista.CompositeAttributes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyvista.BlockAttributes.html">pyvista.BlockAttributes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../charts/index.html">Charts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../conv_func.html">Convenience Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../utilities/index.html">Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../readers/index.html">Readers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/index.html">Examples</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumbs">
+  <ul class="bd-breadcrumbs" role="navigation" aria-label="Breadcrumb">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../index.html" class="nav-link">API Reference</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="../index.html" class="nav-link">Plotting</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">pyvista.Plotter</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="pyvista-plotter">
+<h1>pyvista.Plotter<a class="headerlink" href="#pyvista-plotter" title="このヘッドラインへのパーマリンク">#</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="pyvista.Plotter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Plotter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/plotting/plotting.py#L6215-L6861"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.Plotter" title="この定義へのパーマリンク">#</a></dt>
+<dd><p>Plotting object to display vtk meshes or numpy arrays.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl>
+<dt><strong>off_screen</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.11)"><span class="xref std std-ref">bool</span></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>Renders off screen when <code class="docutils literal notranslate"><span class="pre">True</span></code>.  Useful for automated
+screenshots.</p>
+</dd>
+<dt><strong>notebook</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.11)"><span class="xref std std-ref">bool</span></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>When <code class="docutils literal notranslate"><span class="pre">True</span></code>, the resulting plot is placed inline a jupyter
+notebook.  Assumes a jupyter console is active.  Automatically
+enables <code class="docutils literal notranslate"><span class="pre">off_screen</span></code>.</p>
+</dd>
+<dt><strong>shape</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/glossary.html#term-sequence" title="(in Python v3.11)"><span>sequence</span></a>[<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">int</span></code></a>], <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>Number of sub-render windows inside of the main window.
+Specify two across with <code class="docutils literal notranslate"><span class="pre">shape=(2,</span> <span class="pre">1)</span></code> and a two by two grid
+with <code class="docutils literal notranslate"><span class="pre">shape=(2,</span> <span class="pre">2)</span></code>.  By default there is only one render
+window.  Can also accept a string descriptor as shape. E.g.:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">shape=&quot;3|1&quot;</span></code> means 3 plots on the left and 1 on the right,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">shape=&quot;4/2&quot;</span></code> means 4 plots on top and 2 at the bottom.</p></li>
+</ul>
+</dd>
+<dt><strong>border</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.11)"><span class="xref std std-ref">bool</span></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>Draw a border around each render window.</p>
+</dd>
+<dt><strong>border_color</strong><span class="classifier"><a class="reference internal" href="../../utilities/_autosummary/pyvista.ColorLike.html#pyvista.ColorLike" title="pyvista.ColorLike"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ColorLike</span></code></a>, default: &quot;k&quot;</span></dt><dd><p>Either a string, rgb list, or hex color string.  For example:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">color='white'</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">color='w'</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">color=[1.0,</span> <span class="pre">1.0,</span> <span class="pre">1.0]</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">color='#FFFFFF'</span></code></p></li>
+</ul>
+</div></blockquote>
+</dd>
+<dt><strong>window_size</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/glossary.html#term-sequence" title="(in Python v3.11)"><span>sequence</span></a>[<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">int</span></code></a>], <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>Window size in pixels.  Defaults to <code class="docutils literal notranslate"><span class="pre">[1024,</span> <span class="pre">768]</span></code>, unless
+set differently in the relevant theme's <code class="docutils literal notranslate"><span class="pre">window_size</span></code>
+property.</p>
+</dd>
+<dt><strong>multi_samples</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">int</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>The number of multi-samples used to mitigate aliasing. 4 is a
+good default but 8 will have better results with a potential
+impact on performance.</p>
+</dd>
+<dt><strong>line_smoothing</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.11)"><span class="xref std std-ref">bool</span></a>, default: <a class="reference external" href="https://docs.python.org/3/library/constants.html#False" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">False</span></code></a></span></dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">True</span></code>, enable line smoothing.</p>
+</dd>
+<dt><strong>polygon_smoothing</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.11)"><span class="xref std std-ref">bool</span></a>, default: <a class="reference external" href="https://docs.python.org/3/library/constants.html#False" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">False</span></code></a></span></dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">True</span></code>, enable polygon smoothing.</p>
+</dd>
+<dt><strong>lighting</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a>, default: 'light kit&quot;</span></dt><dd><p>Lighting to set up for the plotter. Accepted options:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">'light</span> <span class="pre">kit'</span></code>: a vtk Light Kit composed of 5 lights.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'three</span> <span class="pre">lights'</span></code>: illumination using 3 lights.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'none'</span></code>: no light sources at instantiation.</p></li>
+</ul>
+<p>The default is a <code class="docutils literal notranslate"><span class="pre">'light</span> <span class="pre">kit'</span></code> (to be precise, 5 separate
+lights that act like a Light Kit).</p>
+</dd>
+<dt><strong>theme</strong><span class="classifier"><a class="reference internal" href="pyvista.themes.DefaultTheme.html#pyvista.themes.DefaultTheme" title="pyvista.themes.DefaultTheme"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyvista.themes.DefaultTheme</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>Plot-specific theme.</p>
+</dd>
+<dt><strong>image_scale</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">int</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>Scale factor when saving screenshots. Image sizes will be
+the <code class="docutils literal notranslate"><span class="pre">window_size</span></code> multiplied by this scale factor.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyvista</span> <span class="k">as</span> <span class="nn">pv</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mesh</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Cube</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">another_mesh</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Sphere</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pl</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Plotter</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">actor</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">mesh</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s1">&#39;wireframe&#39;</span><span class="p">,</span> <span class="n">line_width</span><span class="o">=</span><span class="mi">4</span>
+<span class="gp">... </span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">actor</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">another_mesh</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pl</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<figure class="align-default">
+<img alt="../../../_images/pyvista-Plotter-1_00_00.png" src="../../../_images/pyvista-Plotter-1_00_00.png" />
+</figure>
+<p class="rubric">Methods</p>
+<table class="longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.add_actor.html#pyvista.Plotter.add_actor" title="pyvista.Plotter.add_actor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.add_actor</span></code></a>(actor[, reset_camera, ...])</p></td>
+<td><p>Add an actor to render window.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.add_arrows.html#pyvista.Plotter.add_arrows" title="pyvista.Plotter.add_arrows"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.add_arrows</span></code></a>(cent, direction[, mag])</p></td>
+<td><p>Add arrows to the plotter.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.add_axes.html#pyvista.Plotter.add_axes" title="pyvista.Plotter.add_axes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.add_axes</span></code></a>([interactive, line_width, ...])</p></td>
+<td><p>Add an interactive axes widget in the bottom left corner.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.add_axes_at_origin.html#pyvista.Plotter.add_axes_at_origin" title="pyvista.Plotter.add_axes_at_origin"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.add_axes_at_origin</span></code></a>([x_color, ...])</p></td>
+<td><p>Add axes actor at origin.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.add_background_image.html#pyvista.Plotter.add_background_image" title="pyvista.Plotter.add_background_image"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.add_background_image</span></code></a>(image_path[, ...])</p></td>
+<td><p>Add a background image to a plot.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.add_blurring.html#pyvista.Plotter.add_blurring" title="pyvista.Plotter.add_blurring"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.add_blurring</span></code></a>()</p></td>
+<td><p>Add blurring.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.add_bounding_box.html#pyvista.Plotter.add_bounding_box" title="pyvista.Plotter.add_bounding_box"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.add_bounding_box</span></code></a>([color, ...])</p></td>
+<td><p>Add an unlabeled and unticked box at the boundaries of plot.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.add_box_widget.html#pyvista.Plotter.add_box_widget" title="pyvista.Plotter.add_box_widget"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.add_box_widget</span></code></a>(callback[, bounds, ...])</p></td>
+<td><p>Add a box widget to the scene.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.add_camera_orientation_widget.html#pyvista.Plotter.add_camera_orientation_widget" title="pyvista.Plotter.add_camera_orientation_widget"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.add_camera_orientation_widget</span></code></a>([...])</p></td>
+<td><p>Add a camera orientation widget to the active renderer.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.add_chart.html#pyvista.Plotter.add_chart" title="pyvista.Plotter.add_chart"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.add_chart</span></code></a>(chart, *charts)</p></td>
+<td><p>Add a chart to this renderer.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.add_checkbox_button_widget.html#pyvista.Plotter.add_checkbox_button_widget" title="pyvista.Plotter.add_checkbox_button_widget"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.add_checkbox_button_widget</span></code></a>(callback)</p></td>
+<td><p>Add a checkbox button widget to the scene.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.add_composite.html#pyvista.Plotter.add_composite" title="pyvista.Plotter.add_composite"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.add_composite</span></code></a>(dataset[, color, ...])</p></td>
+<td><p>Add a composite dataset to the plotter.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.add_cursor.html#pyvista.Plotter.add_cursor" title="pyvista.Plotter.add_cursor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.add_cursor</span></code></a>([bounds, focal_point, color])</p></td>
+<td><p>Add a cursor of a PyVista or VTK dataset to the scene.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.add_floor.html#pyvista.Plotter.add_floor" title="pyvista.Plotter.add_floor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.add_floor</span></code></a>([face, i_resolution, ...])</p></td>
+<td><p>Show a floor mesh.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.add_key_event.html#pyvista.Plotter.add_key_event" title="pyvista.Plotter.add_key_event"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.add_key_event</span></code></a>(key, callback)</p></td>
+<td><p>Add a function to callback when the given key is pressed.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.add_legend.html#pyvista.Plotter.add_legend" title="pyvista.Plotter.add_legend"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.add_legend</span></code></a>([labels, bcolor, border, ...])</p></td>
+<td><p>Add a legend to render window.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.add_legend_scale.html#pyvista.Plotter.add_legend_scale" title="pyvista.Plotter.add_legend_scale"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.add_legend_scale</span></code></a>([...])</p></td>
+<td><p>Annotate the render window with scale and distance information.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.add_light.html#pyvista.Plotter.add_light" title="pyvista.Plotter.add_light"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.add_light</span></code></a>(light[, only_active])</p></td>
+<td><p>Add a Light to the scene.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.add_line_widget.html#pyvista.Plotter.add_line_widget" title="pyvista.Plotter.add_line_widget"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.add_line_widget</span></code></a>(callback[, bounds, ...])</p></td>
+<td><p>Add a line widget to the scene.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.add_lines.html#pyvista.Plotter.add_lines" title="pyvista.Plotter.add_lines"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.add_lines</span></code></a>(lines[, color, width, ...])</p></td>
+<td><p>Add lines to the plotting object.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.add_mesh.html#pyvista.Plotter.add_mesh" title="pyvista.Plotter.add_mesh"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.add_mesh</span></code></a>(mesh[, color, style, ...])</p></td>
+<td><p>Add any PyVista/VTK mesh or dataset that PyVista can wrap to the scene.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.add_mesh_clip_box.html#pyvista.Plotter.add_mesh_clip_box" title="pyvista.Plotter.add_mesh_clip_box"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.add_mesh_clip_box</span></code></a>(mesh[, invert, ...])</p></td>
+<td><p>Clip a mesh using a box widget.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.add_mesh_clip_plane.html#pyvista.Plotter.add_mesh_clip_plane" title="pyvista.Plotter.add_mesh_clip_plane"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.add_mesh_clip_plane</span></code></a>(mesh[, normal, ...])</p></td>
+<td><p>Clip a mesh using a plane widget.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.add_mesh_isovalue.html#pyvista.Plotter.add_mesh_isovalue" title="pyvista.Plotter.add_mesh_isovalue"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.add_mesh_isovalue</span></code></a>(mesh[, scalars, ...])</p></td>
+<td><p>Create a contour of a mesh with a slider.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.add_mesh_slice.html#pyvista.Plotter.add_mesh_slice" title="pyvista.Plotter.add_mesh_slice"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.add_mesh_slice</span></code></a>(mesh[, normal, ...])</p></td>
+<td><p>Slice a mesh using a plane widget.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.add_mesh_slice_orthogonal.html#pyvista.Plotter.add_mesh_slice_orthogonal" title="pyvista.Plotter.add_mesh_slice_orthogonal"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.add_mesh_slice_orthogonal</span></code></a>(mesh[, ...])</p></td>
+<td><p>Slice a mesh with three interactive planes.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.add_mesh_slice_spline.html#pyvista.Plotter.add_mesh_slice_spline" title="pyvista.Plotter.add_mesh_slice_spline"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.add_mesh_slice_spline</span></code></a>(mesh[, ...])</p></td>
+<td><p>Slice a mesh with a spline widget.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.add_mesh_threshold.html#pyvista.Plotter.add_mesh_threshold" title="pyvista.Plotter.add_mesh_threshold"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.add_mesh_threshold</span></code></a>(mesh[, scalars, ...])</p></td>
+<td><p>Apply a threshold on a mesh with a slider.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.add_on_render_callback.html#pyvista.Plotter.add_on_render_callback" title="pyvista.Plotter.add_on_render_callback"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.add_on_render_callback</span></code></a>(callback[, ...])</p></td>
+<td><p>Add a method to be called post-render.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.add_orientation_widget.html#pyvista.Plotter.add_orientation_widget" title="pyvista.Plotter.add_orientation_widget"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.add_orientation_widget</span></code></a>(actor[, ...])</p></td>
+<td><p>Use the given actor in an orientation marker widget.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.add_plane_widget.html#pyvista.Plotter.add_plane_widget" title="pyvista.Plotter.add_plane_widget"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.add_plane_widget</span></code></a>(callback[, normal, ...])</p></td>
+<td><p>Add a plane widget to the scene.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.add_point_labels.html#pyvista.Plotter.add_point_labels" title="pyvista.Plotter.add_point_labels"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.add_point_labels</span></code></a>(points, labels[, ...])</p></td>
+<td><p>Create a point actor with one label from list labels assigned to each point.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.add_point_scalar_labels.html#pyvista.Plotter.add_point_scalar_labels" title="pyvista.Plotter.add_point_scalar_labels"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.add_point_scalar_labels</span></code></a>(points, labels)</p></td>
+<td><p>Label the points from a dataset with the values of their scalars.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.add_points.html#pyvista.Plotter.add_points" title="pyvista.Plotter.add_points"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.add_points</span></code></a>(points[, style])</p></td>
+<td><p>Add points to a mesh.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.add_ruler.html#pyvista.Plotter.add_ruler" title="pyvista.Plotter.add_ruler"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.add_ruler</span></code></a>(pointa, pointb[, ...])</p></td>
+<td><p>Add ruler.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.add_scalar_bar.html#pyvista.Plotter.add_scalar_bar" title="pyvista.Plotter.add_scalar_bar"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.add_scalar_bar</span></code></a>([title, mapper, ...])</p></td>
+<td><p>Create scalar bar using the ranges as set by the last input mesh.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.add_silhouette.html#pyvista.Plotter.add_silhouette" title="pyvista.Plotter.add_silhouette"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.add_silhouette</span></code></a>(mesh[, color, ...])</p></td>
+<td><p>Add a silhouette of a PyVista or VTK dataset to the scene.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.add_slider_widget.html#pyvista.Plotter.add_slider_widget" title="pyvista.Plotter.add_slider_widget"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.add_slider_widget</span></code></a>(callback, rng[, ...])</p></td>
+<td><p>Add a slider bar widget.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.add_sphere_widget.html#pyvista.Plotter.add_sphere_widget" title="pyvista.Plotter.add_sphere_widget"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.add_sphere_widget</span></code></a>(callback[, ...])</p></td>
+<td><p>Add one or many sphere widgets to a scene.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.add_spline_widget.html#pyvista.Plotter.add_spline_widget" title="pyvista.Plotter.add_spline_widget"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.add_spline_widget</span></code></a>(callback[, ...])</p></td>
+<td><p>Create and add a spline widget to the scene.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.add_text.html#pyvista.Plotter.add_text" title="pyvista.Plotter.add_text"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.add_text</span></code></a>(text[, position, ...])</p></td>
+<td><p>Add text to plot object in the top left corner by default.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.add_text_slider_widget.html#pyvista.Plotter.add_text_slider_widget" title="pyvista.Plotter.add_text_slider_widget"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.add_text_slider_widget</span></code></a>(callback, data)</p></td>
+<td><p>Add a text slider bar widget.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.add_title.html#pyvista.Plotter.add_title" title="pyvista.Plotter.add_title"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.add_title</span></code></a>(title[, font_size, color, ...])</p></td>
+<td><p>Add text to the top center of the plot.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.add_volume.html#pyvista.Plotter.add_volume" title="pyvista.Plotter.add_volume"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.add_volume</span></code></a>(volume[, scalars, clim, ...])</p></td>
+<td><p>Add a volume, rendered using a smart mapper by default.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.add_volume_clip_plane.html#pyvista.Plotter.add_volume_clip_plane" title="pyvista.Plotter.add_volume_clip_plane"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.add_volume_clip_plane</span></code></a>(volume[, ...])</p></td>
+<td><p>Clip a volume using a plane widget.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.clear.html#pyvista.Plotter.clear" title="pyvista.Plotter.clear"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.clear</span></code></a>()</p></td>
+<td><p>Clear plot by removing all actors and properties.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.clear_actors.html#pyvista.Plotter.clear_actors" title="pyvista.Plotter.clear_actors"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.clear_actors</span></code></a>()</p></td>
+<td><p>Clear actors from all renderers.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.clear_box_widgets.html#pyvista.Plotter.clear_box_widgets" title="pyvista.Plotter.clear_box_widgets"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.clear_box_widgets</span></code></a>()</p></td>
+<td><p>Remove all of the box widgets.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.clear_button_widgets.html#pyvista.Plotter.clear_button_widgets" title="pyvista.Plotter.clear_button_widgets"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.clear_button_widgets</span></code></a>()</p></td>
+<td><p>Remove all of the button widgets.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.clear_camera_widgets.html#pyvista.Plotter.clear_camera_widgets" title="pyvista.Plotter.clear_camera_widgets"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.clear_camera_widgets</span></code></a>()</p></td>
+<td><p>Remove all of the camera widgets.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.clear_events_for_key.html#pyvista.Plotter.clear_events_for_key" title="pyvista.Plotter.clear_events_for_key"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.clear_events_for_key</span></code></a>(key[, ...])</p></td>
+<td><p>Remove the callbacks associated to the key.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.clear_line_widgets.html#pyvista.Plotter.clear_line_widgets" title="pyvista.Plotter.clear_line_widgets"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.clear_line_widgets</span></code></a>()</p></td>
+<td><p>Remove all of the line widgets.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.clear_on_render_callbacks.html#pyvista.Plotter.clear_on_render_callbacks" title="pyvista.Plotter.clear_on_render_callbacks"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.clear_on_render_callbacks</span></code></a>()</p></td>
+<td><p>Clear all callback methods previously registered with <code class="docutils literal notranslate"><span class="pre">render()</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.clear_plane_widgets.html#pyvista.Plotter.clear_plane_widgets" title="pyvista.Plotter.clear_plane_widgets"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.clear_plane_widgets</span></code></a>()</p></td>
+<td><p>Remove all of the plane widgets.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.clear_slider_widgets.html#pyvista.Plotter.clear_slider_widgets" title="pyvista.Plotter.clear_slider_widgets"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.clear_slider_widgets</span></code></a>()</p></td>
+<td><p>Remove all of the slider widgets.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.clear_sphere_widgets.html#pyvista.Plotter.clear_sphere_widgets" title="pyvista.Plotter.clear_sphere_widgets"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.clear_sphere_widgets</span></code></a>()</p></td>
+<td><p>Remove all of the sphere widgets.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.clear_spline_widgets.html#pyvista.Plotter.clear_spline_widgets" title="pyvista.Plotter.clear_spline_widgets"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.clear_spline_widgets</span></code></a>()</p></td>
+<td><p>Remove all of the spline widgets.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.close.html#pyvista.Plotter.close" title="pyvista.Plotter.close"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.close</span></code></a>([render])</p></td>
+<td><p>Close the render window.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.deep_clean.html#pyvista.Plotter.deep_clean" title="pyvista.Plotter.deep_clean"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.deep_clean</span></code></a>()</p></td>
+<td><p>Clean the plotter of the memory.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.disable.html#pyvista.Plotter.disable" title="pyvista.Plotter.disable"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.disable</span></code></a>()</p></td>
+<td><p>Disable this renderer's camera from being interactive.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.disable_3_lights.html#pyvista.Plotter.disable_3_lights" title="pyvista.Plotter.disable_3_lights"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.disable_3_lights</span></code></a>()</p></td>
+<td><p>Please use <code class="docutils literal notranslate"><span class="pre">enable_lightkit</span></code>, this method has been depreciated.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.disable_anti_aliasing.html#pyvista.Plotter.disable_anti_aliasing" title="pyvista.Plotter.disable_anti_aliasing"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.disable_anti_aliasing</span></code></a>([all_renderers])</p></td>
+<td><p>Disable anti-aliasing.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.disable_depth_of_field.html#pyvista.Plotter.disable_depth_of_field" title="pyvista.Plotter.disable_depth_of_field"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.disable_depth_of_field</span></code></a>()</p></td>
+<td><p>Disable depth of field plotting.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.disable_depth_peeling.html#pyvista.Plotter.disable_depth_peeling" title="pyvista.Plotter.disable_depth_peeling"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.disable_depth_peeling</span></code></a>()</p></td>
+<td><p>Disable depth peeling.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.disable_eye_dome_lighting.html#pyvista.Plotter.disable_eye_dome_lighting" title="pyvista.Plotter.disable_eye_dome_lighting"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.disable_eye_dome_lighting</span></code></a>()</p></td>
+<td><p>Disable eye dome lighting (EDL).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.disable_hidden_line_removal.html#pyvista.Plotter.disable_hidden_line_removal" title="pyvista.Plotter.disable_hidden_line_removal"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.disable_hidden_line_removal</span></code></a>([...])</p></td>
+<td><p>Disable hidden line removal.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.disable_parallel_projection.html#pyvista.Plotter.disable_parallel_projection" title="pyvista.Plotter.disable_parallel_projection"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.disable_parallel_projection</span></code></a>()</p></td>
+<td><p>Reset the camera to use perspective projection.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.disable_picking.html#pyvista.Plotter.disable_picking" title="pyvista.Plotter.disable_picking"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.disable_picking</span></code></a>()</p></td>
+<td><p>Disable any active picking.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.disable_shadows.html#pyvista.Plotter.disable_shadows" title="pyvista.Plotter.disable_shadows"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.disable_shadows</span></code></a>()</p></td>
+<td><p>Disable shadows.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.disable_ssao.html#pyvista.Plotter.disable_ssao" title="pyvista.Plotter.disable_ssao"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.disable_ssao</span></code></a>()</p></td>
+<td><p>Disable surface space ambient occlusion (SSAO).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.disable_stereo_render.html#pyvista.Plotter.disable_stereo_render" title="pyvista.Plotter.disable_stereo_render"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.disable_stereo_render</span></code></a>()</p></td>
+<td><p>Disable anaglyph stereo rendering.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.enable.html#pyvista.Plotter.enable" title="pyvista.Plotter.enable"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.enable</span></code></a>()</p></td>
+<td><p>Enable this renderer's camera to be interactive.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.enable_3_lights.html#pyvista.Plotter.enable_3_lights" title="pyvista.Plotter.enable_3_lights"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.enable_3_lights</span></code></a>([only_active])</p></td>
+<td><p>Enable 3-lights illumination.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.enable_anti_aliasing.html#pyvista.Plotter.enable_anti_aliasing" title="pyvista.Plotter.enable_anti_aliasing"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.enable_anti_aliasing</span></code></a>([aa_type, ...])</p></td>
+<td><p>Enable anti-aliasing.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.enable_block_picking.html#pyvista.Plotter.enable_block_picking" title="pyvista.Plotter.enable_block_picking"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.enable_block_picking</span></code></a>([callback, side])</p></td>
+<td><p>Enable composite block picking.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.enable_cell_picking.html#pyvista.Plotter.enable_cell_picking" title="pyvista.Plotter.enable_cell_picking"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.enable_cell_picking</span></code></a>([callback, ...])</p></td>
+<td><p>Enable picking at cells.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.enable_depth_of_field.html#pyvista.Plotter.enable_depth_of_field" title="pyvista.Plotter.enable_depth_of_field"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.enable_depth_of_field</span></code></a>([...])</p></td>
+<td><p>Enable depth of field plotting.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.enable_depth_peeling.html#pyvista.Plotter.enable_depth_peeling" title="pyvista.Plotter.enable_depth_peeling"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.enable_depth_peeling</span></code></a>([...])</p></td>
+<td><p>Enable depth peeling to improve rendering of translucent geometry.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.enable_eye_dome_lighting.html#pyvista.Plotter.enable_eye_dome_lighting" title="pyvista.Plotter.enable_eye_dome_lighting"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.enable_eye_dome_lighting</span></code></a>()</p></td>
+<td><p>Enable eye dome lighting (EDL).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.enable_fly_to_right_click.html#pyvista.Plotter.enable_fly_to_right_click" title="pyvista.Plotter.enable_fly_to_right_click"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.enable_fly_to_right_click</span></code></a>([callback])</p></td>
+<td><p>Set the camera to track right click positions.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.enable_geodesic_picking.html#pyvista.Plotter.enable_geodesic_picking" title="pyvista.Plotter.enable_geodesic_picking"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.enable_geodesic_picking</span></code></a>([callback, ...])</p></td>
+<td><p>Enable picking at geodesic paths.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.enable_hidden_line_removal.html#pyvista.Plotter.enable_hidden_line_removal" title="pyvista.Plotter.enable_hidden_line_removal"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.enable_hidden_line_removal</span></code></a>([...])</p></td>
+<td><p>Enable hidden line removal.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.enable_horizon_picking.html#pyvista.Plotter.enable_horizon_picking" title="pyvista.Plotter.enable_horizon_picking"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.enable_horizon_picking</span></code></a>([callback, ...])</p></td>
+<td><p>Enable horizon picking.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.enable_image_style.html#pyvista.Plotter.enable_image_style" title="pyvista.Plotter.enable_image_style"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.enable_image_style</span></code></a>()</p></td>
+<td><p>Set the interactive style to Image.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.enable_joystick_actor_style.html#pyvista.Plotter.enable_joystick_actor_style" title="pyvista.Plotter.enable_joystick_actor_style"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.enable_joystick_actor_style</span></code></a>()</p></td>
+<td><p>Set the interactive style to Joystick Actor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.enable_joystick_style.html#pyvista.Plotter.enable_joystick_style" title="pyvista.Plotter.enable_joystick_style"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.enable_joystick_style</span></code></a>()</p></td>
+<td><p>Set the interactive style to Joystick Camera.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.enable_lightkit.html#pyvista.Plotter.enable_lightkit" title="pyvista.Plotter.enable_lightkit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.enable_lightkit</span></code></a>([only_active])</p></td>
+<td><p>Enable the default light-kit lighting.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.enable_mesh_picking.html#pyvista.Plotter.enable_mesh_picking" title="pyvista.Plotter.enable_mesh_picking"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.enable_mesh_picking</span></code></a>([callback, ...])</p></td>
+<td><p>Enable picking of a mesh.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.enable_parallel_projection.html#pyvista.Plotter.enable_parallel_projection" title="pyvista.Plotter.enable_parallel_projection"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.enable_parallel_projection</span></code></a>()</p></td>
+<td><p>Enable parallel projection.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.enable_path_picking.html#pyvista.Plotter.enable_path_picking" title="pyvista.Plotter.enable_path_picking"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.enable_path_picking</span></code></a>([callback, ...])</p></td>
+<td><p>Enable picking at paths.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.enable_point_picking.html#pyvista.Plotter.enable_point_picking" title="pyvista.Plotter.enable_point_picking"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.enable_point_picking</span></code></a>([callback, ...])</p></td>
+<td><p>Enable picking at points.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.enable_rubber_band_2d_style.html#pyvista.Plotter.enable_rubber_band_2d_style" title="pyvista.Plotter.enable_rubber_band_2d_style"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.enable_rubber_band_2d_style</span></code></a>()</p></td>
+<td><p>Set the interactive style to Rubber Band 2D.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.enable_rubber_band_style.html#pyvista.Plotter.enable_rubber_band_style" title="pyvista.Plotter.enable_rubber_band_style"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.enable_rubber_band_style</span></code></a>()</p></td>
+<td><p>Set the interactive style to Rubber Band Picking.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.enable_shadows.html#pyvista.Plotter.enable_shadows" title="pyvista.Plotter.enable_shadows"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.enable_shadows</span></code></a>()</p></td>
+<td><p>Enable shadows.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.enable_ssao.html#pyvista.Plotter.enable_ssao" title="pyvista.Plotter.enable_ssao"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.enable_ssao</span></code></a>([radius, bias, ...])</p></td>
+<td><p>Enable surface space ambient occlusion (SSAO).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.enable_stereo_render.html#pyvista.Plotter.enable_stereo_render" title="pyvista.Plotter.enable_stereo_render"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.enable_stereo_render</span></code></a>()</p></td>
+<td><p>Enable anaglyph stereo rendering.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.enable_surface_picking.html#pyvista.Plotter.enable_surface_picking" title="pyvista.Plotter.enable_surface_picking"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.enable_surface_picking</span></code></a>([callback, ...])</p></td>
+<td><p>Enable picking of a point on the surface of a mesh.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.enable_terrain_style.html#pyvista.Plotter.enable_terrain_style" title="pyvista.Plotter.enable_terrain_style"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.enable_terrain_style</span></code></a>([...])</p></td>
+<td><p>Set the interactive style to Terrain.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.enable_trackball_actor_style.html#pyvista.Plotter.enable_trackball_actor_style" title="pyvista.Plotter.enable_trackball_actor_style"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.enable_trackball_actor_style</span></code></a>()</p></td>
+<td><p>Set the interactive style to Trackball Actor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.enable_trackball_style.html#pyvista.Plotter.enable_trackball_style" title="pyvista.Plotter.enable_trackball_style"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.enable_trackball_style</span></code></a>()</p></td>
+<td><p>Set the interactive style to Trackball Camera.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.enable_zoom_style.html#pyvista.Plotter.enable_zoom_style" title="pyvista.Plotter.enable_zoom_style"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.enable_zoom_style</span></code></a>()</p></td>
+<td><p>Set the interactive style to Rubber Band Zoom.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.export_gltf.html#pyvista.Plotter.export_gltf" title="pyvista.Plotter.export_gltf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.export_gltf</span></code></a>(filename[, inline_data, ...])</p></td>
+<td><p>Export the current rendering scene as a glTF file.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.export_html.html#pyvista.Plotter.export_html" title="pyvista.Plotter.export_html"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.export_html</span></code></a>(filename[, backend])</p></td>
+<td><p>Export this plotter as an interactive scene to a HTML file.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.export_obj.html#pyvista.Plotter.export_obj" title="pyvista.Plotter.export_obj"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.export_obj</span></code></a>(filename)</p></td>
+<td><p>Export scene to OBJ format.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.export_vrml.html#pyvista.Plotter.export_vrml" title="pyvista.Plotter.export_vrml"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.export_vrml</span></code></a>(filename)</p></td>
+<td><p>Export the current rendering scene as a VRML file.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.export_vtkjs.html#pyvista.Plotter.export_vtkjs" title="pyvista.Plotter.export_vtkjs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.export_vtkjs</span></code></a>(filename[, compress_arrays])</p></td>
+<td><p>Export the current rendering scene as a VTKjs scene.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.fly_to.html#pyvista.Plotter.fly_to" title="pyvista.Plotter.fly_to"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.fly_to</span></code></a>(point)</p></td>
+<td><p>Move the current camera's focal point to a position point.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.fly_to_mouse_position.html#pyvista.Plotter.fly_to_mouse_position" title="pyvista.Plotter.fly_to_mouse_position"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.fly_to_mouse_position</span></code></a>([focus])</p></td>
+<td><p>Focus on last stored mouse position.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.generate_orbital_path.html#pyvista.Plotter.generate_orbital_path" title="pyvista.Plotter.generate_orbital_path"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.generate_orbital_path</span></code></a>([factor, ...])</p></td>
+<td><p>Generate an orbital path around the data scene.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.get_default_cam_pos.html#pyvista.Plotter.get_default_cam_pos" title="pyvista.Plotter.get_default_cam_pos"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.get_default_cam_pos</span></code></a>([negative])</p></td>
+<td><p>Return the default focal points and viewup.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.get_image_depth.html#pyvista.Plotter.get_image_depth" title="pyvista.Plotter.get_image_depth"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.get_image_depth</span></code></a>([fill_value, ...])</p></td>
+<td><p>Return a depth image representing current render window.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.get_pick_position.html#pyvista.Plotter.get_pick_position" title="pyvista.Plotter.get_pick_position"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.get_pick_position</span></code></a>()</p></td>
+<td><p>Get the pick position or area.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.hide_axes.html#pyvista.Plotter.hide_axes" title="pyvista.Plotter.hide_axes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.hide_axes</span></code></a>()</p></td>
+<td><p>Hide the axes orientation widget.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.hide_axes_all.html#pyvista.Plotter.hide_axes_all" title="pyvista.Plotter.hide_axes_all"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.hide_axes_all</span></code></a>()</p></td>
+<td><p>Hide the axes orientation widget in all renderers.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.image_scale_context.html#pyvista.Plotter.image_scale_context" title="pyvista.Plotter.image_scale_context"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.image_scale_context</span></code></a>([scale])</p></td>
+<td><p>Set the image scale in an isolated context.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.import_gltf.html#pyvista.Plotter.import_gltf" title="pyvista.Plotter.import_gltf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.import_gltf</span></code></a>(filename[, set_camera])</p></td>
+<td><p>Import a glTF file into the plotter.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.import_vrml.html#pyvista.Plotter.import_vrml" title="pyvista.Plotter.import_vrml"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.import_vrml</span></code></a>(filename)</p></td>
+<td><p>Import a VRML file into the plotter.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.increment_point_size_and_line_width.html#pyvista.Plotter.increment_point_size_and_line_width" title="pyvista.Plotter.increment_point_size_and_line_width"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.increment_point_size_and_line_width</span></code></a>(...)</p></td>
+<td><p>Increment point size and line width of all actors.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.isometric_view.html#pyvista.Plotter.isometric_view" title="pyvista.Plotter.isometric_view"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.isometric_view</span></code></a>()</p></td>
+<td><p>Reset the camera to a default isometric view.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.isometric_view_interactive.html#pyvista.Plotter.isometric_view_interactive" title="pyvista.Plotter.isometric_view_interactive"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.isometric_view_interactive</span></code></a>()</p></td>
+<td><p>Set the current interactive render window to isometric view.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.key_press_event.html#pyvista.Plotter.key_press_event" title="pyvista.Plotter.key_press_event"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.key_press_event</span></code></a>(obj, event)</p></td>
+<td><p>Listen for key press event.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.left_button_down.html#pyvista.Plotter.left_button_down" title="pyvista.Plotter.left_button_down"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.left_button_down</span></code></a>(obj, event_type)</p></td>
+<td><p>Register the event for a left button down click.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.link_views.html#pyvista.Plotter.link_views" title="pyvista.Plotter.link_views"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.link_views</span></code></a>([views])</p></td>
+<td><p>Link the views' cameras.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.open_gif.html#pyvista.Plotter.open_gif" title="pyvista.Plotter.open_gif"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.open_gif</span></code></a>(filename[, loop, fps, ...])</p></td>
+<td><p>Open a gif file.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.open_movie.html#pyvista.Plotter.open_movie" title="pyvista.Plotter.open_movie"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.open_movie</span></code></a>(filename[, framerate, ...])</p></td>
+<td><p>Establish a connection to the ffmpeg writer.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.orbit_on_path.html#pyvista.Plotter.orbit_on_path" title="pyvista.Plotter.orbit_on_path"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.orbit_on_path</span></code></a>([path, focus, step, ...])</p></td>
+<td><p>Orbit on the given path focusing on the focus point.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.pick_click_position.html#pyvista.Plotter.pick_click_position" title="pyvista.Plotter.pick_click_position"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.pick_click_position</span></code></a>()</p></td>
+<td><p>Get corresponding click location in the 3D plot.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.pick_mouse_position.html#pyvista.Plotter.pick_mouse_position" title="pyvista.Plotter.pick_mouse_position"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.pick_mouse_position</span></code></a>()</p></td>
+<td><p>Get corresponding mouse location in the 3D plot.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.remove_actor.html#pyvista.Plotter.remove_actor" title="pyvista.Plotter.remove_actor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.remove_actor</span></code></a>(actor[, reset_camera, ...])</p></td>
+<td><p>Remove an actor from the Renderer.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.remove_all_lights.html#pyvista.Plotter.remove_all_lights" title="pyvista.Plotter.remove_all_lights"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.remove_all_lights</span></code></a>([only_active])</p></td>
+<td><p>Remove all lights from the scene.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.remove_background_image.html#pyvista.Plotter.remove_background_image" title="pyvista.Plotter.remove_background_image"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.remove_background_image</span></code></a>()</p></td>
+<td><p>Remove the background image at the current renderer.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.remove_blurring.html#pyvista.Plotter.remove_blurring" title="pyvista.Plotter.remove_blurring"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.remove_blurring</span></code></a>()</p></td>
+<td><p>Remove a single blurring pass.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.remove_bounding_box.html#pyvista.Plotter.remove_bounding_box" title="pyvista.Plotter.remove_bounding_box"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.remove_bounding_box</span></code></a>([render])</p></td>
+<td><p>Remove bounding box.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.remove_bounds_axes.html#pyvista.Plotter.remove_bounds_axes" title="pyvista.Plotter.remove_bounds_axes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.remove_bounds_axes</span></code></a>()</p></td>
+<td><p>Remove bounds axes.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.remove_chart.html#pyvista.Plotter.remove_chart" title="pyvista.Plotter.remove_chart"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.remove_chart</span></code></a>(chart_or_index)</p></td>
+<td><p>Remove a chart from this renderer.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.remove_environment_texture.html#pyvista.Plotter.remove_environment_texture" title="pyvista.Plotter.remove_environment_texture"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.remove_environment_texture</span></code></a>()</p></td>
+<td><p>Remove the environment texture.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.remove_floors.html#pyvista.Plotter.remove_floors" title="pyvista.Plotter.remove_floors"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.remove_floors</span></code></a>([clear_kwargs, render])</p></td>
+<td><p>Remove all floor actors.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.remove_legend.html#pyvista.Plotter.remove_legend" title="pyvista.Plotter.remove_legend"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.remove_legend</span></code></a>([render])</p></td>
+<td><p>Remove the legend actor.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.remove_scalar_bar.html#pyvista.Plotter.remove_scalar_bar" title="pyvista.Plotter.remove_scalar_bar"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.remove_scalar_bar</span></code></a>([title, render])</p></td>
+<td><p>Remove a scalar bar.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.render.html#pyvista.Plotter.render" title="pyvista.Plotter.render"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.render</span></code></a>()</p></td>
+<td><p>Render the main window.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.reset_camera.html#pyvista.Plotter.reset_camera" title="pyvista.Plotter.reset_camera"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.reset_camera</span></code></a>([render, bounds])</p></td>
+<td><p>Reset the camera of the active render window.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.reset_camera_clipping_range.html#pyvista.Plotter.reset_camera_clipping_range" title="pyvista.Plotter.reset_camera_clipping_range"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.reset_camera_clipping_range</span></code></a>()</p></td>
+<td><p>Reset camera clipping planes.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.reset_key_events.html#pyvista.Plotter.reset_key_events" title="pyvista.Plotter.reset_key_events"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.reset_key_events</span></code></a>()</p></td>
+<td><p>Reset all of the key press events to their defaults.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.save_graphic.html#pyvista.Plotter.save_graphic" title="pyvista.Plotter.save_graphic"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.save_graphic</span></code></a>(filename[, title, ...])</p></td>
+<td><p>Save a screenshot of the rendering window as a graphic file.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.screenshot.html#pyvista.Plotter.screenshot" title="pyvista.Plotter.screenshot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.screenshot</span></code></a>([filename, ...])</p></td>
+<td><p>Take screenshot at current camera position.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.set_background.html#pyvista.Plotter.set_background" title="pyvista.Plotter.set_background"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.set_background</span></code></a>(color[, top, ...])</p></td>
+<td><p>Set the background color.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.set_chart_interaction.html#pyvista.Plotter.set_chart_interaction" title="pyvista.Plotter.set_chart_interaction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.set_chart_interaction</span></code></a>(interactive[, ...])</p></td>
+<td><p>Set or toggle interaction with charts for the active renderer.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.set_color_cycler.html#pyvista.Plotter.set_color_cycler" title="pyvista.Plotter.set_color_cycler"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.set_color_cycler</span></code></a>(color_cycler[, ...])</p></td>
+<td><p>Set or reset the color cycler.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.set_environment_texture.html#pyvista.Plotter.set_environment_texture" title="pyvista.Plotter.set_environment_texture"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.set_environment_texture</span></code></a>(texture[, ...])</p></td>
+<td><p>Set the environment texture used for image based lighting.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.set_focus.html#pyvista.Plotter.set_focus" title="pyvista.Plotter.set_focus"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.set_focus</span></code></a>(point)</p></td>
+<td><p>Set focus to a point.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.set_position.html#pyvista.Plotter.set_position" title="pyvista.Plotter.set_position"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.set_position</span></code></a>(point[, reset, render])</p></td>
+<td><p>Set camera position to a point.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.set_scale.html#pyvista.Plotter.set_scale" title="pyvista.Plotter.set_scale"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.set_scale</span></code></a>([xscale, yscale, zscale, ...])</p></td>
+<td><p>Scale all the actors in the scene.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.set_viewup.html#pyvista.Plotter.set_viewup" title="pyvista.Plotter.set_viewup"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.set_viewup</span></code></a>(vector[, reset, render])</p></td>
+<td><p>Set camera viewup vector.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.show.html#pyvista.Plotter.show" title="pyvista.Plotter.show"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.show</span></code></a>([title, window_size, ...])</p></td>
+<td><p>Display the plotting window.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.show_axes.html#pyvista.Plotter.show_axes" title="pyvista.Plotter.show_axes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.show_axes</span></code></a>()</p></td>
+<td><p>Show the axes orientation widget.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.show_axes_all.html#pyvista.Plotter.show_axes_all" title="pyvista.Plotter.show_axes_all"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.show_axes_all</span></code></a>()</p></td>
+<td><p>Show the axes orientation widget in all renderers.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.show_bounds.html#pyvista.Plotter.show_bounds" title="pyvista.Plotter.show_bounds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.show_bounds</span></code></a>([mesh, bounds, ...])</p></td>
+<td><p>Add bounds axes.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.show_grid.html#pyvista.Plotter.show_grid" title="pyvista.Plotter.show_grid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.show_grid</span></code></a>(**kwargs)</p></td>
+<td><p>Show grid lines and bounds axes labels.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.store_click_position.html#pyvista.Plotter.store_click_position" title="pyvista.Plotter.store_click_position"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.store_click_position</span></code></a>(*args)</p></td>
+<td><p>Store click position in viewport coordinates.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.store_mouse_position.html#pyvista.Plotter.store_mouse_position" title="pyvista.Plotter.store_mouse_position"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.store_mouse_position</span></code></a>(*args)</p></td>
+<td><p>Store mouse position.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.subplot.html#pyvista.Plotter.subplot" title="pyvista.Plotter.subplot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.subplot</span></code></a>(index_row[, index_column])</p></td>
+<td><p>Set the active subplot.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.to_pythreejs.html#pyvista.Plotter.to_pythreejs" title="pyvista.Plotter.to_pythreejs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.to_pythreejs</span></code></a>()</p></td>
+<td><p>Convert this plotting scene to a pythreejs widget.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.track_click_position.html#pyvista.Plotter.track_click_position" title="pyvista.Plotter.track_click_position"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.track_click_position</span></code></a>([callback, ...])</p></td>
+<td><p>Keep track of the click position.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.track_mouse_position.html#pyvista.Plotter.track_mouse_position" title="pyvista.Plotter.track_mouse_position"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.track_mouse_position</span></code></a>()</p></td>
+<td><p>Keep track of the mouse position.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.unlink_views.html#pyvista.Plotter.unlink_views" title="pyvista.Plotter.unlink_views"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.unlink_views</span></code></a>([views])</p></td>
+<td><p>Unlink the views' cameras.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.untrack_click_position.html#pyvista.Plotter.untrack_click_position" title="pyvista.Plotter.untrack_click_position"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.untrack_click_position</span></code></a>([side])</p></td>
+<td><p>Stop tracking the click position.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.untrack_mouse_position.html#pyvista.Plotter.untrack_mouse_position" title="pyvista.Plotter.untrack_mouse_position"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.untrack_mouse_position</span></code></a>()</p></td>
+<td><p>Stop tracking the mouse position.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.update.html#pyvista.Plotter.update" title="pyvista.Plotter.update"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.update</span></code></a>([stime, force_redraw])</p></td>
+<td><p>Update window, redraw, process messages query.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.update_bounds_axes.html#pyvista.Plotter.update_bounds_axes" title="pyvista.Plotter.update_bounds_axes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.update_bounds_axes</span></code></a>()</p></td>
+<td><p>Update the bounds axes of the render window.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.update_coordinates.html#pyvista.Plotter.update_coordinates" title="pyvista.Plotter.update_coordinates"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.update_coordinates</span></code></a>(points[, mesh, ...])</p></td>
+<td><p>Update the points of an object in the plotter.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.update_scalar_bar_range.html#pyvista.Plotter.update_scalar_bar_range" title="pyvista.Plotter.update_scalar_bar_range"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.update_scalar_bar_range</span></code></a>(clim[, name])</p></td>
+<td><p>Update the value range of the active or named scalar bar.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.update_scalars.html#pyvista.Plotter.update_scalars" title="pyvista.Plotter.update_scalars"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.update_scalars</span></code></a>(scalars[, mesh, render])</p></td>
+<td><p>Update scalars of an object in the plotter.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.view_isometric.html#pyvista.Plotter.view_isometric" title="pyvista.Plotter.view_isometric"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.view_isometric</span></code></a>([negative, render])</p></td>
+<td><p>Reset the camera to a default isometric view.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.view_vector.html#pyvista.Plotter.view_vector" title="pyvista.Plotter.view_vector"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.view_vector</span></code></a>(vector[, viewup, render])</p></td>
+<td><p>Point the camera in the direction of the given vector.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.view_xy.html#pyvista.Plotter.view_xy" title="pyvista.Plotter.view_xy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.view_xy</span></code></a>([negative, render])</p></td>
+<td><p>View the XY plane.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.view_xz.html#pyvista.Plotter.view_xz" title="pyvista.Plotter.view_xz"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.view_xz</span></code></a>([negative, render])</p></td>
+<td><p>View the XZ plane.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.view_yx.html#pyvista.Plotter.view_yx" title="pyvista.Plotter.view_yx"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.view_yx</span></code></a>([negative, render])</p></td>
+<td><p>View the YX plane.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.view_yz.html#pyvista.Plotter.view_yz" title="pyvista.Plotter.view_yz"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.view_yz</span></code></a>([negative, render])</p></td>
+<td><p>View the YZ plane.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.view_zx.html#pyvista.Plotter.view_zx" title="pyvista.Plotter.view_zx"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.view_zx</span></code></a>([negative, render])</p></td>
+<td><p>View the ZX plane.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.view_zy.html#pyvista.Plotter.view_zy" title="pyvista.Plotter.view_zy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.view_zy</span></code></a>([negative, render])</p></td>
+<td><p>View the ZY plane.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.where_is.html#pyvista.Plotter.where_is" title="pyvista.Plotter.where_is"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.where_is</span></code></a>(name)</p></td>
+<td><p>Return the subplot coordinates of a given actor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.window_size_context.html#pyvista.Plotter.window_size_context" title="pyvista.Plotter.window_size_context"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.window_size_context</span></code></a>([window_size])</p></td>
+<td><p>Set the render window size in an isolated context.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.write_frame.html#pyvista.Plotter.write_frame" title="pyvista.Plotter.write_frame"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.write_frame</span></code></a>()</p></td>
+<td><p>Write a single frame to the movie file.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Attributes</p>
+<table class="longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.actors.html#pyvista.Plotter.actors" title="pyvista.Plotter.actors"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.actors</span></code></a></p></td>
+<td><p>Return the actors of the active renderer.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.background_color.html#pyvista.Plotter.background_color" title="pyvista.Plotter.background_color"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.background_color</span></code></a></p></td>
+<td><p>Return the background color of the active render window.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.bounds.html#pyvista.Plotter.bounds" title="pyvista.Plotter.bounds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.bounds</span></code></a></p></td>
+<td><p>Return the bounds of the active renderer.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.camera.html#pyvista.Plotter.camera" title="pyvista.Plotter.camera"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.camera</span></code></a></p></td>
+<td><p>Return the active camera of the active renderer.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.camera_position.html#pyvista.Plotter.camera_position" title="pyvista.Plotter.camera_position"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.camera_position</span></code></a></p></td>
+<td><p>Return camera position of the active render window.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.camera_set.html#pyvista.Plotter.camera_set" title="pyvista.Plotter.camera_set"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.camera_set</span></code></a></p></td>
+<td><p>Return if the camera of the active renderer has been set.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.center.html#pyvista.Plotter.center" title="pyvista.Plotter.center"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.center</span></code></a></p></td>
+<td><p>Return the center of the active renderer.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.click_position.html#pyvista.Plotter.click_position" title="pyvista.Plotter.click_position"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.click_position</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.image.html#pyvista.Plotter.image" title="pyvista.Plotter.image"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.image</span></code></a></p></td>
+<td><p>Return an image array of current render window.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.image_depth.html#pyvista.Plotter.image_depth" title="pyvista.Plotter.image_depth"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.image_depth</span></code></a></p></td>
+<td><p>Return a depth image representing current render window.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.image_scale.html#pyvista.Plotter.image_scale" title="pyvista.Plotter.image_scale"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.image_scale</span></code></a></p></td>
+<td><p>Get or set the scale factor when saving a screenshot.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.last_update_time.html#pyvista.Plotter.last_update_time" title="pyvista.Plotter.last_update_time"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.last_update_time</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.legend.html#pyvista.Plotter.legend" title="pyvista.Plotter.legend"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.legend</span></code></a></p></td>
+<td><p>Legend actor.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.length.html#pyvista.Plotter.length" title="pyvista.Plotter.length"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.length</span></code></a></p></td>
+<td><p>Return the length of the diagonal of the bounding box of the scene.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.mouse_position.html#pyvista.Plotter.mouse_position" title="pyvista.Plotter.mouse_position"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.mouse_position</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.parallel_projection.html#pyvista.Plotter.parallel_projection" title="pyvista.Plotter.parallel_projection"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.parallel_projection</span></code></a></p></td>
+<td><p>Return parallel projection state of active render window.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.parallel_scale.html#pyvista.Plotter.parallel_scale" title="pyvista.Plotter.parallel_scale"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.parallel_scale</span></code></a></p></td>
+<td><p>Return parallel scale of active render window.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.pickable_actors.html#pyvista.Plotter.pickable_actors" title="pyvista.Plotter.pickable_actors"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.pickable_actors</span></code></a></p></td>
+<td><p>Return or set the pickable actors.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.picked_block_index.html#pyvista.Plotter.picked_block_index" title="pyvista.Plotter.picked_block_index"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.picked_block_index</span></code></a></p></td>
+<td><p>Return the picked block index.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.picked_mesh.html#pyvista.Plotter.picked_mesh" title="pyvista.Plotter.picked_mesh"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.picked_mesh</span></code></a></p></td>
+<td><p>Return the picked mesh.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.picked_point.html#pyvista.Plotter.picked_point" title="pyvista.Plotter.picked_point"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.picked_point</span></code></a></p></td>
+<td><p>Return the picked point.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.render_window.html#pyvista.Plotter.render_window" title="pyvista.Plotter.render_window"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.render_window</span></code></a></p></td>
+<td><p>Access the vtkRenderWindow.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.renderer.html#pyvista.Plotter.renderer" title="pyvista.Plotter.renderer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.renderer</span></code></a></p></td>
+<td><p>Return the active renderer.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.scalar_bar.html#pyvista.Plotter.scalar_bar" title="pyvista.Plotter.scalar_bar"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.scalar_bar</span></code></a></p></td>
+<td><p>First scalar bar (kept for backwards compatibility).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.scalar_bars.html#pyvista.Plotter.scalar_bars" title="pyvista.Plotter.scalar_bars"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.scalar_bars</span></code></a></p></td>
+<td><p>Scalar bars.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.scale.html#pyvista.Plotter.scale" title="pyvista.Plotter.scale"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.scale</span></code></a></p></td>
+<td><p>Return the scaling of the active renderer.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.shape.html#pyvista.Plotter.shape" title="pyvista.Plotter.shape"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.shape</span></code></a></p></td>
+<td><p>Shape of the plotter.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.store_image.html#pyvista.Plotter.store_image" title="pyvista.Plotter.store_image"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.store_image</span></code></a></p></td>
+<td><p>Store last rendered frame on close.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.suppress_rendering.html#pyvista.Plotter.suppress_rendering" title="pyvista.Plotter.suppress_rendering"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.suppress_rendering</span></code></a></p></td>
+<td><p>Get or set whether to suppress render calls.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.theme.html#pyvista.Plotter.theme" title="pyvista.Plotter.theme"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.theme</span></code></a></p></td>
+<td><p>Return or set the theme used for this plotter.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.window_size.html#pyvista.Plotter.window_size" title="pyvista.Plotter.window_size"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.window_size</span></code></a></p></td>
+<td><p>Return the render window size in <code class="docutils literal notranslate"><span class="pre">(width,</span> <span class="pre">height)</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</section>
+
+
+                </article>
+              
+              
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  
+  <div class="tocsection editthispage">
+    <a href="http://github.com/pyvista/pyvista/edit/main/pyvista/plotting/plotting.py">
+      <i class="fa-solid fa-pencil"></i>
+      
+      
+        
+          Edit on GitHub
+        
+      
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+  <p class="copyright">
+    
+      © Copyright 2017-2023, The PyVista Developers.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item"><p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.13.3.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

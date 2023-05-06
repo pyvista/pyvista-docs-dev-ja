@@ -1,0 +1,978 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="ja" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Building VTK &#8212; PyVista 0.40.dev0 ドキュメント</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/thebelab.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/asciinema-player_2.6.1.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/asciinema-custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/no_search_highlight.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/summary.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/cards.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/no_italic.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/thebelab-helper.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/asciinema-player_2.6.1.js"></script>
+    <script src="../_static/translations.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+    <script src="../_static/design-tabs.js"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-140243896-1"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'UA-140243896-1');
+            </script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'extras/building_vtk';</script>
+    <script>
+        DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://docs.pyvista.org/versions.json';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = 'dev';
+        </script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="検索" href="../search.html" />
+    <link rel="next" title="PyVista within a Docker Container" href="docker.html" />
+    <link rel="prev" title="Extras" href="index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="ja"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+    <span class="fa-solid fa-bars"></span>
+  </label>
+  
+  <div class="navbar-header-items__start">
+    
+      <div class="navbar-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/pyvista_logo_sm.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/pyvista_logo_sm.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+    
+  </div>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item"><nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../getting-started/index.html">
+                        Getting Started
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../user-guide/index.html">
+                        User Guide
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../examples/index.html">
+                        Examples
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../api/index.html">
+                        API Reference
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="index.html">
+                        Extras
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="検索" aria-label="検索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+        </div>
+      
+      
+        <div class="navbar-item">
+<script>
+document.write(`
+  <div class="version-switcher__container dropdown">
+    <button type="button" class="version-switcher__button btn btn-sm navbar-btn dropdown-toggle" data-bs-toggle="dropdown">
+      dev  <!-- this text may get changed later by javascript -->
+      <span class="caret"></span>
+    </button>
+    <div class="version-switcher__menu dropdown-menu list-group-flush py-0">
+    <!-- dropdown will be populated by javascript on page load -->
+    </div>
+  </div>
+`);
+</script></div>
+      
+        <div class="navbar-item">
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/pyvista/pyvista" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github"></i></span>
+            <label class="sr-only">GitHub</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="http://slack.pyvista.org" title="Slack Community" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fab fa-slack"></i></span>
+            <label class="sr-only">Slack Community</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/pyvista/pyvista/discussions" title="Support" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-comment fa-fw"></i></span>
+            <label class="sr-only">Support</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/pyvista/pyvista/blob/main/CONTRIBUTING.rst" title="Contributing" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-gavel fa-fw"></i></span>
+            <label class="sr-only">Contributing</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://doi.org/10.21105/joss.01450" title="The Paper" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-file-text fa-fw"></i></span>
+            <label class="sr-only">The Paper</label></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="検索" aria-label="検索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+    </div>
+  
+
+  
+    <label class="sidebar-toggle secondary-toggle" for="__secondary">
+      <span class="fa-solid fa-outdent"></span>
+    </label>
+  
+</div>
+
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          <div class="navbar-item"><nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../getting-started/index.html">
+                        Getting Started
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../user-guide/index.html">
+                        User Guide
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../examples/index.html">
+                        Examples
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../api/index.html">
+                        API Reference
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="index.html">
+                        Extras
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+<script>
+document.write(`
+  <div class="version-switcher__container dropdown">
+    <button type="button" class="version-switcher__button btn btn-sm navbar-btn dropdown-toggle" data-bs-toggle="dropdown">
+      dev  <!-- this text may get changed later by javascript -->
+      <span class="caret"></span>
+    </button>
+    <div class="version-switcher__menu dropdown-menu list-group-flush py-0">
+    <!-- dropdown will be populated by javascript on page load -->
+    </div>
+  </div>
+`);
+</script></div>
+        
+          <div class="navbar-item">
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/pyvista/pyvista" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github"></i></span>
+            <label class="sr-only">GitHub</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="http://slack.pyvista.org" title="Slack Community" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fab fa-slack"></i></span>
+            <label class="sr-only">Slack Community</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/pyvista/pyvista/discussions" title="Support" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-comment fa-fw"></i></span>
+            <label class="sr-only">Support</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/pyvista/pyvista/blob/main/CONTRIBUTING.rst" title="Contributing" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-gavel fa-fw"></i></span>
+            <label class="sr-only">Contributing</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://doi.org/10.21105/joss.01450" title="The Paper" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-file-text fa-fw"></i></span>
+            <label class="sr-only">The Paper</label></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item"><nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Building VTK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docker.html">PyVista within a Docker Container</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pyinstaller.html">Freezing PyVista with PyInstaller</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_notes.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plot_directive.html">Sphinx PyVista Plot Directive</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pytest_plugin.html">PyVista pytest Plugin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vtk_data.html">Using Local VTK-Data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extending_pyvista.html">Extending PyVista</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumbs">
+  <ul class="bd-breadcrumbs" role="navigation" aria-label="Breadcrumb">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">Extras</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">Building VTK</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="building-vtk">
+<span id="ref-building-vtk"></span><h1>Building VTK<a class="headerlink" href="#building-vtk" title="このヘッドラインへのパーマリンク">#</a></h1>
+<p>Kitware provides Python wheels for VTK at <a class="reference external" href="https://pypi.org/project/vtk/">PyPI VTK</a>, but there are situations where you
+may need to build VTK from source (for example, a new release of Python, EGL
+rendering, additional features, etc). As <code class="docutils literal notranslate"><span class="pre">pyvista</span></code> does not provide
+<code class="docutils literal notranslate"><span class="pre">vtk</span></code>, you will have to either build it manually or install the default
+wheel from PyPI.</p>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<p>Should you need a prebuilt wheel, a variety of prebuilt wheels can be found at
+<a class="reference external" href="https://github.com/pyvista/pyvista-wheels">pyvista-wheels</a>, but you may be
+better off building your own. These are not &quot;official&quot; wheels and will soon
+be removed in favor of more &quot;official&quot; wheel variants from VTK directly.</p>
+</div>
+<p>Reference the official directions for <a class="reference external" href="https://gitlab.kitware.com/vtk/vtk/-/blob/master/Documentation/dev/build.md">Building VTK</a>.
+The following directions assume you want to build a Python wheel non-standard
+situations like EGL.</p>
+<section id="building-wheels">
+<h2>Building Wheels<a class="headerlink" href="#building-wheels" title="このヘッドラインへのパーマリンク">#</a></h2>
+<p>Building VTK from source is fairly straightforward. Using the default build
+settings, build a Python wheel of VTK using <code class="docutils literal notranslate"><span class="pre">ninja</span></code> using the following
+script. This script uses system python3, but you can use any modern Python
+version. For some additional useful options, see the <a class="reference external" href="https://github.com/conda-forge/vtk-feedstock/blob/master/recipe/build.sh">conda-forge recipe</a>.
+Most of the ones below are designed to reduce the build time and resulting
+wheel size.</p>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<p>We have also published some convenient CMake configurations files that you
+can adopt from <cite>banesullivan/vtk-cmake &lt;https://github.com/banesullivan/vtk-cmake&gt;</cite>. These configurations cover the build variants described here
+and make the process of reproducibly building VTK wheel variants more
+straightforward.</p>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+
+<span class="c1"># Install build dependencies</span>
+
+<span class="c1"># Linux/Debian</span>
+sudo<span class="w"> </span>add-apt-repository<span class="w"> </span>-y<span class="w"> </span>ppa:deadsnakes/ppa<span class="w">  </span><span class="c1"># if on Ubuntu 20.04 or 18.04, building 3.10 for example</span>
+sudo<span class="w"> </span>apt<span class="w"> </span>update
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>ninja-build<span class="w"> </span>cmake<span class="w"> </span>libgl1-mesa-dev<span class="w"> </span>python3-dev<span class="w"> </span>git
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>python3.10-dev<span class="w"> </span>python3.10-distutils<span class="w">  </span><span class="c1"># if using deadsnakes + Python 3.10</span>
+<span class="c1"># If on 18.04, you&#39;ll need a newer cmake. You can follow VTK&#39;s instructions @ https://apt.kitware.com</span>
+
+<span class="c1"># Linux/CentOS</span>
+sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>epel-release
+sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>ninja-build<span class="w"> </span>cmake<span class="w"> </span>mesa-libGL-devel<span class="w"> </span>mesa-libGLU-devel
+
+git<span class="w"> </span>clone<span class="w"> </span>https://gitlab.kitware.com/vtk/vtk.git
+mkdir<span class="w"> </span>vtk/build
+<span class="nb">cd</span><span class="w"> </span>vtk/build
+git<span class="w"> </span>checkout<span class="w"> </span>v9.1.0<span class="w">  </span><span class="c1"># optional to select a version, but recommended</span>
+
+<span class="nb">export</span><span class="w"> </span><span class="nv">PYBIN</span><span class="o">=</span>/usr/bin/python3.10<span class="w">  </span><span class="c1"># select your version of choice</span>
+cmake<span class="w"> </span>-GNinja<span class="w"> </span><span class="se">\</span>
+<span class="w">      </span>-DCMAKE_BUILD_TYPE<span class="o">=</span>Release<span class="w"> </span><span class="se">\</span>
+<span class="w">      </span>-DVTK_BUILD_TESTING<span class="o">=</span>OFF<span class="w"> </span><span class="se">\</span>
+<span class="w">      </span>-DVTK_BUILD_DOCUMENTATION<span class="o">=</span>OFF<span class="w"> </span><span class="se">\</span>
+<span class="w">      </span>-DVTK_BUILD_EXAMPLES<span class="o">=</span>OFF<span class="w"> </span><span class="se">\</span>
+<span class="w">      </span>-DVTK_DATA_EXCLUDE_FROM_ALL:BOOL<span class="o">=</span>ON<span class="w"> </span><span class="se">\</span>
+<span class="w">      </span>-DVTK_MODULE_ENABLE_VTK_PythonInterpreter:STRING<span class="o">=</span>NO<span class="w"> </span><span class="se">\</span>
+<span class="w">      </span>-DVTK_MODULE_ENABLE_VTK_WebCore:STRING<span class="o">=</span>YES<span class="w"> </span><span class="se">\</span>
+<span class="w">      </span>-DVTK_MODULE_ENABLE_VTK_WebGLExporter:STRING<span class="o">=</span>YES<span class="w"> </span><span class="se">\</span>
+<span class="w">      </span>-DVTK_MODULE_ENABLE_VTK_WebPython:STRING<span class="o">=</span>YES<span class="w"> </span><span class="se">\</span>
+<span class="w">      </span>-DVTK_WHEEL_BUILD<span class="o">=</span>ON<span class="w"> </span><span class="se">\</span>
+<span class="w">      </span>-DVTK_PYTHON_VERSION<span class="o">=</span><span class="m">3</span><span class="w"> </span><span class="se">\</span>
+<span class="w">      </span>-DVTK_WRAP_PYTHON<span class="o">=</span>ON<span class="w"> </span><span class="se">\</span>
+<span class="w">      </span>-DVTK_OPENGL_HAS_EGL<span class="o">=</span>False<span class="w"> </span><span class="se">\</span>
+<span class="w">      </span>-DPython3_EXECUTABLE<span class="o">=</span><span class="nv">$PYBIN</span><span class="w"> </span>../
+ninja
+
+<span class="c1"># build wheel in dist</span>
+<span class="nv">$PYBIN</span><span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>wheel
+<span class="nv">$PYBIN</span><span class="w"> </span>setup.py<span class="w"> </span>bdist_wheel
+<span class="nv">$PYBIN</span><span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>dist/vtk-*.whl<span class="w">  </span><span class="c1"># optionally install it</span>
+</pre></div>
+</div>
+<section id="off-screen-plotting-gpu-support">
+<span id="gpu-off-screen"></span><h3>Off-Screen Plotting GPU Support<a class="headerlink" href="#off-screen-plotting-gpu-support" title="このヘッドラインへのパーマリンク">#</a></h3>
+<p>VTK supports rendering with EGL, enabling rapid off-screen rendering
+using GPU hardware acceleration without installing a virtual
+framebuffer. The default VTK wheels are not built with this feature,
+but you can build VTK for off-screen plotting using GPU support by
+modifying the above <code class="docutils literal notranslate"><span class="pre">cmake</span></code> command with:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+
+<span class="c1"># install build dependencies (Linux/Debian)</span>
+<span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">update</span>
+<span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="o">-</span><span class="n">y</span> <span class="n">ninja</span><span class="o">-</span><span class="n">build</span> <span class="n">cmake</span> <span class="n">libegl1</span><span class="o">-</span><span class="n">mesa</span><span class="o">-</span><span class="n">dev</span> <span class="n">python3</span><span class="o">-</span><span class="n">dev</span>
+
+<span class="c1"># build using EGL</span>
+<span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">Kitware</span><span class="o">/</span><span class="n">VTK</span>
+<span class="n">mkdir</span> <span class="n">VTK</span><span class="o">/</span><span class="n">build</span>
+<span class="n">cd</span> <span class="n">VTK</span><span class="o">/</span><span class="n">build</span> \
+<span class="n">git</span> <span class="n">checkout</span> <span class="n">v9</span><span class="mf">.1.0</span>
+<span class="n">cd</span> <span class="o">/</span><span class="n">VTK</span><span class="o">/</span><span class="n">build</span>
+<span class="n">cmake</span> <span class="o">-</span><span class="n">GNinja</span> \
+  <span class="o">-</span><span class="n">DCMAKE_BUILD_TYPE</span><span class="o">=</span><span class="n">Release</span> \
+  <span class="o">-</span><span class="n">DVTK_BUILD_TESTING</span><span class="o">=</span><span class="n">OFF</span> \
+  <span class="o">-</span><span class="n">DVTK_BUILD_DOCUMENTATION</span><span class="o">=</span><span class="n">OFF</span> \
+  <span class="o">-</span><span class="n">DVTK_BUILD_EXAMPLES</span><span class="o">=</span><span class="n">OFF</span> \
+  <span class="o">-</span><span class="n">DVTK_MODULE_ENABLE_VTK_PythonInterpreter</span><span class="p">:</span><span class="n">STRING</span><span class="o">=</span><span class="n">NO</span> \
+  <span class="o">-</span><span class="n">DVTK_MODULE_ENABLE_VTK_WebCore</span><span class="p">:</span><span class="n">STRING</span><span class="o">=</span><span class="n">YES</span> \
+  <span class="o">-</span><span class="n">DVTK_MODULE_ENABLE_VTK_WebGLExporter</span><span class="p">:</span><span class="n">STRING</span><span class="o">=</span><span class="n">YES</span> \
+  <span class="o">-</span><span class="n">DVTK_MODULE_ENABLE_VTK_WebPython</span><span class="p">:</span><span class="n">STRING</span><span class="o">=</span><span class="n">YES</span> \
+  <span class="o">-</span><span class="n">DVTK_WHEEL_BUILD</span><span class="o">=</span><span class="n">ON</span> \
+  <span class="o">-</span><span class="n">DVTK_PYTHON_VERSION</span><span class="o">=</span><span class="mi">3</span> \
+  <span class="o">-</span><span class="n">DVTK_WRAP_PYTHON</span><span class="o">=</span><span class="n">ON</span> \
+  <span class="o">-</span><span class="n">DVTK_OPENGL_HAS_EGL</span><span class="p">:</span><span class="n">BOOL</span><span class="o">=</span><span class="n">ON</span> \
+  <span class="o">-</span><span class="n">DVTK_USE_X</span><span class="p">:</span><span class="n">BOOL</span><span class="o">=</span><span class="n">OFF</span> \
+  <span class="o">-</span><span class="n">DVTK_USE_COCOA</span><span class="p">:</span><span class="n">BOOL</span><span class="o">=</span><span class="n">OFF</span> \
+  <span class="o">-</span><span class="n">DVTK_DEFAULT_RENDER_WINDOW_HEADLESS</span><span class="p">:</span><span class="n">BOOL</span><span class="o">=</span><span class="n">ON</span> \
+  <span class="o">-</span><span class="n">DPython3_EXECUTABLE</span><span class="o">=/</span><span class="n">usr</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">python3</span> <span class="o">../</span>
+<span class="n">ninja</span>
+
+<span class="c1"># build the python wheel</span>
+<span class="n">python3</span> <span class="o">-</span><span class="n">m</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">wheel</span> \
+<span class="n">python3</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">bdist_wheel</span> \
+<span class="n">pip</span> <span class="n">install</span> <span class="n">dist</span><span class="o">/</span><span class="n">vtk</span><span class="o">-*.</span><span class="n">whl</span>
+</pre></div>
+</div>
+<p>This disables any plotting using the X server, so be prepared to use
+this module only on a headless display where you either intend to save
+static images or stream the render window to another computer with a
+display (e.g using <code class="docutils literal notranslate"><span class="pre">pyvista.set_jupyter_backend('server')</span></code> and
+jupyterlab). In other words, this wheel will make VTK unusable outside
+of an off-screen environment, so only plan on installing it on a
+headless system without an X server.</p>
+</section>
+<section id="building-osmesa">
+<h3>Building OSMesa<a class="headerlink" href="#building-osmesa" title="このヘッドラインへのパーマリンク">#</a></h3>
+<p>OSMesa provides higher visualization performance on CPU based hosts. Use this
+instead of <code class="docutils literal notranslate"><span class="pre">xvfb</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>sudo apt-get install libosmesa6-dev cmake ninja-build
+
+git clone https://github.com/Kitware/VTK.git
+cd VTK
+git checkout v9.1.0
+mkdir build
+cd build
+
+PYBIN=/usr/bin/python
+cmake -GNinja \
+      -DCMAKE_BUILD_TYPE=Release \
+      -DVTK_BUILD_TESTING=OFF \
+      -DVTK_BUILD_DOCUMENTATION=OFF \
+      -DVTK_BUILD_EXAMPLES=OFF \
+      -DVTK_DATA_EXCLUDE_FROM_ALL:BOOL=ON \
+      -DVTK_MODULE_ENABLE_VTK_PythonInterpreter:STRING=NO \
+      -DVTK_MODULE_ENABLE_VTK_WebCore:STRING=YES \
+      -DVTK_MODULE_ENABLE_VTK_WebGLExporter:STRING=YES \
+      -DVTK_MODULE_ENABLE_VTK_WebPython:STRING=YES \
+      -DVTK_WHEEL_BUILD=ON \
+      -DVTK_PYTHON_VERSION=3 \
+      -DVTK_WRAP_PYTHON=ON \
+      -DVTK_OPENGL_HAS_EGL=False \
+      -DVTK_OPENGL_HAS_OSMESA=True \
+      -DVTK_USE_COCOA=FALSE \
+      -DVTK_USE_X=FALSE \
+      -DVTK_DEFAULT_RENDER_WINDOW_HEADLESS=True \
+      -DPython3_EXECUTABLE=$PYBIN ../
+ninja
+$PYBIN setup.py bdist_wheel
+</pre></div>
+</div>
+<p>Wheels will be generated in the <code class="docutils literal notranslate"><span class="pre">dist</span></code> directory.</p>
+</section>
+<section id="building-manylinux-wheels">
+<h3>Building ManyLinux Wheels<a class="headerlink" href="#building-manylinux-wheels" title="このヘッドラインへのパーマリンク">#</a></h3>
+<p>The above directions are great for building a local build of VTK, but
+these wheels are difficult to share outside your local install given
+issues with ABI compatibility due to the version of Linux they were
+built on. You can work around this by building your wheels using a
+<a class="reference external" href="https://github.com/pypa/manylinux">manylinux</a> docker image.</p>
+<p>To do this, create a <code class="docutils literal notranslate"><span class="pre">build_wheels.sh</span></code> with the following contents in the
+<code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone``d</span> <span class="pre">``vtk</span></code> directory, and give it executable permissions
+(<code class="docutils literal notranslate"><span class="pre">chmod</span> <span class="pre">+x</span> <span class="pre">build_wheels.sh</span></code>):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1"># builds python wheels on docker container and tests installation</span>
+
+<span class="nb">set</span><span class="w"> </span>-e<span class="w"> </span>-x
+
+<span class="c1"># build based on python version from args</span>
+<span class="nv">PYTHON_VERSION</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span>
+<span class="k">case</span><span class="w"> </span><span class="nv">$PYTHON_VERSION</span><span class="w"> </span><span class="k">in</span>
+<span class="m">3</span>.8<span class="o">)</span>
+<span class="w">  </span><span class="nv">PYBIN</span><span class="o">=</span><span class="s2">&quot;/opt/python/cp38-cp38/bin/python&quot;</span>
+<span class="w">  </span><span class="p">;;</span>
+<span class="m">3</span>.9<span class="o">)</span>
+<span class="w">  </span><span class="nv">PYBIN</span><span class="o">=</span><span class="s2">&quot;/opt/python/cp39-cp39/bin/python&quot;</span>
+<span class="w">  </span><span class="p">;;</span>
+<span class="m">3</span>.10<span class="o">)</span>
+<span class="w">  </span><span class="nv">PYBIN</span><span class="o">=</span><span class="s2">&quot;/opt/python/cp310-cp310/bin/python&quot;</span>
+<span class="w">  </span><span class="p">;;</span>
+<span class="m">3</span>.11<span class="o">)</span>
+<span class="w">  </span><span class="nv">PYBIN</span><span class="o">=</span><span class="s2">&quot;/opt/python/cp311-cp311/bin/python&quot;</span>
+<span class="w">  </span><span class="p">;;</span>
+<span class="k">esac</span>
+
+yum<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>ninja-build<span class="w"> </span>cmake<span class="w"> </span>mesa-libGL-devel<span class="w"> </span>mesa-libGLU-devel
+
+rm<span class="w"> </span>-rf<span class="w"> </span>/io/build
+mkdir<span class="w"> </span>/io/build<span class="w"> </span>-p
+<span class="nb">cd</span><span class="w"> </span>/io/build
+
+cmake<span class="w"> </span>-GNinja<span class="w"> </span><span class="se">\</span>
+<span class="w">      </span>-DCMAKE_BUILD_TYPE<span class="o">=</span>Release<span class="w"> </span><span class="se">\</span>
+<span class="w">      </span>-DVTK_BUILD_TESTING<span class="o">=</span>OFF<span class="w"> </span><span class="se">\</span>
+<span class="w">      </span>-DVTK_BUILD_DOCUMENTATION<span class="o">=</span>OFF<span class="w"> </span><span class="se">\</span>
+<span class="w">      </span>-DVTK_BUILD_EXAMPLES<span class="o">=</span>OFF<span class="w"> </span><span class="se">\</span>
+<span class="w">      </span>-DVTK_DATA_EXCLUDE_FROM_ALL:BOOL<span class="o">=</span>ON<span class="w"> </span><span class="se">\</span>
+<span class="w">      </span>-DVTK_MODULE_ENABLE_VTK_PythonInterpreter:STRING<span class="o">=</span>NO<span class="w"> </span><span class="se">\</span>
+<span class="w">      </span>-DVTK_MODULE_ENABLE_VTK_WebCore:STRING<span class="o">=</span>YES<span class="w"> </span><span class="se">\</span>
+<span class="w">      </span>-DVTK_MODULE_ENABLE_VTK_WebGLExporter:STRING<span class="o">=</span>YES<span class="w"> </span><span class="se">\</span>
+<span class="w">      </span>-DVTK_MODULE_ENABLE_VTK_WebPython:STRING<span class="o">=</span>YES<span class="w"> </span><span class="se">\</span>
+<span class="w">      </span>-DVTK_WHEEL_BUILD<span class="o">=</span>ON<span class="w"> </span><span class="se">\</span>
+<span class="w">      </span>-DVTK_PYTHON_VERSION<span class="o">=</span><span class="m">3</span><span class="w"> </span><span class="se">\</span>
+<span class="w">      </span>-DVTK_WRAP_PYTHON<span class="o">=</span>ON<span class="w"> </span><span class="se">\</span>
+<span class="w">      </span>-DVTK_OPENGL_HAS_EGL<span class="o">=</span>False<span class="w"> </span><span class="se">\</span>
+<span class="w">      </span>-DPython3_EXECUTABLE<span class="o">=</span><span class="nv">$PYBIN</span><span class="w"> </span>../
+ninja-build
+
+<span class="c1"># build wheel in dist</span>
+rm<span class="w"> </span>-rf<span class="w"> </span>dist
+<span class="nv">$PYBIN</span><span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>wheel
+<span class="nv">$PYBIN</span><span class="w"> </span>setup.py<span class="w"> </span>bdist_wheel
+
+<span class="c1"># cleanup wheel</span>
+rm<span class="w"> </span>-rf<span class="w"> </span>wheelhouse
+auditwheel<span class="w"> </span>repair<span class="w"> </span>dist/*.whl
+</pre></div>
+</div>
+<p>This script can then be called with:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">PYTHON_VERSION</span><span class="o">=</span><span class="m">3</span>.10
+docker<span class="w"> </span>run<span class="w"> </span>--cpus<span class="w"> </span><span class="m">4</span>.5<span class="w"> </span>-e<span class="w"> </span><span class="se">\</span>
+<span class="w">       </span>--rm<span class="w"> </span>-v<span class="w"> </span><span class="sb">`</span><span class="nb">pwd</span><span class="sb">`</span>:/io<span class="w"> </span>quay.io/pypa/manylinux2014_x86_64<span class="w"> </span><span class="se">\</span>
+<span class="w">       </span>/io/build_wheels.sh<span class="w"> </span><span class="nv">$PYTHON_VERSION</span>
+</pre></div>
+</div>
+<p>You should end up with a <code class="docutils literal notranslate"><span class="pre">build/wheelhouse/vtk-*.whl</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<p>To build the EGL version of the wheel, follow the directions in the
+previous section. Add <code class="docutils literal notranslate"><span class="pre">mesa-libEGL-devel</span></code> to the installation
+dependencies.</p>
+</div>
+</section>
+<section id="building-python-vtk-wheel-on-raspberry-pi-64-bit">
+<h3>Building Python VTK Wheel on Raspberry Pi (64-bit)<a class="headerlink" href="#building-python-vtk-wheel-on-raspberry-pi-64-bit" title="このヘッドラインへのパーマリンク">#</a></h3>
+<p>While it's possible to build on 32-bit Raspberry Pi (ARMv7), there are
+several issues that crop up when building wheels for the 32-bit
+version (see <a class="reference external" href="https://github.com/pypa/manylinux/issues/84">manylinux issue 84</a>). Should you attempt
+to build on 32-bit, try building the wheel using <a class="reference external" href="https://github.com/dockcross/dockcross">dockcross</a> as you may run into memory
+limitations otherwise (especially with only 1 GB RAM).</p>
+<p>Building the <code class="docutils literal notranslate"><span class="pre">aarch64</span></code> manylinux wheel can be done via docker with
+the <code class="docutils literal notranslate"><span class="pre">quay.io/pypa/manylinux2014_aarch64</span></code> image. Run the following:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">PYTHON_VERSION</span><span class="o">=</span><span class="m">3</span>.8
+rm<span class="w"> </span>-rf<span class="w"> </span>build
+docker<span class="w"> </span>run<span class="w"> </span>-e<span class="w"> </span><span class="se">\</span>
+<span class="w">       </span>--rm<span class="w"> </span>-v<span class="w"> </span><span class="sb">`</span><span class="nb">pwd</span><span class="sb">`</span>:/io<span class="w"> </span>quay.io/pypa/manylinux2014_aarch64<span class="w"> </span><span class="se">\</span>
+<span class="w">       </span>/io/build_wheels.sh<span class="w"> </span><span class="nv">$PYTHON_VERSION</span>
+</pre></div>
+</div>
+<p>Where <code class="docutils literal notranslate"><span class="pre">build_wheels.sh</span></code> is:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="c1"># builds python wheels on docker container and tests installation</span>
+
+<span class="nb">set</span><span class="w"> </span>-e<span class="w"> </span>-x
+
+<span class="c1"># build based on python version from args</span>
+<span class="nv">PYTHON_VERSION</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span>
+<span class="k">case</span><span class="w"> </span><span class="nv">$PYTHON_VERSION</span><span class="w"> </span><span class="k">in</span>
+<span class="m">3</span>.8<span class="o">)</span>
+<span class="w">  </span><span class="nv">PYBIN</span><span class="o">=</span><span class="s2">&quot;/opt/python/cp38-cp38/bin/python&quot;</span>
+<span class="w">  </span><span class="p">;;</span>
+<span class="m">3</span>.9<span class="o">)</span>
+<span class="w">  </span><span class="nv">PYBIN</span><span class="o">=</span><span class="s2">&quot;/opt/python/cp39-cp39/bin/python&quot;</span>
+<span class="w">  </span><span class="p">;;</span>
+<span class="m">3</span>.10<span class="o">)</span>
+<span class="w">  </span><span class="nv">PYBIN</span><span class="o">=</span><span class="s2">&quot;/opt/python/cp310-cp310/bin/python&quot;</span>
+<span class="w">  </span><span class="p">;;</span>
+<span class="m">3</span>.11<span class="o">)</span>
+<span class="w">  </span><span class="nv">PYBIN</span><span class="o">=</span><span class="s2">&quot;/opt/python/cp311-cp311/bin/python&quot;</span>
+<span class="w">  </span><span class="p">;;</span>
+<span class="k">esac</span>
+
+/bin/bash
+yum<span class="w"> </span>install<span class="w"> </span>epel-release
+yum<span class="w"> </span>install<span class="w"> </span>ninja-build
+yum<span class="w"> </span>install<span class="w"> </span>mesa-libEGL-devel<span class="w">  </span><span class="c1"># only needed when building EGL</span>
+
+mkdir<span class="w"> </span>/io/build<span class="w"> </span>-p
+<span class="nb">cd</span><span class="w"> </span>/io/build
+
+cmake<span class="w"> </span>-GNinja<span class="w"> </span><span class="se">\</span>
+<span class="w">      </span>-DCMAKE_BUILD_TYPE<span class="o">=</span>Release<span class="w"> </span><span class="se">\</span>
+<span class="w">      </span>-DVTK_BUILD_TESTING<span class="o">=</span>OFF<span class="w"> </span><span class="se">\</span>
+<span class="w">      </span>-DVTK_BUILD_DOCUMENTATION<span class="o">=</span>OFF<span class="w"> </span><span class="se">\</span>
+<span class="w">      </span>-DVTK_BUILD_EXAMPLES<span class="o">=</span>OFF<span class="w"> </span><span class="se">\</span>
+<span class="w">      </span>-DVTK_DATA_EXCLUDE_FROM_ALL:BOOL<span class="o">=</span>ON<span class="w"> </span><span class="se">\</span>
+<span class="w">      </span>-DVTK_MODULE_ENABLE_VTK_PythonInterpreter:STRING<span class="o">=</span>NO<span class="w"> </span><span class="se">\</span>
+<span class="w">      </span>-DVTK_MODULE_ENABLE_VTK_WebCore:STRING<span class="o">=</span>YES<span class="w"> </span><span class="se">\</span>
+<span class="w">      </span>-DVTK_MODULE_ENABLE_VTK_WebGLExporter:STRING<span class="o">=</span>YES<span class="w"> </span><span class="se">\</span>
+<span class="w">      </span>-DVTK_MODULE_ENABLE_VTK_WebPython:STRING<span class="o">=</span>YES<span class="w"> </span><span class="se">\</span>
+<span class="w">      </span>-DVTK_WHEEL_BUILD<span class="o">=</span>ON<span class="w"> </span><span class="se">\</span>
+<span class="w">      </span>-DVTK_PYTHON_VERSION<span class="o">=</span><span class="m">3</span><span class="w"> </span><span class="se">\</span>
+<span class="w">      </span>-DVTK_WRAP_PYTHON<span class="o">=</span>ON<span class="w"> </span><span class="se">\</span>
+<span class="w">      </span>-DVTK_OPENGL_HAS_EGL<span class="o">=</span>False<span class="w"> </span><span class="se">\</span>
+<span class="w">      </span>-DPython3_EXECUTABLE<span class="o">=</span><span class="nv">$PYBIN</span><span class="w"> </span>../
+ninja-build
+
+<span class="c1"># build wheel</span>
+rm<span class="w"> </span>-rf<span class="w"> </span>dist
+<span class="nv">$PYBIN</span><span class="w"> </span>setup.py<span class="w"> </span>bdist_wheel
+
+<span class="c1"># cleanup wheel</span>
+rm<span class="w"> </span>-rf<span class="w"> </span>wheelhouse
+auditwheel<span class="w"> </span>repair<span class="w"> </span>dist/*.whl
+cp<span class="w"> </span>wheelhouse/vtk*.whl<span class="w"> </span>/io/wheels
+</pre></div>
+</div>
+<p>Be sure to either enable or disable <code class="docutils literal notranslate"><span class="pre">DVTK_OPENGL_HAS_EGL</span></code> depending
+on if you want <code class="docutils literal notranslate"><span class="pre">EGL</span></code> enabled for your wheel.</p>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#building-wheels">Building Wheels</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#off-screen-plotting-gpu-support">Off-Screen Plotting GPU Support</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#building-osmesa">Building OSMesa</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#building-manylinux-wheels">Building ManyLinux Wheels</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#building-python-vtk-wheel-on-raspberry-pi-64-bit">Building Python VTK Wheel on Raspberry Pi (64-bit)</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  
+  <div class="tocsection editthispage">
+    <a href="https://github.com/pyvista/pyvista/edit/main/doc/source/extras/building_vtk.rst">
+      <i class="fa-solid fa-pencil"></i>
+      
+      
+        
+          Edit on GitHub
+        
+      
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+  <p class="copyright">
+    
+      © Copyright 2017-2023, The PyVista Developers.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item"><p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.13.3.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

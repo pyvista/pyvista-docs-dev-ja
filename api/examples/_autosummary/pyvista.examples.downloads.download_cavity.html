@@ -1,0 +1,861 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="ja" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>pyvista.examples.downloads.download_cavity &#8212; PyVista 0.40.dev0 ドキュメント</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/jupyter-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/thebelab.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/asciinema-player_2.6.1.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/asciinema-custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/no_search_highlight.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/summary.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-binder.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-dataframe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-rendered-html.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/cards.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/no_italic.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/thebelab-helper.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/asciinema-player_2.6.1.js"></script>
+    <script src="../../../_static/translations.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-140243896-1"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'UA-140243896-1');
+            </script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'api/examples/_autosummary/pyvista.examples.downloads.download_cavity';</script>
+    <script>
+        DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://docs.pyvista.org/versions.json';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = 'dev';
+        </script>
+    <link rel="index" title="索引" href="../../../genindex.html" />
+    <link rel="search" title="検索" href="../../../search.html" />
+    <link rel="next" title="pyvista.examples.downloads.download_cells_nd" href="pyvista.examples.downloads.download_cells_nd.html" />
+    <link rel="prev" title="pyvista.examples.downloads.download_carotid" href="pyvista.examples.downloads.download_carotid.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="ja"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+    <span class="fa-solid fa-bars"></span>
+  </label>
+  
+  <div class="navbar-header-items__start">
+    
+      <div class="navbar-item">
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/pyvista_logo_sm.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../../_static/pyvista_logo_sm.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+    
+  </div>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item"><nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../getting-started/index.html">
+                        Getting Started
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../user-guide/index.html">
+                        User Guide
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../examples/index.html">
+                        Examples
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="../../index.html">
+                        API Reference
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../extras/index.html">
+                        Extras
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="検索" aria-label="検索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+        </div>
+      
+      
+        <div class="navbar-item">
+<script>
+document.write(`
+  <div class="version-switcher__container dropdown">
+    <button type="button" class="version-switcher__button btn btn-sm navbar-btn dropdown-toggle" data-bs-toggle="dropdown">
+      dev  <!-- this text may get changed later by javascript -->
+      <span class="caret"></span>
+    </button>
+    <div class="version-switcher__menu dropdown-menu list-group-flush py-0">
+    <!-- dropdown will be populated by javascript on page load -->
+    </div>
+  </div>
+`);
+</script></div>
+      
+        <div class="navbar-item">
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/pyvista/pyvista" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github"></i></span>
+            <label class="sr-only">GitHub</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="http://slack.pyvista.org" title="Slack Community" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fab fa-slack"></i></span>
+            <label class="sr-only">Slack Community</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/pyvista/pyvista/discussions" title="Support" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-comment fa-fw"></i></span>
+            <label class="sr-only">Support</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/pyvista/pyvista/blob/main/CONTRIBUTING.rst" title="Contributing" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-gavel fa-fw"></i></span>
+            <label class="sr-only">Contributing</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://doi.org/10.21105/joss.01450" title="The Paper" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-file-text fa-fw"></i></span>
+            <label class="sr-only">The Paper</label></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="検索" aria-label="検索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+    </div>
+  
+
+  
+    <label class="sidebar-toggle secondary-toggle" for="__secondary">
+      <span class="fa-solid fa-outdent"></span>
+    </label>
+  
+</div>
+
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          <div class="navbar-item"><nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../getting-started/index.html">
+                        Getting Started
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../user-guide/index.html">
+                        User Guide
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../examples/index.html">
+                        Examples
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="../../index.html">
+                        API Reference
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../extras/index.html">
+                        Extras
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+<script>
+document.write(`
+  <div class="version-switcher__container dropdown">
+    <button type="button" class="version-switcher__button btn btn-sm navbar-btn dropdown-toggle" data-bs-toggle="dropdown">
+      dev  <!-- this text may get changed later by javascript -->
+      <span class="caret"></span>
+    </button>
+    <div class="version-switcher__menu dropdown-menu list-group-flush py-0">
+    <!-- dropdown will be populated by javascript on page load -->
+    </div>
+  </div>
+`);
+</script></div>
+        
+          <div class="navbar-item">
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/pyvista/pyvista" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github"></i></span>
+            <label class="sr-only">GitHub</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="http://slack.pyvista.org" title="Slack Community" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fab fa-slack"></i></span>
+            <label class="sr-only">Slack Community</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/pyvista/pyvista/discussions" title="Support" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-comment fa-fw"></i></span>
+            <label class="sr-only">Support</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/pyvista/pyvista/blob/main/CONTRIBUTING.rst" title="Contributing" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-gavel fa-fw"></i></span>
+            <label class="sr-only">Contributing</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://doi.org/10.21105/joss.01450" title="The Paper" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-file-text fa-fw"></i></span>
+            <label class="sr-only">The Paper</label></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item"><nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><p aria-level="2" class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../core/index.html">Core API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../plotting/index.html">Plotting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../utilities/index.html">Utilities</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../readers/index.html">Readers</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../index.html">Examples</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="pyvista.examples.examples.html">pyvista.examples.examples</a></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="pyvista.examples.downloads.html">pyvista.examples.downloads</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.delete_downloads.html">pyvista.examples.downloads.delete_downloads</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_action_figure.html">pyvista.examples.downloads.download_action_figure</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_aero_bracket.html">pyvista.examples.downloads.download_aero_bracket</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_angular_sector.html">pyvista.examples.downloads.download_angular_sector</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_antarctica_velocity.html">pyvista.examples.downloads.download_antarctica_velocity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_armadillo.html">pyvista.examples.downloads.download_armadillo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_backward_facing_step.html">pyvista.examples.downloads.download_backward_facing_step</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_beach.html">pyvista.examples.downloads.download_beach</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_bird.html">pyvista.examples.downloads.download_bird</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_bird_bath.html">pyvista.examples.downloads.download_bird_bath</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_bird_texture.html">pyvista.examples.downloads.download_bird_texture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_black_vase.html">pyvista.examples.downloads.download_black_vase</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_blood_vessels.html">pyvista.examples.downloads.download_blood_vessels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_blow.html">pyvista.examples.downloads.download_blow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_bolt_nut.html">pyvista.examples.downloads.download_bolt_nut</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_brain.html">pyvista.examples.downloads.download_brain</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_brain_atlas_with_sides.html">pyvista.examples.downloads.download_brain_atlas_with_sides</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_bunny.html">pyvista.examples.downloads.download_bunny</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_bunny_coarse.html">pyvista.examples.downloads.download_bunny_coarse</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_cad_model.html">pyvista.examples.downloads.download_cad_model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_cad_model_case.html">pyvista.examples.downloads.download_cad_model_case</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_cake_easy.html">pyvista.examples.downloads.download_cake_easy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_cake_easy_texture.html">pyvista.examples.downloads.download_cake_easy_texture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_can.html">pyvista.examples.downloads.download_can</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_can_crushed_hdf.html">pyvista.examples.downloads.download_can_crushed_hdf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_carburator.html">pyvista.examples.downloads.download_carburator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_carburetor.html">pyvista.examples.downloads.download_carburetor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_carotid.html">pyvista.examples.downloads.download_carotid</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">pyvista.examples.downloads.download_cavity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_cells_nd.html">pyvista.examples.downloads.download_cells_nd</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_cgns_multi.html">pyvista.examples.downloads.download_cgns_multi</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_cgns_structured.html">pyvista.examples.downloads.download_cgns_structured</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_chest.html">pyvista.examples.downloads.download_chest</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_cloud_dark_matter.html">pyvista.examples.downloads.download_cloud_dark_matter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_cloud_dark_matter_dense.html">pyvista.examples.downloads.download_cloud_dark_matter_dense</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_clown.html">pyvista.examples.downloads.download_clown</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_coastlines.html">pyvista.examples.downloads.download_coastlines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_coil_magnetic_field.html">pyvista.examples.downloads.download_coil_magnetic_field</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_cow.html">pyvista.examples.downloads.download_cow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_cow_head.html">pyvista.examples.downloads.download_cow_head</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_crater_imagery.html">pyvista.examples.downloads.download_crater_imagery</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_crater_topo.html">pyvista.examples.downloads.download_crater_topo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_cubemap_park.html">pyvista.examples.downloads.download_cubemap_park</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_cubemap_space_16k.html">pyvista.examples.downloads.download_cubemap_space_16k</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_cubemap_space_4k.html">pyvista.examples.downloads.download_cubemap_space_4k</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_cylinder_crossflow.html">pyvista.examples.downloads.download_cylinder_crossflow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_damavand_volcano.html">pyvista.examples.downloads.download_damavand_volcano</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_delaunay_example.html">pyvista.examples.downloads.download_delaunay_example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_dicom_stack.html">pyvista.examples.downloads.download_dicom_stack</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_dikhololo_night.html">pyvista.examples.downloads.download_dikhololo_night</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_disc_quads.html">pyvista.examples.downloads.download_disc_quads</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_dolfin.html">pyvista.examples.downloads.download_dolfin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_doorman.html">pyvista.examples.downloads.download_doorman</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_dragon.html">pyvista.examples.downloads.download_dragon</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_drill.html">pyvista.examples.downloads.download_drill</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_dual_sphere_animation.html">pyvista.examples.downloads.download_dual_sphere_animation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_electronics_cooling.html">pyvista.examples.downloads.download_electronics_cooling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_embryo.html">pyvista.examples.downloads.download_embryo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_emoji.html">pyvista.examples.downloads.download_emoji</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_emoji_texture.html">pyvista.examples.downloads.download_emoji_texture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_exodus.html">pyvista.examples.downloads.download_exodus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_face.html">pyvista.examples.downloads.download_face</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_face2.html">pyvista.examples.downloads.download_face2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_faults.html">pyvista.examples.downloads.download_faults</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_fea_bracket.html">pyvista.examples.downloads.download_fea_bracket</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_fea_hertzian_contact_cylinder.html">pyvista.examples.downloads.download_fea_hertzian_contact_cylinder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_file.html">pyvista.examples.downloads.download_file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_filled_contours.html">pyvista.examples.downloads.download_filled_contours</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_foot_bones.html">pyvista.examples.downloads.download_foot_bones</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_frog.html">pyvista.examples.downloads.download_frog</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_gears.html">pyvista.examples.downloads.download_gears</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_gif_simple.html">pyvista.examples.downloads.download_gif_simple</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_gourds.html">pyvista.examples.downloads.download_gourds</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_gourds_pnm.html">pyvista.examples.downloads.download_gourds_pnm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_gourds_texture.html">pyvista.examples.downloads.download_gourds_texture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_gpr_data_array.html">pyvista.examples.downloads.download_gpr_data_array</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_gpr_path.html">pyvista.examples.downloads.download_gpr_path</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_guitar.html">pyvista.examples.downloads.download_guitar</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_head.html">pyvista.examples.downloads.download_head</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_head_2.html">pyvista.examples.downloads.download_head_2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_honolulu.html">pyvista.examples.downloads.download_honolulu</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_horse.html">pyvista.examples.downloads.download_horse</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_horse_points.html">pyvista.examples.downloads.download_horse_points</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_human.html">pyvista.examples.downloads.download_human</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_iron_protein.html">pyvista.examples.downloads.download_iron_protein</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_ivan_angel.html">pyvista.examples.downloads.download_ivan_angel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_kitchen.html">pyvista.examples.downloads.download_kitchen</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_knee.html">pyvista.examples.downloads.download_knee</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_knee_full.html">pyvista.examples.downloads.download_knee_full</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_letter_a.html">pyvista.examples.downloads.download_letter_a</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_letter_k.html">pyvista.examples.downloads.download_letter_k</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_lidar.html">pyvista.examples.downloads.download_lidar</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_lobster.html">pyvista.examples.downloads.download_lobster</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_louis_louvre.html">pyvista.examples.downloads.download_louis_louvre</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_lucy.html">pyvista.examples.downloads.download_lucy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_mars_jpg.html">pyvista.examples.downloads.download_mars_jpg</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_masonry_texture.html">pyvista.examples.downloads.download_masonry_texture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_meshio_xdmf.html">pyvista.examples.downloads.download_meshio_xdmf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_model_with_variance.html">pyvista.examples.downloads.download_model_with_variance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_moonlanding_image.html">pyvista.examples.downloads.download_moonlanding_image</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_motor.html">pyvista.examples.downloads.download_motor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_mount_damavand.html">pyvista.examples.downloads.download_mount_damavand</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_mug.html">pyvista.examples.downloads.download_mug</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_naca.html">pyvista.examples.downloads.download_naca</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_nefertiti.html">pyvista.examples.downloads.download_nefertiti</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_notch_displacement.html">pyvista.examples.downloads.download_notch_displacement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_notch_stress.html">pyvista.examples.downloads.download_notch_stress</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_oblique_cone.html">pyvista.examples.downloads.download_oblique_cone</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_office.html">pyvista.examples.downloads.download_office</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_openfoam_tubes.html">pyvista.examples.downloads.download_openfoam_tubes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_osmnx_graph.html">pyvista.examples.downloads.download_osmnx_graph</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_owl.html">pyvista.examples.downloads.download_owl</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_parched_canal_4k.html">pyvista.examples.downloads.download_parched_canal_4k</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_particles_lethe.html">pyvista.examples.downloads.download_particles_lethe</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_pepper.html">pyvista.examples.downloads.download_pepper</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_pine_roots.html">pyvista.examples.downloads.download_pine_roots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_plastic_vase.html">pyvista.examples.downloads.download_plastic_vase</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_poly_line.html">pyvista.examples.downloads.download_poly_line</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_prostate.html">pyvista.examples.downloads.download_prostate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_pump_bracket.html">pyvista.examples.downloads.download_pump_bracket</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_puppy.html">pyvista.examples.downloads.download_puppy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_puppy_texture.html">pyvista.examples.downloads.download_puppy_texture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_quadratic_pyramid.html">pyvista.examples.downloads.download_quadratic_pyramid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_rectilinear_grid.html">pyvista.examples.downloads.download_rectilinear_grid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_rgba_texture.html">pyvista.examples.downloads.download_rgba_texture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_room_surface_mesh.html">pyvista.examples.downloads.download_room_surface_mesh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_saddle_surface.html">pyvista.examples.downloads.download_saddle_surface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_sea_vase.html">pyvista.examples.downloads.download_sea_vase</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_shark.html">pyvista.examples.downloads.download_shark</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_single_sphere_animation.html">pyvista.examples.downloads.download_single_sphere_animation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_sky_box_cube_map.html">pyvista.examples.downloads.download_sky_box_cube_map</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_sky_box_nz.html">pyvista.examples.downloads.download_sky_box_nz</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_sky_box_nz_texture.html">pyvista.examples.downloads.download_sky_box_nz_texture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_sparse_points.html">pyvista.examples.downloads.download_sparse_points</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_spider.html">pyvista.examples.downloads.download_spider</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_st_helens.html">pyvista.examples.downloads.download_st_helens</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_stars_cloud_hyg.html">pyvista.examples.downloads.download_stars_cloud_hyg</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_stars_jpg.html">pyvista.examples.downloads.download_stars_jpg</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_structured_grid.html">pyvista.examples.downloads.download_structured_grid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_structured_grid_two.html">pyvista.examples.downloads.download_structured_grid_two</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_teapot.html">pyvista.examples.downloads.download_teapot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_tecplot_ascii.html">pyvista.examples.downloads.download_tecplot_ascii</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_tensors.html">pyvista.examples.downloads.download_tensors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_tetra_dc_mesh.html">pyvista.examples.downloads.download_tetra_dc_mesh</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_tetrahedron.html">pyvista.examples.downloads.download_tetrahedron</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_thermal_probes.html">pyvista.examples.downloads.download_thermal_probes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_topo_global.html">pyvista.examples.downloads.download_topo_global</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_topo_land.html">pyvista.examples.downloads.download_topo_land</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_torso.html">pyvista.examples.downloads.download_torso</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_tri_quadratic_hexahedron.html">pyvista.examples.downloads.download_tri_quadratic_hexahedron</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_trumpet.html">pyvista.examples.downloads.download_trumpet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_turbine_blade.html">pyvista.examples.downloads.download_turbine_blade</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_unstructured_grid.html">pyvista.examples.downloads.download_unstructured_grid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_urn.html">pyvista.examples.downloads.download_urn</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_usa.html">pyvista.examples.downloads.download_usa</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_usa_texture.html">pyvista.examples.downloads.download_usa_texture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_vtk.html">pyvista.examples.downloads.download_vtk</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_vtk_logo.html">pyvista.examples.downloads.download_vtk_logo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_wavy.html">pyvista.examples.downloads.download_wavy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.download_woman.html">pyvista.examples.downloads.download_woman</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.examples.downloads.file_from_files.html">pyvista.examples.downloads.file_from_files</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyvista.examples.planets.html">pyvista.examples.planets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyvista.demos.demos.html">pyvista.demos.demos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyvista.examples.cells.plot_cell.html">pyvista.examples.cells.plot_cell</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyvista.examples.cells.Empty.html">pyvista.examples.cells.Empty</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyvista.examples.cells.Vertex.html">pyvista.examples.cells.Vertex</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyvista.examples.cells.PolyVertex.html">pyvista.examples.cells.PolyVertex</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyvista.examples.cells.Line.html">pyvista.examples.cells.Line</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyvista.examples.cells.PolyLine.html">pyvista.examples.cells.PolyLine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyvista.examples.cells.Triangle.html">pyvista.examples.cells.Triangle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyvista.examples.cells.TriangleStrip.html">pyvista.examples.cells.TriangleStrip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyvista.examples.cells.Polygon.html">pyvista.examples.cells.Polygon</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyvista.examples.cells.Quadrilateral.html">pyvista.examples.cells.Quadrilateral</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyvista.examples.cells.Tetrahedron.html">pyvista.examples.cells.Tetrahedron</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyvista.examples.cells.Voxel.html">pyvista.examples.cells.Voxel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyvista.examples.cells.Hexahedron.html">pyvista.examples.cells.Hexahedron</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyvista.examples.cells.Wedge.html">pyvista.examples.cells.Wedge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyvista.examples.cells.Pyramid.html">pyvista.examples.cells.Pyramid</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyvista.examples.cells.PentagonalPrism.html">pyvista.examples.cells.PentagonalPrism</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyvista.examples.cells.HexagonalPrism.html">pyvista.examples.cells.HexagonalPrism</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+
+
+<nav aria-label="Breadcrumbs">
+  <ul class="bd-breadcrumbs" role="navigation" aria-label="Breadcrumb">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../index.html" class="nav-link">API Reference</a></li>
+    
+    
+    <li class="breadcrumb-item"><i class="fa-solid fa-ellipsis"></i></li>
+    
+    
+    <li class="breadcrumb-item"><a href="pyvista.examples.downloads.html" class="nav-link">pyvista.examples.downloads</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">pyvista.examples.downloads.download_cavity</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="pyvista-examples-downloads-download-cavity">
+<h1>pyvista.examples.downloads.download_cavity<a class="headerlink" href="#pyvista-examples-downloads-download-cavity" title="このヘッドラインへのパーマリンク">#</a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="pyvista.examples.downloads.download_cavity">
+<span class="sig-name descname"><span class="pre">download_cavity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">load</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/examples/downloads.py#L3876-L3904"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.examples.downloads.download_cavity" title="この定義へのパーマリンク">#</a></dt>
+<dd><p>Download cavity OpenFOAM example.</p>
+<p>Retrieved from
+<a class="reference external" href="https://data.kitware.com/#collection/55f17f758d777f6ddc7895b7/folder/5afd932e8d777f15ebe1b183">Kitware VTK Data</a>.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl>
+<dt><strong>load</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.11)"><span class="xref std std-ref">bool</span></a>, default: <a class="reference external" href="https://docs.python.org/3/library/constants.html#True" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">True</span></code></a></span></dt><dd><p>Load the dataset after downloading it when <code class="docutils literal notranslate"><span class="pre">True</span></code>.  Set this
+to <code class="docutils literal notranslate"><span class="pre">False</span></code> and only the filename will be returned.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><a class="reference internal" href="../../core/_autosummary/pyvista.MultiBlock.html#pyvista.MultiBlock" title="pyvista.MultiBlock"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyvista.MultiBlock</span></code></a> | <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a></dt><dd><p>DataSet or filename depending on <code class="docutils literal notranslate"><span class="pre">load</span></code>.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pyvista</span> <span class="kn">import</span> <span class="n">examples</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dataset</span> <span class="o">=</span> <span class="n">examples</span><span class="o">.</span><span class="n">download_cavity</span><span class="p">()</span>  
+</pre></div>
+</div>
+<p>See <a class="reference internal" href="../../../examples/99-advanced/openfoam-example.html#openfoam-example"><span class="std std-ref">Plot OpenFOAM data</span></a> for a full example using this dataset.</p>
+</dd></dl>
+
+</section>
+
+
+                </article>
+              
+              
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  
+  <div class="tocsection editthispage">
+    <a href="http://github.com/pyvista/pyvista/edit/main/pyvista/examples/downloads.py">
+      <i class="fa-solid fa-pencil"></i>
+      
+      
+        
+          Edit on GitHub
+        
+      
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+  <p class="copyright">
+    
+      © Copyright 2017-2023, The PyVista Developers.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item"><p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.13.3.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

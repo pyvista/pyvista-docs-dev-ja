@@ -1,0 +1,1601 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="ja" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>PyVista Data Model &#8212; PyVista 0.40.dev0 ドキュメント</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/thebelab.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/asciinema-player_2.6.1.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/asciinema-custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/no_search_highlight.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/summary.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/cards.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/no_italic.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/thebelab-helper.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/asciinema-player_2.6.1.js"></script>
+    <script src="../_static/translations.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+    <script src="../_static/design-tabs.js"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-140243896-1"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'UA-140243896-1');
+            </script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'user-guide/data_model';</script>
+    <script>
+        DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://docs.pyvista.org/versions.json';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = 'dev';
+        </script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="検索" href="../search.html" />
+    <link rel="next" title="Transitioning from VTK to PyVista" href="vtk_to_pyvista.html" />
+    <link rel="prev" title="Basic API Usage" href="simple.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="ja"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+    <span class="fa-solid fa-bars"></span>
+  </label>
+  
+  <div class="navbar-header-items__start">
+    
+      <div class="navbar-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/pyvista_logo_sm.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/pyvista_logo_sm.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+    
+  </div>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item"><nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../getting-started/index.html">
+                        Getting Started
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="index.html">
+                        User Guide
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../examples/index.html">
+                        Examples
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../api/index.html">
+                        API Reference
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../extras/index.html">
+                        Extras
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="検索" aria-label="検索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+        </div>
+      
+      
+        <div class="navbar-item">
+<script>
+document.write(`
+  <div class="version-switcher__container dropdown">
+    <button type="button" class="version-switcher__button btn btn-sm navbar-btn dropdown-toggle" data-bs-toggle="dropdown">
+      dev  <!-- this text may get changed later by javascript -->
+      <span class="caret"></span>
+    </button>
+    <div class="version-switcher__menu dropdown-menu list-group-flush py-0">
+    <!-- dropdown will be populated by javascript on page load -->
+    </div>
+  </div>
+`);
+</script></div>
+      
+        <div class="navbar-item">
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/pyvista/pyvista" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github"></i></span>
+            <label class="sr-only">GitHub</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="http://slack.pyvista.org" title="Slack Community" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fab fa-slack"></i></span>
+            <label class="sr-only">Slack Community</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/pyvista/pyvista/discussions" title="Support" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-comment fa-fw"></i></span>
+            <label class="sr-only">Support</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/pyvista/pyvista/blob/main/CONTRIBUTING.rst" title="Contributing" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-gavel fa-fw"></i></span>
+            <label class="sr-only">Contributing</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://doi.org/10.21105/joss.01450" title="The Paper" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-file-text fa-fw"></i></span>
+            <label class="sr-only">The Paper</label></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="検索" aria-label="検索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+    </div>
+  
+
+  
+    <label class="sidebar-toggle secondary-toggle" for="__secondary">
+      <span class="fa-solid fa-outdent"></span>
+    </label>
+  
+</div>
+
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          <div class="navbar-item"><nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../getting-started/index.html">
+                        Getting Started
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="index.html">
+                        User Guide
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../examples/index.html">
+                        Examples
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../api/index.html">
+                        API Reference
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../extras/index.html">
+                        Extras
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+<script>
+document.write(`
+  <div class="version-switcher__container dropdown">
+    <button type="button" class="version-switcher__button btn btn-sm navbar-btn dropdown-toggle" data-bs-toggle="dropdown">
+      dev  <!-- this text may get changed later by javascript -->
+      <span class="caret"></span>
+    </button>
+    <div class="version-switcher__menu dropdown-menu list-group-flush py-0">
+    <!-- dropdown will be populated by javascript on page load -->
+    </div>
+  </div>
+`);
+</script></div>
+        
+          <div class="navbar-item">
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/pyvista/pyvista" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github"></i></span>
+            <label class="sr-only">GitHub</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="http://slack.pyvista.org" title="Slack Community" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fab fa-slack"></i></span>
+            <label class="sr-only">Slack Community</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/pyvista/pyvista/discussions" title="Support" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-comment fa-fw"></i></span>
+            <label class="sr-only">Support</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/pyvista/pyvista/blob/main/CONTRIBUTING.rst" title="Contributing" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-gavel fa-fw"></i></span>
+            <label class="sr-only">Contributing</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://doi.org/10.21105/joss.01450" title="The Paper" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-file-text fa-fw"></i></span>
+            <label class="sr-only">The Paper</label></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item"><nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="what-is-a-mesh.html">What is a Mesh?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="simple.html">Basic API Usage</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">PyVista Data Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vtk_to_pyvista.html">Transitioning from VTK to PyVista</a></li>
+<li class="toctree-l1"><a class="reference internal" href="themes.html">Plotting Themes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jupyter/index.html">Jupyter Notebook Plotting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="optional_features.html">Optional Features</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumbs">
+  <ul class="bd-breadcrumbs" role="navigation" aria-label="Breadcrumb">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">User Guide</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">PyVista Data Model</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="pyvista-data-model">
+<span id="id1"></span><h1>PyVista Data Model<a class="headerlink" href="#pyvista-data-model" title="このヘッドラインへのパーマリンク">#</a></h1>
+<p>This section of the user guide explains in detail how to construct
+meshes from scratch and to utilize the underlying VTK data model but
+using the PyVista framework. Many of our <a class="reference internal" href="../examples/index.html#ref-examples"><span class="std std-ref">Examples</span></a> simply
+load data from files, but don't explain how to construct meshes or
+place data within datasets.</p>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<p>Though the following documentation section references VTK, it does
+not require that you have knowledge of VTK. For those who wish to
+see a detailed comparison to VTK or translate code written for the
+Python bindings of VTK to PyVista, please see
+<a class="reference internal" href="vtk_to_pyvista.html#vtk-to-pyvista-docs"><span class="std std-ref">Transitioning from VTK to PyVista</span></a>.</p>
+</div>
+<p>For a more general description of our API, see <a class="reference internal" href="what-is-a-mesh.html#what-is-a-mesh"><span class="std std-ref">What is a Mesh?</span></a>.</p>
+<section id="the-pyvista-dataset">
+<h2>The PyVista DataSet<a class="headerlink" href="#the-pyvista-dataset" title="このヘッドラインへのパーマリンク">#</a></h2>
+<p>To visualize data in VTK or PyVista, two pieces of information are
+required: the data's geometry, which describes where the data is
+positioned in space and what its values are, and its topology, which
+describes how points in the dataset are connected to one another.</p>
+<p>At the top level, we have <a class="reference external" href="https://vtk.org/doc/nightly/html/classvtkDataObject.html">vtkDataObject</a>, which are just &quot;blobs&quot; of
+data without geometry or topology. These contain arrays of
+<a class="reference external" href="https://vtk.org/doc/nightly/html/classvtkFieldData.html">vtkFieldData</a>. Under this are <a class="reference external" href="https://vtk.org/doc/nightly/html/classvtkDataSet.html">vtkDataSet</a>, which add geometry and
+topology to <a class="reference external" href="https://vtk.org/doc/nightly/html/classvtkDataObject.html">vtkDataObject</a>. Associated with every point or cell in
+the dataset is a specific value. Since these values must be positioned
+and connected in space, they are held in the <a class="reference external" href="https://vtk.org/doc/nightly/html/classvtkDataArray.html">vtkDataArray</a> class,
+which are simply memory buffers on the heap. In PyVista, 99% of the
+time we interact with <a class="reference external" href="https://vtk.org/doc/nightly/html/classvtkDataSet.html">vtkDataSet</a> objects rather than with
+<a class="reference external" href="https://vtk.org/doc/nightly/html/classvtkDataObject.html">vtkDataObject</a> objects. PyVista uses the same data types as VTK, but
+structures them in a more pythonic manner for ease of use.</p>
+<p>If you'd like some background for how VTK structures its data, see
+<a class="reference external" href="https://vimeo.com/32232190">Introduction to VTK in Python by Kitware</a>, as well as the numerous code examples
+on <a class="reference external" href="https://kitware.github.io/vtk-examples/site/">Kitware's GitHub site</a>. An excellent
+introduction to mathematical concepts relevant to 3D modeling in
+general implemented in VTK is provided by the <a class="reference external" href="https://www.youtube.com/playlist?list=PL9_jI1bdZmz0hIrNCMQW1YmZysAiIYSSS">Discrete Differential
+Geometry YouTube Series</a>
+by Prof. Keenan Crane at Carnegie Mellon. The concepts taught here
+will help improve your understanding of why data sets are structured
+the way they are in libraries like VTK.</p>
+<p>At the most fundamental level, all PyVista geometry classes inherit
+from the <a class="reference internal" href="../api/core/dataset.html#ref-dataset"><span class="std std-ref">Data Sets</span></a> class. A dataset has geometry, topology,
+and attributes describing that geometry in the form of point, cell, or
+field arrays.</p>
+<p>Geometry in PyVista is represented as points and cells. For example,
+consider a single cell within a <a class="reference internal" href="../api/core/_autosummary/pyvista.PolyData.html#pyvista.PolyData" title="pyvista.PolyData"><code class="xref py py-class docutils literal notranslate"><span class="pre">PolyData</span></code></a>:</p>
+<div class="jupyter_cell docutils container">
+<div class="cell_output docutils container">
+<img alt="../_images/data_model_0_0.png" src="../_images/data_model_0_0.png" />
+</div>
+</div>
+<p>We would need a way to describe the position of each of these points
+in space, but we're limited to expressing the values themselves as
+we've done above (lists of arrays with indices). VTK (and hence
+PyVista) have multiple classes that represent different data
+shapes. The most important dataset classes are shown below:</p>
+<div class="jupyter_cell docutils container">
+<div class="cell_output docutils container">
+<img alt="../_images/data_model_1_0.png" src="../_images/data_model_1_0.png" />
+</div>
+</div>
+<p>Here, the above datasets are ordered from most (5) to least complex
+(1). That is, every dataset can be represented as an
+<a class="reference internal" href="../api/core/_autosummary/pyvista.UnstructuredGrid.html#pyvista.UnstructuredGrid" title="pyvista.UnstructuredGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">UnstructuredGrid</span></code></a>, but the
+<a class="reference internal" href="../api/core/_autosummary/pyvista.UnstructuredGrid.html#pyvista.UnstructuredGrid" title="pyvista.UnstructuredGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">UnstructuredGrid</span></code></a> class takes the most amount of
+memory to store since they must account for every individual point and
+cell . On the other hand, since <a class="reference external" href="https://vtk.org/doc/nightly/html/classvtkImageData.html">vtkImageData</a>
+(<a class="reference internal" href="../api/core/_autosummary/pyvista.UniformGrid.html#pyvista.UniformGrid" title="pyvista.UniformGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">UniformGrid</span></code></a>) is uniformly spaced, a few integers and
+floats can describe the shape, so it takes the least amount of memory
+to store.</p>
+<p>This is because in <a class="reference internal" href="../api/core/_autosummary/pyvista.PolyData.html#pyvista.PolyData" title="pyvista.PolyData"><code class="xref py py-class docutils literal notranslate"><span class="pre">PolyData</span></code></a> or
+<a class="reference internal" href="../api/core/_autosummary/pyvista.UnstructuredGrid.html#pyvista.UnstructuredGrid" title="pyvista.UnstructuredGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">UnstructuredGrid</span></code></a>, points and cells must be explicitly
+defined. In other data types, such as <a class="reference internal" href="../api/core/_autosummary/pyvista.UniformGrid.html#pyvista.UniformGrid" title="pyvista.UniformGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">UniformGrid</span></code></a>,
+the cells (and even points) are defined as an emergent property based
+on the dimensionality of the grid.</p>
+<p>To see this in practice, let's create the simplest surface represented
+as a <a class="reference internal" href="../api/core/_autosummary/pyvista.PolyData.html#pyvista.PolyData" title="pyvista.PolyData"><code class="xref py py-class docutils literal notranslate"><span class="pre">PolyData</span></code></a>. First, we need to define our points.</p>
+</section>
+<section id="points-and-arrays-within-pyvista">
+<h2>Points and Arrays Within PyVista<a class="headerlink" href="#points-and-arrays-within-pyvista" title="このヘッドラインへのパーマリンク">#</a></h2>
+<p>There are a variety of ways to create points within PyVista, and this section shows how to efficiently create an array of points by either:</p>
+<ul class="simple">
+<li><p>Wrapping a VTK array</p></li>
+<li><p>Using a <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.24)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></p></li>
+<li><p>Or just using a <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a></p></li>
+</ul>
+<p>PyVista provides pythonic methods for all three approaches so you can
+choose whatever is most efficient for you. If you're comfortable with
+the VTK API, you can choose to wrap VTK arrays, but you may find that
+using <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.24)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> is more convenient and avoids the looping
+overhead in Python.</p>
+<section id="wrapping-a-vtk-array">
+<h3>Wrapping a VTK Array<a class="headerlink" href="#wrapping-a-vtk-array" title="このヘッドラインへのパーマリンク">#</a></h3>
+<p>Let's define points of a triangle. Using the VTK API, this can be
+done with:</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">vtk</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">vtk_array</span> <span class="o">=</span> <span class="n">vtk</span><span class="o">.</span><span class="n">vtkDoubleArray</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">vtk_array</span><span class="o">.</span><span class="n">SetNumberOfComponents</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">vtk_array</span><span class="o">.</span><span class="n">SetNumberOfValues</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">vtk_array</span><span class="o">.</span><span class="n">SetValue</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">vtk_array</span><span class="o">.</span><span class="n">SetValue</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">vtk_array</span><span class="o">.</span><span class="n">SetValue</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">vtk_array</span><span class="o">.</span><span class="n">SetValue</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">vtk_array</span><span class="o">.</span><span class="n">SetValue</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">vtk_array</span><span class="o">.</span><span class="n">SetValue</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">vtk_array</span><span class="o">.</span><span class="n">SetValue</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">vtk_array</span><span class="o">.</span><span class="n">SetValue</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mf">0.667</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">vtk_array</span><span class="o">.</span><span class="n">SetValue</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">vtk_array</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>vtkDoubleArray (0x55dacca44810)
+  Debug: Off
+  Modified Time: 67673
+  Reference Count: 1
+  Registered Events: (none)
+  Name: (none)
+  Data type: double
+  Size: 9
+  MaxId: 8
+  NumberOfComponents: 3
+  Information: 0
+  Name: (none)
+  Number Of Components: 3
+  Number Of Tuples: 3
+  Size: 9
+  MaxId: 8
+  LookupTable: (none)
+
+
+</pre></div>
+</div>
+</div>
+</div>
+<p>PyVista supports creating objects directly from the <a class="reference external" href="https://vtk.org/doc/nightly/html/classvtkDataArray.html">vtkDataArray</a>
+class, but there's a better, and more pythonic alternative by using
+<a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.24)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>.</p>
+</section>
+<section id="using-numpy-with-pyvista">
+<h3>Using NumPy with PyVista<a class="headerlink" href="#using-numpy-with-pyvista" title="このヘッドラインへのパーマリンク">#</a></h3>
+<p>You can create a <a class="reference external" href="https://numpy.org/">NumPy</a> points array with:</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">np_points</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+<span class="o">...</span>                       <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+<span class="o">...</span>                       <span class="p">[</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.667</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">np_points</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([[0.   , 0.   , 0.   ],
+       [1.   , 0.   , 0.   ],
+       [0.5  , 0.667, 0.   ]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>We use a <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.24)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> here so that PyVista directly &quot;points&quot;
+the underlying C array to VTK. VTK already has APIs to directly read
+in the C arrays from NumPy, and since VTK is written in C++,
+everything from Python that is transferred over to VTK needs to be in a
+format that VTK can process.</p>
+<p>Should you wish to use VTK objects within PyVista, you can still do
+this. In fact, using <a class="reference internal" href="../api/utilities/_autosummary/pyvista.wrap.html#pyvista.wrap" title="pyvista.wrap"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyvista.wrap()</span></code></a>, you can even get a numpy-like
+representation of the data. For example:</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">pyvista</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">wrapped</span> <span class="o">=</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">wrap</span><span class="p">(</span><span class="n">vtk_array</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">wrapped</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>pyvista_ndarray([[0.   , 0.   , 0.   ],
+                 [1.   , 0.   , 0.   ],
+                 [0.5  , 0.667, 0.   ]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note that when wrapping the underlying VTK array, we actually perform
+a shallow copy of the data. In other words, we pass the pointer from
+the underlying C array to the <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.24)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, meaning
+that the two arrays are now efficiently linked (in NumPy terminology,
+the returned array is a view into the underlying VTK data). This means
+that we can change the array using numpy array indexing and have it
+modified on the &quot;VTK side&quot;.</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">wrapped</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">vtk_array</span><span class="o">.</span><span class="n">GetValue</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>10.0
+</pre></div>
+</div>
+</div>
+</div>
+<p>Or we can change the value from the VTK array and see it reflected in
+the numpy wrapped array. Let's change the value back:</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">vtk_array</span><span class="o">.</span><span class="n">SetValue</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">wrapped</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>0.0
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="using-python-lists-or-tuples">
+<h3>Using Python Lists or Tuples<a class="headerlink" href="#using-python-lists-or-tuples" title="このヘッドラインへのパーマリンク">#</a></h3>
+<p>PyVista supports the use of Python sequences (that is, a <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> or
+<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a>), and you could define your points using a nested list
+of lists via:</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">points</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+<span class="o">...</span>           <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+<span class="o">...</span>           <span class="p">[</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.667</span><span class="p">,</span> <span class="mi">0</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<p>When used in the context of <a class="reference internal" href="../api/core/_autosummary/pyvista.PolyData.html#pyvista.PolyData" title="pyvista.PolyData"><code class="xref py py-class docutils literal notranslate"><span class="pre">PolyData</span></code></a> to create the
+mesh, this list will automatically be wrapped using NumPy and then
+passed to VTK. This avoids any looping overhead and while still
+allowing you to use native python classes.</p>
+<p>Finally, let's show how we can use these three objects in the context
+of a PyVista geometry class. Here, we create a simple point mesh
+containing just the three points:</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">from_vtk</span> <span class="o">=</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">PolyData</span><span class="p">(</span><span class="n">vtk_array</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">from_np</span> <span class="o">=</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">PolyData</span><span class="p">(</span><span class="n">np_points</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">from_list</span> <span class="o">=</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">PolyData</span><span class="p">(</span><span class="n">points</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<p>These point meshes all contain three points and are effectively
+identical. Let's show this by accessing the underlying points array
+from the mesh, which is represented as a <a class="reference internal" href="../api/utilities/_autosummary/pyvista.pyvista_ndarray.html#pyvista.pyvista_ndarray" title="pyvista.pyvista_ndarray"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.pyvista_ndarray</span></code></a></p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">from_vtk</span><span class="o">.</span><span class="n">points</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>pyvista_ndarray([[0.   , 0.   , 0.   ],
+                 [1.   , 0.   , 0.   ],
+                 [0.5  , 0.667, 0.   ]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>And show that these are all identical</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">array_equal</span><span class="p">(</span><span class="n">from_vtk</span><span class="o">.</span><span class="n">points</span><span class="p">,</span> <span class="n">from_np</span><span class="o">.</span><span class="n">points</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">array_equal</span><span class="p">(</span><span class="n">from_vtk</span><span class="o">.</span><span class="n">points</span><span class="p">,</span> <span class="n">from_list</span><span class="o">.</span><span class="n">points</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">array_equal</span><span class="p">(</span><span class="n">from_np</span><span class="o">.</span><span class="n">points</span><span class="p">,</span> <span class="n">from_list</span><span class="o">.</span><span class="n">points</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<p>Finally, let's plot this (very) simple example using PyVista's
+<a class="reference internal" href="../api/plotting/_autosummary/pyvista.plot.html#pyvista.plot" title="pyvista.plot"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyvista.plot()</span></code></a> method. Let's make this a full example so you
+can see the entire process.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyvista</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">points</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+<span class="gp">... </span>          <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+<span class="gp">... </span>          <span class="p">[</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.667</span><span class="p">,</span> <span class="mi">0</span><span class="p">]]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mesh</span> <span class="o">=</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">PolyData</span><span class="p">(</span><span class="n">points</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mesh</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">show_bounds</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cpos</span><span class="o">=</span><span class="s1">&#39;xy&#39;</span><span class="p">,</span> <span class="n">point_size</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+</pre></div>
+</div>
+<figure class="align-default">
+<img alt="../_images/data_model-1_00_00.png" src="../_images/data_model-1_00_00.png" />
+</figure>
+<p>We'll get into PyVista's data classes and attributes later, but for
+now we've shown how to create a simple geometry containing just points.
+To create a surface, we must specify the connectivity of the geometry,
+and to do that we need to specify the cells (or faces) of this surface.</p>
+</section>
+</section>
+<section id="geometry-and-mesh-connectivity-topology-within-pyvista">
+<h2>Geometry and Mesh Connectivity/Topology Within PyVista<a class="headerlink" href="#geometry-and-mesh-connectivity-topology-within-pyvista" title="このヘッドラインへのパーマリンク">#</a></h2>
+<p>With our previous example, we defined our &quot;mesh&quot; as three disconnected
+points. While this is useful for representing &quot;point clouds,&quot; if we
+want to create a surface, we have to describe the connectivity of the
+mesh. To do this, let's define a single cell composed of three points
+in the same order as we defined earlier.</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">cells</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<p>Observe how we had to insert a leading <code class="docutils literal notranslate"><span class="pre">3</span></code> to tell VTK that our
+face is described by three elements, in this case, three points. In our <a class="reference internal" href="../api/core/_autosummary/pyvista.PolyData.html#pyvista.PolyData" title="pyvista.PolyData"><code class="xref py py-class docutils literal notranslate"><span class="pre">PolyData</span></code></a> VTK
+doesn't assume that faces always contain three points, so we have
+to define that. This actually gives us the flexibility to define
+as many (or as few as one) points per cell as we wish.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<p>All cell types follow the same connectivity array format:</p>
+<p><code class="docutils literal notranslate"><span class="pre">[Number</span> <span class="pre">of</span> <span class="pre">points,</span> <span class="pre">Point</span> <span class="pre">1,</span> <span class="pre">Point</span> <span class="pre">2,</span> <span class="pre">...]</span></code></p>
+<p>Except for <code class="docutils literal notranslate"><span class="pre">polyhedron</span></code> type, in which we need to define each face of the cell. The
+format for this type is the following:</p>
+<p><code class="docutils literal notranslate"><span class="pre">[Number</span> <span class="pre">of</span> <span class="pre">elements,</span> <span class="pre">Number</span> <span class="pre">of</span> <span class="pre">faces,</span> <span class="pre">Face1NPoints,</span> <span class="pre">Point1,</span> <span class="pre">Point2,</span> <span class="pre">...,</span> <span class="pre">PointN,</span> <span class="pre">Face2NPoints,</span> <span class="pre">...]</span></code>.</p>
+<p>Where <cite>number of elements</cite> is the total number of elements in the array that describe this cell.</p>
+</div>
+<p>Now we have all the necessary pieces to assemble an instance of
+<a class="reference internal" href="../api/core/_autosummary/pyvista.PolyData.html#pyvista.PolyData" title="pyvista.PolyData"><code class="xref py py-class docutils literal notranslate"><span class="pre">PolyData</span></code></a> that contains a single triangle. To do
+this, we simply provide the <code class="docutils literal notranslate"><span class="pre">points</span></code> and <code class="docutils literal notranslate"><span class="pre">cells</span></code> to the
+constructor of a <a class="reference internal" href="../api/core/_autosummary/pyvista.PolyData.html#pyvista.PolyData" title="pyvista.PolyData"><code class="xref py py-class docutils literal notranslate"><span class="pre">PolyData</span></code></a>. We can see from the
+representation that this geometry contains three points and one cell</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">mesh</span> <span class="o">=</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">PolyData</span><span class="p">(</span><span class="n">points</span><span class="p">,</span> <span class="n">cells</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">mesh</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<table>
+<tr><th>PolyData</th><th>Information</th></tr>
+<tr><td>N Cells</td><td>1</td></tr>
+<tr><td>N Points</td><td>3</td></tr>
+<tr><td>N Strips</td><td>0</td></tr>
+<tr><td>X Bounds</td><td>0.000e+00, 1.000e+00</td></tr>
+<tr><td>Y Bounds</td><td>0.000e+00, 6.670e-01</td></tr>
+<tr><td>Z Bounds</td><td>0.000e+00, 0.000e+00</td></tr>
+<tr><td>N Arrays</td><td>0</td></tr>
+</table>
+
+</div></div>
+</div>
+<p>Let's also plot this:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mesh</span> <span class="o">=</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">PolyData</span><span class="p">(</span><span class="n">points</span><span class="p">,</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mesh</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">cpos</span><span class="o">=</span><span class="s1">&#39;xy&#39;</span><span class="p">,</span> <span class="n">show_edges</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<figure class="align-default">
+<img alt="../_images/data_model-2_00_00.png" src="../_images/data_model-2_00_00.png" />
+</figure>
+<p>While we're at it, let's annotate this plot to describe this mesh.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pl</span> <span class="o">=</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">Plotter</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pl</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">show_edges</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">line_width</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">label_coords</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">points</span> <span class="o">+</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pl</span><span class="o">.</span><span class="n">add_point_labels</span><span class="p">(</span><span class="n">label_coords</span><span class="p">,</span> <span class="p">[</span><span class="sa">f</span><span class="s1">&#39;Point </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">&#39;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)],</span>
+<span class="gp">... </span>                    <span class="n">font_size</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">point_size</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pl</span><span class="o">.</span><span class="n">add_point_labels</span><span class="p">([</span><span class="mf">0.43</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;Cell 0&#39;</span><span class="p">],</span> <span class="n">font_size</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pl</span><span class="o">.</span><span class="n">camera_position</span> <span class="o">=</span> <span class="s1">&#39;xy&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pl</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<figure class="align-default">
+<img alt="../_images/data_model-3_00_00.png" src="../_images/data_model-3_00_00.png" />
+</figure>
+<p>You can clearly see how the polygon is created based on the
+connectivity of the points.</p>
+<p>This instance has several attributes to access the underlying data of
+the mesh. For example, if you wish to access or modify the points of
+the mesh, you can simply access the points attribute with
+<a class="reference internal" href="../api/core/_autosummary/pyvista.DataSet.points.html#pyvista.DataSet.points" title="pyvista.DataSet.points"><code class="xref py py-attr docutils literal notranslate"><span class="pre">points</span></code></a>.</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">mesh</span><span class="o">.</span><span class="n">points</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>pyvista_ndarray([[0.   , 0.   , 0.   ],
+                 [1.   , 0.   , 0.   ],
+                 [0.5  , 0.667, 0.   ]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>The connectivity can also be accessed from the <a class="reference internal" href="../api/core/_autosummary/pyvista.PolyData.faces.html#pyvista.PolyData.faces" title="pyvista.PolyData.faces"><code class="xref py py-attr docutils literal notranslate"><span class="pre">faces</span></code></a>
+attribute with:</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">mesh</span><span class="o">.</span><span class="n">faces</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>array([3, 0, 1, 2])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Or we could simply get the representation of the mesh with:</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">mesh</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<table>
+<tr><th>PolyData</th><th>Information</th></tr>
+<tr><td>N Cells</td><td>1</td></tr>
+<tr><td>N Points</td><td>3</td></tr>
+<tr><td>N Strips</td><td>0</td></tr>
+<tr><td>X Bounds</td><td>0.000e+00, 1.000e+00</td></tr>
+<tr><td>Y Bounds</td><td>0.000e+00, 6.670e-01</td></tr>
+<tr><td>Z Bounds</td><td>0.000e+00, 0.000e+00</td></tr>
+<tr><td>N Arrays</td><td>0</td></tr>
+</table>
+
+</div></div>
+</div>
+<p>In this representation we see:</p>
+<ul class="simple">
+<li><p>Number of cells <a class="reference internal" href="../api/core/_autosummary/pyvista.DataSet.n_cells.html#pyvista.DataSet.n_cells" title="pyvista.DataSet.n_cells"><code class="xref py py-attr docutils literal notranslate"><span class="pre">n_cells</span></code></a></p></li>
+<li><p>Number of points <a class="reference internal" href="../api/core/_autosummary/pyvista.DataSet.n_points.html#pyvista.DataSet.n_points" title="pyvista.DataSet.n_points"><code class="xref py py-attr docutils literal notranslate"><span class="pre">n_points</span></code></a></p></li>
+<li><p>Bounds of the mesh <a class="reference internal" href="../api/core/_autosummary/pyvista.DataSet.bounds.html#pyvista.DataSet.bounds" title="pyvista.DataSet.bounds"><code class="xref py py-attr docutils literal notranslate"><span class="pre">bounds</span></code></a></p></li>
+<li><p>Number of data arrays <a class="reference internal" href="../api/core/_autosummary/pyvista.DataSet.n_arrays.html#pyvista.DataSet.n_arrays" title="pyvista.DataSet.n_arrays"><code class="xref py py-attr docutils literal notranslate"><span class="pre">n_arrays</span></code></a></p></li>
+</ul>
+<p>This is vastly different from the output from VTK. See
+<a class="reference internal" href="vtk_to_pyvista.html#vtk-vs-pyvista-object-repr"><span class="std std-ref">Object Representation</span></a> for the comparison between the two
+representations.</p>
+<p>This mesh contains no data arrays as it consists only of geometry. This
+makes it useful for plotting just the geometry of the mesh, but
+datasets often contain more than just geometry. For example:</p>
+<ul class="simple">
+<li><p>An electrical field computed from a changing magnetic field</p></li>
+<li><p>Vector field of blood flow through artery</p></li>
+<li><p>Surface stresses from a structural finite element analysis</p></li>
+<li><p>Mineral deposits from geophysics</p></li>
+<li><p>Weather patterns as a vector field or surface data.</p></li>
+</ul>
+<p>While each one of these datasets could be represented as a different
+geometry class, they would all contain point, cell, or field data that
+explains the value of the data at a certain location within the
+geometry.</p>
+</section>
+<section id="data-arrays">
+<h2>Data Arrays<a class="headerlink" href="#data-arrays" title="このヘッドラインへのパーマリンク">#</a></h2>
+<p>Each <a class="reference internal" href="../api/core/_autosummary/pyvista.DataSet.html#pyvista.DataSet" title="pyvista.DataSet"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataSet</span></code></a> contains
+attributes that allow you to access the underlying numeric data. This
+numerical data may be associated with the <a class="reference internal" href="../api/core/_autosummary/pyvista.DataSet.points.html#pyvista.DataSet.points" title="pyvista.DataSet.points"><code class="xref py py-attr docutils literal notranslate"><span class="pre">points</span></code></a>, cells, or not associated with points
+or cells and attached to the mesh in general.</p>
+<p>To illustrate data arrays within PyVista, let's first construct a
+slightly more complex mesh than our previous example. Here, we create
+a simple mesh containing four isometric cells by starting with a
+<a class="reference internal" href="../api/core/_autosummary/pyvista.UniformGrid.html#pyvista.UniformGrid" title="pyvista.UniformGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">UniformGrid</span></code></a> and then casting it to an <a class="reference internal" href="../api/core/_autosummary/pyvista.UnstructuredGrid.html#pyvista.UnstructuredGrid" title="pyvista.UnstructuredGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">UnstructuredGrid</span></code></a> with
+<a class="reference internal" href="../api/core/_autosummary/pyvista.DataSet.cast_to_unstructured_grid.html#pyvista.DataSet.cast_to_unstructured_grid" title="pyvista.DataSet.cast_to_unstructured_grid"><code class="xref py py-func docutils literal notranslate"><span class="pre">cast_to_unstructured_grid()</span></code></a>.</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">grid</span> <span class="o">=</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">UniformGrid</span><span class="p">(</span><span class="n">dimensions</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">ugrid</span> <span class="o">=</span> <span class="n">grid</span><span class="o">.</span><span class="n">cast_to_unstructured_grid</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">ugrid</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+<table>
+<tr><th>UnstructuredGrid</th><th>Information</th></tr>
+<tr><td>N Cells</td><td>4</td></tr>
+<tr><td>N Points</td><td>9</td></tr>
+<tr><td>X Bounds</td><td>0.000e+00, 2.000e+00</td></tr>
+<tr><td>Y Bounds</td><td>0.000e+00, 2.000e+00</td></tr>
+<tr><td>Z Bounds</td><td>0.000e+00, 0.000e+00</td></tr>
+<tr><td>N Arrays</td><td>0</td></tr>
+</table>
+
+</div></div>
+</div>
+<p>Let's also plot this basic mesh:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pl</span> <span class="o">=</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">Plotter</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pl</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">ugrid</span><span class="p">,</span> <span class="n">show_edges</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">line_width</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">label_coords</span> <span class="o">=</span> <span class="n">ugrid</span><span class="o">.</span><span class="n">points</span> <span class="o">+</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">point_labels</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s1">&#39;Point </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">&#39;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">ugrid</span><span class="o">.</span><span class="n">n_points</span><span class="p">)]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pl</span><span class="o">.</span><span class="n">add_point_labels</span><span class="p">(</span><span class="n">label_coords</span><span class="p">,</span> <span class="n">point_labels</span><span class="p">,</span>
+<span class="gp">... </span>                    <span class="n">font_size</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">point_size</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cell_labels</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s1">&#39;Cell </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">&#39;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">ugrid</span><span class="o">.</span><span class="n">n_cells</span><span class="p">)]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pl</span><span class="o">.</span><span class="n">add_point_labels</span><span class="p">(</span><span class="n">ugrid</span><span class="o">.</span><span class="n">cell_centers</span><span class="p">(),</span> <span class="n">cell_labels</span><span class="p">,</span> <span class="n">font_size</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pl</span><span class="o">.</span><span class="n">camera_position</span> <span class="o">=</span> <span class="s1">&#39;xy&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pl</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<figure class="align-default">
+<img alt="../_images/data_model-5_00_00.png" src="../_images/data_model-5_00_00.png" />
+</figure>
+<p>Now that we have a simple mesh to work with, we can start assigning it
+data. There are two main types of data that can be associated with a
+mesh: scalar data and vector data. Scalar data is single or
+multi-component data that is non directional and may include values
+like temperature, or in the case of multi-component data, RGBA values.
+Vector data has magnitude and direction and is represented as
+arrays containing three components per data point.</p>
+<p>When plotting, we can easily display scalar data, but this data must
+be &quot;associated&quot; with either points or cells. For example, we may wish
+to assign values to the cells of our example mesh, which we can do by
+accessing the <a class="reference internal" href="../api/core/_autosummary/pyvista.DataSet.cell_data.html#pyvista.DataSet.cell_data" title="pyvista.DataSet.cell_data"><code class="xref py py-attr docutils literal notranslate"><span class="pre">cell_data</span></code></a>
+attribute of our mesh.</p>
+<section id="cell-data">
+<span id="pyvista-data-model-cell-data"></span><h3>Cell Data<a class="headerlink" href="#cell-data" title="このヘッドラインへのパーマリンク">#</a></h3>
+<p>The easiest way to add scalar data to a <a class="reference internal" href="../api/core/_autosummary/pyvista.DataSet.html#pyvista.DataSet" title="pyvista.DataSet"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataSet</span></code></a> is to use the <code class="docutils literal notranslate"><span class="pre">[]</span></code> operator.
+Continuing with our example above, let's assign each cell a single
+integer. We can do this using a Python <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> and making it
+the same length as the number of cells in the
+<a class="reference internal" href="../api/core/_autosummary/pyvista.UnstructuredGrid.html#pyvista.UnstructuredGrid" title="pyvista.UnstructuredGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">UnstructuredGrid</span></code></a>. Or as an even simpler example, using a
+<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#range" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">range</span></code></a> of the appropriate length. Here we create the range, add
+it to the <a class="reference internal" href="../api/core/_autosummary/pyvista.DataSet.cell_data.html#pyvista.DataSet.cell_data" title="pyvista.DataSet.cell_data"><code class="xref py py-attr docutils literal notranslate"><span class="pre">cell_data</span></code></a>, and then access
+it using the <code class="docutils literal notranslate"><span class="pre">[]</span></code> operator.</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">simple_range</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="n">ugrid</span><span class="o">.</span><span class="n">n_cells</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">ugrid</span><span class="o">.</span><span class="n">cell_data</span><span class="p">[</span><span class="s1">&#39;my-data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">simple_range</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">ugrid</span><span class="o">.</span><span class="n">cell_data</span><span class="p">[</span><span class="s1">&#39;my-data&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>pyvista_ndarray([0, 1, 2, 3])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note how we are returned a <a class="reference internal" href="../api/utilities/_autosummary/pyvista.pyvista_ndarray.html#pyvista.pyvista_ndarray" title="pyvista.pyvista_ndarray"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.pyvista_ndarray</span></code></a>. Since
+VTK requires C arrays, PyVista will internally wrap or convert all
+inputs to C arrays. We can then plot this with:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ugrid</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">cpos</span><span class="o">=</span><span class="s1">&#39;xy&#39;</span><span class="p">,</span> <span class="n">show_edges</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<figure class="align-default">
+<img alt="../_images/data_model-7_00_00.png" src="../_images/data_model-7_00_00.png" />
+</figure>
+<p>Note how we did not have to specify which cell data to plot as the
+<code class="docutils literal notranslate"><span class="pre">[]</span></code> operator automatically sets the active scalars:</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">ugrid</span><span class="o">.</span><span class="n">cell_data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>pyvista DataSetAttributes
+Association     : CELL
+Active Scalars  : my-data
+Active Vectors  : None
+Active Texture  : None
+Active Normals  : None
+Contains arrays :
+    my-data                 int64      (4,)                 SCALARS
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can also add labels to our plot to show which cells are assigned
+which scalars. Note how this is in the same order as the scalars we
+assigned.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pl</span> <span class="o">=</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">Plotter</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pl</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">ugrid</span><span class="p">,</span> <span class="n">show_edges</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">line_width</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cell_labels</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s1">&#39;Cell </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">&#39;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">ugrid</span><span class="o">.</span><span class="n">n_cells</span><span class="p">)]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pl</span><span class="o">.</span><span class="n">add_point_labels</span><span class="p">(</span><span class="n">ugrid</span><span class="o">.</span><span class="n">cell_centers</span><span class="p">(),</span> <span class="n">cell_labels</span><span class="p">,</span> <span class="n">font_size</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pl</span><span class="o">.</span><span class="n">camera_position</span> <span class="o">=</span> <span class="s1">&#39;xy&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pl</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<figure class="align-default">
+<img alt="../_images/data_model-8_00_00.png" src="../_images/data_model-8_00_00.png" />
+</figure>
+<p>We can continue to assign cell data to our <a class="reference internal" href="../api/core/_autosummary/pyvista.DataSet.html#pyvista.DataSet" title="pyvista.DataSet"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataSet</span></code></a> using the <code class="docutils literal notranslate"><span class="pre">[]</span></code> operator, but if you
+do not wish the new array to become the active array, you can add it
+using <a class="reference internal" href="../api/core/_autosummary/pyvista.DataSetAttributes.set_array.html#pyvista.DataSetAttributes.set_array" title="pyvista.DataSetAttributes.set_array"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_array()</span></code></a></p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">ugrid</span><span class="o">.</span><span class="n">n_cells</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">ugrid</span><span class="o">.</span><span class="n">cell_data</span><span class="o">.</span><span class="n">set_array</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s1">&#39;my-cell-data&#39;</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">ugrid</span><span class="o">.</span><span class="n">cell_data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>pyvista DataSetAttributes
+Association     : CELL
+Active Scalars  : my-data
+Active Vectors  : None
+Active Texture  : None
+Active Normals  : None
+Contains arrays :
+    my-data                 int64      (4,)                 SCALARS
+    my-cell-data            float64    (4,)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, <code class="docutils literal notranslate"><span class="pre">ugrid</span></code> contains two arrays, one of which is the &quot;active&quot;
+scalars. This set of active scalars will be the one plotted
+automatically when <code class="docutils literal notranslate"><span class="pre">scalars</span></code> is unset in either <a class="reference internal" href="../api/plotting/_autosummary/pyvista.Plotter.add_mesh.html#pyvista.Plotter.add_mesh" title="pyvista.Plotter.add_mesh"><code class="xref py py-func docutils literal notranslate"><span class="pre">add_mesh()</span></code></a> or <a class="reference internal" href="../api/plotting/_autosummary/pyvista.plot.html#pyvista.plot" title="pyvista.plot"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyvista.plot()</span></code></a>. This makes it
+possible to have many cell arrays associated with a dataset and
+track which one will plotted as the active cell scalars by default.</p>
+<p>The active scalars can also be accessed via
+<a class="reference internal" href="../api/core/_autosummary/pyvista.DataSet.active_scalars.html#pyvista.DataSet.active_scalars" title="pyvista.DataSet.active_scalars"><code class="xref py py-attr docutils literal notranslate"><span class="pre">active_scalars</span></code></a>,
+and the name of the active scalars array can be accessed or set with
+<a class="reference internal" href="../api/core/_autosummary/pyvista.DataSet.active_scalars_name.html#pyvista.DataSet.active_scalars_name" title="pyvista.DataSet.active_scalars_name"><code class="xref py py-attr docutils literal notranslate"><span class="pre">active_scalars_name</span></code></a>.</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">ugrid</span><span class="o">.</span><span class="n">cell_data</span><span class="o">.</span><span class="n">active_scalars_name</span> <span class="o">=</span> <span class="s1">&#39;my-cell-data&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">ugrid</span><span class="o">.</span><span class="n">cell_data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>pyvista DataSetAttributes
+Association     : CELL
+Active Scalars  : my-cell-data
+Active Vectors  : None
+Active Texture  : None
+Active Normals  : None
+Contains arrays :
+    my-data                 int64      (4,)
+    my-cell-data            float64    (4,)                 SCALARS
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="point-data">
+<h3>Point Data<a class="headerlink" href="#point-data" title="このヘッドラインへのパーマリンク">#</a></h3>
+<p>Data can be associated to points in the same manner as in
+<a class="reference internal" href="#pyvista-data-model-cell-data"><span class="std std-ref">Cell Data</span></a>. The <a class="reference internal" href="../api/core/_autosummary/pyvista.DataSet.point_data.html#pyvista.DataSet.point_data" title="pyvista.DataSet.point_data"><code class="xref py py-attr docutils literal notranslate"><span class="pre">point_data</span></code></a> attribute allows you to associate point
+data to the points of a <a class="reference internal" href="../api/core/_autosummary/pyvista.DataSet.html#pyvista.DataSet" title="pyvista.DataSet"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataSet</span></code></a>. Here, we will associate a simple
+list to the points using the <code class="docutils literal notranslate"><span class="pre">[]</span></code> operator.</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">simple_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">ugrid</span><span class="o">.</span><span class="n">n_points</span><span class="p">))</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">ugrid</span><span class="o">.</span><span class="n">point_data</span><span class="p">[</span><span class="s1">&#39;my-data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">simple_list</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">ugrid</span><span class="o">.</span><span class="n">point_data</span><span class="p">[</span><span class="s1">&#39;my-data&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>pyvista_ndarray([0, 1, 2, 3, 4, 5, 6, 7, 8])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Again, these values become the active scalars in our point arrays by
+default by using the <code class="docutils literal notranslate"><span class="pre">[]</span></code> operator:</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">ugrid</span><span class="o">.</span><span class="n">point_data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>pyvista DataSetAttributes
+Association     : POINT
+Active Scalars  : my-data
+Active Vectors  : None
+Active Texture  : None
+Active Normals  : None
+Contains arrays :
+    my-data                 int64      (9,)                 SCALARS
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let's plot the point data. Note how this varies from the cell data
+plot; each individual point is assigned a scalar value which is
+interpolated across a cell to create a smooth color map between the
+lowest value at <code class="docutils literal notranslate"><span class="pre">Point</span> <span class="pre">0</span></code> to the highest value at <code class="docutils literal notranslate"><span class="pre">Point</span> <span class="pre">8</span></code>.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pl</span> <span class="o">=</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">Plotter</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pl</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">ugrid</span><span class="p">,</span> <span class="n">show_edges</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">line_width</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">label_coords</span> <span class="o">=</span> <span class="n">ugrid</span><span class="o">.</span><span class="n">points</span> <span class="o">+</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">point_labels</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s1">&#39;Point </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s1">&#39;</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">ugrid</span><span class="o">.</span><span class="n">n_points</span><span class="p">)]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pl</span><span class="o">.</span><span class="n">add_point_labels</span><span class="p">(</span><span class="n">label_coords</span><span class="p">,</span> <span class="n">point_labels</span><span class="p">,</span>
+<span class="gp">... </span>                    <span class="n">font_size</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span> <span class="n">point_size</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pl</span><span class="o">.</span><span class="n">camera_position</span> <span class="o">=</span> <span class="s1">&#39;xy&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pl</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<figure class="align-default">
+<img alt="../_images/data_model-10_00_00.png" src="../_images/data_model-10_00_00.png" />
+</figure>
+<p>As in <a class="reference internal" href="#pyvista-data-model-cell-data"><span class="std std-ref">Cell Data</span></a>, we can assign multiple
+arrays to <a class="reference internal" href="../api/core/_autosummary/pyvista.DataSet.point_data.html#pyvista.DataSet.point_data" title="pyvista.DataSet.point_data"><code class="xref py py-attr docutils literal notranslate"><span class="pre">point_data</span></code></a>
+using <a class="reference internal" href="../api/core/_autosummary/pyvista.DataSetAttributes.set_array.html#pyvista.DataSetAttributes.set_array" title="pyvista.DataSetAttributes.set_array"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_array()</span></code></a>.</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">ugrid</span><span class="o">.</span><span class="n">n_points</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">ugrid</span><span class="o">.</span><span class="n">point_data</span><span class="o">.</span><span class="n">set_array</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s1">&#39;my-point-data&#39;</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">ugrid</span><span class="o">.</span><span class="n">point_data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>pyvista DataSetAttributes
+Association     : POINT
+Active Scalars  : my-data
+Active Vectors  : None
+Active Texture  : None
+Active Normals  : None
+Contains arrays :
+    my-data                 int64      (9,)                 SCALARS
+    my-point-data           float64    (9,)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Again, here there are now two arrays associated to the point data, and
+only one is the &quot;active&quot; scalars array. Like as in the cell data, we
+can retrieve this with <a class="reference internal" href="../api/core/_autosummary/pyvista.DataSet.active_scalars.html#pyvista.DataSet.active_scalars" title="pyvista.DataSet.active_scalars"><code class="xref py py-attr docutils literal notranslate"><span class="pre">active_scalars</span></code></a>, and the name of the
+active scalars array can be accessed or set with
+<a class="reference internal" href="../api/core/_autosummary/pyvista.DataSet.active_scalars_name.html#pyvista.DataSet.active_scalars_name" title="pyvista.DataSet.active_scalars_name"><code class="xref py py-attr docutils literal notranslate"><span class="pre">active_scalars_name</span></code></a>.</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">ugrid</span><span class="o">.</span><span class="n">point_data</span><span class="o">.</span><span class="n">active_scalars_name</span> <span class="o">=</span> <span class="s1">&#39;my-point-data&#39;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">ugrid</span><span class="o">.</span><span class="n">point_data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>pyvista DataSetAttributes
+Association     : POINT
+Active Scalars  : my-point-data
+Active Vectors  : None
+Active Texture  : None
+Active Normals  : None
+Contains arrays :
+    my-data                 int64      (9,)
+    my-point-data           float64    (9,)                 SCALARS
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="dataset-active-scalars">
+<h3>Dataset Active Scalars<a class="headerlink" href="#dataset-active-scalars" title="このヘッドラインへのパーマリンク">#</a></h3>
+<p>Continuing from the previous sections, our <code class="docutils literal notranslate"><span class="pre">ugrid</span></code> dataset now
+contains both point and cell data:</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">ugrid</span><span class="o">.</span><span class="n">point_data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>pyvista DataSetAttributes
+Association     : POINT
+Active Scalars  : my-point-data
+Active Vectors  : None
+Active Texture  : None
+Active Normals  : None
+Contains arrays :
+    my-data                 int64      (9,)
+    my-point-data           float64    (9,)                 SCALARS
+</pre></div>
+</div>
+</div>
+</div>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">ugrid</span><span class="o">.</span><span class="n">cell_data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>pyvista DataSetAttributes
+Association     : CELL
+Active Scalars  : my-cell-data
+Active Vectors  : None
+Active Texture  : None
+Active Normals  : None
+Contains arrays :
+    my-data                 int64      (4,)
+    my-cell-data            float64    (4,)                 SCALARS
+</pre></div>
+</div>
+</div>
+</div>
+<p>There are active scalars in both point and cell data, but only one
+type of scalars can be &quot;active&quot; at the dataset level. The reason for
+this is that only one scalar type (be it point or cell) can be plotted
+at once, and this data can be obtained from <a class="reference internal" href="../api/core/_autosummary/pyvista.DataSet.active_scalars_info.html#pyvista.DataSet.active_scalars_info" title="pyvista.DataSet.active_scalars_info"><code class="xref py py-attr docutils literal notranslate"><span class="pre">active_scalars_info</span></code></a>:</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">ugrid</span><span class="o">.</span><span class="n">active_scalars_info</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>ActiveArrayInfoTuple(association=&lt;FieldAssociation.POINT: 0&gt;, name=&#39;my-point-data&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note that the active scalars are by default the point scalars. You
+can change this by setting the active scalars with
+<a class="reference internal" href="../api/core/_autosummary/pyvista.DataSet.set_active_scalars.html#pyvista.DataSet.set_active_scalars" title="pyvista.DataSet.set_active_scalars"><code class="xref py py-func docutils literal notranslate"><span class="pre">set_active_scalars()</span></code></a>. Note that if you
+want to set the active scalars and both the point and cell data have
+an array of the same name, you must specify the <code class="docutils literal notranslate"><span class="pre">preference</span></code>:</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">ugrid</span><span class="o">.</span><span class="n">set_active_scalars</span><span class="p">(</span><span class="s1">&#39;my-data&#39;</span><span class="p">,</span> <span class="n">preference</span><span class="o">=</span><span class="s1">&#39;cell&#39;</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">ugrid</span><span class="o">.</span><span class="n">active_scalars_info</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>ActiveArrayInfoTuple(association=&lt;FieldAssociation.CELL: 1&gt;, name=&#39;my-data&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>This can also be set when plotting using the <code class="docutils literal notranslate"><span class="pre">preference</span></code>
+parameter in <a class="reference internal" href="../api/plotting/_autosummary/pyvista.Plotter.add_mesh.html#pyvista.Plotter.add_mesh" title="pyvista.Plotter.add_mesh"><code class="xref py py-func docutils literal notranslate"><span class="pre">add_mesh()</span></code></a> or
+<a class="reference internal" href="../api/plotting/_autosummary/pyvista.plot.html#pyvista.plot" title="pyvista.plot"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyvista.plot()</span></code></a>.</p>
+</section>
+<section id="field-data">
+<h3>Field Data<a class="headerlink" href="#field-data" title="このヘッドラインへのパーマリンク">#</a></h3>
+<p>Field arrays are different from <a class="reference internal" href="../api/core/_autosummary/pyvista.DataSet.point_data.html#pyvista.DataSet.point_data" title="pyvista.DataSet.point_data"><code class="xref py py-attr docutils literal notranslate"><span class="pre">point_data</span></code></a> and <a class="reference internal" href="../api/core/_autosummary/pyvista.DataSet.cell_data.html#pyvista.DataSet.cell_data" title="pyvista.DataSet.cell_data"><code class="xref py py-attr docutils literal notranslate"><span class="pre">cell_data</span></code></a> in that they are not associated with
+the geometry of the <a class="reference internal" href="../api/core/_autosummary/pyvista.DataSet.html#pyvista.DataSet" title="pyvista.DataSet"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataSet</span></code></a>.
+This means that while it's not possible to designate the field data as
+active scalars or vectors, you can use it to &quot;attach&quot; arrays of any
+shape. You can even add string arrays in the field data:</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">ugrid</span><span class="o">.</span><span class="n">field_data</span><span class="p">[</span><span class="s1">&#39;my-field-data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;hello&#39;</span><span class="p">,</span> <span class="s1">&#39;world&#39;</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">ugrid</span><span class="o">.</span><span class="n">field_data</span><span class="p">[</span><span class="s1">&#39;my-field-data&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>pyvista_ndarray([&#39;hello&#39;, &#39;world&#39;], dtype=&#39;&lt;U5&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note that the field data is automatically transferred to VTK C-style
+arrays and then represented as a numpy data format.</p>
+<p>When listing the current field data, note that the association is &quot;NONE&quot;:</p>
+<div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">ugrid</span><span class="o">.</span><span class="n">field_data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-none notranslate"><div class="highlight"><pre><span></span>pyvista DataSetAttributes
+Association     : NONE
+Contains arrays :
+    my-field-data           &lt;U5        (2,)
+</pre></div>
+</div>
+</div>
+</div>
+<p>This is because the data is not associated with points or cells, and
+cannot be made so because field data is not expected to match the
+number of cells or points. As such, it also cannot be plotted.</p>
+</section>
+<section id="vectors-texture-coords-and-normals-attributes">
+<h3>Vectors, Texture Coords, and Normals Attributes<a class="headerlink" href="#vectors-texture-coords-and-normals-attributes" title="このヘッドラインへのパーマリンク">#</a></h3>
+<p>Both cell and point data can also store the following &quot;special&quot; attributes in addition to <a class="reference internal" href="../api/core/_autosummary/pyvista.DataSet.active_scalars.html#pyvista.DataSet.active_scalars" title="pyvista.DataSet.active_scalars"><code class="xref py py-attr docutils literal notranslate"><span class="pre">active_scalars</span></code></a>:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../api/core/_autosummary/pyvista.DataSet.active_normals.html#pyvista.DataSet.active_normals" title="pyvista.DataSet.active_normals"><code class="xref py py-attr docutils literal notranslate"><span class="pre">active_normals</span></code></a></p></li>
+<li><p><a class="reference internal" href="../api/core/_autosummary/pyvista.DataSet.active_t_coords.html#pyvista.DataSet.active_t_coords" title="pyvista.DataSet.active_t_coords"><code class="xref py py-attr docutils literal notranslate"><span class="pre">active_t_coords</span></code></a></p></li>
+<li><p><a class="reference internal" href="../api/core/_autosummary/pyvista.DataSet.active_vectors.html#pyvista.DataSet.active_vectors" title="pyvista.DataSet.active_vectors"><code class="xref py py-attr docutils literal notranslate"><span class="pre">active_vectors</span></code></a></p></li>
+</ul>
+</section>
+<section id="active-normals">
+<h3>Active Normals<a class="headerlink" href="#active-normals" title="このヘッドラインへのパーマリンク">#</a></h3>
+<p>The <a class="reference internal" href="../api/core/_autosummary/pyvista.DataSet.active_normals.html#pyvista.DataSet.active_normals" title="pyvista.DataSet.active_normals"><code class="xref py py-attr docutils literal notranslate"><span class="pre">active_normals</span></code></a> array is a special array that
+specifies the local normal direction of meshes. It is used for
+creating physically based rendering, rendering smooth shading using
+Phong interpolation, warping by scalars, etc. If this array
+is not set when plotting with <code class="docutils literal notranslate"><span class="pre">smooth_shading=True</span></code> or <code class="docutils literal notranslate"><span class="pre">pbr=True</span></code>,
+it will be computed.</p>
+</section>
+<section id="active-texture-coordinates">
+<h3>Active Texture Coordinates<a class="headerlink" href="#active-texture-coordinates" title="このヘッドラインへのパーマリンク">#</a></h3>
+<p>The <a class="reference internal" href="../api/core/_autosummary/pyvista.DataSet.active_t_coords.html#pyvista.DataSet.active_t_coords" title="pyvista.DataSet.active_t_coords"><code class="xref py py-attr docutils literal notranslate"><span class="pre">active_t_coords</span></code></a> array is used for
+rendering textures. See <a class="reference internal" href="../examples/02-plot/texture.html#ref-texture-example"><span class="std std-ref">Applying Textures</span></a> for examples using
+this array.</p>
+</section>
+<section id="active-vectors">
+<h3>Active Vectors<a class="headerlink" href="#active-vectors" title="このヘッドラインへのパーマリンク">#</a></h3>
+<p>The <a class="reference internal" href="../api/core/_autosummary/pyvista.DataSet.active_vectors.html#pyvista.DataSet.active_vectors" title="pyvista.DataSet.active_vectors"><code class="xref py py-attr docutils literal notranslate"><span class="pre">active_vectors</span></code></a> is an array containing
+quantities that have magnitude and direction (specifically, three
+components). For example, a vector field containing the wind speed at
+various coordinates. This differs from <a class="reference internal" href="../api/core/_autosummary/pyvista.DataSet.active_scalars.html#pyvista.DataSet.active_scalars" title="pyvista.DataSet.active_scalars"><code class="xref py py-attr docutils literal notranslate"><span class="pre">active_scalars</span></code></a> as scalars are expected
+to be non-directional even if they contain several components (as in
+the case of RGB data).</p>
+<p>Vectors are treated differently within VTK than scalars when
+performing transformations using the <a class="reference internal" href="../api/core/_autosummary/pyvista.DataSetFilters.transform.html#pyvista.DataSetFilters.transform" title="pyvista.DataSetFilters.transform"><code class="xref py py-func docutils literal notranslate"><span class="pre">transform()</span></code></a> filter. Unlike scalar
+arrays, vector arrays will be transformed along with the geometry as
+these vectors represent quantities with direction.</p>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<p>VTK permits only one &quot;active&quot; vector. If you have multiple vector
+arrays that you wish to transform, set
+<code class="docutils literal notranslate"><span class="pre">transform_all_input_vectors=True</span></code> in <a class="reference internal" href="../api/core/_autosummary/pyvista.DataSetFilters.transform.html#pyvista.DataSetFilters.transform" title="pyvista.DataSetFilters.transform"><code class="xref py py-func docutils literal notranslate"><span class="pre">transform()</span></code></a>. Be aware that this will
+transform any array with three components, so multi-component
+scalar arrays like RGB arrays will have to be discarded after
+transformation.</p>
+</div>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-pyvista-dataset">The PyVista DataSet</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#points-and-arrays-within-pyvista">Points and Arrays Within PyVista</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wrapping-a-vtk-array">Wrapping a VTK Array</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-numpy-with-pyvista">Using NumPy with PyVista</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-python-lists-or-tuples">Using Python Lists or Tuples</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#geometry-and-mesh-connectivity-topology-within-pyvista">Geometry and Mesh Connectivity/Topology Within PyVista</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-arrays">Data Arrays</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cell-data">Cell Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#point-data">Point Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dataset-active-scalars">Dataset Active Scalars</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#field-data">Field Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vectors-texture-coords-and-normals-attributes">Vectors, Texture Coords, and Normals Attributes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#active-normals">Active Normals</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#active-texture-coordinates">Active Texture Coordinates</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#active-vectors">Active Vectors</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  
+  <div class="tocsection editthispage">
+    <a href="https://github.com/pyvista/pyvista/edit/main/doc/source/user-guide/data_model.rst">
+      <i class="fa-solid fa-pencil"></i>
+      
+      
+        
+          Edit on GitHub
+        
+      
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+  <p class="copyright">
+    
+      © Copyright 2017-2023, The PyVista Developers.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item"><p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.13.3.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

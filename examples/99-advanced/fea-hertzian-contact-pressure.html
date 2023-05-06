@@ -1,0 +1,871 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="ja" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Visualize Hertzian Contact Stress &#8212; PyVista 0.40.dev0 ドキュメント</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/thebelab.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/asciinema-player_2.6.1.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/asciinema-custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/no_search_highlight.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/summary.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-binder.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-dataframe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-rendered-html.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/cards.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/no_italic.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/thebelab-helper.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/asciinema-player_2.6.1.js"></script>
+    <script src="../../_static/translations.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-140243896-1"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'UA-140243896-1');
+            </script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'examples/99-advanced/fea-hertzian-contact-pressure';</script>
+    <script>
+        DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://docs.pyvista.org/versions.json';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = 'dev';
+        </script>
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="検索" href="../../search.html" />
+    <link rel="next" title="Plot a Magnetic Field" href="magnetic-fields.html" />
+    <link rel="prev" title="Extending PyVista" href="extending-pyvista.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="ja"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+    <span class="fa-solid fa-bars"></span>
+  </label>
+  
+  <div class="navbar-header-items__start">
+    
+      <div class="navbar-item">
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/pyvista_logo_sm.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../_static/pyvista_logo_sm.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+    
+  </div>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item"><nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../getting-started/index.html">
+                        Getting Started
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../user-guide/index.html">
+                        User Guide
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="../index.html">
+                        Examples
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../api/index.html">
+                        API Reference
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../extras/index.html">
+                        Extras
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="検索" aria-label="検索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+        </div>
+      
+      
+        <div class="navbar-item">
+<script>
+document.write(`
+  <div class="version-switcher__container dropdown">
+    <button type="button" class="version-switcher__button btn btn-sm navbar-btn dropdown-toggle" data-bs-toggle="dropdown">
+      dev  <!-- this text may get changed later by javascript -->
+      <span class="caret"></span>
+    </button>
+    <div class="version-switcher__menu dropdown-menu list-group-flush py-0">
+    <!-- dropdown will be populated by javascript on page load -->
+    </div>
+  </div>
+`);
+</script></div>
+      
+        <div class="navbar-item">
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/pyvista/pyvista" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github"></i></span>
+            <label class="sr-only">GitHub</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="http://slack.pyvista.org" title="Slack Community" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fab fa-slack"></i></span>
+            <label class="sr-only">Slack Community</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/pyvista/pyvista/discussions" title="Support" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-comment fa-fw"></i></span>
+            <label class="sr-only">Support</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/pyvista/pyvista/blob/main/CONTRIBUTING.rst" title="Contributing" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-gavel fa-fw"></i></span>
+            <label class="sr-only">Contributing</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://doi.org/10.21105/joss.01450" title="The Paper" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-file-text fa-fw"></i></span>
+            <label class="sr-only">The Paper</label></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="検索" aria-label="検索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+    </div>
+  
+
+  
+    <label class="sidebar-toggle secondary-toggle" for="__secondary">
+      <span class="fa-solid fa-outdent"></span>
+    </label>
+  
+</div>
+
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          <div class="navbar-item"><nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../getting-started/index.html">
+                        Getting Started
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../user-guide/index.html">
+                        User Guide
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="../index.html">
+                        Examples
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../api/index.html">
+                        API Reference
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../extras/index.html">
+                        Extras
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+<script>
+document.write(`
+  <div class="version-switcher__container dropdown">
+    <button type="button" class="version-switcher__button btn btn-sm navbar-btn dropdown-toggle" data-bs-toggle="dropdown">
+      dev  <!-- this text may get changed later by javascript -->
+      <span class="caret"></span>
+    </button>
+    <div class="version-switcher__menu dropdown-menu list-group-flush py-0">
+    <!-- dropdown will be populated by javascript on page load -->
+    </div>
+  </div>
+`);
+</script></div>
+        
+          <div class="navbar-item">
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/pyvista/pyvista" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github"></i></span>
+            <label class="sr-only">GitHub</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="http://slack.pyvista.org" title="Slack Community" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fab fa-slack"></i></span>
+            <label class="sr-only">Slack Community</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/pyvista/pyvista/discussions" title="Support" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-comment fa-fw"></i></span>
+            <label class="sr-only">Support</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/pyvista/pyvista/blob/main/CONTRIBUTING.rst" title="Contributing" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-gavel fa-fw"></i></span>
+            <label class="sr-only">Contributing</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://doi.org/10.21105/joss.01450" title="The Paper" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-file-text fa-fw"></i></span>
+            <label class="sr-only">The Paper</label></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item"><nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../00-load/index.html">Mesh Creation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../01-filter/index.html">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02-plot/index.html">Plotting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03-widgets/index.html">Widgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04-lights/index.html">Lighting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../98-common/index.html">Common</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Advanced</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="add-example.html">Adding a New Gallery Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="antarctica-compare.html">Compare Field Across Mesh Regions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="atomic-orbitals.html">Plot Atomic Orbitals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="extending-pyvista.html">Extending PyVista</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Visualize Hertzian Contact Stress</a></li>
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="magnetic-fields.html">Plot a Magnetic Field</a></li>
+<li class="toctree-l2"><a class="reference internal" href="openfoam-cooling.html">Electronics Cooling CFD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="openfoam-example.html">Plot OpenFOAM data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="openfoam-tubes.html">Plot CFD Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="osmnx-example.html">Plot Open Street Map Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="planets.html">3D Earth and Celestial Bodies</a></li>
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="plotting-algorithms.html">Plotting with VTK Algorithms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pump-bracket.html">Visualize Modal Analysis of a Pump Bracket</a></li>
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="ray-trace-moeller.html">Visualize the Moeller–Trumbore Algorithm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ray-trace.html">Ray Tracing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sphere_eversion.html">Turning the sphere inside out</a></li>
+<li class="toctree-l2"><a class="reference internal" href="warp-by-vector-eigenmodes.html">Display Eigenmodes of Vibration</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumbs">
+  <ul class="bd-breadcrumbs" role="navigation" aria-label="Breadcrumb">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../index.html" class="nav-link">Examples</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">Advanced</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">Visualize Hertzian Contact Stress</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <div class="sphx-glr-download-link-note admonition note">
+<p class="admonition-title">注釈</p>
+<p><a class="reference internal" href="#sphx-glr-download-examples-99-advanced-fea-hertzian-contact-pressure-py"><span class="std std-ref">Go to the end</span></a>
+to download the full example code</p>
+</div>
+<section class="sphx-glr-example-title" id="visualize-hertzian-contact-stress">
+<span id="hertzian-contact-example"></span><span id="sphx-glr-examples-99-advanced-fea-hertzian-contact-pressure-py"></span><h1>Visualize Hertzian Contact Stress<a class="headerlink" href="#visualize-hertzian-contact-stress" title="このヘッドラインへのパーマリンク">#</a></h1>
+<p>The following example demonstrates how to use PyVista to visualize
+Hertzian contact stress between a cylinder and a flat plate.</p>
+<p>This example loads a dataset, constructs a line to represent the point of
+contact between the cylinder and the block, and samples the stress along that
+line. Finally, it plots the dataset and the stress distribution.</p>
+<p><strong>Background</strong>
+Hertzian contact stress refers to the stress that occurs between two curved
+surfaces that are in contact with each other. It is named after Heinrich Rudolf
+Hertz, a German physicist who first described the phenomenon in the late
+1800s. Hertzian contact stress is an important concept in materials science,
+engineering, and other fields where the behavior of materials under stress is a
+critical consideration.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">import</span> <span class="nn">pyvista</span> <span class="k">as</span> <span class="nn">pv</span>
+<span class="kn">from</span> <span class="nn">pyvista</span> <span class="kn">import</span> <span class="n">examples</span>
+</pre></div>
+</div>
+</section>
+<section id="load-the-dataset">
+<h1>Load the dataset<a class="headerlink" href="#load-the-dataset" title="このヘッドラインへのパーマリンク">#</a></h1>
+<p>Start by loading the dataset using <code class="xref py py-mod docutils literal notranslate"><span class="pre">pyvista.examples</span></code> module. This module
+provides access to a range of datasets, including FEA (finite element
+analysis) datasets that are useful for stress analysis.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mesh</span> <span class="o">=</span> <span class="n">examples</span><span class="o">.</span><span class="n">download_fea_hertzian_contact_cylinder</span><span class="p">()</span>
+<span class="n">mesh</span>
+</pre></div>
+</div>
+<div class="output_subarea output_html rendered_html output_result">
+<table><tr><th>Header</th><th>Data Arrays</th></tr><tr><td>
+<table>
+<tr><th>UnstructuredGrid</th><th>Information</th></tr>
+<tr><td>N Cells</td><td>132258</td></tr>
+<tr><td>N Points</td><td>34185</td></tr>
+<tr><td>X Bounds</td><td>-0.000e+00, 2.000e-01</td></tr>
+<tr><td>Y Bounds</td><td>0.000e+00, 2.500e-02</td></tr>
+<tr><td>Z Bounds</td><td>0.000e+00, 3.000e-01</td></tr>
+<tr><td>N Arrays</td><td>16</td></tr>
+</table>
+
+</td><td>
+<table>
+<tr><th>Name</th><th>Field</th><th>Type</th><th>N Comp</th><th>Min</th><th>Max</th></tr>
+<tr><td>Displacement</td><td>Points</td><td>float64</td><td>3</td><td>-5.000e-04</td><td>2.945e-05</td></tr>
+<tr><td>vonMises</td><td>Points</td><td>float64</td><td>1</td><td>1.316e+02</td><td>1.707e+09</td></tr>
+<tr><td>Stress</td><td>Points</td><td>float64</td><td>6</td><td>-3.055e+09</td><td>5.274e+08</td></tr>
+<tr><td>Strain</td><td>Points</td><td>float64</td><td>6</td><td>-1.937e-02</td><td>1.894e-02</td></tr>
+<tr><td>PrincipalStress 1</td><td>Points</td><td>float64</td><td>1</td><td>-1.787e+09</td><td>2.586e+08</td></tr>
+<tr><td>PrincipalStress 2</td><td>Points</td><td>float64</td><td>1</td><td>-2.594e+09</td><td>3.531e+07</td></tr>
+<tr><td>PrincipalStress 3</td><td>Points</td><td>float64</td><td>1</td><td>-3.078e+09</td><td>1.995e+06</td></tr>
+<tr><td>PrincipalStrain 1</td><td>Points</td><td>float64</td><td>1</td><td>-6.976e-04</td><td>1.448e-02</td></tr>
+<tr><td>PrincipalStrain 2</td><td>Points</td><td>float64</td><td>1</td><td>-1.145e-02</td><td>8.690e-04</td></tr>
+<tr><td>PrincipalStrain 3</td><td>Points</td><td>float64</td><td>1</td><td>-2.787e-02</td><td>-8.375e-10</td></tr>
+<tr><td>StrainEnergyDensity</td><td>Points</td><td>float64</td><td>1</td><td>1.172e-07</td><td>2.307e+07</td></tr>
+<tr><td>PlasticStrain</td><td>Points</td><td>float64</td><td>6</td><td>0.000e+00</td><td>0.000e+00</td></tr>
+<tr><td>EquivalentPlasticStrain</td><td>Points</td><td>float64</td><td>1</td><td>0.000e+00</td><td>0.000e+00</td></tr>
+<tr><td>Rank</td><td>Cells</td><td>float64</td><td>1</td><td>0.000e+00</td><td>1.500e+01</td></tr>
+<tr><td>Material</td><td>Cells</td><td>float64</td><td>1</td><td>0.000e+00</td><td>1.000e+00</td></tr>
+<tr><td>PartID</td><td>Cells</td><td>int32</td><td>1</td><td>1.000e+00</td><td>2.000e+00</td></tr>
+</table>
+
+</td></tr> </table>
+</div>
+<br />
+<br /></section>
+<section id="plot-the-dataset">
+<h1>Plot the Dataset<a class="headerlink" href="#plot-the-dataset" title="このヘッドラインへのパーマリンク">#</a></h1>
+<p>Plot the dataset by part ID.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mesh</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">scalars</span><span class="o">=</span><span class="s1">&#39;PartID&#39;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="s1">&#39;blue&#39;</span><span class="p">],</span> <span class="n">show_scalar_bar</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+<img src="../../_images/sphx_glr_fea-hertzian-contact-pressure_001.png" srcset="../../_images/sphx_glr_fea-hertzian-contact-pressure_001.png" alt="fea hertzian contact pressure" class = "sphx-glr-single-img"/></section>
+<section id="creating-a-line-to-denote-the-point-of-contact">
+<h1>Creating a Line to Denote the Point of Contact<a class="headerlink" href="#creating-a-line-to-denote-the-point-of-contact" title="このヘッドラインへのパーマリンク">#</a></h1>
+<p>Construct a line to represent the point of contact between the cylinder and
+the plate.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://docs.python.org/3/library/functions.html#float" title="builtins.float" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">ypos</span></a> <span class="o">=</span> <span class="mf">0.024</span>
+<a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">a</span></a> <span class="o">=</span> <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <a href="https://docs.python.org/3/library/functions.html#float" title="builtins.float" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">ypos</span></a><span class="p">,</span> <span class="mf">0.2</span> <span class="o">-</span> <span class="mf">1e-4</span><span class="p">]</span>
+<a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">b</span></a> <span class="o">=</span> <span class="p">[</span><span class="mf">0.095</span><span class="p">,</span> <a href="https://docs.python.org/3/library/functions.html#float" title="builtins.float" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">ypos</span></a><span class="p">,</span> <span class="mf">0.2</span> <span class="o">-</span> <span class="mf">1e-4</span><span class="p">]</span>
+<span class="n">line</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Line</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">a</span></a><span class="p">,</span> <a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">b</span></a><span class="p">,</span> <span class="n">resolution</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">line</span><span class="o">.</span><span class="n">clear_data</span><span class="p">()</span>
+<span class="n">line</span>
+</pre></div>
+</div>
+<div class="output_subarea output_html rendered_html output_result">
+
+<table>
+<tr><th>PolyData</th><th>Information</th></tr>
+<tr><td>N Cells</td><td>1</td></tr>
+<tr><td>N Points</td><td>101</td></tr>
+<tr><td>N Strips</td><td>0</td></tr>
+<tr><td>X Bounds</td><td>9.500e-02, 1.000e-01</td></tr>
+<tr><td>Y Bounds</td><td>2.400e-02, 2.400e-02</td></tr>
+<tr><td>Z Bounds</td><td>1.999e-01, 1.999e-01</td></tr>
+<tr><td>N Arrays</td><td>0</td></tr>
+</table>
+
+
+</div>
+<br />
+<br /></section>
+<section id="sampling-the-stress-along-the-line">
+<h1>Sampling the Stress along the Line<a class="headerlink" href="#sampling-the-stress-along-the-line" title="このヘッドラインへのパーマリンク">#</a></h1>
+<p>We can sample the Z component stress along the contact edge and compare it
+with expected pressure.</p>
+<p>The expected values array is the Hertzian contact pressure and is the
+analytical solution to the non-adhesive contact problem. Computation of these
+values is an exercise left up to the reader (the radius of the cylinder is
+0.05). See <a class="reference external" href="https://en.wikipedia.org/wiki/Contact_mechanics">Contact Mechanics</a></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sample the stress</span>
+<span class="n">sampled</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">tolerance</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">)</span>
+<span class="n">x_coord</span> <span class="o">=</span> <span class="mf">0.1</span> <span class="o">-</span> <span class="n">sampled</span><span class="o">.</span><span class="n">points</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="n">samp_z_stress</span> <span class="o">=</span> <span class="o">-</span><span class="n">sampled</span><span class="p">[</span><span class="s1">&#39;Stress&#39;</span><span class="p">][:,</span> <span class="mi">2</span><span class="p">]</span>
+
+<span class="c1"># Expected Hertzian contact pressure</span>
+<a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">h_pressure</span></a> <span class="o">=</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.array.html#numpy.array" title="numpy.array" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">array</span></a><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="p">[</span><span class="mf">0.0000</span><span class="p">,</span> <span class="mi">1718094092</span><span class="p">],</span>
+        <span class="p">[</span><span class="mf">0.0002</span><span class="p">,</span> <span class="mi">1715185734</span><span class="p">],</span>
+        <span class="p">[</span><span class="mf">0.0004</span><span class="p">,</span> <span class="mi">1703502649</span><span class="p">],</span>
+        <span class="p">[</span><span class="mf">0.0006</span><span class="p">,</span> <span class="mi">1683850714</span><span class="p">],</span>
+        <span class="p">[</span><span class="mf">0.0008</span><span class="p">,</span> <span class="mi">1655946243</span><span class="p">],</span>
+        <span class="p">[</span><span class="mf">0.001</span><span class="p">,</span> <span class="mi">1619362676</span><span class="p">],</span>
+        <span class="p">[</span><span class="mf">0.0012</span><span class="p">,</span> <span class="mi">1573494764</span><span class="p">],</span>
+        <span class="p">[</span><span class="mf">0.0014</span><span class="p">,</span> <span class="mi">1517500856</span><span class="p">],</span>
+        <span class="p">[</span><span class="mf">0.0016</span><span class="p">,</span> <span class="mi">1450208504</span><span class="p">],</span>
+        <span class="p">[</span><span class="mf">0.0018</span><span class="p">,</span> <span class="mi">1369953775</span><span class="p">],</span>
+        <span class="p">[</span><span class="mf">0.002</span><span class="p">,</span> <span class="mi">1274289906</span><span class="p">],</span>
+        <span class="p">[</span><span class="mf">0.0022</span><span class="p">,</span> <span class="mi">1159408887</span><span class="p">],</span>
+        <span class="p">[</span><span class="mf">0.0024</span><span class="p">,</span> <span class="mi">1018830677</span><span class="p">],</span>
+        <span class="p">[</span><span class="mf">0.0026</span><span class="p">,</span> <span class="mf">839747409.8</span><span class="p">],</span>
+        <span class="p">[</span><span class="mf">0.0028</span><span class="p">,</span> <span class="mf">587969605.2</span><span class="p">],</span>
+        <span class="p">[</span><span class="mf">0.003</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+        <span class="p">[</span><span class="mf">0.005</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+
+<a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.plot.html#matplotlib.pyplot.plot" title="matplotlib.pyplot.plot" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">plot</span></a><span class="p">(</span><span class="n">x_coord</span><span class="p">,</span> <span class="n">samp_z_stress</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Z Component Stress&#39;</span><span class="p">)</span>
+<a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.plot.html#matplotlib.pyplot.plot" title="matplotlib.pyplot.plot" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">plot</span></a><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">h_pressure</span></a><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">h_pressure</span></a><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Hertzian contact pressure&#39;</span><span class="p">)</span>
+<a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.legend.html#matplotlib.pyplot.legend" title="matplotlib.pyplot.legend" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">legend</span></a><span class="p">()</span>
+<a href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.show.html#matplotlib.pyplot.show" title="matplotlib.pyplot.show" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">show</span></a><span class="p">()</span>
+</pre></div>
+</div>
+<img src="../../_images/sphx_glr_fea-hertzian-contact-pressure_002.png" srcset="../../_images/sphx_glr_fea-hertzian-contact-pressure_002.png" alt="fea hertzian contact pressure" class = "sphx-glr-single-img"/></section>
+<section id="visualizing-the-z-stress-distribution">
+<h1>Visualizing the Z Stress Distribution<a class="headerlink" href="#visualizing-the-z-stress-distribution" title="このヘッドラインへのパーマリンク">#</a></h1>
+<p>You can now visualize the Z stress distribution. Use <a class="reference internal" href="../../api/plotting/_autosummary/pyvista.Plotter.html#pyvista.Plotter" title="pyvista.Plotter"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.Plotter</span></code></a> to
+create a plot window and add the dataset to it.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pl</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Plotter</span><span class="p">()</span>
+<span class="n">z_stress</span> <span class="o">=</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ufunc.html#numpy.ufunc" title="numpy.ufunc" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">np</span><span class="o">.</span><span class="n">abs</span></a><span class="p">(</span><span class="n">mesh</span><span class="p">[</span><span class="s1">&#39;Stress&#39;</span><span class="p">][:,</span> <span class="mi">2</span><span class="p">])</span>
+<span class="n">pl</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span>
+    <span class="n">mesh</span><span class="p">,</span>
+    <span class="n">scalars</span><span class="o">=</span><span class="n">z_stress</span><span class="p">,</span>
+    <span class="n">clim</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.2e9</span><span class="p">],</span>
+    <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gouldian&#39;</span><span class="p">,</span>
+    <span class="n">scalar_bar_args</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="s1">&#39;Z Component Stress (Pa)&#39;</span><span class="p">,</span> <span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="s1">&#39;w&#39;</span><span class="p">},</span>
+    <span class="n">lighting</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">show_edges</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">ambient</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">pl</span><span class="o">.</span><span class="n">camera_position</span> <span class="o">=</span> <span class="s1">&#39;xz&#39;</span>
+<span class="n">pl</span><span class="o">.</span><span class="n">set_focus</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">a</span></a><span class="p">)</span>
+<span class="n">pl</span><span class="o">.</span><span class="n">camera</span><span class="o">.</span><span class="n">zoom</span><span class="p">(</span><span class="mf">2.5</span><span class="p">)</span>
+<span class="n">pl</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<img src="../../_images/sphx_glr_fea-hertzian-contact-pressure_003.png" srcset="../../_images/sphx_glr_fea-hertzian-contact-pressure_003.png" alt="fea hertzian contact pressure" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  1.936 seconds)</p>
+<div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-99-advanced-fea-hertzian-contact-pressure-py">
+<div class="sphx-glr-download sphx-glr-download-python docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/5fc67fea28e029862cfd64b2637a4bce/fea-hertzian-contact-pressure.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">fea-hertzian-contact-pressure.py</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/c3745fa5329fe8b6e27a7b497698fbf3/fea-hertzian-contact-pressure.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">fea-hertzian-contact-pressure.ipynb</span></code></a></p>
+</div>
+</div>
+<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
+</section>
+
+
+                </article>
+              
+              
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Visualize Hertzian Contact Stress</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#load-the-dataset">Load the dataset</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-the-dataset">Plot the Dataset</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-line-to-denote-the-point-of-contact">Creating a Line to Denote the Point of Contact</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#sampling-the-stress-along-the-line">Sampling the Stress along the Line</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#visualizing-the-z-stress-distribution">Visualizing the Z Stress Distribution</a></li>
+</ul>
+
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  
+  <div class="tocsection editthispage">
+    <a href="http://github.com/pyvista/pyvista/edit/main/examples/99-advanced/fea-hertzian-contact-pressure.py">
+      <i class="fa-solid fa-pencil"></i>
+      
+      
+        
+          Edit on GitHub
+        
+      
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+  <p class="copyright">
+    
+      © Copyright 2017-2023, The PyVista Developers.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item"><p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.13.3.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

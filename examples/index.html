@@ -1,0 +1,1214 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="ja" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Examples &#8212; PyVista 0.40.dev0 ドキュメント</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/thebelab.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/asciinema-player_2.6.1.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/asciinema-custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/no_search_highlight.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/summary.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/cards.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/no_italic.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/thebelab-helper.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/asciinema-player_2.6.1.js"></script>
+    <script src="../_static/translations.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+    <script src="../_static/design-tabs.js"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-140243896-1"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'UA-140243896-1');
+            </script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'examples/index';</script>
+    <script>
+        DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://docs.pyvista.org/versions.json';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = 'dev';
+        </script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="検索" href="../search.html" />
+    <link rel="next" title="Mesh Creation" href="00-load/index.html" />
+    <link rel="prev" title="Optional Features" href="../user-guide/optional_features.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="ja"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+    <span class="fa-solid fa-bars"></span>
+  </label>
+  
+  <div class="navbar-header-items__start">
+    
+      <div class="navbar-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/pyvista_logo_sm.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/pyvista_logo_sm.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+    
+  </div>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item"><nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../getting-started/index.html">
+                        Getting Started
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../user-guide/index.html">
+                        User Guide
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="#">
+                        Examples
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../api/index.html">
+                        API Reference
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../extras/index.html">
+                        Extras
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="検索" aria-label="検索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+        </div>
+      
+      
+        <div class="navbar-item">
+<script>
+document.write(`
+  <div class="version-switcher__container dropdown">
+    <button type="button" class="version-switcher__button btn btn-sm navbar-btn dropdown-toggle" data-bs-toggle="dropdown">
+      dev  <!-- this text may get changed later by javascript -->
+      <span class="caret"></span>
+    </button>
+    <div class="version-switcher__menu dropdown-menu list-group-flush py-0">
+    <!-- dropdown will be populated by javascript on page load -->
+    </div>
+  </div>
+`);
+</script></div>
+      
+        <div class="navbar-item">
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/pyvista/pyvista" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github"></i></span>
+            <label class="sr-only">GitHub</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="http://slack.pyvista.org" title="Slack Community" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fab fa-slack"></i></span>
+            <label class="sr-only">Slack Community</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/pyvista/pyvista/discussions" title="Support" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-comment fa-fw"></i></span>
+            <label class="sr-only">Support</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/pyvista/pyvista/blob/main/CONTRIBUTING.rst" title="Contributing" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-gavel fa-fw"></i></span>
+            <label class="sr-only">Contributing</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://doi.org/10.21105/joss.01450" title="The Paper" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-file-text fa-fw"></i></span>
+            <label class="sr-only">The Paper</label></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="検索" aria-label="検索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+    </div>
+  
+
+  
+    <label class="sidebar-toggle secondary-toggle" for="__secondary">
+      <span class="fa-solid fa-outdent"></span>
+    </label>
+  
+</div>
+
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          <div class="navbar-item"><nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../getting-started/index.html">
+                        Getting Started
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../user-guide/index.html">
+                        User Guide
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="#">
+                        Examples
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../api/index.html">
+                        API Reference
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../extras/index.html">
+                        Extras
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+<script>
+document.write(`
+  <div class="version-switcher__container dropdown">
+    <button type="button" class="version-switcher__button btn btn-sm navbar-btn dropdown-toggle" data-bs-toggle="dropdown">
+      dev  <!-- this text may get changed later by javascript -->
+      <span class="caret"></span>
+    </button>
+    <div class="version-switcher__menu dropdown-menu list-group-flush py-0">
+    <!-- dropdown will be populated by javascript on page load -->
+    </div>
+  </div>
+`);
+</script></div>
+        
+          <div class="navbar-item">
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/pyvista/pyvista" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github"></i></span>
+            <label class="sr-only">GitHub</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="http://slack.pyvista.org" title="Slack Community" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fab fa-slack"></i></span>
+            <label class="sr-only">Slack Community</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/pyvista/pyvista/discussions" title="Support" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-comment fa-fw"></i></span>
+            <label class="sr-only">Support</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/pyvista/pyvista/blob/main/CONTRIBUTING.rst" title="Contributing" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-gavel fa-fw"></i></span>
+            <label class="sr-only">Contributing</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://doi.org/10.21105/joss.01450" title="The Paper" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-file-text fa-fw"></i></span>
+            <label class="sr-only">The Paper</label></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item"><nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="00-load/index.html">Mesh Creation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01-filter/index.html">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02-plot/index.html">Plotting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03-widgets/index.html">Widgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04-lights/index.html">Lighting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="98-common/index.html">Common</a></li>
+<li class="toctree-l1"><a class="reference internal" href="99-advanced/index.html">Advanced</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumbs">
+  <ul class="bd-breadcrumbs" role="navigation" aria-label="Breadcrumb">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page">Examples</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="examples">
+<span id="ref-examples"></span><h1>Examples<a class="headerlink" href="#examples" title="このヘッドラインへのパーマリンク">#</a></h1>
+<p>Here is a gallery of several examples demonstrating what PyVista can
+do.</p>
+<p>All of these examples are live and available on MyBinder.</p>
+<a class="reference external image-reference" href="https://mybinder.org/v2/gh/pyvista/pyvista-examples/master"><img alt="Launch on Binder" src="https://static.mybinder.org/badge_logo.svg" /></a>
+<div class="sphx-glr-thumbnails"></div><section id="mesh-creation">
+<h2>Mesh Creation<a class="headerlink" href="#mesh-creation" title="このヘッドラインへのパーマリンク">#</a></h2>
+<p>These examples demo how to read various file types into PyVista mesh objects,
+create meshes from NumPy arrays, and how to create primitive geometric objects
+like spheres, arrows, cubes, ellipsoids and more.</p>
+<p>Once a mesh is loaded, it is ready for plotting with just a few lines
+of code - explore these examples to get started with using PyVista for your
+data.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Create an explicit structured grid from NumPy arrays."><img alt="" src="../_images/sphx_glr_create-explicit-structured-grid_thumb.png" />
+<p><a class="reference internal" href="00-load/create-explicit-structured-grid.html#sphx-glr-examples-00-load-create-explicit-structured-grid-py"><span class="std std-ref">Creating an Explicit Structured Grid</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Creating an Explicit Structured Grid</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="The &quot;Hello, world!&quot; of VTK"><img alt="" src="../_images/sphx_glr_create-geometric-objects_thumb.png" />
+<p><a class="reference internal" href="00-load/create-geometric-objects.html#sphx-glr-examples-00-load-create-geometric-objects-py"><span class="std std-ref">Geometric Objects</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Geometric Objects</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Create a Kochanek spline/polyline from a numpy array of XYZ vertices."><img alt="" src="../_images/sphx_glr_create-kochanek-spline_thumb.png" />
+<p><a class="reference internal" href="00-load/create-kochanek-spline.html#sphx-glr-examples-00-load-create-kochanek-spline-py"><span class="std std-ref">Create a Kochanek Spline</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Create a Kochanek Spline</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Creating parametric objects"><img alt="" src="../_images/sphx_glr_create-parametric-geometric-objects_thumb.png" />
+<p><a class="reference internal" href="00-load/create-parametric-geometric-objects.html#sphx-glr-examples-00-load-create-parametric-geometric-objects-py"><span class="std std-ref">Parametric Geometric Objects</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Parametric Geometric Objects</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Here we use pyvista.Box to make pixel art. Pixel string source and license."><img alt="" src="../_images/sphx_glr_create-pixel-art_thumb.png" />
+<p><a class="reference internal" href="00-load/create-pixel-art.html#sphx-glr-examples-00-load-create-pixel-art-py"><span class="std std-ref">Pixel Art of ALIEN MONSTERS</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Pixel Art of ALIEN MONSTERS</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="PyVista wraps the vtk.vtkPlatonicSolidSource filter as pyvista.PlatonicSolid."><img alt="" src="../_images/sphx_glr_create-platonic-solids_thumb.png" />
+<p><a class="reference internal" href="00-load/create-platonic-solids.html#sphx-glr-examples-00-load-create-platonic-solids-py"><span class="std std-ref">Platonic Solids</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Platonic Solids</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Create a pyvista.PolyData object from a point cloud of vertices and scalar arrays for those poi..."><img alt="" src="../_images/sphx_glr_create-point-cloud_thumb.png" />
+<p><a class="reference internal" href="00-load/create-point-cloud.html#sphx-glr-examples-00-load-create-point-cloud-py"><span class="std std-ref">Create Point Cloud</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Create Point Cloud</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="A pyvista.PointSet is a concrete class representing a set of points that specifies the interfac..."><img alt="" src="../_images/sphx_glr_create-pointset_thumb.png" />
+<p><a class="reference internal" href="00-load/create-pointset.html#sphx-glr-examples-00-load-create-pointset-py"><span class="std std-ref">Create a PointSet</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Create a PointSet</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Creating a pyvista.PolyData (surface mesh) from vertices and faces."><img alt="" src="../_images/sphx_glr_create-poly_thumb.png" />
+<p><a class="reference internal" href="00-load/create-poly.html#sphx-glr-examples-00-load-create-poly-py"><span class="std std-ref">Create PolyData</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Create PolyData</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="This example shows how to build a simple pyvista.PolyData using triangle strips."><img alt="" src="../_images/sphx_glr_create-polydata-strips_thumb.png" />
+<p><a class="reference internal" href="00-load/create-polydata-strips.html#sphx-glr-examples-00-load-create-polydata-strips-py"><span class="std std-ref">Triangle Strips</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Triangle Strips</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="This example shows how to build a simple pyvista.UnstructuredGrid using polyhedra. We will be u..."><img alt="" src="../_images/sphx_glr_create-polyhedron_thumb.png" />
+<p><a class="reference internal" href="00-load/create-polyhedron.html#sphx-glr-examples-00-load-create-polyhedron-py"><span class="std std-ref">Unstructured Grid with Polyhedra</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Unstructured Grid with Polyhedra</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Create a spline/polyline from a numpy array of XYZ vertices using pyvista.Spline."><img alt="" src="../_images/sphx_glr_create-spline_thumb.png" />
+<p><a class="reference internal" href="00-load/create-spline.html#sphx-glr-examples-00-load-create-spline-py"><span class="std std-ref">Creating a Spline</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Creating a Spline</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Create a StructuredGrid surface from NumPy arrays"><img alt="" src="../_images/sphx_glr_create-structured-surface_thumb.png" />
+<p><a class="reference internal" href="00-load/create-structured-surface.html#sphx-glr-examples-00-load-create-structured-surface-py"><span class="std std-ref">Creating a Structured Surface</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Creating a Structured Surface</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Drape a surface (2D array) from a line in 3D space."><img alt="" src="../_images/sphx_glr_create-surface-draped_thumb.png" />
+<p><a class="reference internal" href="00-load/create-surface-draped.html#sphx-glr-examples-00-load-create-surface-draped-py"><span class="std std-ref">Drape 2D Surface From Line</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Drape 2D Surface From Line</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Create a surface from a set of points through a Delaunay triangulation."><img alt="" src="../_images/sphx_glr_create-tri-surface_thumb.png" />
+<p><a class="reference internal" href="00-load/create-tri-surface.html#sphx-glr-examples-00-load-create-tri-surface-py"><span class="std std-ref">Create Triangulated Surface</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Create Triangulated Surface</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Plot connections between points in 3D as cylinders, colored by scalars."><img alt="" src="../_images/sphx_glr_create-truss_thumb.png" />
+<p><a class="reference internal" href="00-load/create-truss.html#sphx-glr-examples-00-load-create-truss-py"><span class="std std-ref">Plot Truss-like FEA Solution with Cylinders</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Plot Truss-like FEA Solution with Cylinders</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Create a simple uniform grid from a 3D NumPy array of values."><img alt="" src="../_images/sphx_glr_create-uniform-grid_thumb.png" />
+<p><a class="reference internal" href="00-load/create-uniform-grid.html#sphx-glr-examples-00-load-create-uniform-grid-py"><span class="std std-ref">Creating a Uniform Grid</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Creating a Uniform Grid</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Create an irregular, unstructured grid from NumPy arrays."><img alt="" src="../_images/sphx_glr_create-unstructured-surface_thumb.png" />
+<p><a class="reference internal" href="00-load/create-unstructured-surface.html#sphx-glr-examples-00-load-create-unstructured-surface-py"><span class="std std-ref">Creating an Unstructured Grid</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Creating an Unstructured Grid</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="This example extends the create_unstructured_example example by including an explanation of lin..."><img alt="" src="../_images/sphx_glr_linear-cells_thumb.png" />
+<p><a class="reference internal" href="00-load/linear-cells.html#sphx-glr-examples-00-load-linear-cells-py"><span class="std std-ref">Linear Cells</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Linear Cells</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="First, download the examples.  Note that here we&#x27;re using a high dynamic range texture since gl..."><img alt="" src="../_images/sphx_glr_load-gltf_thumb.png" />
+<p><a class="reference internal" href="00-load/load-gltf.html#sphx-glr-examples-00-load-load-gltf-py"><span class="std std-ref">Working with glTF Files</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Working with glTF Files</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Working with VRML Files"><img alt="" src="../_images/sphx_glr_load-vrml_thumb.png" />
+<p><a class="reference internal" href="00-load/load-vrml.html#sphx-glr-examples-00-load-load-vrml-py"><span class="std std-ref">Working with VRML Files</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Working with VRML Files</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="PyVista leverages `meshio`_ to read many mesh formats not natively supported by VTK including t..."><img alt="" src="../_images/sphx_glr_read-dolfin_thumb.png" />
+<p><a class="reference internal" href="00-load/read-dolfin.html#sphx-glr-examples-00-load-read-dolfin-py"><span class="std std-ref">Read FEniCS/Dolfin Meshes</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Read FEniCS/Dolfin Meshes</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Read a dataset from a known file type."><img alt="" src="../_images/sphx_glr_read-file_thumb.png" />
+<p><a class="reference internal" href="00-load/read-file.html#sphx-glr-examples-00-load-read-file-py"><span class="std std-ref">Load and Plot from a File</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Load and Plot from a File</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Read and plot image files (JPEG, TIFF, PNG, etc)."><img alt="" src="../_images/sphx_glr_read-image_thumb.png" />
+<p><a class="reference internal" href="00-load/read-image.html#sphx-glr-examples-00-load-read-image-py"><span class="std std-ref">Read Image Files</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Read Image Files</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="The VTK library supports parallel file formats. Reading meshes broken up into several files is ..."><img alt="" src="../_images/sphx_glr_read-parallel_thumb.png" />
+<p><a class="reference internal" href="00-load/read-parallel.html#sphx-glr-examples-00-load-read-parallel-py"><span class="std std-ref">Parallel Files</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Parallel Files</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Load data using a Reader"><img alt="" src="../_images/sphx_glr_reader_thumb.png" />
+<p><a class="reference internal" href="00-load/reader.html#sphx-glr-examples-00-load-reader-py"><span class="std std-ref">Load data using a Reader</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Load data using a Reader</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Use a topographic surface to create a 3D terrain-following mesh."><img alt="" src="../_images/sphx_glr_terrain-mesh_thumb.png" />
+<p><a class="reference internal" href="00-load/terrain-mesh.html#sphx-glr-examples-00-load-terrain-mesh-py"><span class="std std-ref">Terrain Following Mesh</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Terrain Following Mesh</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="- numpy arrays - trimesh.Trimesh meshes - VTK objects"><img alt="" src="../_images/sphx_glr_wrap-trimesh_thumb.png" />
+<p><a class="reference internal" href="00-load/wrap-trimesh.html#sphx-glr-examples-00-load-wrap-trimesh-py"><span class="std std-ref">Wrapping Other Objects</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Wrapping Other Objects</div>
+</div></div></section>
+<section id="filtering">
+<h2>Filtering<a class="headerlink" href="#filtering" title="このヘッドラインへのパーマリンク">#</a></h2>
+<p>These examples show case various mesh analysis and filtering routines present
+in the <a class="reference internal" href="../api/core/filters.html#filters-ref"><span class="std std-ref">Filters</span></a> module. Explore these demos to perform tasks such as:</p>
+<ul class="simple">
+<li><p>Slicing and cutting meshes</p></li>
+<li><p>Computing mesh properties like volume, area, and surface normals</p></li>
+<li><p>Mesh decimation</p></li>
+<li><p>Extract regions of one mesh using another mesh's surface</p></li>
+<li><p>Ray tracing through surface meshes</p></li>
+<li><p>Resampling and interpolating scalar/vector values across meshes</p></li>
+<li><p>Integrating a vector field to generate streamlines</p></li>
+<li><p>Smoothing surfaces</p></li>
+</ul>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Perform boolean operations with closed (manifold) surfaces."><img alt="" src="../_images/sphx_glr_boolean-operations_thumb.png" />
+<p><a class="reference internal" href="01-filter/boolean-operations.html#sphx-glr-examples-01-filter-boolean-operations-py"><span class="std std-ref">Boolean Operations</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Boolean Operations</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Extract the coordinates of the centers of all cells or faces in a mesh."><img alt="" src="../_images/sphx_glr_cell-centers_thumb.png" />
+<p><a class="reference internal" href="01-filter/cell-centers.html#sphx-glr-examples-01-filter-cell-centers-py"><span class="std std-ref">Extract Cell Centers</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Extract Cell Centers</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Clip any PyVista dataset by a pyvista.PolyData surface mesh using the pyvista.DataSetFilters.cl..."><img alt="" src="../_images/sphx_glr_clipping-with-surface_thumb.png" />
+<p><a class="reference internal" href="01-filter/clipping-with-surface.html#sphx-glr-examples-01-filter-clipping-with-surface-py"><span class="std std-ref">Clipping with a Surface</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Clipping with a Surface</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Clip/cut any dataset using planes or boxes."><img alt="" src="../_images/sphx_glr_clipping_thumb.png" />
+<p><a class="reference internal" href="01-filter/clipping.html#sphx-glr-examples-01-filter-clipping-py"><span class="std std-ref">Clipping with Planes &amp; Boxes</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Clipping with Planes & Boxes</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="This example use the pyvista.PolyDataFilters.collision filter to detect the faces from one sphe..."><img alt="" src="../_images/sphx_glr_collisions_thumb.png" />
+<p><a class="reference internal" href="01-filter/collisions.html#sphx-glr-examples-01-filter-collisions-py"><span class="std std-ref">Collision</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Collision</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Computing Surface Normals"><img alt="" src="../_images/sphx_glr_compute-normals_thumb.png" />
+<p><a class="reference internal" href="01-filter/compute-normals.html#sphx-glr-examples-01-filter-compute-normals-py"><span class="std std-ref">Computing Surface Normals</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Computing Surface Normals</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip=" Calculate mass properties such as the volume or area of datasets"><img alt="" src="../_images/sphx_glr_compute-volume_thumb.png" />
+<p><a class="reference internal" href="01-filter/compute-volume.html#sphx-glr-examples-01-filter-compute-volume-py"><span class="std std-ref">Volumetric Analysis</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Volumetric Analysis</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Use the connectivity filter to remove noisy isosurfaces."><img alt="" src="../_images/sphx_glr_connectivity_thumb.png" />
+<p><a class="reference internal" href="01-filter/connectivity.html#sphx-glr-examples-01-filter-connectivity-py"><span class="std std-ref">Connectivity</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Connectivity</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Generate iso-lines or -surfaces for the scalars of a surface or volume."><img alt="" src="../_images/sphx_glr_contouring_thumb.png" />
+<p><a class="reference internal" href="01-filter/contouring.html#sphx-glr-examples-01-filter-contouring-py"><span class="std std-ref">Contouring</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Contouring</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Decimate a mesh"><img alt="" src="../_images/sphx_glr_decimate_thumb.png" />
+<p><a class="reference internal" href="01-filter/decimate.html#sphx-glr-examples-01-filter-decimate-py"><span class="std std-ref">Decimation</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Decimation</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Compute the average thickness between two surfaces."><img alt="" src="../_images/sphx_glr_distance-between-surfaces_thumb.png" />
+<p><a class="reference internal" href="01-filter/distance-between-surfaces.html#sphx-glr-examples-01-filter-distance-between-surfaces-py"><span class="std std-ref">Distance Between Two Surfaces</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Distance Between Two Surfaces</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Extract the cells in a mesh that exist inside or outside a closed surface of another mesh"><img alt="" src="../_images/sphx_glr_extract-cells-inside-surface_thumb.png" />
+<p><a class="reference internal" href="01-filter/extract-cells-inside-surface.html#sphx-glr-examples-01-filter-extract-cells-inside-surface-py"><span class="std std-ref">Extract Cells Inside Surface</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Extract Cells Inside Surface</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Extract edges from a surface."><img alt="" src="../_images/sphx_glr_extract-edges_thumb.png" />
+<p><a class="reference internal" href="01-filter/extract-edges.html#sphx-glr-examples-01-filter-extract-edges-py"><span class="std std-ref">Extract Edges</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Extract Edges</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="You can extract the surface of nearly any object within pyvista using the extract_surface filte..."><img alt="" src="../_images/sphx_glr_extract-surface_thumb.png" />
+<p><a class="reference internal" href="01-filter/extract-surface.html#sphx-glr-examples-01-filter-extract-surface-py"><span class="std std-ref">Extract Surface</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Extract Surface</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="This takes polygonal data as input and generates polygonal data on output. The input dataset is..."><img alt="" src="../_images/sphx_glr_extrude-rotate_thumb.png" />
+<p><a class="reference internal" href="01-filter/extrude-rotate.html#sphx-glr-examples-01-filter-extrude-rotate-py"><span class="std std-ref">Extrude Rotation</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Extrude Rotation</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Extrude Trim"><img alt="" src="../_images/sphx_glr_extrude-trim_thumb.png" />
+<p><a class="reference internal" href="01-filter/extrude-trim.html#sphx-glr-examples-01-filter-extrude-trim-py"><span class="std std-ref">Extrude Trim</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Extrude Trim</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Generate a surface from a scalar field using the flying edges and marching cubes filters as pro..."><img alt="" src="../_images/sphx_glr_flying_edges_thumb.png" />
+<p><a class="reference internal" href="01-filter/flying_edges.html#sphx-glr-examples-01-filter-flying-edges-py"><span class="std std-ref">Marching Cubes</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Marching Cubes</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Perform a Gaussian convolution on a uniformly gridded data set."><img alt="" src="../_images/sphx_glr_gaussian-smoothing_thumb.png" />
+<p><a class="reference internal" href="01-filter/gaussian-smoothing.html#sphx-glr-examples-01-filter-gaussian-smoothing-py"><span class="std std-ref">Gaussian Smoothing</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Gaussian Smoothing</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Calculates the geodesic path between two vertices using Dijkstra&#x27;s algorithm"><img alt="" src="../_images/sphx_glr_geodesic_thumb.png" />
+<p><a class="reference internal" href="01-filter/geodesic.html#sphx-glr-examples-01-filter-geodesic-py"><span class="std std-ref">Geodesic Paths</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Geodesic Paths</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Use vectors in a dataset to plot and orient glyphs/geometric objects."><img alt="" src="../_images/sphx_glr_glyphs_thumb.png" />
+<p><a class="reference internal" href="01-filter/glyphs.html#sphx-glr-examples-01-filter-glyphs-py"><span class="std std-ref">Plotting Glyphs (Vectors or PolyData)</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Plotting Glyphs (Vectors or PolyData)</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="vtk supports tables of glyphs from which glyphs are looked up. This example demonstrates this f..."><img alt="" src="../_images/sphx_glr_glyphs_table_thumb.png" />
+<p><a class="reference internal" href="01-filter/glyphs_table.html#sphx-glr-examples-01-filter-glyphs-table-py"><span class="std std-ref">Table of Glyphs</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Table of Glyphs</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Estimate the gradient of a scalar or vector field in a data set."><img alt="" src="../_images/sphx_glr_gradients_thumb.png" />
+<p><a class="reference internal" href="01-filter/gradients.html#sphx-glr-examples-01-filter-gradients-py"><span class="std std-ref">Compute Gradients of a Field</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Compute Gradients of a Field</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="This example shows how to apply a Fast Fourier Transform (FFT) to a pyvista.UniformGrid using p..."><img alt="" src="../_images/sphx_glr_image-fft-perlin-noise_thumb.png" />
+<p><a class="reference internal" href="01-filter/image-fft-perlin-noise.html#sphx-glr-examples-01-filter-image-fft-perlin-noise-py"><span class="std std-ref">Fast Fourier Transform with Perlin Noise</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Fast Fourier Transform with Perlin Noise</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="This example shows how to apply a Fast Fourier Transform (FFT) to a pyvista.UniformGrid using p..."><img alt="" src="../_images/sphx_glr_image-fft_thumb.png" />
+<p><a class="reference internal" href="01-filter/image-fft.html#sphx-glr-examples-01-filter-image-fft-py"><span class="std std-ref">Fast Fourier Transform</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Fast Fourier Transform</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Integrate data over a surface using the pyvista.DataSetFilters.integrate_data filter."><img alt="" src="../_images/sphx_glr_integrate-data_thumb.png" />
+<p><a class="reference internal" href="01-filter/integrate-data.html#sphx-glr-examples-01-filter-integrate-data-py"><span class="std std-ref">Integrate Data</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Integrate Data</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Interpolate one mesh&#x27;s point/cell arrays onto another mesh&#x27;s nodes using a Gaussian Kernel."><img alt="" src="../_images/sphx_glr_interpolate_thumb.png" />
+<p><a class="reference internal" href="01-filter/interpolate.html#sphx-glr-examples-01-filter-interpolate-py"><span class="std std-ref">Interpolating</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Interpolating</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Leverage powerful VTK algorithms for computing mesh quality."><img alt="" src="../_images/sphx_glr_mesh-quality_thumb.png" />
+<p><a class="reference internal" href="01-filter/mesh-quality.html#sphx-glr-examples-01-filter-mesh-quality-py"><span class="std std-ref">Computing Mesh Quality</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Computing Mesh Quality</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Single line segment ray tracing for PolyData objects."><img alt="" src="../_images/sphx_glr_poly-ray-trace_thumb.png" />
+<p><a class="reference internal" href="01-filter/poly-ray-trace.html#sphx-glr-examples-01-filter-poly-ray-trace-py"><span class="std std-ref">Ray Tracing</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Ray Tracing</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="pyvista.PolyData surfaces and pointsets can easily be projected to a plane defined by a normal ..."><img alt="" src="../_images/sphx_glr_project-plane_thumb.png" />
+<p><a class="reference internal" href="01-filter/project-plane.html#sphx-glr-examples-01-filter-project-plane-py"><span class="std std-ref">Project to a Plane</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Project to a Plane</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="This example reflects a mesh across a plane."><img alt="" src="../_images/sphx_glr_reflect_thumb.png" />
+<p><a class="reference internal" href="01-filter/reflect.html#sphx-glr-examples-01-filter-reflect-py"><span class="std std-ref">Reflect Meshes</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Reflect Meshes</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Resample one mesh&#x27;s point/cell arrays onto another mesh&#x27;s nodes."><img alt="" src="../_images/sphx_glr_resample_thumb.png" />
+<p><a class="reference internal" href="01-filter/resample.html#sphx-glr-examples-01-filter-resample-py"><span class="std std-ref">Resampling</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Resampling</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Rotations of a mesh about its axes. In this model, the x axis is from the left to right; the y ..."><img alt="" src="../_images/sphx_glr_rotate_thumb.png" />
+<p><a class="reference internal" href="01-filter/rotate.html#sphx-glr-examples-01-filter-rotate-py"><span class="std std-ref">Rotations</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Rotations</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Perlin noise is atype of gradient noise often used by visual effects artists to increase the ap..."><img alt="" src="../_images/sphx_glr_sampling_functions_2d_thumb.png" />
+<p><a class="reference internal" href="01-filter/sampling_functions_2d.html#sphx-glr-examples-01-filter-sampling-functions-2d-py"><span class="std std-ref">Sample Function: Perlin Noise in 2D</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Sample Function: Perlin Noise in 2D</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Video games like Minecraft use Perlin noise to create terrain.  Here, we create a voxelized mes..."><img alt="" src="../_images/sphx_glr_sampling_functions_3d_thumb.png" />
+<p><a class="reference internal" href="01-filter/sampling_functions_3d.html#sphx-glr-examples-01-filter-sampling-functions-3d-py"><span class="std std-ref">Sample Function: Perlin Noise in 3D</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Sample Function: Perlin Noise in 3D</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Extract thin planar slices from a volume."><img alt="" src="../_images/sphx_glr_slicing_thumb.png" />
+<p><a class="reference internal" href="01-filter/slicing.html#sphx-glr-examples-01-filter-slicing-py"><span class="std std-ref">Slicing</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Slicing</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Integrate a vector field to generate streamlines."><img alt="" src="../_images/sphx_glr_streamlines_thumb.png" />
+<p><a class="reference internal" href="01-filter/streamlines.html#sphx-glr-examples-01-filter-streamlines-py"><span class="std std-ref">Streamlines</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Streamlines</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Integrate a vector field to generate streamlines on a 2D surface."><img alt="" src="../_images/sphx_glr_streamlines_2D_thumb.png" />
+<p><a class="reference internal" href="01-filter/streamlines_2D.html#sphx-glr-examples-01-filter-streamlines-2d-py"><span class="std std-ref">2D Streamlines</span></a></p>
+  <div class="sphx-glr-thumbnail-title">2D Streamlines</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Increase the number of triangles in a single, connected triangular mesh."><img alt="" src="../_images/sphx_glr_subdivide_thumb.png" />
+<p><a class="reference internal" href="01-filter/subdivide.html#sphx-glr-examples-01-filter-subdivide-py"><span class="std std-ref">Subdivide Cells</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Subdivide Cells</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Smoothing rough edges of a surface mesh"><img alt="" src="../_images/sphx_glr_surface-smoothing_thumb.png" />
+<p><a class="reference internal" href="01-filter/surface-smoothing.html#sphx-glr-examples-01-filter-surface-smoothing-py"><span class="std std-ref">Surface Smoothing</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Surface Smoothing</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Surface reconstruction has a dedicated filter in PyVista and is handled by pyvista.PolyDataFilt..."><img alt="" src="../_images/sphx_glr_surface_reconstruction_thumb.png" />
+<p><a class="reference internal" href="01-filter/surface_reconstruction.html#sphx-glr-examples-01-filter-surface-reconstruction-py"><span class="std std-ref">Surface Reconstruction</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Surface Reconstruction</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Using common filters like thresholding and clipping."><img alt="" src="../_images/sphx_glr_using-filters_thumb.png" />
+<p><a class="reference internal" href="01-filter/using-filters.html#sphx-glr-examples-01-filter-using-filters-py"><span class="std std-ref">Using Common Filters</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Using Common Filters</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Create a voxel model (like legos) of a closed surface or volumetric mesh."><img alt="" src="../_images/sphx_glr_voxelize_thumb.png" />
+<p><a class="reference internal" href="01-filter/voxelize.html#sphx-glr-examples-01-filter-voxelize-py"><span class="std std-ref">Voxelize a Surface Mesh</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Voxelize a Surface Mesh</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="This example applies the warp_by_vector filter to a sphere mesh that has 3D displacement vector..."><img alt="" src="../_images/sphx_glr_warp-by-vector_thumb.png" />
+<p><a class="reference internal" href="01-filter/warp-by-vector.html#sphx-glr-examples-01-filter-warp-by-vector-py"><span class="std std-ref">Warping by Vectors</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Warping by Vectors</div>
+</div></div></section>
+<section id="plotting">
+<h2>Plotting<a class="headerlink" href="#plotting" title="このヘッドラインへのパーマリンク">#</a></h2>
+<p>These examples show case many of the possibilities for altering how you display
+spatial data. Explore these examples to learn how to leverage our powerful 3D
+plotting routines to perform tasks like:</p>
+<ul class="simple">
+<li><p>Color mapping scalar values with <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> colormaps</p></li>
+<li><p>Creating animations as GIFs or movie files</p></li>
+<li><p>Showing the edges and nodes of different mesh types</p></li>
+<li><p>Use sophisticated lighting techniques like smooth shading or Eye Dome Lighting</p></li>
+<li><p>Glyph a vector or scalar field on a mesh (place/orient a mesh on another mesh's nodes and scale/orient based on data values)</p></li>
+<li><p>Label points in 3D space along side your meshes</p></li>
+<li><p>Creating side-by-side comparisons</p></li>
+<li><p>Making a dataset transparent or using a scalar value to map opacity</p></li>
+<li><p>Adding textures/images draped over a mesh (texture mapping)</p></li>
+<li><p>Rendering a depth image</p></li>
+</ul>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="PyVista supports three types of anti-aliasing:"><img alt="" src="../_images/sphx_glr_anti-aliasing_thumb.png" />
+<p><a class="reference internal" href="02-plot/anti-aliasing.html#sphx-glr-examples-02-plot-anti-aliasing-py"><span class="std std-ref">Anti-Aliasing</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Anti-Aliasing</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="By default front and backface rendering uses the same properties. In certain situations it can ..."><img alt="" src="../_images/sphx_glr_backface_props_thumb.png" />
+<p><a class="reference internal" href="02-plot/backface_props.html#sphx-glr-examples-02-plot-backface-props-py"><span class="std std-ref">Setting Backface Properties</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Setting Backface Properties</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Add a background image with pyvista.Plotter.add_background_image."><img alt="" src="../_images/sphx_glr_background_image_thumb.png" />
+<p><a class="reference internal" href="02-plot/background_image.html#sphx-glr-examples-02-plot-background-image-py"><span class="std std-ref">Background Image</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Background Image</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Blurring"><img alt="" src="../_images/sphx_glr_blurring_thumb.png" />
+<p><a class="reference internal" href="02-plot/blurring.html#sphx-glr-examples-02-plot-blurring-py"><span class="std std-ref">Blurring</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Blurring</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="This example demonstrates to show bounds within a pyvista.Plotter using pyvista.Plotter.show_gr..."><img alt="" src="../_images/sphx_glr_bounds_thumb.png" />
+<p><a class="reference internal" href="02-plot/bounds.html#sphx-glr-examples-02-plot-bounds-py"><span class="std std-ref">Plotting Bounds</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Plotting Bounds</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="This example shows how different types of charts can be added to the scene. A more complex exam..."><img alt="" src="../_images/sphx_glr_chart_basics_thumb.png" />
+<p><a class="reference internal" href="02-plot/chart_basics.html#sphx-glr-examples-02-plot-chart-basics-py"><span class="std std-ref">Chart Basics</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Chart Basics</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="This example shows how you can combine multiple charts as overlays in the same renderer. For an..."><img alt="" src="../_images/sphx_glr_chart_overlays_thumb.png" />
+<p><a class="reference internal" href="02-plot/chart_overlays.html#sphx-glr-examples-02-plot-chart-overlays-py"><span class="std std-ref">Chart Overlays</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Chart Overlays</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="This example demonstrates how to remove elements from a scene."><img alt="" src="../_images/sphx_glr_clear_thumb.png" />
+<p><a class="reference internal" href="02-plot/clear.html#sphx-glr-examples-02-plot-clear-py"><span class="std std-ref">Clearing a Mesh or the Entire Plot</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Clearing a Mesh or the Entire Plot</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Use a Matplotlib, Colorcet, cmocean, or custom colormap when plotting scalar values."><img alt="" src="../_images/sphx_glr_cmap_thumb.png" />
+<p><a class="reference internal" href="02-plot/cmap.html#sphx-glr-examples-02-plot-cmap-py"><span class="std std-ref">Colormap Choices</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Colormap Choices</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Cycle through colors when sequentially adding meshes to a plotter."><img alt="" src="../_images/sphx_glr_color_cycler_thumb.png" />
+<p><a class="reference internal" href="02-plot/color_cycler.html#sphx-glr-examples-02-plot-color-cycler-py"><span class="std std-ref">Color Cycling</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Color Cycling</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Demonstrate how to pick individual blocks of a pyvista.MultiBlock using pyvista.Plotter.enable_..."><img alt="" src="../_images/sphx_glr_composite-picking_thumb.png" />
+<p><a class="reference internal" href="02-plot/composite-picking.html#sphx-glr-examples-02-plot-composite-picking-py"><span class="std std-ref">Composite Picking</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Composite Picking</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="For this example, we will showcase the difference that depth peeling provides."><img alt="" src="../_images/sphx_glr_depth-peeling_thumb.png" />
+<p><a class="reference internal" href="02-plot/depth-peeling.html#sphx-glr-examples-02-plot-depth-peeling-py"><span class="std std-ref">Depth Peeling</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Depth Peeling</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="This example shows how you can use pyvista.Plotter.enable_depth_of_field to highlight part of y..."><img alt="" src="../_images/sphx_glr_depth_of_field_thumb.png" />
+<p><a class="reference internal" href="02-plot/depth_of_field.html#sphx-glr-examples-02-plot-depth-of-field-py"><span class="std std-ref">Depth of Field Plotting</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Depth of Field Plotting</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Create a spline and generate labels along the spline based on distance along a spline."><img alt="" src="../_images/sphx_glr_distance-along-spline_thumb.png" />
+<p><a class="reference internal" href="02-plot/distance-along-spline.html#sphx-glr-examples-02-plot-distance-along-spline-py"><span class="std std-ref">Label based on Distance on Line</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Label based on Distance on Line</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Show the edges of all geometries within a mesh"><img alt="" src="../_images/sphx_glr_edges_thumb.png" />
+<p><a class="reference internal" href="02-plot/edges.html#sphx-glr-examples-02-plot-edges-py"><span class="std std-ref">Show Edges</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Show Edges</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Eye-Dome Lighting (EDL) is a non-photorealistic, image-based shading technique designed to impr..."><img alt="" src="../_images/sphx_glr_edl_thumb.png" />
+<p><a class="reference internal" href="02-plot/edl.html#sphx-glr-examples-02-plot-edl-py"><span class="std std-ref">Eye Dome Lighting</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Eye Dome Lighting</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Add a floor/wall at the boundary of the rendering scene."><img alt="" src="../_images/sphx_glr_floors_thumb.png" />
+<p><a class="reference internal" href="02-plot/floors.html#sphx-glr-examples-02-plot-floors-py"><span class="std std-ref">Plot with Floors</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Plot with Floors</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Specify specific cells to hide when plotting."><img alt="" src="../_images/sphx_glr_ghost-cells_thumb.png" />
+<p><a class="reference internal" href="02-plot/ghost-cells.html#sphx-glr-examples-02-plot-ghost-cells-py"><span class="std std-ref">Hide Cells with Ghosting</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Hide Cells with Ghosting</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Create a GIF Movie"><img alt="" src="../_images/sphx_glr_gif_thumb.png" />
+<p><a class="reference internal" href="02-plot/gif.html#sphx-glr-examples-02-plot-gif-py"><span class="std std-ref">Create a GIF Movie</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Create a GIF Movie</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Plot a depth image as viewed from a camera overlooking the &quot;hills&quot; example mesh."><img alt="" src="../_images/sphx_glr_image_depth_thumb.png" />
+<p><a class="reference internal" href="02-plot/image_depth.html#sphx-glr-examples-02-plot-image-depth-py"><span class="std std-ref">Render a depth image</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Render a depth image</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="The pyvista.Plotter.add_mesh method has an interpolate_before_map argument that affects the way..."><img alt="" src="../_images/sphx_glr_interpolate-before-map_thumb.png" />
+<p><a class="reference internal" href="02-plot/interpolate-before-map.html#sphx-glr-examples-02-plot-interpolate-before-map-py"><span class="std std-ref">Interpolate Before Mapping</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Interpolate Before Mapping</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Make an animation of an isovalue through a volumetric dataset"><img alt="" src="../_images/sphx_glr_isovalue_thumb.png" />
+<p><a class="reference internal" href="02-plot/isovalue.html#sphx-glr-examples-02-plot-isovalue-py"><span class="std std-ref">Moving Isovalue</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Moving Isovalue</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Use string arrays in a point set to label points"><img alt="" src="../_images/sphx_glr_labels_thumb.png" />
+<p><a class="reference internal" href="02-plot/labels.html#sphx-glr-examples-02-plot-labels-py"><span class="std std-ref">Label Points</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Label Points</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Control aspects of the rendered mesh&#x27;s lighting such as Ambient, Diffuse, and Specular. These o..."><img alt="" src="../_images/sphx_glr_lighting_mesh_thumb.png" />
+<p><a class="reference internal" href="02-plot/lighting_mesh.html#sphx-glr-examples-02-plot-lighting-mesh-py"><span class="std std-ref">Lighting Properties</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Lighting Properties</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Linked Views in Subplots"><img alt="" src="../_images/sphx_glr_linked_thumb.png" />
+<p><a class="reference internal" href="02-plot/linked.html#sphx-glr-examples-02-plot-linked-py"><span class="std std-ref">Linked Views in Subplots</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Linked Views in Subplots</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="The pyvista.LookupTable can be used to have fine-tuned control over the mapping between a pyvis..."><img alt="" src="../_images/sphx_glr_lookup-table_thumb.png" />
+<p><a class="reference internal" href="02-plot/lookup-table.html#sphx-glr-examples-02-plot-lookup-table-py"><span class="std std-ref">Lookup Tables</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Lookup Tables</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Picking Meshes"><img alt="" src="../_images/sphx_glr_mesh-picking_thumb.png" />
+<p><a class="reference internal" href="02-plot/mesh-picking.html#sphx-glr-examples-02-plot-mesh-picking-py"><span class="std std-ref">Picking Meshes</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Picking Meshes</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Create an animated MP4 movie of a rendering scene."><img alt="" src="../_images/sphx_glr_movie_thumb.png" />
+<p><a class="reference internal" href="02-plot/movie.html#sphx-glr-examples-02-plot-movie-py"><span class="std std-ref">Create a MP4 Movie</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Create a MP4 Movie</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Create an animated GIF by generating glyphs using pyvista.DataSetFilters.glyph using pyvista.Sp..."><img alt="" src="../_images/sphx_glr_movie_glyphs_thumb.png" />
+<p><a class="reference internal" href="02-plot/movie_glyphs.html#sphx-glr-examples-02-plot-movie-glyphs-py"><span class="std std-ref">Save a Movie Using Glyphs</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Save a Movie Using Glyphs</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Create a GIF Movie of a Static Object with a Moving Colormap"><img alt="" src="../_images/sphx_glr_moving_cmap_thumb.png" />
+<p><a class="reference internal" href="02-plot/moving_cmap.html#sphx-glr-examples-02-plot-moving-cmap-py"><span class="std std-ref">Create a GIF Movie of a Static Object with a Moving Colormap</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Create a GIF Movie of a Static Object with a Moving Colormap</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip=" Subplotting: having multiple scenes in a single window"><img alt="" src="../_images/sphx_glr_multi-window_thumb.png" />
+<p><a class="reference internal" href="02-plot/multi-window.html#sphx-glr-examples-02-plot-multi-window-py"><span class="std std-ref">Multi-Window Plot</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Multi-Window Plot</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Plot a mesh&#x27;s scalar array with an opacity transfer function or opacity mapping based on a scal..."><img alt="" src="../_images/sphx_glr_opacity_thumb.png" />
+<p><a class="reference internal" href="02-plot/opacity.html#sphx-glr-examples-02-plot-opacity-py"><span class="std std-ref">Plot with Opacity</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Plot with Opacity</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Orbit around a scene."><img alt="" src="../_images/sphx_glr_orbit_thumb.png" />
+<p><a class="reference internal" href="02-plot/orbit.html#sphx-glr-examples-02-plot-orbit-py"><span class="std std-ref">Orbiting</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Orbiting</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="View three orthogonal slices from a mesh."><img alt="" src="../_images/sphx_glr_ortho-slices_thumb.png" />
+<p><a class="reference internal" href="02-plot/ortho-slices.html#sphx-glr-examples-02-plot-ortho-slices-py"><span class="std std-ref">Orthogonal Slices</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Orthogonal Slices</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="VTK 9 introduced Physically Based Rendering (PBR) and we have exposed that functionality in PyV..."><img alt="" src="../_images/sphx_glr_pbr_thumb.png" />
+<p><a class="reference internal" href="02-plot/pbr.html#sphx-glr-examples-02-plot-pbr-py"><span class="std std-ref">Physically Based Rendering</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Physically Based Rendering</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Interpolate the scalars of a dataset over a circular arc."><img alt="" src="../_images/sphx_glr_plot-over-circular-arc_thumb.png" />
+<p><a class="reference internal" href="02-plot/plot-over-circular-arc.html#sphx-glr-examples-02-plot-plot-over-circular-arc-py"><span class="std std-ref">Plot Scalars Over a Circular Arc</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Plot Scalars Over a Circular Arc</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Plot the values of a dataset over a line through that dataset"><img alt="" src="../_images/sphx_glr_plot-over-line_thumb.png" />
+<p><a class="reference internal" href="02-plot/plot-over-line.html#sphx-glr-examples-02-plot-plot-over-line-py"><span class="std std-ref">Plot Over Line</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Plot Over Line</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="This example demonstrates how to add point scalars for each individual cell to a dataset."><img alt="" src="../_images/sphx_glr_point-cell-scalars_thumb.png" />
+<p><a class="reference internal" href="02-plot/point-cell-scalars.html#sphx-glr-examples-02-plot-point-cell-scalars-py"><span class="std std-ref">Point Cell Scalars</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Point Cell Scalars</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Plotting Point Clouds"><img alt="" src="../_images/sphx_glr_point-clouds_thumb.png" />
+<p><a class="reference internal" href="02-plot/point-clouds.html#sphx-glr-examples-02-plot-point-clouds-py"><span class="std std-ref">Plotting Point Clouds</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Plotting Point Clouds</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Picking points on a mesh"><img alt="" src="../_images/sphx_glr_point-picking_thumb.png" />
+<p><a class="reference internal" href="02-plot/point-picking.html#sphx-glr-examples-02-plot-point-picking-py"><span class="std std-ref">Picking points on a mesh</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Picking points on a mesh</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Walk through of all the different capabilities of scalar bars and how a user can customize scal..."><img alt="" src="../_images/sphx_glr_scalar-bars_thumb.png" />
+<p><a class="reference internal" href="02-plot/scalar-bars.html#sphx-glr-examples-02-plot-scalar-bars-py"><span class="std std-ref">Customize Scalar Bars</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Customize Scalar Bars</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Saving Screenshots"><img alt="" src="../_images/sphx_glr_screenshot_thumb.png" />
+<p><a class="reference internal" href="02-plot/screenshot.html#sphx-glr-examples-02-plot-screenshot-py"><span class="std std-ref">Saving Screenshots</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Saving Screenshots</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Comparison of default, flat shading vs. smooth shading."><img alt="" src="../_images/sphx_glr_shading_thumb.png" />
+<p><a class="reference internal" href="02-plot/shading.html#sphx-glr-examples-02-plot-shading-py"><span class="std std-ref">Types of Shading</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Types of Shading</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Extract a subset of the edges of a polygonal mesh to generate an outline (silhouette) of a mesh..."><img alt="" src="../_images/sphx_glr_silhouette_thumb.png" />
+<p><a class="reference internal" href="02-plot/silhouette.html#sphx-glr-examples-02-plot-silhouette-py"><span class="std std-ref">Silhouette Highlight</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Silhouette Highlight</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Generate and visualize meshes from data in longitude-latitude coordinates."><img alt="" src="../_images/sphx_glr_spherical_thumb.png" />
+<p><a class="reference internal" href="02-plot/spherical.html#sphx-glr-examples-02-plot-spherical-py"><span class="std std-ref">Plot data in spherical coordinates</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Plot data in spherical coordinates</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Demonstrate the usage of surface space ambient occlusion."><img alt="" src="../_images/sphx_glr_ssao_thumb.png" />
+<p><a class="reference internal" href="02-plot/ssao.html#sphx-glr-examples-02-plot-ssao-py"><span class="std std-ref">Surface Space Ambient Occlusion</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Surface Space Ambient Occlusion</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="This allows you to pick points on the surface of a mesh."><img alt="" src="../_images/sphx_glr_surface-picking_thumb.png" />
+<p><a class="reference internal" href="02-plot/surface-picking.html#sphx-glr-examples-02-plot-surface-picking-py"><span class="std std-ref">Picking a Point on the Surface of a Mesh</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Picking a Point on the Surface of a Mesh</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Plot a mesh with an image projected onto it as a texture."><img alt="" src="../_images/sphx_glr_texture_thumb.png" />
+<p><a class="reference internal" href="02-plot/texture.html#sphx-glr-examples-02-plot-texture-py"><span class="std std-ref">Applying Textures</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Applying Textures</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="PyVista allows you to set global and local plotting themes to easily set default plotting param..."><img alt="" src="../_images/sphx_glr_themes_thumb.png" />
+<p><a class="reference internal" href="02-plot/themes.html#sphx-glr-examples-02-plot-themes-py"><span class="std std-ref">Control Global and Local Plotting Themes</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Control Global and Local Plotting Themes</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="This is very similar to the ref_texture_example example except it is focused on plotting aerial..."><img alt="" src="../_images/sphx_glr_topo-map_thumb.png" />
+<p><a class="reference internal" href="02-plot/topo-map.html#sphx-glr-examples-02-plot-topo-map-py"><span class="std std-ref">Topographic Map</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Topographic Map</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Plot a single component of a vector as a scalar array."><img alt="" src="../_images/sphx_glr_vector-component_thumb.png" />
+<p><a class="reference internal" href="02-plot/vector-component.html#sphx-glr-examples-02-plot-vector-component-py"><span class="std std-ref">Plot Vector Component</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Plot Vector Component</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Display vertices on a mesh in the same fashion as edge visibility."><img alt="" src="../_images/sphx_glr_vertices_thumb.png" />
+<p><a class="reference internal" href="02-plot/vertices.html#sphx-glr-examples-02-plot-vertices-py"><span class="std std-ref">Visible Vertices</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Visible Vertices</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Volume render uniform mesh types like pyvista.UniformGrid or 3D NumPy arrays."><img alt="" src="../_images/sphx_glr_volume_thumb.png" />
+<p><a class="reference internal" href="02-plot/volume.html#sphx-glr-examples-02-plot-volume-py"><span class="std std-ref">Volume Rendering</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Volume Rendering</div>
+</div></div></section>
+<section id="widgets">
+<h2>Widgets<a class="headerlink" href="#widgets" title="このヘッドラインへのパーマリンク">#</a></h2>
+<p>PyVista has several widgets that can be added to the rendering scene to control
+filters like clipping, slicing, and thresholding - specifically there are
+widgets to control the positions of boxes, planes, and lines or slider bars
+which can all be highly customized through the use of custom callback
+functions.</p>
+<p>Here we'll take a look at the various widgets, some helper methods that leverage
+those widgets to do common tasks, and demonstrate how to leverage the widgets
+for user defined tasks and processing routines.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="The box widget can be enabled and disabled by the pyvista.Plotter.add_box_widget and pyvista.Pl..."><img alt="" src="../_images/sphx_glr_box-widget_thumb.png" />
+<p><a class="reference internal" href="03-widgets/box-widget.html#sphx-glr-examples-03-widgets-box-widget-py"><span class="std std-ref">Box Widget</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Box Widget</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Use a checkbox to turn on/off the visibility of meshes in a scene."><img alt="" src="../_images/sphx_glr_checkbox-widget_thumb.png" />
+<p><a class="reference internal" href="03-widgets/checkbox-widget.html#sphx-glr-examples-03-widgets-checkbox-widget-py"><span class="std std-ref">Checkbox Widget</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Checkbox Widget</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Clip Volume Widget"><img alt="" src="../_images/sphx_glr_clip-volume_thumb.png" />
+<p><a class="reference internal" href="03-widgets/clip-volume.html#sphx-glr-examples-03-widgets-clip-volume-py"><span class="std std-ref">Clip Volume Widget</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Clip Volume Widget</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="The line widget can be enabled and disabled by the pyvista.Plotter.add_line_widget and pyvista...."><img alt="" src="../_images/sphx_glr_line-widget_thumb.png" />
+<p><a class="reference internal" href="03-widgets/line-widget.html#sphx-glr-examples-03-widgets-line-widget-py"><span class="std std-ref">Line Widget</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Line Widget</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Use a class based callback to track multiple slider widgets for updating a single mesh."><img alt="" src="../_images/sphx_glr_multi-slider-widget_thumb.png" />
+<p><a class="reference internal" href="03-widgets/multi-slider-widget.html#sphx-glr-examples-03-widgets-multi-slider-widget-py"><span class="std std-ref">Multiple Slider Widgets</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Multiple Slider Widgets</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="The plane widget can be enabled and disabled by the pyvista.Plotter.add_plane_widget and pyvist..."><img alt="" src="../_images/sphx_glr_plane-widget_thumb.png" />
+<p><a class="reference internal" href="03-widgets/plane-widget.html#sphx-glr-examples-03-widgets-plane-widget-py"><span class="std std-ref">Plane Widget</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Plane Widget</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="The slider widget can be enabled and disabled by the pyvista.Plotter.add_slider_widget and pyvi..."><img alt="" src="../_images/sphx_glr_slider-bar-widget_thumb.png" />
+<p><a class="reference internal" href="03-widgets/slider-bar-widget.html#sphx-glr-examples-03-widgets-slider-bar-widget-py"><span class="std std-ref">Slider Bar Widget</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Slider Bar Widget</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="The sphere widget can be enabled and disabled by the pyvista.Plotter.add_sphere_widget and pyvi..."><img alt="" src="../_images/sphx_glr_sphere-widget_thumb.png" />
+<p><a class="reference internal" href="03-widgets/sphere-widget.html#sphx-glr-examples-03-widgets-sphere-widget-py"><span class="std std-ref">Sphere Widget</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Sphere Widget</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip=" A spline widget can be enabled and disabled by the pyvista.Plotter.add_spline_widget and pyvis..."><img alt="" src="../_images/sphx_glr_spline-widget_thumb.png" />
+<p><a class="reference internal" href="03-widgets/spline-widget.html#sphx-glr-examples-03-widgets-spline-widget-py"><span class="std std-ref">Spline Widget</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Spline Widget</div>
+</div></div></section>
+<section id="lighting">
+<h2>Lighting<a class="headerlink" href="#lighting" title="このヘッドラインへのパーマリンク">#</a></h2>
+<p>These examples demonstrate how to take fine-tuned control over lighting conditions
+in a scene. Explore them to learn how to go beyond the default lighting setup to
+truly bring out the best of your visualization:</p>
+<ul class="simple">
+<li><p>Choose between preset lighting systems for plotters</p></li>
+<li><p>Disable lighting on the mesh level</p></li>
+<li><p>Learn about the different light types</p></li>
+<li><p>Customize the shape of positional lights</p></li>
+<li><p>Use actors to visualize the beams of spotlights</p></li>
+</ul>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Positional lights in PyVista have customizable beam shapes, see the ref_light_beam_shape_exampl..."><img alt="" src="../_images/sphx_glr_actors_thumb.png" />
+<p><a class="reference internal" href="04-lights/actors.html#sphx-glr-examples-04-lights-actors-py"><span class="std std-ref">Light Actors</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Light Actors</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Attenuation is the phenomenon of light&#x27;s intensity being gradually dampened as it propagates th..."><img alt="" src="../_images/sphx_glr_attenuation_thumb.png" />
+<p><a class="reference internal" href="04-lights/attenuation.html#sphx-glr-examples-04-lights-attenuation-py"><span class="std std-ref">Attenuation</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Attenuation</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="The default directional lights are infinitely distant point sources, for which the only geometr..."><img alt="" src="../_images/sphx_glr_beam_shape_thumb.png" />
+<p><a class="reference internal" href="04-lights/beam_shape.html#sphx-glr-examples-04-lights-beam-shape-py"><span class="std std-ref">Beam Shape</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Beam Shape</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Lights come in three types:"><img alt="" src="../_images/sphx_glr_light_types_thumb.png" />
+<p><a class="reference internal" href="04-lights/light_types.html#sphx-glr-examples-04-lights-light-types-py"><span class="std std-ref">Light Types</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Light Types</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Disable mesh lighting."><img alt="" src="../_images/sphx_glr_mesh_lighting_thumb.png" />
+<p><a class="reference internal" href="04-lights/mesh_lighting.html#sphx-glr-examples-04-lights-mesh-lighting-py"><span class="std std-ref">Disabling Mesh Lighting</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Disabling Mesh Lighting</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="The pyvista.Plotter class comes with three options for the default lighting system:"><img alt="" src="../_images/sphx_glr_plotter_builtins_thumb.png" />
+<p><a class="reference internal" href="04-lights/plotter_builtins.html#sphx-glr-examples-04-lights-plotter-builtins-py"><span class="std std-ref">Plotter Lighting Systems</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Plotter Lighting Systems</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Demonstrate the usage of lights and shadows in PyVista."><img alt="" src="../_images/sphx_glr_shadows_thumb.png" />
+<p><a class="reference internal" href="04-lights/shadows.html#sphx-glr-examples-04-lights-shadows-py"><span class="std std-ref">Shadows</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Shadows</div>
+</div></div></section>
+<section id="common">
+<h2>Common<a class="headerlink" href="#common" title="このヘッドラインへのパーマリンク">#</a></h2>
+<p>The following are a collection of examples addressing common tasks and
+frequently asked questions when working with PyVista. These examples, while
+possibly complex, focus on single-purpose solutions to help users understand
+specific functionality.</p>
+<p>Feel free to contribute examples or explore the FAQ-like structure, and check
+out our <a class="reference external" href="https://github.com/pyvista/pyvista/discussions">GitHub Discussions</a>
+for more context.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Using pyvista and numpy, generate a 3D point cloud, project it to a plane, and tessellate it."><img alt="" src="../_images/sphx_glr_project-points-tessellate_thumb.png" />
+<p><a class="reference internal" href="98-common/project-points-tessellate.html#sphx-glr-examples-98-common-project-points-tessellate-py"><span class="std std-ref">Project points to a plane and Tessellate</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Project points to a plane and Tessellate</div>
+</div></div></section>
+<section id="advanced">
+<h2>Advanced<a class="headerlink" href="#advanced" title="このヘッドラインへのパーマリンク">#</a></h2>
+<p>Include here are few longer, more advanced examples from our users and
+developers.</p>
+<div class="sphx-glr-thumbnails"><div class="sphx-glr-thumbcontainer" tooltip="Each example should have a reference tag/key in the form:"><img alt="" src="../_images/sphx_glr_add-example_thumb.png" />
+<p><a class="reference internal" href="99-advanced/add-example.html#sphx-glr-examples-99-advanced-add-example-py"><span class="std std-ref">Adding a New Gallery Example</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Adding a New Gallery Example</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Here is some velocity data from a glacier modelling simulation that is compared across nodes in..."><img alt="" src="../_images/sphx_glr_antarctica-compare_thumb.png" />
+<p><a class="reference internal" href="99-advanced/antarctica-compare.html#sphx-glr-examples-99-advanced-antarctica-compare-py"><span class="std std-ref">Compare Field Across Mesh Regions</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Compare Field Across Mesh Regions</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Plot Atomic Orbitals"><img alt="" src="../_images/sphx_glr_atomic-orbitals_thumb.png" />
+<p><a class="reference internal" href="99-advanced/atomic-orbitals.html#sphx-glr-examples-99-advanced-atomic-orbitals-py"><span class="std std-ref">Plot Atomic Orbitals</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Plot Atomic Orbitals</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="A pyvista.DataSet, such as pyvista.PolyData, can be extended by users.  For example, if the use..."><img alt="" src="../_images/sphx_glr_extending-pyvista_thumb.png" />
+<p><a class="reference internal" href="99-advanced/extending-pyvista.html#sphx-glr-examples-99-advanced-extending-pyvista-py"><span class="std std-ref">Extending PyVista</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Extending PyVista</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="This example loads a dataset, constructs a line to represent the point of contact between the c..."><img alt="" src="../_images/sphx_glr_fea-hertzian-contact-pressure_thumb.png" />
+<p><a class="reference internal" href="99-advanced/fea-hertzian-contact-pressure.html#sphx-glr-examples-99-advanced-fea-hertzian-contact-pressure-py"><span class="std std-ref">Visualize Hertzian Contact Stress</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Visualize Hertzian Contact Stress</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="The following example demonstrates how PyVista can be used to plot a magnetic field."><img alt="" src="../_images/sphx_glr_magnetic-fields_thumb.png" />
+<p><a class="reference internal" href="99-advanced/magnetic-fields.html#sphx-glr-examples-99-advanced-magnetic-fields-py"><span class="std std-ref">Plot a Magnetic Field</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Plot a Magnetic Field</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="This example dataset was read using the pyvista.POpenFOAMReader and post processed according to..."><img alt="" src="../_images/sphx_glr_openfoam-cooling_thumb.png" />
+<p><a class="reference internal" href="99-advanced/openfoam-cooling.html#sphx-glr-examples-99-advanced-openfoam-cooling-py"><span class="std std-ref">Electronics Cooling CFD</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Electronics Cooling CFD</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Plot OpenFOAM data"><img alt="" src="../_images/sphx_glr_openfoam-example_thumb.png" />
+<p><a class="reference internal" href="99-advanced/openfoam-example.html#sphx-glr-examples-99-advanced-openfoam-example-py"><span class="std std-ref">Plot OpenFOAM data</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Plot OpenFOAM data</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="This example dataset was read using the pyvista.POpenFOAMReader. See openfoam_example for a ful..."><img alt="" src="../_images/sphx_glr_openfoam-tubes_thumb.png" />
+<p><a class="reference internal" href="99-advanced/openfoam-tubes.html#sphx-glr-examples-99-advanced-openfoam-tubes-py"><span class="std std-ref">Plot CFD Data</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Plot CFD Data</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="This was originally posted to pyvista/pyvista-support#486."><img alt="" src="../_images/sphx_glr_osmnx-example_thumb.png" />
+<p><a class="reference internal" href="99-advanced/osmnx-example.html#sphx-glr-examples-99-advanced-osmnx-example-py"><span class="std std-ref">Plot Open Street Map Data</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Plot Open Street Map Data</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Plot the solar system in PyVista."><img alt="" src="../_images/sphx_glr_planets_thumb.png" />
+<p><a class="reference internal" href="99-advanced/planets.html#sphx-glr-examples-99-advanced-planets-py"><span class="std std-ref">3D Earth and Celestial Bodies</span></a></p>
+  <div class="sphx-glr-thumbnail-title">3D Earth and Celestial Bodies</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Pass a vtkAlgorithm to the Plotter for dynamic visualizations."><img alt="" src="../_images/sphx_glr_plotting-algorithms_thumb.png" />
+<p><a class="reference internal" href="99-advanced/plotting-algorithms.html#sphx-glr-examples-99-advanced-plotting-algorithms-py"><span class="std std-ref">Plotting with VTK Algorithms</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Plotting with VTK Algorithms</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Background Modal analysis is the study of the dynamic properties of mechanical structures in th..."><img alt="" src="../_images/sphx_glr_pump-bracket_thumb.png" />
+<p><a class="reference internal" href="99-advanced/pump-bracket.html#sphx-glr-examples-99-advanced-pump-bracket-py"><span class="std std-ref">Visualize Modal Analysis of a Pump Bracket</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Visualize Modal Analysis of a Pump Bracket</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="This example demonstrates the Moeller–Trumbore intersection algorithm using pyvista."><img alt="" src="../_images/sphx_glr_ray-trace-moeller_thumb.png" />
+<p><a class="reference internal" href="99-advanced/ray-trace-moeller.html#sphx-glr-examples-99-advanced-ray-trace-moeller-py"><span class="std std-ref">Visualize the Moeller–Trumbore Algorithm</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Visualize the Moeller–Trumbore Algorithm</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="Single line segment ray tracing for PolyData objects."><img alt="" src="../_images/sphx_glr_ray-trace_thumb.png" />
+<p><a class="reference internal" href="99-advanced/ray-trace.html#sphx-glr-examples-99-advanced-ray-trace-py"><span class="std std-ref">Ray Tracing</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Ray Tracing</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="There are several videos online talking about how a sphere can be turned inside out in a contin..."><img alt="" src="../_images/sphx_glr_sphere_eversion_thumb.png" />
+<p><a class="reference internal" href="99-advanced/sphere_eversion.html#sphx-glr-examples-99-advanced-sphere-eversion-py"><span class="std std-ref">Turning the sphere inside out</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Turning the sphere inside out</div>
+</div><div class="sphx-glr-thumbcontainer" tooltip="This example applies the pyvista.DataSetFilters.warp_by_vector filter to a cube whose eigenmode..."><img alt="" src="../_images/sphx_glr_warp-by-vector-eigenmodes_thumb.png" />
+<p><a class="reference internal" href="99-advanced/warp-by-vector-eigenmodes.html#sphx-glr-examples-99-advanced-warp-by-vector-eigenmodes-py"><span class="std std-ref">Display Eigenmodes of Vibration</span></a></p>
+  <div class="sphx-glr-thumbnail-title">Display Eigenmodes of Vibration</div>
+</div></div><div class="toctree-wrapper compound">
+</div>
+<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mesh-creation">Mesh Creation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#filtering">Filtering</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting">Plotting</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#widgets">Widgets</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lighting">Lighting</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common">Common</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#advanced">Advanced</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  
+  <div class="tocsection editthispage">
+    <a href="https://github.com/pyvista/pyvista/edit/main/doc/source/examples/index.rst">
+      <i class="fa-solid fa-pencil"></i>
+      
+      
+        
+          Edit on GitHub
+        
+      
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+  <p class="copyright">
+    
+      © Copyright 2017-2023, The PyVista Developers.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item"><p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.13.3.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

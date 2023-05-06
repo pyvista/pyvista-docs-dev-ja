@@ -1,0 +1,915 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="ja" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Linear Cells &#8212; PyVista 0.40.dev0 ドキュメント</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/thebelab.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/asciinema-player_2.6.1.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/asciinema-custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/no_search_highlight.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/summary.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-binder.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-dataframe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-rendered-html.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/cards.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/no_italic.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/thebelab-helper.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/asciinema-player_2.6.1.js"></script>
+    <script src="../../_static/translations.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-140243896-1"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'UA-140243896-1');
+            </script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'examples/00-load/linear-cells';</script>
+    <script>
+        DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://docs.pyvista.org/versions.json';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = 'dev';
+        </script>
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="検索" href="../../search.html" />
+    <link rel="next" title="Working with glTF Files" href="load-gltf.html" />
+    <link rel="prev" title="Creating an Unstructured Grid" href="create-unstructured-surface.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="ja"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+    <span class="fa-solid fa-bars"></span>
+  </label>
+  
+  <div class="navbar-header-items__start">
+    
+      <div class="navbar-item">
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/pyvista_logo_sm.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../_static/pyvista_logo_sm.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+    
+  </div>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item"><nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../getting-started/index.html">
+                        Getting Started
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../user-guide/index.html">
+                        User Guide
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="../index.html">
+                        Examples
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../api/index.html">
+                        API Reference
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../extras/index.html">
+                        Extras
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="検索" aria-label="検索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+        </div>
+      
+      
+        <div class="navbar-item">
+<script>
+document.write(`
+  <div class="version-switcher__container dropdown">
+    <button type="button" class="version-switcher__button btn btn-sm navbar-btn dropdown-toggle" data-bs-toggle="dropdown">
+      dev  <!-- this text may get changed later by javascript -->
+      <span class="caret"></span>
+    </button>
+    <div class="version-switcher__menu dropdown-menu list-group-flush py-0">
+    <!-- dropdown will be populated by javascript on page load -->
+    </div>
+  </div>
+`);
+</script></div>
+      
+        <div class="navbar-item">
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/pyvista/pyvista" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github"></i></span>
+            <label class="sr-only">GitHub</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="http://slack.pyvista.org" title="Slack Community" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fab fa-slack"></i></span>
+            <label class="sr-only">Slack Community</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/pyvista/pyvista/discussions" title="Support" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-comment fa-fw"></i></span>
+            <label class="sr-only">Support</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/pyvista/pyvista/blob/main/CONTRIBUTING.rst" title="Contributing" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-gavel fa-fw"></i></span>
+            <label class="sr-only">Contributing</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://doi.org/10.21105/joss.01450" title="The Paper" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-file-text fa-fw"></i></span>
+            <label class="sr-only">The Paper</label></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="検索" aria-label="検索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+    </div>
+  
+
+  
+    <label class="sidebar-toggle secondary-toggle" for="__secondary">
+      <span class="fa-solid fa-outdent"></span>
+    </label>
+  
+</div>
+
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          <div class="navbar-item"><nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../getting-started/index.html">
+                        Getting Started
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../user-guide/index.html">
+                        User Guide
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="../index.html">
+                        Examples
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../api/index.html">
+                        API Reference
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../extras/index.html">
+                        Extras
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+<script>
+document.write(`
+  <div class="version-switcher__container dropdown">
+    <button type="button" class="version-switcher__button btn btn-sm navbar-btn dropdown-toggle" data-bs-toggle="dropdown">
+      dev  <!-- this text may get changed later by javascript -->
+      <span class="caret"></span>
+    </button>
+    <div class="version-switcher__menu dropdown-menu list-group-flush py-0">
+    <!-- dropdown will be populated by javascript on page load -->
+    </div>
+  </div>
+`);
+</script></div>
+        
+          <div class="navbar-item">
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/pyvista/pyvista" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github"></i></span>
+            <label class="sr-only">GitHub</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="http://slack.pyvista.org" title="Slack Community" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fab fa-slack"></i></span>
+            <label class="sr-only">Slack Community</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/pyvista/pyvista/discussions" title="Support" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-comment fa-fw"></i></span>
+            <label class="sr-only">Support</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/pyvista/pyvista/blob/main/CONTRIBUTING.rst" title="Contributing" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-gavel fa-fw"></i></span>
+            <label class="sr-only">Contributing</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://doi.org/10.21105/joss.01450" title="The Paper" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-file-text fa-fw"></i></span>
+            <label class="sr-only">The Paper</label></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item"><nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">Mesh Creation</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="create-explicit-structured-grid.html">Creating an Explicit Structured Grid</a></li>
+<li class="toctree-l2"><a class="reference internal" href="create-geometric-objects.html">Geometric Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="create-kochanek-spline.html">Create a Kochanek Spline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="create-parametric-geometric-objects.html">Parametric Geometric Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="create-pixel-art.html">Pixel Art of ALIEN MONSTERS</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="create-platonic-solids.html">Platonic Solids</a></li>
+<li class="toctree-l2"><a class="reference internal" href="create-point-cloud.html">Create Point Cloud</a></li>
+<li class="toctree-l2"><a class="reference internal" href="create-pointset.html">Create a PointSet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="create-poly.html">Create PolyData</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="create-polydata-strips.html">Triangle Strips</a></li>
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="create-polyhedron.html">Unstructured Grid with Polyhedra</a></li>
+<li class="toctree-l2"><a class="reference internal" href="create-spline.html">Creating a Spline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="create-structured-surface.html">Creating a Structured Surface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="create-surface-draped.html">Drape 2D Surface From Line</a></li>
+<li class="toctree-l2"><a class="reference internal" href="create-tri-surface.html">Create Triangulated Surface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="create-truss.html">Plot Truss-like FEA Solution with Cylinders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="create-uniform-grid.html">Creating a Uniform Grid</a></li>
+<li class="toctree-l2"><a class="reference internal" href="create-unstructured-surface.html">Creating an Unstructured Grid</a></li>
+
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Linear Cells</a></li>
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="load-gltf.html">Working with glTF Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="load-vrml.html">Working with VRML Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="read-dolfin.html">Read FEniCS/Dolfin Meshes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="read-file.html">Load and Plot from a File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="read-image.html">Read Image Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="read-parallel.html">Parallel Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reader.html">Load data using a Reader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="terrain-mesh.html">Terrain Following Mesh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wrap-trimesh.html">Wrapping Other Objects</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../01-filter/index.html">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02-plot/index.html">Plotting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03-widgets/index.html">Widgets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04-lights/index.html">Lighting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../98-common/index.html">Common</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../99-advanced/index.html">Advanced</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumbs">
+  <ul class="bd-breadcrumbs" role="navigation" aria-label="Breadcrumb">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../index.html" class="nav-link">Examples</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">Mesh Creation</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">Linear Cells</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <div class="sphx-glr-download-link-note admonition note">
+<p class="admonition-title">注釈</p>
+<p><a class="reference internal" href="#sphx-glr-download-examples-00-load-linear-cells-py"><span class="std std-ref">Go to the end</span></a>
+to download the full example code</p>
+</div>
+<section class="sphx-glr-example-title" id="linear-cells">
+<span id="linear-cells-example"></span><span id="sphx-glr-examples-00-load-linear-cells-py"></span><h1>Linear Cells<a class="headerlink" href="#linear-cells" title="このヘッドラインへのパーマリンク">#</a></h1>
+<p>This example extends the <a class="reference internal" href="create-unstructured-surface.html#create-unstructured-example"><span class="std std-ref">Creating an Unstructured Grid</span></a> example by
+including an explanation of linear VTK cell types and how you can create them in
+PyVista.</p>
+<p>Linear cells are cells where points only occur at the edges of each
+cell. Non-linear cells contain additional points along the edges of the cell.</p>
+<p>For more details regarding what a <a class="reference internal" href="../../api/core/_autosummary/pyvista.UnstructuredGrid.html#pyvista.UnstructuredGrid" title="pyvista.UnstructuredGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.UnstructuredGrid</span></code></a> is, please
+see <a class="reference internal" href="../../api/core/pointsets.html#point-sets-api"><span class="std std-ref">Point Sets</span></a>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">import</span> <span class="nn">pyvista</span> <span class="k">as</span> <span class="nn">pv</span>
+<span class="kn">from</span> <span class="nn">pyvista.examples</span> <span class="kn">import</span> <a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">cells</span></a> <span class="k">as</span> <span class="n">example_cells</span><span class="p">,</span> <span class="n">plot_cell</span>
+
+<span class="c1"># random generator for examples</span>
+<a href="https://numpy.org/doc/stable/reference/random/generator.html#numpy.random.Generator" title="numpy.random.Generator" class="sphx-glr-backref-module-numpy-random sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">rng</span></a> <span class="o">=</span> <a href="https://numpy.org/doc/stable/reference/random/generator.html#numpy.random.default_rng" title="numpy.random.default_rng" class="sphx-glr-backref-module-numpy-random sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span></a><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="plot-an-example-cell">
+<h1>Plot an example cell<a class="headerlink" href="#plot-an-example-cell" title="このヘッドラインへのパーマリンク">#</a></h1>
+<p>PyVista contains a simple utility to plot a single cell, which is the
+fundamental unit of each <a class="reference internal" href="../../api/core/_autosummary/pyvista.UnstructuredGrid.html#pyvista.UnstructuredGrid" title="pyvista.UnstructuredGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.UnstructuredGrid</span></code></a>. For example,
+let's plot a simple <a class="reference internal" href="../../api/examples/_autosummary/pyvista.examples.cells.Wedge.html#pyvista.examples.cells.Wedge" title="pyvista.examples.cells.Wedge"><code class="xref py py-func docutils literal notranslate"><span class="pre">Wedge</span></code></a>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">grid</span> <span class="o">=</span> <span class="n">example_cells</span><span class="o">.</span><span class="n">Wedge</span><span class="p">()</span>
+<span class="n">example_cells</span><span class="o">.</span><span class="n">plot_cell</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span>
+</pre></div>
+</div>
+<img src="../../_images/sphx_glr_linear-cells_001.png" srcset="../../_images/sphx_glr_linear-cells_001.png" alt="linear cells" class = "sphx-glr-single-img"/><p>This linear cell is composed of 6 points.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">grid</span><span class="o">.</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">points</span></a>
+</pre></div>
+</div>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>pyvista_ndarray([[0. , 1. , 0. ],
+                 [0. , 0. , 0. ],
+                 [0. , 0.5, 0.5],
+                 [1. , 1. , 0. ],
+                 [1. , 0. , 0. ],
+                 [1. , 0.5, 0.5]])
+</pre></div>
+</div>
+<p>The UnstructuredGrid is also composed of a single cell and the point indices
+of that cell are defined in <a class="reference internal" href="../../api/core/_autosummary/pyvista.UnstructuredGrid.cells.html#pyvista.UnstructuredGrid.cells" title="pyvista.UnstructuredGrid.cells"><code class="xref py py-attr docutils literal notranslate"><span class="pre">cells</span></code></a>.</p>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<p>The leading <code class="docutils literal notranslate"><span class="pre">6</span></code> is the number of points in the cell.</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">grid</span><span class="o">.</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">cells</span></a>
+</pre></div>
+</div>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>array([6, 0, 1, 2, 3, 4, 5])
+</pre></div>
+</div>
+</section>
+<section id="combine-two-unstructuredgrids">
+<h1>Combine two UnstructuredGrids<a class="headerlink" href="#combine-two-unstructuredgrids" title="このヘッドラインへのパーマリンク">#</a></h1>
+<p>We can combine two unstructured grids to create a single unstructured grid
+using the <code class="docutils literal notranslate"><span class="pre">+</span></code> operator.</p>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<p>This is an inefficient way of creating <a class="reference internal" href="../../api/core/_autosummary/pyvista.UnstructuredGrid.html#pyvista.UnstructuredGrid" title="pyvista.UnstructuredGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.UnstructuredGrid</span></code></a>
+objects. To see a more efficient implementation see
+<a class="reference internal" href="create-unstructured-surface.html#create-unstructured-example"><span class="std std-ref">Creating an Unstructured Grid</span></a>.</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">grid_a</span> <span class="o">=</span> <span class="n">example_cells</span><span class="o">.</span><span class="n">Hexahedron</span><span class="p">()</span>
+<span class="n">grid_a</span><span class="o">.</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">points</span></a> <span class="o">+=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+
+<span class="n">grid_b</span> <span class="o">=</span> <span class="n">example_cells</span><span class="o">.</span><span class="n">HexagonalPrism</span><span class="p">()</span>
+
+<span class="n">combined</span> <span class="o">=</span> <span class="n">grid_b</span> <span class="o">+</span> <span class="n">grid_a</span>
+
+<span class="n">plot_cell</span><span class="p">(</span><span class="n">combined</span><span class="p">,</span> <span class="n">cpos</span><span class="o">=</span><span class="s1">&#39;iso&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<img src="../../_images/sphx_glr_linear-cells_002.png" srcset="../../_images/sphx_glr_linear-cells_002.png" alt="linear cells" class = "sphx-glr-single-img"/><p>This example helps to illustrate meaning behind the <a class="reference internal" href="../../api/core/_autosummary/pyvista.UnstructuredGrid.cells.html#pyvista.UnstructuredGrid.cells" title="pyvista.UnstructuredGrid.cells"><code class="xref py py-attr docutils literal notranslate"><span class="pre">cells</span></code></a> attribute. The first cell, a hexahedron
+contains 8 points and the hexagonal prism contains 12 points. The <code class="docutils literal notranslate"><span class="pre">cells</span></code>
+attribute shows this along with indices composing each cell.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">combined</span><span class="o">.</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">cells</span></a>
+</pre></div>
+</div>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>array([ 8,  0,  1,  2,  3,  4,  5,  6,  7, 12,  8,  9, 10, 11, 12, 13, 14,
+       15, 16, 17, 18, 19])
+</pre></div>
+</div>
+</section>
+<section id="cell-types">
+<h1>Cell Types<a class="headerlink" href="#cell-types" title="このヘッドラインへのパーマリンク">#</a></h1>
+<p>PyVista contains the <a class="reference internal" href="../../api/utilities/_autosummary/pyvista.CellType.html#pyvista.CellType" title="pyvista.CellType"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.CellType</span></code></a> enumerator, which contains all the
+available VTK cell types mapped to a Python enumerator. These cell types are
+used when creating cells and also can be used when checking the
+<a class="reference internal" href="../../api/core/_autosummary/pyvista.UnstructuredGrid.celltypes.html#pyvista.UnstructuredGrid.celltypes" title="pyvista.UnstructuredGrid.celltypes"><code class="xref py py-attr docutils literal notranslate"><span class="pre">celltypes</span></code></a> attribute. For example
+<code class="docutils literal notranslate"><span class="pre">combined.celltypes</span></code> contains both the <code class="docutils literal notranslate"><span class="pre">pv.CellType.HEXAHEDRON</span></code> and
+<code class="docutils literal notranslate"><span class="pre">pv.CellType.HEXAGONAL_PRISM</span></code> cell types.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">pv</span><span class="o">.</span><span class="n">CellType</span><span class="o">.</span><span class="n">HEXAHEDRON</span><span class="p">,</span> <span class="n">pv</span><span class="o">.</span><span class="n">CellType</span><span class="o">.</span><span class="n">HEXAGONAL_PRISM</span><span class="p">)</span>
+<span class="p">(</span><span class="n">pv</span><span class="o">.</span><span class="n">CellType</span><span class="o">.</span><span class="n">HEXAHEDRON</span><span class="p">,</span> <span class="n">pv</span><span class="o">.</span><span class="n">CellType</span><span class="o">.</span><span class="n">HEXAGONAL_PRISM</span><span class="p">)</span> <span class="o">==</span> <span class="n">combined</span><span class="o">.</span><span class="n">celltypes</span>
+</pre></div>
+</div>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>CellType.HEXAHEDRON CellType.HEXAGONAL_PRISM
+
+array([ True,  True])
+</pre></div>
+</div>
+</section>
+<section id="create-an-unstructuredgrid-with-a-single-linear-cell">
+<h1>Create an UnstructuredGrid with a single linear cell<a class="headerlink" href="#create-an-unstructuredgrid-with-a-single-linear-cell" title="このヘッドラインへのパーマリンク">#</a></h1>
+<p>Now that you know the three main inputs of an
+<a class="reference internal" href="../../api/core/_autosummary/pyvista.UnstructuredGrid.html#pyvista.UnstructuredGrid" title="pyvista.UnstructuredGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.UnstructuredGrid</span></code></a>, it's quite straightforward to create an
+unstructured grid with a one or more cells. If you need to reference point
+ordering or additional, you can either read the source of <a class="reference external" href="https://github.com/pyvista/pyvista/blob/main/pyvista/examples/cells.py">cells.py</a> or
+simply create a cell from the <code class="docutils literal notranslate"><span class="pre">pyvista.cells</span></code> module and inspect its attributes.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">points</span></a> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+    <span class="p">[</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+    <span class="p">[</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+    <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+    <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.60803807</span><span class="p">],</span>
+<span class="p">]</span>
+<a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">cells</span></a> <span class="o">=</span> <span class="p">[</span><span class="nb">len</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">points</span></a><span class="p">)]</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">points</span></a><span class="p">)))</span>
+<span class="n">pyrmaid</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">UnstructuredGrid</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">cells</span></a><span class="p">,</span> <span class="p">[</span><span class="n">pv</span><span class="o">.</span><span class="n">CellType</span><span class="o">.</span><span class="n">PYRAMID</span><span class="p">],</span> <a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">points</span></a><span class="p">)</span>
+<span class="n">example_cells</span><span class="o">.</span><span class="n">plot_cell</span><span class="p">(</span><span class="n">pyrmaid</span><span class="p">)</span>
+</pre></div>
+</div>
+<img src="../../_images/sphx_glr_linear-cells_003.png" srcset="../../_images/sphx_glr_linear-cells_003.png" alt="linear cells" class = "sphx-glr-single-img"/></section>
+<section id="plot-all-linear-cell-types">
+<h1>Plot all linear cell Types<a class="headerlink" href="#plot-all-linear-cell-types" title="このヘッドラインへのパーマリンク">#</a></h1>
+<p>Let's create a <code class="docutils literal notranslate"><span class="pre">(4,</span> <span class="pre">4)</span></code> <a class="reference internal" href="../../api/plotting/_autosummary/pyvista.Plotter.html#pyvista.Plotter" title="pyvista.Plotter"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.Plotter</span></code></a> and plot all 16 linear
+cells in a single plot.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">add_cell_helper</span><span class="p">(</span><span class="n">pl</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">grid</span><span class="p">,</span> <span class="n">subplot</span><span class="p">,</span> <span class="n">cpos</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Add a single cell to a plotter with fancy plotting.&quot;&quot;&quot;</span>
+    <span class="n">pl</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="o">*</span><span class="n">subplot</span><span class="p">)</span>
+    <span class="n">pl</span><span class="o">.</span><span class="n">add_text</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="s1">&#39;lower_edge&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">font_size</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+    <span class="n">pl</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="n">opacity</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;tan&#39;</span><span class="p">,</span> <span class="n">line_width</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+    <span class="n">edges</span> <span class="o">=</span> <span class="n">grid</span><span class="o">.</span><span class="n">extract_all_edges</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">edges</span><span class="o">.</span><span class="n">n_cells</span><span class="p">:</span>
+        <span class="n">pl</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">grid</span><span class="o">.</span><span class="n">extract_all_edges</span><span class="p">(),</span> <span class="n">line_width</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+    <span class="n">pl</span><span class="o">.</span><span class="n">add_points</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="n">render_points_as_spheres</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">point_size</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
+    <span class="n">pl</span><span class="o">.</span><span class="n">add_point_labels</span><span class="p">(</span>
+        <span class="n">grid</span><span class="o">.</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">points</span></a><span class="p">,</span>
+        <span class="nb">range</span><span class="p">(</span><span class="n">grid</span><span class="o">.</span><span class="n">n_points</span><span class="p">),</span>
+        <span class="n">always_visible</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">fill_shape</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="n">margin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+        <span class="n">shape_opacity</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>
+        <span class="n">font_size</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+        <span class="n">text_color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="k">if</span> <span class="n">cpos</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">pl</span><span class="o">.</span><span class="n">camera</span><span class="o">.</span><span class="n">azimuth</span> <span class="o">=</span> <span class="mi">20</span>
+        <span class="n">pl</span><span class="o">.</span><span class="n">camera</span><span class="o">.</span><span class="n">elevation</span> <span class="o">=</span> <span class="o">-</span><span class="mi">20</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">pl</span><span class="o">.</span><span class="n">camera_position</span> <span class="o">=</span> <span class="n">cpos</span>
+    <span class="n">pl</span><span class="o">.</span><span class="n">camera</span><span class="o">.</span><span class="n">zoom</span><span class="p">(</span><span class="mf">0.8</span><span class="p">)</span>
+
+
+<span class="n">pl</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Plotter</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">add_cell_helper</span><span class="p">(</span><span class="n">pl</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;VERTEX (</span><span class="si">{</span><span class="n">pv</span><span class="o">.</span><span class="n">CellType</span><span class="o">.</span><span class="n">VERTEX</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">,</span> <span class="n">example_cells</span><span class="o">.</span><span class="n">Vertex</span><span class="p">(),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+<span class="n">add_cell_helper</span><span class="p">(</span><span class="n">pl</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;POLY_VERTEX (</span><span class="si">{</span><span class="n">pv</span><span class="o">.</span><span class="n">CellType</span><span class="o">.</span><span class="n">POLY_VERTEX</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">,</span> <span class="n">example_cells</span><span class="o">.</span><span class="n">PolyVertex</span><span class="p">(),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">add_cell_helper</span><span class="p">(</span><span class="n">pl</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;LINE (</span><span class="si">{</span><span class="n">pv</span><span class="o">.</span><span class="n">CellType</span><span class="o">.</span><span class="n">LINE</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">,</span> <span class="n">example_cells</span><span class="o">.</span><span class="n">Line</span><span class="p">(),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span class="n">add_cell_helper</span><span class="p">(</span><span class="n">pl</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;POLY_LINE (</span><span class="si">{</span><span class="n">pv</span><span class="o">.</span><span class="n">CellType</span><span class="o">.</span><span class="n">POLY_LINE</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">,</span> <span class="n">example_cells</span><span class="o">.</span><span class="n">PolyLine</span><span class="p">(),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+
+<span class="n">add_cell_helper</span><span class="p">(</span>
+    <span class="n">pl</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;TRIANGLE (</span><span class="si">{</span><span class="n">pv</span><span class="o">.</span><span class="n">CellType</span><span class="o">.</span><span class="n">TRIANGLE</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">,</span> <span class="n">example_cells</span><span class="o">.</span><span class="n">Triangle</span><span class="p">(),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">cpos</span><span class="o">=</span><span class="s1">&#39;xy&#39;</span>
+<span class="p">)</span>
+<span class="n">add_cell_helper</span><span class="p">(</span>
+    <span class="n">pl</span><span class="p">,</span>
+    <span class="sa">f</span><span class="s1">&#39;TRIANGLE_STRIP (</span><span class="si">{</span><span class="n">pv</span><span class="o">.</span><span class="n">CellType</span><span class="o">.</span><span class="n">TRIANGLE_STRIP</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">,</span>
+    <span class="n">example_cells</span><span class="o">.</span><span class="n">TriangleStrip</span><span class="p">()</span><span class="o">.</span><span class="n">rotate_z</span><span class="p">(</span><span class="mi">90</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
+    <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+    <span class="n">cpos</span><span class="o">=</span><span class="s1">&#39;xy&#39;</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">add_cell_helper</span><span class="p">(</span><span class="n">pl</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;POLYGON (</span><span class="si">{</span><span class="n">pv</span><span class="o">.</span><span class="n">CellType</span><span class="o">.</span><span class="n">POLYGON</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">,</span> <span class="n">example_cells</span><span class="o">.</span><span class="n">Polygon</span><span class="p">(),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">cpos</span><span class="o">=</span><span class="s1">&#39;xy&#39;</span><span class="p">)</span>
+<span class="n">add_cell_helper</span><span class="p">(</span><span class="n">pl</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;PIXEL (</span><span class="si">{</span><span class="n">pv</span><span class="o">.</span><span class="n">CellType</span><span class="o">.</span><span class="n">PIXEL</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">,</span> <span class="n">example_cells</span><span class="o">.</span><span class="n">Pixel</span><span class="p">(),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">cpos</span><span class="o">=</span><span class="s1">&#39;xy&#39;</span><span class="p">)</span>
+
+<span class="c1"># make irregular</span>
+<span class="n">quad_grid</span> <span class="o">=</span> <span class="n">example_cells</span><span class="o">.</span><span class="n">Quadrilateral</span><span class="p">()</span>
+<span class="n">quad_grid</span><span class="o">.</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">points</span></a> <span class="o">+=</span> <a href="https://numpy.org/doc/stable/reference/random/generator.html#numpy.random.Generator" title="numpy.random.Generator" class="sphx-glr-backref-module-numpy-random sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">rng</span></a><span class="o">.</span><span class="n">random</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span> <span class="o">*</span> <span class="mf">0.5</span>
+
+<span class="n">add_cell_helper</span><span class="p">(</span><span class="n">pl</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;QUAD (</span><span class="si">{</span><span class="n">pv</span><span class="o">.</span><span class="n">CellType</span><span class="o">.</span><span class="n">QUAD</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">,</span> <span class="n">quad_grid</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+<span class="n">add_cell_helper</span><span class="p">(</span><span class="n">pl</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;TETRA (</span><span class="si">{</span><span class="n">pv</span><span class="o">.</span><span class="n">CellType</span><span class="o">.</span><span class="n">TETRA</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">,</span> <span class="n">example_cells</span><span class="o">.</span><span class="n">Tetrahedron</span><span class="p">(),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">add_cell_helper</span><span class="p">(</span><span class="n">pl</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;VOXEL (</span><span class="si">{</span><span class="n">pv</span><span class="o">.</span><span class="n">CellType</span><span class="o">.</span><span class="n">VOXEL</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">,</span> <span class="n">example_cells</span><span class="o">.</span><span class="n">Voxel</span><span class="p">(),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+
+<span class="c1"># make irregular</span>
+<span class="n">hex_grid</span> <span class="o">=</span> <span class="n">example_cells</span><span class="o">.</span><span class="n">Hexahedron</span><span class="p">()</span>
+<span class="n">hex_grid</span><span class="o">.</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">points</span></a> <span class="o">+=</span> <a href="https://numpy.org/doc/stable/reference/random/generator.html#numpy.random.Generator" title="numpy.random.Generator" class="sphx-glr-backref-module-numpy-random sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">rng</span></a><span class="o">.</span><span class="n">random</span><span class="p">((</span><span class="mi">8</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span> <span class="o">*</span> <span class="mf">0.4</span>
+<span class="n">add_cell_helper</span><span class="p">(</span><span class="n">pl</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;HEXAHEDRON (</span><span class="si">{</span><span class="n">pv</span><span class="o">.</span><span class="n">CellType</span><span class="o">.</span><span class="n">HEXAHEDRON</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">,</span> <span class="n">hex_grid</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+
+<span class="n">add_cell_helper</span><span class="p">(</span><span class="n">pl</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;WEDGE (</span><span class="si">{</span><span class="n">pv</span><span class="o">.</span><span class="n">CellType</span><span class="o">.</span><span class="n">WEDGE</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">,</span> <span class="n">example_cells</span><span class="o">.</span><span class="n">Wedge</span><span class="p">(),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+<span class="n">add_cell_helper</span><span class="p">(</span><span class="n">pl</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;PYRAMID (</span><span class="si">{</span><span class="n">pv</span><span class="o">.</span><span class="n">CellType</span><span class="o">.</span><span class="n">PYRAMID</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">,</span> <span class="n">example_cells</span><span class="o">.</span><span class="n">Pyramid</span><span class="p">(),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">add_cell_helper</span><span class="p">(</span>
+    <span class="n">pl</span><span class="p">,</span>
+    <span class="sa">f</span><span class="s1">&#39;PENTAGONAL_PRISM (</span><span class="si">{</span><span class="n">pv</span><span class="o">.</span><span class="n">CellType</span><span class="o">.</span><span class="n">PENTAGONAL_PRISM</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">,</span>
+    <span class="n">example_cells</span><span class="o">.</span><span class="n">PentagonalPrism</span><span class="p">(),</span>
+    <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>
+<span class="p">)</span>
+<span class="n">add_cell_helper</span><span class="p">(</span>
+    <span class="n">pl</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;HEXAGONAL_PRISM (</span><span class="si">{</span><span class="n">pv</span><span class="o">.</span><span class="n">CellType</span><span class="o">.</span><span class="n">HEXAGONAL_PRISM</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">,</span> <span class="n">example_cells</span><span class="o">.</span><span class="n">HexagonalPrism</span><span class="p">(),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">pl</span><span class="o">.</span><span class="n">background_color</span> <span class="o">=</span> <span class="s1">&#39;w&#39;</span>
+<span class="n">pl</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<img src="../../_images/sphx_glr_linear-cells_004.png" srcset="../../_images/sphx_glr_linear-cells_004.png" alt="linear cells" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  3.877 seconds)</p>
+<div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-00-load-linear-cells-py">
+<div class="sphx-glr-download sphx-glr-download-python docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/57cb9404147fb4a83fde8344e3c4c55b/linear-cells.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">linear-cells.py</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/6aab98a1ccc83db6a2ea428830492108/linear-cells.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">linear-cells.ipynb</span></code></a></p>
+</div>
+</div>
+<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
+</section>
+
+
+                </article>
+              
+              
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Linear Cells</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-an-example-cell">Plot an example cell</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#combine-two-unstructuredgrids">Combine two UnstructuredGrids</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#cell-types">Cell Types</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#create-an-unstructuredgrid-with-a-single-linear-cell">Create an UnstructuredGrid with a single linear cell</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-all-linear-cell-types">Plot all linear cell Types</a></li>
+</ul>
+
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  
+  <div class="tocsection editthispage">
+    <a href="http://github.com/pyvista/pyvista/edit/main/examples/00-load/linear-cells.py">
+      <i class="fa-solid fa-pencil"></i>
+      
+      
+        
+          Edit on GitHub
+        
+      
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+  <p class="copyright">
+    
+      © Copyright 2017-2023, The PyVista Developers.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item"><p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.13.3.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>
