@@ -78,7 +78,7 @@ jobs:
       run: |
         cd pyvista-docs-dev-ja
         git checkout gh-pages
-        git rm -rf *
+        git rm -rf --ignore-unmatch *
         mv ../pyvista-doc-translations/pyvista/doc/_build/html/* .
         touch .nojekyll
         git config --global user.email $GITHUB_REPOSITORY
