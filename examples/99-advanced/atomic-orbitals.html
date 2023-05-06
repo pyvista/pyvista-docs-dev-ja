@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Plot Atomic Orbitals &#8212; PyVista 0.40.dev0 ドキュメント</title>
   
@@ -51,9 +51,8 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/thebelab-helper.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
@@ -602,10 +601,10 @@ document.write(`
 to download the full example code</p>
 </div>
 <section class="sphx-glr-example-title" id="plot-atomic-orbitals">
-<span id="plot-atomic-orbitals-example"></span><span id="sphx-glr-examples-99-advanced-atomic-orbitals-py"></span><h1>Plot Atomic Orbitals<a class="headerlink" href="#plot-atomic-orbitals" title="このヘッドラインへのパーマリンク">#</a></h1>
+<span id="plot-atomic-orbitals-example"></span><span id="sphx-glr-examples-99-advanced-atomic-orbitals-py"></span><h1>Plot Atomic Orbitals<a class="headerlink" href="#plot-atomic-orbitals" title="この見出しへのパーマリンク">#</a></h1>
 <p>Visualize the wave functions (orbitals) of the hydrogen atom.</p>
 <section id="import">
-<h2>Import<a class="headerlink" href="#import" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Import<a class="headerlink" href="#import" title="この見出しへのパーマリンク">#</a></h2>
 <p>Import the applicable libraries.</p>
 <div class="admonition note">
 <p class="admonition-title">注釈</p>
@@ -623,7 +622,7 @@ to download the full example code</p>
 </div>
 </section>
 <section id="generate-the-dataset">
-<h2>Generate the Dataset<a class="headerlink" href="#generate-the-dataset" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Generate the Dataset<a class="headerlink" href="#generate-the-dataset" title="この見出しへのパーマリンク">#</a></h2>
 <p>Generate the dataset by evaluating the analytic hydrogen wave function from
 <code class="docutils literal notranslate"><span class="pre">sympy</span></code>.</p>
 <div class="math notranslate nohighlight">
@@ -676,7 +675,7 @@ details.</p>
 <br />
 <br /></section>
 <section id="plot-the-orbital">
-<h2>Plot the Orbital<a class="headerlink" href="#plot-the-orbital" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Plot the Orbital<a class="headerlink" href="#plot-the-orbital" title="この見出しへのパーマリンク">#</a></h2>
 <p>Plot the orbital using <a class="reference internal" href="../../api/plotting/_autosummary/pyvista.Plotter.add_volume.html#pyvista.Plotter.add_volume" title="pyvista.Plotter.add_volume"><code class="xref py py-func docutils literal notranslate"><span class="pre">add_volume()</span></code></a> and
 using the default scalars contained in <code class="docutils literal notranslate"><span class="pre">grid</span></code>, <code class="docutils literal notranslate"><span class="pre">real_wf</span></code>. This way we
 can plot more than just the probability of the electron, but also the phase
@@ -698,7 +697,7 @@ the opacity to be proportional to the absolute value of the scalars.</p>
 </div>
 <img src="../../_images/sphx_glr_atomic-orbitals_001.png" srcset="../../_images/sphx_glr_atomic-orbitals_001.png" alt="atomic orbitals" class = "sphx-glr-single-img"/></section>
 <section id="plot-the-orbital-contours-as-an-isosurface">
-<h2>Plot the Orbital Contours as an Isosurface<a class="headerlink" href="#plot-the-orbital-contours-as-an-isosurface" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Plot the Orbital Contours as an Isosurface<a class="headerlink" href="#plot-the-orbital-contours-as-an-isosurface" title="この見出しへのパーマリンク">#</a></h2>
 <p>Generate the contour plot for the orbital by determining when the orbital
 equals 10% the maximum value of the orbital. This effectively captures the
 most likely locations of the electron for this orbital.</p>
@@ -720,7 +719,7 @@ positive and negative phases cross <code class="docutils literal notranslate"><s
 </div>
 <img src="../../_images/sphx_glr_atomic-orbitals_002.png" srcset="../../_images/sphx_glr_atomic-orbitals_002.png" alt="atomic orbitals" class = "sphx-glr-single-img"/></section>
 <section id="volumetric-plot-plot-the-orbitals-using-rgba">
-<h2>Volumetric Plot: Plot the Orbitals using RGBA<a class="headerlink" href="#volumetric-plot-plot-the-orbitals-using-rgba" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Volumetric Plot: Plot the Orbitals using RGBA<a class="headerlink" href="#volumetric-plot-plot-the-orbitals-using-rgba" title="この見出しへのパーマリンク">#</a></h2>
 <p>Let's now combine some of the best parts of the two above plots. The
 volumetric plot is great for showing the probability of the &quot;electron cloud&quot;
 orbitals, but the colormap doesn't quite match reality as well as the
@@ -770,21 +769,21 @@ with <code class="docutils literal notranslate"><span class="pre">orbital['real_
 </div>
 <img src="../../_images/sphx_glr_atomic-orbitals_003.png" srcset="../../_images/sphx_glr_atomic-orbitals_003.png" alt="atomic orbitals" class = "sphx-glr-single-img"/></section>
 <section id="volumetric-plot-4d-z-2-orbital">
-<h2>Volumetric Plot: <span class="math notranslate nohighlight">\(4d_{z^2}\)</span> orbital<a class="headerlink" href="#volumetric-plot-4d-z-2-orbital" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Volumetric Plot: <span class="math notranslate nohighlight">\(4d_{z^2}\)</span> orbital<a class="headerlink" href="#volumetric-plot-4d-z-2-orbital" title="この見出しへのパーマリンク">#</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">hydro_orbital</span> <span class="o">=</span> <span class="n">examples</span><span class="o">.</span><span class="n">load_hydrogen_orbital</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 <span class="n">plot_orbital</span><span class="p">(</span><span class="n">hydro_orbital</span><span class="p">,</span> <span class="n">clip_plane</span><span class="o">=</span><span class="s1">&#39;-y&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <img src="../../_images/sphx_glr_atomic-orbitals_004.png" srcset="../../_images/sphx_glr_atomic-orbitals_004.png" alt="atomic orbitals" class = "sphx-glr-single-img"/></section>
 <section id="volumetric-plot-4d-xz-orbital">
-<h2>Volumetric Plot: <span class="math notranslate nohighlight">\(4d_{xz}\)</span> orbital<a class="headerlink" href="#volumetric-plot-4d-xz-orbital" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Volumetric Plot: <span class="math notranslate nohighlight">\(4d_{xz}\)</span> orbital<a class="headerlink" href="#volumetric-plot-4d-xz-orbital" title="この見出しへのパーマリンク">#</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">hydro_orbital</span> <span class="o">=</span> <span class="n">examples</span><span class="o">.</span><span class="n">load_hydrogen_orbital</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">plot_orbital</span><span class="p">(</span><span class="n">hydro_orbital</span><span class="p">,</span> <span class="n">clip_plane</span><span class="o">=</span><span class="s1">&#39;-y&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <img src="../../_images/sphx_glr_atomic-orbitals_005.png" srcset="../../_images/sphx_glr_atomic-orbitals_005.png" alt="atomic orbitals" class = "sphx-glr-single-img"/></section>
 <section id="plot-an-orbital-using-a-density-plot">
-<h2>Plot an Orbital Using a Density Plot<a class="headerlink" href="#plot-an-orbital-using-a-density-plot" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Plot an Orbital Using a Density Plot<a class="headerlink" href="#plot-an-orbital-using-a-density-plot" title="この見出しへのパーマリンク">#</a></h2>
 <p>We can also plot atomic orbitals using a 3D density plot. For this, we will
 use <a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.choice.html#numpy.random.choice" title="(in NumPy v1.24)"><code class="xref py py-func docutils literal notranslate"><span class="pre">numpy.random.choice()</span></code></a> to sample all the points of our
 <a class="reference internal" href="../../api/core/_autosummary/pyvista.UniformGrid.html#pyvista.UniformGrid" title="pyvista.UniformGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.UniformGrid</span></code></a> based on the probability of the electron being
@@ -830,7 +829,7 @@ at that coordinate.</p>
 </div>
 <img src="../../_images/sphx_glr_atomic-orbitals_006.png" srcset="../../_images/sphx_glr_atomic-orbitals_006.png" alt="atomic orbitals" class = "sphx-glr-single-img"/></section>
 <section id="density-plot-gaussian-points-representation">
-<h2>Density Plot - Gaussian Points Representation<a class="headerlink" href="#density-plot-gaussian-points-representation" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Density Plot - Gaussian Points Representation<a class="headerlink" href="#density-plot-gaussian-points-representation" title="この見出しへのパーマリンク">#</a></h2>
 <p>Finally, let's plot the same data using the &quot;Gaussian points&quot; representation.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">point_cloud</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
     <span class="n">style</span><span class="o">=</span><span class="s1">&#39;points_gaussian&#39;</span><span class="p">,</span>
@@ -844,7 +843,7 @@ at that coordinate.</p>
 <span class="p">)</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_atomic-orbitals_007.png" srcset="../../_images/sphx_glr_atomic-orbitals_007.png" alt="atomic orbitals" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  18.253 seconds)</p>
+<img src="../../_images/sphx_glr_atomic-orbitals_007.png" srcset="../../_images/sphx_glr_atomic-orbitals_007.png" alt="atomic orbitals" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  21.482 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-99-advanced-atomic-orbitals-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/5c0ca9a6a2d76056674d97c442f1334f/atomic-orbitals.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">atomic-orbitals.py</span></code></a></p>

@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Fast Fourier Transform with Perlin Noise &#8212; PyVista 0.40.dev0 ドキュメント</title>
   
@@ -51,9 +51,8 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/thebelab-helper.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
@@ -648,7 +647,7 @@ document.write(`
 to download the full example code</p>
 </div>
 <section class="sphx-glr-example-title" id="fast-fourier-transform-with-perlin-noise">
-<span id="image-fft-perlin-example"></span><span id="sphx-glr-examples-01-filter-image-fft-perlin-noise-py"></span><h1>Fast Fourier Transform with Perlin Noise<a class="headerlink" href="#fast-fourier-transform-with-perlin-noise" title="このヘッドラインへのパーマリンク">#</a></h1>
+<span id="image-fft-perlin-example"></span><span id="sphx-glr-examples-01-filter-image-fft-perlin-noise-py"></span><h1>Fast Fourier Transform with Perlin Noise<a class="headerlink" href="#fast-fourier-transform-with-perlin-noise" title="この見出しへのパーマリンク">#</a></h1>
 <p>This example shows how to apply a Fast Fourier Transform (FFT) to a
 <a class="reference internal" href="../../api/core/_autosummary/pyvista.UniformGrid.html#pyvista.UniformGrid" title="pyvista.UniformGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.UniformGrid</span></code></a> using <a class="reference internal" href="../../api/core/_autosummary/pyvista.UniformGridFilters.fft.html#pyvista.UniformGridFilters.fft" title="pyvista.UniformGridFilters.fft"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyvista.UniformGridFilters.fft()</span></code></a>
 filter.</p>
@@ -664,7 +663,7 @@ that noise.</p>
 </div>
 </section>
 <section id="generate-perlin-noise">
-<h1>Generate Perlin Noise<a class="headerlink" href="#generate-perlin-noise" title="このヘッドラインへのパーマリンク">#</a></h1>
+<h1>Generate Perlin Noise<a class="headerlink" href="#generate-perlin-noise" title="この見出しへのパーマリンク">#</a></h1>
 <p>Start by generating some <a class="reference external" href="https://en.wikipedia.org/wiki/Perlin_noise">Perlin Noise</a> as in
 <a class="reference internal" href="sampling_functions_2d.html#perlin-noise-2d-example"><span class="std std-ref">Sample Function: Perlin Noise in 2D</span></a> example.</p>
 <p>Note that we are generating it in a flat plane and using a frequency of 10 in
@@ -684,7 +683,7 @@ the FFT is much more efficient for arrays sized as a power of 2.</p>
 </div>
 <img src="../../_images/sphx_glr_image-fft-perlin-noise_001.png" srcset="../../_images/sphx_glr_image-fft-perlin-noise_001.png" alt="image fft perlin noise" class = "sphx-glr-single-img"/></section>
 <section id="perform-fft-of-perlin-noise">
-<h1>Perform FFT of Perlin Noise<a class="headerlink" href="#perform-fft-of-perlin-noise" title="このヘッドラインへのパーマリンク">#</a></h1>
+<h1>Perform FFT of Perlin Noise<a class="headerlink" href="#perform-fft-of-perlin-noise" title="この見出しへのパーマリンク">#</a></h1>
 <p>Next, perform an FFT of the noise and plot the frequency content.
 For the sake of simplicity, we will only plot the content in the first
 quadrant.</p>
@@ -699,7 +698,7 @@ quadrant.</p>
 </div>
 </section>
 <section id="plot-the-frequency-domain">
-<h1>Plot the Frequency Domain<a class="headerlink" href="#plot-the-frequency-domain" title="このヘッドラインへのパーマリンク">#</a></h1>
+<h1>Plot the Frequency Domain<a class="headerlink" href="#plot-the-frequency-domain" title="この見出しへのパーマリンク">#</a></h1>
 <p>Now, plot the noise in the frequency domain. Note how there is more high
 frequency content in the x direction and this matches the frequencies given
 to <a class="reference internal" href="../../api/core/_autosummary/pyvista.utilities.common.perlin_noise.html#pyvista.utilities.common.perlin_noise" title="pyvista.utilities.common.perlin_noise"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyvista.perlin_noise</span></code></a>.</p>
@@ -724,7 +723,7 @@ to <a class="reference internal" href="../../api/core/_autosummary/pyvista.utili
 </div>
 <img src="../../_images/sphx_glr_image-fft-perlin-noise_002.png" srcset="../../_images/sphx_glr_image-fft-perlin-noise_002.png" alt="image fft perlin noise" class = "sphx-glr-single-img"/></section>
 <section id="low-pass-filter">
-<h1>Low Pass Filter<a class="headerlink" href="#low-pass-filter" title="このヘッドラインへのパーマリンク">#</a></h1>
+<h1>Low Pass Filter<a class="headerlink" href="#low-pass-filter" title="この見出しへのパーマリンク">#</a></h1>
 <p>Let's perform a low pass filter on the frequency content and then convert it
 back into the space (pixel) domain by immediately applying a reverse FFT.</p>
 <p>When converting back, keep only the real content. The imaginary content has
@@ -739,7 +738,7 @@ content, but will warn you of it.</p>
 </div>
 <img src="../../_images/sphx_glr_image-fft-perlin-noise_003.png" srcset="../../_images/sphx_glr_image-fft-perlin-noise_003.png" alt="image fft perlin noise" class = "sphx-glr-single-img"/></section>
 <section id="high-pass-filter">
-<h1>High Pass Filter<a class="headerlink" href="#high-pass-filter" title="このヘッドラインへのパーマリンク">#</a></h1>
+<h1>High Pass Filter<a class="headerlink" href="#high-pass-filter" title="この見出しへのパーマリンク">#</a></h1>
 <p>This time, let's perform a high pass filter on the frequency content and then
 convert it back into the space (pixel) domain by immediately applying a
 reverse FFT.</p>
@@ -755,7 +754,7 @@ frequency noise has been attenuated.</p>
 </div>
 <img src="../../_images/sphx_glr_image-fft-perlin-noise_004.png" srcset="../../_images/sphx_glr_image-fft-perlin-noise_004.png" alt="image fft perlin noise" class = "sphx-glr-single-img"/></section>
 <section id="sum-low-and-high-pass">
-<h1>Sum Low and High Pass<a class="headerlink" href="#sum-low-and-high-pass" title="このヘッドラインへのパーマリンク">#</a></h1>
+<h1>Sum Low and High Pass<a class="headerlink" href="#sum-low-and-high-pass" title="この見出しへのパーマリンク">#</a></h1>
 <p>Show that the sum of the low and high passes equals the original noise.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">grid</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">UniformGrid</span><span class="p">(</span><span class="n">dimensions</span><span class="o">=</span><span class="n">sampled</span><span class="o">.</span><span class="n">dimensions</span><span class="p">,</span> <span class="n">spacing</span><span class="o">=</span><span class="n">sampled</span><span class="o">.</span><span class="n">spacing</span><span class="p">)</span>
 <span class="n">grid</span><span class="p">[</span><span class="s1">&#39;scalars&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">high_pass</span><span class="p">[</span><span class="s1">&#39;scalars&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">low_pass</span><span class="p">[</span><span class="s1">&#39;scalars&#39;</span><span class="p">]</span>
@@ -778,7 +777,7 @@ frequency noise has been attenuated.</p>
 </div>
 </section>
 <section id="animate">
-<h1>Animate<a class="headerlink" href="#animate" title="このヘッドラインへのパーマリンク">#</a></h1>
+<h1>Animate<a class="headerlink" href="#animate" title="この見出しへのパーマリンク">#</a></h1>
 <p>Animate the variation of the cutoff frequency.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">warp_low_pass_noise</span><span class="p">(</span><span class="n">cfreq</span><span class="p">,</span> <span class="n">scalar_ptp</span><span class="o">=</span><span class="n">sampled</span><span class="p">[</span><span class="s1">&#39;scalars&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">ptp</span><span class="p">()):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Process the sampled FFT and warp by scalars.&quot;&quot;&quot;</span>
@@ -832,7 +831,7 @@ irrespective of the cutoff frequency. This highlights how the typical
 wavelength (size of the features) of the Perlin noise decreases as the
 frequency cutoff is increased since wavelength and frequency are inversely
 proportional.</p>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  34.851 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  39.144 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-01-filter-image-fft-perlin-noise-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/664990c23b57374e31b67f141beb0a0d/image-fft-perlin-noise.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">image-fft-perlin-noise.py</span></code></a></p>

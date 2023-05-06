@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Cameras &#8212; PyVista 0.40.dev0 ドキュメント</title>
   
@@ -51,9 +51,8 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/thebelab-helper.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
@@ -580,14 +579,14 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section id="cameras">
-<span id="cameras-api"></span><h1>Cameras<a class="headerlink" href="#cameras" title="このヘッドラインへのパーマリンク">#</a></h1>
+<span id="cameras-api"></span><h1>Cameras<a class="headerlink" href="#cameras" title="この見出しへのパーマリンク">#</a></h1>
 <p>The <a class="reference internal" href="_autosummary/pyvista.Camera.html#pyvista.Camera" title="pyvista.Camera"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.Camera</span></code></a> class adds additional functionality and a
 pythonic API to the <code class="docutils literal notranslate"><span class="pre">vtk.vtkCamera</span></code> class. <a class="reference internal" href="_autosummary/pyvista.Camera.html#pyvista.Camera" title="pyvista.Camera"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.Camera</span></code></a>
 objects come with a default set of cameras that work well in most
 cases, but in many situations a more hands-on approach to using the
 camera is necessary.</p>
 <section id="brief-example">
-<h2>Brief Example<a class="headerlink" href="#brief-example" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Brief Example<a class="headerlink" href="#brief-example" title="この見出しへのパーマリンク">#</a></h2>
 <p>Create a frustum of camera, then create a scene of inside frustum.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyvista</span> <span class="k">as</span> <span class="nn">pv</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -653,7 +652,7 @@ camera is necessary.</p>
 </figure>
 </section>
 <section id="controlling-camera-rotation">
-<h2>Controlling Camera Rotation<a class="headerlink" href="#controlling-camera-rotation" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Controlling Camera Rotation<a class="headerlink" href="#controlling-camera-rotation" title="この見出しへのパーマリンク">#</a></h2>
 <p>In addition to directly controlling the camera position by setting it
 via the <a class="reference internal" href="_autosummary/pyvista.Camera.position.html#pyvista.Camera.position" title="pyvista.Camera.position"><code class="xref py py-attr docutils literal notranslate"><span class="pre">pyvista.Camera.position</span></code></a> property, you can also
 directly control the <a class="reference internal" href="_autosummary/pyvista.Camera.roll.html#pyvista.Camera.roll" title="pyvista.Camera.roll"><code class="xref py py-attr docutils literal notranslate"><span class="pre">pyvista.Camera.roll</span></code></a>,
@@ -712,12 +711,8 @@ degrees to see the <code class="docutils literal notranslate"><span class="pre">
 <img alt="../../_images/camera-5_00_00.png" src="../../_images/camera-5_00_00.png" />
 </figure>
 <section id="api-reference">
-<h3>API Reference<a class="headerlink" href="#api-reference" title="このヘッドラインへのパーマリンク">#</a></h3>
-<table class="longtable table autosummary">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
+<h3>API Reference<a class="headerlink" href="#api-reference" title="この見出しへのパーマリンク">#</a></h3>
+<table class="autosummary longtable table autosummary">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="_autosummary/pyvista.Camera.html#pyvista.Camera" title="pyvista.Camera"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyvista.Camera</span></code></a>([renderer])</p></td>
 <td><p>PyVista wrapper for the VTK Camera class.</p></td>

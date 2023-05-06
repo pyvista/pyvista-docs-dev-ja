@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Sample Function: Perlin Noise in 2D &#8212; PyVista 0.40.dev0 ドキュメント</title>
   
@@ -51,9 +51,8 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/thebelab-helper.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
@@ -648,7 +647,7 @@ document.write(`
 to download the full example code</p>
 </div>
 <section class="sphx-glr-example-title" id="sample-function-perlin-noise-in-2d">
-<span id="perlin-noise-2d-example"></span><span id="sphx-glr-examples-01-filter-sampling-functions-2d-py"></span><h1>Sample Function: Perlin Noise in 2D<a class="headerlink" href="#sample-function-perlin-noise-in-2d" title="このヘッドラインへのパーマリンク">#</a></h1>
+<span id="perlin-noise-2d-example"></span><span id="sphx-glr-examples-01-filter-sampling-functions-2d-py"></span><h1>Sample Function: Perlin Noise in 2D<a class="headerlink" href="#sample-function-perlin-noise-in-2d" title="この見出しへのパーマリンク">#</a></h1>
 <p>Here we use <a class="reference internal" href="../../api/core/_autosummary/pyvista.utilities.common.sample_function.html#pyvista.utilities.common.sample_function" title="pyvista.utilities.common.sample_function"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyvista.utilities.common.sample_function()</span></code></a> to sample
 Perlin noise over a region to generate random terrain.</p>
 <p>Perlin noise is atype of gradient noise often used by visual effects
@@ -662,7 +661,7 @@ effects for the motion picture industry.</p>
 </div>
 </section>
 <section id="generate-perlin-noise-over-a-structuredgrid">
-<h1>Generate Perlin Noise over a StructuredGrid<a class="headerlink" href="#generate-perlin-noise-over-a-structuredgrid" title="このヘッドラインへのパーマリンク">#</a></h1>
+<h1>Generate Perlin Noise over a StructuredGrid<a class="headerlink" href="#generate-perlin-noise-over-a-structuredgrid" title="この見出しへのパーマリンク">#</a></h1>
 <p>Feel free to change the values of <code class="docutils literal notranslate"><span class="pre">freq</span></code> to change the shape of
 the &quot;mountains&quot;.  For example, lowering the frequency will make the
 terrain seem more like hills rather than mountains.</p>
@@ -673,7 +672,7 @@ terrain seem more like hills rather than mountains.</p>
 </div>
 </section>
 <section id="warp-by-scalar">
-<h1>Warp by scalar<a class="headerlink" href="#warp-by-scalar" title="このヘッドラインへのパーマリンク">#</a></h1>
+<h1>Warp by scalar<a class="headerlink" href="#warp-by-scalar" title="この見出しへのパーマリンク">#</a></h1>
 <p>Here we warp by scalar to give the terrain some height based on the
 value of the Perlin noise.  This is necessary to the terrain its shape.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mesh</span> <span class="o">=</span> <span class="n">sampled</span><span class="o">.</span><span class="n">warp_by_scalar</span><span class="p">(</span><span class="s1">&#39;scalars&#39;</span><span class="p">)</span>
@@ -718,7 +717,7 @@ value of the Perlin noise.  This is necessary to the terrain its shape.</p>
 <span class="n">pl</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_sampling_functions_2d_002.png" srcset="../../_images/sphx_glr_sampling_functions_2d_002.png" alt="sampling functions 2d" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  2.552 seconds)</p>
+<img src="../../_images/sphx_glr_sampling_functions_2d_002.png" srcset="../../_images/sphx_glr_sampling_functions_2d_002.png" alt="sampling functions 2d" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  2.839 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-01-filter-sampling-functions-2d-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/479b422d2025596043301b54c17bbee7/sampling_functions_2d.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">sampling_functions_2d.py</span></code></a></p>

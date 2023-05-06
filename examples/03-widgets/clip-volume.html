@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Clip Volume Widget &#8212; PyVista 0.40.dev0 ドキュメント</title>
   
@@ -51,9 +51,8 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/thebelab-helper.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
@@ -581,14 +580,14 @@ document.write(`
 to download the full example code</p>
 </div>
 <section class="sphx-glr-example-title" id="clip-volume-widget">
-<span id="clip-volume-widget-example"></span><span id="sphx-glr-examples-03-widgets-clip-volume-py"></span><h1>Clip Volume Widget<a class="headerlink" href="#clip-volume-widget" title="このヘッドラインへのパーマリンク">#</a></h1>
+<span id="clip-volume-widget-example"></span><span id="sphx-glr-examples-03-widgets-clip-volume-py"></span><h1>Clip Volume Widget<a class="headerlink" href="#clip-volume-widget" title="この見出しへのパーマリンク">#</a></h1>
 <p>If you have a structured dataset like a <a class="reference internal" href="../../api/core/_autosummary/pyvista.UniformGrid.html#pyvista.UniformGrid" title="pyvista.UniformGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.UniformGrid</span></code></a> or
 <a class="reference internal" href="../../api/core/_autosummary/pyvista.RectilinearGrid.html#pyvista.RectilinearGrid" title="pyvista.RectilinearGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.RectilinearGrid</span></code></a>, you can clip it using the
 <a class="reference internal" href="../../api/plotting/_autosummary/pyvista.Plotter.add_volume_clip_plane.html#pyvista.Plotter.add_volume_clip_plane" title="pyvista.Plotter.add_volume_clip_plane"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyvista.Plotter.add_volume_clip_plane()</span></code></a> widget to better see the internal
 structure of the dataset.</p>
 <img alt="../../_images/volume-clip-plane-widget.gif" src="../../_images/volume-clip-plane-widget.gif" />
 <section id="create-the-dataset">
-<h2>Create the Dataset<a class="headerlink" href="#create-the-dataset" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Create the Dataset<a class="headerlink" href="#create-the-dataset" title="この見出しへのパーマリンク">#</a></h2>
 <p>Create a dense <a class="reference internal" href="../../api/core/_autosummary/pyvista.UniformGrid.html#pyvista.UniformGrid" title="pyvista.UniformGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.UniformGrid</span></code></a> with dimensions <code class="docutils literal notranslate"><span class="pre">(200,</span> <span class="pre">200,</span>
 <span class="pre">200)</span></code> and set the active scalars to distance from the <a class="reference internal" href="../../api/core/_autosummary/pyvista.DataSet.center.html#pyvista.DataSet.center" title="pyvista.DataSet.center"><code class="xref py py-attr docutils literal notranslate"><span class="pre">center</span></code></a> of the grid.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -625,7 +624,7 @@ structure of the dataset.</p>
 <br />
 <br /></section>
 <section id="generate-the-opacity-array">
-<h2>Generate the Opacity Array<a class="headerlink" href="#generate-the-opacity-array" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Generate the Opacity Array<a class="headerlink" href="#generate-the-opacity-array" title="この見出しへのパーマリンク">#</a></h2>
 <p>Create a banded opacity array such that our dataset shows &quot;rings&quot; at certain
 values. Have this increase such that higher values (values farther away from
 the center) are more opaque.</p>
@@ -635,7 +634,7 @@ the center) are more opaque.</p>
 </div>
 </section>
 <section id="plot-a-single-clip-plane-dataset">
-<h2>Plot a Single Clip Plane Dataset<a class="headerlink" href="#plot-a-single-clip-plane-dataset" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Plot a Single Clip Plane Dataset<a class="headerlink" href="#plot-a-single-clip-plane-dataset" title="この見出しへのパーマリンク">#</a></h2>
 <p>Plot the volume with a single clip plane.</p>
 <p>Reverse the opacity array such that portions closer to the center are more
 opaque.</p>
@@ -646,7 +645,7 @@ opaque.</p>
 </div>
 <img src="../../_images/sphx_glr_clip-volume_001.png" srcset="../../_images/sphx_glr_clip-volume_001.png" alt="clip volume" class = "sphx-glr-single-img"/></section>
 <section id="plot-multiple-clip-planes">
-<h2>Plot Multiple Clip Planes<a class="headerlink" href="#plot-multiple-clip-planes" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Plot Multiple Clip Planes<a class="headerlink" href="#plot-multiple-clip-planes" title="この見出しへのパーマリンク">#</a></h2>
 <p>Plot the dataset using the <a class="reference internal" href="../../api/plotting/_autosummary/pyvista.Plotter.add_volume_clip_plane.html#pyvista.Plotter.add_volume_clip_plane" title="pyvista.Plotter.add_volume_clip_plane"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyvista.Plotter.add_volume_clip_plane()</span></code></a> with
 the output from <a class="reference internal" href="../../api/plotting/_autosummary/pyvista.Plotter.add_volume.html#pyvista.Plotter.add_volume" title="pyvista.Plotter.add_volume"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyvista.Plotter.add_volume()</span></code></a> Enable constant
 interaction by setting the <code class="docutils literal notranslate"><span class="pre">interaction_event</span></code> to <code class="docutils literal notranslate"><span class="pre">'always'</span></code>.</p>
@@ -669,7 +668,7 @@ interaction by setting the <code class="docutils literal notranslate"><span clas
 <span class="n">pl</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_clip-volume_002.png" srcset="../../_images/sphx_glr_clip-volume_002.png" alt="clip volume" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  5.313 seconds)</p>
+<img src="../../_images/sphx_glr_clip-volume_002.png" srcset="../../_images/sphx_glr_clip-volume_002.png" alt="clip volume" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  5.210 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-03-widgets-clip-volume-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/7febe064e59c04a8ae956ba5da8b27d8/clip-volume.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">clip-volume.py</span></code></a></p>

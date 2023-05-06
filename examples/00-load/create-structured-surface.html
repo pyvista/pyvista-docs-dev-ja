@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Creating a Structured Surface &#8212; PyVista 0.40.dev0 ドキュメント</title>
   
@@ -51,9 +51,8 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/thebelab-helper.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
@@ -613,7 +612,7 @@ document.write(`
 to download the full example code</p>
 </div>
 <section class="sphx-glr-example-title" id="creating-a-structured-surface">
-<span id="ref-create-structured"></span><span id="sphx-glr-examples-00-load-create-structured-surface-py"></span><h1>Creating a Structured Surface<a class="headerlink" href="#creating-a-structured-surface" title="このヘッドラインへのパーマリンク">#</a></h1>
+<span id="ref-create-structured"></span><span id="sphx-glr-examples-00-load-create-structured-surface-py"></span><h1>Creating a Structured Surface<a class="headerlink" href="#creating-a-structured-surface" title="この見出しへのパーマリンク">#</a></h1>
 <p>Create a StructuredGrid surface from NumPy arrays</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
@@ -622,7 +621,7 @@ to download the full example code</p>
 </pre></div>
 </div>
 <section id="from-numpy-meshgrid">
-<h2>From NumPy Meshgrid<a class="headerlink" href="#from-numpy-meshgrid" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>From NumPy Meshgrid<a class="headerlink" href="#from-numpy-meshgrid" title="この見出しへのパーマリンク">#</a></h2>
 <p>Create a simple meshgrid using NumPy</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make data</span>
 <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">x</span></a> <span class="o">=</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.arange.html#numpy.arange" title="numpy.arange" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">arange</span></a><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">)</span>
@@ -658,7 +657,7 @@ from the resulting surface can be accessed as a NumPy array:</p>
 </div>
 </section>
 <section id="from-xyz-points">
-<h2>From XYZ Points<a class="headerlink" href="#from-xyz-points" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>From XYZ Points<a class="headerlink" href="#from-xyz-points" title="この見出しへのパーマリンク">#</a></h2>
 <p>Quite often, you might be given a set of coordinates (XYZ points) in a simple
 tabular format where there exists some structure such that grid could be
 built between the nodes you have. A great example is found in
@@ -689,11 +688,11 @@ frame.</p>
 <span class="n">points</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span> <span class="p">:]</span>
 </pre></div>
 </div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>pyvista_ndarray([[ -39.80263646, -282.27058011,    1.71965497],
-                 [ -31.14730217, -275.84256158,    2.12167639],
-                 [ -15.80015914, -264.44476729,    2.99258088],
-                 [  -6.38642401, -257.4535106 ,    3.62921133],
-                 [   8.88569905, -246.11143105,    4.81955008]])
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>pyvista_ndarray([[ -39.13678273, -279.65778324,    1.85551449],
+                 [ -31.72814708, -274.15564484,    2.21836523],
+                 [ -20.56395895, -265.86438701,    2.85717322],
+                 [  -4.81409577, -254.16750634,    3.95094719],
+                 [   2.1135311 , -249.02259659,    4.50115556]])
 </pre></div>
 </div>
 <p>Now pretend that the (n by 3) NumPy array above are coordinates that you
@@ -736,7 +735,7 @@ dimensionality of structured grid including:</p>
 </div>
 <img src="../../_images/sphx_glr_create-structured-surface_004.png" srcset="../../_images/sphx_glr_create-structured-surface_004.png" alt="create structured surface" class = "sphx-glr-single-img"/></section>
 <section id="extending-a-2d-structuredgrid-to-3d">
-<h2>Extending a 2D StructuredGrid to 3D<a class="headerlink" href="#extending-a-2d-structuredgrid-to-3d" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Extending a 2D StructuredGrid to 3D<a class="headerlink" href="#extending-a-2d-structuredgrid-to-3d" title="この見出しへのパーマリンク">#</a></h2>
 <p>A 2D <a class="reference internal" href="../../api/core/_autosummary/pyvista.StructuredGrid.html#pyvista.StructuredGrid" title="pyvista.StructuredGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.StructuredGrid</span></code></a> mesh can be extended into a 3D mesh.
 This is highly applicable when wanting to create a terrain following mesh
 in earth science research applications.</p>
@@ -758,7 +757,7 @@ surface and extend that surface to a few different levels and connect each
 <span class="n">vol</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">show_edges</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_create-structured-surface_006.png" srcset="../../_images/sphx_glr_create-structured-surface_006.png" alt="create structured surface" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  1.912 seconds)</p>
+<img src="../../_images/sphx_glr_create-structured-surface_006.png" srcset="../../_images/sphx_glr_create-structured-surface_006.png" alt="create structured surface" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  2.052 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-00-load-create-structured-surface-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/e6f6c28c6a6ddf1d063359027875d821/create-structured-surface.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">create-structured-surface.py</span></code></a></p>

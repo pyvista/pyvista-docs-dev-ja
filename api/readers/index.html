@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Readers &#8212; PyVista 0.40.dev0 ドキュメント</title>
   
@@ -51,9 +51,8 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/thebelab-helper.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
@@ -614,17 +613,13 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section id="readers">
-<span id="reader-api"></span><h1>Readers<a class="headerlink" href="#readers" title="このヘッドラインへのパーマリンク">#</a></h1>
+<span id="reader-api"></span><h1>Readers<a class="headerlink" href="#readers" title="この見出しへのパーマリンク">#</a></h1>
 <p>PyVista provides class based readers to have more control over reading
 data files. These classes allows for more fine-grained control over
 reading datasets from files. See <a class="reference internal" href="_autosummary/pyvista.get_reader.html#pyvista.get_reader" title="pyvista.get_reader"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyvista.get_reader()</span></code></a> for a
 list of file types supported.</p>
 <p>Also, see <a class="reference internal" href="../../examples/00-load/reader.html#reader-example"><span class="std std-ref">Load data using a Reader</span></a> for a full example using reader classes.</p>
-<table class="longtable table autosummary">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
+<table class="autosummary longtable table autosummary">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="_autosummary/pyvista.get_reader.html#pyvista.get_reader" title="pyvista.get_reader"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_reader</span></code></a>(filename[, force_ext])</p></td>
 <td><p>Get a reader for fine-grained control of reading data files.</p></td>
@@ -632,12 +627,8 @@ list of file types supported.</p>
 </tbody>
 </table>
 <section id="reader-classes">
-<h2>Reader Classes<a class="headerlink" href="#reader-classes" title="このヘッドラインへのパーマリンク">#</a></h2>
-<table class="longtable table autosummary">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
+<h2>Reader Classes<a class="headerlink" href="#reader-classes" title="この見出しへのパーマリンク">#</a></h2>
+<table class="autosummary longtable table autosummary">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="_autosummary/pyvista.AVSucdReader.html#pyvista.AVSucdReader" title="pyvista.AVSucdReader"><code class="xref py py-obj docutils literal notranslate"><span class="pre">AVSucdReader</span></code></a>(*args, **kwargs)</p></td>
 <td><p>AVSucdReader for .inp files.</p></td>
@@ -781,7 +772,7 @@ list of file types supported.</p>
 </table>
 </section>
 <section id="inherited-classes">
-<h2>Inherited Classes<a class="headerlink" href="#inherited-classes" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Inherited Classes<a class="headerlink" href="#inherited-classes" title="この見出しへのパーマリンク">#</a></h2>
 <p>The <a class="reference internal" href="_autosummary/pyvista.BaseReader.html#pyvista.BaseReader" title="pyvista.BaseReader"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.BaseReader</span></code></a> is inherited by all sub-readers. It
 has the basic functionality of all readers to set filename and read
 the data.</p>
@@ -789,11 +780,7 @@ the data.</p>
 support inspecting and setting data related to point and cell arrays.</p>
 <p>The <a class="reference internal" href="_autosummary/pyvista.TimeReader.html#pyvista.TimeReader" title="pyvista.TimeReader"><code class="xref py py-class docutils literal notranslate"><span class="pre">TimeReader</span></code></a> is inherited by readers that support inspecting
 and setting time or iterations for reading.</p>
-<table class="longtable table autosummary">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
+<table class="autosummary longtable table autosummary">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="_autosummary/pyvista.BaseReader.html#pyvista.BaseReader" title="pyvista.BaseReader"><code class="xref py py-obj docutils literal notranslate"><span class="pre">BaseReader</span></code></a>(*args, **kwargs)</p></td>
 <td><p>The Base Reader class.</p></td>
@@ -808,7 +795,7 @@ and setting time or iterations for reading.</p>
 </table>
 </section>
 <section id="enumerations">
-<h2>Enumerations<a class="headerlink" href="#enumerations" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Enumerations<a class="headerlink" href="#enumerations" title="この見出しへのパーマリンク">#</a></h2>
 <p>Enumerations are available to simplify inputs to certain readers.</p>
 <div class="toctree-wrapper compound">
 <ul>

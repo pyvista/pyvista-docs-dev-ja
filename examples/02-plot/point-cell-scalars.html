@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Point Cell Scalars &#8212; PyVista 0.40.dev0 ドキュメント</title>
   
@@ -51,9 +51,8 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/thebelab-helper.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
@@ -674,7 +673,7 @@ document.write(`
 to download the full example code</p>
 </div>
 <section class="sphx-glr-example-title" id="point-cell-scalars">
-<span id="point-cell-scalars-example"></span><span id="sphx-glr-examples-02-plot-point-cell-scalars-py"></span><h1>Point Cell Scalars<a class="headerlink" href="#point-cell-scalars" title="このヘッドラインへのパーマリンク">#</a></h1>
+<span id="point-cell-scalars-example"></span><span id="sphx-glr-examples-02-plot-point-cell-scalars-py"></span><h1>Point Cell Scalars<a class="headerlink" href="#point-cell-scalars" title="この見出しへのパーマリンク">#</a></h1>
 <p>This example demonstrates how to add point scalars for each individual cell to
 a dataset.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -715,7 +714,7 @@ of points is less than 32 since all the points are joined in the center.</p>
 <br />
 <br /></section>
 <section id="plot-point-scalars">
-<h1>Plot Point Scalars<a class="headerlink" href="#plot-point-scalars" title="このヘッドラインへのパーマリンク">#</a></h1>
+<h1>Plot Point Scalars<a class="headerlink" href="#plot-point-scalars" title="この見出しへのパーマリンク">#</a></h1>
 <p>At this point it's possible to assign only point or cell scalars to this
 dataset. First, let's just plot some simple point scalars.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">grid</span><span class="o">.</span><span class="n">point_data</span><span class="p">[</span><span class="s1">&#39;Point Data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="n">grid</span><span class="o">.</span><span class="n">n_points</span><span class="p">)</span>
@@ -724,7 +723,7 @@ dataset. First, let's just plot some simple point scalars.</p>
 </div>
 <img src="../../_images/sphx_glr_point-cell-scalars_001.png" srcset="../../_images/sphx_glr_point-cell-scalars_001.png" alt="point cell scalars" class = "sphx-glr-single-img"/></section>
 <section id="plot-cell-scalars">
-<h1>Plot Cell Scalars<a class="headerlink" href="#plot-cell-scalars" title="このヘッドラインへのパーマリンク">#</a></h1>
+<h1>Plot Cell Scalars<a class="headerlink" href="#plot-cell-scalars" title="この見出しへのパーマリンク">#</a></h1>
 <p>Next, let's plot cell scalars. We're simply assigning based on the cell
 index.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">grid</span><span class="o">.</span><span class="n">cell_data</span><span class="p">[</span><span class="s1">&#39;Cell Data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="n">grid</span><span class="o">.</span><span class="n">n_cells</span><span class="p">)</span>
@@ -733,7 +732,7 @@ index.</p>
 </div>
 <img src="../../_images/sphx_glr_point-cell-scalars_002.png" srcset="../../_images/sphx_glr_point-cell-scalars_002.png" alt="point cell scalars" class = "sphx-glr-single-img"/></section>
 <section id="splitting-the-cells">
-<h1>Splitting the Cells<a class="headerlink" href="#splitting-the-cells" title="このヘッドラインへのパーマリンク">#</a></h1>
+<h1>Splitting the Cells<a class="headerlink" href="#splitting-the-cells" title="この見出しへのパーマリンク">#</a></h1>
 <p>If you wanted to assign data to each point of each cell and plot that, it's
 simply not possible since these hexahedral cells all share the same
 points. To split up individual cells, separate them using
@@ -774,7 +773,7 @@ points.</p>
 <br />
 <br /></section>
 <section id="plot-point-cell-data">
-<h1>Plot Point Cell Data<a class="headerlink" href="#plot-point-cell-data" title="このヘッドラインへのパーマリンク">#</a></h1>
+<h1>Plot Point Cell Data<a class="headerlink" href="#plot-point-cell-data" title="この見出しへのパーマリンク">#</a></h1>
 <p>Now we can plot values for each point for each cell. This will still be
 assigned to the point data.</p>
 <p>Here we use <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.hstack.html#numpy.hstack" title="(in NumPy v1.24)"><code class="xref py py-func docutils literal notranslate"><span class="pre">numpy.hstack()</span></code></a> for clarity, but as long as the length of
@@ -793,7 +792,7 @@ finite element solutions.</p>
 <span class="n">split_cells</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">scalars</span><span class="o">=</span><span class="s1">&#39;Point Cell Data&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_point-cell-scalars_003.png" srcset="../../_images/sphx_glr_point-cell-scalars_003.png" alt="point cell scalars" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  1.009 seconds)</p>
+<img src="../../_images/sphx_glr_point-cell-scalars_003.png" srcset="../../_images/sphx_glr_point-cell-scalars_003.png" alt="point cell scalars" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  1.081 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-02-plot-point-cell-scalars-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/e834d342c71601ed4706fc3d43837547/point-cell-scalars.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">point-cell-scalars.py</span></code></a></p>

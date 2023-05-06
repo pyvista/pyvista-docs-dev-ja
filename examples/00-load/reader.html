@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Load data using a Reader &#8212; PyVista 0.40.dev0 ドキュメント</title>
   
@@ -51,9 +51,8 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/thebelab-helper.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
@@ -613,7 +612,7 @@ document.write(`
 to download the full example code</p>
 </div>
 <section class="sphx-glr-example-title" id="load-data-using-a-reader">
-<span id="reader-example"></span><span id="sphx-glr-examples-00-load-reader-py"></span><h1>Load data using a Reader<a class="headerlink" href="#load-data-using-a-reader" title="このヘッドラインへのパーマリンク">#</a></h1>
+<span id="reader-example"></span><span id="sphx-glr-examples-00-load-reader-py"></span><h1>Load data using a Reader<a class="headerlink" href="#load-data-using-a-reader" title="この見出しへのパーマリンク">#</a></h1>
 <p>To have more control over reading data files, use a class based reader.
 This class allows for more fine-grained control over reading datasets from
 files.  See <a class="reference internal" href="../../api/readers/_autosummary/pyvista.get_reader.html#pyvista.get_reader" title="pyvista.get_reader"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyvista.get_reader()</span></code></a> for a list of file types supported.</p>
@@ -631,7 +630,7 @@ temporary file for this example.</p>
 <a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">temp_file</span><span class="o">.</span><span class="n">name</span></a>
 </pre></div>
 </div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;/tmp/tmpu_rrzk0p.vtp&#39;
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&#39;/tmp/tmp2ym9spya.vtp&#39;
 </pre></div>
 </div>
 <p><a class="reference internal" href="../../api/utilities/_autosummary/pyvista.Sphere.html#pyvista.Sphere" title="pyvista.Sphere"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.Sphere</span></code></a> already includes <code class="docutils literal notranslate"><span class="pre">Normals</span></code> point data.  Additionally
@@ -658,7 +657,7 @@ files. Reading in a <code class="docutils literal notranslate"><span class="pre"
 <span class="c1"># Alternative method: reader = pyvista.XMLPolyDataReader(temp_file.name)</span>
 </pre></div>
 </div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>XMLPolyDataReader(&#39;/tmp/tmpu_rrzk0p.vtp&#39;)
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>XMLPolyDataReader(&#39;/tmp/tmp2ym9spya.vtp&#39;)
 </pre></div>
 </div>
 <p>Some reader classes, including this one, offer the ability to inspect the
@@ -785,7 +784,7 @@ Put iteration value in top left</p>
 <span class="n">plotter</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_reader_002.png" srcset="../../_images/sphx_glr_reader_002.png" alt="reader" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  7.804 seconds)</p>
+<img src="../../_images/sphx_glr_reader_002.png" srcset="../../_images/sphx_glr_reader_002.png" alt="reader" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  7.702 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-00-load-reader-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/50c57ebb157826f0bf68d9ca2d6e414f/reader.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">reader.py</span></code></a></p>

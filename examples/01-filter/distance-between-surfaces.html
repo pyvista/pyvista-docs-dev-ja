@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Distance Between Two Surfaces &#8212; PyVista 0.40.dev0 ドキュメント</title>
   
@@ -51,9 +51,8 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/thebelab-helper.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
@@ -648,7 +647,7 @@ document.write(`
 to download the full example code</p>
 </div>
 <section class="sphx-glr-example-title" id="distance-between-two-surfaces">
-<span id="sphx-glr-examples-01-filter-distance-between-surfaces-py"></span><h1>Distance Between Two Surfaces<a class="headerlink" href="#distance-between-two-surfaces" title="このヘッドラインへのパーマリンク">#</a></h1>
+<span id="sphx-glr-examples-01-filter-distance-between-surfaces-py"></span><h1>Distance Between Two Surfaces<a class="headerlink" href="#distance-between-two-surfaces" title="この見出しへのパーマリンク">#</a></h1>
 <p>Compute the average thickness between two surfaces.</p>
 <p>For example, you might have two surfaces that represent the boundaries of
 lithological layers in a subsurface geological model and you want to know the
@@ -698,7 +697,7 @@ to the top surface, unlike the first two examples.</p>
 </pre></div>
 </div>
 <img src="../../_images/sphx_glr_distance-between-surfaces_001.png" srcset="../../_images/sphx_glr_distance-between-surfaces_001.png" alt="distance between surfaces" class = "sphx-glr-single-img"/><section id="ray-tracing-distance">
-<h2>Ray Tracing Distance<a class="headerlink" href="#ray-tracing-distance" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Ray Tracing Distance<a class="headerlink" href="#ray-tracing-distance" title="この見出しへのパーマリンク">#</a></h2>
 <p>Compute normals of lower surface at vertex points</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">h0n</span> <span class="o">=</span> <span class="n">h0</span><span class="o">.</span><span class="n">compute_normals</span><span class="p">(</span><span class="n">point_normals</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cell_normals</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">auto_orient_normals</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
@@ -732,7 +731,7 @@ vector.</p>
 </div>
 <img src="../../_images/sphx_glr_distance-between-surfaces_002.png" srcset="../../_images/sphx_glr_distance-between-surfaces_002.png" alt="distance between surfaces" class = "sphx-glr-single-img"/></section>
 <section id="nearest-neighbor-distance">
-<h2>Nearest Neighbor Distance<a class="headerlink" href="#nearest-neighbor-distance" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Nearest Neighbor Distance<a class="headerlink" href="#nearest-neighbor-distance" title="この見出しへのパーマリンク">#</a></h2>
 <p>You could also use a KDTree to compare the distance between each vertex point
 of the
 upper surface and the nearest neighbor vertex point of the lower surface.
@@ -757,7 +756,7 @@ noticeably faster than a ray trace, especially for large surfaces.</p>
 </div>
 <img src="../../_images/sphx_glr_distance-between-surfaces_003.png" srcset="../../_images/sphx_glr_distance-between-surfaces_003.png" alt="distance between surfaces" class = "sphx-glr-single-img"/></section>
 <section id="using-pyvista-filter">
-<h2>Using PyVista Filter<a class="headerlink" href="#using-pyvista-filter" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Using PyVista Filter<a class="headerlink" href="#using-pyvista-filter" title="この見出しへのパーマリンク">#</a></h2>
 <p>The <a class="reference internal" href="../../api/core/_autosummary/pyvista.DataSet.find_closest_cell.html#pyvista.DataSet.find_closest_cell" title="pyvista.DataSet.find_closest_cell"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyvista.DataSet.find_closest_cell()</span></code></a> filter returns the spatial
 points inside the cells of the top surface that are closest to the vertex
 points of the bottom surface.  <code class="docutils literal notranslate"><span class="pre">closest_points</span></code> is returned when using
@@ -779,7 +778,7 @@ KDTree method.</p>
 <span class="n">p</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_distance-between-surfaces_004.png" srcset="../../_images/sphx_glr_distance-between-surfaces_004.png" alt="distance between surfaces" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  2.804 seconds)</p>
+<img src="../../_images/sphx_glr_distance-between-surfaces_004.png" srcset="../../_images/sphx_glr_distance-between-surfaces_004.png" alt="distance between surfaces" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  3.478 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-01-filter-distance-between-surfaces-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/c850702ad7d739f993e2acb810d247b7/distance-between-surfaces.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">distance-between-surfaces.py</span></code></a></p>

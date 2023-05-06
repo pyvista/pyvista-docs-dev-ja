@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Rotations &#8212; PyVista 0.40.dev0 ドキュメント</title>
   
@@ -51,9 +51,8 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/thebelab-helper.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
@@ -648,7 +647,7 @@ document.write(`
 to download the full example code</p>
 </div>
 <section class="sphx-glr-example-title" id="rotations">
-<span id="rotate-example"></span><span id="sphx-glr-examples-01-filter-rotate-py"></span><h1>Rotations<a class="headerlink" href="#rotations" title="このヘッドラインへのパーマリンク">#</a></h1>
+<span id="rotate-example"></span><span id="sphx-glr-examples-01-filter-rotate-py"></span><h1>Rotations<a class="headerlink" href="#rotations" title="この見出しへのパーマリンク">#</a></h1>
 <p>Rotations of a mesh about its axes. In this model, the x axis is from the left
 to right; the y axis is from bottom to top; and the z axis emerges from the
 image. The camera location is the same in all four images.</p>
@@ -657,7 +656,7 @@ image. The camera location is the same in all four images.</p>
 </pre></div>
 </div>
 <section id="define-camera-and-axes">
-<h2>Define camera and axes<a class="headerlink" href="#define-camera-and-axes" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Define camera and axes<a class="headerlink" href="#define-camera-and-axes" title="この見出しへのパーマリンク">#</a></h2>
 <p>Define camera and axes. Setting axes origin to <code class="docutils literal notranslate"><span class="pre">(3.0,</span> <span class="pre">3.0,</span> <span class="pre">3.0)</span></code>.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mesh</span> <span class="o">=</span> <span class="n">examples</span><span class="o">.</span><span class="n">download_cow</span><span class="p">()</span>
 <span class="n">mesh</span><span class="o">.</span><span class="n">points</span> <span class="o">/=</span> <span class="mf">1.5</span>  <span class="c1"># scale the mesh</span>
@@ -672,7 +671,7 @@ image. The camera location is the same in all four images.</p>
 </div>
 </section>
 <section id="original-mesh">
-<h2>Original Mesh<a class="headerlink" href="#original-mesh" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Original Mesh<a class="headerlink" href="#original-mesh" title="この見出しへのパーマリンク">#</a></h2>
 <p>Plot original mesh. Add axes actor to Plotter.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Plotter</span><span class="p">()</span>
 
@@ -686,7 +685,7 @@ image. The camera location is the same in all four images.</p>
 </div>
 <img src="../../_images/sphx_glr_rotate_001.png" srcset="../../_images/sphx_glr_rotate_001.png" alt="rotate" class = "sphx-glr-single-img"/></section>
 <section id="rotation-about-the-x-axis">
-<h2>Rotation about the x axis<a class="headerlink" href="#rotation-about-the-x-axis" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Rotation about the x axis<a class="headerlink" href="#rotation-about-the-x-axis" title="この見出しへのパーマリンク">#</a></h2>
 <p>Plot the mesh rotated about the x axis every 60 degrees.
 Add the axes actor to the Plotter and set the axes origin to the point of rotation.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Plotter</span><span class="p">()</span>
@@ -704,7 +703,7 @@ Add the axes actor to the Plotter and set the axes origin to the point of rotati
 </div>
 <img src="../../_images/sphx_glr_rotate_002.png" srcset="../../_images/sphx_glr_rotate_002.png" alt="rotate" class = "sphx-glr-single-img"/></section>
 <section id="rotation-about-the-y-axis">
-<h2>Rotation about the y axis<a class="headerlink" href="#rotation-about-the-y-axis" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Rotation about the y axis<a class="headerlink" href="#rotation-about-the-y-axis" title="この見出しへのパーマリンク">#</a></h2>
 <p>Plot the mesh rotated about the y axis every 60 degrees.
 Add the axes actor to the Plotter and set the axes origin to the point of rotation.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Plotter</span><span class="p">()</span>
@@ -722,7 +721,7 @@ Add the axes actor to the Plotter and set the axes origin to the point of rotati
 </div>
 <img src="../../_images/sphx_glr_rotate_003.png" srcset="../../_images/sphx_glr_rotate_003.png" alt="rotate" class = "sphx-glr-single-img"/></section>
 <section id="rotation-about-the-z-axis">
-<h2>Rotation about the z axis<a class="headerlink" href="#rotation-about-the-z-axis" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Rotation about the z axis<a class="headerlink" href="#rotation-about-the-z-axis" title="この見出しへのパーマリンク">#</a></h2>
 <p>Plot the mesh rotated about the z axis every 60 degrees.
 Add axes actor to the Plotter and set the axes origin to the point of rotation.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Plotter</span><span class="p">()</span>
@@ -740,7 +739,7 @@ Add axes actor to the Plotter and set the axes origin to the point of rotation.<
 </div>
 <img src="../../_images/sphx_glr_rotate_004.png" srcset="../../_images/sphx_glr_rotate_004.png" alt="rotate" class = "sphx-glr-single-img"/></section>
 <section id="rotation-about-a-custom-vector">
-<h2>Rotation about a custom vector<a class="headerlink" href="#rotation-about-a-custom-vector" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Rotation about a custom vector<a class="headerlink" href="#rotation-about-a-custom-vector" title="この見出しへのパーマリンク">#</a></h2>
 <p>Plot the mesh rotated about a custom vector every 60 degrees.
 Add the axes actor to the Plotter and set axes origin to the point of rotation.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Plotter</span><span class="p">()</span>
@@ -756,7 +755,7 @@ Add the axes actor to the Plotter and set axes origin to the point of rotation.<
 <span class="n">p</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_rotate_005.png" srcset="../../_images/sphx_glr_rotate_005.png" alt="rotate" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  1.570 seconds)</p>
+<img src="../../_images/sphx_glr_rotate_005.png" srcset="../../_images/sphx_glr_rotate_005.png" alt="rotate" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  1.644 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-01-filter-rotate-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/ed9e0a393c4277498f3a79e707e5d6f9/rotate.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">rotate.py</span></code></a></p>

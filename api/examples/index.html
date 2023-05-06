@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Examples &#8212; PyVista 0.40.dev0 ドキュメント</title>
   
@@ -51,9 +51,8 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/thebelab-helper.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
@@ -584,7 +583,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section id="examples">
-<h1>Examples<a class="headerlink" href="#examples" title="このヘッドラインへのパーマリンク">#</a></h1>
+<h1>Examples<a class="headerlink" href="#examples" title="この見出しへのパーマリンク">#</a></h1>
 <p>PyVista contains a variety of built-in demos and downloadable example
 datasets. For example:</p>
 <p>Plot the built-in globe dataset</p>
@@ -619,11 +618,7 @@ demonstrate features.</p>
 <figure class="align-default">
 <img alt="../../_images/index-3_00_00.png" src="../../_images/index-3_00_00.png" />
 </figure>
-<table class="longtable table autosummary">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
+<table class="autosummary longtable table autosummary">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="_autosummary/pyvista.examples.examples.html#module-pyvista.examples.examples" title="pyvista.examples.examples"><code class="xref py py-obj docutils literal notranslate"><span class="pre">examples.examples</span></code></a></p></td>
 <td><p>Built-in examples that ship with PyVista and do not need to be downloaded.</p></td>
@@ -656,12 +651,12 @@ Choose another model for these sorts of experiments.
 (You can do anything you want to the Stanford bunny or the armadillo.)</p>
 </div>
 <section id="downloads-cache-and-data-sources">
-<h2>Downloads Cache and Data Sources<a class="headerlink" href="#downloads-cache-and-data-sources" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Downloads Cache and Data Sources<a class="headerlink" href="#downloads-cache-and-data-sources" title="この見出しへのパーマリンク">#</a></h2>
 <p>If you have an internet connection and a normal user account, PyVista should be
 able to download and cache examples without an issue. The following two
 sections deal with those who wish to customize how PyVista downloads examples.</p>
 <section id="cache">
-<h3>Cache<a class="headerlink" href="#cache" title="このヘッドラインへのパーマリンク">#</a></h3>
+<h3>Cache<a class="headerlink" href="#cache" title="この見出しへのパーマリンク">#</a></h3>
 <p>PyVista uses <a class="reference external" href="https://github.com/fatiando/pooch">pooch</a> to download and store
 the example files in a local cache. You can determine the location of this cache
 at runtime with:</p>
@@ -677,7 +672,7 @@ at runtime with:</p>
 <code class="docutils literal notranslate"><span class="pre">PYVISTA_USERDATA_PATH</span></code> environment variable. This path must be writable.</p>
 </section>
 <section id="data-sources">
-<h3>Data Sources<a class="headerlink" href="#data-sources" title="このヘッドラインへのパーマリンク">#</a></h3>
+<h3>Data Sources<a class="headerlink" href="#data-sources" title="この見出しへのパーマリンク">#</a></h3>
 <p>PyVista uses <a class="reference external" href="https://github.com/pyvista/vtk-data.git">PyVista/vtk-data</a> as
 the main source for example data. If you do not have internet access or you
 prefer using a local or network directory instead, you can override this
@@ -693,15 +688,11 @@ directory to PyVista via <code class="docutils literal notranslate"><span class=
 </section>
 </section>
 <section id="cells">
-<h2>Cells<a class="headerlink" href="#cells" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Cells<a class="headerlink" href="#cells" title="この見出しへのパーマリンク">#</a></h2>
 <p>PyVista contains several functions that create single cell
 <a class="reference internal" href="../core/_autosummary/pyvista.UnstructuredGrid.html#pyvista.UnstructuredGrid" title="pyvista.UnstructuredGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.UnstructuredGrid</span></code></a> objects that can be used to learn about VTK
 cell types.</p>
-<table class="longtable table autosummary">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
+<table class="autosummary longtable table autosummary">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="_autosummary/pyvista.examples.cells.plot_cell.html#pyvista.examples.cells.plot_cell" title="pyvista.examples.cells.plot_cell"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot_cell</span></code></a>(grid[, cpos])</p></td>
 <td><p>Plot a <a class="reference internal" href="../core/_autosummary/pyvista.UnstructuredGrid.html#pyvista.UnstructuredGrid" title="pyvista.UnstructuredGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.UnstructuredGrid</span></code></a> while displaying cell indices.</p></td>

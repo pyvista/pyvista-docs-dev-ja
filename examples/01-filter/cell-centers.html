@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Extract Cell Centers &#8212; PyVista 0.40.dev0 ドキュメント</title>
   
@@ -51,9 +51,8 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/thebelab-helper.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
@@ -648,7 +647,7 @@ document.write(`
 to download the full example code</p>
 </div>
 <section class="sphx-glr-example-title" id="extract-cell-centers">
-<span id="cell-centers-example"></span><span id="sphx-glr-examples-01-filter-cell-centers-py"></span><h1>Extract Cell Centers<a class="headerlink" href="#extract-cell-centers" title="このヘッドラインへのパーマリンク">#</a></h1>
+<span id="cell-centers-example"></span><span id="sphx-glr-examples-01-filter-cell-centers-py"></span><h1>Extract Cell Centers<a class="headerlink" href="#extract-cell-centers" title="この見出しへのパーマリンク">#</a></h1>
 <p>Extract the coordinates of the centers of all cells or faces in a mesh.</p>
 <p>Here we use <a class="reference internal" href="../../api/core/_autosummary/pyvista.DataSetFilters.cell_centers.html#pyvista.DataSetFilters.cell_centers" title="pyvista.DataSetFilters.cell_centers"><code class="xref py py-func docutils literal notranslate"><span class="pre">cell_centers</span></code></a>.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyvista</span> <span class="k">as</span> <span class="nn">pv</span>
@@ -699,7 +698,7 @@ to download the full example code</p>
 </div>
 <img src="../../_images/sphx_glr_cell-centers_003.png" srcset="../../_images/sphx_glr_cell-centers_003.png" alt="cell centers" class = "sphx-glr-single-img"/></section>
 <section id="edge-centers">
-<h1>Edge centers<a class="headerlink" href="#edge-centers" title="このヘッドラインへのパーマリンク">#</a></h1>
+<h1>Edge centers<a class="headerlink" href="#edge-centers" title="この見出しへのパーマリンク">#</a></h1>
 <p>You can use <a class="reference internal" href="../../api/core/_autosummary/pyvista.DataSetFilters.cell_centers.html#pyvista.DataSetFilters.cell_centers" title="pyvista.DataSetFilters.cell_centers"><code class="xref py py-func docutils literal notranslate"><span class="pre">cell_centers</span></code></a> in
 combination with <a class="reference internal" href="../../api/core/_autosummary/pyvista.DataSetFilters.extract_all_edges.html#pyvista.DataSetFilters.extract_all_edges" title="pyvista.DataSetFilters.extract_all_edges"><code class="xref py py-func docutils literal notranslate"><span class="pre">extract_all_edges</span></code></a> to get the center of all edges of
 a mesh.</p>
@@ -721,7 +720,7 @@ a mesh.</p>
 </div>
 <img src="../../_images/sphx_glr_cell-centers_004.png" srcset="../../_images/sphx_glr_cell-centers_004.png" alt="cell centers" class = "sphx-glr-single-img"/></section>
 <section id="add-labels-to-cells">
-<h1>Add labels to cells<a class="headerlink" href="#add-labels-to-cells" title="このヘッドラインへのパーマリンク">#</a></h1>
+<h1>Add labels to cells<a class="headerlink" href="#add-labels-to-cells" title="この見出しへのパーマリンク">#</a></h1>
 <p>There is not a method to add labels to cells.
 If you want to label it, you need to extract the position to label it.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">grid</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">UniformGrid</span><span class="p">(</span><span class="n">dimensions</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
@@ -733,7 +732,7 @@ If you want to label it, you need to extract the position to label it.</p>
 <span class="n">pl</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">cpos</span></a><span class="o">=</span><span class="s2">&quot;xy&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_cell-centers_005.png" srcset="../../_images/sphx_glr_cell-centers_005.png" alt="cell centers" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  2.615 seconds)</p>
+<img src="../../_images/sphx_glr_cell-centers_005.png" srcset="../../_images/sphx_glr_cell-centers_005.png" alt="cell centers" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  2.504 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-01-filter-cell-centers-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/a1c3c91b995617764ebb74c748785c9a/cell-centers.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">cell-centers.py</span></code></a></p>

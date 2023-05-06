@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Anti-Aliasing &#8212; PyVista 0.40.dev0 ドキュメント</title>
   
@@ -51,9 +51,8 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/thebelab-helper.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
@@ -674,7 +673,7 @@ document.write(`
 to download the full example code</p>
 </div>
 <section class="sphx-glr-example-title" id="anti-aliasing">
-<span id="anti-aliasing-example"></span><span id="sphx-glr-examples-02-plot-anti-aliasing-py"></span><h1>Anti-Aliasing<a class="headerlink" href="#anti-aliasing" title="このヘッドラインへのパーマリンク">#</a></h1>
+<span id="anti-aliasing-example"></span><span id="sphx-glr-examples-02-plot-anti-aliasing-py"></span><h1>Anti-Aliasing<a class="headerlink" href="#anti-aliasing" title="この見出しへのパーマリンク">#</a></h1>
 <p>Demonstrate anti-aliasing within PyVista.</p>
 <p>PyVista supports three types of anti-aliasing:</p>
 <ul class="simple">
@@ -698,7 +697,7 @@ to download the full example code</p>
 </div>
 </section>
 <section id="no-anti-aliasing">
-<h1>No Anti-Aliasing<a class="headerlink" href="#no-anti-aliasing" title="このヘッドラインへのパーマリンク">#</a></h1>
+<h1>No Anti-Aliasing<a class="headerlink" href="#no-anti-aliasing" title="この見出しへのパーマリンク">#</a></h1>
 <p>First, let's show a plot without any anti-aliasing.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># obtained with `cpos = pl.show(return_cpos=True)`</span>
 <a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">cpos</span></a> <span class="o">=</span> <span class="p">[(</span><span class="o">-</span><span class="mf">0.08566</span><span class="p">,</span> <span class="mf">0.18735</span><span class="p">,</span> <span class="mf">0.20116</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="mf">0.05332</span><span class="p">,</span> <span class="mf">0.12168</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.01215</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="mf">0.00151</span><span class="p">,</span> <span class="mf">0.95566</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.29446</span><span class="p">)]</span>
@@ -712,7 +711,7 @@ to download the full example code</p>
 </div>
 <img src="../../_images/sphx_glr_anti-aliasing_001.png" srcset="../../_images/sphx_glr_anti-aliasing_001.png" alt="anti aliasing" class = "sphx-glr-single-img"/></section>
 <section id="fast-approximate-anti-aliasing-fxaa">
-<h1>Fast Approximate Anti-Aliasing (FXAA)<a class="headerlink" href="#fast-approximate-anti-aliasing-fxaa" title="このヘッドラインへのパーマリンク">#</a></h1>
+<h1>Fast Approximate Anti-Aliasing (FXAA)<a class="headerlink" href="#fast-approximate-anti-aliasing-fxaa" title="この見出しへのパーマリンク">#</a></h1>
 <p>FXAA is the most performant of all three anti-aliasing techniques. This is
 because, in terms of hardware or GPU, FXAA is not that demanding. It directly
 smooths the 2D image and this reduces the strain over GPU, making it best for
@@ -730,7 +729,7 @@ inferior to MSAA and SSAA.</p>
 </div>
 <img src="../../_images/sphx_glr_anti-aliasing_002.png" srcset="../../_images/sphx_glr_anti-aliasing_002.png" alt="anti aliasing" class = "sphx-glr-single-img"/></section>
 <section id="multi-sample-anti-aliasing-msaa">
-<h1>Multi-Sample Anti-Aliasing (MSAA)<a class="headerlink" href="#multi-sample-anti-aliasing-msaa" title="このヘッドラインへのパーマリンク">#</a></h1>
+<h1>Multi-Sample Anti-Aliasing (MSAA)<a class="headerlink" href="#multi-sample-anti-aliasing-msaa" title="この見出しへのパーマリンク">#</a></h1>
 <p>MSAA, or Multi-Sample Anti-Aliasing is an optimization of SSAA that reduces
 the amount of pixel shader evaluations that need to be computed by focusing
 on overlapping regions of the scene. The result is anti-aliasing along edges
@@ -746,7 +745,7 @@ expensive than SSAA and results in comparable image quality.</p>
 </div>
 <img src="../../_images/sphx_glr_anti-aliasing_003.png" srcset="../../_images/sphx_glr_anti-aliasing_003.png" alt="anti aliasing" class = "sphx-glr-single-img"/></section>
 <section id="super-sample-anti-aliasing-ssaa">
-<h1>Super-Sample Anti-Aliasing (SSAA)<a class="headerlink" href="#super-sample-anti-aliasing-ssaa" title="このヘッドラインへのパーマリンク">#</a></h1>
+<h1>Super-Sample Anti-Aliasing (SSAA)<a class="headerlink" href="#super-sample-anti-aliasing-ssaa" title="この見出しへのパーマリンク">#</a></h1>
 <p>SSAA, or Super-Sample Anti-Aliasing is a brute force method of
 anti-aliasing. It results in the best image quality but comes at a tremendous
 resource cost. SSAA works by rendering the scene at a higher resolution. The
@@ -760,7 +759,7 @@ frequency components that would cause jaggedness.</p>
 <span class="n">pl</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_anti-aliasing_004.png" srcset="../../_images/sphx_glr_anti-aliasing_004.png" alt="anti aliasing" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  3.913 seconds)</p>
+<img src="../../_images/sphx_glr_anti-aliasing_004.png" srcset="../../_images/sphx_glr_anti-aliasing_004.png" alt="anti aliasing" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  4.436 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-02-plot-anti-aliasing-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/10481a8d754f5651142daca74e8fbe2e/anti-aliasing.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">anti-aliasing.py</span></code></a></p>

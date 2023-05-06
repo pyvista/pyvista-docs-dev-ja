@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Volumetric Analysis &#8212; PyVista 0.40.dev0 ドキュメント</title>
   
@@ -51,9 +51,8 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/thebelab-helper.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
@@ -648,7 +647,7 @@ document.write(`
 to download the full example code</p>
 </div>
 <section class="sphx-glr-example-title" id="volumetric-analysis">
-<span id="volumetric-example"></span><span id="sphx-glr-examples-01-filter-compute-volume-py"></span><h1>Volumetric Analysis<a class="headerlink" href="#volumetric-analysis" title="このヘッドラインへのパーマリンク">#</a></h1>
+<span id="volumetric-example"></span><span id="sphx-glr-examples-01-filter-compute-volume-py"></span><h1>Volumetric Analysis<a class="headerlink" href="#volumetric-analysis" title="この見出しへのパーマリンク">#</a></h1>
 <p>Calculate mass properties such as the volume or area of datasets</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
@@ -813,7 +812,7 @@ filter or by using <code class="docutils literal notranslate"><span class="pre">
 </div>
 <img src="../../_images/sphx_glr_compute-volume_002.png" srcset="../../_images/sphx_glr_compute-volume_002.png" alt="compute volume" class = "sphx-glr-single-img"/><hr class="docutils" />
 <section id="splitting-volumes">
-<span id="split-vol-ref"></span><h2>Splitting Volumes<a class="headerlink" href="#splitting-volumes" title="このヘッドラインへのパーマリンク">#</a></h2>
+<span id="split-vol-ref"></span><h2>Splitting Volumes<a class="headerlink" href="#splitting-volumes" title="この見出しへのパーマリンク">#</a></h2>
 <p>What if instead, we wanted to split all the different connected bodies /
 volumes in a dataset like the one above? We could use the
 <a class="reference internal" href="../../api/core/_autosummary/pyvista.DataSetFilters.split_bodies.html#pyvista.DataSetFilters.split_bodies" title="pyvista.DataSetFilters.split_bodies"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyvista.DataSetFilters.split_bodies()</span></code></a> filter to extract all the
@@ -841,7 +840,7 @@ Body 1 volume: 32.000
 <img src="../../_images/sphx_glr_compute-volume_003.png" srcset="../../_images/sphx_glr_compute-volume_003.png" alt="compute volume" class = "sphx-glr-single-img"/></section>
 <hr class="docutils" />
 <section id="a-real-dataset">
-<h2>A Real Dataset<a class="headerlink" href="#a-real-dataset" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>A Real Dataset<a class="headerlink" href="#a-real-dataset" title="この見出しへのパーマリンク">#</a></h2>
 <p>Here is a realistic training dataset of fluvial channels in the subsurface.
 This will threshold the channels from the dataset then separate each
 significantly large body and compute the volumes for each.</p>
@@ -895,7 +894,7 @@ Body 20 volume: 2270.000
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bodies</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">scalars</span><span class="o">=</span><span class="s2">&quot;TOTAL VOLUME&quot;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;viridis&quot;</span><span class="p">,</span> <span class="n">show_grid</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_compute-volume_004.png" srcset="../../_images/sphx_glr_compute-volume_004.png" alt="compute volume" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  7.348 seconds)</p>
+<img src="../../_images/sphx_glr_compute-volume_004.png" srcset="../../_images/sphx_glr_compute-volume_004.png" alt="compute volume" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  7.832 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-01-filter-compute-volume-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/6bce5e00bc370f5ce96e59726644605e/compute-volume.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">compute-volume.py</span></code></a></p>

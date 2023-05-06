@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>3D Earth and Celestial Bodies &#8212; PyVista 0.40.dev0 ドキュメント</title>
   
@@ -51,9 +51,8 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/thebelab-helper.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
@@ -601,7 +600,7 @@ document.write(`
 to download the full example code</p>
 </div>
 <section class="sphx-glr-example-title" id="d-earth-and-celestial-bodies">
-<span id="planets-example"></span><span id="sphx-glr-examples-99-advanced-planets-py"></span><h1>3D Earth and Celestial Bodies<a class="headerlink" href="#d-earth-and-celestial-bodies" title="このヘッドラインへのパーマリンク">#</a></h1>
+<span id="planets-example"></span><span id="sphx-glr-examples-99-advanced-planets-py"></span><h1>3D Earth and Celestial Bodies<a class="headerlink" href="#d-earth-and-celestial-bodies" title="この見出しへのパーマリンク">#</a></h1>
 <p>Plot the solar system in PyVista.</p>
 <p>This example is inspired by <a class="reference external" href="https://github.com/tamaskis/planet3D-MATLAB">planet3D-MATLAB</a>.</p>
 <div class="admonition note">
@@ -619,7 +618,7 @@ if you wish to use Python for astronomical calculations.</p>
 </div>
 </section>
 <section id="plot-the-solar-system-with-stars-in-the-background">
-<h1>Plot the Solar System with Stars in the Background<a class="headerlink" href="#plot-the-solar-system-with-stars-in-the-background" title="このヘッドラインへのパーマリンク">#</a></h1>
+<h1>Plot the Solar System with Stars in the Background<a class="headerlink" href="#plot-the-solar-system-with-stars-in-the-background" title="この見出しへのパーマリンク">#</a></h1>
 <p>This section relies on calculations in <a class="reference external" href="https://tamaskis.github.io/files/Visualizing_Celestial_Bodies_in_3D.pdf">Visualizing Celestial Bodies in 3D</a>.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Light of the Sun.</span>
 <span class="n">light</span> <span class="o">=</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">Light</span><span class="p">()</span>
@@ -673,7 +672,7 @@ if you wish to use Python for astronomical calculations.</p>
 </div>
 <img src="../../_images/sphx_glr_planets_001.png" srcset="../../_images/sphx_glr_planets_001.png" alt="planets" class = "sphx-glr-single-img"/></section>
 <section id="plot-the-planets-and-their-textures">
-<h1>Plot the Planets and their Textures<a class="headerlink" href="#plot-the-planets-and-their-textures" title="このヘッドラインへのパーマリンク">#</a></h1>
+<h1>Plot the Planets and their Textures<a class="headerlink" href="#plot-the-planets-and-their-textures" title="この見出しへのパーマリンク">#</a></h1>
 <p>Each planet here is in a different subplot. The planet's textures are from
 <a class="reference external" href="https://www.solarsystemscope.com/textures/">Solar Textures</a>.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pl</span> <span class="o">=</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">Plotter</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
@@ -697,7 +696,7 @@ if you wish to use Python for astronomical calculations.</p>
 </div>
 <img src="../../_images/sphx_glr_planets_002.png" srcset="../../_images/sphx_glr_planets_002.png" alt="planets" class = "sphx-glr-single-img"/></section>
 <section id="plot-the-atmosphere-and-surface-of-venus">
-<h1>Plot the Atmosphere and Surface of Venus<a class="headerlink" href="#plot-the-atmosphere-and-surface-of-venus" title="このヘッドラインへのパーマリンク">#</a></h1>
+<h1>Plot the Atmosphere and Surface of Venus<a class="headerlink" href="#plot-the-atmosphere-and-surface-of-venus" title="この見出しへのパーマリンク">#</a></h1>
 <p>Here we plot Venus with and without its atmosphere.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">venus</span> <span class="o">=</span> <span class="n">examples</span><span class="o">.</span><span class="n">planets</span><span class="o">.</span><span class="n">load_venus</span><span class="p">()</span>
 <span class="n">pl</span> <span class="o">=</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">Plotter</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
@@ -711,7 +710,7 @@ if you wish to use Python for astronomical calculations.</p>
 <span class="n">pl</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">cpos</span><span class="o">=</span><span class="s2">&quot;xy&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_planets_003.png" srcset="../../_images/sphx_glr_planets_003.png" alt="planets" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 10 minutes  10.040 seconds)</p>
+<img src="../../_images/sphx_glr_planets_003.png" srcset="../../_images/sphx_glr_planets_003.png" alt="planets" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 18 minutes  20.049 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-99-advanced-planets-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/fd509a5cc627f18ad4f4df6f035be51b/planets.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">planets.py</span></code></a></p>

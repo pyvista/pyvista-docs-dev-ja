@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Adding a New Gallery Example &#8212; PyVista 0.40.dev0 ドキュメント</title>
   
@@ -51,9 +51,8 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/thebelab-helper.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
@@ -601,7 +600,7 @@ document.write(`
 to download the full example code</p>
 </div>
 <section class="sphx-glr-example-title" id="adding-a-new-gallery-example">
-<span id="add-example-example"></span><span id="sphx-glr-examples-99-advanced-add-example-py"></span><h1>Adding a New Gallery Example<a class="headerlink" href="#adding-a-new-gallery-example" title="このヘッドラインへのパーマリンク">#</a></h1>
+<span id="add-example-example"></span><span id="sphx-glr-examples-99-advanced-add-example-py"></span><h1>Adding a New Gallery Example<a class="headerlink" href="#adding-a-new-gallery-example" title="この見出しへのパーマリンク">#</a></h1>
 <p>This example demonstrates how to add a new PyVista <a class="reference external" href="https://sphinx-gallery.github.io/">Sphinx Gallery</a> example as well as being a template that
 can be used in their creation.</p>
 <p>Each example should have a reference tag/key in the form:</p>
@@ -630,7 +629,7 @@ typically set up your imports.</p>
 </pre></div>
 </div>
 <section id="section-title">
-<h2>Section Title<a class="headerlink" href="#section-title" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Section Title<a class="headerlink" href="#section-title" title="この見出しへのパーマリンク">#</a></h2>
 <p>Code blocks can be broken up with text &quot;sections&quot; which are interpreted as
 restructured text.</p>
 <p>This will also be translated into a markdown cell in the generated jupyter
@@ -669,7 +668,7 @@ block, output will be generated and printed to the screen according to its
 <br />
 <br /></section>
 <section id="plots-and-images">
-<h2>Plots and images<a class="headerlink" href="#plots-and-images" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Plots and images<a class="headerlink" href="#plots-and-images" title="この見出しへのパーマリンク">#</a></h2>
 <p>If you use anything that outputs an image (for example,
 <a class="reference internal" href="../../api/plotting/_autosummary/pyvista.Plotter.show.html#pyvista.Plotter.show" title="pyvista.Plotter.show"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyvista.Plotter.show()</span></code></a>) the resulting image will be rendered within the
 output HTML.</p>
@@ -685,7 +684,7 @@ gallery thumbnail image.</p>
 </div>
 <img src="../../_images/sphx_glr_add-example_001.png" srcset="../../_images/sphx_glr_add-example_001.png" alt="add example" class = "sphx-glr-single-img"/></section>
 <section id="caveat-plotter-must-be-within-one-cell">
-<h2>Caveat - Plotter must be within One Cell<a class="headerlink" href="#caveat-plotter-must-be-within-one-cell" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Caveat - Plotter must be within One Cell<a class="headerlink" href="#caveat-plotter-must-be-within-one-cell" title="この見出しへのパーマリンク">#</a></h2>
 <p>It's not possible for a single <a class="reference internal" href="../../api/plotting/_autosummary/pyvista.Plotter.html#pyvista.Plotter" title="pyvista.Plotter"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.Plotter</span></code></a> object across
 multiple cells because these are closed out automatically at the end of a
 cell.</p>
@@ -697,7 +696,7 @@ cell.</p>
 <span class="n">actor</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_add-example_002.png" srcset="../../_images/sphx_glr_add-example_002.png" alt="add example" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Actor (0x7fbf189d2160)
+<img src="../../_images/sphx_glr_add-example_002.png" srcset="../../_images/sphx_glr_add-example_002.png" alt="add example" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Actor (0x7f05d7e852e0)
   Center:                     (0.0, 0.0, 0.0)
   Pickable:                   True
   Position:                   (0.0, 0.0, 0.0)
@@ -709,7 +708,7 @@ cell.</p>
   User matrix:                Unset
   Has mapper:                 True
 
-Property (0x7fbf5bf6edc0)
+Property (0x7f05d7e85640)
   Ambient:                     0.0
   Ambient color:               Color(name=&#39;tan&#39;, hex=&#39;#d2b48cff&#39;, opacity=255)
   Anisotropy:                  0.0
@@ -733,7 +732,7 @@ Property (0x7fbf5bf6edc0)
   Specular power:              100.0
   Style:                       &quot;Surface&quot;
 
-DataSetMapper (0x7fbf5bf6edc0)
+DataSetMapper (0x7f05d7e85640)
   Scalar visibility:           False
   Scalar range:                (0.0, 1.0)
   Interpolate before mapping:  True
@@ -741,7 +740,7 @@ DataSetMapper (0x7fbf5bf6edc0)
   Color mode:                  direct
 
 Attached dataset:
-PolyData (0x7fbfd64db8e0)
+PolyData (0x7f057e0f89a0)
   N Cells:    1680
   N Points:   842
   N Strips:   0
@@ -753,7 +752,7 @@ PolyData (0x7fbfd64db8e0)
 </div>
 </section>
 <section id="this-cell-cannot-run-the-plotter">
-<h2>This Cell Cannot Run the Plotter<a class="headerlink" href="#this-cell-cannot-run-the-plotter" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>This Cell Cannot Run the Plotter<a class="headerlink" href="#this-cell-cannot-run-the-plotter" title="この見出しへのパーマリンク">#</a></h2>
 <p>The plotter will already be closed by <code class="docutils literal notranslate"><span class="pre">sphinx_gallery</span></code>.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># This cannot be run here because the plotter is already closed and would raise</span>
 <span class="c1"># an error:</span>
@@ -765,7 +764,7 @@ PolyData (0x7fbfd64db8e0)
 </div>
 </section>
 <section id="animations">
-<h2>Animations<a class="headerlink" href="#animations" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Animations<a class="headerlink" href="#animations" title="この見出しへのパーマリンク">#</a></h2>
 <p>You can even create animations, and while there is a full example in
 <a class="reference internal" href="../02-plot/movie.html#movie-example"><span class="std std-ref">Create a MP4 Movie</span></a>, this cell explains how you can create an animation
 within a single cell.</p>
@@ -795,7 +794,7 @@ within a single cell.</p>
 </div>
 <img src="../../_images/sphx_glr_add-example_003.png" srcset="../../_images/sphx_glr_add-example_003.png" alt="add example" class = "sphx-glr-single-img"/></section>
 <section id="adding-example-files">
-<h2>Adding Example Files<a class="headerlink" href="#adding-example-files" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Adding Example Files<a class="headerlink" href="#adding-example-files" title="この見出しへのパーマリンク">#</a></h2>
 <p>PyVista has a variety of example files all stored at <a class="reference external" href="https://github.com/pyvista/vtk-data">pyvista/vtk_data</a>, and you can add the file by
 following the directions there.</p>
 <p>Under the hood, PyVista uses <a class="reference external" href="https://github.com/fatiando/pooch">pooch</a>,
@@ -810,7 +809,7 @@ and you can easily access any files added with
 </div>
 </section>
 <section id="adding-a-wrapped-example">
-<h2>Adding a Wrapped Example<a class="headerlink" href="#adding-a-wrapped-example" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Adding a Wrapped Example<a class="headerlink" href="#adding-a-wrapped-example" title="この見出しへのパーマリンク">#</a></h2>
 <p>While it's possible to simply download a file and then read it in, it's
 better for you to write a wrapped <code class="docutils literal notranslate"><span class="pre">download_&lt;example-dataset&gt;()</span></code> within
 <code class="docutils literal notranslate"><span class="pre">/pyvista/examples/downloads.py</span></code>. For example <a class="reference internal" href="../../api/examples/_autosummary/pyvista.examples.downloads.download_bunny.html#pyvista.examples.downloads.download_bunny" title="pyvista.examples.downloads.download_bunny"><code class="xref py py-func docutils literal notranslate"><span class="pre">download_bunny()</span></code></a> downloads and reads with
@@ -852,7 +851,7 @@ better for you to write a wrapped <code class="docutils literal notranslate"><sp
 
 </div>
 <br />
-<br /><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  2.598 seconds)</p>
+<br /><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  2.683 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-99-advanced-add-example-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/19b0c8afc619f3ca612ba5409fd637ce/add-example.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">add-example.py</span></code></a></p>

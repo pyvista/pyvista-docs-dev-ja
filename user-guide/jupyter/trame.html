@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Trame Jupyter Backend for PyVista &#8212; PyVista 0.40.dev0 ドキュメント</title>
   
@@ -51,9 +51,8 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/thebelab-helper.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
@@ -572,7 +571,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section id="trame-jupyter-backend-for-pyvista">
-<span id="trame-jupyter"></span><h1>Trame Jupyter Backend for PyVista<a class="headerlink" href="#trame-jupyter-backend-for-pyvista" title="このヘッドラインへのパーマリンク">#</a></h1>
+<span id="trame-jupyter"></span><h1>Trame Jupyter Backend for PyVista<a class="headerlink" href="#trame-jupyter-backend-for-pyvista" title="この見出しへのパーマリンク">#</a></h1>
 <p>PyVista has the ability to display fully featured plots within a
 Jupyter environment using <a class="reference external" href="https://kitware.github.io/trame/index.html">Trame</a>.
 We provide mechanisms to pair PyVista and Trame so that PyVista plotters
@@ -601,7 +600,7 @@ within Jupyter:</p>
 </pre></div>
 </div>
 <section id="trame-jupyter-modes">
-<h2>Trame Jupyter Modes<a class="headerlink" href="#trame-jupyter-modes" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Trame Jupyter Modes<a class="headerlink" href="#trame-jupyter-modes" title="この見出しへのパーマリンク">#</a></h2>
 <p>The PyVista Trame jupyter backend provides three modes of operation (technically
 as three separate backend choices):</p>
 <ul class="simple">
@@ -627,14 +626,14 @@ or passing <code class="docutils literal notranslate"><span class="pre">jupyter_
 </div>
 </section>
 <section id="installation">
-<h2>Installation<a class="headerlink" href="#installation" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Installation<a class="headerlink" href="#installation" title="この見出しへのパーマリンク">#</a></h2>
 <p>Using pip, you can set up your jupyter environment with:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="s1">&#39;jupyterlab&gt;=3&#39;</span> <span class="n">ipywidgets</span> <span class="s1">&#39;pyvista[all,trame]&#39;</span>
 </pre></div>
 </div>
 </section>
 <section id="jupyter-server-proxy">
-<h2>Jupyter-Server-Proxy<a class="headerlink" href="#jupyter-server-proxy" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Jupyter-Server-Proxy<a class="headerlink" href="#jupyter-server-proxy" title="この見出しへのパーマリンク">#</a></h2>
 <p>When using PyVista in Jupyter that is hosted remotely (docker, cloud JupyterHub,
 or otherwise), you will need to pair the Trame backend with <code class="docutils literal notranslate"><span class="pre">jupyter-server-proxy</span></code>.</p>
 <p><a class="reference external" href="https://jupyter-server-proxy.readthedocs.io/en/latest/">Jupyter Server Proxy</a>
@@ -668,7 +667,7 @@ In PyVista, we automatically check for the presence of this variable and
 prepend it to the <code class="docutils literal notranslate"><span class="pre">server_proxy_prefix</span></code>.</p>
 </section>
 <section id="other-considerations">
-<h2>Other Considerations<a class="headerlink" href="#other-considerations" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Other Considerations<a class="headerlink" href="#other-considerations" title="この見出しへのパーマリンク">#</a></h2>
 <p>It may be worth using GPU acceleration, see <a class="reference internal" href="../../extras/building_vtk.html#gpu-off-screen"><span class="std std-ref">Off-Screen Plotting GPU Support</span></a>.</p>
 <p>If you do not have GPU acceleration, be sure to start up a virtual
 framebuffer using <code class="docutils literal notranslate"><span class="pre">Xvfb</span></code>.  You can either start it using bash with:</p>

@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Light Types &#8212; PyVista 0.40.dev0 ドキュメント</title>
   
@@ -51,9 +51,8 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/thebelab-helper.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
@@ -579,7 +578,7 @@ document.write(`
 to download the full example code</p>
 </div>
 <section class="sphx-glr-example-title" id="light-types">
-<span id="light-types-example"></span><span id="sphx-glr-examples-04-lights-light-types-py"></span><h1>Light Types<a class="headerlink" href="#light-types" title="このヘッドラインへのパーマリンク">#</a></h1>
+<span id="light-types-example"></span><span id="sphx-glr-examples-04-lights-light-types-py"></span><h1>Light Types<a class="headerlink" href="#light-types" title="この見出しへのパーマリンク">#</a></h1>
 <p>Lights come in three types:</p>
 <blockquote>
 <div><ul class="simple">
@@ -591,7 +590,7 @@ unaffected by moving the camera. This is the default type.</p></li>
 </ul>
 </div></blockquote>
 <section id="headlight">
-<h2>Headlight<a class="headerlink" href="#headlight" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Headlight<a class="headerlink" href="#headlight" title="この見出しへのパーマリンク">#</a></h2>
 <p>For headlights the <a class="reference internal" href="../../api/core/_autosummary/pyvista.Camera.position.html#pyvista.Camera.position" title="pyvista.Camera.position"><code class="xref py py-attr docutils literal notranslate"><span class="pre">pyvista.Camera.position</span></code></a> and
 <a class="reference internal" href="../../api/core/_autosummary/pyvista.Camera.focal_point.html#pyvista.Camera.focal_point" title="pyvista.Camera.focal_point"><code class="xref py py-attr docutils literal notranslate"><span class="pre">pyvista.Camera.focal_point</span></code></a> properties are meaningless. No matter
 where you move the camera, the light always emanates from the view point:</p>
@@ -614,7 +613,7 @@ where you move the camera, the light always emanates from the view point:</p>
 </div>
 <img src="../../_images/sphx_glr_light_types_001.png" srcset="../../_images/sphx_glr_light_types_001.png" alt="light types" class = "sphx-glr-single-img"/></section>
 <section id="camera-light">
-<h2>Camera light<a class="headerlink" href="#camera-light" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Camera light<a class="headerlink" href="#camera-light" title="この見出しへのパーマリンク">#</a></h2>
 <p>Camera lights define their <a class="reference internal" href="../../api/core/_autosummary/pyvista.Camera.position.html#pyvista.Camera.position" title="pyvista.Camera.position"><code class="xref py py-attr docutils literal notranslate"><span class="pre">pyvista.Camera.position</span></code></a> and
 <a class="reference internal" href="../../api/core/_autosummary/pyvista.Camera.focal_point.html#pyvista.Camera.focal_point" title="pyvista.Camera.focal_point"><code class="xref py py-attr docutils literal notranslate"><span class="pre">pyvista.Camera.focal_point</span></code></a> properties in a coordinate system that
 is local to the camera. The coordinates in the scene's coordinate system can
@@ -633,7 +632,7 @@ coordinates please see the documentation of
 </div>
 <img src="../../_images/sphx_glr_light_types_002.png" srcset="../../_images/sphx_glr_light_types_002.png" alt="light types" class = "sphx-glr-single-img"/></section>
 <section id="scene-light">
-<h2>Scene light<a class="headerlink" href="#scene-light" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Scene light<a class="headerlink" href="#scene-light" title="この見出しへのパーマリンク">#</a></h2>
 <p>Scene lights are attached to the scene, their position and focal point are
 interpreted as global coordinates:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plotter</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Plotter</span><span class="p">(</span><span class="n">lighting</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">)</span>
@@ -644,7 +643,7 @@ interpreted as global coordinates:</p>
 <span class="n">plotter</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_light_types_003.png" srcset="../../_images/sphx_glr_light_types_003.png" alt="light types" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  1.135 seconds)</p>
+<img src="../../_images/sphx_glr_light_types_003.png" srcset="../../_images/sphx_glr_light_types_003.png" alt="light types" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  1.191 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-04-lights-light-types-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/b39e5adf851850dfa93d829ed0f2bdcc/light_types.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">light_types.py</span></code></a></p>

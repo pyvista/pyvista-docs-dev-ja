@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Picking Meshes &#8212; PyVista 0.40.dev0 ドキュメント</title>
   
@@ -51,9 +51,8 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/thebelab-helper.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
@@ -674,14 +673,14 @@ document.write(`
 to download the full example code</p>
 </div>
 <section class="sphx-glr-example-title" id="picking-meshes">
-<span id="mesh-picking-example"></span><span id="sphx-glr-examples-02-plot-mesh-picking-py"></span><h1>Picking Meshes<a class="headerlink" href="#picking-meshes" title="このヘッドラインへのパーマリンク">#</a></h1>
+<span id="mesh-picking-example"></span><span id="sphx-glr-examples-02-plot-mesh-picking-py"></span><h1>Picking Meshes<a class="headerlink" href="#picking-meshes" title="この見出しへのパーマリンク">#</a></h1>
 <p>This example demonstrates how to pick meshes using
 <a class="reference internal" href="../../api/plotting/_autosummary/pyvista.Plotter.enable_mesh_picking.html#pyvista.Plotter.enable_mesh_picking" title="pyvista.Plotter.enable_mesh_picking"><code class="xref py py-func docutils literal notranslate"><span class="pre">enable_mesh_picking()</span></code></a>.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyvista</span> <span class="k">as</span> <span class="nn">pv</span>
 </pre></div>
 </div>
 <section id="pick-either-a-cube-or-a-sphere-using-p">
-<h2>Pick either a cube or a sphere using &quot;p&quot;<a class="headerlink" href="#pick-either-a-cube-or-a-sphere-using-p" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Pick either a cube or a sphere using &quot;p&quot;<a class="headerlink" href="#pick-either-a-cube-or-a-sphere-using-p" title="この見出しへのパーマリンク">#</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sphere</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Sphere</span><span class="p">(</span><span class="n">center</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
 <span class="n">cube</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Cube</span><span class="p">()</span>
 
@@ -694,7 +693,7 @@ to download the full example code</p>
 </div>
 <img src="../../_images/sphx_glr_mesh-picking_001.png" srcset="../../_images/sphx_glr_mesh-picking_001.png" alt="mesh picking" class = "sphx-glr-single-img"/></section>
 <section id="pick-using-the-left-mouse-button">
-<h2>Pick using the left-mouse button<a class="headerlink" href="#pick-using-the-left-mouse-button" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Pick using the left-mouse button<a class="headerlink" href="#pick-using-the-left-mouse-button" title="この見出しへのパーマリンク">#</a></h2>
 <p>Pick using the left mouse button and trigger a callback that &quot;shrinks&quot; the
 mesh each time it's selected.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">callback</span><span class="p">(</span><span class="n">mesh</span><span class="p">):</span>
@@ -712,7 +711,7 @@ mesh each time it's selected.</p>
 </div>
 <img src="../../_images/sphx_glr_mesh-picking_002.png" srcset="../../_images/sphx_glr_mesh-picking_002.png" alt="mesh picking" class = "sphx-glr-single-img"/></section>
 <section id="pick-based-on-actors">
-<h2>Pick based on Actors<a class="headerlink" href="#pick-based-on-actors" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Pick based on Actors<a class="headerlink" href="#pick-based-on-actors" title="この見出しへのパーマリンク">#</a></h2>
 <p>Return the picked actor to the callback</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pl</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Plotter</span><span class="p">()</span>
 <span class="n">pl</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">pv</span><span class="o">.</span><span class="n">Cone</span><span class="p">(</span><span class="n">center</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)),</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Cone&#39;</span><span class="p">)</span>
@@ -738,7 +737,7 @@ mesh each time it's selected.</p>
 <span class="n">pl</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_mesh-picking_003.png" srcset="../../_images/sphx_glr_mesh-picking_003.png" alt="mesh picking" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.787 seconds)</p>
+<img src="../../_images/sphx_glr_mesh-picking_003.png" srcset="../../_images/sphx_glr_mesh-picking_003.png" alt="mesh picking" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.830 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-02-plot-mesh-picking-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/289a929c20181d69e1ae243fb7ab86ea/mesh-picking.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">mesh-picking.py</span></code></a></p>

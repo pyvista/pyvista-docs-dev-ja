@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Visualize Modal Analysis of a Pump Bracket &#8212; PyVista 0.40.dev0 ドキュメント</title>
   
@@ -51,9 +51,8 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/thebelab-helper.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
@@ -601,7 +600,7 @@ document.write(`
 to download the full example code</p>
 </div>
 <section class="sphx-glr-example-title" id="visualize-modal-analysis-of-a-pump-bracket">
-<span id="pump-bracket-example"></span><span id="sphx-glr-examples-99-advanced-pump-bracket-py"></span><h1>Visualize Modal Analysis of a Pump Bracket<a class="headerlink" href="#visualize-modal-analysis-of-a-pump-bracket" title="このヘッドラインへのパーマリンク">#</a></h1>
+<span id="pump-bracket-example"></span><span id="sphx-glr-examples-99-advanced-pump-bracket-py"></span><h1>Visualize Modal Analysis of a Pump Bracket<a class="headerlink" href="#visualize-modal-analysis-of-a-pump-bracket" title="この見出しへのパーマリンク">#</a></h1>
 <p>The following example demonstrates how to use PyVista to visualize the modal
 analysis of a pump bracket based on point arrays representing mode shapes for
 different modes of vibration.</p>
@@ -623,7 +622,7 @@ vibration.</p>
 </div>
 </section>
 <section id="load-the-dataset">
-<h1>Load the dataset<a class="headerlink" href="#load-the-dataset" title="このヘッドラインへのパーマリンク">#</a></h1>
+<h1>Load the dataset<a class="headerlink" href="#load-the-dataset" title="この見出しへのパーマリンク">#</a></h1>
 <p>Start by loading the dataset using <a class="reference internal" href="../../api/examples/_autosummary/pyvista.examples.downloads.download_pump_bracket.html#pyvista.examples.downloads.download_pump_bracket" title="pyvista.examples.downloads.download_pump_bracket"><code class="xref py py-func docutils literal notranslate"><span class="pre">download_pump_bracket()</span></code></a>.</p>
 <p>This example demonstrates the visualization of the pump bracket's mode shape,
 the representation of its magnitude, and an animation of its displacement. The
@@ -664,7 +663,7 @@ dataset used in this example contains 10 mode shapes (disp_0 to disp_9).</p>
 <br />
 <br /></section>
 <section id="plot-the-dataset">
-<h1>Plot the Dataset<a class="headerlink" href="#plot-the-dataset" title="このヘッドラインへのパーマリンク">#</a></h1>
+<h1>Plot the Dataset<a class="headerlink" href="#plot-the-dataset" title="この見出しへのパーマリンク">#</a></h1>
 <p>Choose a mode shape from the available arrays in the dataset. Each &quot;disp_N&quot;
 array represents an eigen solution or a single mode shape for a given mode of
 vibration.</p>
@@ -687,7 +686,7 @@ bracket.</p>
 </div>
 <img src="../../_images/sphx_glr_pump-bracket_001.png" srcset="../../_images/sphx_glr_pump-bracket_001.png" alt="pump bracket" class = "sphx-glr-single-img"/></section>
 <section id="visualize-displaced-mode-shape">
-<h1>Visualize Displaced Mode Shape<a class="headerlink" href="#visualize-displaced-mode-shape" title="このヘッドラインへのパーマリンク">#</a></h1>
+<h1>Visualize Displaced Mode Shape<a class="headerlink" href="#visualize-displaced-mode-shape" title="この見出しへのパーマリンク">#</a></h1>
 <p>We will now visualize the mode shapes of the pump bracket by displacing the
 original dataset using <a class="reference internal" href="../../api/core/_autosummary/pyvista.DataSetFilters.warp_by_vector.html#pyvista.DataSetFilters.warp_by_vector" title="pyvista.DataSetFilters.warp_by_vector"><code class="xref py py-func docutils literal notranslate"><span class="pre">warp_by_vector</span></code></a>.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a plotter</span>
@@ -707,7 +706,7 @@ original dataset using <a class="reference internal" href="../../api/core/_autos
 </div>
 <img src="../../_images/sphx_glr_pump-bracket_002.png" srcset="../../_images/sphx_glr_pump-bracket_002.png" alt="pump bracket" class = "sphx-glr-single-img"/></section>
 <section id="animate-the-mode-shape-displacement">
-<h1>Animate the Mode Shape Displacement<a class="headerlink" href="#animate-the-mode-shape-displacement" title="このヘッドラインへのパーマリンク">#</a></h1>
+<h1>Animate the Mode Shape Displacement<a class="headerlink" href="#animate-the-mode-shape-displacement" title="この見出しへのパーマリンク">#</a></h1>
 <p>Animate the mode shape's displacement by updating the vertex positions at
 each time step. For a more realistic animation, we use a sinusoidal function
 to vary the displacement.</p>
@@ -732,7 +731,7 @@ to vary the displacement.</p>
 <span class="n">pl</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_pump-bracket_003.png" srcset="../../_images/sphx_glr_pump-bracket_003.png" alt="pump bracket" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  19.587 seconds)</p>
+<img src="../../_images/sphx_glr_pump-bracket_003.png" srcset="../../_images/sphx_glr_pump-bracket_003.png" alt="pump bracket" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  21.179 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-99-advanced-pump-bracket-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/3da3c7a738b386b07baffbb298ff56d7/pump-bracket.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">pump-bracket.py</span></code></a></p>

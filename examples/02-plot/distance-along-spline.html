@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Label based on Distance on Line &#8212; PyVista 0.40.dev0 ドキュメント</title>
   
@@ -51,9 +51,8 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/thebelab-helper.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
@@ -674,7 +673,7 @@ document.write(`
 to download the full example code</p>
 </div>
 <section class="sphx-glr-example-title" id="label-based-on-distance-on-line">
-<span id="distance-labels-example"></span><span id="sphx-glr-examples-02-plot-distance-along-spline-py"></span><h1>Label based on Distance on Line<a class="headerlink" href="#label-based-on-distance-on-line" title="このヘッドラインへのパーマリンク">#</a></h1>
+<span id="distance-labels-example"></span><span id="sphx-glr-examples-02-plot-distance-along-spline-py"></span><h1>Label based on Distance on Line<a class="headerlink" href="#label-based-on-distance-on-line" title="この見出しへのパーマリンク">#</a></h1>
 <p>Create a spline and generate labels along the spline based on distance along a
 spline.</p>
 <p>This is an extension of the <a class="reference internal" href="../00-load/create-spline.html#create-spline-example"><span class="std std-ref">Creating a Spline</span></a>.</p>
@@ -685,7 +684,7 @@ spline.</p>
 </div>
 </section>
 <section id="create-a-spline">
-<h1>Create a spline<a class="headerlink" href="#create-a-spline" title="このヘッドラインへのパーマリンク">#</a></h1>
+<h1>Create a spline<a class="headerlink" href="#create-a-spline" title="この見出しへのパーマリンク">#</a></h1>
 <p>Create a spline using <a class="reference internal" href="../../api/utilities/_autosummary/pyvista.Spline.html#pyvista.Spline" title="pyvista.Spline"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyvista.Spline()</span></code></a>.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Make points along a spline</span>
 <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">theta</span></a> <span class="o">=</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.linspace.html#numpy.linspace" title="numpy.linspace" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">linspace</span></a><span class="p">(</span><span class="o">-</span><span class="mi">1</span> <span class="o">*</span> <a href="https://docs.python.org/3/library/functions.html#float" title="builtins.float" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">np</span><span class="o">.</span><span class="n">pi</span></a><span class="p">,</span> <span class="mi">1</span> <span class="o">*</span> <a href="https://docs.python.org/3/library/functions.html#float" title="builtins.float" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">np</span><span class="o">.</span><span class="n">pi</span></a><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
@@ -713,7 +712,7 @@ Contains arrays :
 </div>
 </section>
 <section id="determine-the-coordinates-matching-distance-along-a-spline">
-<h1>Determine the coordinates matching distance along a spline<a class="headerlink" href="#determine-the-coordinates-matching-distance-along-a-spline" title="このヘッドラインへのパーマリンク">#</a></h1>
+<h1>Determine the coordinates matching distance along a spline<a class="headerlink" href="#determine-the-coordinates-matching-distance-along-a-spline" title="この見出しへのパーマリンク">#</a></h1>
 <p>Here we write a simple function that gets the closest point matching a distance along a spline and then generate labels for those points.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_point_along_spline</span><span class="p">(</span><span class="n">distance</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Return the closest point on the spline given a length along the spline.&quot;&quot;&quot;</span>
@@ -740,7 +739,7 @@ Contains arrays :
 </div>
 </section>
 <section id="plot-with-labels">
-<h1>Plot with Labels<a class="headerlink" href="#plot-with-labels" title="このヘッドラインへのパーマリンク">#</a></h1>
+<h1>Plot with Labels<a class="headerlink" href="#plot-with-labels" title="この見出しへのパーマリンク">#</a></h1>
 <p>Plot the spline with labeled points</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pl</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Plotter</span><span class="p">()</span>
 <span class="n">pl</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">spline</span><span class="p">,</span> <span class="n">scalars</span><span class="o">=</span><span class="s1">&#39;arc_length&#39;</span><span class="p">,</span> <span class="n">render_lines_as_tubes</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">line_width</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
@@ -753,7 +752,7 @@ Contains arrays :
 <span class="n">pl</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_distance-along-spline_001.png" srcset="../../_images/sphx_glr_distance-along-spline_001.png" alt="distance along spline" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.564 seconds)</p>
+<img src="../../_images/sphx_glr_distance-along-spline_001.png" srcset="../../_images/sphx_glr_distance-along-spline_001.png" alt="distance along spline" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.680 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-02-plot-distance-along-spline-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/165125a0ef6cf65f26de1e29f3d9bb0b/distance-along-spline.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">distance-along-spline.py</span></code></a></p>

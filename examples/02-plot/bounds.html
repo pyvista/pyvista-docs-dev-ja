@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Plotting Bounds &#8212; PyVista 0.40.dev0 ドキュメント</title>
   
@@ -51,9 +51,8 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/thebelab-helper.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
@@ -674,7 +673,7 @@ document.write(`
 to download the full example code</p>
 </div>
 <section class="sphx-glr-example-title" id="plotting-bounds">
-<span id="bounds-example"></span><span id="sphx-glr-examples-02-plot-bounds-py"></span><h1>Plotting Bounds<a class="headerlink" href="#plotting-bounds" title="このヘッドラインへのパーマリンク">#</a></h1>
+<span id="bounds-example"></span><span id="sphx-glr-examples-02-plot-bounds-py"></span><h1>Plotting Bounds<a class="headerlink" href="#plotting-bounds" title="この見出しへのパーマリンク">#</a></h1>
 <p>This example demonstrates to show bounds within a <a class="reference internal" href="../../api/plotting/_autosummary/pyvista.Plotter.html#pyvista.Plotter" title="pyvista.Plotter"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.Plotter</span></code></a>
 using <a class="reference internal" href="../../api/plotting/_autosummary/pyvista.Plotter.show_grid.html#pyvista.Plotter.show_grid" title="pyvista.Plotter.show_grid"><code class="xref py py-func docutils literal notranslate"><span class="pre">show_grid()</span></code></a></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyvista</span> <span class="k">as</span> <span class="nn">pv</span>
@@ -683,7 +682,7 @@ using <a class="reference internal" href="../../api/plotting/_autosummary/pyvist
 </div>
 </section>
 <section id="show-all-bounds">
-<h1>Show All Bounds<a class="headerlink" href="#show-all-bounds" title="このヘッドラインへのパーマリンク">#</a></h1>
+<h1>Show All Bounds<a class="headerlink" href="#show-all-bounds" title="この見出しへのパーマリンク">#</a></h1>
 <p>In this plot we show the bounds for all axes by setting <code class="docutils literal notranslate"><span class="pre">location='all'</span></code>.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plotter</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Plotter</span><span class="p">()</span>
 <span class="n">plotter</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">pv</span><span class="o">.</span><span class="n">Sphere</span><span class="p">(),</span> <span class="n">smooth_shading</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -693,7 +692,7 @@ using <a class="reference internal" href="../../api/plotting/_autosummary/pyvist
 </div>
 <img src="../../_images/sphx_glr_bounds_001.png" srcset="../../_images/sphx_glr_bounds_001.png" alt="bounds" class = "sphx-glr-single-img"/></section>
 <section id="override-shown-values-limits">
-<h1>Override Shown Values Limits<a class="headerlink" href="#override-shown-values-limits" title="このヘッドラインへのパーマリンク">#</a></h1>
+<h1>Override Shown Values Limits<a class="headerlink" href="#override-shown-values-limits" title="この見出しへのパーマリンク">#</a></h1>
 <p>In this example, we override the values shown along the X and Y axes with our
 own custom values. This can be useful when you wish to display different
 values along the axes without having to scale the dataset. Also, note how we
@@ -713,7 +712,7 @@ hide the Z labels by setting <code class="docutils literal notranslate"><span cl
 </div>
 </section>
 <section id="show-bounds-for-only-one-dataset">
-<h1>Show Bounds for Only One Dataset<a class="headerlink" href="#show-bounds-for-only-one-dataset" title="このヘッドラインへのパーマリンク">#</a></h1>
+<h1>Show Bounds for Only One Dataset<a class="headerlink" href="#show-bounds-for-only-one-dataset" title="この見出しへのパーマリンク">#</a></h1>
 <p>This example shows only the bounds for a single dataset. Again we use
 <code class="docutils literal notranslate"><span class="pre">axes_ranges</span></code> here since in this example we want to show the size of the
 single central gear.</p>
@@ -740,7 +739,7 @@ single central gear.</p>
 <span class="n">plotter</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_bounds_003.png" srcset="../../_images/sphx_glr_bounds_003.png" alt="bounds" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  2.587 seconds)</p>
+<img src="../../_images/sphx_glr_bounds_003.png" srcset="../../_images/sphx_glr_bounds_003.png" alt="bounds" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  2.295 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-02-plot-bounds-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/a2bce8dc1b27f9d026f9f9269916b327/bounds.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">bounds.py</span></code></a></p>

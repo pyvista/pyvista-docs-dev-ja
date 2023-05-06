@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Lookup Tables &#8212; PyVista 0.40.dev0 ドキュメント</title>
   
@@ -51,9 +51,8 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/thebelab-helper.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
@@ -674,7 +673,7 @@ document.write(`
 to download the full example code</p>
 </div>
 <section class="sphx-glr-example-title" id="lookup-tables">
-<span id="lookup-table-example"></span><span id="sphx-glr-examples-02-plot-lookup-table-py"></span><h1>Lookup Tables<a class="headerlink" href="#lookup-tables" title="このヘッドラインへのパーマリンク">#</a></h1>
+<span id="lookup-table-example"></span><span id="sphx-glr-examples-02-plot-lookup-table-py"></span><h1>Lookup Tables<a class="headerlink" href="#lookup-tables" title="この見出しへのパーマリンク">#</a></h1>
 <p>Demonstrate the usage of a lookup table within PyVista</p>
 <p>The <a class="reference internal" href="../../api/plotting/_autosummary/pyvista.LookupTable.html#pyvista.LookupTable" title="pyvista.LookupTable"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.LookupTable</span></code></a> can be used to have fine-tuned control over
 the mapping between a <a class="reference internal" href="../../api/core/_autosummary/pyvista.DataSet.html#pyvista.DataSet" title="pyvista.DataSet"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.DataSet</span></code></a>'s scalars and RGBA colors.</p>
@@ -709,7 +708,7 @@ the mapping between a <a class="reference internal" href="../../api/core/_autosu
 <br />
 <br /></section>
 <section id="default-color-map-lookup-table">
-<h1>Default Color Map - Lookup Table<a class="headerlink" href="#default-color-map-lookup-table" title="このヘッドラインへのパーマリンク">#</a></h1>
+<h1>Default Color Map - Lookup Table<a class="headerlink" href="#default-color-map-lookup-table" title="この見出しへのパーマリンク">#</a></h1>
 <p>First, let's plot using the default color map, &quot;viridis&quot;. Internally, PyVista
 will automatically create a lookup table to map the scalars (stored here
 within <cite>point_data</cite>) to RGBA colors. This is shown here as a nested attribute
@@ -719,7 +718,7 @@ to the <a class="reference internal" href="../../api/plotting/_autosummary/pyvis
 <span class="n">actor</span><span class="o">.</span><span class="n">mapper</span><span class="o">.</span><span class="n">lookup_table</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_lookup-table_001.png" srcset="../../_images/sphx_glr_lookup-table_001.png" alt="lookup table" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>LookupTable (0x7fbf44e1f880)
+<img src="../../_images/sphx_glr_lookup-table_001.png" srcset="../../_images/sphx_glr_lookup-table_001.png" alt="lookup table" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>LookupTable (0x7f05d7f22040)
   Table Range:                (0.014368999749422073, 23.26799964904785)
   N Values:                   256
   Above Range Color:          None
@@ -731,7 +730,7 @@ to the <a class="reference internal" href="../../api/plotting/_autosummary/pyvis
 </div>
 </section>
 <section id="plot-the-lookup-table">
-<h1>Plot the Lookup Table<a class="headerlink" href="#plot-the-lookup-table" title="このヘッドラインへのパーマリンク">#</a></h1>
+<h1>Plot the Lookup Table<a class="headerlink" href="#plot-the-lookup-table" title="この見出しへのパーマリンク">#</a></h1>
 <p>You can also plot lookup table to see the mapping between the scalar values
 (here, between 0 and 23.3) and RGBA colors.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pl</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Plotter</span><span class="p">()</span>
@@ -745,7 +744,7 @@ to the <a class="reference internal" href="../../api/plotting/_autosummary/pyvis
 </ul>
 </section>
 <section id="plot-the-dataset">
-<h1>Plot the DataSet<a class="headerlink" href="#plot-the-dataset" title="このヘッドラインへのパーマリンク">#</a></h1>
+<h1>Plot the DataSet<a class="headerlink" href="#plot-the-dataset" title="この見出しへのパーマリンク">#</a></h1>
 <p>Let's plot the dataset using the automatically generated lookup table.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pl</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Plotter</span><span class="p">()</span>
 <span class="n">pl</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">bracket</span><span class="p">)</span>
@@ -754,7 +753,7 @@ to the <a class="reference internal" href="../../api/plotting/_autosummary/pyvis
 </div>
 <img src="../../_images/sphx_glr_lookup-table_004.png" srcset="../../_images/sphx_glr_lookup-table_004.png" alt="lookup table" class = "sphx-glr-single-img"/></section>
 <section id="create-a-custom-lookup-table-using-a-matplotlib-color-map">
-<h1>Create a Custom Lookup Table using a Matplotlib Color Map<a class="headerlink" href="#create-a-custom-lookup-table-using-a-matplotlib-color-map" title="このヘッドラインへのパーマリンク">#</a></h1>
+<h1>Create a Custom Lookup Table using a Matplotlib Color Map<a class="headerlink" href="#create-a-custom-lookup-table-using-a-matplotlib-color-map" title="この見出しへのパーマリンク">#</a></h1>
 <p>Here we create a lookup table with a narrow table range (same as <code class="docutils literal notranslate"><span class="pre">clim</span></code>)
 and color values above and below the range.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">lut</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">LookupTable</span><span class="p">(</span><span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;magma&#39;</span><span class="p">)</span>
@@ -766,7 +765,7 @@ and color values above and below the range.</p>
 </div>
 <img src="../../_images/sphx_glr_lookup-table_005.png" srcset="../../_images/sphx_glr_lookup-table_005.png" alt="lookup table" class = "sphx-glr-single-img"/></section>
 <section id="plot-the-bracket-with-the-custom-colormap">
-<h1>Plot the bracket with the custom colormap<a class="headerlink" href="#plot-the-bracket-with-the-custom-colormap" title="このヘッドラインへのパーマリンク">#</a></h1>
+<h1>Plot the bracket with the custom colormap<a class="headerlink" href="#plot-the-bracket-with-the-custom-colormap" title="この見出しへのパーマリンク">#</a></h1>
 <p>You can set assign the lookup table when using <code class="docutils literal notranslate"><span class="pre">add_mesh</span></code> with <code class="docutils literal notranslate"><span class="pre">cmap=</span></code>.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pl</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Plotter</span><span class="p">()</span>
 <span class="n">actor</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">bracket</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">lut</span><span class="p">,</span> <span class="n">lighting</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
@@ -775,7 +774,7 @@ and color values above and below the range.</p>
 </div>
 <img src="../../_images/sphx_glr_lookup-table_006.png" srcset="../../_images/sphx_glr_lookup-table_006.png" alt="lookup table" class = "sphx-glr-single-img"/></section>
 <section id="create-a-custom-lookup-table-using-vtk-s-methods">
-<h1>Create a Custom Lookup Table using VTK's Methods<a class="headerlink" href="#create-a-custom-lookup-table-using-vtk-s-methods" title="このヘッドラインへのパーマリンク">#</a></h1>
+<h1>Create a Custom Lookup Table using VTK's Methods<a class="headerlink" href="#create-a-custom-lookup-table-using-vtk-s-methods" title="この見出しへのパーマリンク">#</a></h1>
 <p>If you want to create a completely unique color map, you can use attributes
 like <a class="reference internal" href="../../api/plotting/_autosummary/pyvista.LookupTable.hue_range.html#pyvista.LookupTable.hue_range" title="pyvista.LookupTable.hue_range"><code class="xref py py-attr docutils literal notranslate"><span class="pre">pyvista.LookupTable.hue_range</span></code></a> and
 <a class="reference internal" href="../../api/plotting/_autosummary/pyvista.LookupTable.value_range.html#pyvista.LookupTable.value_range" title="pyvista.LookupTable.value_range"><code class="xref py py-attr docutils literal notranslate"><span class="pre">pyvista.LookupTable.value_range</span></code></a> to create your own lookup table.</p>
@@ -790,7 +789,7 @@ like <a class="reference internal" href="../../api/plotting/_autosummary/pyvista
 </div>
 <img src="../../_images/sphx_glr_lookup-table_007.png" srcset="../../_images/sphx_glr_lookup-table_007.png" alt="lookup table" class = "sphx-glr-single-img"/></section>
 <section id="id1">
-<h1>Plot the bracket with the custom colormap<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">#</a></h1>
+<h1>Plot the bracket with the custom colormap<a class="headerlink" href="#id1" title="この見出しへのパーマリンク">#</a></h1>
 <p>Assign this custom color map to the plotter and disable lighting to improve
 the plot.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pl</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Plotter</span><span class="p">()</span>
@@ -800,7 +799,7 @@ the plot.</p>
 </div>
 <img src="../../_images/sphx_glr_lookup-table_008.png" srcset="../../_images/sphx_glr_lookup-table_008.png" alt="lookup table" class = "sphx-glr-single-img"/></section>
 <section id="custom-colormap-with-widgets">
-<h1>Custom colormap with widgets<a class="headerlink" href="#custom-colormap-with-widgets" title="このヘッドラインへのパーマリンク">#</a></h1>
+<h1>Custom colormap with widgets<a class="headerlink" href="#custom-colormap-with-widgets" title="この見出しへのパーマリンク">#</a></h1>
 <p>Here we plot the scalars and dynamically change the lookup table through
 widgets. We create several overlapping single slider widgets to simulate a
 double ended slider widget.</p>
@@ -847,7 +846,7 @@ double ended slider widget.</p>
 </div>
 <img src="../../_images/sphx_glr_lookup-table_009.png" srcset="../../_images/sphx_glr_lookup-table_009.png" alt="lookup table" class = "sphx-glr-single-img"/></section>
 <section id="control-several-lookup-table-attributes">
-<h1>Control Several Lookup Table Attributes<a class="headerlink" href="#control-several-lookup-table-attributes" title="このヘッドラインへのパーマリンク">#</a></h1>
+<h1>Control Several Lookup Table Attributes<a class="headerlink" href="#control-several-lookup-table-attributes" title="この見出しへのパーマリンク">#</a></h1>
 <p>Demonstrate the use of several slider bar widgets with lookup table
 callbacks.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a new lookup table with oranges</span>
@@ -925,7 +924,7 @@ callbacks.</p>
 <span class="n">cpos</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">return_cpos</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_lookup-table_010.png" srcset="../../_images/sphx_glr_lookup-table_010.png" alt="lookup table" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  5.591 seconds)</p>
+<img src="../../_images/sphx_glr_lookup-table_010.png" srcset="../../_images/sphx_glr_lookup-table_010.png" alt="lookup table" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  5.533 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-02-plot-lookup-table-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/98222451eaf56351e507461965c92db9/lookup-table.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">lookup-table.py</span></code></a></p>

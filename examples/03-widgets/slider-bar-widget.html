@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Slider Bar Widget &#8212; PyVista 0.40.dev0 ドキュメント</title>
   
@@ -51,9 +51,8 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/thebelab-helper.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
@@ -581,7 +580,7 @@ document.write(`
 to download the full example code</p>
 </div>
 <section class="sphx-glr-example-title" id="slider-bar-widget">
-<span id="slider-bar-widget-example"></span><span id="sphx-glr-examples-03-widgets-slider-bar-widget-py"></span><h1>Slider Bar Widget<a class="headerlink" href="#slider-bar-widget" title="このヘッドラインへのパーマリンク">#</a></h1>
+<span id="slider-bar-widget-example"></span><span id="sphx-glr-examples-03-widgets-slider-bar-widget-py"></span><h1>Slider Bar Widget<a class="headerlink" href="#slider-bar-widget" title="この見出しへのパーマリンク">#</a></h1>
 <p>The slider widget can be enabled and disabled by the
 <a class="reference internal" href="../../api/plotting/_autosummary/pyvista.Plotter.add_slider_widget.html#pyvista.Plotter.add_slider_widget" title="pyvista.Plotter.add_slider_widget"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyvista.Plotter.add_slider_widget()</span></code></a> and
 <a class="reference internal" href="../../api/plotting/_autosummary/pyvista.Plotter.clear_slider_widgets.html#pyvista.Plotter.clear_slider_widgets" title="pyvista.Plotter.clear_slider_widgets"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyvista.Plotter.clear_slider_widgets()</span></code></a> methods respectively.
@@ -607,7 +606,7 @@ slider widget to control a thresholding value.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">p</span><span class="o">.</span><span class="n">threshold_meshes</span></a>
 </pre></div>
 </div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>[UnstructuredGrid (0x7fbf44d60ac0)
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>[UnstructuredGrid (0x7f05448bd9a0)
   N Cells:    295424
   N Points:   394455
   X Bounds:   3.615e+01, 1.178e+02
@@ -620,7 +619,7 @@ slider widget to control a thresholding value.</p>
 <p>And here is a screen capture of a user interacting with this</p>
 <img alt="../../_images/slider-widget-threshold.gif" src="../../_images/slider-widget-threshold.gif" />
 <section id="custom-callback">
-<h2>Custom Callback<a class="headerlink" href="#custom-callback" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Custom Callback<a class="headerlink" href="#custom-callback" title="この見出しへのパーマリンク">#</a></h2>
 <p>Or you could leverage a custom callback function that takes a single value
 from the slider as its argument to do something like control the resolution
 of a mesh. Again note the use of the <code class="docutils literal notranslate"><span class="pre">name</span></code> argument in <code class="docutils literal notranslate"><span class="pre">add_mesh</span></code>:</p>
@@ -640,7 +639,7 @@ of a mesh. Again note the use of the <code class="docutils literal notranslate">
 </div>
 <img src="../../_images/sphx_glr_slider-bar-widget_002.png" srcset="../../_images/sphx_glr_slider-bar-widget_002.png" alt="slider bar widget" class = "sphx-glr-single-img"/><p>And here is a screen capture of a user interacting with this</p>
 <img alt="../../_images/slider-widget-resolution.gif" src="../../_images/slider-widget-resolution.gif" />
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  2.972 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  3.038 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-03-widgets-slider-bar-widget-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/aa2c7dd4e54a5469da7c8e70ad16c422/slider-bar-widget.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">slider-bar-widget.py</span></code></a></p>

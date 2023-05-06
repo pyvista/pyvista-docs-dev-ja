@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Plotting Point Clouds &#8212; PyVista 0.40.dev0 ドキュメント</title>
   
@@ -51,9 +51,8 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/thebelab-helper.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
@@ -674,7 +673,7 @@ document.write(`
 to download the full example code</p>
 </div>
 <section class="sphx-glr-example-title" id="plotting-point-clouds">
-<span id="sphx-glr-examples-02-plot-point-clouds-py"></span><span id="id1"></span><h1>Plotting Point Clouds<a class="headerlink" href="#plotting-point-clouds" title="このヘッドラインへのパーマリンク">#</a></h1>
+<span id="sphx-glr-examples-02-plot-point-clouds-py"></span><span id="id1"></span><h1>Plotting Point Clouds<a class="headerlink" href="#plotting-point-clouds" title="この見出しへのパーマリンク">#</a></h1>
 <p>This example shows you how to plot point clouds using PyVista using both the
 <code class="docutils literal notranslate"><span class="pre">'point'</span></code> and <code class="docutils literal notranslate"><span class="pre">'point_gaussian'</span></code> styles.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -685,25 +684,25 @@ to download the full example code</p>
 </div>
 </section>
 <section id="compare-the-plotting-methods">
-<h1>Compare the Plotting methods<a class="headerlink" href="#compare-the-plotting-methods" title="このヘッドラインへのパーマリンク">#</a></h1>
+<h1>Compare the Plotting methods<a class="headerlink" href="#compare-the-plotting-methods" title="この見出しへのパーマリンク">#</a></h1>
 <p>First, let's create a sample point cloud using <a class="reference external" href="https://numpy.org/doc/stable/reference/random/generated/numpy.random.random.html#numpy.random.random" title="(in NumPy v1.24)"><code class="xref py py-func docutils literal notranslate"><span class="pre">numpy.random.random()</span></code></a>.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://numpy.org/doc/stable/reference/random/generator.html#numpy.random.Generator" title="numpy.random.Generator" class="sphx-glr-backref-module-numpy-random sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">rng</span></a> <span class="o">=</span> <a href="https://numpy.org/doc/stable/reference/random/generator.html#numpy.random.default_rng" title="numpy.random.default_rng" class="sphx-glr-backref-module-numpy-random sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span></a><span class="p">()</span>
 <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">points</span></a> <span class="o">=</span> <a href="https://numpy.org/doc/stable/reference/random/generator.html#numpy.random.Generator" title="numpy.random.Generator" class="sphx-glr-backref-module-numpy-random sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">rng</span></a><span class="o">.</span><span class="n">random</span><span class="p">((</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
 <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">points</span></a>
 </pre></div>
 </div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>array([[0.27924424, 0.96051452, 0.87382121],
-       [0.7477249 , 0.8965115 , 0.65193999],
-       [0.96448393, 0.51345019, 0.31246613],
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>array([[0.60859035, 0.26004907, 0.41869396],
+       [0.17568495, 0.10867612, 0.03813266],
+       [0.36850229, 0.1989219 , 0.42578848],
        ...,
-       [0.34961132, 0.86667681, 0.86122642],
-       [0.94244041, 0.62567509, 0.78431114],
-       [0.2453815 , 0.03863645, 0.28139196]])
+       [0.04575902, 0.36795875, 0.08611762],
+       [0.7948687 , 0.79272801, 0.3663224 ],
+       [0.54933885, 0.25973782, 0.72369699]])
 </pre></div>
 </div>
 </section>
 <section id="basic-plot">
-<h1>Basic Plot<a class="headerlink" href="#basic-plot" title="このヘッドラインへのパーマリンク">#</a></h1>
+<h1>Basic Plot<a class="headerlink" href="#basic-plot" title="この見出しへのパーマリンク">#</a></h1>
 <p>We can simply plot this point cloud using the convenience <a class="reference internal" href="../../api/plotting/_autosummary/pyvista.plot.html#pyvista.plot" title="pyvista.plot"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyvista.plot()</span></code></a>
 function.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pv</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">points</span></a><span class="p">)</span>
@@ -711,7 +710,7 @@ function.</p>
 </div>
 <img src="../../_images/sphx_glr_point-clouds_001.png" srcset="../../_images/sphx_glr_point-clouds_001.png" alt="point clouds" class = "sphx-glr-single-img"/></section>
 <section id="plot-with-scalars">
-<h1>Plot with Scalars<a class="headerlink" href="#plot-with-scalars" title="このヘッドラインへのパーマリンク">#</a></h1>
+<h1>Plot with Scalars<a class="headerlink" href="#plot-with-scalars" title="この見出しへのパーマリンク">#</a></h1>
 <p>That's quite boring, so let's spice things up by adding color. We can either
 use a single scalar to plot the points. For example, the z coordinates.</p>
 <p>For fun, let's also render the points as spheres.</p>
@@ -726,7 +725,7 @@ use a single scalar to plot the points. For example, the z coordinates.</p>
 </div>
 <img src="../../_images/sphx_glr_point-clouds_002.png" srcset="../../_images/sphx_glr_point-clouds_002.png" alt="point clouds" class = "sphx-glr-single-img"/></section>
 <section id="plot-with-rgba">
-<h1>Plot with RGBA<a class="headerlink" href="#plot-with-rgba" title="このヘッドラインへのパーマリンク">#</a></h1>
+<h1>Plot with RGBA<a class="headerlink" href="#plot-with-rgba" title="この見出しへのパーマリンク">#</a></h1>
 <p>Alternatively, we can color the point cloud using an RGBA array. This has
 been normalized from (0, 1), but we could have also used a <code class="docutils literal notranslate"><span class="pre">numpy.uint8</span></code>
 array from 0-255.</p>
@@ -737,7 +736,7 @@ array from 0-255.</p>
 </div>
 <img src="../../_images/sphx_glr_point-clouds_003.png" srcset="../../_images/sphx_glr_point-clouds_003.png" alt="point clouds" class = "sphx-glr-single-img"/></section>
 <section id="point-cloud-plot-styles">
-<h1>Point Cloud Plot Styles<a class="headerlink" href="#point-cloud-plot-styles" title="このヘッドラインへのパーマリンク">#</a></h1>
+<h1>Point Cloud Plot Styles<a class="headerlink" href="#point-cloud-plot-styles" title="この見出しへのパーマリンク">#</a></h1>
 <p>PyVista supports the <code class="docutils literal notranslate"><span class="pre">'point_gaussian'</span></code> style, which renders points as
 individual soft sprites. You have the option of displaying these as tight
 &quot;spheres&quot; using <code class="docutils literal notranslate"><span class="pre">render_points_as_spheres=True</span></code> (default), or disabling it
@@ -814,7 +813,7 @@ and find something that works for you.</p>
 </div>
 <img src="../../_images/sphx_glr_point-clouds_005.png" srcset="../../_images/sphx_glr_point-clouds_005.png" alt="point clouds" class = "sphx-glr-single-img"/></section>
 <section id="orbit-a-point-cloud">
-<h1>Orbit a Point Cloud<a class="headerlink" href="#orbit-a-point-cloud" title="このヘッドラインへのパーマリンク">#</a></h1>
+<h1>Orbit a Point Cloud<a class="headerlink" href="#orbit-a-point-cloud" title="この見出しへのパーマリンク">#</a></h1>
 <p>Generate a plot orbiting around a point cloud. Color based on the distance
 from the center of the cloud.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cloud</span> <span class="o">=</span> <span class="n">examples</span><span class="o">.</span><span class="n">download_cloud_dark_matter</span><span class="p">()</span>
@@ -838,7 +837,7 @@ from the center of the cloud.</p>
 <span class="n">pl</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_point-clouds_006.png" srcset="../../_images/sphx_glr_point-clouds_006.png" alt="point clouds" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  16.392 seconds)</p>
+<img src="../../_images/sphx_glr_point-clouds_006.png" srcset="../../_images/sphx_glr_point-clouds_006.png" alt="point clouds" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  19.192 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-02-plot-point-clouds-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/8b4bd029068ff761ed591d6873fb717f/point-clouds.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">point-clouds.py</span></code></a></p>

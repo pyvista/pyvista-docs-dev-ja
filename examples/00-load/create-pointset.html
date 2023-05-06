@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Create a PointSet &#8212; PyVista 0.40.dev0 ドキュメント</title>
   
@@ -51,9 +51,8 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/thebelab-helper.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
@@ -613,7 +612,7 @@ document.write(`
 to download the full example code</p>
 </div>
 <section class="sphx-glr-example-title" id="create-a-pointset">
-<span id="create-pointset-example"></span><span id="sphx-glr-examples-00-load-create-pointset-py"></span><h1>Create a PointSet<a class="headerlink" href="#create-a-pointset" title="このヘッドラインへのパーマリンク">#</a></h1>
+<span id="create-pointset-example"></span><span id="sphx-glr-examples-00-load-create-pointset-py"></span><h1>Create a PointSet<a class="headerlink" href="#create-a-pointset" title="この見出しへのパーマリンク">#</a></h1>
 <p>A <a class="reference internal" href="../../api/core/_autosummary/pyvista.PointSet.html#pyvista.PointSet" title="pyvista.PointSet"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.PointSet</span></code></a> is a concrete class representing a set of points
 that specifies the interface for datasets that explicitly use &quot;point&quot; arrays to
 represent geometry. This class is useful for improving the performance of
@@ -633,7 +632,7 @@ filters on point clouds.</p>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Time to clip with a PolyData </span><span class="si">{</span><a href="https://docs.python.org/3/library/functions.html#float" title="builtins.float" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">t_elapsed</span></a><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> seconds.&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Time to clip with a PolyData 4.97 seconds.
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Time to clip with a PolyData 4.86 seconds.
 </pre></div>
 </div>
 <p>Plot the clipped polydata</p>
@@ -665,7 +664,7 @@ there is no performance improvement when using a <a class="reference internal" h
     <span class="n">clipped_pset</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">show_scalar_bar</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_create-pointset_002.png" srcset="../../_images/sphx_glr_create-pointset_002.png" alt="create pointset" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  9.320 seconds)</p>
+<img src="../../_images/sphx_glr_create-pointset_002.png" srcset="../../_images/sphx_glr_create-pointset_002.png" alt="create pointset" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  9.701 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-00-load-create-pointset-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/1adc2e3b817fec6230ee78d7769cd952/create-pointset.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">create-pointset.py</span></code></a></p>

@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Linear Cells &#8212; PyVista 0.40.dev0 ドキュメント</title>
   
@@ -51,9 +51,8 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/thebelab-helper.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
@@ -613,7 +612,7 @@ document.write(`
 to download the full example code</p>
 </div>
 <section class="sphx-glr-example-title" id="linear-cells">
-<span id="linear-cells-example"></span><span id="sphx-glr-examples-00-load-linear-cells-py"></span><h1>Linear Cells<a class="headerlink" href="#linear-cells" title="このヘッドラインへのパーマリンク">#</a></h1>
+<span id="linear-cells-example"></span><span id="sphx-glr-examples-00-load-linear-cells-py"></span><h1>Linear Cells<a class="headerlink" href="#linear-cells" title="この見出しへのパーマリンク">#</a></h1>
 <p>This example extends the <a class="reference internal" href="create-unstructured-surface.html#create-unstructured-example"><span class="std std-ref">Creating an Unstructured Grid</span></a> example by
 including an explanation of linear VTK cell types and how you can create them in
 PyVista.</p>
@@ -632,7 +631,7 @@ see <a class="reference internal" href="../../api/core/pointsets.html#point-sets
 </div>
 </section>
 <section id="plot-an-example-cell">
-<h1>Plot an example cell<a class="headerlink" href="#plot-an-example-cell" title="このヘッドラインへのパーマリンク">#</a></h1>
+<h1>Plot an example cell<a class="headerlink" href="#plot-an-example-cell" title="この見出しへのパーマリンク">#</a></h1>
 <p>PyVista contains a simple utility to plot a single cell, which is the
 fundamental unit of each <a class="reference internal" href="../../api/core/_autosummary/pyvista.UnstructuredGrid.html#pyvista.UnstructuredGrid" title="pyvista.UnstructuredGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.UnstructuredGrid</span></code></a>. For example,
 let's plot a simple <a class="reference internal" href="../../api/examples/_autosummary/pyvista.examples.cells.Wedge.html#pyvista.examples.cells.Wedge" title="pyvista.examples.cells.Wedge"><code class="xref py py-func docutils literal notranslate"><span class="pre">Wedge</span></code></a>.</p>
@@ -666,7 +665,7 @@ of that cell are defined in <a class="reference internal" href="../../api/core/_
 </div>
 </section>
 <section id="combine-two-unstructuredgrids">
-<h1>Combine two UnstructuredGrids<a class="headerlink" href="#combine-two-unstructuredgrids" title="このヘッドラインへのパーマリンク">#</a></h1>
+<h1>Combine two UnstructuredGrids<a class="headerlink" href="#combine-two-unstructuredgrids" title="この見出しへのパーマリンク">#</a></h1>
 <p>We can combine two unstructured grids to create a single unstructured grid
 using the <code class="docutils literal notranslate"><span class="pre">+</span></code> operator.</p>
 <div class="admonition note">
@@ -697,7 +696,7 @@ attribute shows this along with indices composing each cell.</p>
 </div>
 </section>
 <section id="cell-types">
-<h1>Cell Types<a class="headerlink" href="#cell-types" title="このヘッドラインへのパーマリンク">#</a></h1>
+<h1>Cell Types<a class="headerlink" href="#cell-types" title="この見出しへのパーマリンク">#</a></h1>
 <p>PyVista contains the <a class="reference internal" href="../../api/utilities/_autosummary/pyvista.CellType.html#pyvista.CellType" title="pyvista.CellType"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.CellType</span></code></a> enumerator, which contains all the
 available VTK cell types mapped to a Python enumerator. These cell types are
 used when creating cells and also can be used when checking the
@@ -715,7 +714,7 @@ array([ True,  True])
 </div>
 </section>
 <section id="create-an-unstructuredgrid-with-a-single-linear-cell">
-<h1>Create an UnstructuredGrid with a single linear cell<a class="headerlink" href="#create-an-unstructuredgrid-with-a-single-linear-cell" title="このヘッドラインへのパーマリンク">#</a></h1>
+<h1>Create an UnstructuredGrid with a single linear cell<a class="headerlink" href="#create-an-unstructuredgrid-with-a-single-linear-cell" title="この見出しへのパーマリンク">#</a></h1>
 <p>Now that you know the three main inputs of an
 <a class="reference internal" href="../../api/core/_autosummary/pyvista.UnstructuredGrid.html#pyvista.UnstructuredGrid" title="pyvista.UnstructuredGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.UnstructuredGrid</span></code></a>, it's quite straightforward to create an
 unstructured grid with a one or more cells. If you need to reference point
@@ -735,7 +734,7 @@ simply create a cell from the <code class="docutils literal notranslate"><span c
 </div>
 <img src="../../_images/sphx_glr_linear-cells_003.png" srcset="../../_images/sphx_glr_linear-cells_003.png" alt="linear cells" class = "sphx-glr-single-img"/></section>
 <section id="plot-all-linear-cell-types">
-<h1>Plot all linear cell Types<a class="headerlink" href="#plot-all-linear-cell-types" title="このヘッドラインへのパーマリンク">#</a></h1>
+<h1>Plot all linear cell Types<a class="headerlink" href="#plot-all-linear-cell-types" title="この見出しへのパーマリンク">#</a></h1>
 <p>Let's create a <code class="docutils literal notranslate"><span class="pre">(4,</span> <span class="pre">4)</span></code> <a class="reference internal" href="../../api/plotting/_autosummary/pyvista.Plotter.html#pyvista.Plotter" title="pyvista.Plotter"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.Plotter</span></code></a> and plot all 16 linear
 cells in a single plot.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">add_cell_helper</span><span class="p">(</span><span class="n">pl</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">grid</span><span class="p">,</span> <span class="n">subplot</span><span class="p">,</span> <span class="n">cpos</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
@@ -813,7 +812,7 @@ cells in a single plot.</p>
 <span class="n">pl</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_linear-cells_004.png" srcset="../../_images/sphx_glr_linear-cells_004.png" alt="linear cells" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  4.478 seconds)</p>
+<img src="../../_images/sphx_glr_linear-cells_004.png" srcset="../../_images/sphx_glr_linear-cells_004.png" alt="linear cells" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  4.773 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-00-load-linear-cells-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/57cb9404147fb4a83fde8344e3c4c55b/linear-cells.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">linear-cells.py</span></code></a></p>

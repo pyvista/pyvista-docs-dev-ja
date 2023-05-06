@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Extending PyVista &#8212; PyVista 0.40.dev0 ドキュメント</title>
   
@@ -51,9 +51,8 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/thebelab-helper.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
@@ -602,7 +601,7 @@ document.write(`
 to download the full example code</p>
 </div>
 <section class="sphx-glr-example-title" id="extending-pyvista">
-<span id="extending-pyvista-example"></span><span id="sphx-glr-examples-99-advanced-extending-pyvista-py"></span><h1>Extending PyVista<a class="headerlink" href="#extending-pyvista" title="このヘッドラインへのパーマリンク">#</a></h1>
+<span id="extending-pyvista-example"></span><span id="sphx-glr-examples-99-advanced-extending-pyvista-py"></span><h1>Extending PyVista<a class="headerlink" href="#extending-pyvista" title="この見出しへのパーマリンク">#</a></h1>
 <p>A <a class="reference internal" href="../../api/core/_autosummary/pyvista.DataSet.html#pyvista.DataSet" title="pyvista.DataSet"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.DataSet</span></code></a>, such as <a class="reference internal" href="../../api/core/_autosummary/pyvista.PolyData.html#pyvista.PolyData" title="pyvista.PolyData"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.PolyData</span></code></a>, can be extended
 by users.  For example, if the user wants to keep track of the location of the
 maximum point in the (1, 0, 1) direction on the mesh.</p>
@@ -636,7 +635,7 @@ furthest along in the (1, 0, 1) direction.</p>
 </pre></div>
 </div>
 <section id="directly-managing-types">
-<h2>Directly Managing Types<a class="headerlink" href="#directly-managing-types" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Directly Managing Types<a class="headerlink" href="#directly-managing-types" title="この見出しへのパーマリンク">#</a></h2>
 <p>Now a <code class="docutils literal notranslate"><span class="pre">foo_sphere</span></code> object is created of type <code class="docutils literal notranslate"><span class="pre">FooData</span></code>.
 The index of the point and location of the point of interest can be obtained
 directly. The sphere has a radius of 0.5, so the maximum extent in the
@@ -696,7 +695,7 @@ Location of maximum point: [0.35073745 0.         0.35634708]
 </div>
 </section>
 <section id="automatically-managing-types">
-<h2>Automatically Managing Types<a class="headerlink" href="#automatically-managing-types" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Automatically Managing Types<a class="headerlink" href="#automatically-managing-types" title="この見出しへのパーマリンク">#</a></h2>
 <p>The default <a class="reference internal" href="../../api/core/_autosummary/pyvista.DataSet.html#pyvista.DataSet" title="pyvista.DataSet"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.DataSet</span></code></a> type can be set using <code class="docutils literal notranslate"><span class="pre">pyvista._wrappers</span></code>.
 In general, it is best to use this method when it is expected to primarily
 use the user defined class.</p>
@@ -781,7 +780,7 @@ recommended.  One example is a <code class="docutils literal notranslate"><span 
     <a href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">pyvista</span><span class="o">.</span><span class="n">_wrappers</span></a><span class="p">[</span><span class="s1">&#39;vtkPolyData&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">PolyData</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.187 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.203 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-99-advanced-extending-pyvista-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/d5aa63f14646f54f070d177157d810b8/extending-pyvista.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">extending-pyvista.py</span></code></a></p>

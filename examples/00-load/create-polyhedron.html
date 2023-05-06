@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Unstructured Grid with Polyhedra &#8212; PyVista 0.40.dev0 ドキュメント</title>
   
@@ -51,9 +51,8 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/thebelab-helper.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
@@ -613,7 +612,7 @@ document.write(`
 to download the full example code</p>
 </div>
 <section class="sphx-glr-example-title" id="unstructured-grid-with-polyhedra">
-<span id="polyhedron-example"></span><span id="sphx-glr-examples-00-load-create-polyhedron-py"></span><h1>Unstructured Grid with Polyhedra<a class="headerlink" href="#unstructured-grid-with-polyhedra" title="このヘッドラインへのパーマリンク">#</a></h1>
+<span id="polyhedron-example"></span><span id="sphx-glr-examples-00-load-create-polyhedron-py"></span><h1>Unstructured Grid with Polyhedra<a class="headerlink" href="#unstructured-grid-with-polyhedra" title="この見出しへのパーマリンク">#</a></h1>
 <p>This example shows how to build a simple <a class="reference internal" href="../../api/core/_autosummary/pyvista.UnstructuredGrid.html#pyvista.UnstructuredGrid" title="pyvista.UnstructuredGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.UnstructuredGrid</span></code></a>
 using polyhedra. We will be using VTK types to determine which type of cells we
 are building.</p>
@@ -622,7 +621,7 @@ are building.</p>
 </pre></div>
 </div>
 <section id="define-points">
-<h2>Define Points<a class="headerlink" href="#define-points" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Define Points<a class="headerlink" href="#define-points" title="この見出しへのパーマリンク">#</a></h2>
 <p>We will mix several cells in one grid for this example. Here we create the
 points that will define each cell.</p>
 <div class="admonition note">
@@ -670,7 +669,7 @@ been done here to create isolated cells for this example.</p>
 </div>
 </section>
 <section id="cell-connectivity">
-<h2>Cell connectivity<a class="headerlink" href="#cell-connectivity" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Cell connectivity<a class="headerlink" href="#cell-connectivity" title="この見出しへのパーマリンク">#</a></h2>
 <p>Connectivity describes the indices of the points to compose each cell. The
 first item in each cell's connectivity is the number of items the cell will
 have. For example, a quad cell is composed of points <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">1,</span> <span class="pre">2,</span> <span class="pre">3]</span></code> and
@@ -689,7 +688,7 @@ passes it to VTK.</p>
 </div>
 </section>
 <section id="polyhedron-connectivity-array">
-<h2>Polyhedron connectivity array<a class="headerlink" href="#polyhedron-connectivity-array" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Polyhedron connectivity array<a class="headerlink" href="#polyhedron-connectivity-array" title="この見出しへのパーマリンク">#</a></h2>
 <p>The connectivity array of polyhedra is defined differently from the rest of the cell
 types. For polyhedra, we need to set the faces with the following format:</p>
 <p><code class="docutils literal notranslate"><span class="pre">[NItems,</span> <span class="pre">NFaces,</span> <span class="pre">Face0NPoints,</span> <span class="pre">Face0Point0,</span> <span class="pre">Face0Point1...,</span> <span class="pre">Face0PointN-1,</span> <span class="pre">Face1NPoints,</span> <span class="pre">...]</span></code></p>
@@ -751,7 +750,7 @@ added to <code class="docutils literal notranslate"><span class="pre">polyhedron
 </div>
 </section>
 <section id="cells-array">
-<h2>Cells array<a class="headerlink" href="#cells-array" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Cells array<a class="headerlink" href="#cells-array" title="この見出しへのパーマリンク">#</a></h2>
 <p>Now we build the input cells array for the
 <a class="reference internal" href="../../api/core/_autosummary/pyvista.UnstructuredGrid.html#pyvista.UnstructuredGrid" title="pyvista.UnstructuredGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.UnstructuredGrid</span></code></a>. Here, we join all cells in a flat
 list. Internally, the <code class="docutils literal notranslate"><span class="pre">NItems</span></code> previously described is used to determine
@@ -761,7 +760,7 @@ which nodes belong to which cells.</p>
 </div>
 </section>
 <section id="cell-types">
-<h2>Cell types<a class="headerlink" href="#cell-types" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Cell types<a class="headerlink" href="#cell-types" title="この見出しへのパーマリンク">#</a></h2>
 <p>We need to specify the cell types for each of the cells we define in the
 cells array.</p>
 <p>The number of items in this list must match the number of cells in the
@@ -771,7 +770,7 @@ connectivity array.</p>
 </div>
 </section>
 <section id="create-the-grid">
-<h2>Create the grid<a class="headerlink" href="#create-the-grid" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Create the grid<a class="headerlink" href="#create-the-grid" title="この見出しへのパーマリンク">#</a></h2>
 <p>To create the grid, we use the cells array we built, the cell types, and
 the points that describe the faces.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">grid</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">UnstructuredGrid</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">cells</span></a><span class="p">,</span> <a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">celltypes</span></a><span class="p">,</span> <a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">points</span></a><span class="p">)</span>
@@ -779,7 +778,7 @@ the points that describe the faces.</p>
 </div>
 </section>
 <section id="plot-the-mesh">
-<h2>Plot the mesh<a class="headerlink" href="#plot-the-mesh" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Plot the mesh<a class="headerlink" href="#plot-the-mesh" title="この見出しへのパーマリンク">#</a></h2>
 <p>Finally, we can plot the grid we've created. Label each cell at its cell
 center for clarity.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pl</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Plotter</span><span class="p">()</span>
@@ -794,7 +793,7 @@ center for clarity.</p>
 <span class="n">pl</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_create-polyhedron_001.png" srcset="../../_images/sphx_glr_create-polyhedron_001.png" alt="create polyhedron" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.237 seconds)</p>
+<img src="../../_images/sphx_glr_create-polyhedron_001.png" srcset="../../_images/sphx_glr_create-polyhedron_001.png" alt="create polyhedron" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.260 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-00-load-create-polyhedron-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/a81d0237f2600bfaa79b95b99aa9fd2a/create-polyhedron.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">create-polyhedron.py</span></code></a></p>

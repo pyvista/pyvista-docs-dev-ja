@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Slicing &#8212; PyVista 0.40.dev0 ドキュメント</title>
   
@@ -51,9 +51,8 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/thebelab-helper.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
@@ -648,7 +647,7 @@ document.write(`
 to download the full example code</p>
 </div>
 <section class="sphx-glr-example-title" id="slicing">
-<span id="slice-example"></span><span id="sphx-glr-examples-01-filter-slicing-py"></span><h1>Slicing<a class="headerlink" href="#slicing" title="このヘッドラインへのパーマリンク">#</a></h1>
+<span id="slice-example"></span><span id="sphx-glr-examples-01-filter-slicing-py"></span><h1>Slicing<a class="headerlink" href="#slicing" title="この見出しへのパーマリンク">#</a></h1>
 <p>Extract thin planar slices from a volume.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -709,7 +708,7 @@ automated with the <a class="reference internal" href="../../api/core/_autosumma
 </pre></div>
 </div>
 <img src="../../_images/sphx_glr_slicing_005.png" srcset="../../_images/sphx_glr_slicing_005.png" alt="slicing" class = "sphx-glr-single-img"/><section id="slice-along-line">
-<h2>Slice Along Line<a class="headerlink" href="#slice-along-line" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Slice Along Line<a class="headerlink" href="#slice-along-line" title="この見出しへのパーマリンク">#</a></h2>
 <p>We can also slice a dataset along a <a class="reference internal" href="../../api/utilities/_autosummary/pyvista.Spline.html#pyvista.Spline" title="pyvista.Spline"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyvista.Spline()</span></code></a> or
 <a class="reference internal" href="../../api/utilities/_autosummary/pyvista.Line.html#pyvista.Line" title="pyvista.Line"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyvista.Line()</span></code></a> using the <a class="reference internal" href="../../api/core/_autosummary/pyvista.DataSetFilters.slice_along_line.html#pyvista.DataSetFilters.slice_along_line" title="pyvista.DataSetFilters.slice_along_line"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyvista.DataSetFilters.slice_along_line()</span></code></a> filter.</p>
 <p>First, define a line source through the dataset of interest. Please note
@@ -790,7 +789,7 @@ the line low.</p>
 </div>
 <img src="../../_images/sphx_glr_slicing_006.png" srcset="../../_images/sphx_glr_slicing_006.png" alt="slicing" class = "sphx-glr-single-img"/></section>
 <section id="multiple-slices-in-vector-direction">
-<h2>Multiple Slices in Vector Direction<a class="headerlink" href="#multiple-slices-in-vector-direction" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Multiple Slices in Vector Direction<a class="headerlink" href="#multiple-slices-in-vector-direction" title="この見出しへのパーマリンク">#</a></h2>
 <p>Slice a mesh along a vector direction perpendicularly.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mesh</span> <span class="o">=</span> <span class="n">examples</span><span class="o">.</span><span class="n">download_brain</span><span class="p">()</span>
 
@@ -822,7 +821,7 @@ the line low.</p>
 </div>
 <img src="../../_images/sphx_glr_slicing_007.png" srcset="../../_images/sphx_glr_slicing_007.png" alt="slicing" class = "sphx-glr-single-img"/></section>
 <section id="slice-at-different-bearings">
-<h2>Slice At Different Bearings<a class="headerlink" href="#slice-at-different-bearings" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Slice At Different Bearings<a class="headerlink" href="#slice-at-different-bearings" title="この見出しへのパーマリンク">#</a></h2>
 <p>From <a class="reference external" href="https://github.com/pyvista/pyvista-support/issues/23">pyvista-support#23</a></p>
 <p>An example of how to get many slices at different bearings all centered
 around a user-chosen location.</p>
@@ -874,7 +873,7 @@ Use equation for circle since its about the Z-axis.</p>
 <span class="n">p</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_slicing_008.png" srcset="../../_images/sphx_glr_slicing_008.png" alt="slicing" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  21.620 seconds)</p>
+<img src="../../_images/sphx_glr_slicing_008.png" srcset="../../_images/sphx_glr_slicing_008.png" alt="slicing" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  21.621 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-01-filter-slicing-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/0157ea0edb640d5b2e22069a997f5acd/slicing.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">slicing.py</span></code></a></p>

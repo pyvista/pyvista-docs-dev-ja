@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Streamlines &#8212; PyVista 0.40.dev0 ドキュメント</title>
   
@@ -51,9 +51,8 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/thebelab-helper.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
@@ -648,7 +647,7 @@ document.write(`
 to download the full example code</p>
 </div>
 <section class="sphx-glr-example-title" id="streamlines">
-<span id="streamlines-example"></span><span id="sphx-glr-examples-01-filter-streamlines-py"></span><h1>Streamlines<a class="headerlink" href="#streamlines" title="このヘッドラインへのパーマリンク">#</a></h1>
+<span id="streamlines-example"></span><span id="sphx-glr-examples-01-filter-streamlines-py"></span><h1>Streamlines<a class="headerlink" href="#streamlines" title="この見出しへのパーマリンク">#</a></h1>
 <p>Integrate a vector field to generate streamlines.</p>
 <p>This example generates streamlines of blood velocity. An isosurface of speed
 provides context. The starting positions for the streamtubes were determined
@@ -660,7 +659,7 @@ by experimenting with the data.</p>
 </pre></div>
 </div>
 <section id="carotid">
-<h2>Carotid<a class="headerlink" href="#carotid" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Carotid<a class="headerlink" href="#carotid" title="この見出しへのパーマリンク">#</a></h2>
 <p>Download a sample dataset containing a vector field that can be integrated.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mesh</span> <span class="o">=</span> <span class="n">examples</span><span class="o">.</span><span class="n">download_carotid</span><span class="p">()</span>
 </pre></div>
@@ -691,7 +690,7 @@ was measured with low resolution, many streamlines travel outside the artery.</p
 </div>
 <img src="../../_images/sphx_glr_streamlines_001.png" srcset="../../_images/sphx_glr_streamlines_001.png" alt="streamlines" class = "sphx-glr-single-img"/></section>
 <section id="blood-vessels">
-<h2>Blood Vessels<a class="headerlink" href="#blood-vessels" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Blood Vessels<a class="headerlink" href="#blood-vessels" title="この見出しへのパーマリンク">#</a></h2>
 <p>Here is another example of blood flow:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mesh</span> <span class="o">=</span> <span class="n">examples</span><span class="o">.</span><span class="n">download_blood_vessels</span><span class="p">()</span><span class="o">.</span><span class="n">cell_data_to_point_data</span><span class="p">()</span>
 <span class="n">mesh</span><span class="o">.</span><span class="n">set_active_scalars</span><span class="p">(</span><span class="s2">&quot;velocity&quot;</span><span class="p">)</span>
@@ -747,7 +746,7 @@ the streamlines.</p>
 </div>
 <img src="../../_images/sphx_glr_streamlines_003.png" srcset="../../_images/sphx_glr_streamlines_003.png" alt="streamlines" class = "sphx-glr-single-img"/></section>
 <section id="kitchen">
-<h2>Kitchen<a class="headerlink" href="#kitchen" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Kitchen<a class="headerlink" href="#kitchen" title="この見出しへのパーマリンク">#</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">kpos</span></a> <span class="o">=</span> <span class="p">[(</span><span class="o">-</span><span class="mf">6.68</span><span class="p">,</span> <span class="mf">11.9</span><span class="p">,</span> <span class="mf">11.6</span><span class="p">),</span> <span class="p">(</span><span class="mf">3.5</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="mf">1.26</span><span class="p">),</span> <span class="p">(</span><span class="mf">0.45</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">)]</span>
 
 <span class="n">mesh</span> <span class="o">=</span> <span class="n">examples</span><span class="o">.</span><span class="n">download_kitchen</span><span class="p">()</span>
@@ -767,7 +766,7 @@ the streamlines.</p>
 </div>
 <img src="../../_images/sphx_glr_streamlines_004.png" srcset="../../_images/sphx_glr_streamlines_004.png" alt="streamlines" class = "sphx-glr-single-img"/></section>
 <section id="custom-3d-vector-field">
-<h2>Custom 3D Vector Field<a class="headerlink" href="#custom-3d-vector-field" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Custom 3D Vector Field<a class="headerlink" href="#custom-3d-vector-field" title="この見出しへのパーマリンク">#</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">nx</span></a> <span class="o">=</span> <span class="mi">20</span>
 <a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">ny</span></a> <span class="o">=</span> <span class="mi">15</span>
 <a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">nz</span></a> <span class="o">=</span> <span class="mi">5</span>
@@ -794,7 +793,7 @@ the streamlines.</p>
 <span class="n">stream</span><span class="o">.</span><span class="n">tube</span><span class="p">(</span><span class="n">radius</span><span class="o">=</span><span class="mf">0.0015</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">cpos</span></a><span class="o">=</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">cpos</span></a><span class="p">)</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_streamlines_005.png" srcset="../../_images/sphx_glr_streamlines_005.png" alt="streamlines" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  8.382 seconds)</p>
+<img src="../../_images/sphx_glr_streamlines_005.png" srcset="../../_images/sphx_glr_streamlines_005.png" alt="streamlines" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  8.756 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-01-filter-streamlines-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/4ddd747a1fe9f7aca855733156a03336/streamlines.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">streamlines.py</span></code></a></p>

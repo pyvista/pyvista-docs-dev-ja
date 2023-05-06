@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>PyVista Data Model &#8212; PyVista 0.40.dev0 ドキュメント</title>
   
@@ -51,9 +51,8 @@
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/thebelab-helper.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -562,7 +561,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section id="pyvista-data-model">
-<span id="id1"></span><h1>PyVista Data Model<a class="headerlink" href="#pyvista-data-model" title="このヘッドラインへのパーマリンク">#</a></h1>
+<span id="id1"></span><h1>PyVista Data Model<a class="headerlink" href="#pyvista-data-model" title="この見出しへのパーマリンク">#</a></h1>
 <p>This section of the user guide explains in detail how to construct
 meshes from scratch and to utilize the underlying VTK data model but
 using the PyVista framework. Many of our <a class="reference internal" href="../examples/index.html#ref-examples"><span class="std std-ref">Examples</span></a> simply
@@ -578,7 +577,7 @@ Python bindings of VTK to PyVista, please see
 </div>
 <p>For a more general description of our API, see <a class="reference internal" href="what-is-a-mesh.html#what-is-a-mesh"><span class="std std-ref">What is a Mesh?</span></a>.</p>
 <section id="the-pyvista-dataset">
-<h2>The PyVista DataSet<a class="headerlink" href="#the-pyvista-dataset" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>The PyVista DataSet<a class="headerlink" href="#the-pyvista-dataset" title="この見出しへのパーマリンク">#</a></h2>
 <p>To visualize data in VTK or PyVista, two pieces of information are
 required: the data's geometry, which describes where the data is
 positioned in space and what its values are, and its topology, which
@@ -641,7 +640,7 @@ on the dimensionality of the grid.</p>
 as a <a class="reference internal" href="../api/core/_autosummary/pyvista.PolyData.html#pyvista.PolyData" title="pyvista.PolyData"><code class="xref py py-class docutils literal notranslate"><span class="pre">PolyData</span></code></a>. First, we need to define our points.</p>
 </section>
 <section id="points-and-arrays-within-pyvista">
-<h2>Points and Arrays Within PyVista<a class="headerlink" href="#points-and-arrays-within-pyvista" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Points and Arrays Within PyVista<a class="headerlink" href="#points-and-arrays-within-pyvista" title="この見出しへのパーマリンク">#</a></h2>
 <p>There are a variety of ways to create points within PyVista, and this section shows how to efficiently create an array of points by either:</p>
 <ul class="simple">
 <li><p>Wrapping a VTK array</p></li>
@@ -654,7 +653,7 @@ the VTK API, you can choose to wrap VTK arrays, but you may find that
 using <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.24)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> is more convenient and avoids the looping
 overhead in Python.</p>
 <section id="wrapping-a-vtk-array">
-<h3>Wrapping a VTK Array<a class="headerlink" href="#wrapping-a-vtk-array" title="このヘッドラインへのパーマリンク">#</a></h3>
+<h3>Wrapping a VTK Array<a class="headerlink" href="#wrapping-a-vtk-array" title="この見出しへのパーマリンク">#</a></h3>
 <p>Let's define points of a triangle. Using the VTK API, this can be
 done with:</p>
 <div class="jupyter_cell jupyter_container docutils container">
@@ -677,7 +676,7 @@ done with:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>vtkDoubleArray (0x55d867fafd30)
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>vtkDoubleArray (0x55c45a78a940)
   Debug: Off
   Modified Time: 67673
   Reference Count: 1
@@ -705,7 +704,7 @@ class, but there's a better, and more pythonic alternative by using
 <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.24)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>.</p>
 </section>
 <section id="using-numpy-with-pyvista">
-<h3>Using NumPy with PyVista<a class="headerlink" href="#using-numpy-with-pyvista" title="このヘッドラインへのパーマリンク">#</a></h3>
+<h3>Using NumPy with PyVista<a class="headerlink" href="#using-numpy-with-pyvista" title="この見出しへのパーマリンク">#</a></h3>
 <p>You can create a <a class="reference external" href="https://numpy.org/">NumPy</a> points array with:</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
@@ -786,7 +785,7 @@ the numpy wrapped array. Let's change the value back:</p>
 </div>
 </section>
 <section id="using-python-lists-or-tuples">
-<h3>Using Python Lists or Tuples<a class="headerlink" href="#using-python-lists-or-tuples" title="このヘッドラインへのパーマリンク">#</a></h3>
+<h3>Using Python Lists or Tuples<a class="headerlink" href="#using-python-lists-or-tuples" title="この見出しへのパーマリンク">#</a></h3>
 <p>PyVista supports the use of Python sequences (that is, a <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> or
 <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuple</span></code></a>), and you could define your points using a nested list
 of lists via:</p>
@@ -869,7 +868,7 @@ and to do that we need to specify the cells (or faces) of this surface.</p>
 </section>
 </section>
 <section id="geometry-and-mesh-connectivity-topology-within-pyvista">
-<h2>Geometry and Mesh Connectivity/Topology Within PyVista<a class="headerlink" href="#geometry-and-mesh-connectivity-topology-within-pyvista" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Geometry and Mesh Connectivity/Topology Within PyVista<a class="headerlink" href="#geometry-and-mesh-connectivity-topology-within-pyvista" title="この見出しへのパーマリンク">#</a></h2>
 <p>With our previous example, we defined our &quot;mesh&quot; as three disconnected
 points. While this is useful for representing &quot;point clouds,&quot; if we
 want to create a surface, we have to describe the connectivity of the
@@ -1032,7 +1031,7 @@ explains the value of the data at a certain location within the
 geometry.</p>
 </section>
 <section id="data-arrays">
-<h2>Data Arrays<a class="headerlink" href="#data-arrays" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Data Arrays<a class="headerlink" href="#data-arrays" title="この見出しへのパーマリンク">#</a></h2>
 <p>Each <a class="reference internal" href="../api/core/_autosummary/pyvista.DataSet.html#pyvista.DataSet" title="pyvista.DataSet"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataSet</span></code></a> contains
 attributes that allow you to access the underlying numeric data. This
 numerical data may be associated with the <a class="reference internal" href="../api/core/_autosummary/pyvista.DataSet.points.html#pyvista.DataSet.points" title="pyvista.DataSet.points"><code class="xref py py-attr docutils literal notranslate"><span class="pre">points</span></code></a>, cells, or not associated with points
@@ -1093,7 +1092,7 @@ to assign values to the cells of our example mesh, which we can do by
 accessing the <a class="reference internal" href="../api/core/_autosummary/pyvista.DataSet.cell_data.html#pyvista.DataSet.cell_data" title="pyvista.DataSet.cell_data"><code class="xref py py-attr docutils literal notranslate"><span class="pre">cell_data</span></code></a>
 attribute of our mesh.</p>
 <section id="cell-data">
-<span id="pyvista-data-model-cell-data"></span><h3>Cell Data<a class="headerlink" href="#cell-data" title="このヘッドラインへのパーマリンク">#</a></h3>
+<span id="pyvista-data-model-cell-data"></span><h3>Cell Data<a class="headerlink" href="#cell-data" title="この見出しへのパーマリンク">#</a></h3>
 <p>The easiest way to add scalar data to a <a class="reference internal" href="../api/core/_autosummary/pyvista.DataSet.html#pyvista.DataSet" title="pyvista.DataSet"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataSet</span></code></a> is to use the <code class="docutils literal notranslate"><span class="pre">[]</span></code> operator.
 Continuing with our example above, let's assign each cell a single
 integer. We can do this using a Python <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> and making it
@@ -1217,7 +1216,7 @@ Contains arrays :
 </div>
 </section>
 <section id="point-data">
-<h3>Point Data<a class="headerlink" href="#point-data" title="このヘッドラインへのパーマリンク">#</a></h3>
+<h3>Point Data<a class="headerlink" href="#point-data" title="この見出しへのパーマリンク">#</a></h3>
 <p>Data can be associated to points in the same manner as in
 <a class="reference internal" href="#pyvista-data-model-cell-data"><span class="std std-ref">Cell Data</span></a>. The <a class="reference internal" href="../api/core/_autosummary/pyvista.DataSet.point_data.html#pyvista.DataSet.point_data" title="pyvista.DataSet.point_data"><code class="xref py py-attr docutils literal notranslate"><span class="pre">point_data</span></code></a> attribute allows you to associate point
 data to the points of a <a class="reference internal" href="../api/core/_autosummary/pyvista.DataSet.html#pyvista.DataSet" title="pyvista.DataSet"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataSet</span></code></a>. Here, we will associate a simple
@@ -1327,7 +1326,7 @@ Contains arrays :
 </div>
 </section>
 <section id="dataset-active-scalars">
-<h3>Dataset Active Scalars<a class="headerlink" href="#dataset-active-scalars" title="このヘッドラインへのパーマリンク">#</a></h3>
+<h3>Dataset Active Scalars<a class="headerlink" href="#dataset-active-scalars" title="この見出しへのパーマリンク">#</a></h3>
 <p>Continuing from the previous sections, our <code class="docutils literal notranslate"><span class="pre">ugrid</span></code> dataset now
 contains both point and cell data:</p>
 <div class="jupyter_cell jupyter_container docutils container">
@@ -1409,7 +1408,7 @@ parameter in <a class="reference internal" href="../api/plotting/_autosummary/py
 <a class="reference internal" href="../api/plotting/_autosummary/pyvista.plot.html#pyvista.plot" title="pyvista.plot"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyvista.plot()</span></code></a>.</p>
 </section>
 <section id="field-data">
-<h3>Field Data<a class="headerlink" href="#field-data" title="このヘッドラインへのパーマリンク">#</a></h3>
+<h3>Field Data<a class="headerlink" href="#field-data" title="この見出しへのパーマリンク">#</a></h3>
 <p>Field arrays are different from <a class="reference internal" href="../api/core/_autosummary/pyvista.DataSet.point_data.html#pyvista.DataSet.point_data" title="pyvista.DataSet.point_data"><code class="xref py py-attr docutils literal notranslate"><span class="pre">point_data</span></code></a> and <a class="reference internal" href="../api/core/_autosummary/pyvista.DataSet.cell_data.html#pyvista.DataSet.cell_data" title="pyvista.DataSet.cell_data"><code class="xref py py-attr docutils literal notranslate"><span class="pre">cell_data</span></code></a> in that they are not associated with
 the geometry of the <a class="reference internal" href="../api/core/_autosummary/pyvista.DataSet.html#pyvista.DataSet" title="pyvista.DataSet"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataSet</span></code></a>.
 This means that while it's not possible to designate the field data as
@@ -1451,7 +1450,7 @@ cannot be made so because field data is not expected to match the
 number of cells or points. As such, it also cannot be plotted.</p>
 </section>
 <section id="vectors-texture-coords-and-normals-attributes">
-<h3>Vectors, Texture Coords, and Normals Attributes<a class="headerlink" href="#vectors-texture-coords-and-normals-attributes" title="このヘッドラインへのパーマリンク">#</a></h3>
+<h3>Vectors, Texture Coords, and Normals Attributes<a class="headerlink" href="#vectors-texture-coords-and-normals-attributes" title="この見出しへのパーマリンク">#</a></h3>
 <p>Both cell and point data can also store the following &quot;special&quot; attributes in addition to <a class="reference internal" href="../api/core/_autosummary/pyvista.DataSet.active_scalars.html#pyvista.DataSet.active_scalars" title="pyvista.DataSet.active_scalars"><code class="xref py py-attr docutils literal notranslate"><span class="pre">active_scalars</span></code></a>:</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="../api/core/_autosummary/pyvista.DataSet.active_normals.html#pyvista.DataSet.active_normals" title="pyvista.DataSet.active_normals"><code class="xref py py-attr docutils literal notranslate"><span class="pre">active_normals</span></code></a></p></li>
@@ -1460,7 +1459,7 @@ number of cells or points. As such, it also cannot be plotted.</p>
 </ul>
 </section>
 <section id="active-normals">
-<h3>Active Normals<a class="headerlink" href="#active-normals" title="このヘッドラインへのパーマリンク">#</a></h3>
+<h3>Active Normals<a class="headerlink" href="#active-normals" title="この見出しへのパーマリンク">#</a></h3>
 <p>The <a class="reference internal" href="../api/core/_autosummary/pyvista.DataSet.active_normals.html#pyvista.DataSet.active_normals" title="pyvista.DataSet.active_normals"><code class="xref py py-attr docutils literal notranslate"><span class="pre">active_normals</span></code></a> array is a special array that
 specifies the local normal direction of meshes. It is used for
 creating physically based rendering, rendering smooth shading using
@@ -1469,13 +1468,13 @@ is not set when plotting with <code class="docutils literal notranslate"><span c
 it will be computed.</p>
 </section>
 <section id="active-texture-coordinates">
-<h3>Active Texture Coordinates<a class="headerlink" href="#active-texture-coordinates" title="このヘッドラインへのパーマリンク">#</a></h3>
+<h3>Active Texture Coordinates<a class="headerlink" href="#active-texture-coordinates" title="この見出しへのパーマリンク">#</a></h3>
 <p>The <a class="reference internal" href="../api/core/_autosummary/pyvista.DataSet.active_t_coords.html#pyvista.DataSet.active_t_coords" title="pyvista.DataSet.active_t_coords"><code class="xref py py-attr docutils literal notranslate"><span class="pre">active_t_coords</span></code></a> array is used for
 rendering textures. See <a class="reference internal" href="../examples/02-plot/texture.html#ref-texture-example"><span class="std std-ref">Applying Textures</span></a> for examples using
 this array.</p>
 </section>
 <section id="active-vectors">
-<h3>Active Vectors<a class="headerlink" href="#active-vectors" title="このヘッドラインへのパーマリンク">#</a></h3>
+<h3>Active Vectors<a class="headerlink" href="#active-vectors" title="この見出しへのパーマリンク">#</a></h3>
 <p>The <a class="reference internal" href="../api/core/_autosummary/pyvista.DataSet.active_vectors.html#pyvista.DataSet.active_vectors" title="pyvista.DataSet.active_vectors"><code class="xref py py-attr docutils literal notranslate"><span class="pre">active_vectors</span></code></a> is an array containing
 quantities that have magnitude and direction (specifically, three
 components). For example, a vector field containing the wind speed at

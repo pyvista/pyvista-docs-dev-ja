@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Parametric Geometric Objects &#8212; PyVista 0.40.dev0 ドキュメント</title>
   
@@ -51,9 +51,8 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/thebelab-helper.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
@@ -613,7 +612,7 @@ document.write(`
 to download the full example code</p>
 </div>
 <section class="sphx-glr-example-title" id="parametric-geometric-objects">
-<span id="ref-parametric-example"></span><span id="sphx-glr-examples-00-load-create-parametric-geometric-objects-py"></span><h1>Parametric Geometric Objects<a class="headerlink" href="#parametric-geometric-objects" title="このヘッドラインへのパーマリンク">#</a></h1>
+<span id="ref-parametric-example"></span><span id="sphx-glr-examples-00-load-create-parametric-geometric-objects-py"></span><h1>Parametric Geometric Objects<a class="headerlink" href="#parametric-geometric-objects" title="この見出しへのパーマリンク">#</a></h1>
 <p>Creating parametric objects</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <a href="https://docs.python.org/3/library/functions.html#float" title="builtins.float" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">pi</span></a>
 
@@ -622,14 +621,14 @@ to download the full example code</p>
 </div>
 <p>This example demonstrates how to plot parametric objects using pyvista</p>
 <section id="supertoroid">
-<h2>Supertoroid<a class="headerlink" href="#supertoroid" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Supertoroid<a class="headerlink" href="#supertoroid" title="この見出しへのパーマリンク">#</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">supertoroid</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">ParametricSuperToroid</span><span class="p">(</span><span class="n">n1</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
 <span class="n">supertoroid</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;tan&quot;</span><span class="p">,</span> <span class="n">smooth_shading</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 <img src="../../_images/sphx_glr_create-parametric-geometric-objects_001.png" srcset="../../_images/sphx_glr_create-parametric-geometric-objects_001.png" alt="create parametric geometric objects" class = "sphx-glr-single-img"/></section>
 <section id="parametric-ellipsoid">
-<h2>Parametric Ellipsoid<a class="headerlink" href="#parametric-ellipsoid" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Parametric Ellipsoid<a class="headerlink" href="#parametric-ellipsoid" title="この見出しへのパーマリンク">#</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ellipsoid with a long x axis</span>
 <span class="n">ellipsoid</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">ParametricEllipsoid</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
 <span class="n">ellipsoid</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;tan&quot;</span><span class="p">)</span>
@@ -637,7 +636,7 @@ to download the full example code</p>
 </div>
 <img src="../../_images/sphx_glr_create-parametric-geometric-objects_002.png" srcset="../../_images/sphx_glr_create-parametric-geometric-objects_002.png" alt="create parametric geometric objects" class = "sphx-glr-single-img"/></section>
 <section id="partial-parametric-ellipsoid">
-<h2>Partial Parametric Ellipsoid<a class="headerlink" href="#partial-parametric-ellipsoid" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Partial Parametric Ellipsoid<a class="headerlink" href="#partial-parametric-ellipsoid" title="この見出しへのパーマリンク">#</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># cool plotting direction</span>
 <a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">cpos</span></a> <span class="o">=</span> <span class="p">[</span>
     <span class="p">(</span><span class="mf">21.9930</span><span class="p">,</span> <span class="mf">21.1810</span><span class="p">,</span> <span class="o">-</span><span class="mf">30.3780</span><span class="p">),</span>
@@ -653,140 +652,140 @@ to download the full example code</p>
 </div>
 <img src="../../_images/sphx_glr_create-parametric-geometric-objects_003.png" srcset="../../_images/sphx_glr_create-parametric-geometric-objects_003.png" alt="create parametric geometric objects" class = "sphx-glr-single-img"/></section>
 <section id="pseudosphere">
-<h2>Pseudosphere<a class="headerlink" href="#pseudosphere" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Pseudosphere<a class="headerlink" href="#pseudosphere" title="この見出しへのパーマリンク">#</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pseudosphere</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">ParametricPseudosphere</span><span class="p">()</span>
 <span class="n">pseudosphere</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;tan&quot;</span><span class="p">,</span> <span class="n">smooth_shading</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 <img src="../../_images/sphx_glr_create-parametric-geometric-objects_004.png" srcset="../../_images/sphx_glr_create-parametric-geometric-objects_004.png" alt="create parametric geometric objects" class = "sphx-glr-single-img"/></section>
 <section id="bohemian-dome">
-<h2>Bohemian Dome<a class="headerlink" href="#bohemian-dome" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Bohemian Dome<a class="headerlink" href="#bohemian-dome" title="この見出しへのパーマリンク">#</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bohemiandome</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">ParametricBohemianDome</span><span class="p">()</span>
 <span class="n">bohemiandome</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;tan&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <img src="../../_images/sphx_glr_create-parametric-geometric-objects_005.png" srcset="../../_images/sphx_glr_create-parametric-geometric-objects_005.png" alt="create parametric geometric objects" class = "sphx-glr-single-img"/></section>
 <section id="bour">
-<h2>Bour<a class="headerlink" href="#bour" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Bour<a class="headerlink" href="#bour" title="この見出しへのパーマリンク">#</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bour</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">ParametricBour</span><span class="p">()</span>
 <span class="n">bour</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;tan&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <img src="../../_images/sphx_glr_create-parametric-geometric-objects_006.png" srcset="../../_images/sphx_glr_create-parametric-geometric-objects_006.png" alt="create parametric geometric objects" class = "sphx-glr-single-img"/></section>
 <section id="boy-s-surface">
-<h2>Boy's Surface<a class="headerlink" href="#boy-s-surface" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Boy's Surface<a class="headerlink" href="#boy-s-surface" title="この見出しへのパーマリンク">#</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">boy</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">ParametricBoy</span><span class="p">()</span>
 <span class="n">boy</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;tan&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <img src="../../_images/sphx_glr_create-parametric-geometric-objects_007.png" srcset="../../_images/sphx_glr_create-parametric-geometric-objects_007.png" alt="create parametric geometric objects" class = "sphx-glr-single-img"/></section>
 <section id="catalan-minimal">
-<h2>Catalan Minimal<a class="headerlink" href="#catalan-minimal" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Catalan Minimal<a class="headerlink" href="#catalan-minimal" title="この見出しへのパーマリンク">#</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">catalanminimal</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">ParametricCatalanMinimal</span><span class="p">()</span>
 <span class="n">catalanminimal</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;tan&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <img src="../../_images/sphx_glr_create-parametric-geometric-objects_008.png" srcset="../../_images/sphx_glr_create-parametric-geometric-objects_008.png" alt="create parametric geometric objects" class = "sphx-glr-single-img"/></section>
 <section id="conic-spiral">
-<h2>Conic Spiral<a class="headerlink" href="#conic-spiral" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Conic Spiral<a class="headerlink" href="#conic-spiral" title="この見出しへのパーマリンク">#</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conicspiral</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">ParametricConicSpiral</span><span class="p">()</span>
 <span class="n">conicspiral</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;tan&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <img src="../../_images/sphx_glr_create-parametric-geometric-objects_009.png" srcset="../../_images/sphx_glr_create-parametric-geometric-objects_009.png" alt="create parametric geometric objects" class = "sphx-glr-single-img"/></section>
 <section id="cross-cap">
-<h2>Cross Cap<a class="headerlink" href="#cross-cap" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Cross Cap<a class="headerlink" href="#cross-cap" title="この見出しへのパーマリンク">#</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">crosscap</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">ParametricCrossCap</span><span class="p">()</span>
 <span class="n">crosscap</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;tan&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <img src="../../_images/sphx_glr_create-parametric-geometric-objects_010.png" srcset="../../_images/sphx_glr_create-parametric-geometric-objects_010.png" alt="create parametric geometric objects" class = "sphx-glr-single-img"/></section>
 <section id="dini">
-<h2>Dini<a class="headerlink" href="#dini" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Dini<a class="headerlink" href="#dini" title="この見出しへのパーマリンク">#</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dini</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">ParametricDini</span><span class="p">()</span>
 <span class="n">dini</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;tan&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <img src="../../_images/sphx_glr_create-parametric-geometric-objects_011.png" srcset="../../_images/sphx_glr_create-parametric-geometric-objects_011.png" alt="create parametric geometric objects" class = "sphx-glr-single-img"/></section>
 <section id="enneper">
-<h2>Enneper<a class="headerlink" href="#enneper" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Enneper<a class="headerlink" href="#enneper" title="この見出しへのパーマリンク">#</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">enneper</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">ParametricEnneper</span><span class="p">()</span>
 <span class="n">enneper</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">cpos</span></a><span class="o">=</span><span class="s2">&quot;yz&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <img src="../../_images/sphx_glr_create-parametric-geometric-objects_012.png" srcset="../../_images/sphx_glr_create-parametric-geometric-objects_012.png" alt="create parametric geometric objects" class = "sphx-glr-single-img"/></section>
 <section id="figure-8-klein">
-<h2>Figure-8 Klein<a class="headerlink" href="#figure-8-klein" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Figure-8 Klein<a class="headerlink" href="#figure-8-klein" title="この見出しへのパーマリンク">#</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">figure8klein</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">ParametricFigure8Klein</span><span class="p">()</span>
 <span class="n">figure8klein</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 </pre></div>
 </div>
 <img src="../../_images/sphx_glr_create-parametric-geometric-objects_013.png" srcset="../../_images/sphx_glr_create-parametric-geometric-objects_013.png" alt="create parametric geometric objects" class = "sphx-glr-single-img"/></section>
 <section id="henneberg">
-<h2>Henneberg<a class="headerlink" href="#henneberg" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Henneberg<a class="headerlink" href="#henneberg" title="この見出しへのパーマリンク">#</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">henneberg</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">ParametricHenneberg</span><span class="p">()</span>
 <span class="n">henneberg</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;tan&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <img src="../../_images/sphx_glr_create-parametric-geometric-objects_014.png" srcset="../../_images/sphx_glr_create-parametric-geometric-objects_014.png" alt="create parametric geometric objects" class = "sphx-glr-single-img"/></section>
 <section id="klein">
-<h2>Klein<a class="headerlink" href="#klein" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Klein<a class="headerlink" href="#klein" title="この見出しへのパーマリンク">#</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">klein</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">ParametricKlein</span><span class="p">()</span>
 <span class="n">klein</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;tan&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <img src="../../_images/sphx_glr_create-parametric-geometric-objects_015.png" srcset="../../_images/sphx_glr_create-parametric-geometric-objects_015.png" alt="create parametric geometric objects" class = "sphx-glr-single-img"/></section>
 <section id="kuen">
-<h2>Kuen<a class="headerlink" href="#kuen" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Kuen<a class="headerlink" href="#kuen" title="この見出しへのパーマリンク">#</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">kuen</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">ParametricKuen</span><span class="p">()</span>
 <span class="n">kuen</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;tan&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <img src="../../_images/sphx_glr_create-parametric-geometric-objects_016.png" srcset="../../_images/sphx_glr_create-parametric-geometric-objects_016.png" alt="create parametric geometric objects" class = "sphx-glr-single-img"/></section>
 <section id="mobius">
-<h2>Mobius<a class="headerlink" href="#mobius" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Mobius<a class="headerlink" href="#mobius" title="この見出しへのパーマリンク">#</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mobius</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">ParametricMobius</span><span class="p">()</span>
 <span class="n">mobius</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;tan&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <img src="../../_images/sphx_glr_create-parametric-geometric-objects_017.png" srcset="../../_images/sphx_glr_create-parametric-geometric-objects_017.png" alt="create parametric geometric objects" class = "sphx-glr-single-img"/></section>
 <section id="plucker-conoid">
-<h2>Plucker Conoid<a class="headerlink" href="#plucker-conoid" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Plucker Conoid<a class="headerlink" href="#plucker-conoid" title="この見出しへのパーマリンク">#</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pluckerconoid</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">ParametricPluckerConoid</span><span class="p">()</span>
 <span class="n">pluckerconoid</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;tan&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <img src="../../_images/sphx_glr_create-parametric-geometric-objects_018.png" srcset="../../_images/sphx_glr_create-parametric-geometric-objects_018.png" alt="create parametric geometric objects" class = "sphx-glr-single-img"/></section>
 <section id="random-hills">
-<h2>Random Hills<a class="headerlink" href="#random-hills" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Random Hills<a class="headerlink" href="#random-hills" title="この見出しへのパーマリンク">#</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">randomhills</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">ParametricRandomHills</span><span class="p">()</span>
 <span class="n">randomhills</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;tan&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <img src="../../_images/sphx_glr_create-parametric-geometric-objects_019.png" srcset="../../_images/sphx_glr_create-parametric-geometric-objects_019.png" alt="create parametric geometric objects" class = "sphx-glr-single-img"/></section>
 <section id="roman">
-<h2>Roman<a class="headerlink" href="#roman" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Roman<a class="headerlink" href="#roman" title="この見出しへのパーマリンク">#</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">roman</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">ParametricRoman</span><span class="p">()</span>
 <span class="n">roman</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;tan&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <img src="../../_images/sphx_glr_create-parametric-geometric-objects_020.png" srcset="../../_images/sphx_glr_create-parametric-geometric-objects_020.png" alt="create parametric geometric objects" class = "sphx-glr-single-img"/></section>
 <section id="super-ellipsoid">
-<h2>Super Ellipsoid<a class="headerlink" href="#super-ellipsoid" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Super Ellipsoid<a class="headerlink" href="#super-ellipsoid" title="この見出しへのパーマリンク">#</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">superellipsoid</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">ParametricSuperEllipsoid</span><span class="p">(</span><span class="n">n1</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">n2</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">superellipsoid</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;tan&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <img src="../../_images/sphx_glr_create-parametric-geometric-objects_021.png" srcset="../../_images/sphx_glr_create-parametric-geometric-objects_021.png" alt="create parametric geometric objects" class = "sphx-glr-single-img"/></section>
 <section id="torus">
-<h2>Torus<a class="headerlink" href="#torus" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Torus<a class="headerlink" href="#torus" title="この見出しへのパーマリンク">#</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">torus</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">ParametricTorus</span><span class="p">()</span>
 <span class="n">torus</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;tan&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <img src="../../_images/sphx_glr_create-parametric-geometric-objects_022.png" srcset="../../_images/sphx_glr_create-parametric-geometric-objects_022.png" alt="create parametric geometric objects" class = "sphx-glr-single-img"/></section>
 <section id="circular-arc">
-<h2>Circular Arc<a class="headerlink" href="#circular-arc" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Circular Arc<a class="headerlink" href="#circular-arc" title="この見出しへのパーマリンク">#</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">pointa</span></a> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
 <a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">pointb</span></a> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
 <a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">center</span></a> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
@@ -803,7 +802,7 @@ to download the full example code</p>
 </div>
 <img src="../../_images/sphx_glr_create-parametric-geometric-objects_023.png" srcset="../../_images/sphx_glr_create-parametric-geometric-objects_023.png" alt="create parametric geometric objects" class = "sphx-glr-single-img"/></section>
 <section id="extruded-half-arc">
-<h2>Extruded Half Arc<a class="headerlink" href="#extruded-half-arc" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Extruded Half Arc<a class="headerlink" href="#extruded-half-arc" title="この見出しへのパーマリンク">#</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">pointa</span></a> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
 <a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">pointb</span></a> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
 <a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">center</span></a> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
@@ -818,7 +817,7 @@ to download the full example code</p>
   warnings.warn(
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  7.215 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  7.469 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-00-load-create-parametric-geometric-objects-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/5f029390432f2ffcda2854731d00b993/create-parametric-geometric-objects.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">create-parametric-geometric-objects.py</span></code></a></p>

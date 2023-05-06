@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Picking points on a mesh &#8212; PyVista 0.40.dev0 ドキュメント</title>
   
@@ -51,9 +51,8 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/thebelab-helper.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
@@ -674,14 +673,14 @@ document.write(`
 to download the full example code</p>
 </div>
 <section class="sphx-glr-example-title" id="picking-points-on-a-mesh">
-<span id="point-picking-example"></span><span id="sphx-glr-examples-02-plot-point-picking-py"></span><h1>Picking points on a mesh<a class="headerlink" href="#picking-points-on-a-mesh" title="このヘッドラインへのパーマリンク">#</a></h1>
+<span id="point-picking-example"></span><span id="sphx-glr-examples-02-plot-point-picking-py"></span><h1>Picking points on a mesh<a class="headerlink" href="#picking-points-on-a-mesh" title="この見出しへのパーマリンク">#</a></h1>
 <p>This example demonstrates how to pick points on meshes using
 <a class="reference internal" href="../../api/plotting/_autosummary/pyvista.Plotter.enable_point_picking.html#pyvista.Plotter.enable_point_picking" title="pyvista.Plotter.enable_point_picking"><code class="xref py py-func docutils literal notranslate"><span class="pre">enable_point_picking()</span></code></a>.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyvista</span> <span class="k">as</span> <span class="nn">pv</span>
 </pre></div>
 </div>
 <section id="pick-points-on-a-sphere">
-<h2>Pick points on a sphere<a class="headerlink" href="#pick-points-on-a-sphere" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Pick points on a sphere<a class="headerlink" href="#pick-points-on-a-sphere" title="この見出しへのパーマリンク">#</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sphere</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Sphere</span><span class="p">()</span>
 
 <span class="n">p</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Plotter</span><span class="p">()</span>
@@ -692,7 +691,7 @@ to download the full example code</p>
 </div>
 <img src="../../_images/sphx_glr_point-picking_001.png" srcset="../../_images/sphx_glr_point-picking_001.png" alt="point picking" class = "sphx-glr-single-img"/></section>
 <section id="ignore-the-3d-window">
-<h2>Ignore the 3D window<a class="headerlink" href="#ignore-the-3d-window" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Ignore the 3D window<a class="headerlink" href="#ignore-the-3d-window" title="この見出しへのパーマリンク">#</a></h2>
 <p>In the above example, both points on the mesh and points in the 3d window can be
 selected. It is possible instead pick only points on the mesh.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sphere</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Sphere</span><span class="p">()</span>
@@ -705,7 +704,7 @@ selected. It is possible instead pick only points on the mesh.</p>
 </div>
 <img src="../../_images/sphx_glr_point-picking_002.png" srcset="../../_images/sphx_glr_point-picking_002.png" alt="point picking" class = "sphx-glr-single-img"/></section>
 <section id="modify-which-actors-are-pickable">
-<h2>Modify which actors are pickable<a class="headerlink" href="#modify-which-actors-are-pickable" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Modify which actors are pickable<a class="headerlink" href="#modify-which-actors-are-pickable" title="この見出しへのパーマリンク">#</a></h2>
 <p>After enabling point picking, we can modify which actors are pickable.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sphere</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Sphere</span><span class="p">()</span>
 <span class="n">cube</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Cube</span><span class="p">()</span>
@@ -723,7 +722,7 @@ selected. It is possible instead pick only points on the mesh.</p>
 </div>
 <img src="../../_images/sphx_glr_point-picking_003.png" srcset="../../_images/sphx_glr_point-picking_003.png" alt="point picking" class = "sphx-glr-single-img"/></section>
 <section id="pick-using-the-left-mouse-button">
-<h2>Pick using the left-mouse button<a class="headerlink" href="#pick-using-the-left-mouse-button" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Pick using the left-mouse button<a class="headerlink" href="#pick-using-the-left-mouse-button" title="この見出しへのパーマリンク">#</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sphere</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Sphere</span><span class="p">()</span>
 
 <span class="n">p</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Plotter</span><span class="p">()</span>
@@ -732,7 +731,7 @@ selected. It is possible instead pick only points on the mesh.</p>
 <span class="n">p</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_point-picking_004.png" srcset="../../_images/sphx_glr_point-picking_004.png" alt="point picking" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  1.077 seconds)</p>
+<img src="../../_images/sphx_glr_point-picking_004.png" srcset="../../_images/sphx_glr_point-picking_004.png" alt="point picking" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  1.097 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-02-plot-point-picking-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/655518977ef0051de63e0383f78f05a1/point-picking.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">point-picking.py</span></code></a></p>

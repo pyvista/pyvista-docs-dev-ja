@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Resampling &#8212; PyVista 0.40.dev0 ドキュメント</title>
   
@@ -51,9 +51,8 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/thebelab-helper.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
@@ -648,7 +647,7 @@ document.write(`
 to download the full example code</p>
 </div>
 <section class="sphx-glr-example-title" id="resampling">
-<span id="resampling-example"></span><span id="sphx-glr-examples-01-filter-resample-py"></span><h1>Resampling<a class="headerlink" href="#resampling" title="このヘッドラインへのパーマリンク">#</a></h1>
+<span id="resampling-example"></span><span id="sphx-glr-examples-01-filter-resample-py"></span><h1>Resampling<a class="headerlink" href="#resampling" title="この見出しへのパーマリンク">#</a></h1>
 <p>Resample one mesh's point/cell arrays onto another mesh's nodes.</p>
 <p>This example will resample a volumetric mesh's  scalar data onto the surface
 of a sphere contained in that volume.</p>
@@ -657,7 +656,7 @@ of a sphere contained in that volume.</p>
 </pre></div>
 </div>
 <section id="simple-resample">
-<h2>Simple Resample<a class="headerlink" href="#simple-resample" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Simple Resample<a class="headerlink" href="#simple-resample" title="この見出しへのパーマリンク">#</a></h2>
 <p>Query a grids points onto a sphere</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mesh</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Sphere</span><span class="p">(</span><span class="n">center</span><span class="o">=</span><span class="p">(</span><span class="mf">4.5</span><span class="p">,</span> <span class="mf">4.5</span><span class="p">,</span> <span class="mf">4.5</span><span class="p">),</span> <span class="n">radius</span><span class="o">=</span><span class="mf">4.5</span><span class="p">)</span>
 <span class="n">data_to_probe</span> <span class="o">=</span> <span class="n">examples</span><span class="o">.</span><span class="n">load_uniform</span><span class="p">()</span>
@@ -680,7 +679,7 @@ of a sphere contained in that volume.</p>
 </div>
 <img src="../../_images/sphx_glr_resample_002.png" srcset="../../_images/sphx_glr_resample_002.png" alt="resample" class = "sphx-glr-single-img"/></section>
 <section id="complex-resample">
-<h2>Complex Resample<a class="headerlink" href="#complex-resample" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Complex Resample<a class="headerlink" href="#complex-resample" title="この見出しへのパーマリンク">#</a></h2>
 <p>Take a volume of data and create a grid of lower resolution to resample on</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">data_to_probe</span> <span class="o">=</span> <span class="n">examples</span><span class="o">.</span><span class="n">download_embryo</span><span class="p">()</span>
 <span class="n">mesh</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">create_grid</span><span class="p">(</span><span class="n">data_to_probe</span><span class="p">,</span> <span class="n">dimensions</span><span class="o">=</span><span class="p">(</span><span class="mi">75</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">75</span><span class="p">))</span>
@@ -705,7 +704,7 @@ of a sphere contained in that volume.</p>
 <span class="n">p</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">cpos</span></a><span class="o">=</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">cpos</span></a><span class="p">)</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_resample_003.png" srcset="../../_images/sphx_glr_resample_003.png" alt="resample" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  5.626 seconds)</p>
+<img src="../../_images/sphx_glr_resample_003.png" srcset="../../_images/sphx_glr_resample_003.png" alt="resample" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  5.590 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-01-filter-resample-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/b4489257b99060ad62626735e4f99ae0/resample.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">resample.py</span></code></a></p>

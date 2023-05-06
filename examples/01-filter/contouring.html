@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Contouring &#8212; PyVista 0.40.dev0 ドキュメント</title>
   
@@ -51,9 +51,8 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/thebelab-helper.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
@@ -648,7 +647,7 @@ document.write(`
 to download the full example code</p>
 </div>
 <section class="sphx-glr-example-title" id="contouring">
-<span id="contouring-example"></span><span id="sphx-glr-examples-01-filter-contouring-py"></span><h1>Contouring<a class="headerlink" href="#contouring" title="このヘッドラインへのパーマリンク">#</a></h1>
+<span id="contouring-example"></span><span id="sphx-glr-examples-01-filter-contouring-py"></span><h1>Contouring<a class="headerlink" href="#contouring" title="この見出しへのパーマリンク">#</a></h1>
 <p>Generate iso-lines or -surfaces for the scalars of a surface or volume.</p>
 <p>3D meshes can have 2D iso-surfaces of a scalar field extracted and 2D surface
 meshes can have 1D iso-lines of a scalar field extracted.</p>
@@ -659,7 +658,7 @@ meshes can have 1D iso-lines of a scalar field extracted.</p>
 </pre></div>
 </div>
 <section id="iso-lines">
-<h2>Iso-Lines<a class="headerlink" href="#iso-lines" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Iso-Lines<a class="headerlink" href="#iso-lines" title="この見出しへのパーマリンク">#</a></h2>
 <p>Let's extract 1D iso-lines of a scalar field from a 2D surface mesh.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mesh</span> <span class="o">=</span> <span class="n">examples</span><span class="o">.</span><span class="n">load_random_hills</span><span class="p">()</span>
 
@@ -673,7 +672,7 @@ meshes can have 1D iso-lines of a scalar field extracted.</p>
 </div>
 <img src="../../_images/sphx_glr_contouring_001.png" srcset="../../_images/sphx_glr_contouring_001.png" alt="contouring" class = "sphx-glr-single-img"/></section>
 <section id="iso-surfaces">
-<h2>Iso-Surfaces<a class="headerlink" href="#iso-surfaces" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Iso-Surfaces<a class="headerlink" href="#iso-surfaces" title="この見出しへのパーマリンク">#</a></h2>
 <p>Let's extract 2D iso-surfaces of a scalar field from a 3D mesh.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mesh</span> <span class="o">=</span> <span class="n">examples</span><span class="o">.</span><span class="n">download_embryo</span><span class="p">()</span>
 
@@ -692,7 +691,7 @@ meshes can have 1D iso-lines of a scalar field extracted.</p>
 </div>
 <img src="../../_images/sphx_glr_contouring_002.png" srcset="../../_images/sphx_glr_contouring_002.png" alt="contouring" class = "sphx-glr-single-img"/></section>
 <section id="banded-contours">
-<h2>Banded Contours<a class="headerlink" href="#banded-contours" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Banded Contours<a class="headerlink" href="#banded-contours" title="この見出しへのパーマリンク">#</a></h2>
 <p>Create banded contours for surface meshes using <a class="reference internal" href="../../api/core/_autosummary/pyvista.PolyDataFilters.contour_banded.html#pyvista.PolyDataFilters.contour_banded" title="pyvista.PolyDataFilters.contour_banded"><code class="xref py py-func docutils literal notranslate"><span class="pre">contour_banded()</span></code></a>.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mesh</span> <span class="o">=</span> <span class="n">examples</span><span class="o">.</span><span class="n">load_random_hills</span><span class="p">()</span>
 </pre></div>
@@ -716,7 +715,7 @@ meshes can have 1D iso-lines of a scalar field extracted.</p>
 <span class="n">pl</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_contouring_003.png" srcset="../../_images/sphx_glr_contouring_003.png" alt="contouring" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  6.295 seconds)</p>
+<img src="../../_images/sphx_glr_contouring_003.png" srcset="../../_images/sphx_glr_contouring_003.png" alt="contouring" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  6.425 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-01-filter-contouring-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/6a2c95a0210b802d3205c1b309750fc7/contouring.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">contouring.py</span></code></a></p>

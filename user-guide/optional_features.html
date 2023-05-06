@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Optional Features &#8212; PyVista 0.40.dev0 ドキュメント</title>
   
@@ -51,9 +51,8 @@
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/thebelab-helper.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -562,14 +561,14 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section id="optional-features">
-<h1>Optional Features<a class="headerlink" href="#optional-features" title="このヘッドラインへのパーマリンク">#</a></h1>
+<h1>Optional Features<a class="headerlink" href="#optional-features" title="この見出しへのパーマリンク">#</a></h1>
 <p>Due to its usage of <code class="docutils literal notranslate"><span class="pre">numpy</span></code>, the PyVista library plays well with
 other modules, including <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>, <code class="docutils literal notranslate"><span class="pre">trimesh</span></code>, <code class="docutils literal notranslate"><span class="pre">rtree</span></code>, and
 <code class="docutils literal notranslate"><span class="pre">pyembree</span></code>.  The following examples show some optional features
 included within PyVista that use or combine several modules to
 perform advanced analyses not normally included within <code class="docutils literal notranslate"><span class="pre">VTK</span></code>.</p>
 <section id="vectorised-ray-tracing">
-<h2>Vectorised Ray Tracing<a class="headerlink" href="#vectorised-ray-tracing" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Vectorised Ray Tracing<a class="headerlink" href="#vectorised-ray-tracing" title="この見出しへのパーマリンク">#</a></h2>
 <p>Perform many ray traces simultaneously with a PolyData Object
 (requires optional dependencies trimesh, rtree and pyembree)</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sin</span><span class="p">,</span> <span class="n">cos</span><span class="p">,</span> <span class="n">radians</span>
@@ -606,7 +605,7 @@ perform advanced analyses not normally included within <code class="docutils lit
 <img alt="../_images/ray_trace.png" src="../_images/ray_trace.png" />
 </section>
 <section id="project-to-finite-plane">
-<h2>Project to Finite Plane<a class="headerlink" href="#project-to-finite-plane" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Project to Finite Plane<a class="headerlink" href="#project-to-finite-plane" title="この見出しへのパーマリンク">#</a></h2>
 <p>The following example expands on the vectorized ray tracing example by
 projecting the <a class="reference internal" href="../api/examples/_autosummary/pyvista.examples.examples.load_random_hills.html#pyvista.examples.examples.load_random_hills" title="pyvista.examples.examples.load_random_hills"><code class="xref py py-func docutils literal notranslate"><span class="pre">load_random_hills()</span></code></a> example data to a triangular
 plane.</p>

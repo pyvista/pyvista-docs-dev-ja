@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Fast Fourier Transform &#8212; PyVista 0.40.dev0 ドキュメント</title>
   
@@ -51,9 +51,8 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/thebelab-helper.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
@@ -648,7 +647,7 @@ document.write(`
 to download the full example code</p>
 </div>
 <section class="sphx-glr-example-title" id="fast-fourier-transform">
-<span id="image-fft-example"></span><span id="sphx-glr-examples-01-filter-image-fft-py"></span><h1>Fast Fourier Transform<a class="headerlink" href="#fast-fourier-transform" title="このヘッドラインへのパーマリンク">#</a></h1>
+<span id="image-fft-example"></span><span id="sphx-glr-examples-01-filter-image-fft-py"></span><h1>Fast Fourier Transform<a class="headerlink" href="#fast-fourier-transform" title="この見出しへのパーマリンク">#</a></h1>
 <p>This example shows how to apply a Fast Fourier Transform (FFT) to a
 <a class="reference internal" href="../../api/core/_autosummary/pyvista.UniformGrid.html#pyvista.UniformGrid" title="pyvista.UniformGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.UniformGrid</span></code></a> using <a class="reference internal" href="../../api/core/_autosummary/pyvista.UniformGridFilters.fft.html#pyvista.UniformGridFilters.fft" title="pyvista.UniformGridFilters.fft"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyvista.UniformGridFilters.fft()</span></code></a>
 filter.</p>
@@ -685,7 +684,7 @@ Contains arrays :
 </div>
 </section>
 <section id="apply-fft-to-the-image">
-<h1>Apply FFT to the image<a class="headerlink" href="#apply-fft-to-the-image" title="このヘッドラインへのパーマリンク">#</a></h1>
+<h1>Apply FFT to the image<a class="headerlink" href="#apply-fft-to-the-image" title="この見出しへのパーマリンク">#</a></h1>
 <p>FFT will be applied to the active scalars, <code class="docutils literal notranslate"><span class="pre">'PNGImage'</span></code>, the default
 scalars name when loading a PNG image.</p>
 <p>The output from the filter is a complex array stored by the same name unless
@@ -706,7 +705,7 @@ Contains arrays :
 </div>
 </section>
 <section id="plot-the-fft-of-the-image">
-<h1>Plot the FFT of the image<a class="headerlink" href="#plot-the-fft-of-the-image" title="このヘッドラインへのパーマリンク">#</a></h1>
+<h1>Plot the FFT of the image<a class="headerlink" href="#plot-the-fft-of-the-image" title="この見出しへのパーマリンク">#</a></h1>
 <p>Plot the absolute value of the FFT of the image.</p>
 <p>Note that we are effectively viewing the &quot;frequency&quot; of the data in this
 image, where the four corners contain the low frequency content of the image,
@@ -723,7 +722,7 @@ and the middle is the high frequency content of the image.</p>
 </div>
 <img src="../../_images/sphx_glr_image-fft_002.png" srcset="../../_images/sphx_glr_image-fft_002.png" alt="image fft" class = "sphx-glr-single-img"/></section>
 <section id="remove-the-noise-from-the-fft-image">
-<h1>Remove the noise from the <code class="docutils literal notranslate"><span class="pre">fft_image</span></code><a class="headerlink" href="#remove-the-noise-from-the-fft-image" title="このヘッドラインへのパーマリンク">#</a></h1>
+<h1>Remove the noise from the <code class="docutils literal notranslate"><span class="pre">fft_image</span></code><a class="headerlink" href="#remove-the-noise-from-the-fft-image" title="この見出しへのパーマリンク">#</a></h1>
 <p>Effectively, we want to remove high frequency (noisy) data from our image.
 First, let's reshape by the size of the image.</p>
 <p>Next, perform a low pass filter by removing the middle 80% of the content of
@@ -754,14 +753,14 @@ for demonstration purposes.</p>
 </div>
 <img src="../../_images/sphx_glr_image-fft_003.png" srcset="../../_images/sphx_glr_image-fft_003.png" alt="image fft" class = "sphx-glr-single-img"/></section>
 <section id="convert-to-the-spatial-domain-using-reverse-fft">
-<h1>Convert to the spatial domain using reverse FFT<a class="headerlink" href="#convert-to-the-spatial-domain-using-reverse-fft" title="このヘッドラインへのパーマリンク">#</a></h1>
+<h1>Convert to the spatial domain using reverse FFT<a class="headerlink" href="#convert-to-the-spatial-domain-using-reverse-fft" title="この見出しへのパーマリンク">#</a></h1>
 <p>Finally, convert the image data back to the &quot;spatial&quot; domain and plot it.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">rfft</span> <span class="o">=</span> <span class="n">fft_image</span><span class="o">.</span><span class="n">rfft</span><span class="p">()</span>
 <span class="n">rfft</span><span class="p">[</span><span class="s1">&#39;PNGImage&#39;</span><span class="p">]</span> <span class="o">=</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.real.html#numpy.real" title="numpy.real" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">real</span></a><span class="p">(</span><span class="n">rfft</span><span class="p">[</span><span class="s1">&#39;PNGImage&#39;</span><span class="p">])</span>
 <span class="n">rfft</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">cpos</span><span class="o">=</span><span class="s2">&quot;xy&quot;</span><span class="p">,</span> <span class="n">theme</span><span class="o">=</span><span class="n">grey_theme</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="s1">&#39;Processed Moon Landing Image&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_image-fft_004.png" srcset="../../_images/sphx_glr_image-fft_004.png" alt="image fft" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  3.694 seconds)</p>
+<img src="../../_images/sphx_glr_image-fft_004.png" srcset="../../_images/sphx_glr_image-fft_004.png" alt="image fft" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  4.230 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-01-filter-image-fft-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/d9c5556789858040ec03180d30c60d4e/image-fft.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">image-fft.py</span></code></a></p>

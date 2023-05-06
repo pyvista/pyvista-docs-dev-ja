@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Lights &#8212; PyVista 0.40.dev0 ドキュメント</title>
   
@@ -51,9 +51,8 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/thebelab-helper.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
@@ -580,13 +579,13 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section id="lights">
-<h1>Lights<a class="headerlink" href="#lights" title="このヘッドラインへのパーマリンク">#</a></h1>
+<h1>Lights<a class="headerlink" href="#lights" title="この見出しへのパーマリンク">#</a></h1>
 <p>The <a class="reference internal" href="_autosummary/pyvista.Light.html#pyvista.Light" title="pyvista.Light"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.Light</span></code></a> class adds additional functionality and a pythonic API
 to the <code class="docutils literal notranslate"><span class="pre">vtk.vtkLight</span></code> class. <a class="reference internal" href="../plotting/_autosummary/pyvista.Plotter.html#pyvista.Plotter" title="pyvista.Plotter"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.Plotter</span></code></a> objects come with a default
 set of lights that work well in most cases, but in many situations a more hands-on
 access to lighting is necessary.</p>
 <section id="brief-example">
-<h2>Brief Example<a class="headerlink" href="#brief-example" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Brief Example<a class="headerlink" href="#brief-example" title="この見出しへのパーマリンク">#</a></h2>
 <p>Create a red spotlight that shines on the origin, then create a scene
 without lighting and add our light to it manually.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyvista</span> <span class="k">as</span> <span class="nn">pv</span>
@@ -612,7 +611,7 @@ without lighting and add our light to it manually.</p>
 <p>For detailed examples please see <a class="reference internal" href="../../examples/04-lights/index.html#ref-light-examples"><span class="std std-ref">Lighting</span></a>.</p>
 </section>
 <section id="light-api">
-<h2>Light API<a class="headerlink" href="#light-api" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Light API<a class="headerlink" href="#light-api" title="この見出しへのパーマリンク">#</a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">pyvista.Light</span></code> instances come in three types: headlights, camera lights, and
 scene lights. Headlights always shine along the camera's axis, camera lights
 have a fixed position with respect to the camera, and scene lights are positioned
@@ -645,7 +644,7 @@ directional lights act as infinitely distant point sources, so they are
 unidirectional but they do not attenuate.</p>
 </section>
 <section id="shadows">
-<h2>Shadows<a class="headerlink" href="#shadows" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Shadows<a class="headerlink" href="#shadows" title="この見出しへのパーマリンク">#</a></h2>
 <p>With directed lights, it is possible to create complex lighting
 scenarios. For example, you can position a light directly above an
 actor (in this case, a sphere), to create a shadow directly below it.</p>
@@ -687,12 +686,8 @@ sizes. Be prepared to experiment with the <code class="docutils literal notransl
 parameter.</p>
 </div>
 <section id="api-reference">
-<h3>API Reference<a class="headerlink" href="#api-reference" title="このヘッドラインへのパーマリンク">#</a></h3>
-<table class="longtable table autosummary">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
+<h3>API Reference<a class="headerlink" href="#api-reference" title="この見出しへのパーマリンク">#</a></h3>
+<table class="autosummary longtable table autosummary">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="_autosummary/pyvista.Light.html#pyvista.Light" title="pyvista.Light"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Light</span></code></a>([position, focal_point, color, ...])</p></td>
 <td><p>Light class.</p></td>

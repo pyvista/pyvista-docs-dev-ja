@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Boolean Operations &#8212; PyVista 0.40.dev0 ドキュメント</title>
   
@@ -51,9 +51,8 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/thebelab-helper.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
@@ -648,7 +647,7 @@ document.write(`
 to download the full example code</p>
 </div>
 <section class="sphx-glr-example-title" id="boolean-operations">
-<span id="boolean-example"></span><span id="sphx-glr-examples-01-filter-boolean-operations-py"></span><h1>Boolean Operations<a class="headerlink" href="#boolean-operations" title="このヘッドラインへのパーマリンク">#</a></h1>
+<span id="boolean-example"></span><span id="sphx-glr-examples-01-filter-boolean-operations-py"></span><h1>Boolean Operations<a class="headerlink" href="#boolean-operations" title="この見出しへのパーマリンク">#</a></h1>
 <p>Perform boolean operations with closed (manifold) surfaces.</p>
 <p>Boolean/topological operations (intersect, union, difference) methods
 are implemented for <a class="reference internal" href="../../api/core/_autosummary/pyvista.PolyData.html#pyvista.PolyData" title="pyvista.PolyData"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.PolyData</span></code></a> mesh types only and are
@@ -689,7 +688,7 @@ probably has its normals pointing inward. Use
 </pre></div>
 </div>
 <section id="boolean-union">
-<h2>Boolean Union<a class="headerlink" href="#boolean-union" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Boolean Union<a class="headerlink" href="#boolean-union" title="この見出しへのパーマリンク">#</a></h2>
 <p>Perform a boolean union of <code class="docutils literal notranslate"><span class="pre">A</span></code> and <code class="docutils literal notranslate"><span class="pre">B</span></code> using the
 <a class="reference internal" href="../../api/core/_autosummary/pyvista.PolyDataFilters.boolean_union.html#pyvista.PolyDataFilters.boolean_union" title="pyvista.PolyDataFilters.boolean_union"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyvista.PolyDataFilters.boolean_union()</span></code></a> filter.</p>
 <p>The union of two manifold meshes <code class="docutils literal notranslate"><span class="pre">A</span></code> and <code class="docutils literal notranslate"><span class="pre">B</span></code> is the mesh
@@ -707,7 +706,7 @@ commutative).</p>
 </div>
 <img src="../../_images/sphx_glr_boolean-operations_001.png" srcset="../../_images/sphx_glr_boolean-operations_001.png" alt="boolean operations" class = "sphx-glr-single-img"/></section>
 <section id="boolean-difference">
-<h2>Boolean Difference<a class="headerlink" href="#boolean-difference" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Boolean Difference<a class="headerlink" href="#boolean-difference" title="この見出しへのパーマリンク">#</a></h2>
 <p>Perform a boolean difference of <code class="docutils literal notranslate"><span class="pre">A</span></code> and <code class="docutils literal notranslate"><span class="pre">B</span></code> using the
 <a class="reference internal" href="../../api/core/_autosummary/pyvista.PolyDataFilters.boolean_difference.html#pyvista.PolyDataFilters.boolean_difference" title="pyvista.PolyDataFilters.boolean_difference"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyvista.PolyDataFilters.boolean_difference()</span></code></a> filter or the
 <code class="docutils literal notranslate"><span class="pre">-</span></code> operator since both meshes are <a class="reference internal" href="../../api/core/_autosummary/pyvista.PolyData.html#pyvista.PolyData" title="pyvista.PolyData"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.PolyData</span></code></a>.</p>
@@ -725,7 +724,7 @@ of the mesh in <code class="docutils literal notranslate"><span class="pre">A</s
 </div>
 <img src="../../_images/sphx_glr_boolean-operations_002.png" srcset="../../_images/sphx_glr_boolean-operations_002.png" alt="boolean operations" class = "sphx-glr-single-img"/></section>
 <section id="boolean-intersection">
-<h2>Boolean Intersection<a class="headerlink" href="#boolean-intersection" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Boolean Intersection<a class="headerlink" href="#boolean-intersection" title="この見出しへのパーマリンク">#</a></h2>
 <p>Perform a boolean intersection of <code class="docutils literal notranslate"><span class="pre">A</span></code> and <code class="docutils literal notranslate"><span class="pre">B</span></code> using the
 <a class="reference internal" href="../../api/core/_autosummary/pyvista.PolyDataFilters.boolean_intersection.html#pyvista.PolyDataFilters.boolean_intersection" title="pyvista.PolyDataFilters.boolean_intersection"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyvista.PolyDataFilters.boolean_intersection()</span></code></a> filter.</p>
 <p>The intersection of two manifold meshes <code class="docutils literal notranslate"><span class="pre">A</span></code> and <code class="docutils literal notranslate"><span class="pre">B</span></code> is the mesh
@@ -744,7 +743,7 @@ operation is commutative).</p>
 <img src="../../_images/sphx_glr_boolean-operations_003.png" srcset="../../_images/sphx_glr_boolean-operations_003.png" alt="boolean operations" class = "sphx-glr-single-img"/></section>
 </section>
 <section id="behavior-due-to-flipped-normals">
-<h1>Behavior due to flipped normals<a class="headerlink" href="#behavior-due-to-flipped-normals" title="このヘッドラインへのパーマリンク">#</a></h1>
+<h1>Behavior due to flipped normals<a class="headerlink" href="#behavior-due-to-flipped-normals" title="この見出しへのパーマリンク">#</a></h1>
 <p>Note that these boolean filters behave differently depending on the
 orientation of the normals.</p>
 <p>Boolean difference with both cube and sphere normals pointed
@@ -780,7 +779,7 @@ outward.  This is the &quot;normal&quot; behavior.</p>
 <span class="n">result</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;tan&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_boolean-operations_007.png" srcset="../../_images/sphx_glr_boolean-operations_007.png" alt="boolean operations" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  9.686 seconds)</p>
+<img src="../../_images/sphx_glr_boolean-operations_007.png" srcset="../../_images/sphx_glr_boolean-operations_007.png" alt="boolean operations" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  9.261 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-01-filter-boolean-operations-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/68b6828a117d6b3ef6248cb49eea1f11/boolean-operations.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">boolean-operations.py</span></code></a></p>

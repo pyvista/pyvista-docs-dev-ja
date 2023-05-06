@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Plotting &#8212; PyVista 0.40.dev0 ドキュメント</title>
   
@@ -51,9 +51,8 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/thebelab-helper.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
@@ -584,7 +583,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section id="plotting">
-<span id="plotting-api-index"></span><h1>Plotting<a class="headerlink" href="#plotting" title="このヘッドラインへのパーマリンク">#</a></h1>
+<span id="plotting-api-index"></span><h1>Plotting<a class="headerlink" href="#plotting" title="この見出しへのパーマリンク">#</a></h1>
 <ul class="simple">
 <li><p>Intuitive plotting routines with <a class="reference external" href="https://matplotlib.org/">matplotlib</a> like syntax (see <a class="reference internal" href="plotting.html#plotting-ref"><span class="std std-ref">Plotting</span></a>).</p></li>
 <li><p>Plotting tools built for interactivity (see <a class="reference internal" href="../../examples/03-widgets/index.html#widgets"><span class="std std-ref">Widgets</span></a>).</p></li>
@@ -618,14 +617,10 @@ document.write(`
 </ul>
 </div>
 <section id="plotting-api-reference">
-<h2>Plotting API Reference<a class="headerlink" href="#plotting-api-reference" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Plotting API Reference<a class="headerlink" href="#plotting-api-reference" title="この見出しへのパーマリンク">#</a></h2>
 <p>Plotting module API reference. These plotting modules are the basis for
 all plotting functionality in PyVista.</p>
-<table class="longtable table autosummary">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
+<table class="autosummary longtable table autosummary">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="_autosummary/pyvista.Actor.html#pyvista.Actor" title="pyvista.Actor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Actor</span></code></a>([mapper, prop, name])</p></td>
 <td><p>Wrap vtkActor.</p></td>
@@ -667,13 +662,9 @@ all plotting functionality in PyVista.</p>
 </table>
 </section>
 <section id="composite-plotting-reference">
-<h2>Composite Plotting Reference<a class="headerlink" href="#composite-plotting-reference" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Composite Plotting Reference<a class="headerlink" href="#composite-plotting-reference" title="この見出しへのパーマリンク">#</a></h2>
 <p>These classes are used when plotting <a class="reference internal" href="../core/_autosummary/pyvista.MultiBlock.html#pyvista.MultiBlock" title="pyvista.MultiBlock"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.MultiBlock</span></code></a> datasets.</p>
-<table class="longtable table autosummary">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
+<table class="autosummary longtable table autosummary">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="_autosummary/pyvista.CompositePolyDataMapper.html#pyvista.CompositePolyDataMapper" title="pyvista.CompositePolyDataMapper"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CompositePolyDataMapper</span></code></a>(dataset[, theme, ...])</p></td>
 <td><p>Composite PolyData mapper.</p></td>
@@ -688,7 +679,7 @@ all plotting functionality in PyVista.</p>
 </table>
 </section>
 <section id="charts-api">
-<h2>Charts API<a class="headerlink" href="#charts-api" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Charts API<a class="headerlink" href="#charts-api" title="この見出しへのパーマリンク">#</a></h2>
 <p>Charts API reference. These dedicated classes can be used to embed
 charts in plotting windows. Note that full charts functionality
 requires a VTK version of at least 9.3. Most components work fine
@@ -696,6 +687,7 @@ in older versions though.</p>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="charts/index.html">Charts</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="charts/index.html#pyvista.Chart"><code class="docutils literal notranslate"><span class="pre">Chart</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="charts/_autosummary/pyvista.Chart2D.html">pyvista.Chart2D</a></li>
 <li class="toctree-l2"><a class="reference internal" href="charts/_autosummary/pyvista.ChartBox.html">pyvista.ChartBox</a></li>
 <li class="toctree-l2"><a class="reference internal" href="charts/_autosummary/pyvista.ChartPie.html">pyvista.ChartPie</a></li>
@@ -716,12 +708,12 @@ in older versions though.</p>
 </div>
 </section>
 <section id="widget-api">
-<h2>Widget API<a class="headerlink" href="#widget-api" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Widget API<a class="headerlink" href="#widget-api" title="この見出しへのパーマリンク">#</a></h2>
 <p>The <a class="reference internal" href="_autosummary/pyvista.Plotter.html#pyvista.Plotter" title="pyvista.Plotter"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.Plotter</span></code></a> class inherits all of the widget methods described
 by the <code class="docutils literal notranslate"><span class="pre">pyvista.WidgetHelper</span></code> class. For additional details, see the
 <a class="reference internal" href="../../examples/03-widgets/index.html#widgets"><span class="std std-ref">Widgets</span></a> examples.</p>
 <section id="convenience-functions">
-<h3>Convenience Functions<a class="headerlink" href="#convenience-functions" title="このヘッドラインへのパーマリンク">#</a></h3>
+<h3>Convenience Functions<a class="headerlink" href="#convenience-functions" title="この見出しへのパーマリンク">#</a></h3>
 <p>These functions provide a simplified interface to the various plotting
 routines in PyVista.</p>
 <div class="toctree-wrapper compound">

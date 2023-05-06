@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Electronics Cooling CFD &#8212; PyVista 0.40.dev0 ドキュメント</title>
   
@@ -51,9 +51,8 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/thebelab-helper.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
@@ -601,7 +600,7 @@ document.write(`
 to download the full example code</p>
 </div>
 <section class="sphx-glr-example-title" id="electronics-cooling-cfd">
-<span id="openfoam-cooling-example"></span><span id="sphx-glr-examples-99-advanced-openfoam-cooling-py"></span><h1>Electronics Cooling CFD<a class="headerlink" href="#electronics-cooling-cfd" title="このヘッドラインへのパーマリンク">#</a></h1>
+<span id="openfoam-cooling-example"></span><span id="sphx-glr-examples-99-advanced-openfoam-cooling-py"></span><h1>Electronics Cooling CFD<a class="headerlink" href="#electronics-cooling-cfd" title="この見出しへのパーマリンク">#</a></h1>
 <p>Plot an electronics cooling CFD example from OpenFoam hosted on the public
 SimScale examples at <a class="reference external" href="https://www.simscale.com/projects/">SimScale Project Library</a> and generated from the <a class="reference external" href="https://www.simscale.com/docs/tutorials/thermal-management-cht-analysis-electronics-box/">Thermal
 Management Tutorial: CHT Analysis of an Electronics Box</a>.</p>
@@ -614,7 +613,7 @@ post processed according to this <a class="reference external" href="https://git
 </pre></div>
 </div>
 <section id="load-the-datasets">
-<h2>Load the Datasets<a class="headerlink" href="#load-the-datasets" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Load the Datasets<a class="headerlink" href="#load-the-datasets" title="この見出しへのパーマリンク">#</a></h2>
 <p>Download and load the datasets.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">structure</span></code> dataset consists of a box with several components, being
 cooled down by a fan, while the <code class="docutils literal notranslate"><span class="pre">air</span></code> dataset is the air, containing
@@ -623,7 +622,7 @@ several scalar arrays including the velocity and temperature of the air.</p>
 <span class="n">structure</span><span class="p">,</span> <span class="n">air</span>
 </pre></div>
 </div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>(PolyData (0x7fbf44edf340)
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>(PolyData (0x7f05352a9100)
   N Cells:    344270
   N Points:   187992
   N Strips:   0
@@ -631,7 +630,7 @@ several scalar arrays including the velocity and temperature of the air.</p>
   Y Bounds:   -3.000e-03, 2.030e-01
   Z Bounds:   -9.000e-03, 4.200e-02
   N Arrays:   4
-, UnstructuredGrid (0x7fbf44edfac0)
+, UnstructuredGrid (0x7f05352a9760)
   N Cells:    1749992
   N Points:   610176
   X Bounds:   -1.388e-18, 1.500e-01
@@ -643,7 +642,7 @@ several scalar arrays including the velocity and temperature of the air.</p>
 </div>
 </section>
 <section id="plot-the-electronics">
-<h2>Plot the Electronics<a class="headerlink" href="#plot-the-electronics" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Plot the Electronics<a class="headerlink" href="#plot-the-electronics" title="この見出しへのパーマリンク">#</a></h2>
 <p>Here we plot the temperature of the electronics using the <code class="docutils literal notranslate"><span class="pre">&quot;reds&quot;</span></code> colormap
 and improve the look of the plot using surface space ambient occlusion with
 <a class="reference internal" href="../../api/plotting/_autosummary/pyvista.Plotter.enable_ssao.html#pyvista.Plotter.enable_ssao" title="pyvista.Plotter.enable_ssao"><code class="xref py py-func docutils literal notranslate"><span class="pre">enable_ssao()</span></code></a>.</p>
@@ -658,7 +657,7 @@ and improve the look of the plot using surface space ambient occlusion with
 </div>
 <img src="../../_images/sphx_glr_openfoam-cooling_001.png" srcset="../../_images/sphx_glr_openfoam-cooling_001.png" alt="openfoam cooling" class = "sphx-glr-single-img"/></section>
 <section id="plot-air-velocity">
-<h2>Plot Air Velocity<a class="headerlink" href="#plot-air-velocity" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Plot Air Velocity<a class="headerlink" href="#plot-air-velocity" title="この見出しへのパーマリンク">#</a></h2>
 <p>Let's plot the velocity of the air.</p>
 <p>Start by clipping the air dataset with <a class="reference internal" href="../../api/core/_autosummary/pyvista.DataSetFilters.clip.html#pyvista.DataSetFilters.clip" title="pyvista.DataSetFilters.clip"><code class="xref py py-func docutils literal notranslate"><span class="pre">clip()</span></code></a> and plotting it alongside the electronics.</p>
 <p>As you can see, the air enters from the front of the case (left) and is being
@@ -679,7 +678,7 @@ pushed out of the &quot;back&quot; of the case via a fan.</p>
 </div>
 <img src="../../_images/sphx_glr_openfoam-cooling_002.png" srcset="../../_images/sphx_glr_openfoam-cooling_002.png" alt="openfoam cooling" class = "sphx-glr-single-img"/></section>
 <section id="plot-air-temperature">
-<h2>Plot Air Temperature<a class="headerlink" href="#plot-air-temperature" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Plot Air Temperature<a class="headerlink" href="#plot-air-temperature" title="この見出しへのパーマリンク">#</a></h2>
 <p>Let's also plot the temperature of the air. This time, let's also plot the
 temperature of the components.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pl</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Plotter</span><span class="p">()</span>
@@ -703,7 +702,7 @@ temperature of the components.</p>
 </div>
 <img src="../../_images/sphx_glr_openfoam-cooling_003.png" srcset="../../_images/sphx_glr_openfoam-cooling_003.png" alt="openfoam cooling" class = "sphx-glr-single-img"/></section>
 <section id="plot-streamlines-flow-velocity">
-<h2>Plot Streamlines - Flow Velocity<a class="headerlink" href="#plot-streamlines-flow-velocity" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Plot Streamlines - Flow Velocity<a class="headerlink" href="#plot-streamlines-flow-velocity" title="この見出しへのパーマリンク">#</a></h2>
 <p>Now, let's plot the streamlines of this dataset so we can see how the air is
 flowing through the case.</p>
 <p>Generate streamlines using <a class="reference internal" href="../../api/core/_autosummary/pyvista.DataSetFilters.streamlines_from_source.html#pyvista.DataSetFilters.streamlines_from_source" title="pyvista.DataSetFilters.streamlines_from_source"><code class="xref py py-func docutils literal notranslate"><span class="pre">streamlines_from_source()</span></code></a>.</p>
@@ -734,7 +733,7 @@ flowing through the case.</p>
 </div>
 <img src="../../_images/sphx_glr_openfoam-cooling_004.png" srcset="../../_images/sphx_glr_openfoam-cooling_004.png" alt="openfoam cooling" class = "sphx-glr-single-img"/></section>
 <section id="volumetric-plot-visualize-high-temperatures">
-<h2>Volumetric Plot - Visualize High Temperatures<a class="headerlink" href="#volumetric-plot-visualize-high-temperatures" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Volumetric Plot - Visualize High Temperatures<a class="headerlink" href="#volumetric-plot-visualize-high-temperatures" title="この見出しへのパーマリンク">#</a></h2>
 <p>Show a 3D plot of areas of temperature.</p>
 <p>For this example, we will first sample the results from the
 <a class="reference internal" href="../../api/core/_autosummary/pyvista.UnstructuredGrid.html#pyvista.UnstructuredGrid" title="pyvista.UnstructuredGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.UnstructuredGrid</span></code></a> onto a <a class="reference internal" href="../../api/core/_autosummary/pyvista.UniformGrid.html#pyvista.UniformGrid" title="pyvista.UniformGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.UniformGrid</span></code></a> using
@@ -770,7 +769,7 @@ it using <a class="reference internal" href="../../api/plotting/_autosummary/pyv
 <span class="n">pl</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_openfoam-cooling_005.png" srcset="../../_images/sphx_glr_openfoam-cooling_005.png" alt="openfoam cooling" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  24.927 seconds)</p>
+<img src="../../_images/sphx_glr_openfoam-cooling_005.png" srcset="../../_images/sphx_glr_openfoam-cooling_005.png" alt="openfoam cooling" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  27.728 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-99-advanced-openfoam-cooling-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/b3871df3b5c7df345216c5ddd78716dc/openfoam-cooling.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">openfoam-cooling.py</span></code></a></p>

@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Composite Picking &#8212; PyVista 0.40.dev0 ドキュメント</title>
   
@@ -51,9 +51,8 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/thebelab-helper.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
@@ -674,7 +673,7 @@ document.write(`
 to download the full example code</p>
 </div>
 <section class="sphx-glr-example-title" id="composite-picking">
-<span id="composite-picking-example"></span><span id="sphx-glr-examples-02-plot-composite-picking-py"></span><h1>Composite Picking<a class="headerlink" href="#composite-picking" title="このヘッドラインへのパーマリンク">#</a></h1>
+<span id="composite-picking-example"></span><span id="sphx-glr-examples-02-plot-composite-picking-py"></span><h1>Composite Picking<a class="headerlink" href="#composite-picking" title="この見出しへのパーマリンク">#</a></h1>
 <p>Demonstrate how to pick individual blocks of a <a class="reference internal" href="../../api/core/_autosummary/pyvista.MultiBlock.html#pyvista.MultiBlock" title="pyvista.MultiBlock"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.MultiBlock</span></code></a>
 using <a class="reference internal" href="../../api/plotting/_autosummary/pyvista.Plotter.enable_block_picking.html#pyvista.Plotter.enable_block_picking" title="pyvista.Plotter.enable_block_picking"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyvista.Plotter.enable_block_picking()</span></code></a>.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -684,7 +683,7 @@ using <a class="reference internal" href="../../api/plotting/_autosummary/pyvist
 </div>
 </section>
 <section id="create-a-multiblock-dataset">
-<h1>Create a MultiBlock Dataset<a class="headerlink" href="#create-a-multiblock-dataset" title="このヘッドラインへのパーマリンク">#</a></h1>
+<h1>Create a MultiBlock Dataset<a class="headerlink" href="#create-a-multiblock-dataset" title="この見出しへのパーマリンク">#</a></h1>
 <p>Create 100 superellipsoids using <a class="reference internal" href="../../api/utilities/_autosummary/pyvista.ParametricSuperEllipsoid.html#pyvista.ParametricSuperEllipsoid" title="pyvista.ParametricSuperEllipsoid"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyvista.ParametricSuperEllipsoid()</span></code></a></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">make_poly</span><span class="p">():</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Create a superellipsoid in a random location.&quot;&quot;&quot;</span>
@@ -705,7 +704,7 @@ using <a class="reference internal" href="../../api/plotting/_autosummary/pyvist
 </div>
 <img src="../../_images/sphx_glr_composite-picking_001.png" srcset="../../_images/sphx_glr_composite-picking_001.png" alt="composite picking" class = "sphx-glr-single-img"/></section>
 <section id="enable-block-picking">
-<h1>Enable Block Picking<a class="headerlink" href="#enable-block-picking" title="このヘッドラインへのパーマリンク">#</a></h1>
+<h1>Enable Block Picking<a class="headerlink" href="#enable-block-picking" title="この見出しへのパーマリンク">#</a></h1>
 <p>Add <code class="docutils literal notranslate"><span class="pre">blocks</span></code> to a <a class="reference internal" href="../../api/plotting/_autosummary/pyvista.Plotter.html#pyvista.Plotter" title="pyvista.Plotter"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.Plotter</span></code></a> and enable block picking.  For
 fun, let's also enable physically based rendering and set the callback to set
 the block color to red when the block is clicked and unset the color if the
@@ -727,7 +726,7 @@ color has already been set for the block.</p>
 <span class="n">pl</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_composite-picking_002.png" srcset="../../_images/sphx_glr_composite-picking_002.png" alt="composite picking" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  1.987 seconds)</p>
+<img src="../../_images/sphx_glr_composite-picking_002.png" srcset="../../_images/sphx_glr_composite-picking_002.png" alt="composite picking" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  2.214 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-02-plot-composite-picking-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/693b88862dc16f8898a63921630ff06e/composite-picking.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">composite-picking.py</span></code></a></p>

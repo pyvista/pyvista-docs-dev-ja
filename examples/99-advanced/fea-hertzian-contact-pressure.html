@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Visualize Hertzian Contact Stress &#8212; PyVista 0.40.dev0 ドキュメント</title>
   
@@ -51,9 +51,8 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/thebelab-helper.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
@@ -601,7 +600,7 @@ document.write(`
 to download the full example code</p>
 </div>
 <section class="sphx-glr-example-title" id="visualize-hertzian-contact-stress">
-<span id="hertzian-contact-example"></span><span id="sphx-glr-examples-99-advanced-fea-hertzian-contact-pressure-py"></span><h1>Visualize Hertzian Contact Stress<a class="headerlink" href="#visualize-hertzian-contact-stress" title="このヘッドラインへのパーマリンク">#</a></h1>
+<span id="hertzian-contact-example"></span><span id="sphx-glr-examples-99-advanced-fea-hertzian-contact-pressure-py"></span><h1>Visualize Hertzian Contact Stress<a class="headerlink" href="#visualize-hertzian-contact-stress" title="この見出しへのパーマリンク">#</a></h1>
 <p>The following example demonstrates how to use PyVista to visualize
 Hertzian contact stress between a cylinder and a flat plate.</p>
 <p>This example loads a dataset, constructs a line to represent the point of
@@ -623,7 +622,7 @@ critical consideration.</p>
 </div>
 </section>
 <section id="load-the-dataset">
-<h1>Load the dataset<a class="headerlink" href="#load-the-dataset" title="このヘッドラインへのパーマリンク">#</a></h1>
+<h1>Load the dataset<a class="headerlink" href="#load-the-dataset" title="この見出しへのパーマリンク">#</a></h1>
 <p>Start by loading the dataset using <code class="xref py py-mod docutils literal notranslate"><span class="pre">pyvista.examples</span></code> module. This module
 provides access to a range of datasets, including FEA (finite element
 analysis) datasets that are useful for stress analysis.</p>
@@ -669,14 +668,14 @@ analysis) datasets that are useful for stress analysis.</p>
 <br />
 <br /></section>
 <section id="plot-the-dataset">
-<h1>Plot the Dataset<a class="headerlink" href="#plot-the-dataset" title="このヘッドラインへのパーマリンク">#</a></h1>
+<h1>Plot the Dataset<a class="headerlink" href="#plot-the-dataset" title="この見出しへのパーマリンク">#</a></h1>
 <p>Plot the dataset by part ID.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mesh</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">scalars</span><span class="o">=</span><span class="s1">&#39;PartID&#39;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="s1">&#39;blue&#39;</span><span class="p">],</span> <span class="n">show_scalar_bar</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 <img src="../../_images/sphx_glr_fea-hertzian-contact-pressure_001.png" srcset="../../_images/sphx_glr_fea-hertzian-contact-pressure_001.png" alt="fea hertzian contact pressure" class = "sphx-glr-single-img"/></section>
 <section id="creating-a-line-to-denote-the-point-of-contact">
-<h1>Creating a Line to Denote the Point of Contact<a class="headerlink" href="#creating-a-line-to-denote-the-point-of-contact" title="このヘッドラインへのパーマリンク">#</a></h1>
+<h1>Creating a Line to Denote the Point of Contact<a class="headerlink" href="#creating-a-line-to-denote-the-point-of-contact" title="この見出しへのパーマリンク">#</a></h1>
 <p>Construct a line to represent the point of contact between the cylinder and
 the plate.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://docs.python.org/3/library/functions.html#float" title="builtins.float" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">ypos</span></a> <span class="o">=</span> <span class="mf">0.024</span>
@@ -705,7 +704,7 @@ the plate.</p>
 <br />
 <br /></section>
 <section id="sampling-the-stress-along-the-line">
-<h1>Sampling the Stress along the Line<a class="headerlink" href="#sampling-the-stress-along-the-line" title="このヘッドラインへのパーマリンク">#</a></h1>
+<h1>Sampling the Stress along the Line<a class="headerlink" href="#sampling-the-stress-along-the-line" title="この見出しへのパーマリンク">#</a></h1>
 <p>We can sample the Z component stress along the contact edge and compare it
 with expected pressure.</p>
 <p>The expected values array is the Hertzian contact pressure and is the
@@ -748,7 +747,7 @@ values is an exercise left up to the reader (the radius of the cylinder is
 </div>
 <img src="../../_images/sphx_glr_fea-hertzian-contact-pressure_002.png" srcset="../../_images/sphx_glr_fea-hertzian-contact-pressure_002.png" alt="fea hertzian contact pressure" class = "sphx-glr-single-img"/></section>
 <section id="visualizing-the-z-stress-distribution">
-<h1>Visualizing the Z Stress Distribution<a class="headerlink" href="#visualizing-the-z-stress-distribution" title="このヘッドラインへのパーマリンク">#</a></h1>
+<h1>Visualizing the Z Stress Distribution<a class="headerlink" href="#visualizing-the-z-stress-distribution" title="この見出しへのパーマリンク">#</a></h1>
 <p>You can now visualize the Z stress distribution. Use <a class="reference internal" href="../../api/plotting/_autosummary/pyvista.Plotter.html#pyvista.Plotter" title="pyvista.Plotter"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.Plotter</span></code></a> to
 create a plot window and add the dataset to it.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pl</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Plotter</span><span class="p">()</span>
@@ -769,7 +768,7 @@ create a plot window and add the dataset to it.</p>
 <span class="n">pl</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_fea-hertzian-contact-pressure_003.png" srcset="../../_images/sphx_glr_fea-hertzian-contact-pressure_003.png" alt="fea hertzian contact pressure" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  2.891 seconds)</p>
+<img src="../../_images/sphx_glr_fea-hertzian-contact-pressure_003.png" srcset="../../_images/sphx_glr_fea-hertzian-contact-pressure_003.png" alt="fea hertzian contact pressure" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  3.043 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-99-advanced-fea-hertzian-contact-pressure-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/5fc67fea28e029862cfd64b2637a4bce/fea-hertzian-contact-pressure.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">fea-hertzian-contact-pressure.py</span></code></a></p>

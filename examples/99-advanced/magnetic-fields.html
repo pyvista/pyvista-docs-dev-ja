@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Plot a Magnetic Field &#8212; PyVista 0.40.dev0 ドキュメント</title>
   
@@ -51,9 +51,8 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/thebelab-helper.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
@@ -601,7 +600,7 @@ document.write(`
 to download the full example code</p>
 </div>
 <section class="sphx-glr-example-title" id="plot-a-magnetic-field">
-<span id="magnetic-fields-example"></span><span id="sphx-glr-examples-99-advanced-magnetic-fields-py"></span><h1>Plot a Magnetic Field<a class="headerlink" href="#plot-a-magnetic-field" title="このヘッドラインへのパーマリンク">#</a></h1>
+<span id="magnetic-fields-example"></span><span id="sphx-glr-examples-99-advanced-magnetic-fields-py"></span><h1>Plot a Magnetic Field<a class="headerlink" href="#plot-a-magnetic-field" title="この見出しへのパーマリンク">#</a></h1>
 <p>The following example demonstrates how PyVista can be used to plot a magnetic
 field.</p>
 <p>This example relies on <code class="xref py py-func docutils literal notranslate"><span class="pre">streamlines_from_source()</span></code> to generate streamlines and
@@ -617,7 +616,7 @@ library.</p>
 </pre></div>
 </div>
 <section id="download-the-dataset">
-<h2>Download the DataSet<a class="headerlink" href="#download-the-dataset" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Download the DataSet<a class="headerlink" href="#download-the-dataset" title="この見出しへのパーマリンク">#</a></h2>
 <p>Let's first download the example dataset and show that it's a
 <a class="reference internal" href="../../api/core/_autosummary/pyvista.UniformGrid.html#pyvista.UniformGrid" title="pyvista.UniformGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.UniformGrid</span></code></a> with the magnetic field stored as the <code class="docutils literal notranslate"><span class="pre">'B'</span></code>
 array in <code class="docutils literal notranslate"><span class="pre">point_data</span></code>.</p>
@@ -637,7 +636,7 @@ Contains arrays :
 </div>
 </section>
 <section id="create-coils">
-<h2>Create Coils<a class="headerlink" href="#create-coils" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Create Coils<a class="headerlink" href="#create-coils" title="この見出しへのパーマリンク">#</a></h2>
 <p>Create several hoops to represent the coil. This matches the geometry in the
 original example.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">coils</span></a> <span class="o">=</span> <span class="p">[]</span>
@@ -649,7 +648,7 @@ original example.</p>
 </div>
 <img src="../../_images/sphx_glr_magnetic-fields_001.png" srcset="../../_images/sphx_glr_magnetic-fields_001.png" alt="magnetic fields" class = "sphx-glr-single-img"/></section>
 <section id="compute-and-plot-field-lines">
-<h2>Compute and Plot Field Lines<a class="headerlink" href="#compute-and-plot-field-lines" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Compute and Plot Field Lines<a class="headerlink" href="#compute-and-plot-field-lines" title="この見出しへのパーマリンク">#</a></h2>
 <p>Next, let's compute streamlines from the center of the coil to represent the
 direction of the magnetic force. For this, we can create a simple
 <a class="reference internal" href="../../api/utilities/_autosummary/pyvista.Disc.html#pyvista.Disc" title="pyvista.Disc"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyvista.Disc()</span></code></a> and use that as the source of the streamlines.</p>
@@ -675,7 +674,7 @@ direction of the magnetic force. For this, we can create a simple
 </div>
 <img src="../../_images/sphx_glr_magnetic-fields_002.png" srcset="../../_images/sphx_glr_magnetic-fields_002.png" alt="magnetic fields" class = "sphx-glr-single-img"/></section>
 <section id="plot-the-magnet-field-strength">
-<h2>Plot the Magnet Field Strength<a class="headerlink" href="#plot-the-magnet-field-strength" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Plot the Magnet Field Strength<a class="headerlink" href="#plot-the-magnet-field-strength" title="この見出しへのパーマリンク">#</a></h2>
 <p>Finally, let's bring this all together by plotting the magnetic field
 strength while also plotting the streamlines and the coil.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Take the norm of the magnetic field</span>
@@ -704,7 +703,7 @@ strength while also plotting the streamlines and the coil.</p>
 <span class="n">pl</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_magnetic-fields_003.png" srcset="../../_images/sphx_glr_magnetic-fields_003.png" alt="magnetic fields" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  13.314 seconds)</p>
+<img src="../../_images/sphx_glr_magnetic-fields_003.png" srcset="../../_images/sphx_glr_magnetic-fields_003.png" alt="magnetic fields" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  16.900 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-99-advanced-magnetic-fields-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/8742d1d6835fc058b8052a40472b8a14/magnetic-fields.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">magnetic-fields.py</span></code></a></p>

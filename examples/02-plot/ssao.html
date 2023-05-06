@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Surface Space Ambient Occlusion &#8212; PyVista 0.40.dev0 ドキュメント</title>
   
@@ -51,9 +51,8 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/thebelab-helper.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
@@ -674,7 +673,7 @@ document.write(`
 to download the full example code</p>
 </div>
 <section class="sphx-glr-example-title" id="surface-space-ambient-occlusion">
-<span id="ssao-example"></span><span id="sphx-glr-examples-02-plot-ssao-py"></span><h1>Surface Space Ambient Occlusion<a class="headerlink" href="#surface-space-ambient-occlusion" title="このヘッドラインへのパーマリンク">#</a></h1>
+<span id="ssao-example"></span><span id="sphx-glr-examples-02-plot-ssao-py"></span><h1>Surface Space Ambient Occlusion<a class="headerlink" href="#surface-space-ambient-occlusion" title="この見出しへのパーマリンク">#</a></h1>
 <p>Demonstrate the usage of surface space ambient occlusion.</p>
 <p>Surface space ambient occlusion (SSAO) can approximate shadows more
 efficiently than ray-tracing and produce similar results. Use this when you wish
@@ -691,7 +690,7 @@ nearby light sources.</p>
 </div>
 </section>
 <section id="plot-with-defaults">
-<h1>Plot with defaults<a class="headerlink" href="#plot-with-defaults" title="このヘッドラインへのパーマリンク">#</a></h1>
+<h1>Plot with defaults<a class="headerlink" href="#plot-with-defaults" title="この見出しへのパーマリンク">#</a></h1>
 <p>Let's plot this without SSAO. Note how the lighting is identical for each
 cube.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pl</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Plotter</span><span class="p">()</span>
@@ -701,7 +700,7 @@ cube.</p>
 </div>
 <img src="../../_images/sphx_glr_ssao_001.png" srcset="../../_images/sphx_glr_ssao_001.png" alt="ssao" class = "sphx-glr-single-img"/></section>
 <section id="plot-with-ssao">
-<h1>Plot with SSAO<a class="headerlink" href="#plot-with-ssao" title="このヘッドラインへのパーマリンク">#</a></h1>
+<h1>Plot with SSAO<a class="headerlink" href="#plot-with-ssao" title="この見出しへのパーマリンク">#</a></h1>
 <p>Now plot this with SSAO. Note how adjacent cubes affect the lighting of each
 other to make it look less artificial.</p>
 <p>With a low <code class="docutils literal notranslate"><span class="pre">kernel_size</span></code>, the image will be rendered quickly at the expense
@@ -714,7 +713,7 @@ of quality.</p>
 </div>
 <img src="../../_images/sphx_glr_ssao_002.png" srcset="../../_images/sphx_glr_ssao_002.png" alt="ssao" class = "sphx-glr-single-img"/></section>
 <section id="improve-the-ssao-rendering">
-<h1>Improve the SSAO rendering<a class="headerlink" href="#improve-the-ssao-rendering" title="このヘッドラインへのパーマリンク">#</a></h1>
+<h1>Improve the SSAO rendering<a class="headerlink" href="#improve-the-ssao-rendering" title="この見出しへのパーマリンク">#</a></h1>
 <p>Here we've increased the <code class="docutils literal notranslate"><span class="pre">kernel_size</span></code> to improve the quality of the SSAO
 and also enabled SSAA anti-aliasing to smooth out any of the artifacts
 created from SSAO.</p>
@@ -727,7 +726,7 @@ created from SSAO.</p>
 </div>
 <img src="../../_images/sphx_glr_ssao_003.png" srcset="../../_images/sphx_glr_ssao_003.png" alt="ssao" class = "sphx-glr-single-img"/></section>
 <section id="plot-a-cad-model-without-ssao">
-<h1>Plot a CAD model without SSAO<a class="headerlink" href="#plot-a-cad-model-without-ssao" title="このヘッドラインへのパーマリンク">#</a></h1>
+<h1>Plot a CAD model without SSAO<a class="headerlink" href="#plot-a-cad-model-without-ssao" title="この見出しへのパーマリンク">#</a></h1>
 <p>Here's another example without SSAO. This is a CAD model of a Raspberry PI
 case.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mesh</span> <span class="o">=</span> <span class="n">examples</span><span class="o">.</span><span class="n">download_cad_model_case</span><span class="p">()</span>
@@ -741,7 +740,7 @@ case.</p>
 </div>
 <img src="../../_images/sphx_glr_ssao_004.png" srcset="../../_images/sphx_glr_ssao_004.png" alt="ssao" class = "sphx-glr-single-img"/></section>
 <section id="id1">
-<h1>Plot with SSAO<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">#</a></h1>
+<h1>Plot with SSAO<a class="headerlink" href="#id1" title="この見出しへのパーマリンク">#</a></h1>
 <p>Here's the same CAD model with SSAO. Note how we had to increase both
 <code class="docutils literal notranslate"><span class="pre">radius</span></code> and <code class="docutils literal notranslate"><span class="pre">bias</span></code> due to the relative scene size.</p>
 <p>Note that the occlusion still seems quite small. In the next example we will
@@ -756,7 +755,7 @@ increase the <code class="docutils literal notranslate"><span class="pre">radius
 </div>
 <img src="../../_images/sphx_glr_ssao_005.png" srcset="../../_images/sphx_glr_ssao_005.png" alt="ssao" class = "sphx-glr-single-img"/></section>
 <section id="increase-the-radius">
-<h1>Increase the Radius<a class="headerlink" href="#increase-the-radius" title="このヘッドラインへのパーマリンク">#</a></h1>
+<h1>Increase the Radius<a class="headerlink" href="#increase-the-radius" title="この見出しへのパーマリンク">#</a></h1>
 <p>Here we've increased the <code class="docutils literal notranslate"><span class="pre">radius</span></code> to the point where the case occlusion now
 seems realistic without it becoming overwhelming.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pl</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Plotter</span><span class="p">()</span>
@@ -767,7 +766,7 @@ seems realistic without it becoming overwhelming.</p>
 <span class="n">pl</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_ssao_006.png" srcset="../../_images/sphx_glr_ssao_006.png" alt="ssao" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  42.692 seconds)</p>
+<img src="../../_images/sphx_glr_ssao_006.png" srcset="../../_images/sphx_glr_ssao_006.png" alt="ssao" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  48.273 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-02-plot-ssao-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/d5b0333e48d628fa0999fe1c9eadc2ef/ssao.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">ssao.py</span></code></a></p>

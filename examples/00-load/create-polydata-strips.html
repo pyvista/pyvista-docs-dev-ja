@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Triangle Strips &#8212; PyVista 0.40.dev0 ドキュメント</title>
   
@@ -51,9 +51,8 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/thebelab-helper.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
@@ -613,7 +612,7 @@ document.write(`
 to download the full example code</p>
 </div>
 <section class="sphx-glr-example-title" id="triangle-strips">
-<span id="strips-example"></span><span id="sphx-glr-examples-00-load-create-polydata-strips-py"></span><h1>Triangle Strips<a class="headerlink" href="#triangle-strips" title="このヘッドラインへのパーマリンク">#</a></h1>
+<span id="strips-example"></span><span id="sphx-glr-examples-00-load-create-polydata-strips-py"></span><h1>Triangle Strips<a class="headerlink" href="#triangle-strips" title="この見出しへのパーマリンク">#</a></h1>
 <p>This example shows how to build a simple <a class="reference internal" href="../../api/core/_autosummary/pyvista.PolyData.html#pyvista.PolyData" title="pyvista.PolyData"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.PolyData</span></code></a> using
 triangle strips.</p>
 <p>Triangle strips are a more efficient way of storing the connectivity of
@@ -639,7 +638,7 @@ adjacent triangles.</p>
 </div>
 </section>
 <section id="build-the-connectivity-of-the-strips">
-<h1>Build the connectivity of the strips<a class="headerlink" href="#build-the-connectivity-of-the-strips" title="このヘッドラインへのパーマリンク">#</a></h1>
+<h1>Build the connectivity of the strips<a class="headerlink" href="#build-the-connectivity-of-the-strips" title="この見出しへのパーマリンク">#</a></h1>
 <p>The first element is the number of points in the strip next three elements is the
 initial triangle the rest of the points is where the strip extends to.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">strips</span></a> <span class="o">=</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.array.html#numpy.array" title="numpy.array" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">array</span></a><span class="p">([</span><span class="mi">8</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">])</span>
@@ -668,7 +667,7 @@ initial triangle the rest of the points is where the strip extends to.</p>
 <br />
 <br /></section>
 <section id="plot-the-triangle-strips">
-<h1>Plot the triangle strips<a class="headerlink" href="#plot-the-triangle-strips" title="このヘッドラインへのパーマリンク">#</a></h1>
+<h1>Plot the triangle strips<a class="headerlink" href="#plot-the-triangle-strips" title="この見出しへのパーマリンク">#</a></h1>
 <p>Plot the <code class="docutils literal notranslate"><span class="pre">PolyData</span></code> and include the point labels using
 <a class="reference internal" href="../../api/plotting/_autosummary/pyvista.Plotter.add_point_labels.html#pyvista.Plotter.add_point_labels" title="pyvista.Plotter.add_point_labels"><code class="xref py py-func docutils literal notranslate"><span class="pre">add_point_labels()</span></code></a> so we can see how
 the PolyData is constructed using triangle strips.</p>
@@ -682,7 +681,7 @@ the PolyData is constructed using triangle strips.</p>
 </div>
 <img src="../../_images/sphx_glr_create-polydata-strips_001.png" srcset="../../_images/sphx_glr_create-polydata-strips_001.png" alt="create polydata strips" class = "sphx-glr-single-img"/></section>
 <section id="convert-strips-to-triangles">
-<h1>Convert strips to triangles<a class="headerlink" href="#convert-strips-to-triangles" title="このヘッドラインへのパーマリンク">#</a></h1>
+<h1>Convert strips to triangles<a class="headerlink" href="#convert-strips-to-triangles" title="この見出しへのパーマリンク">#</a></h1>
 <p>You can convert strips to triangle faces using <a class="reference internal" href="../../api/core/_autosummary/pyvista.DataSetFilters.triangulate.html#pyvista.DataSetFilters.triangulate" title="pyvista.DataSetFilters.triangulate"><code class="xref py py-func docutils literal notranslate"><span class="pre">triangulate</span></code></a>.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">trimesh</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">triangulate</span><span class="p">()</span>
 <span class="n">trimesh</span>
@@ -728,7 +727,7 @@ the following face array.</p>
 </div>
 </section>
 <section id="convert-triangles-to-strips">
-<h1>Convert triangles to strips<a class="headerlink" href="#convert-triangles-to-strips" title="このヘッドラインへのパーマリンク">#</a></h1>
+<h1>Convert triangles to strips<a class="headerlink" href="#convert-triangles-to-strips" title="この見出しへのパーマリンク">#</a></h1>
 <p>Convert faces from a <a class="reference internal" href="../../api/core/_autosummary/pyvista.PolyData.html#pyvista.PolyData" title="pyvista.PolyData"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.PolyData</span></code></a> to strips using <a class="reference internal" href="../../api/core/_autosummary/pyvista.PolyDataFilters.strip.html#pyvista.PolyDataFilters.strip" title="pyvista.PolyDataFilters.strip"><code class="xref py py-func docutils literal notranslate"><span class="pre">strip()</span></code></a>. Here, for demonstration purposes we convert the
 triangulated mesh back to a stripped mesh.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">restripped</span> <span class="o">=</span> <span class="n">trimesh</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
@@ -759,7 +758,7 @@ original <code class="docutils literal notranslate"><span class="pre">mesh</span
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>True
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.223 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.232 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-00-load-create-polydata-strips-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/c7704f3be033c8d6d901cbfa0dbe18c9/create-polydata-strips.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">create-polydata-strips.py</span></code></a></p>

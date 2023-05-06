@@ -7,7 +7,7 @@
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Building VTK &#8212; PyVista 0.40.dev0 ドキュメント</title>
   
@@ -51,9 +51,8 @@
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/thebelab-helper.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -563,7 +562,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section id="building-vtk">
-<span id="ref-building-vtk"></span><h1>Building VTK<a class="headerlink" href="#building-vtk" title="このヘッドラインへのパーマリンク">#</a></h1>
+<span id="ref-building-vtk"></span><h1>Building VTK<a class="headerlink" href="#building-vtk" title="この見出しへのパーマリンク">#</a></h1>
 <p>Kitware provides Python wheels for VTK at <a class="reference external" href="https://pypi.org/project/vtk/">PyPI VTK</a>, but there are situations where you
 may need to build VTK from source (for example, a new release of Python, EGL
 rendering, additional features, etc). As <code class="docutils literal notranslate"><span class="pre">pyvista</span></code> does not provide
@@ -580,7 +579,7 @@ be removed in favor of more &quot;official&quot; wheel variants from VTK directl
 The following directions assume you want to build a Python wheel non-standard
 situations like EGL.</p>
 <section id="building-wheels">
-<h2>Building Wheels<a class="headerlink" href="#building-wheels" title="このヘッドラインへのパーマリンク">#</a></h2>
+<h2>Building Wheels<a class="headerlink" href="#building-wheels" title="この見出しへのパーマリンク">#</a></h2>
 <p>Building VTK from source is fairly straightforward. Using the default build
 settings, build a Python wheel of VTK using <code class="docutils literal notranslate"><span class="pre">ninja</span></code> using the following
 script. This script uses system python3, but you can use any modern Python
@@ -639,7 +638,7 @@ ninja
 </pre></div>
 </div>
 <section id="off-screen-plotting-gpu-support">
-<span id="gpu-off-screen"></span><h3>Off-Screen Plotting GPU Support<a class="headerlink" href="#off-screen-plotting-gpu-support" title="このヘッドラインへのパーマリンク">#</a></h3>
+<span id="gpu-off-screen"></span><h3>Off-Screen Plotting GPU Support<a class="headerlink" href="#off-screen-plotting-gpu-support" title="この見出しへのパーマリンク">#</a></h3>
 <p>VTK supports rendering with EGL, enabling rapid off-screen rendering
 using GPU hardware acceleration without installing a virtual
 framebuffer. The default VTK wheels are not built with this feature,
@@ -691,7 +690,7 @@ of an off-screen environment, so only plan on installing it on a
 headless system without an X server.</p>
 </section>
 <section id="building-osmesa">
-<h3>Building OSMesa<a class="headerlink" href="#building-osmesa" title="このヘッドラインへのパーマリンク">#</a></h3>
+<h3>Building OSMesa<a class="headerlink" href="#building-osmesa" title="この見出しへのパーマリンク">#</a></h3>
 <p>OSMesa provides higher visualization performance on CPU based hosts. Use this
 instead of <code class="docutils literal notranslate"><span class="pre">xvfb</span></code>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>sudo apt-get install libosmesa6-dev cmake ninja-build
@@ -729,7 +728,7 @@ $PYBIN setup.py bdist_wheel
 <p>Wheels will be generated in the <code class="docutils literal notranslate"><span class="pre">dist</span></code> directory.</p>
 </section>
 <section id="building-manylinux-wheels">
-<h3>Building ManyLinux Wheels<a class="headerlink" href="#building-manylinux-wheels" title="このヘッドラインへのパーマリンク">#</a></h3>
+<h3>Building ManyLinux Wheels<a class="headerlink" href="#building-manylinux-wheels" title="この見出しへのパーマリンク">#</a></h3>
 <p>The above directions are great for building a local build of VTK, but
 these wheels are difficult to share outside your local install given
 issues with ABI compatibility due to the version of Linux they were
@@ -809,7 +808,7 @@ dependencies.</p>
 </div>
 </section>
 <section id="building-python-vtk-wheel-on-raspberry-pi-64-bit">
-<h3>Building Python VTK Wheel on Raspberry Pi (64-bit)<a class="headerlink" href="#building-python-vtk-wheel-on-raspberry-pi-64-bit" title="このヘッドラインへのパーマリンク">#</a></h3>
+<h3>Building Python VTK Wheel on Raspberry Pi (64-bit)<a class="headerlink" href="#building-python-vtk-wheel-on-raspberry-pi-64-bit" title="この見出しへのパーマリンク">#</a></h3>
 <p>While it's possible to build on 32-bit Raspberry Pi (ARMv7), there are
 several issues that crop up when building wheels for the 32-bit
 version (see <a class="reference external" href="https://github.com/pypa/manylinux/issues/84">manylinux issue 84</a>). Should you attempt
