@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Optional Features &#8212; PyVista 0.40.dev0 ドキュメント</title>
+    <title>オプションの依存関係 &#8212; PyVista 0.40.dev0 ドキュメント</title>
   
   
   
@@ -75,8 +75,8 @@
         </script>
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
-    <link rel="next" title="Examples" href="../examples/index.html" />
-    <link rel="prev" title="Using ipyvtklink with PyVista" href="jupyter/ipyvtk_plotting.html" />
+    <link rel="next" title="例" href="../examples/index.html" />
+    <link rel="prev" title="PyVistaで ipyvtklink を使う" href="jupyter/ipyvtk_plotting.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="ja"/>
   </head>
@@ -166,35 +166,35 @@
     
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="../getting-started/index.html">
-                        Getting Started
+                        はじめに
                       </a>
                     </li>
                 
 
                     <li class="nav-item current active">
                       <a class="nav-link nav-internal" href="index.html">
-                        User Guide
+                        ユーザーガイド
                       </a>
                     </li>
                 
 
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="../examples/index.html">
-                        Examples
+                        例
                       </a>
                     </li>
                 
 
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="../api/index.html">
-                        API Reference
+                        APIリファレンス
                       </a>
                     </li>
                 
 
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="../extras/index.html">
-                        Extras
+                        その他
                       </a>
                     </li>
                 
@@ -356,35 +356,35 @@ document.write(`
     
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="../getting-started/index.html">
-                        Getting Started
+                        はじめに
                       </a>
                     </li>
                 
 
                     <li class="nav-item current active">
                       <a class="nav-link nav-internal" href="index.html">
-                        User Guide
+                        ユーザーガイド
                       </a>
                     </li>
                 
 
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="../examples/index.html">
-                        Examples
+                        例
                       </a>
                     </li>
                 
 
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="../api/index.html">
-                        API Reference
+                        APIリファレンス
                       </a>
                     </li>
                 
 
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="../extras/index.html">
-                        Extras
+                        その他
                       </a>
                     </li>
                 
@@ -496,13 +496,13 @@ document.write(`
      aria-label="Section Navigation">
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
   <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="what-is-a-mesh.html">What is a Mesh?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="simple.html">Basic API Usage</a></li>
-<li class="toctree-l1"><a class="reference internal" href="data_model.html">PyVista Data Model</a></li>
-<li class="toctree-l1"><a class="reference internal" href="vtk_to_pyvista.html">Transitioning from VTK to PyVista</a></li>
-<li class="toctree-l1"><a class="reference internal" href="themes.html">Plotting Themes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="jupyter/index.html">Jupyter Notebook Plotting</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Optional Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="what-is-a-mesh.html">メッシュとは?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="simple.html">APIの基本的な使用方法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_model.html">PyVistaデータモデル</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vtk_to_pyvista.html">VTKからPyVistaへの移行</a></li>
+<li class="toctree-l1"><a class="reference internal" href="themes.html">プロットテーマ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jupyter/index.html">Jupyterノートブックプロット</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">オプションの依存関係</a></li>
 </ul>
 </div>
 </nav></div>
@@ -541,9 +541,9 @@ document.write(`
       </a>
     </li>
     
-    <li class="breadcrumb-item"><a href="index.html" class="nav-link">User Guide</a></li>
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">ユーザーガイド</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page">Optional Features</li>
+    <li class="breadcrumb-item active" aria-current="page">オプションの依存関係</li>
   </ul>
 </nav>
 </div>
@@ -561,16 +561,11 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section id="optional-features">
-<h1>Optional Features<a class="headerlink" href="#optional-features" title="この見出しへのパーマリンク">#</a></h1>
-<p>Due to its usage of <code class="docutils literal notranslate"><span class="pre">numpy</span></code>, the PyVista library plays well with
-other modules, including <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>, <code class="docutils literal notranslate"><span class="pre">trimesh</span></code>, <code class="docutils literal notranslate"><span class="pre">rtree</span></code>, and
-<code class="docutils literal notranslate"><span class="pre">pyembree</span></code>.  The following examples show some optional features
-included within PyVista that use or combine several modules to
-perform advanced analyses not normally included within <code class="docutils literal notranslate"><span class="pre">VTK</span></code>.</p>
+<h1>オプションの依存関係<a class="headerlink" href="#optional-features" title="この見出しへのパーマリンク">#</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">pyvista</span></code> モジュールは  <code class="docutils literal notranslate"><span class="pre">numpy</span></code> を使用しているため， <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> ， <code class="docutils literal notranslate"><span class="pre">trimesh</span></code> ， <code class="docutils literal notranslate"><span class="pre">rtree</span></code> ， <code class="docutils literal notranslate"><span class="pre">pyembree</span></code> などの他のモジュールとの相性が良いです．以下の例は，通常は <code class="docutils literal notranslate"><span class="pre">VTK</span></code> に含まれない高度な解析を実行するために，複数のモジュールを使用または結合する PyVista に含まれるオプション機能を示しています．</p>
 <section id="vectorised-ray-tracing">
-<h2>Vectorised Ray Tracing<a class="headerlink" href="#vectorised-ray-tracing" title="この見出しへのパーマリンク">#</a></h2>
-<p>Perform many ray traces simultaneously with a PolyData Object
-(requires optional dependencies trimesh, rtree and pyembree)</p>
+<h2>ベクトルレイトレーシング<a class="headerlink" href="#vectorised-ray-tracing" title="この見出しへのパーマリンク">#</a></h2>
+<p>PolyDataオブジェクトを使用して多数のレイトレースを同時に実行します(オプションの依存関係trimesh，rtree，pyembreeが必要です)</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sin</span><span class="p">,</span> <span class="n">cos</span><span class="p">,</span> <span class="n">radians</span>
 <span class="kn">import</span> <span class="nn">pyvista</span> <span class="k">as</span> <span class="nn">pv</span>
 
@@ -605,10 +600,8 @@ perform advanced analyses not normally included within <code class="docutils lit
 <img alt="../_images/ray_trace.png" src="../_images/ray_trace.png" />
 </section>
 <section id="project-to-finite-plane">
-<h2>Project to Finite Plane<a class="headerlink" href="#project-to-finite-plane" title="この見出しへのパーマリンク">#</a></h2>
-<p>The following example expands on the vectorized ray tracing example by
-projecting the <a class="reference internal" href="../api/examples/_autosummary/pyvista.examples.examples.load_random_hills.html#pyvista.examples.examples.load_random_hills" title="pyvista.examples.examples.load_random_hills"><code class="xref py py-func docutils literal notranslate"><span class="pre">load_random_hills()</span></code></a> example data to a triangular
-plane.</p>
+<h2>有限平面への投影<a class="headerlink" href="#project-to-finite-plane" title="この見出しへのパーマリンク">#</a></h2>
+<p>次の例では，ベクトル化されたレイトレーシングの例を発展させ， <a class="reference internal" href="../api/examples/_autosummary/pyvista.examples.examples.load_random_hills.html#pyvista.examples.examples.load_random_hills" title="pyvista.examples.examples.load_random_hills"><code class="xref py py-func docutils literal notranslate"><span class="pre">load_random_hills()</span></code></a> の例のデータを3角形の平面に投影しています．</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">pykdtree.kdtree</span> <span class="kn">import</span> <span class="n">KDTree</span>
 <span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
@@ -726,8 +719,8 @@ plane.</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vectorised-ray-tracing">Vectorised Ray Tracing</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#project-to-finite-plane">Project to Finite Plane</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vectorised-ray-tracing">ベクトルレイトレーシング</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#project-to-finite-plane">有限平面への投影</a></li>
 </ul>
   </nav></div>
 
@@ -739,7 +732,7 @@ plane.</p>
       
       
         
-          Edit on GitHub
+          GitHub で編集する
         
       
     </a>

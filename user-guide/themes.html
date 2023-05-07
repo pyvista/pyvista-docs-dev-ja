@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Plotting Themes &#8212; PyVista 0.40.dev0 ドキュメント</title>
+    <title>プロットテーマ &#8212; PyVista 0.40.dev0 ドキュメント</title>
   
   
   
@@ -75,8 +75,8 @@
         </script>
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
-    <link rel="next" title="Jupyter Notebook Plotting" href="jupyter/index.html" />
-    <link rel="prev" title="Transitioning from VTK to PyVista" href="vtk_to_pyvista.html" />
+    <link rel="next" title="Jupyterノートブックプロット" href="jupyter/index.html" />
+    <link rel="prev" title="VTKからPyVistaへの移行" href="vtk_to_pyvista.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="ja"/>
   </head>
@@ -166,35 +166,35 @@
     
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="../getting-started/index.html">
-                        Getting Started
+                        はじめに
                       </a>
                     </li>
                 
 
                     <li class="nav-item current active">
                       <a class="nav-link nav-internal" href="index.html">
-                        User Guide
+                        ユーザーガイド
                       </a>
                     </li>
                 
 
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="../examples/index.html">
-                        Examples
+                        例
                       </a>
                     </li>
                 
 
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="../api/index.html">
-                        API Reference
+                        APIリファレンス
                       </a>
                     </li>
                 
 
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="../extras/index.html">
-                        Extras
+                        その他
                       </a>
                     </li>
                 
@@ -356,35 +356,35 @@ document.write(`
     
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="../getting-started/index.html">
-                        Getting Started
+                        はじめに
                       </a>
                     </li>
                 
 
                     <li class="nav-item current active">
                       <a class="nav-link nav-internal" href="index.html">
-                        User Guide
+                        ユーザーガイド
                       </a>
                     </li>
                 
 
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="../examples/index.html">
-                        Examples
+                        例
                       </a>
                     </li>
                 
 
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="../api/index.html">
-                        API Reference
+                        APIリファレンス
                       </a>
                     </li>
                 
 
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="../extras/index.html">
-                        Extras
+                        その他
                       </a>
                     </li>
                 
@@ -496,13 +496,13 @@ document.write(`
      aria-label="Section Navigation">
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
   <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="what-is-a-mesh.html">What is a Mesh?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="simple.html">Basic API Usage</a></li>
-<li class="toctree-l1"><a class="reference internal" href="data_model.html">PyVista Data Model</a></li>
-<li class="toctree-l1"><a class="reference internal" href="vtk_to_pyvista.html">Transitioning from VTK to PyVista</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Plotting Themes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="jupyter/index.html">Jupyter Notebook Plotting</a></li>
-<li class="toctree-l1"><a class="reference internal" href="optional_features.html">Optional Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="what-is-a-mesh.html">メッシュとは?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="simple.html">APIの基本的な使用方法</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_model.html">PyVistaデータモデル</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vtk_to_pyvista.html">VTKからPyVistaへの移行</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">プロットテーマ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jupyter/index.html">Jupyterノートブックプロット</a></li>
+<li class="toctree-l1"><a class="reference internal" href="optional_features.html">オプションの依存関係</a></li>
 </ul>
 </div>
 </nav></div>
@@ -541,9 +541,9 @@ document.write(`
       </a>
     </li>
     
-    <li class="breadcrumb-item"><a href="index.html" class="nav-link">User Guide</a></li>
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">ユーザーガイド</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page">Plotting Themes</li>
+    <li class="breadcrumb-item active" aria-current="page">プロットテーマ</li>
   </ul>
 </nav>
 </div>
@@ -561,22 +561,18 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section id="plotting-themes">
-<span id="userguide-themes"></span><h1>Plotting Themes<a class="headerlink" href="#plotting-themes" title="この見出しへのパーマリンク">#</a></h1>
-<p>PyVista plotting parameters can be controlled on a plot by plot basis
-or through a global theme, making it possible to control mesh colors
-and styles through one global configuration.</p>
-<p>The default theme parameters in PyVista can be accessed and displayed with:</p>
+<span id="userguide-themes"></span><h1>プロットテーマ<a class="headerlink" href="#plotting-themes" title="この見出しへのパーマリンク">#</a></h1>
+<p>PyVistaのプロットパラメータはプロット単位またはグローバルテーマで制御でき，1つのグローバル設定でメッシュの色とスタイルを制御できます．</p>
+<p>PyVistaのデフォルトのテーマパラメータにアクセスして表示するには，以下のようにします:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyvista</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">pyvista</span><span class="o">.</span><span class="n">global_theme</span>
 </pre></div>
 </div>
-<p>Default plotting parameters can be accessed individually by their
-attribute names:</p>
+<p>デフォルトのプロットパラメータには，属性名を使用して個別にアクセスできます．</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pyvista</span><span class="o">.</span><span class="n">global_theme</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;tan&#39;</span>
 </pre></div>
 </div>
-<p>Here's an example plot of the Stanford Dragon using default plotting
-parameters:</p>
+<p>以下は，デフォルトのプロットパラメータを使用したスタンフォードドラゴンのプロット例です．</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyvista</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pyvista</span> <span class="kn">import</span> <span class="n">examples</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">dragon</span> <span class="o">=</span> <span class="n">examples</span><span class="o">.</span><span class="n">download_dragon</span><span class="p">()</span>
@@ -586,20 +582,20 @@ parameters:</p>
 <figure class="align-default">
 <img alt="../_images/themes-1_00_00.png" src="../_images/themes-1_00_00.png" />
 </figure>
-<p>These parameters can then be modified globally with:</p>
+<p>これらのパラメータは，次の方法でグローバルに変更できます．</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pyvista</span><span class="o">.</span><span class="n">global_theme</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">pyvista</span><span class="o">.</span><span class="n">global_theme</span><span class="o">.</span><span class="n">background</span> <span class="o">=</span> <span class="s1">&#39;white&#39;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">pyvista</span><span class="o">.</span><span class="n">global_theme</span><span class="o">.</span><span class="n">axes</span><span class="o">.</span><span class="n">show</span> <span class="o">=</span> <span class="kc">False</span>
 </pre></div>
 </div>
-<p>Now, the mesh will be plotted with the new global parameters:</p>
+<p>次に，新しいグローバルパラメータを使用してメッシュをプロットします．</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dragon</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">cpos</span><span class="o">=</span><span class="s1">&#39;xy&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <figure class="align-default">
 <img alt="../_images/themes-3_00_00.png" src="../_images/themes-3_00_00.png" />
 </figure>
-<p>This is identical to plotting the mesh with the following parameters:</p>
+<p>これは，次のパラメータを使用してメッシュをプロットすることと同じです．</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">dragon</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">cpos</span><span class="o">=</span><span class="s1">&#39;xy&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">background</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">show_axes</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -607,9 +603,8 @@ parameters:</p>
 <img alt="../_images/themes-4_00_00.png" src="../_images/themes-4_00_00.png" />
 </figure>
 <section id="creating-a-custom-theme">
-<h2>Creating A Custom Theme<a class="headerlink" href="#creating-a-custom-theme" title="この見出しへのパーマリンク">#</a></h2>
-<p>You can customize a theme based on one of the built-in themes and then
-apply it globally with:</p>
+<h2>カスタム・テーマの作成<a class="headerlink" href="#creating-a-custom-theme" title="この見出しへのパーマリンク">#</a></h2>
+<p>組み込みテーマの1つに基づいてテーマをカスタマイズし，次の方法でグローバルに適用できます．</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Create</span> <span class="n">a</span> <span class="n">theme</span> <span class="n">based</span> <span class="n">off</span> <span class="n">the</span> <span class="n">DocumentTheme</span>
 
 <span class="o">&gt;&gt;&gt;</span> <span class="n">my_theme</span> <span class="o">=</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">themes</span><span class="o">.</span><span class="n">DocumentTheme</span><span class="p">()</span>
@@ -621,18 +616,18 @@ apply it globally with:</p>
 <span class="o">&gt;&gt;&gt;</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">global_theme</span><span class="o">.</span><span class="n">load_theme</span><span class="p">(</span><span class="n">my_theme</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Alternatively, you can save the theme to disk to be used later with:</p>
+<p>または，テーマをディスクに保存して，後で使用することもできます．</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">my_theme</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;my_theme.json&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>And then subsequently loaded in a new session of pyvista with:</p>
+<p>その後，次のコマンドを使用して新しいpyvistaセッションにロードします．</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pyvista</span><span class="o">.</span><span class="n">global_theme</span><span class="o">.</span><span class="n">load_theme</span><span class="p">(</span><span class="s1">&#39;my_theme.json&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
 <section id="theme-api">
-<h2>Theme API<a class="headerlink" href="#theme-api" title="この見出しへのパーマリンク">#</a></h2>
-<p>See <a class="reference internal" href="../api/plotting/theme.html#theme-api"><span class="std std-ref">Themes</span></a> for the full API definition.</p>
+<h2>テーマAPI<a class="headerlink" href="#theme-api" title="この見出しへのパーマリンク">#</a></h2>
+<p>完全なAPIの定義については， <a class="reference internal" href="../api/plotting/theme.html#theme-api"><span class="std std-ref">テーマ</span></a> を参照してください．</p>
 </section>
 </section>
 
@@ -653,8 +648,8 @@ apply it globally with:</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-custom-theme">Creating A Custom Theme</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#theme-api">Theme API</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-custom-theme">カスタム・テーマの作成</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#theme-api">テーマAPI</a></li>
 </ul>
   </nav></div>
 
@@ -666,7 +661,7 @@ apply it globally with:</p>
       
       
         
-          Edit on GitHub
+          GitHub で編集する
         
       
     </a>

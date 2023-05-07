@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Extending PyVista &#8212; PyVista 0.40.dev0 ドキュメント</title>
+    <title>PyVistaの拡張 &#8212; PyVista 0.40.dev0 ドキュメント</title>
   
   
   
@@ -75,7 +75,7 @@
         </script>
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
-    <link rel="prev" title="Using Local VTK-Data" href="vtk_data.html" />
+    <link rel="prev" title="ローカルVTKデータの使用" href="vtk_data.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="ja"/>
   </head>
@@ -165,35 +165,35 @@
     
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="../getting-started/index.html">
-                        Getting Started
+                        はじめに
                       </a>
                     </li>
                 
 
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="../user-guide/index.html">
-                        User Guide
+                        ユーザーガイド
                       </a>
                     </li>
                 
 
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="../examples/index.html">
-                        Examples
+                        例
                       </a>
                     </li>
                 
 
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="../api/index.html">
-                        API Reference
+                        APIリファレンス
                       </a>
                     </li>
                 
 
                     <li class="nav-item current active">
                       <a class="nav-link nav-internal" href="index.html">
-                        Extras
+                        その他
                       </a>
                     </li>
                 
@@ -355,35 +355,35 @@ document.write(`
     
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="../getting-started/index.html">
-                        Getting Started
+                        はじめに
                       </a>
                     </li>
                 
 
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="../user-guide/index.html">
-                        User Guide
+                        ユーザーガイド
                       </a>
                     </li>
                 
 
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="../examples/index.html">
-                        Examples
+                        例
                       </a>
                     </li>
                 
 
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="../api/index.html">
-                        API Reference
+                        APIリファレンス
                       </a>
                     </li>
                 
 
                     <li class="nav-item current active">
                       <a class="nav-link nav-internal" href="index.html">
-                        Extras
+                        その他
                       </a>
                     </li>
                 
@@ -495,14 +495,14 @@ document.write(`
      aria-label="Section Navigation">
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
   <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="building_vtk.html">Building VTK</a></li>
-<li class="toctree-l1"><a class="reference internal" href="docker.html">PyVista within a Docker Container</a></li>
-<li class="toctree-l1"><a class="reference internal" href="pyinstaller.html">Freezing PyVista with PyInstaller</a></li>
-<li class="toctree-l1"><a class="reference internal" href="developer_notes.html">Contributing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="plot_directive.html">Sphinx PyVista Plot Directive</a></li>
-<li class="toctree-l1"><a class="reference internal" href="pytest_plugin.html">PyVista pytest Plugin</a></li>
-<li class="toctree-l1"><a class="reference internal" href="vtk_data.html">Using Local VTK-Data</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Extending PyVista</a></li>
+<li class="toctree-l1"><a class="reference internal" href="building_vtk.html">VTKの構築</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docker.html">Dockerコンテナ内のPyVista</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pyinstaller.html">PyInstallerを使用したPyVistaのフリーズ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_notes.html">貢献</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plot_directive.html">Sphinx PyVista Plot ディレクティブ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pytest_plugin.html">PyVista pytest プラグイン</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vtk_data.html">ローカルVTKデータの使用</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">PyVistaの拡張</a></li>
 </ul>
 </div>
 </nav></div>
@@ -541,9 +541,9 @@ document.write(`
       </a>
     </li>
     
-    <li class="breadcrumb-item"><a href="index.html" class="nav-link">Extras</a></li>
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">その他</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page">Extending PyVista</li>
+    <li class="breadcrumb-item active" aria-current="page">PyVistaの拡張</li>
   </ul>
 </nav>
 </div>
@@ -561,9 +561,8 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section id="extending-pyvista">
-<h1>Extending PyVista<a class="headerlink" href="#extending-pyvista" title="この見出しへのパーマリンク">#</a></h1>
-<p>PyVista <code class="docutils literal notranslate"><span class="pre">DataSets</span></code> can be extended for user defined functionality.
-See <a class="reference internal" href="../examples/99-advanced/extending-pyvista.html#extending-pyvista-example"><span class="std std-ref">Extending PyVista Example</span></a>.</p>
+<h1>PyVistaの拡張<a class="headerlink" href="#extending-pyvista" title="この見出しへのパーマリンク">#</a></h1>
+<p>PyVistaの <code class="docutils literal notranslate"><span class="pre">DataSets</span></code> は，ユーザ定義の機能を拡張することができます．詳しくは <a class="reference internal" href="../examples/99-advanced/extending-pyvista.html#extending-pyvista-example"><span class="std std-ref">Extending PyVista Example</span></a> をご覧ください．</p>
 </section>
 
 
@@ -585,7 +584,7 @@ See <a class="reference internal" href="../examples/99-advanced/extending-pyvist
       
       
         
-          Edit on GitHub
+          GitHub で編集する
         
       
     </a>

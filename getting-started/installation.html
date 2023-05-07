@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Installation &#8212; PyVista 0.40.dev0 ドキュメント</title>
+    <title>インストール &#8212; PyVista 0.40.dev0 ドキュメント</title>
   
   
   
@@ -75,8 +75,8 @@
         </script>
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
-    <link rel="next" title="Connections" href="connections.html" />
-    <link rel="prev" title="Authors &amp; Citation" href="authors.html" />
+    <link rel="next" title="接続" href="connections.html" />
+    <link rel="prev" title="著者と引用" href="authors.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="ja"/>
   </head>
@@ -166,35 +166,35 @@
     
                     <li class="nav-item current active">
                       <a class="nav-link nav-internal" href="index.html">
-                        Getting Started
+                        はじめに
                       </a>
                     </li>
                 
 
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="../user-guide/index.html">
-                        User Guide
+                        ユーザーガイド
                       </a>
                     </li>
                 
 
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="../examples/index.html">
-                        Examples
+                        例
                       </a>
                     </li>
                 
 
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="../api/index.html">
-                        API Reference
+                        APIリファレンス
                       </a>
                     </li>
                 
 
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="../extras/index.html">
-                        Extras
+                        その他
                       </a>
                     </li>
                 
@@ -356,35 +356,35 @@ document.write(`
     
                     <li class="nav-item current active">
                       <a class="nav-link nav-internal" href="index.html">
-                        Getting Started
+                        はじめに
                       </a>
                     </li>
                 
 
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="../user-guide/index.html">
-                        User Guide
+                        ユーザーガイド
                       </a>
                     </li>
                 
 
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="../examples/index.html">
-                        Examples
+                        例
                       </a>
                     </li>
                 
 
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="../api/index.html">
-                        API Reference
+                        APIリファレンス
                       </a>
                     </li>
                 
 
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="../extras/index.html">
-                        Extras
+                        その他
                       </a>
                     </li>
                 
@@ -496,11 +496,11 @@ document.write(`
      aria-label="Section Navigation">
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
   <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="why.html">Why PyVista?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="authors.html">Authors &amp; Citation</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="connections.html">Connections</a></li>
-<li class="toctree-l1"><a class="reference internal" href="external_examples.html">External Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="why.html">なぜPyVistaなのか?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="authors.html">著者と引用</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">インストール</a></li>
+<li class="toctree-l1"><a class="reference internal" href="connections.html">接続</a></li>
+<li class="toctree-l1"><a class="reference internal" href="external_examples.html">外部の例</a></li>
 </ul>
 </div>
 </nav></div>
@@ -539,9 +539,9 @@ document.write(`
       </a>
     </li>
     
-    <li class="breadcrumb-item"><a href="index.html" class="nav-link">Getting Started</a></li>
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">はじめに</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page">Installation</li>
+    <li class="breadcrumb-item active" aria-current="page">インストール</li>
   </ul>
 </nav>
 </div>
@@ -559,46 +559,41 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section id="installation">
-<span id="install-ref"></span><h1>Installation<a class="headerlink" href="#installation" title="この見出しへのパーマリンク">#</a></h1>
-<p>PyVista is supported on Python versions 3.8+.</p>
-<p>For the best experience, please considering using Anaconda as a virtual
-environment and package manager for Python and following the instructions to
-install PyVista with Anaconda.</p>
+<span id="install-ref"></span><h1>インストール<a class="headerlink" href="#installation" title="この見出しへのパーマリンク">#</a></h1>
+<p>PyVistaはPythonのバージョン3.8+でサポートされています．</p>
+<p>最高の経験を得るには，AnacondaをPython用の仮想環境およびパッケージマネージャとして使用し，Anacondaを使用してPyVistaをインストールする手順に従ってください．</p>
 <section id="dependencies">
-<h2>Dependencies<a class="headerlink" href="#dependencies" title="この見出しへのパーマリンク">#</a></h2>
-<p>PyVista is built on top of the Visualization Toolkit (VTK) and NumPy - as such,
-the following projects are required dependencies of PyVista:</p>
+<h2>依存関係<a class="headerlink" href="#dependencies" title="この見出しへのパーマリンク">#</a></h2>
+<p>PyVistaはVisualization Toolkit (VTK) とNumPyの上に構築されています-以下のプロジェクトはPyVistaに必要な依存関係です:</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://pypi.org/project/vtk/">vtk</a> - PyVista directly inherits types from the VTK library.</p></li>
-<li><p><a class="reference external" href="https://pypi.org/project/numpy/">NumPy</a> - NumPy arrays provide a core foundation for PyVista's data array access.</p></li>
-<li><p><a class="reference external" href="https://pypi.org/project/matplotlib/">matplotlib</a> - Used for colormaps and 2D plotting with <a class="reference internal" href="../api/plotting/charts/_autosummary/pyvista.ChartMPL.html#pyvista.ChartMPL" title="pyvista.ChartMPL"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.ChartMPL</span></code></a>.</p></li>
-<li><p><a class="reference external" href="https://pypi.org/project/Pillow/">pillow</a> - PIL fork used for saving screenshots.</p></li>
-<li><p><a class="reference external" href="https://pypi.org/project/imageio/">imageio</a> - This library is used for reading images and writing animations.</p></li>
-<li><p><a class="reference external" href="https://pypi.org/project/pooch/">pooch</a> - Data management for our example datasets so users can download tutorials on the fly.</p></li>
-<li><p><a class="reference external" href="https://github.com/banesullivan/scooby">scooby</a> - Reporting and debugging tools.</p></li>
+<li><p><a class="reference external" href="https://pypi.org/project/vtk/">vtk</a> - PyVistaはVTKライブラリから型を直接継承します．</p></li>
+<li><p><a class="reference external" href="https://pypi.org/project/numpy/">NumPy</a> - NumPy配列は，PyVistaのデータ配列アクセスのためのコア基盤を提供します．</p></li>
+<li><p><a class="reference external" href="https://pypi.org/project/matplotlib/">matplotlib</a> - <a class="reference internal" href="../api/plotting/charts/_autosummary/pyvista.ChartMPL.html#pyvista.ChartMPL" title="pyvista.ChartMPL"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.ChartMPL</span></code></a> によるカラーマップと2Dプロットに使用されます．</p></li>
+<li><p><a class="reference external" href="https://pypi.org/project/Pillow/">pillow</a> - スクリーンショットの保存に使用する PIL フォークです．</p></li>
+<li><p><a class="reference external" href="https://pypi.org/project/imageio/">imageio</a> - 画像の読み込みとアニメーションの書き込みに使用されるライブラリです．</p></li>
+<li><p><a class="reference external" href="https://pypi.org/project/pooch/">pooch</a> - サンプルデータセットのデータ管理により，ユーザはチュートリアルをその場でダウンロードできます．</p></li>
+<li><p><a class="reference external" href="https://github.com/banesullivan/scooby">scooby</a> - レポート作成およびデバッグ用ツール．</p></li>
 </ul>
 </section>
 <section id="optional-dependencies">
-<h2>Optional Dependencies<a class="headerlink" href="#optional-dependencies" title="この見出しへのパーマリンク">#</a></h2>
-<p>PyVista includes several optional dependencies for visualization and reading a variety of additional file formats, including:</p>
+<h2>オプションの依存関係<a class="headerlink" href="#optional-dependencies" title="この見出しへのパーマリンク">#</a></h2>
+<p>PyVistaには，以下のようなさまざまな追加ファイル形式を可視化し，読み取るためのオプションの依存関係がいくつか含まれています．</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://pypi.org/project/cmocean/">cmocean</a> - Colormaps for Oceanography.</p></li>
-<li><p><a class="reference external" href="https://colorcet.holoviz.org/">colorcet</a> - Perceptually accurate 256-color colormaps for use with Python.</p></li>
-<li><p><a class="reference external" href="https://github.com/Kitware/trame">trame</a> - Used for client and server-side rendering in Jupyter.</p></li>
-<li><p><a class="reference external" href="https://pypi.org/project/meshio/">meshio</a> - Input/Output for many mesh formats.</p></li>
-<li><p><a class="reference external" href="https://pythreejs.readthedocs.io/en/stable/">pythreejs</a> - Jupyter widgets based notebook extension that allows Jupyter to leverage the WebGL capabilities of modern browsers.</p></li>
+<li><p><a class="reference external" href="https://pypi.org/project/cmocean/">cmocean</a> - 海洋学のためのカラーマップ．</p></li>
+<li><p><a class="reference external" href="https://colorcet.holoviz.org/">colorcet</a> - Python で使用するための，知覚的に正確な 256 色のカラーマップです．</p></li>
+<li><p><a class="reference external" href="https://github.com/Kitware/trame">trame</a> - Jupyterのクライアントおよびサーバーサイドのレンダリングに使用されます．</p></li>
+<li><p><a class="reference external" href="https://pypi.org/project/meshio/">meshio</a> - 多くのメッシュ形式の入力/出力．</p></li>
+<li><p><a class="reference external" href="https://pythreejs.readthedocs.io/en/stable/">pythreejs</a> - Jupyter ウィジェットベースのノートブック拡張で，Jupyter がモダンブラウザの WebGL 機能を利用できるようにします．</p></li>
 </ul>
 </section>
 <section id="pypi">
 <h2>PyPI<a class="headerlink" href="#pypi" title="この見出しへのパーマリンク">#</a></h2>
 <a class="reference external image-reference" href="https://pypi.org/project/pyvista/"><img alt="https://img.shields.io/pypi/v/pyvista.svg?logo=python&amp;logoColor=white" src="https://img.shields.io/pypi/v/pyvista.svg?logo=python&amp;logoColor=white" /></a>
-<p>PyVista can be installed from <a class="reference external" href="https://pypi.org/project/pyvista/">PyPI</a>
-using <code class="docutils literal notranslate"><span class="pre">pip</span></code>:</p>
+<p>PyVistaは <a class="reference external" href="https://pypi.org/project/pyvista/">PyPI</a> から <code class="docutils literal notranslate"><span class="pre">pip</span></code> を使ってインストールできます:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">pyvista</span>
 </pre></div>
 </div>
-<p>To install all the additional packages that extend PyVista, install using
-<code class="docutils literal notranslate"><span class="pre">pip</span></code> with:</p>
+<p>PyVistaを拡張するすべての追加パッケージをインストールするには，次のように <code class="docutils literal notranslate"><span class="pre">pip</span></code> を使ってインストールします．</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">pyvista</span><span class="p">[</span><span class="nb">all</span><span class="p">]</span>
 </pre></div>
 </div>
@@ -606,85 +601,79 @@ using <code class="docutils literal notranslate"><span class="pre">pip</span></c
 <section id="anaconda">
 <h2>Anaconda<a class="headerlink" href="#anaconda" title="この見出しへのパーマリンク">#</a></h2>
 <a class="reference external image-reference" href="https://anaconda.org/conda-forge/pyvista"><img alt="https://img.shields.io/conda/vn/conda-forge/pyvista.svg?logo=conda-forge&amp;logoColor=white" src="https://img.shields.io/conda/vn/conda-forge/pyvista.svg?logo=conda-forge&amp;logoColor=white" /></a>
-<p>To install this package with <code class="docutils literal notranslate"><span class="pre">conda</span></code> run:</p>
+<p><code class="docutils literal notranslate"><span class="pre">conda</span></code> を使ってこのパッケージをインストールするには:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="n">pyvista</span>
 </pre></div>
 </div>
 <script id="asciicast-507565"  src="https://asciinema.org/a/507565.js" async></script></section>
 <section id="installing-the-current-development-branch-from-github">
-<h2>Installing the Current Development Branch from GitHub<a class="headerlink" href="#installing-the-current-development-branch-from-github" title="この見出しへのパーマリンク">#</a></h2>
-<p>There may be features or bug-fixes that have been implemented in PyVista but
-have not made their way into a release. To install <code class="docutils literal notranslate"><span class="pre">pyvista</span></code> from the latest
-up-to-date development branch from github, use one of the following</p>
+<h2>GitHubから現在の開発ブランチをインストールする<a class="headerlink" href="#installing-the-current-development-branch-from-github" title="この見出しへのパーマリンク">#</a></h2>
+<p>PyVistaに実装されているが，まだリリースされていない機能やバグ修正があるかもしれません．githubの最新の開発ブランチから <code class="docutils literal notranslate"><span class="pre">pyvista</span></code> をインストールするには，以下のいずれかを使用します．</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">U</span> <span class="n">git</span><span class="o">+</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">pyvista</span><span class="o">/</span><span class="n">pyvista</span><span class="o">.</span><span class="n">git</span><span class="nd">@main</span>
 </pre></div>
 </div>
-<p>Alternatively, you can clone the repository with git and install it with pip.</p>
+<p>あるいは，gitを使ってリポジトリーのクローンを作成し，pipを使ってインストールすることもできます．</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">pyvista</span><span class="o">/</span><span class="n">pyvista</span><span class="o">.</span><span class="n">git</span>
 <span class="n">cd</span> <span class="n">pyvista</span>
 <span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">e</span> <span class="o">.</span>
 </pre></div>
 </div>
-<p>Note the development flag <code class="docutils literal notranslate"><span class="pre">-e</span></code>. This allows you to change pyvista
-in-place without having to reinstall it for each change.</p>
+<p>開発フラグ <code class="docutils literal notranslate"><span class="pre">-e</span></code> に注意してください． これにより，pyvistaを変更するたびに再インストールすることなく，その場で変更することができます．</p>
 </section>
 <section id="id2">
-<h2>Optional Dependencies<a class="headerlink" href="#id2" title="この見出しへのパーマリンク">#</a></h2>
-<p>The following are a list of optional dependencies and their purpose:</p>
+<h2>オプションの依存関係<a class="headerlink" href="#id2" title="この見出しへのパーマリンク">#</a></h2>
+<p>次に，オプションの依存関係とその目的の一覧を示します:</p>
 <table class="table">
 <thead>
-<tr class="row-odd"><th class="head"><p>Package</p></th>
-<th class="head"><p>Purpose</p></th>
+<tr class="row-odd"><th class="head"><p>パッケージ</p></th>
+<th class="head"><p>目的</p></th>
 </tr>
 </thead>
 <tbody>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">trame</span></code></p></td>
-<td><p>Interactive notebook rendering</p></td>
+<td><p>インタラクティブなノートブックレンダリング</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">sphinx_gallery</span></code></p></td>
-<td><p>Capturing PyVista output for docs</p></td>
+<td><p>ドキュメントのPyVista出力のキャプチャ</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">colorcet</span></code></p></td>
-<td><p>Perceptually uniform colormaps</p></td>
+<td><p>知覚的に均一なカラーマップ</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">cmocean</span></code></p></td>
-<td><p>Oceanographic colormaps</p></td>
+<td><p>海洋学的カラーマップ</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">imageio-ffmpeg</span></code></p></td>
-<td><p>Saving movie files</p></td>
+<td><p>ムービーファイルの保存</p></td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">tqdm</span></code></p></td>
-<td><p>Status bars for monitoring filters</p></td>
+<td><p>フィルタを監視するためのステータスバー</p></td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">trimesh</span></code>
 <code class="docutils literal notranslate"><span class="pre">rtree</span></code>
 <code class="docutils literal notranslate"><span class="pre">pyembree</span></code></p></td>
-<td><p>Vectorised ray tracing</p></td>
+<td><p>ベクトルレイトレーシング</p></td>
 </tr>
 </tbody>
 </table>
 </section>
 <section id="source-developers">
-<h2>Source / Developers<a class="headerlink" href="#source-developers" title="この見出しへのパーマリンク">#</a></h2>
-<p>Alternatively, you can install the latest version from GitHub by visiting
-<a class="reference external" href="https://github.com/pyvista/pyvista">PyVista</a>, and downloading the source
-(cloning) by running:</p>
+<h2>ソース/開発者<a class="headerlink" href="#source-developers" title="この見出しへのパーマリンク">#</a></h2>
+<p>あるいは，GitHubから <a class="reference external" href="https://github.com/pyvista/pyvista">PyVista</a> にアクセスして以下のコマンドを実行し，ソースをダウンロード (クローニング) して最新バージョンをインストールすることもできます:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">pyvista</span><span class="o">/</span><span class="n">pyvista</span><span class="o">.</span><span class="n">git</span>
 <span class="n">cd</span> <span class="n">pyvista</span>
 <span class="n">python</span> <span class="o">-</span><span class="n">m</span> <span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">e</span> <span class="o">.</span>
 </pre></div>
 </div>
-<p>The latest documentation for the <code class="docutils literal notranslate"><span class="pre">main</span></code> branch of PyVista can be found at
-<a class="reference external" href="https://dev.pyvista.org">dev.pyvista.org</a>.</p>
+<p>PyVistaの <code class="docutils literal notranslate"><span class="pre">main</span></code> ブランチの最新のドキュメントは <a class="reference external" href="https://dev.pyvista.org">dev.pyvista.org</a> にあります．</p>
 </section>
 <section id="test-installation">
-<h2>Test Installation<a class="headerlink" href="#test-installation" title="この見出しへのパーマリンク">#</a></h2>
-<p>You can test your installation by running an example:</p>
+<h2>インストールのテスト<a class="headerlink" href="#test-installation" title="この見出しへのパーマリンク">#</a></h2>
+<p>次の例を実行して，インストールをテストできます:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pyvista</span> <span class="kn">import</span> <span class="n">demos</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">demos</span><span class="o">.</span><span class="n">plot_wave</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>See other examples and demos:</p>
+<p>その他の例とデモを参照してください:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pyvista</span> <span class="kn">import</span> <span class="n">examples</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pyvista</span> <span class="kn">import</span> <span class="n">demos</span>
 
@@ -697,34 +686,24 @@ in-place without having to reinstall it for each change.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">注釈</p>
-<p>A more comprehensive testing suite is available after cloning the source
-repository. For details on how to clone and test the PyVista source, please
-see our <a class="reference external" href="https://github.com/pyvista/pyvista/blob/main/CONTRIBUTING.rst">Contributing Guide</a> and specifically, the <a class="reference external" href="https://github.com/pyvista/pyvista/blob/main/CONTRIBUTING.rst#user-content-testing">Testing</a> section.</p>
+<p>ソースリポジトリーのクローンを作成すると，より包括的なテストスイートを使用できるようになります．PyVistaソースをクローンしてテストする方法の詳細については，我々の <a class="reference external" href="https://github.com/pyvista/pyvista/blob/main/CONTRIBUTING.rst">Contributing Guide</a>  ，特に <a class="reference external" href="https://github.com/pyvista/pyvista/blob/main/CONTRIBUTING.rst#user-content-testing">Testing</a> のセクションをご覧ください．</p>
 </div>
 </section>
 <section id="running-on-ci-services">
-<h2>Running on CI Services<a class="headerlink" href="#running-on-ci-services" title="この見出しへのパーマリンク">#</a></h2>
-<p>Please head over to <a class="reference external" href="https://github.com/pyvista/setup-headless-display-action">pyvista/setup-headless-display-action</a> for details on
-setting up a headless display in GitHub Actions Workflows using PyVista.</p>
-<p>In the past, we have also supported <a class="reference external" href="https://github.com/pyvista/gl-ci-helpers">pyvista/gl-ci-helpers</a> for setting up CI
-services like Travis and Azure Pipelines to run PyVista.</p>
+<h2>CIサービスでの実行<a class="headerlink" href="#running-on-ci-services" title="この見出しへのパーマリンク">#</a></h2>
+<p>PyVistaを使ったGitHub Actions Workflowsでヘッドレス表示を設定する方法は <a class="reference external" href="https://github.com/pyvista/setup-headless-display-action">pyvista/setup-headless-display-action</a> をご覧ください．</p>
+<p>過去には，TravisやAzure PipelinesなどのCIサービスを設定してPyVistaを実行するための <a class="reference external" href="https://github.com/pyvista/gl-ci-helpers">pyvista/gl-ci helpers</a> もサポートされていました．</p>
 </section>
 <section id="running-on-mybinder">
-<h2>Running on MyBinder<a class="headerlink" href="#running-on-mybinder" title="この見出しへのパーマリンク">#</a></h2>
-<p>This section is for advanced users that would like to install and use PyVista
-with headless displays on notebook hosting services like <a class="reference external" href="https://mybinder.org">MyBinder</a>.</p>
-<p>Please see <a class="reference external" href="https://github.com/pyvista/cookiecutter-pyvista-binder">this project</a> for a convenient <a class="reference external" href="https://github.com/cookiecutter/cookiecutter">Cookiecutter</a> to get started using
-PyVista on the notebook hosting service <a class="reference external" href="https://mybinder.org">MyBinder</a>.</p>
-<p>To get started, the Docker container will need to have <code class="docutils literal notranslate"><span class="pre">libgl1-mesa-dev</span></code> and
-<code class="docutils literal notranslate"><span class="pre">xvfb</span></code> installed through <code class="docutils literal notranslate"><span class="pre">apt-get</span></code>. For MyBinder, include the following in
-a file called <code class="docutils literal notranslate"><span class="pre">apt.txt</span></code>:</p>
+<h2>MyBinderでの実行<a class="headerlink" href="#running-on-mybinder" title="この見出しへのパーマリンク">#</a></h2>
+<p>このセクションは， <a class="reference external" href="https://mybinder.org">MyBinder</a> のようなノートブックホスティングサービスで，ヘッドレスディスプレイでPyVistaをインストールして使いたい上級ユーザ向けです．</p>
+<p>ノートPCホスティングサービス <a class="reference external" href="https://mybinder.org">MyBinder</a> でPyVistaを使い始めるのに便利な <a class="reference external" href="https://github.com/cookiecutter/cookiecutter">Cookiecutter</a> については <a class="reference external" href="https://github.com/pyvista/cookiecutter-pyvista-binder">this project</a> を見てください．</p>
+<p>まず，Dockerコンテナに <code class="docutils literal notranslate"><span class="pre">apt-get</span></code> を使って <code class="docutils literal notranslate"><span class="pre">libgl1-mesa-dev</span></code> と <code class="docutils literal notranslate"><span class="pre">xvfb</span></code> をインストールする必要がある．MyBinderの場合は， <code class="docutils literal notranslate"><span class="pre">apt.txt</span></code> というファイルに以下を含めてください:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">libgl1</span><span class="o">-</span><span class="n">mesa</span><span class="o">-</span><span class="n">dev</span>
 <span class="n">xvfb</span>
 </pre></div>
 </div>
-<p>Then, you need to configure the headless display, for MyBinder, create a file
-called <code class="docutils literal notranslate"><span class="pre">start</span></code> and include the following set up script that will run every
-time your Docker container is launched:</p>
+<p>次に，MyBinderでヘッドレスディスプレイを設定し， <code class="docutils literal notranslate"><span class="pre">start</span></code> というファイルを作成し，Dockerコンテナが起動されるたびに実行される以下の設定スクリプトを含める必要があります．</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
 <span class="nb">set</span><span class="w"> </span>-x
 <span class="nb">export</span><span class="w"> </span><span class="nv">DISPLAY</span><span class="o">=</span>:99.0
@@ -736,19 +715,12 @@ sleep<span class="w"> </span><span class="m">3</span>
 <span class="nb">exec</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$@</span><span class="s2">&quot;</span>
 </pre></div>
 </div>
-<p>All you have to do next is include PyVista in your Python requirements and you
-can get to visualizing your data. If you need more help than this on setting up
-PyVista for these types of services, hop on Slack and chat with the developers
-or take a look at <a class="reference external" href="https://github.com/OpenGeoVis/PVGeo-Examples">this repository</a> that is currently using PyVista on
-MyBinder.</p>
+<p>あとはPyVistaをPythonの要件に組み込むだけで，データを可視化できるようになります．これらのタイプのサービスのためにPyVistaをセットアップするのにこれ以上の助けが必要なら，Slackで開発者とチャットするか，MyBinderで現在PyVistaを使っている <a class="reference external" href="https://github.com/OpenGeoVis/PVGeo-Examples">this repository</a> を見てください．</p>
 </section>
 <section id="running-on-remote-servers">
-<h2>Running on Remote Servers<a class="headerlink" href="#running-on-remote-servers" title="この見出しへのパーマリンク">#</a></h2>
-<p>Using PyVista on remote servers requires similar setup steps as in the above
-Docker case. As an example, here are the complete steps to use PyVista on AWS
-EC2 Ubuntu 18.04 LTS (<code class="docutils literal notranslate"><span class="pre">ami-0a313d6098716f372</span></code> in <code class="docutils literal notranslate"><span class="pre">us-east-1</span></code>).
-Other servers would work similarly.</p>
-<p>After logging into the remote server, install Miniconda and related packages:</p>
+<h2>リモートサーバーでの実行<a class="headerlink" href="#running-on-remote-servers" title="この見出しへのパーマリンク">#</a></h2>
+<p>リモートサーバでPyVistaを使うには，上記のDockerの場合と同様のセットアップ手順が必要です．例として，AWS EC 2 Ubuntu 18.04 LTS ( <code class="docutils literal notranslate"><span class="pre">us-east-1</span></code> の  <code class="docutils literal notranslate"><span class="pre">ami-0a313d6098716f372</span></code> )でPyVistaを使うための完全なステップを以下に示します．他のサーバも同様に動作します．</p>
+<p>リモートサーバにログインしたら，Minicondaと関連するパッケージをインストールします:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>wget<span class="w"> </span>https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh<span class="w"> </span>-O<span class="w"> </span>miniconda.sh
 bash<span class="w"> </span>miniconda.sh<span class="w"> </span>-b<span class="w"> </span>-p<span class="w"> </span>miniconda
 <span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;. $HOME/miniconda/etc/profile.d/conda.sh&#39;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.bashrc<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">source</span><span class="w"> </span>~/.bashrc
@@ -763,7 +735,7 @@ pip<span class="w"> </span>install<span class="w"> </span>jupyter<span class="w"
 sudo<span class="w"> </span>apt<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>python-qt4<span class="w"> </span>libgl1-mesa-glx
 </pre></div>
 </div>
-<p>Then, configure the headless display:</p>
+<p>次に，ヘッドレスディスプレイを設定します:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>xvfb
 <span class="nb">export</span><span class="w"> </span><span class="nv">DISPLAY</span><span class="o">=</span>:99.0
 <span class="nb">export</span><span class="w"> </span><span class="nv">PYVISTA_OFF_SCREEN</span><span class="o">=</span><span class="nb">true</span>
@@ -771,21 +743,18 @@ Xvfb<span class="w"> </span>:99<span class="w"> </span>-screen<span class="w"> <
 sleep<span class="w"> </span><span class="m">3</span>
 </pre></div>
 </div>
-<p>Reconnect to the server with port-forwarding, and start Jupyter:</p>
+<p>ポート転送を使用してサーバーに再接続し，Jupyterを起動します:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ssh<span class="w"> </span>-i<span class="w"> </span><span class="s2">&quot;your-ssh-key&quot;</span><span class="w"> </span>your-user-name@your-server-ip<span class="w"> </span>-L<span class="w"> </span><span class="m">8888</span>:localhost:8888
 conda<span class="w"> </span>activate<span class="w"> </span>vtk_env
 jupyter<span class="w"> </span>lab<span class="w"> </span>--NotebookApp.token<span class="o">=</span><span class="s1">&#39;&#39;</span><span class="w"> </span>--no-browser<span class="w"> </span>--port<span class="o">=</span><span class="m">8888</span>
 </pre></div>
 </div>
-<p>Visit <code class="docutils literal notranslate"><span class="pre">localhost:8888</span></code> in the web browser.</p>
+<p>Webブラウザで <code class="docutils literal notranslate"><span class="pre">localhost:8888</span></code> にアクセスします．</p>
 </section>
 <section id="running-on-wsl">
-<h2>Running on WSL<a class="headerlink" href="#running-on-wsl" title="この見出しへのパーマリンク">#</a></h2>
-<p>Similar to the example of the remote server above, the windows subsystem for Linux does
-not provide an x-server for visualization. Instead, the fastest way to get up and
-running on WSL is through <a class="reference external" href="https://jupyter.org/">JupyterLab</a>.</p>
-<p>First, make sure you have installed the correct environment through Miniconda and
-related packages:</p>
+<h2>WSLでの動作<a class="headerlink" href="#running-on-wsl" title="この見出しへのパーマリンク">#</a></h2>
+<p>上記のリモートサーバの例と同様に，LinuxのWindowsサブシステムは可視化のためのXサーバを提供しません．その代わりに，WSLを立ち上げる最も早い方法は， <a class="reference external" href="https://jupyter.org/">JupyterLab</a> を利用することです．</p>
+<p>まず，Minicondaと関連パッケージによって，正しい環境がインストールされていることを確認します．</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>wget<span class="w"> </span>https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh<span class="w"> </span>-O<span class="w"> </span>miniconda.sh
 bash<span class="w"> </span>miniconda.sh<span class="w"> </span>-b<span class="w"> </span>-p<span class="w"> </span>miniconda
 <span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;. $HOME/miniconda/etc/profile.d/conda.sh&#39;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>~/.bashrc<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">source</span><span class="w"> </span>~/.bashrc
@@ -801,11 +770,9 @@ sudo<span class="w"> </span>apt<span class="w"> </span>update<span class="w"> </
 </pre></div>
 </div>
 <section id="vtk-link-to-jupyter">
-<h3>VTK Link to Jupyter<a class="headerlink" href="#vtk-link-to-jupyter" title="この見出しへのパーマリンク">#</a></h3>
-<p>There are two ways to get vtk rendering 3D objects in JupyterLab. First you
-can follow the example above for remote servers, skipping over the <code class="docutils literal notranslate"><span class="pre">ssh</span></code>
-instructions.</p>
-<p>Configure the headless display:</p>
+<h3>JupyterへのVTKリンク<a class="headerlink" href="#vtk-link-to-jupyter" title="この見出しへのパーマリンク">#</a></h3>
+<p>JupyterLabでvtkレンダリングの3Dオブジェクトを取得する方法は2つあります．まず，上記のリモートサーバ用の例に従って， <code class="docutils literal notranslate"><span class="pre">ssh</span></code> の説明を省くことができます．</p>
+<p>ヘッドレスディスプレイを設定します:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>xvfb
 <span class="nb">export</span><span class="w"> </span><span class="nv">DISPLAY</span><span class="o">=</span>:99.0
 <span class="nb">export</span><span class="w"> </span><span class="nv">PYVISTA_OFF_SCREEN</span><span class="o">=</span><span class="nb">true</span>
@@ -813,13 +780,12 @@ Xvfb<span class="w"> </span>:99<span class="w"> </span>-screen<span class="w"> <
 sleep<span class="w"> </span><span class="m">3</span>
 </pre></div>
 </div>
-<p>Start Jupyter:</p>
+<p>Jupyterを起動します:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>jupyter<span class="w"> </span>lab<span class="w"> </span>--NotebookApp.token<span class="o">=</span><span class="s1">&#39;&#39;</span><span class="w"> </span>--no-browser<span class="w"> </span>--port<span class="o">=</span><span class="m">8888</span>
 </pre></div>
 </div>
-<p>Visit <code class="docutils literal notranslate"><span class="pre">localhost:8888</span></code> in the web browser.</p>
-<p>Finally add this example code and your interactive visualizations
-should be displayed in JupyterLab.</p>
+<p>Webブラウザで <code class="docutils literal notranslate"><span class="pre">localhost:8888</span></code> にアクセスします．</p>
+<p>最後にこのサンプルコードを追加すると，JupyterLabでインタラクティブな可視化が表示されるはずです．</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyvista</span>
 <span class="n">pl</span> <span class="o">=</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">Plotter</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
 <span class="n">actor</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">pyvista</span><span class="o">.</span><span class="n">Cube</span><span class="p">())</span>
@@ -829,18 +795,17 @@ should be displayed in JupyterLab.</p>
 <span class="n">pl</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>Your visualizations should now be showing directly in the Jupyter frontend.</p>
+<p>これでJupyterフロントエンドに直接ビジュアライゼーションが表示されるようになったはずです．</p>
 </section>
 <section id="pythreejs-rendering-in-jupyter">
-<h3>PyThreeJS Rendering in Jupyter<a class="headerlink" href="#pythreejs-rendering-in-jupyter" title="この見出しへのパーマリンク">#</a></h3>
-<p>The second option is to change the <code class="docutils literal notranslate"><span class="pre">PyVista</span></code> backend to use
-<code class="docutils literal notranslate"><span class="pre">pythreejs</span></code>.</p>
-<p>To do this, first launch the Jupyter server:</p>
+<h3>JupyterでのPyThreeJSレンダリング<a class="headerlink" href="#pythreejs-rendering-in-jupyter" title="この見出しへのパーマリンク">#</a></h3>
+<p>2つ目のオプションは，<code class="docutils literal notranslate"><span class="pre">PyVista</span></code> のバックエンドを <code class="docutils literal notranslate"><span class="pre">pythreejs</span></code> に変更することです．</p>
+<p>そのために，まずJupyterサーバーを立ち上げます:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>jupyter<span class="w"> </span>lab<span class="w"> </span>--NotebookApp.token<span class="o">=</span><span class="s1">&#39;&#39;</span><span class="w"> </span>--no-browser<span class="w"> </span>--port<span class="o">=</span><span class="m">8888</span>
 </pre></div>
 </div>
-<p>Visit <code class="docutils literal notranslate"><span class="pre">localhost:8888</span></code> in the web browser.</p>
-<p>Finally change the PyVista backend to a web visualization library: <code class="docutils literal notranslate"><span class="pre">pythreejs</span></code>.</p>
+<p>Webブラウザで <code class="docutils literal notranslate"><span class="pre">localhost:8888</span></code> にアクセスします．</p>
+<p>最後にPyVistaのバックエンドをWeb可視化ライブラリに変更します: <code class="docutils literal notranslate"><span class="pre">pythreejs</span></code> ．</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyvista</span>
 <span class="n">pyvista</span><span class="o">.</span><span class="n">global_theme</span><span class="o">.</span><span class="n">jupyter_backend</span><span class="o">=</span><span class="s1">&#39;pythreejs&#39;</span>
 <span class="n">pl</span> <span class="o">=</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">Plotter</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
@@ -851,12 +816,12 @@ should be displayed in JupyterLab.</p>
 <span class="n">pl</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>Your visualizations should now be showing directly in the Jupyter frontend.</p>
+<p>これでJupyterフロントエンドに直接ビジュアライゼーションが表示されるようになったはずです．</p>
 </section>
 </section>
 <section id="running-with-sphinx-gallery">
-<h2>Running with Sphinx-Gallery<a class="headerlink" href="#running-with-sphinx-gallery" title="この見出しへのパーマリンク">#</a></h2>
-<p>In your <code class="docutils literal notranslate"><span class="pre">conf.py</span></code>, add the following:</p>
+<h2>Sphinx-Galleryでの実行<a class="headerlink" href="#running-with-sphinx-gallery" title="この見出しへのパーマリンク">#</a></h2>
+<p>あなたの <code class="docutils literal notranslate"><span class="pre">conf.py</span></code> に, 次を追加します．</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyvista</span>
 <span class="c1"># necessary when building the sphinx gallery</span>
 <span class="n">pyvista</span><span class="o">.</span><span class="n">BUILDING_GALLERY</span> <span class="o">=</span> <span class="kc">True</span>
@@ -896,23 +861,23 @@ should be displayed in JupyterLab.</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dependencies">Dependencies</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optional-dependencies">Optional Dependencies</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dependencies">依存関係</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optional-dependencies">オプションの依存関係</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pypi">PyPI</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anaconda">Anaconda</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-the-current-development-branch-from-github">Installing the Current Development Branch from GitHub</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Optional Dependencies</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#source-developers">Source / Developers</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#test-installation">Test Installation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#running-on-ci-services">Running on CI Services</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#running-on-mybinder">Running on MyBinder</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#running-on-remote-servers">Running on Remote Servers</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#running-on-wsl">Running on WSL</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vtk-link-to-jupyter">VTK Link to Jupyter</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pythreejs-rendering-in-jupyter">PyThreeJS Rendering in Jupyter</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-the-current-development-branch-from-github">GitHubから現在の開発ブランチをインストールする</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">オプションの依存関係</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#source-developers">ソース/開発者</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#test-installation">インストールのテスト</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#running-on-ci-services">CIサービスでの実行</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#running-on-mybinder">MyBinderでの実行</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#running-on-remote-servers">リモートサーバーでの実行</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#running-on-wsl">WSLでの動作</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vtk-link-to-jupyter">JupyterへのVTKリンク</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pythreejs-rendering-in-jupyter">JupyterでのPyThreeJSレンダリング</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#running-with-sphinx-gallery">Running with Sphinx-Gallery</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#running-with-sphinx-gallery">Sphinx-Galleryでの実行</a></li>
 </ul>
   </nav></div>
 
@@ -924,7 +889,7 @@ should be displayed in JupyterLab.</p>
       
       
         
-          Edit on GitHub
+          GitHub で編集する
         
       
     </a>

@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>PyVista within a Docker Container &#8212; PyVista 0.40.dev0 ドキュメント</title>
+    <title>Dockerコンテナ内のPyVista &#8212; PyVista 0.40.dev0 ドキュメント</title>
   
   
   
@@ -75,8 +75,8 @@
         </script>
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
-    <link rel="next" title="Freezing PyVista with PyInstaller" href="pyinstaller.html" />
-    <link rel="prev" title="Building VTK" href="building_vtk.html" />
+    <link rel="next" title="PyInstallerを使用したPyVistaのフリーズ" href="pyinstaller.html" />
+    <link rel="prev" title="VTKの構築" href="building_vtk.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="ja"/>
   </head>
@@ -166,35 +166,35 @@
     
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="../getting-started/index.html">
-                        Getting Started
+                        はじめに
                       </a>
                     </li>
                 
 
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="../user-guide/index.html">
-                        User Guide
+                        ユーザーガイド
                       </a>
                     </li>
                 
 
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="../examples/index.html">
-                        Examples
+                        例
                       </a>
                     </li>
                 
 
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="../api/index.html">
-                        API Reference
+                        APIリファレンス
                       </a>
                     </li>
                 
 
                     <li class="nav-item current active">
                       <a class="nav-link nav-internal" href="index.html">
-                        Extras
+                        その他
                       </a>
                     </li>
                 
@@ -356,35 +356,35 @@ document.write(`
     
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="../getting-started/index.html">
-                        Getting Started
+                        はじめに
                       </a>
                     </li>
                 
 
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="../user-guide/index.html">
-                        User Guide
+                        ユーザーガイド
                       </a>
                     </li>
                 
 
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="../examples/index.html">
-                        Examples
+                        例
                       </a>
                     </li>
                 
 
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="../api/index.html">
-                        API Reference
+                        APIリファレンス
                       </a>
                     </li>
                 
 
                     <li class="nav-item current active">
                       <a class="nav-link nav-internal" href="index.html">
-                        Extras
+                        その他
                       </a>
                     </li>
                 
@@ -496,14 +496,14 @@ document.write(`
      aria-label="Section Navigation">
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
   <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="building_vtk.html">Building VTK</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">PyVista within a Docker Container</a></li>
-<li class="toctree-l1"><a class="reference internal" href="pyinstaller.html">Freezing PyVista with PyInstaller</a></li>
-<li class="toctree-l1"><a class="reference internal" href="developer_notes.html">Contributing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="plot_directive.html">Sphinx PyVista Plot Directive</a></li>
-<li class="toctree-l1"><a class="reference internal" href="pytest_plugin.html">PyVista pytest Plugin</a></li>
-<li class="toctree-l1"><a class="reference internal" href="vtk_data.html">Using Local VTK-Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="extending_pyvista.html">Extending PyVista</a></li>
+<li class="toctree-l1"><a class="reference internal" href="building_vtk.html">VTKの構築</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Dockerコンテナ内のPyVista</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pyinstaller.html">PyInstallerを使用したPyVistaのフリーズ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_notes.html">貢献</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plot_directive.html">Sphinx PyVista Plot ディレクティブ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pytest_plugin.html">PyVista pytest プラグイン</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vtk_data.html">ローカルVTKデータの使用</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extending_pyvista.html">PyVistaの拡張</a></li>
 </ul>
 </div>
 </nav></div>
@@ -542,9 +542,9 @@ document.write(`
       </a>
     </li>
     
-    <li class="breadcrumb-item"><a href="index.html" class="nav-link">Extras</a></li>
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">その他</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page">PyVista within a Docker Container</li>
+    <li class="breadcrumb-item active" aria-current="page">Dockerコンテナ内のPyVista</li>
   </ul>
 </nav>
 </div>
@@ -563,15 +563,12 @@ document.write(`
                   
   <p>!</p>
 <section id="pyvista-within-a-docker-container">
-<h1>PyVista within a Docker Container<a class="headerlink" href="#pyvista-within-a-docker-container" title="この見出しへのパーマリンク">#</a></h1>
-<p>You can use <code class="docutils literal notranslate"><span class="pre">pyvista</span></code> from within a docker container with
-jupyterlab. To launch a local docker container, install <code class="docutils literal notranslate"><span class="pre">docker</span></code>, then
-pull and run the image with:</p>
+<h1>Dockerコンテナ内のPyVista<a class="headerlink" href="#pyvista-within-a-docker-container" title="この見出しへのパーマリンク">#</a></h1>
+<p>jupyterlabでは，Dockerコンテナから <code class="docutils literal notranslate"><span class="pre">pyvista</span></code> を使用することができます． ローカルのDockerコンテナを起動するには， <code class="docutils literal notranslate"><span class="pre">docker</span></code> をインストールし，イメージをpullして実行する．</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>run<span class="w"> </span>-p<span class="w"> </span><span class="m">8888</span>:8888<span class="w"> </span>ghcr.io/pyvista/pyvista:latest
 </pre></div>
 </div>
-<p>Finally, open the link that shows up from the terminal output and
-start playing around with pyvista in jupyterlab. For example:</p>
+<p>最後に，端末出力に表示されるリンクを開き，jupyterlabのpyvistaを試してみましょう．たとえば，次のようになります．</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>To access the notebook, open this file in a browser:
     file:///home/jovyan/.local/share/jupyter/runtime/nbserver-6-open.html
 Or copy and paste one of these URLs:
@@ -581,18 +578,15 @@ Or copy and paste one of these URLs:
 </div>
 <div class="admonition note">
 <p class="admonition-title">注釈</p>
-<p>You can see the latest tags of <a class="reference external" href="https://github.com/pyvista/pyvista/pkgs/container/pyvista">our Docker containers here</a>. <code class="docutils literal notranslate"><span class="pre">ghcr.io/pyvista/pyvista:latest</span></code> has
-JupyterLab set up while <code class="docutils literal notranslate"><span class="pre">ghcr.io/pyvista/pyvista:latest-slim</span></code> is a
-lightweight Python environment without Jupyter</p>
+<p><a href="#id1"><span class="problematic" id="id2">`私たちのDockerコンテナの最新のタグは，こちら&lt;https://github.com/pyvista/pyvista/pkgs/container/pyvista&gt;`_</span></a> で見ることができます． <code class="docutils literal notranslate"><span class="pre">ghcr.io/pyvista/pyvista:latest</span></code> には JupyterLab がセットアップされており， <code class="docutils literal notranslate"><span class="pre">ghcr.io/pyvista/pyvista:latest-slim</span></code> は Jupyter を含まない軽量の Python 環境です．</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">注釈</p>
-<p>You may need to log into the GitHub container registry by following the directions at
-<a class="reference external" href="https://docs.github.com/en/enterprise-server&#64;3.0/packages/working-with-a-github-packages-registry/working-with-the-docker-registry">Working with the Docker registry</a>)</p>
+<p><a class="reference external" href="https://docs.github.com/en/enterprise-server&#64;3.0/packages/working-with-a-github-packages-registry/working-with-the-docker-registry">Dockerレジストリを利用した作業</a> にある指示に従って，GitHubのコンテナレジストリにログインする必要があるかもしれません)</p>
 </div>
 <section id="create-your-own-docker-container-with-pyvista">
-<h2>Create your own Docker Container with PyVista<a class="headerlink" href="#create-your-own-docker-container-with-pyvista" title="この見出しへのパーマリンク">#</a></h2>
-<p>Clone PyVista and cd into this directory to create your own customized docker image.</p>
+<h2>PyVista で独自のDockerコンテナを作成します<a class="headerlink" href="#create-your-own-docker-container-with-pyvista" title="この見出しへのパーマリンク">#</a></h2>
+<p>PyVistaをこのディレクトリにクローンしcdでこのディレクトリに入り，独自のカスタマイズされたDockerイメージを作成します．</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/pyvista/pyvista
 <span class="nb">cd</span><span class="w"> </span>pyvista/docker
 <span class="nv">IMAGE</span><span class="o">=</span>my-pyvista-jupyterlab:v0.1.0
@@ -600,30 +594,18 @@ docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </
 docker<span class="w"> </span>push<span class="w"> </span><span class="nv">$IMAGE</span>
 </pre></div>
 </div>
-<p>If you wish to have off-screen GPU support when rending on jupyterlab,
-see the notes about building with EGL at <a class="reference internal" href="building_vtk.html#ref-building-vtk"><span class="std std-ref">Building VTK</span></a>,
-or use the custom, pre-built wheels at
-<a class="reference external" href="https://github.com/pyvista/pyvista/releases/tag/0.27.0">Release 0.27.0</a>.
-Install that customized vtk wheel onto your docker image by modifying
-the docker image at <code class="docutils literal notranslate"><span class="pre">pyvista/docker/jupyter.Dockerfile</span></code> with:</p>
+<p>jupyterlabでレンタルする際にオフスクリーンGPUをサポートさせたい場合は， <a class="reference internal" href="building_vtk.html#ref-building-vtk"><span class="std std-ref">VTKの構築</span></a> のEGLでのビルドに関する注意を参照するか， <a class="reference external" href="https://github.com/pyvista/pyvista/releases/tag/0.27.0">Release 0.27.0</a> のカスタムのプリビルドwheelを使用してください． <code class="docutils literal notranslate"><span class="pre">pyvista/docker/jupyter.Dockerfile</span></code> のDockerイメージを次のように変更して，カスタマイズしたvtk wheelをdockerイメージにインストールします．</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">COPY</span> <span class="n">vtk</span><span class="o">-</span><span class="mf">9.0.20201105</span><span class="o">-</span><span class="n">cp38</span><span class="o">-</span><span class="n">cp38</span><span class="o">-</span><span class="n">linux_x86_64</span><span class="o">.</span><span class="n">whl</span> <span class="o">/</span><span class="n">tmp</span><span class="o">/</span>
 <span class="n">RUN</span> <span class="n">pip</span> <span class="n">install</span> <span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">vtk</span><span class="o">-</span><span class="mf">9.0.20201105</span><span class="o">-</span><span class="n">cp38</span><span class="o">-</span><span class="n">cp38</span><span class="o">-</span><span class="n">linux_x86_64</span><span class="o">.</span><span class="n">whl</span>
 </pre></div>
 </div>
-<p>Additionally, you must install GPU drivers on the docker image of the
-same version running on the host machine. For example, if you are
-running on Azure Kubernetes Service and the GPU nodes on the
-kubernetes cluster are running <code class="docutils literal notranslate"><span class="pre">450.51.06</span></code>, you must install the same
-version on your image. Since you will be using the underlying kernel
-module, there's no reason to build it on the container (and trying
-will only result in an error).</p>
+<p>さらに，ホストマシンで実行されている同じバージョンのDockerイメージにGPUドライバをインストールする必要があります．例えば，Azure Kubernetes Serviceを実行していて，Kubernetesクラスタ上のGPUノードが <code class="docutils literal notranslate"><span class="pre">450.51.06</span></code> を実行している場合，同じバージョンをイメージにインストールする必要があります．基礎となるカーネル・モジュールを使用することになるので，コンテナー上にビルドする理由はありません(試行してもエラーになるだけです．)．</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">COPY</span> <span class="n">NVIDIA</span><span class="o">-</span><span class="n">Linux</span><span class="o">-</span><span class="n">x86_64</span><span class="o">-</span><span class="mf">450.51.06</span><span class="o">.</span><span class="n">run</span> <span class="n">nvidia_drivers</span><span class="o">.</span><span class="n">run</span>
 <span class="n">RUN</span> <span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">kmod</span> <span class="n">libglvnd</span><span class="o">-</span><span class="n">dev</span> <span class="n">pkg</span><span class="o">-</span><span class="n">config</span> <span class="o">-</span><span class="n">yq</span>
 <span class="n">RUN</span> <span class="o">./</span><span class="n">NVIDIA</span><span class="o">-</span><span class="n">Linux</span><span class="o">-</span><span class="n">x86_64</span><span class="o">-</span><span class="mf">450.51.06</span><span class="o">.</span><span class="n">run</span> <span class="o">-</span><span class="n">s</span> <span class="o">--</span><span class="n">no</span><span class="o">-</span><span class="n">kernel</span><span class="o">-</span><span class="n">module</span>
 </pre></div>
 </div>
-<p>To verify that you're rendering on a GPU, first check the output of
-<code class="docutils literal notranslate"><span class="pre">nvidia-smi</span></code>. You should get something like:</p>
+<p>GPUでレンダリングしているかどうかを確認するには，まず <code class="docutils literal notranslate"><span class="pre">nvidia-smi</span></code> の出力をチェックします．</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ nvidia-smi
 Sun Nov  8 05:48:46 2020
 +-----------------------------------------------------------------------------+
@@ -639,10 +621,8 @@ Sun Nov  8 05:48:46 2020
 +-------------------------------+----------------------+----------------------+
 </pre></div>
 </div>
-<p>Note the driver version (which is actually the kernel driver version),
-and verify it matches the version you installed on your docker image.</p>
-<p>Finally, check that your render window is using NVIDIA by running
-<code class="docutils literal notranslate"><span class="pre">ReportCapabilities</span></code>:</p>
+<p>ドライバのバージョン(これは実際にはカーネルドライバのバージョンです．)をメモし，それがdockerイメージにインストールしたバージョンと一致することを確認します．</p>
+<p>最後に， <code class="docutils literal notranslate"><span class="pre">ReportCapabilities</span></code> を実行して，レンダーウィンドウがNVIDIAを使用していることを確認します．</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyvista</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">pl</span> <span class="o">=</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">Plotter</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">pl</span><span class="o">.</span><span class="n">render_window</span><span class="o">.</span><span class="n">ReportCapabilities</span><span class="p">())</span>
@@ -658,8 +638,7 @@ and verify it matches the version you installed on your docker image.</p>
 <span class="go">  GL_ARB_bindless_texture</span>
 </pre></div>
 </div>
-<p>If you get <code class="docutils literal notranslate"><span class="pre">display</span> <span class="pre">id</span> <span class="pre">not</span> <span class="pre">set</span></code>, then your environment is likely not
-set up correctly.</p>
+<p><code class="docutils literal notranslate"><span class="pre">display</span> <span class="pre">id</span> <span class="pre">not</span> <span class="pre">set</span></code> を受信した場合，環境が正しく設定されていない可能性があります．</p>
 </section>
 </section>
 
@@ -680,7 +659,7 @@ set up correctly.</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-your-own-docker-container-with-pyvista">Create your own Docker Container with PyVista</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-your-own-docker-container-with-pyvista">PyVista で独自のDockerコンテナを作成します</a></li>
 </ul>
   </nav></div>
 
@@ -692,7 +671,7 @@ set up correctly.</p>
       
       
         
-          Edit on GitHub
+          GitHub で編集する
         
       
     </a>

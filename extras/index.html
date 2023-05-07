@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Extras &#8212; PyVista 0.40.dev0 ドキュメント</title>
+    <title>その他 &#8212; PyVista 0.40.dev0 ドキュメント</title>
   
   
   
@@ -75,7 +75,7 @@
         </script>
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
-    <link rel="next" title="Building VTK" href="building_vtk.html" />
+    <link rel="next" title="VTKの構築" href="building_vtk.html" />
     <link rel="prev" title="pyvista.examples.cells.HexagonalPrism" href="../api/examples/_autosummary/pyvista.examples.cells.HexagonalPrism.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="ja"/>
@@ -166,35 +166,35 @@
     
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="../getting-started/index.html">
-                        Getting Started
+                        はじめに
                       </a>
                     </li>
                 
 
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="../user-guide/index.html">
-                        User Guide
+                        ユーザーガイド
                       </a>
                     </li>
                 
 
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="../examples/index.html">
-                        Examples
+                        例
                       </a>
                     </li>
                 
 
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="../api/index.html">
-                        API Reference
+                        APIリファレンス
                       </a>
                     </li>
                 
 
                     <li class="nav-item current active">
                       <a class="nav-link nav-internal" href="#">
-                        Extras
+                        その他
                       </a>
                     </li>
                 
@@ -356,35 +356,35 @@ document.write(`
     
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="../getting-started/index.html">
-                        Getting Started
+                        はじめに
                       </a>
                     </li>
                 
 
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="../user-guide/index.html">
-                        User Guide
+                        ユーザーガイド
                       </a>
                     </li>
                 
 
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="../examples/index.html">
-                        Examples
+                        例
                       </a>
                     </li>
                 
 
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="../api/index.html">
-                        API Reference
+                        APIリファレンス
                       </a>
                     </li>
                 
 
                     <li class="nav-item current active">
                       <a class="nav-link nav-internal" href="#">
-                        Extras
+                        その他
                       </a>
                     </li>
                 
@@ -496,14 +496,14 @@ document.write(`
      aria-label="Section Navigation">
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
   <div class="bd-toc-item navbar-nav"><ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="building_vtk.html">Building VTK</a></li>
-<li class="toctree-l1"><a class="reference internal" href="docker.html">PyVista within a Docker Container</a></li>
-<li class="toctree-l1"><a class="reference internal" href="pyinstaller.html">Freezing PyVista with PyInstaller</a></li>
-<li class="toctree-l1"><a class="reference internal" href="developer_notes.html">Contributing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="plot_directive.html">Sphinx PyVista Plot Directive</a></li>
-<li class="toctree-l1"><a class="reference internal" href="pytest_plugin.html">PyVista pytest Plugin</a></li>
-<li class="toctree-l1"><a class="reference internal" href="vtk_data.html">Using Local VTK-Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="extending_pyvista.html">Extending PyVista</a></li>
+<li class="toctree-l1"><a class="reference internal" href="building_vtk.html">VTKの構築</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docker.html">Dockerコンテナ内のPyVista</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pyinstaller.html">PyInstallerを使用したPyVistaのフリーズ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_notes.html">貢献</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plot_directive.html">Sphinx PyVista Plot ディレクティブ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pytest_plugin.html">PyVista pytest プラグイン</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vtk_data.html">ローカルVTKデータの使用</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extending_pyvista.html">PyVistaの拡張</a></li>
 </ul>
 </div>
 </nav></div>
@@ -541,7 +541,7 @@ document.write(`
         <i class="fa-solid fa-home"></i>
       </a>
     </li>
-    <li class="breadcrumb-item active" aria-current="page">Extras</li>
+    <li class="breadcrumb-item active" aria-current="page">その他</li>
   </ul>
 </nav>
 </div>
@@ -559,84 +559,78 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section id="extras">
-<h1>Extras<a class="headerlink" href="#extras" title="この見出しへのパーマリンク">#</a></h1>
-<p>This section contains resources to expand the usage of PyVista beyond
-just running it from a Python console or IDE. For example, you can
-package PyVista in a docker image and build VTK with EGL to enable
-rich headless plotting on remote servers. You can also package
-PyVista using <a class="reference external" href="https://www.pyinstaller.org/">pyinstaller</a> to be used within a standalone
-application.</p>
-<p>See the <a class="reference internal" href="developer_notes.html#ref-developer-notes"><span class="std std-ref">Contributing</span></a> section for details on contributing
-and how you can help develop PyVista.</p>
+<h1>その他<a class="headerlink" href="#extras" title="この見出しへのパーマリンク">#</a></h1>
+<p>このセクションには，PythonコンソールまたはIDEからPyVistaを実行するだけでなく，PyVistaの使用方法を拡張するためのリソースが含まれています．例えば，PyVistaをDockerイメージにパッケージ化し，EGLでVTKをビルドして，リモートサーバ上での豊富なヘッドレスプロットを可能にすることができます． <a class="reference external" href="https://www.pyinstaller.org/">pyinstaller</a> を使用してPyVistaをパッケージ化し，スタンドアロンアプリケーション内で使用することもできます．</p>
+<p>貢献の詳細とPyVistaの開発方法については， <a class="reference internal" href="developer_notes.html#ref-developer-notes"><span class="std std-ref">貢献</span></a> のセクションを参照してください．</p>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="building_vtk.html">Building VTK</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="building_vtk.html#building-wheels">Building Wheels</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="building_vtk.html#off-screen-plotting-gpu-support">Off-Screen Plotting GPU Support</a></li>
-<li class="toctree-l3"><a class="reference internal" href="building_vtk.html#building-osmesa">Building OSMesa</a></li>
-<li class="toctree-l3"><a class="reference internal" href="building_vtk.html#building-manylinux-wheels">Building ManyLinux Wheels</a></li>
-<li class="toctree-l3"><a class="reference internal" href="building_vtk.html#building-python-vtk-wheel-on-raspberry-pi-64-bit">Building Python VTK Wheel on Raspberry Pi (64-bit)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="building_vtk.html">VTKの構築</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="building_vtk.html#building-wheels">ホイールを作る</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="building_vtk.html#off-screen-plotting-gpu-support">オフスクリーンプロットのGPUサポート</a></li>
+<li class="toctree-l3"><a class="reference internal" href="building_vtk.html#building-osmesa">OSMesaの構築</a></li>
+<li class="toctree-l3"><a class="reference internal" href="building_vtk.html#building-manylinux-wheels">ManyLinux wheel の構築</a></li>
+<li class="toctree-l3"><a class="reference internal" href="building_vtk.html#building-python-vtk-wheel-on-raspberry-pi-64-bit">Raspberry Pi上のPython VTK Wheel(64ビット)構築</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="docker.html">PyVista within a Docker Container</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="docker.html#create-your-own-docker-container-with-pyvista">Create your own Docker Container with PyVista</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docker.html">Dockerコンテナ内のPyVista</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="docker.html#create-your-own-docker-container-with-pyvista">PyVista で独自のDockerコンテナを作成します</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="pyinstaller.html">Freezing PyVista with PyInstaller</a></li>
-<li class="toctree-l1"><a class="reference internal" href="developer_notes.html">Contributing</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="developer_notes.html#being-respectful">Being Respectful</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developer_notes.html#cloning-the-source-repository">Cloning the Source Repository</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developer_notes.html#questions">Questions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developer_notes.html#reporting-bugs">Reporting Bugs</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developer_notes.html#feature-requests">Feature Requests</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developer_notes.html#contributing-new-code">Contributing New Code</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developer_notes.html#licensing">Licensing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developer_notes.html#id3">Development Practices</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="developer_notes.html#guidelines">Guidelines</a></li>
-<li class="toctree-l3"><a class="reference internal" href="developer_notes.html#contributing-to-pyvista-through-github">Contributing to PyVista through GitHub</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="developer_notes.html#coding-style">Coding Style</a></li>
-<li class="toctree-l4"><a class="reference internal" href="developer_notes.html#documentation-style">Documentation Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pyinstaller.html">PyInstallerを使用したPyVistaのフリーズ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_notes.html">貢献</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="developer_notes.html#being-respectful">尊敬の念を抱くこと</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_notes.html#cloning-the-source-repository">ソースリポジトリのクローン作成</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_notes.html#questions">質問</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_notes.html#reporting-bugs">バグの報告</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_notes.html#feature-requests">機能の要望</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_notes.html#contributing-new-code">新しいコードの提供</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_notes.html#licensing">ライセンス</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_notes.html#id3">開発手法</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="developer_notes.html#guidelines">ガイドライン</a></li>
+<li class="toctree-l3"><a class="reference internal" href="developer_notes.html#contributing-to-pyvista-through-github">GitHub経由でPyVistaにコントリビュートする</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="developer_notes.html#coding-style">コーディングスタイル</a></li>
+<li class="toctree-l4"><a class="reference internal" href="developer_notes.html#documentation-style">ドキュメンテーションスタイル</a></li>
 <li class="toctree-l4"><a class="reference internal" href="developer_notes.html#docstrings">Docstrings</a></li>
-<li class="toctree-l4"><a class="reference internal" href="developer_notes.html#deprecating-features-or-other-backwards-breaking-changes">Deprecating Features or other Backwards-Breaking Changes</a></li>
-<li class="toctree-l4"><a class="reference internal" href="developer_notes.html#branch-naming-conventions">Branch Naming Conventions</a></li>
-<li class="toctree-l4"><a class="reference internal" href="developer_notes.html#testing">Testing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="developer_notes.html#deprecating-features-or-other-backwards-breaking-changes">非推奨の機能またはその他の後方互換性のない変更</a></li>
+<li class="toctree-l4"><a class="reference internal" href="developer_notes.html#branch-naming-conventions">ブランチの命名規則</a></li>
+<li class="toctree-l4"><a class="reference internal" href="developer_notes.html#testing">テスト</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="developer_notes.html#using-gitpod-workspace">Using Gitpod Workspace</a></li>
-<li class="toctree-l3"><a class="reference internal" href="developer_notes.html#unit-testing">Unit Testing</a></li>
-<li class="toctree-l3"><a class="reference internal" href="developer_notes.html#documentation-testing">Documentation Testing</a></li>
-<li class="toctree-l3"><a class="reference internal" href="developer_notes.html#style-checking">Style Checking</a></li>
-<li class="toctree-l3"><a class="reference internal" href="developer_notes.html#notes-regarding-image-regression-testing">Notes Regarding Image Regression Testing</a></li>
-<li class="toctree-l3"><a class="reference internal" href="developer_notes.html#building-the-documentation">Building the Documentation</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="developer_notes.html#clearing-the-local-build">Clearing the Local Build</a></li>
-<li class="toctree-l4"><a class="reference internal" href="developer_notes.html#parallel-documentation-build">Parallel Documentation Build</a></li>
+<li class="toctree-l3"><a class="reference internal" href="developer_notes.html#using-gitpod-workspace">Gitpodワークスペースの使用</a></li>
+<li class="toctree-l3"><a class="reference internal" href="developer_notes.html#unit-testing">ユニットテスト</a></li>
+<li class="toctree-l3"><a class="reference internal" href="developer_notes.html#documentation-testing">ドキュメンテーションテスト</a></li>
+<li class="toctree-l3"><a class="reference internal" href="developer_notes.html#style-checking">スタイルチェック</a></li>
+<li class="toctree-l3"><a class="reference internal" href="developer_notes.html#notes-regarding-image-regression-testing">イメージ回帰テストに関する注意事項</a></li>
+<li class="toctree-l3"><a class="reference internal" href="developer_notes.html#building-the-documentation">ドキュメントの作成</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="developer_notes.html#clearing-the-local-build">ローカルビルドのクリア</a></li>
+<li class="toctree-l4"><a class="reference internal" href="developer_notes.html#parallel-documentation-build">ドキュメントの並列ビルド</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="developer_notes.html#contributing-to-the-documentation">Contributing to the Documentation</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="developer_notes.html#adding-a-new-example">Adding a New Example</a></li>
-<li class="toctree-l4"><a class="reference internal" href="developer_notes.html#add-a-new-example-file">Add a New Example File</a></li>
+<li class="toctree-l3"><a class="reference internal" href="developer_notes.html#contributing-to-the-documentation">ドキュメンテーションへの貢献</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="developer_notes.html#adding-a-new-example">新しい例の追加</a></li>
+<li class="toctree-l4"><a class="reference internal" href="developer_notes.html#add-a-new-example-file">新しいサンプルファイルの追加</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="developer_notes.html#creating-a-new-pull-request">Creating a New Pull Request</a></li>
-<li class="toctree-l3"><a class="reference internal" href="developer_notes.html#branching-model">Branching Model</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="developer_notes.html#minor-release-steps">Minor Release Steps</a></li>
-<li class="toctree-l4"><a class="reference internal" href="developer_notes.html#patch-release-steps">Patch Release Steps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="developer_notes.html#creating-a-new-pull-request">新規Pull Requestの作成</a></li>
+<li class="toctree-l3"><a class="reference internal" href="developer_notes.html#branching-model">ブランチモデル</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="developer_notes.html#minor-release-steps">マイナーリリース手順</a></li>
+<li class="toctree-l4"><a class="reference internal" href="developer_notes.html#patch-release-steps">パッチリリース手順</a></li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="plot_directive.html">Sphinx PyVista Plot Directive</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="plot_directive.html#options">Options</a></li>
-<li class="toctree-l2"><a class="reference internal" href="plot_directive.html#configuration-options">Configuration options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plot_directive.html">Sphinx PyVista Plot ディレクティブ</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="plot_directive.html#options">オプション</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plot_directive.html#configuration-options">設定オプション</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="pytest_plugin.html">PyVista pytest Plugin</a></li>
-<li class="toctree-l1"><a class="reference internal" href="vtk_data.html">Using Local VTK-Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="extending_pyvista.html">Extending PyVista</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pytest_plugin.html">PyVista pytest プラグイン</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vtk_data.html">ローカルVTKデータの使用</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extending_pyvista.html">PyVistaの拡張</a></li>
 </ul>
 </div>
 </section>
@@ -660,7 +654,7 @@ and how you can help develop PyVista.</p>
       
       
         
-          Edit on GitHub
+          GitHub で編集する
         
       
     </a>

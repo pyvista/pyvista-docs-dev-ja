@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Freezing PyVista with PyInstaller &#8212; PyVista 0.40.dev0 ドキュメント</title>
+    <title>PyInstallerを使用したPyVistaのフリーズ &#8212; PyVista 0.40.dev0 ドキュメント</title>
   
   
   
@@ -75,8 +75,8 @@
         </script>
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
-    <link rel="next" title="Contributing" href="developer_notes.html" />
-    <link rel="prev" title="PyVista within a Docker Container" href="docker.html" />
+    <link rel="next" title="貢献" href="developer_notes.html" />
+    <link rel="prev" title="Dockerコンテナ内のPyVista" href="docker.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="ja"/>
   </head>
@@ -166,35 +166,35 @@
     
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="../getting-started/index.html">
-                        Getting Started
+                        はじめに
                       </a>
                     </li>
                 
 
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="../user-guide/index.html">
-                        User Guide
+                        ユーザーガイド
                       </a>
                     </li>
                 
 
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="../examples/index.html">
-                        Examples
+                        例
                       </a>
                     </li>
                 
 
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="../api/index.html">
-                        API Reference
+                        APIリファレンス
                       </a>
                     </li>
                 
 
                     <li class="nav-item current active">
                       <a class="nav-link nav-internal" href="index.html">
-                        Extras
+                        その他
                       </a>
                     </li>
                 
@@ -356,35 +356,35 @@ document.write(`
     
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="../getting-started/index.html">
-                        Getting Started
+                        はじめに
                       </a>
                     </li>
                 
 
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="../user-guide/index.html">
-                        User Guide
+                        ユーザーガイド
                       </a>
                     </li>
                 
 
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="../examples/index.html">
-                        Examples
+                        例
                       </a>
                     </li>
                 
 
                     <li class="nav-item">
                       <a class="nav-link nav-internal" href="../api/index.html">
-                        API Reference
+                        APIリファレンス
                       </a>
                     </li>
                 
 
                     <li class="nav-item current active">
                       <a class="nav-link nav-internal" href="index.html">
-                        Extras
+                        その他
                       </a>
                     </li>
                 
@@ -496,14 +496,14 @@ document.write(`
      aria-label="Section Navigation">
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
   <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="building_vtk.html">Building VTK</a></li>
-<li class="toctree-l1"><a class="reference internal" href="docker.html">PyVista within a Docker Container</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Freezing PyVista with PyInstaller</a></li>
-<li class="toctree-l1"><a class="reference internal" href="developer_notes.html">Contributing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="plot_directive.html">Sphinx PyVista Plot Directive</a></li>
-<li class="toctree-l1"><a class="reference internal" href="pytest_plugin.html">PyVista pytest Plugin</a></li>
-<li class="toctree-l1"><a class="reference internal" href="vtk_data.html">Using Local VTK-Data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="extending_pyvista.html">Extending PyVista</a></li>
+<li class="toctree-l1"><a class="reference internal" href="building_vtk.html">VTKの構築</a></li>
+<li class="toctree-l1"><a class="reference internal" href="docker.html">Dockerコンテナ内のPyVista</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">PyInstallerを使用したPyVistaのフリーズ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer_notes.html">貢献</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plot_directive.html">Sphinx PyVista Plot ディレクティブ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pytest_plugin.html">PyVista pytest プラグイン</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vtk_data.html">ローカルVTKデータの使用</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extending_pyvista.html">PyVistaの拡張</a></li>
 </ul>
 </div>
 </nav></div>
@@ -542,9 +542,9 @@ document.write(`
       </a>
     </li>
     
-    <li class="breadcrumb-item"><a href="index.html" class="nav-link">Extras</a></li>
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">その他</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page">Freezing PyVista with PyInstaller</li>
+    <li class="breadcrumb-item active" aria-current="page">PyInstallerを使用したPyVistaのフリーズ</li>
   </ul>
 </nav>
 </div>
@@ -562,15 +562,9 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section id="freezing-pyvista-with-pyinstaller">
-<span id="ref-pyinstaller"></span><h1>Freezing PyVista with PyInstaller<a class="headerlink" href="#freezing-pyvista-with-pyinstaller" title="この見出しへのパーマリンク">#</a></h1>
-<p>You can make some fantastic standalone programs with <code class="docutils literal notranslate"><span class="pre">pyinstaller</span></code>
-and <code class="docutils literal notranslate"><span class="pre">pyvista</span></code>, and you can even make a graphical user interface
-incorporating <code class="docutils literal notranslate"><span class="pre">PyQt5</span></code> or <code class="docutils literal notranslate"><span class="pre">pyside2</span></code>.  Depending on your version of
-VTK, this requires some extra steps to setup.</p>
-<p>When running VTK v9, you need to add several additional
-<code class="docutils literal notranslate"><span class="pre">hiddenimports</span></code>.  For clarity and completeness, create a spec file
-(we'll name it <code class="docutils literal notranslate"><span class="pre">pyvista.spec</span></code>) following the directions given at
-<a class="reference external" href="https://pyinstaller.readthedocs.io/en/stable/spec-files.html">Using Spec Files</a>.  Modify the <code class="docutils literal notranslate"><span class="pre">Analysis</span></code> and add the following hidden imports:</p>
+<span id="ref-pyinstaller"></span><h1>PyInstallerを使用したPyVistaのフリーズ<a class="headerlink" href="#freezing-pyvista-with-pyinstaller" title="この見出しへのパーマリンク">#</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">pyinstaller</span></code> や <code class="docutils literal notranslate"><span class="pre">pyvista</span></code> を使って素晴らしいスタンドアローンのプログラムを作ることができますし， <code class="docutils literal notranslate"><span class="pre">PyQt5</span></code> や <code class="docutils literal notranslate"><span class="pre">pyside2</span></code> を組み込んだグラフィカルユーザインタフェースを作ることもできます．VTKのバージョンによっては，これをセットアップするために追加のステップが必要です．</p>
+<p>VTK v9を実行しているときは，さらにいくつかの <code class="docutils literal notranslate"><span class="pre">hiddenimports</span></code> を追加する必要があります．説明をわかりやすく，完全なものにするために， <a class="reference external" href="https://pyinstaller.readthedocs.io/en/stable/spec-files.html">Specファイルを使う</a> の指示に従ってスペックファイル(私たちは <code class="docutils literal notranslate"><span class="pre">pyvista.spec</span></code> と名付けます)を作成してください． <code class="docutils literal notranslate"><span class="pre">Analysis</span></code> を修正し，次の非表示のインポートを追加します．</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">main_py</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">some_path</span><span class="p">,</span> <span class="s2">&quot;main.py&quot;</span><span class="p">)</span>
 <span class="n">a</span> <span class="o">=</span> <span class="n">Analysis</span><span class="p">(</span>
     <span class="p">[</span><span class="n">main_py</span><span class="p">],</span>
@@ -587,8 +581,7 @@ VTK, this requires some extra steps to setup.</p>
 <span class="p">)</span>
 </pre></div>
 </div>
-<p>From there, you can freeze an application using <code class="docutils literal notranslate"><span class="pre">pyvista</span></code> and create
-a standalone application.</p>
+<p>そこから， <code class="docutils literal notranslate"><span class="pre">pyvista</span></code> を使用してアプリケーションをフリーズし，スタンドアロンアプリケーションを作成できます．</p>
 </section>
 
 
@@ -610,7 +603,7 @@ a standalone application.</p>
       
       
         
-          Edit on GitHub
+          GitHub で編集する
         
       
     </a>
