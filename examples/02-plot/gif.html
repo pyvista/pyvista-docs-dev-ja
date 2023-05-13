@@ -689,8 +689,7 @@ to download the full example code</p>
 </section>
 <section id="create-a-structured-grid">
 <h1>構造化グリッドの作成<a class="headerlink" href="#create-a-structured-grid" title="この見出しへのパーマリンク">#</a></h1>
-<p>Create a structured grid and make a &quot;wave&quot; my shifting the Z position based
-on the cartesian distance from the origin.</p>
+<p>構造化されたグリッドを作成し，原点からのデカルト距離に基づいてZ位置をシフトする &quot;波&quot; を作ります．</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">x</span></a> <span class="o">=</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.arange.html#numpy.arange" title="numpy.arange" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">arange</span></a><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
 <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">y</span></a> <span class="o">=</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.arange.html#numpy.arange" title="numpy.arange" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">arange</span></a><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
 <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">x</span></a><span class="p">,</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">y</span></a> <span class="o">=</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.meshgrid.html#numpy.meshgrid" title="numpy.meshgrid" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span></a><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">x</span></a><span class="p">,</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">y</span></a><span class="p">)</span>
@@ -704,8 +703,8 @@ on the cartesian distance from the origin.</p>
 </div>
 <img src="../../_images/sphx_glr_gif_001.png" srcset="../../_images/sphx_glr_gif_001.png" alt="gif" class = "sphx-glr-single-img"/></section>
 <section id="generate-a-gif">
-<h1>Generate a GIF<a class="headerlink" href="#generate-a-gif" title="この見出しへのパーマリンク">#</a></h1>
-<p>Generate a GIF using <code class="docutils literal notranslate"><span class="pre">off_screen=True</span></code> parameter.</p>
+<h1>GIFを生成する<a class="headerlink" href="#generate-a-gif" title="この見出しへのパーマリンク">#</a></h1>
+<p><code class="docutils literal notranslate"><span class="pre">off_screen=True</span></code> パラメータを使用してGIFを生成します．</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a plotter object and set the scalars to the Z height</span>
 <span class="n">plotter</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Plotter</span><span class="p">(</span><span class="n">notebook</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">off_screen</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">plotter</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span>
@@ -737,7 +736,7 @@ on the cartesian distance from the origin.</p>
 <span class="n">plotter</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_gif_002.gif" srcset="../../_images/sphx_glr_gif_002.gif" alt="gif" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  2.720 seconds)</p>
+<img src="../../_images/sphx_glr_gif_002.gif" srcset="../../_images/sphx_glr_gif_002.gif" alt="gif" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  2.625 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-02-plot-gif-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/d4ff4e92f37feb399b859a140b3e672e/gif.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">gif.py</span></code></a></p>
@@ -768,7 +767,7 @@ on the cartesian distance from the origin.</p>
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">GIFムービーの作成</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-structured-grid">構造化グリッドの作成</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-a-gif">Generate a GIF</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-a-gif">GIFを生成する</a></li>
 </ul>
 
   </nav></div>
