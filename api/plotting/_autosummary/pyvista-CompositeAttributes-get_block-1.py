@@ -8,20 +8,20 @@ dataset = pv.MultiBlock(
 )
 pl = pv.Plotter()
 actor, mapper = pl.add_composite(dataset)
-mapper.block_attr.get_block(0)  # doctest:+SKIP
+mapper.block_attr.get_block(0)
 # Expected:
 ## MultiBlock (...)
-##   N Blocks:     2
-##   X Bounds:     -0.500, 0.500
-##   Y Bounds:     -0.500, 0.500
-##   Z Bounds:     -0.500, 1.500
+##   N Blocks    2
+##   X Bounds    -0.500, 0.500
+##   Y Bounds    -0.500, 0.500
+##   Z Bounds    -0.500, 1.500
 #
 # Note this is the same as using ``__getitem__``
 #
-mapper.block_attr[0]  # doctest:+SKIP
+mapper.block_attr[0]
 # Expected:
-## MultiBlock (...)
-##   N Blocks:     2
-##   X Bounds:     -0.500, 0.500
-##   Y Bounds:     -0.500, 0.500
-##   Z Bounds:     -0.500, 1.500
+## Composite Block Addr=... Attributes
+## Visible:   None
+## Opacity:   None
+## Color:     None
+## Pickable   None

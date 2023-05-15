@@ -8,7 +8,7 @@ os.path.basename(path)
 # Expected:
 ## 'masonry.bmp'
 texture = pv.Texture(path)
-texture  # doctest:+SKIP
+texture
 # Expected:
 ## Texture (...)
 ##   Components:   3

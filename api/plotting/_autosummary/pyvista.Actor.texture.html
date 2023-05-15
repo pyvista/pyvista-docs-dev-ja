@@ -607,7 +607,7 @@ document.write(`
 <h1>pyvista.Actor.texture<a class="headerlink" href="#pyvista-actor-texture" title="この見出しへのパーマリンク">#</a></h1>
 <dl class="py property">
 <dt class="sig sig-object py" id="pyvista.Actor.texture">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Actor.</span></span><span class="sig-name descname"><span class="pre">texture</span></span><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/plotting/actor.py#L165-L191"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.Actor.texture" title="この定義へのパーマリンク">#</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Actor.</span></span><span class="sig-name descname"><span class="pre">texture</span></span><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/plotting/actor.py#L164-L193"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.Actor.texture" title="この定義へのパーマリンク">#</a></dt>
 <dd><p>アクターのテクスチャを返すか設定します．</p>
 <p class="rubric">備考</p>
 <p>マッパーデータセットには，使用するテクスチャのテクスチャ座標が必要です．</p>
@@ -621,10 +621,16 @@ document.write(`
 <span class="gp">&gt;&gt;&gt; </span><span class="n">pl</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Plotter</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">actor</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">plane</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">actor</span><span class="o">.</span><span class="n">texture</span> <span class="o">=</span> <span class="n">examples</span><span class="o">.</span><span class="n">download_masonry_texture</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">actor</span><span class="o">.</span><span class="n">texture</span>  
-<span class="go">&lt;Texture(0x378c920) at 0x7f7af577e700&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">actor</span><span class="o">.</span><span class="n">texture</span>
+<span class="go">Texture (...)</span>
+<span class="go">  Components:   3</span>
+<span class="go">  Cube Map:     False</span>
+<span class="go">  Dimensions:   256, 256</span>
 </pre></div>
 </div>
+<figure class="align-default">
+<img alt="../../../_images/pyvista-Actor-texture-1_00_00.png" src="../../../_images/pyvista-Actor-texture-1_00_00.png" />
+</figure>
 </dd></dl>
 
 </section>

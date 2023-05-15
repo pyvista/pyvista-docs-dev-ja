@@ -1,5 +1,5 @@
 import pyvista
-plotter = pyvista.Plotter()
-plotter.camera.direction  # doctest:+SKIP
+pl = pyvista.Plotter()
+pl.camera.direction  # doctest:+SKIP
 # Expected:
-## (0.0, 0.0, -1.0)
+## (-0.5773502691896257, -0.5773502691896257, -0.5773502691896257)

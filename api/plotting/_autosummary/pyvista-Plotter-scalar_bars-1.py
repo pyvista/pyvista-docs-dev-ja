@@ -10,6 +10,6 @@ plotter.scalar_bars
 #
 # Select a scalar bar actor based on the title of the bar.
 #
-plotter.scalar_bars['Data']  # doctest:+SKIP
+plotter.scalar_bars['Data']
 # Expected:
-## (vtkmodules.vtkRenderingAnnotation.vtkScalarBarActor)0x7fcd3567ca00
+## <vtkmodules.vtkRenderingAnnotation.vtkScalarBarActor(...) at ...>

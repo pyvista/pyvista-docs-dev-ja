@@ -1,20 +1,12 @@
 from pyvista import examples
-grid = examples.load_explicit_structured()  # doctest:+SKIP
-grid.plot(
-    color='w', show_edges=True, show_bounds=True
-)  # doctest:+SKIP
+grid = examples.load_explicit_structured()
+grid.plot(color='w', show_edges=True, show_bounds=True)
 #
-grid = grid.hide_cells(range(80, 120))  # doctest:+SKIP
-grid.plot(
-    color='w', show_edges=True, show_bounds=True
-)  # doctest:+SKIP
+grid = grid.hide_cells(range(80, 120))
+grid.plot(color='w', show_edges=True, show_bounds=True)
 #
-grid = grid.cast_to_unstructured_grid()  # doctest:+SKIP
-grid.plot(
-    color='w', show_edges=True, show_bounds=True
-)  # doctest:+SKIP
+grid = grid.cast_to_unstructured_grid()
+grid.plot(color='w', show_edges=True, show_bounds=True)
 #
-grid = grid.cast_to_explicit_structured_grid()  # doctest:+SKIP
-grid.plot(
-    color='w', show_edges=True, show_bounds=True
-)  # doctest:+SKIP
+grid = grid.cast_to_explicit_structured_grid()
+grid.plot(color='w', show_edges=True, show_bounds=True)

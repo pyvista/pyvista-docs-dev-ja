@@ -632,23 +632,26 @@ document.write(`
 <span class="gp">... </span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">pl</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Plotter</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">actor</span><span class="p">,</span> <span class="n">mapper</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">add_composite</span><span class="p">(</span><span class="n">dataset</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mapper</span><span class="o">.</span><span class="n">block_attr</span><span class="o">.</span><span class="n">get_block</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>  
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mapper</span><span class="o">.</span><span class="n">block_attr</span><span class="o">.</span><span class="n">get_block</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <span class="go">MultiBlock (...)</span>
-<span class="go">  N Blocks:     2</span>
-<span class="go">  X Bounds:     -0.500, 0.500</span>
-<span class="go">  Y Bounds:     -0.500, 0.500</span>
-<span class="go">  Z Bounds:     -0.500, 1.500</span>
+<span class="go">  N Blocks    2</span>
+<span class="go">  X Bounds    -0.500, 0.500</span>
+<span class="go">  Y Bounds    -0.500, 0.500</span>
+<span class="go">  Z Bounds    -0.500, 1.500</span>
 </pre></div>
 </div>
 <p>これは <code class="docutils literal notranslate"><span class="pre">__getitem__</span></code> を使用するのと同じであることに注意してください．</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mapper</span><span class="o">.</span><span class="n">block_attr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  
-<span class="go">MultiBlock (...)</span>
-<span class="go">  N Blocks:     2</span>
-<span class="go">  X Bounds:     -0.500, 0.500</span>
-<span class="go">  Y Bounds:     -0.500, 0.500</span>
-<span class="go">  Z Bounds:     -0.500, 1.500</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mapper</span><span class="o">.</span><span class="n">block_attr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="go">Composite Block Addr=... Attributes</span>
+<span class="go">Visible:   None</span>
+<span class="go">Opacity:   None</span>
+<span class="go">Color:     None</span>
+<span class="go">Pickable   None</span>
 </pre></div>
 </div>
+<figure class="align-default">
+<img alt="../../../_images/pyvista-CompositeAttributes-get_block-1_00_00.png" src="../../../_images/pyvista-CompositeAttributes-get_block-1_00_00.png" />
+</figure>
 </dd></dl>
 
 </section>

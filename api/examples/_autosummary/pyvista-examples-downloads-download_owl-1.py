@@ -11,12 +11,13 @@ mesh.plot(cpos=cpos)
 #
 # Return the statistics of the dataset.
 #
-mesh  # doctest:+SKIP
+mesh
 # Expected:
-## PolyData (0x7fe8caeeaee0)
-##   N Cells:      2440707
-##   N Points:     1221756
-##   X Bounds:     -5.834e+01, 7.047e+01
-##   Y Bounds:     -7.006e+01, 6.658e+01
-##   Z Bounds:     1.676e+00, 2.013e+02
-##   N Arrays:     0
+## PolyData (...)
+##   N Cells:    2440707
+##   N Points:   1221756
+##   N Strips:   0
+##   X Bounds:   -5.834e+01, 7.047e+01
+##   Y Bounds:   -7.006e+01, 6.658e+01
+##   Z Bounds:   1.676e+00, 2.013e+02
+##   N Arrays:   0

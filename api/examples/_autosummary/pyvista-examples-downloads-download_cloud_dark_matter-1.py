@@ -3,15 +3,15 @@
 import numpy as np
 from pyvista import examples
 pc = examples.download_cloud_dark_matter()
-pc  # doctest:+SKIP
+pc
 # Expected:
-## PointSet (0x7f97f718d460)
-##   N Cells:      0
-##   N Points:     32314
-##   X Bounds:     7.451e+01, 7.892e+01
-##   Y Bounds:     1.616e+01, 2.275e+01
-##   Z Bounds:     8.900e+01, 9.319e+01
-##   N Arrays:     0
+## PointSet (...)
+##   N Cells:    0
+##   N Points:   32314
+##   X Bounds:   7.451e+01, 7.892e+01
+##   Y Bounds:   1.616e+01, 2.275e+01
+##   Z Bounds:   8.900e+01, 9.319e+01
+##   N Arrays:   0
 #
 # Plot the point cloud. Color based on the distance from the center of the
 # cloud.

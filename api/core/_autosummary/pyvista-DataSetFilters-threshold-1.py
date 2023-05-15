@@ -4,15 +4,15 @@ volume = np.zeros([10, 10, 10])
 volume[:3] = 1
 vol = pyvista.wrap(volume)
 threshed = vol.threshold(0.1)
-threshed  # doctest:+SKIP
+threshed
 # Expected:
-## UnstructuredGrid (0x7f00f9983fa0)
-##   N Cells:      243
-##   N Points:     400
-##   X Bounds:     0.000e+00, 3.000e+00
-##   Y Bounds:     0.000e+00, 9.000e+00
-##   Z Bounds:     0.000e+00, 9.000e+00
-##   N Arrays:     1
+## UnstructuredGrid (...)
+##   N Cells:    243
+##   N Points:   400
+##   X Bounds:   0.000e+00, 3.000e+00
+##   Y Bounds:   0.000e+00, 9.000e+00
+##   Z Bounds:   0.000e+00, 9.000e+00
+##   N Arrays:   1
 #
 # Apply the threshold filter to Perlin noise.  First generate
 # the structured grid.

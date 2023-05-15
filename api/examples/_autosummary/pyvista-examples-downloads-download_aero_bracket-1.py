@@ -2,9 +2,9 @@
 #
 from pyvista import examples
 dataset = examples.download_aero_bracket()
-dataset  # doctest:+SKIP
+dataset
 # Expected:
-## UnstructuredGrid (0x7f439aa2cac0)
+## UnstructuredGrid (...)
 ##   N Cells:    117292
 ##   N Points:   187037
 ##   X Bounds:   -6.858e-03, 1.118e-01

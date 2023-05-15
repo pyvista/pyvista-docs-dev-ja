@@ -6,12 +6,13 @@ mesh.plot()
 #
 # Return the statistics of the dataset.
 #
-mesh  # doctest:+SKIP
+mesh
 # Expected:
-## PolyData (0x7fd08f1faf40)
-##   N Cells:      13702
-##   N Points:     6801
-##   X Bounds:     -6.460e-31, 9.000e+01
-##   Y Bounds:     -3.535e-32, 1.480e+02
-##   Z Bounds:     -7.287e-13, 2.000e+01
-##   N Arrays:     1
+## PolyData (...)
+##   N Cells:    15446
+##   N Points:   7677
+##   N Strips:   0
+##   X Bounds:   -6.460e-31, 9.000e+01
+##   Y Bounds:   -3.535e-32, 1.480e+02
+##   Z Bounds:   0.000e+00, 2.000e+01
+##   N Arrays:   2

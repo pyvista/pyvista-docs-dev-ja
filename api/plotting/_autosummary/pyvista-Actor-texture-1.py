@@ -10,6 +10,9 @@ plane.active_t_coords is not None
 pl = pv.Plotter()
 actor = pl.add_mesh(plane)
 actor.texture = examples.download_masonry_texture()
-actor.texture  # doctest:+SKIP
+actor.texture
 # Expected:
-## <Texture(0x378c920) at 0x7f7af577e700>
+## Texture (...)
+##   Components:   3
+##   Cube Map:     False
+##   Dimensions:   256, 256

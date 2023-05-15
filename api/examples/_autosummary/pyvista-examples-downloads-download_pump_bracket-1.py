@@ -3,9 +3,9 @@
 import pyvista as pv
 from pyvista import examples
 dataset = examples.download_pump_bracket()
-dataset  # doctest:+SKIP
+dataset
 # Expected:
-## UnstructuredGrid (0x7f46a9279120)
+## UnstructuredGrid (...)
 ##   N Cells:    124806
 ##   N Points:   250487
 ##   X Bounds:   -5.000e-01, 5.000e-01

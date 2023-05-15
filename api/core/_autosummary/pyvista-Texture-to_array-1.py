@@ -1,6 +1,6 @@
 from pyvista import examples
 texture = examples.download_puppy_texture()
-texture  # doctest:+SKIP
+texture
 # Expected:
 ## Texture (...)
 ##   Components:   3

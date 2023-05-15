@@ -4,9 +4,9 @@ import pyvista as pv
 mesh = pv.Sphere()
 mapper = pv.DataSetMapper(mesh)
 actor = pv.Actor(mapper=mapper)
-actor  # doctest:+SKIP
+actor
 # Expected:
-## Actor (0x7f54c4d65ee0)
+## Actor (...)
 ##   Center:                     (0.0, 0.0, 0.0)
 ##   Pickable:                   True
 ##   Position:                   (0.0, 0.0, 0.0)

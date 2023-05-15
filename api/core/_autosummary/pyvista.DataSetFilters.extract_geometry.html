@@ -660,7 +660,7 @@ document.write(`
 <h1>pyvista.DataSetFilters.extract_geometry<a class="headerlink" href="#pyvista-datasetfilters-extract-geometry" title="この見出しへのパーマリンク">#</a></h1>
 <dl class="py method">
 <dt class="sig sig-object py" id="pyvista.DataSetFilters.extract_geometry">
-<span class="sig-prename descclassname"><span class="pre">DataSetFilters.</span></span><span class="sig-name descname"><span class="pre">extract_geometry</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">extent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Sequence" title="(in Python v3.11)"><span class="pre">Sequence</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><span class="pre">float</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.11)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">progress_bar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/core/filters/data_set.py#L1449-L1497"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.DataSetFilters.extract_geometry" title="この定義へのパーマリンク">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">DataSetFilters.</span></span><span class="sig-name descname"><span class="pre">extract_geometry</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">extent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Sequence" title="(in Python v3.11)"><span class="pre">Sequence</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><span class="pre">float</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.11)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">progress_bar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/core/filters/data_set.py#L1449-L1498"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.DataSetFilters.extract_geometry" title="この定義へのパーマリンク">#</a></dt>
 <dd><p>ボリュームまたは構造格子データセットの外側サーフェスを抽出します．</p>
 <p>これにより，データセットの境界面を生成するすべての0 D，1 D，および2 Dセルが抽出されます．</p>
 <div class="admonition note">
@@ -688,14 +688,15 @@ document.write(`
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyvista</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pyvista</span> <span class="kn">import</span> <span class="n">examples</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">hex_beam</span> <span class="o">=</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">examples</span><span class="o">.</span><span class="n">hexbeamfile</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">hex_beam</span><span class="o">.</span><span class="n">extract_geometry</span><span class="p">()</span>  
-<span class="go">PolyData (0x7f2f8c132040)</span>
-<span class="go">  N Cells:      88</span>
-<span class="go">  N Points:     90</span>
-<span class="go">  X Bounds:     0.000e+00, 1.000e+00</span>
-<span class="go">  Y Bounds:     0.000e+00, 1.000e+00</span>
-<span class="go">  Z Bounds:     0.000e+00, 5.000e+00</span>
-<span class="go">  N Arrays:     3</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">hex_beam</span><span class="o">.</span><span class="n">extract_geometry</span><span class="p">()</span>
+<span class="go">PolyData (...)</span>
+<span class="go">  N Cells:    88</span>
+<span class="go">  N Points:   90</span>
+<span class="go">  N Strips:   0</span>
+<span class="go">  X Bounds:   0.000e+00, 1.000e+00</span>
+<span class="go">  Y Bounds:   0.000e+00, 1.000e+00</span>
+<span class="go">  Z Bounds:   0.000e+00, 5.000e+00</span>
+<span class="go">  N Arrays:   3</span>
 </pre></div>
 </div>
 <p>このフィルターを使用したその他の例については， <a class="reference internal" href="../../../examples/01-filter/surface-smoothing.html#surface-smoothing-example"><span class="std std-ref">サーフェイススムージング</span></a> を参照してください．</p>

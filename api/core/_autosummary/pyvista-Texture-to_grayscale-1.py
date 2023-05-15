@@ -1,9 +1,9 @@
 from pyvista import examples
 texture = examples.download_masonry_texture()
 bw_texture = texture.to_grayscale()
-bw_texture  # doctest:+SKIP
+bw_texture
 # Expected:
-## Texture (0x7f711fc6a740)
+## Texture (...)
 ##   Components:   1
 ##   Cube Map:     False
 ##   Dimensions:   256, 256

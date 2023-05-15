@@ -634,7 +634,7 @@ document.write(`
 <h1>pyvista.PolyDataFilters.curvature<a class="headerlink" href="#pyvista-polydatafilters-curvature" title="この見出しへのパーマリンク">#</a></h1>
 <dl class="py method">
 <dt class="sig sig-object py" id="pyvista.PolyDataFilters.curvature">
-<span class="sig-prename descclassname"><span class="pre">PolyDataFilters.</span></span><span class="sig-name descname"><span class="pre">curvature</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">curv_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'mean'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">progress_bar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/core/filters/poly_data.py#L532-L589"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.PolyDataFilters.curvature" title="この定義へのパーマリンク">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">PolyDataFilters.</span></span><span class="sig-name descname"><span class="pre">curvature</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">curv_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'mean'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">progress_bar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/core/filters/poly_data.py#L551-L608"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.PolyDataFilters.curvature" title="この定義へのパーマリンク">#</a></dt>
 <dd><p>メッシュのポイント単位の曲率を取得します．</p>
 <dl class="field-list">
 <dt class="field-odd">パラメータ<span class="colon">:</span></dt>
@@ -659,16 +659,19 @@ document.write(`
 </dd>
 </dl>
 <p class="rubric">例</p>
-<p>丘の例のメッシュの平均曲率を計算する．</p>
+<p>Calculate the mean curvature of the hills example mesh and plot it.</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pyvista</span> <span class="kn">import</span> <span class="n">examples</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">hills</span> <span class="o">=</span> <span class="n">examples</span><span class="o">.</span><span class="n">load_random_hills</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">curv</span> <span class="o">=</span> <span class="n">hills</span><span class="o">.</span><span class="n">curvature</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">curv</span>  
-<span class="go">array([0.20587616, 0.06747695, ..., 0.11781171, 0.15988467])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">hills</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">scalars</span><span class="o">=</span><span class="n">curv</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>プロットします．</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">hills</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">scalars</span><span class="o">=</span><span class="n">curv</span><span class="p">)</span>
+<figure class="align-default">
+<img alt="../../../_images/pyvista-PolyDataFilters-curvature-1_00_00.png" src="../../../_images/pyvista-PolyDataFilters-curvature-1_00_00.png" />
+</figure>
+<p>Show the curvature array.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">curv</span>  
+<span class="go">array([0.20587616, 0.06747695, ..., 0.11781171, 0.15988467])</span>
 </pre></div>
 </div>
 </dd></dl>

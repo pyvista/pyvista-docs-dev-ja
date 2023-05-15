@@ -13,15 +13,15 @@ stars.plot(
     zoom=3.0,
 )
 #
-stars  # doctest:+SKIP
+stars
 # Expected:
-## PolyData (0x7fe5851ac0a0)
-##   N Cells:      107857
-##   N Points:     107857
-##   N Strips:     0
-##   X Bounds:     -9.755e+02, 9.774e+02
-##   Y Bounds:     -9.620e+02, 9.662e+02
-##   Z Bounds:     -9.788e+02, 9.702e+02
-##   N Arrays:     4
+## PolyData (...)
+##   N Cells:    107857
+##   N Points:   107857
+##   N Strips:   0
+##   X Bounds:   -9.755e+02, 9.774e+02
+##   Y Bounds:   -9.620e+02, 9.662e+02
+##   Z Bounds:   -9.788e+02, 9.702e+02
+##   N Arrays:   3
 #
 # See the :ref:`plotting_point_clouds` for more details on how to plot point

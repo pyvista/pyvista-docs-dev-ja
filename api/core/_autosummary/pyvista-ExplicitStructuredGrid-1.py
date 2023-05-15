@@ -14,4 +14,4 @@ corners = grid_ijk.transpose().reshape(-1, 3)
 dims = np.array([ni, nj, nk]) + 1
 grid = pv.ExplicitStructuredGrid(dims, corners)
 grid = grid.compute_connectivity()
-grid.plot(show_edges=True)  # doctest:+SKIP
+grid.plot(show_edges=True)
