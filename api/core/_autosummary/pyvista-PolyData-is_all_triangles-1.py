@@ -5,7 +5,7 @@ import pyvista
 plane = pyvista.Plane()
 plane.is_all_triangles
 # Expected:
-## False <CallableBool>
+## False
 #
 # Show that the mesh from :func:`pyvista.Sphere` contains only
 # triangles.
@@ -13,4 +13,4 @@ plane.is_all_triangles
 sphere = pyvista.Sphere()
 sphere.is_all_triangles
 # Expected:
-## True <CallableBool>
+## True
