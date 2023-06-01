@@ -616,7 +616,10 @@ document.write(`
 <dl class="field-list">
 <dt class="field-odd">パラメータ<span class="colon">:</span></dt>
 <dd class="field-odd"><dl>
-<dt><strong>use_all_points</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.11)"><span class="xref std std-ref">bool</span></a>, default: <a class="reference external" href="https://docs.python.org/3/library/constants.html#False" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">False</span></code></a></span></dt><dd><p>入力メッシュのすべての点が出力に存在するかどうかを示します． <code class="docutils literal notranslate"><span class="pre">True</span></code> の場合，点のリナンバリングが有効になります． <code class="docutils literal notranslate"><span class="pre">True</span></code> に設定すると，ポイントロケーターを使用しないスレッドアプローチが使用され，より高速に処理されます．</p>
+<dt><strong>use_all_points</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.11)"><span class="xref std std-ref">bool</span></a>, default: <a class="reference external" href="https://docs.python.org/3/library/constants.html#False" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">False</span></code></a></span></dt><dd><p>Indicates whether all of the points of the input mesh should exist
+in the output. When <code class="docutils literal notranslate"><span class="pre">True</span></code>, point numbering does not change and
+a threaded approach is used, which avoids the use of a point locator
+and is quicker.</p>
 <p>デフォルトでは <code class="docutils literal notranslate"><span class="pre">False</span></code> に設定されており，未使用のポイントは出力から省略されます．</p>
 <p>このパラメータは <code class="docutils literal notranslate"><span class="pre">vtk==9.1.0</span></code> 以降のバージョンで <code class="docutils literal notranslate"><span class="pre">True</span></code> に設定することが可能です．</p>
 </dd>
