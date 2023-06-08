@@ -1,5 +1,5 @@
-import pyvista
-mesh = pyvista.Sphere()
+import pyvista as pv
+mesh = pv.Sphere()
 mesh.get_cell(0).points
 # Expected:
 ## array([[-5.40595092e-02,  0.00000000e+00, -4.97068971e-01],

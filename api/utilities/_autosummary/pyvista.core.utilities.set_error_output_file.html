@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>pyvista.utilities.common.sample_function &#8212; PyVista 0.40.dev0 ドキュメント</title>
+    <title>pyvista.core.utilities.set_error_output_file &#8212; PyVista 0.40.dev0 ドキュメント</title>
   
   
   
@@ -68,15 +68,15 @@
                 gtag('js', new Date());
                 gtag('config', 'UA-140243896-1');
             </script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'api/core/_autosummary/pyvista.utilities.common.sample_function';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'api/utilities/_autosummary/pyvista.core.utilities.set_error_output_file';</script>
     <script>
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://docs.pyvista.org/versions.json';
         DOCUMENTATION_OPTIONS.theme_switcher_version_match = 'dev';
         </script>
     <link rel="index" title="索引" href="../../../genindex.html" />
     <link rel="search" title="検索" href="../../../search.html" />
-    <link rel="next" title="pyvista.utilities.common.perlin_noise" href="pyvista.utilities.common.perlin_noise.html" />
-    <link rel="prev" title="その他" href="../misc.html" />
+    <link rel="next" title="pyvista.array_from_vtkmatrix" href="pyvista.array_from_vtkmatrix.html" />
+    <link rel="prev" title="pyvista.core.utilities.is_inside_bounds" href="pyvista.core.utilities.is_inside_bounds.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="ja"/>
   </head>
@@ -497,26 +497,49 @@ document.write(`
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
   <div class="bd-toc-item navbar-nav"><p aria-level="2" class="caption" role="heading"><span class="caption-text">APIリファレンス</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="../index.html">コアAPI</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../objects.html">DataObject</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../dataset.html">データセット</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../pointsets.html">ポイントセット</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../grids.html">グリッドデータ</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../composite.html">複合データセット</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../filters.html">フィルタ</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../camera.html">カメラ</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lights.html">ライト</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../cells.html">セル</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../helpers.html">ヘルパー</a></li>
-<li class="toctree-l2 current active has-children"><a class="reference internal" href="../misc.html">その他</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l3 current active"><a class="current reference internal" href="#">pyvista.utilities.common.sample_function</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pyvista.utilities.common.perlin_noise.html">pyvista.utilities.common.perlin_noise</a></li>
-</ul>
-</li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="../../core/index.html">コアAPI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../plotting/index.html">プロット</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../utilities/index.html">ユーティリティ</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../index.html">ユーティリティ</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../geometric.html">ジオメトリオブジェクト</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../parametric.html">パラメトリックオブジェクト</a></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="../utilities.html">一般ユーティリティ</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="pyvista.core.utilities.VtkErrorCatcher.html">pyvista.core.utilities.VtkErrorCatcher</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.core.utilities.axis_rotation.html">pyvista.core.utilities.axis_rotation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.core.utilities.is_inside_bounds.html">pyvista.core.utilities.is_inside_bounds</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">pyvista.core.utilities.set_error_output_file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.array_from_vtkmatrix.html">pyvista.array_from_vtkmatrix</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.cubemap.html">pyvista.cubemap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.cubemap_from_filenames.html">pyvista.cubemap_from_filenames</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.image_to_texture.html">pyvista.image_to_texture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.is_pyvista_dataset.html">pyvista.is_pyvista_dataset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.numpy_to_texture.html">pyvista.numpy_to_texture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.pyvista_ndarray.html">pyvista.pyvista_ndarray</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.vtkmatrix_from_array.html">pyvista.vtkmatrix_from_array</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.wrap.html">pyvista.wrap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.read.html">pyvista.read</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.read_exodus.html">pyvista.read_exodus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.read_legacy.html">pyvista.read_legacy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.read_texture.html">pyvista.read_texture</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.save_meshio.html">pyvista.save_meshio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.CellType.html">pyvista.CellType</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.fit_plane_to_points.html">pyvista.fit_plane_to_points</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.lines_from_points.html">pyvista.lines_from_points</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.vector_poly_data.html">pyvista.vector_poly_data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.vtk_points.html">pyvista.vtk_points</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.cell_array.html">pyvista.cell_array</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.convert_array.html">pyvista.convert_array</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.field_array.html">pyvista.field_array</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.get_array.html">pyvista.get_array</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.point_array.html">pyvista.point_array</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.compare_images.html">pyvista.compare_images</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Color.html">pyvista.Color</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.ColorLike.html">pyvista.ColorLike</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.start_xvfb.html">pyvista.start_xvfb</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Report.html">pyvista.Report</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../../readers/index.html">リーダー</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../examples/index.html">例</a></li>
 </ul>
@@ -565,9 +588,9 @@ document.write(`
     <li class="breadcrumb-item"><i class="fa-solid fa-ellipsis"></i></li>
     
     
-    <li class="breadcrumb-item"><a href="../misc.html" class="nav-link">その他</a></li>
+    <li class="breadcrumb-item"><a href="../utilities.html" class="nav-link">一般ユーティリティ</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page">pyvista.utilities.common.sample_function</li>
+    <li class="breadcrumb-item active" aria-current="page">pyvista.core.utilities.set_error_output_file</li>
   </ul>
 </nav>
 </div>
@@ -584,87 +607,28 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="pyvista-utilities-common-sample-function">
-<h1>pyvista.utilities.common.sample_function<a class="headerlink" href="#pyvista-utilities-common-sample-function" title="この見出しへのパーマリンク">#</a></h1>
+  <section id="pyvista-core-utilities-set-error-output-file">
+<h1>pyvista.core.utilities.set_error_output_file<a class="headerlink" href="#pyvista-core-utilities-set-error-output-file" title="この見出しへのパーマリンク">#</a></h1>
 <dl class="py function">
-<dt class="sig sig-object py" id="pyvista.utilities.common.sample_function">
-<span class="sig-name descname"><span class="pre">sample_function</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">function:</span> <span class="pre">~vtkmodules.vtkCommonDataModel.vtkImplicitFunction</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bounds:</span> <span class="pre">~typing.Sequence[float]</span> <span class="pre">=</span> <span class="pre">(-1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">-1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">-1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">1.0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dim:</span> <span class="pre">~typing.Sequence[int]</span> <span class="pre">=</span> <span class="pre">(50</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">50</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">50)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compute_normals:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_type:</span> <span class="pre">~numpy.dtype</span> <span class="pre">=</span> <span class="pre">&lt;class</span> <span class="pre">'numpy.float64'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">capping:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cap_value:</span> <span class="pre">float</span> <span class="pre">=</span> <span class="pre">1.7976931348623157e+308</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scalar_arr_name:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'scalars'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">normal_arr_name:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'normals'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">progress_bar:</span> <span class="pre">bool</span> <span class="pre">=</span> <span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/utilities/common.py#L77-L218"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.utilities.common.sample_function" title="この定義へのパーマリンク">#</a></dt>
-<dd><p>構造化された点セット上の陰関数をサンプルします．</p>
-<p><code class="docutils literal notranslate"><span class="pre">vtk.vtkSampleFunction</span></code> を使用します．</p>
-<p>このメソッドは， <code class="docutils literal notranslate"><span class="pre">vtk.vtkStructuredPoints</span></code> 内の各点で陰関数と法線を評価します．ユーザは，サンプリングの次元と空間上の位置を指定することができます．</p>
-<p>閉曲面を作成するために（vtkContourFilterと組み合わせて），キャッピングをオンにしてサンプル空間の境界に特定の値を設定することができます．</p>
+<dt class="sig sig-object py" id="pyvista.core.utilities.set_error_output_file">
+<span class="sig-name descname"><span class="pre">set_error_output_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/core/utilities/observers.py#L14-L35"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.core.utilities.set_error_output_file" title="この定義へのパーマリンク">#</a></dt>
+<dd><p>VTKエラーを書き出すファイルを設定します．</p>
 <dl class="field-list">
 <dt class="field-odd">パラメータ<span class="colon">:</span></dt>
 <dd class="field-odd"><dl>
-<dt><strong>function</strong><span class="classifier"><code class="xref py py-obj docutils literal notranslate"><span class="pre">vtk.vtkImplicitFunction</span></code></span></dt><dd><p>評価する暗黙の関数． 例えば， <a class="reference internal" href="pyvista.utilities.common.perlin_noise.html#pyvista.utilities.common.perlin_noise" title="pyvista.utilities.common.perlin_noise"><code class="xref py py-func docutils literal notranslate"><span class="pre">perlin_noise()</span></code></a> から生成される関数がこれにあたります．</p>
-</dd>
-<dt><strong>bounds</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/glossary.html#term-sequence" title="(in Python v3.11)"><span>sequence</span></a>[<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a>], default: (-1.0, 1.0, -1.0, 1.0, -1.0, 1.0)</span></dt><dd><p>以下の形式で境界を指定します．</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">(xmin,</span> <span class="pre">xmax,</span> <span class="pre">ymin,</span> <span class="pre">ymax,</span> <span class="pre">zmin,</span> <span class="pre">zmax)</span></code>.</p></li>
-</ul>
-</dd>
-<dt><strong>dim</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/glossary.html#term-sequence" title="(in Python v3.11)"><span>sequence</span></a>[<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a>], default: (50, 50, 50)</span></dt><dd><p><code class="docutils literal notranslate"><span class="pre">(xdim,</span> <span class="pre">ydim,</span> <span class="pre">zdim)</span></code> のフォーマットで表される，サンプリングするデータの次元．</p>
-</dd>
-<dt><strong>compute_normals</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.11)"><span class="xref std std-ref">bool</span></a>, default: <a class="reference external" href="https://docs.python.org/3/library/constants.html#False" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">False</span></code></a></span></dt><dd><p>法線の計算を有効または無効にします．</p>
-</dd>
-<dt><strong>output_type</strong><span class="classifier"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.dtype.html#numpy.dtype" title="(in NumPy v1.24)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.dtype</span></code></a>, default: <a class="reference external" href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.double" title="(in NumPy v1.24)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.double</span></code></a></span></dt><dd><p>出力スカラー型を設定します．以下のいずれかを指定します．</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">np.float64</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">np.float32</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">np.int64</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">np.uint64</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">np.int32</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">np.uint32</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">np.int16</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">np.uint16</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">np.int8</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">np.uint8</span></code></p></li>
-</ul>
-</dd>
-<dt><strong>capping</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.11)"><span class="xref std std-ref">bool</span></a>, default: <a class="reference external" href="https://docs.python.org/3/library/constants.html#False" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">False</span></code></a></span></dt><dd><p>キャッピングの有効・無効を設定します．キャッピングが有効な場合，構造化ポイントセットの外側の境界はキャップ値に設定されます．これは，サーフェスが閉じていることを確認するために使用することができます．</p>
-</dd>
-<dt><strong>cap_value</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a>, default: <code class="xref py py-obj docutils literal notranslate"><span class="pre">sys.float_info.max</span></code></span></dt><dd><p><code class="docutils literal notranslate"><span class="pre">capping</span></code> パラメータで使用されるキャッピング値．</p>
-</dd>
-<dt><strong>scalar_arr_name</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a>, default: &quot;scalars&quot;</span></dt><dd><p>このデータセットのスカラー配列の名前を設定します．</p>
-</dd>
-<dt><strong>normal_arr_name</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a>, default: &quot;normals&quot;</span></dt><dd><p>このデータセットの法線配列の名前を設定します．</p>
-</dd>
-<dt><strong>progress_bar</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.11)"><span class="xref std std-ref">bool</span></a>, default: <a class="reference external" href="https://docs.python.org/3/library/constants.html#False" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">False</span></code></a></span></dt><dd><p>進行状況を示す進行状況バーを表示します．</p>
+<dt><strong>filename</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a></span></dt><dd><p>VTKのエラーを書き込むファイルのパス．</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">戻り値<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt><a class="reference internal" href="pyvista.UniformGrid.html#pyvista.UniformGrid" title="pyvista.UniformGrid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyvista.UniformGrid</span></code></a></dt><dd><p>サンプリングされたデータによる一様なグリッド．</p>
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">vtkFileOutputWindow</span></code></dt><dd><p>VTKファイルの出力画面．</p>
+</dd>
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">vtkOutputWindow</span></code></dt><dd><p>VTKの出力画面．</p>
 </dd>
 </dl>
 </dd>
 </dl>
-<p class="rubric">例</p>
-<p>構造格子上のパーリンノイズを3Dでサンプルします．</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyvista</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">noise</span> <span class="o">=</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">perlin_noise</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">grid</span> <span class="o">=</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">sample_function</span><span class="p">(</span>
-<span class="gp">... </span>    <span class="n">noise</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="o">-</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span> <span class="n">dim</span><span class="o">=</span><span class="p">(</span><span class="mi">60</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
-<span class="gp">... </span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">grid</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
-<span class="gp">... </span>    <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gist_earth_r&#39;</span><span class="p">,</span> <span class="n">show_scalar_bar</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">show_edges</span><span class="o">=</span><span class="kc">True</span>
-<span class="gp">... </span><span class="p">)</span>
-</pre></div>
-</div>
-<figure class="align-default">
-<img alt="../../../_images/pyvista-utilities-common-sample_function-1_00_00.png" src="../../../_images/pyvista-utilities-common-sample_function-1_00_00.png" />
-</figure>
-<p>パーリンノイズを2Dでサンプリングし，プロットします．</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">noise</span> <span class="o">=</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">perlin_noise</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">surf</span> <span class="o">=</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">sample_function</span><span class="p">(</span><span class="n">noise</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">surf</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
-</pre></div>
-</div>
-<figure class="align-default">
-<img alt="../../../_images/pyvista-utilities-common-sample_function-1_01_00.png" src="../../../_images/pyvista-utilities-common-sample_function-1_01_00.png" />
-</figure>
-<p>この関数を使用した完全な例については， <a class="reference internal" href="../../../examples/01-filter/sampling_functions_2d.html#perlin-noise-2d-example"><span class="std std-ref">サンプル関数:2DでのPerlinノイズ</span></a> を参照してください．</p>
 </dd></dl>
 
 </section>
@@ -686,14 +650,14 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pyvista.utilities.common.sample_function"><code class="docutils literal notranslate"><span class="pre">sample_function()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pyvista.core.utilities.set_error_output_file"><code class="docutils literal notranslate"><span class="pre">set_error_output_file()</span></code></a></li>
 </ul>
   </nav></div>
 
   <div class="sidebar-secondary-item">
   
   <div class="tocsection editthispage">
-    <a href="http://github.com/pyvista/pyvista/edit/main/pyvista/utilities/common.py">
+    <a href="http://github.com/pyvista/pyvista/edit/main/pyvista/core/utilities/observers.py">
       <i class="fa-solid fa-pencil"></i>
       
       

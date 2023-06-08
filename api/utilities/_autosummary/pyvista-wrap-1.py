@@ -1,9 +1,9 @@
 # Wrap a numpy array representing a random point cloud.
 #
 import numpy as np
-import pyvista
+import pyvista as pv
 points = np.random.random((10, 3))
-cloud = pyvista.wrap(points)
+cloud = pv.wrap(points)
 cloud
 # Expected:
 ## PolyData (...)
@@ -17,7 +17,7 @@ cloud
 #
 # Wrap a VTK object.
 #
-import pyvista
+import pyvista as pv
 import vtk
 points = vtk.vtkPoints()
 p = [1.0, 2.0, 3.0]
@@ -28,7 +28,7 @@ _ = vertices.InsertCellPoint(pid)
 point = vtk.vtkPolyData()
 _ = point.SetPoints(points)
 _ = point.SetVerts(vertices)
-mesh = pyvista.wrap(point)
+mesh = pv.wrap(point)
 mesh
 # Expected:
 ## PolyData (...)
@@ -43,11 +43,11 @@ mesh
 # Wrap a Trimesh object.
 #
 import trimesh
-import pyvista
+import pyvista as pv
 points = [[0, 0, 0], [0, 0, 1], [0, 1, 0]]
 faces = [[0, 1, 2]]
 tmesh = trimesh.Trimesh(points, faces=faces, process=False)
-mesh = pyvista.wrap(tmesh)
+mesh = pv.wrap(tmesh)
 mesh  # doctest:+SKIP
 # Expected:
 ## PolyData (0x7fc55ff27ad0)

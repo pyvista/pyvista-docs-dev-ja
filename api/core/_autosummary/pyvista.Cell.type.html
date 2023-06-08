@@ -514,6 +514,7 @@ document.write(`
 <li class="toctree-l4"><a class="reference internal" href="pyvista.Cell.get_face.html">pyvista.Cell.get_face</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyvista.Cell.plot.html">pyvista.Cell.plot</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyvista.Cell.bounds.html">pyvista.Cell.bounds</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyvista.Cell.center.html">pyvista.Cell.center</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyvista.Cell.dimension.html">pyvista.Cell.dimension</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyvista.Cell.edges.html">pyvista.Cell.edges</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyvista.Cell.faces.html">pyvista.Cell.faces</a></li>
@@ -605,11 +606,11 @@ document.write(`
 <h1>pyvista.Cell.type<a class="headerlink" href="#pyvista-cell-type" title="この見出しへのパーマリンク">#</a></h1>
 <dl class="py property">
 <dt class="sig sig-object py" id="pyvista.Cell.type">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Cell.</span></span><span class="sig-name descname"><span class="pre">type</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../../utilities/_autosummary/pyvista.CellType.html#pyvista.CellType" title="pyvista.core.celltype.CellType"><span class="pre">CellType</span></a></em><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/core/cell.py#L98-L109"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.Cell.type" title="この定義へのパーマリンク">#</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Cell.</span></span><span class="sig-name descname"><span class="pre">type</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../../utilities/_autosummary/pyvista.CellType.html#pyvista.CellType" title="pyvista.core.celltype.CellType"><span class="pre">CellType</span></a></em><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/core/cell.py#L109-L120"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.Cell.type" title="この定義へのパーマリンク">#</a></dt>
 <dd><p>enum <a class="reference internal" href="../../utilities/_autosummary/pyvista.CellType.html#pyvista.CellType" title="pyvista.CellType"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.CellType</span></code></a> からセルの種類を取得します．</p>
 <p class="rubric">例</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyvista</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mesh</span> <span class="o">=</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">Sphere</span><span class="p">()</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyvista</span> <span class="k">as</span> <span class="nn">pv</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mesh</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Sphere</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mesh</span><span class="o">.</span><span class="n">get_cell</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">type</span>
 <span class="go">&lt;CellType.TRIANGLE: 5&gt;</span>
 </pre></div>

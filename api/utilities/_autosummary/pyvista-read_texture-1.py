@@ -9,4 +9,4 @@ os.path.basename(examples.mapfile)
 texture = pyvista.read_texture(examples.mapfile)
 type(texture)
 # Expected:
-## <class 'pyvista.core.texture.Texture'>
+## <class 'pyvista.plotting.texture.Texture'>

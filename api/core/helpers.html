@@ -581,8 +581,8 @@ document.write(`
 <section id="wrap-a-vtk-dataset">
 <h2>VTKデータセットのラップ<a class="headerlink" href="#wrap-a-vtk-dataset" title="この見出しへのパーマリンク">#</a></h2>
 <dl class="py method">
-<dt class="sig sig-object py" id="pyvista.helpers.wrap">
-<span class="sig-prename descclassname"><span class="pre">helpers.</span></span><span class="sig-name descname"><span class="pre">wrap</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/utilities/helpers.py#L892-L1035"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.helpers.wrap" title="この定義へのパーマリンク">#</a></dt>
+<dt class="sig sig-object py" id="pyvista.core.utilities.helpers.wrap">
+<span class="sig-prename descclassname"><span class="pre">helpers.</span></span><span class="sig-name descname"><span class="pre">wrap</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/core/utilities/helpers.py#L13-L156"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.core.utilities.helpers.wrap" title="この定義へのパーマリンク">#</a></dt>
 <dd><p>与えられたVTKデータオブジェクトを適切なPyVistaデータオブジェクトにラップします．</p>
 <p>その他，対応しているフォーマットは以下の通りです．</p>
 <ul class="simple">
@@ -611,9 +611,9 @@ document.write(`
 <p class="rubric">例</p>
 <p>​ランダムなポイントクラウドを表すnumpy配列をラップする．</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyvista</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyvista</span> <span class="k">as</span> <span class="nn">pv</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">points</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">((</span><span class="mi">10</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">cloud</span> <span class="o">=</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">wrap</span><span class="p">(</span><span class="n">points</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cloud</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">wrap</span><span class="p">(</span><span class="n">points</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">cloud</span>
 <span class="go">PolyData (...)</span>
 <span class="go">  N Cells:    10</span>
@@ -626,7 +626,7 @@ document.write(`
 </pre></div>
 </div>
 <p>​VTKオブジェクトをラップする．</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyvista</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyvista</span> <span class="k">as</span> <span class="nn">pv</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">vtk</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">points</span> <span class="o">=</span> <span class="n">vtk</span><span class="o">.</span><span class="n">vtkPoints</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">p</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">]</span>
@@ -637,7 +637,7 @@ document.write(`
 <span class="gp">&gt;&gt;&gt; </span><span class="n">point</span> <span class="o">=</span> <span class="n">vtk</span><span class="o">.</span><span class="n">vtkPolyData</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">point</span><span class="o">.</span><span class="n">SetPoints</span><span class="p">(</span><span class="n">points</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">point</span><span class="o">.</span><span class="n">SetVerts</span><span class="p">(</span><span class="n">vertices</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mesh</span> <span class="o">=</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">wrap</span><span class="p">(</span><span class="n">point</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mesh</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">wrap</span><span class="p">(</span><span class="n">point</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mesh</span>
 <span class="go">PolyData (...)</span>
 <span class="go">  N Cells:    1</span>
@@ -651,11 +651,11 @@ document.write(`
 </div>
 <p>​Trimeshオブジェクトをラップする．</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">trimesh</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyvista</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyvista</span> <span class="k">as</span> <span class="nn">pv</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">points</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">faces</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">tmesh</span> <span class="o">=</span> <span class="n">trimesh</span><span class="o">.</span><span class="n">Trimesh</span><span class="p">(</span><span class="n">points</span><span class="p">,</span> <span class="n">faces</span><span class="o">=</span><span class="n">faces</span><span class="p">,</span> <span class="n">process</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mesh</span> <span class="o">=</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">wrap</span><span class="p">(</span><span class="n">tmesh</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mesh</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">wrap</span><span class="p">(</span><span class="n">tmesh</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mesh</span>  
 <span class="go">PolyData (0x7fc55ff27ad0)</span>
 <span class="go">  N Cells:  1</span>
@@ -672,8 +672,8 @@ document.write(`
 <section id="simplified-triangular-mesh-construction">
 <h2>単純化された3角形メッシュの作成<a class="headerlink" href="#simplified-triangular-mesh-construction" title="この見出しへのパーマリンク">#</a></h2>
 <dl class="py method">
-<dt class="sig sig-object py" id="pyvista.helpers.make_tri_mesh">
-<span class="sig-prename descclassname"><span class="pre">helpers.</span></span><span class="sig-name descname"><span class="pre">make_tri_mesh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">faces</span></span></em><span class="sig-paren">)</span><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/utilities/helpers.py#L637-L703"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.helpers.make_tri_mesh" title="この定義へのパーマリンク">#</a></dt>
+<dt class="sig sig-object py" id="pyvista.core.utilities.points.make_tri_mesh">
+<span class="sig-prename descclassname"><span class="pre">points.</span></span><span class="sig-name descname"><span class="pre">make_tri_mesh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">faces</span></span></em><span class="sig-paren">)</span><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/core/utilities/points.py#L242-L308"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.core.utilities.points.make_tri_mesh" title="この定義へのパーマリンク">#</a></dt>
 <dd><p>点と面の配列を使用して <code class="docutils literal notranslate"><span class="pre">pyvista.PolyData</span></code> メッシュを作成します．</p>
 <p>ポイントのNx 3配列と3角形のインデックスのMx 3配列からメッシュを作成し，N個の頂点とM個の3角形を持つメッシュを作成します．この機能は，標準のVTK  &quot;padding&quot; カラムを必要とせず，メッシュ作成を簡素化します．</p>
 <dl class="field-list">
@@ -734,8 +734,8 @@ document.write(`
 <section id="lines-from-points">
 <h2>点からの線分<a class="headerlink" href="#lines-from-points" title="この見出しへのパーマリンク">#</a></h2>
 <dl class="py method">
-<dt class="sig sig-object py" id="pyvista.helpers.lines_from_points">
-<span class="sig-prename descclassname"><span class="pre">helpers.</span></span><span class="sig-name descname"><span class="pre">lines_from_points</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">close</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/utilities/helpers.py#L599-L634"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.helpers.lines_from_points" title="この定義へのパーマリンク">#</a></dt>
+<dt class="sig sig-object py" id="pyvista.core.utilities.points.lines_from_points">
+<span class="sig-prename descclassname"><span class="pre">points.</span></span><span class="sig-name descname"><span class="pre">lines_from_points</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">close</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/core/utilities/points.py#L144-L179"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.core.utilities.points.lines_from_points" title="この定義へのパーマリンク">#</a></dt>
 <dd><p>点の配列を指定して，接続された線分セットを作成します．</p>
 <dl class="field-list">
 <dt class="field-odd">パラメータ<span class="colon">:</span></dt>
@@ -770,8 +770,8 @@ document.write(`
 <section id="line-segments-from-points">
 <h2>点からの線分セグメント<a class="headerlink" href="#line-segments-from-points" title="この見出しへのパーマリンク">#</a></h2>
 <dl class="py method">
-<dt class="sig sig-object py" id="pyvista.helpers.line_segments_from_points">
-<span class="sig-prename descclassname"><span class="pre">helpers.</span></span><span class="sig-name descname"><span class="pre">line_segments_from_points</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/utilities/helpers.py#L551-L596"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.helpers.line_segments_from_points" title="この定義へのパーマリンク">#</a></dt>
+<dt class="sig sig-object py" id="pyvista.core.utilities.points.line_segments_from_points">
+<span class="sig-prename descclassname"><span class="pre">points.</span></span><span class="sig-name descname"><span class="pre">line_segments_from_points</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/core/utilities/points.py#L96-L141"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.core.utilities.points.line_segments_from_points" title="この定義へのパーマリンク">#</a></dt>
 <dd><p>点から接続されていない線分セグメントを生成します．</p>
 <p>点が線分セグメントと偶数個の点として順序付けられる．</p>
 <dl class="field-list">
@@ -806,8 +806,8 @@ document.write(`
 <section id="convert-to-and-from-vtk-data-types">
 <h2>VTKデータ型との変換<a class="headerlink" href="#convert-to-and-from-vtk-data-types" title="この見出しへのパーマリンク">#</a></h2>
 <dl class="py method">
-<dt class="sig sig-object py" id="pyvista.helpers.convert_array">
-<span class="sig-prename descclassname"><span class="pre">helpers.</span></span><span class="sig-name descname"><span class="pre">convert_array</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deep</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">array_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/utilities/helpers.py#L140-L190"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.helpers.convert_array" title="この定義へのパーマリンク">#</a></dt>
+<dt class="sig sig-object py" id="pyvista.core.utilities.arrays.convert_array">
+<span class="sig-prename descclassname"><span class="pre">arrays.</span></span><span class="sig-name descname"><span class="pre">convert_array</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deep</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">array_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/core/utilities/arrays.py#L159-L209"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.core.utilities.arrays.convert_array" title="この定義へのパーマリンク">#</a></dt>
 <dd><p>NumPy配列をvtkDataArrayに，またはその逆に変換します．</p>
 <dl class="field-list">
 <dt class="field-odd">パラメータ<span class="colon">:</span></dt>
@@ -835,8 +835,8 @@ document.write(`
 <section id="fit-plane-to-points">
 <h2>平面を点にフィット<a class="headerlink" href="#fit-plane-to-points" title="この見出しへのパーマリンク">#</a></h2>
 <dl class="py method">
-<dt class="sig sig-object py" id="pyvista.helpers.fit_plane_to_points">
-<span class="sig-prename descclassname"><span class="pre">helpers.</span></span><span class="sig-name descname"><span class="pre">fit_plane_to_points</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">return_meta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/utilities/helpers.py#L1129-L1186"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.helpers.fit_plane_to_points" title="この定義へのパーマリンク">#</a></dt>
+<dt class="sig sig-object py" id="pyvista.core.utilities.points.fit_plane_to_points">
+<span class="sig-prename descclassname"><span class="pre">points.</span></span><span class="sig-name descname"><span class="pre">fit_plane_to_points</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">return_meta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/core/utilities/points.py#L182-L239"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.core.utilities.points.fit_plane_to_points" title="この定義へのパーマリンク">#</a></dt>
 <dd><p>SVDアルゴリズムを用いて，平面を点の集合にフィットさせます．</p>
 <dl class="field-list">
 <dt class="field-odd">パラメータ<span class="colon">:</span></dt>
@@ -909,27 +909,27 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wrap-a-vtk-dataset">VTKデータセットのラップ</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyvista.helpers.wrap"><code class="docutils literal notranslate"><span class="pre">helpers.wrap()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyvista.core.utilities.helpers.wrap"><code class="docutils literal notranslate"><span class="pre">helpers.wrap()</span></code></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simplified-triangular-mesh-construction">単純化された3角形メッシュの作成</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyvista.helpers.make_tri_mesh"><code class="docutils literal notranslate"><span class="pre">helpers.make_tri_mesh()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyvista.core.utilities.points.make_tri_mesh"><code class="docutils literal notranslate"><span class="pre">points.make_tri_mesh()</span></code></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lines-from-points">点からの線分</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyvista.helpers.lines_from_points"><code class="docutils literal notranslate"><span class="pre">helpers.lines_from_points()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyvista.core.utilities.points.lines_from_points"><code class="docutils literal notranslate"><span class="pre">points.lines_from_points()</span></code></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#line-segments-from-points">点からの線分セグメント</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyvista.helpers.line_segments_from_points"><code class="docutils literal notranslate"><span class="pre">helpers.line_segments_from_points()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyvista.core.utilities.points.line_segments_from_points"><code class="docutils literal notranslate"><span class="pre">points.line_segments_from_points()</span></code></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#convert-to-and-from-vtk-data-types">VTKデータ型との変換</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyvista.helpers.convert_array"><code class="docutils literal notranslate"><span class="pre">helpers.convert_array()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyvista.core.utilities.arrays.convert_array"><code class="docutils literal notranslate"><span class="pre">arrays.convert_array()</span></code></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fit-plane-to-points">平面を点にフィット</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyvista.helpers.fit_plane_to_points"><code class="docutils literal notranslate"><span class="pre">helpers.fit_plane_to_points()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pyvista.core.utilities.points.fit_plane_to_points"><code class="docutils literal notranslate"><span class="pre">points.fit_plane_to_points()</span></code></a></li>
 </ul>
 </li>
 </ul>

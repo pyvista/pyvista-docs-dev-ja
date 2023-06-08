@@ -514,6 +514,7 @@ document.write(`
 <li class="toctree-l4"><a class="reference internal" href="pyvista.Cell.get_face.html">pyvista.Cell.get_face</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyvista.Cell.plot.html">pyvista.Cell.plot</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyvista.Cell.bounds.html">pyvista.Cell.bounds</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyvista.Cell.center.html">pyvista.Cell.center</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyvista.Cell.dimension.html">pyvista.Cell.dimension</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyvista.Cell.edges.html">pyvista.Cell.edges</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyvista.Cell.faces.html">pyvista.Cell.faces</a></li>
@@ -605,7 +606,7 @@ document.write(`
 <h1>pyvista.Cell.get_edge<a class="headerlink" href="#pyvista-cell-get-edge" title="この見出しへのパーマリンク">#</a></h1>
 <dl class="py method">
 <dt class="sig sig-object py" id="pyvista.Cell.get_edge">
-<span class="sig-prename descclassname"><span class="pre">Cell.</span></span><span class="sig-name descname"><span class="pre">get_edge</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="pyvista.Cell.html#pyvista.Cell" title="pyvista.core.cell.Cell"><span class="pre">Cell</span></a></span></span><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/core/cell.py#L258-L289"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.Cell.get_edge" title="この定義へのパーマリンク">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">Cell.</span></span><span class="sig-name descname"><span class="pre">get_edge</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="pyvista.Cell.html#pyvista.Cell" title="pyvista.core.cell.Cell"><span class="pre">Cell</span></a></span></span><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/core/cell.py#L269-L300"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.Cell.get_edge" title="この定義へのパーマリンク">#</a></dt>
 <dd><p>セルを構成する i 番目の辺を取得します．</p>
 <dl class="field-list">
 <dt class="field-odd">パラメータ<span class="colon">:</span></dt>
@@ -623,8 +624,8 @@ document.write(`
 </dl>
 <p class="rubric">例</p>
 <p>面から1つのエッジを抽出し，エッジ点のIDを出力します．</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyvista</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mesh</span> <span class="o">=</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">Sphere</span><span class="p">()</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyvista</span> <span class="k">as</span> <span class="nn">pv</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mesh</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Sphere</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">cell</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">get_cell</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span> <span class="o">=</span> <span class="n">cell</span><span class="o">.</span><span class="n">get_edge</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">edge</span><span class="o">.</span><span class="n">point_ids</span>

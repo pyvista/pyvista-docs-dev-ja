@@ -503,10 +503,10 @@ document.write(`
 <li class="toctree-l2"><a class="reference internal" href="../geometric.html">ジオメトリオブジェクト</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../parametric.html">パラメトリックオブジェクト</a></li>
 <li class="toctree-l2 current active has-children"><a class="reference internal" href="../utilities.html">一般ユーティリティ</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="pyvista.utilities.VtkErrorCatcher.html">pyvista.utilities.VtkErrorCatcher</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pyvista.utilities.axis_rotation.html">pyvista.utilities.axis_rotation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pyvista.utilities.is_inside_bounds.html">pyvista.utilities.is_inside_bounds</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pyvista.utilities.set_error_output_file.html">pyvista.utilities.set_error_output_file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.core.utilities.VtkErrorCatcher.html">pyvista.core.utilities.VtkErrorCatcher</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.core.utilities.axis_rotation.html">pyvista.core.utilities.axis_rotation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.core.utilities.is_inside_bounds.html">pyvista.core.utilities.is_inside_bounds</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.core.utilities.set_error_output_file.html">pyvista.core.utilities.set_error_output_file</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyvista.array_from_vtkmatrix.html">pyvista.array_from_vtkmatrix</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyvista.cubemap.html">pyvista.cubemap</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyvista.cubemap_from_filenames.html">pyvista.cubemap_from_filenames</a></li>
@@ -611,7 +611,7 @@ document.write(`
 <h1>pyvista.wrap<a class="headerlink" href="#pyvista-wrap" title="この見出しへのパーマリンク">#</a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="pyvista.wrap">
-<span class="sig-name descname"><span class="pre">wrap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset</span></span></em><span class="sig-paren">)</span><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/utilities/helpers.py#L892-L1035"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.wrap" title="この定義へのパーマリンク">#</a></dt>
+<span class="sig-name descname"><span class="pre">wrap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset</span></span></em><span class="sig-paren">)</span><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/core/utilities/helpers.py#L13-L156"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.wrap" title="この定義へのパーマリンク">#</a></dt>
 <dd><p>与えられたVTKデータオブジェクトを適切なPyVistaデータオブジェクトにラップします．</p>
 <p>その他，対応しているフォーマットは以下の通りです．</p>
 <ul class="simple">
@@ -640,9 +640,9 @@ document.write(`
 <p class="rubric">例</p>
 <p>​ランダムなポイントクラウドを表すnumpy配列をラップする．</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyvista</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyvista</span> <span class="k">as</span> <span class="nn">pv</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">points</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">((</span><span class="mi">10</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">cloud</span> <span class="o">=</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">wrap</span><span class="p">(</span><span class="n">points</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cloud</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">wrap</span><span class="p">(</span><span class="n">points</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">cloud</span>
 <span class="go">PolyData (...)</span>
 <span class="go">  N Cells:    10</span>
@@ -655,7 +655,7 @@ document.write(`
 </pre></div>
 </div>
 <p>​VTKオブジェクトをラップする．</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyvista</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyvista</span> <span class="k">as</span> <span class="nn">pv</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">vtk</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">points</span> <span class="o">=</span> <span class="n">vtk</span><span class="o">.</span><span class="n">vtkPoints</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">p</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">]</span>
@@ -666,7 +666,7 @@ document.write(`
 <span class="gp">&gt;&gt;&gt; </span><span class="n">point</span> <span class="o">=</span> <span class="n">vtk</span><span class="o">.</span><span class="n">vtkPolyData</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">point</span><span class="o">.</span><span class="n">SetPoints</span><span class="p">(</span><span class="n">points</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">point</span><span class="o">.</span><span class="n">SetVerts</span><span class="p">(</span><span class="n">vertices</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mesh</span> <span class="o">=</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">wrap</span><span class="p">(</span><span class="n">point</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mesh</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">wrap</span><span class="p">(</span><span class="n">point</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mesh</span>
 <span class="go">PolyData (...)</span>
 <span class="go">  N Cells:    1</span>
@@ -680,11 +680,11 @@ document.write(`
 </div>
 <p>​Trimeshオブジェクトをラップする．</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">trimesh</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyvista</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyvista</span> <span class="k">as</span> <span class="nn">pv</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">points</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">faces</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">tmesh</span> <span class="o">=</span> <span class="n">trimesh</span><span class="o">.</span><span class="n">Trimesh</span><span class="p">(</span><span class="n">points</span><span class="p">,</span> <span class="n">faces</span><span class="o">=</span><span class="n">faces</span><span class="p">,</span> <span class="n">process</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mesh</span> <span class="o">=</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">wrap</span><span class="p">(</span><span class="n">tmesh</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mesh</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">wrap</span><span class="p">(</span><span class="n">tmesh</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mesh</span>  
 <span class="go">PolyData (0x7fc55ff27ad0)</span>
 <span class="go">  N Cells:  1</span>
@@ -723,7 +723,7 @@ document.write(`
   <div class="sidebar-secondary-item">
   
   <div class="tocsection editthispage">
-    <a href="http://github.com/pyvista/pyvista/edit/main/pyvista/utilities/helpers.py">
+    <a href="http://github.com/pyvista/pyvista/edit/main/pyvista/core/utilities/helpers.py">
       <i class="fa-solid fa-pencil"></i>
       
       

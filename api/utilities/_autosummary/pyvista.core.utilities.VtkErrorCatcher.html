@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>pyvista.utilities.is_inside_bounds &#8212; PyVista 0.40.dev0 ドキュメント</title>
+    <title>pyvista.core.utilities.VtkErrorCatcher &#8212; PyVista 0.40.dev0 ドキュメント</title>
   
   
   
@@ -68,15 +68,15 @@
                 gtag('js', new Date());
                 gtag('config', 'UA-140243896-1');
             </script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'api/utilities/_autosummary/pyvista.utilities.is_inside_bounds';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'api/utilities/_autosummary/pyvista.core.utilities.VtkErrorCatcher';</script>
     <script>
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://docs.pyvista.org/versions.json';
         DOCUMENTATION_OPTIONS.theme_switcher_version_match = 'dev';
         </script>
     <link rel="index" title="索引" href="../../../genindex.html" />
     <link rel="search" title="検索" href="../../../search.html" />
-    <link rel="next" title="pyvista.utilities.set_error_output_file" href="pyvista.utilities.set_error_output_file.html" />
-    <link rel="prev" title="pyvista.utilities.axis_rotation" href="pyvista.utilities.axis_rotation.html" />
+    <link rel="next" title="pyvista.core.utilities.axis_rotation" href="pyvista.core.utilities.axis_rotation.html" />
+    <link rel="prev" title="一般ユーティリティ" href="../utilities.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="ja"/>
   </head>
@@ -503,10 +503,10 @@ document.write(`
 <li class="toctree-l2"><a class="reference internal" href="../geometric.html">ジオメトリオブジェクト</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../parametric.html">パラメトリックオブジェクト</a></li>
 <li class="toctree-l2 current active has-children"><a class="reference internal" href="../utilities.html">一般ユーティリティ</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="pyvista.utilities.VtkErrorCatcher.html">pyvista.utilities.VtkErrorCatcher</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pyvista.utilities.axis_rotation.html">pyvista.utilities.axis_rotation</a></li>
-<li class="toctree-l3 current active"><a class="current reference internal" href="#">pyvista.utilities.is_inside_bounds</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pyvista.utilities.set_error_output_file.html">pyvista.utilities.set_error_output_file</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">pyvista.core.utilities.VtkErrorCatcher</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.core.utilities.axis_rotation.html">pyvista.core.utilities.axis_rotation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.core.utilities.is_inside_bounds.html">pyvista.core.utilities.is_inside_bounds</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.core.utilities.set_error_output_file.html">pyvista.core.utilities.set_error_output_file</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyvista.array_from_vtkmatrix.html">pyvista.array_from_vtkmatrix</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyvista.cubemap.html">pyvista.cubemap</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyvista.cubemap_from_filenames.html">pyvista.cubemap_from_filenames</a></li>
@@ -590,7 +590,7 @@ document.write(`
     
     <li class="breadcrumb-item"><a href="../utilities.html" class="nav-link">一般ユーティリティ</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page">pyvista.utilities.is_inside_bounds</li>
+    <li class="breadcrumb-item active" aria-current="page">pyvista.core.utilities.VtkErrorCatcher</li>
   </ul>
 </nav>
 </div>
@@ -607,29 +607,35 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="pyvista-utilities-is-inside-bounds">
-<h1>pyvista.utilities.is_inside_bounds<a class="headerlink" href="#pyvista-utilities-is-inside-bounds" title="この見出しへのパーマリンク">#</a></h1>
-<dl class="py function">
-<dt class="sig sig-object py" id="pyvista.utilities.is_inside_bounds">
-<span class="sig-name descname"><span class="pre">is_inside_bounds</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">point</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bounds</span></span></em><span class="sig-paren">)</span><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/utilities/helpers.py#L1089-L1126"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.utilities.is_inside_bounds" title="この定義へのパーマリンク">#</a></dt>
-<dd><p>ポイントが境界のセット内にあるかどうかをチェックします．</p>
-<p>これは再帰的に実装されているため，N次元になります．</p>
+  <section id="pyvista-core-utilities-vtkerrorcatcher">
+<h1>pyvista.core.utilities.VtkErrorCatcher<a class="headerlink" href="#pyvista-core-utilities-vtkerrorcatcher" title="この見出しへのパーマリンク">#</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="pyvista.core.utilities.VtkErrorCatcher">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">VtkErrorCatcher</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">raise_errors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">send_to_logging</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/core/utilities/observers.py#L38-L82"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.core.utilities.VtkErrorCatcher" title="この定義へのパーマリンク">#</a></dt>
+<dd><p>VTKエラーを一時的にキャッチするためのコンテキストマネージャ．</p>
 <dl class="field-list">
 <dt class="field-odd">パラメータ<span class="colon">:</span></dt>
 <dd class="field-odd"><dl>
-<dt><strong>point</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/glossary.html#term-sequence" title="(in Python v3.11)"><span>sequence</span></a>[<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a>]</span></dt><dd><p>3項目の直交点（例 <code class="docutils literal notranslate"><span class="pre">[x,</span> <span class="pre">y,</span> <span class="pre">z]</span></code> ）．</p>
+<dt><strong>raise_errors</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.11)"><span class="xref std std-ref">bool</span></a>, default: <a class="reference external" href="https://docs.python.org/3/library/constants.html#False" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">False</span></code></a></span></dt><dd><p>VTKエラーが発生した場合， <code class="docutils literal notranslate"><span class="pre">RuntimeError</span></code> を送出します．</p>
 </dd>
-<dt><strong>bounds</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/glossary.html#term-sequence" title="(in Python v3.11)"><span>sequence</span></a>[<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a>]</span></dt><dd><p><code class="docutils literal notranslate"><span class="pre">(xMin,</span> <span class="pre">xMax,</span> <span class="pre">yMin,</span> <span class="pre">yMax,</span> <span class="pre">zMin,</span> <span class="pre">zMax)</span></code> という形で，6つのアイテムの境界線を設定します．</p>
-</dd>
-</dl>
-</dd>
-<dt class="field-even">戻り値<span class="colon">:</span></dt>
-<dd class="field-even"><dl class="simple">
-<dt><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.11)"><span class="xref std std-ref">bool</span></a></dt><dd><p><code class="docutils literal notranslate"><span class="pre">point</span></code> が <code class="docutils literal notranslate"><span class="pre">bounds</span></code> 内にある場合は <code class="docutils literal notranslate"><span class="pre">True</span></code> となります．</p>
+<dt><strong>send_to_logging</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.11)"><span class="xref std std-ref">bool</span></a>, default: <a class="reference external" href="https://docs.python.org/3/library/constants.html#True" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">True</span></code></a></span></dt><dd><p>コンテキスト内で発生したVTKエラーもロギングに送信するかどうかを決定します．</p>
 </dd>
 </dl>
 </dd>
 </dl>
+<p class="rubric">例</p>
+<p>コンテキストマネージャを使用してVTKエラーをキャッチします．</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyvista</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">VtkErrorCatcher</span><span class="p">()</span> <span class="k">as</span> <span class="n">error_catcher</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="n">sphere</span> <span class="o">=</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">Sphere</span><span class="p">()</span>
+<span class="gp">...</span>
+</pre></div>
+</div>
+<p class="rubric">メソッド</p>
+<table class="autosummary longtable table autosummary">
+<tbody>
+</tbody>
+</table>
 </dd></dl>
 
 </section>
@@ -651,14 +657,14 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pyvista.utilities.is_inside_bounds"><code class="docutils literal notranslate"><span class="pre">is_inside_bounds()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pyvista.core.utilities.VtkErrorCatcher"><code class="docutils literal notranslate"><span class="pre">VtkErrorCatcher</span></code></a></li>
 </ul>
   </nav></div>
 
   <div class="sidebar-secondary-item">
   
   <div class="tocsection editthispage">
-    <a href="http://github.com/pyvista/pyvista/edit/main/pyvista/utilities/helpers.py">
+    <a href="http://github.com/pyvista/pyvista/edit/main/pyvista/core/utilities/observers.py">
       <i class="fa-solid fa-pencil"></i>
       
       

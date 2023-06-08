@@ -1,5 +1,5 @@
 # First, create sample data to smooth. Here, we use
-# :func:`pyvista.perlin_noise() <pyvista.utilities.common.perlin_noise>`
+# :func:`pyvista.perlin_noise() <pyvista.core.utilities.features.perlin_noise>`
 # to create meaningful data.
 #
 import numpy as np

@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>pyvista.utilities.axis_rotation &#8212; PyVista 0.40.dev0 ドキュメント</title>
+    <title>pyvista.core.utilities.is_inside_bounds &#8212; PyVista 0.40.dev0 ドキュメント</title>
   
   
   
@@ -68,15 +68,15 @@
                 gtag('js', new Date());
                 gtag('config', 'UA-140243896-1');
             </script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'api/utilities/_autosummary/pyvista.utilities.axis_rotation';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'api/utilities/_autosummary/pyvista.core.utilities.is_inside_bounds';</script>
     <script>
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://docs.pyvista.org/versions.json';
         DOCUMENTATION_OPTIONS.theme_switcher_version_match = 'dev';
         </script>
     <link rel="index" title="索引" href="../../../genindex.html" />
     <link rel="search" title="検索" href="../../../search.html" />
-    <link rel="next" title="pyvista.utilities.is_inside_bounds" href="pyvista.utilities.is_inside_bounds.html" />
-    <link rel="prev" title="pyvista.utilities.VtkErrorCatcher" href="pyvista.utilities.VtkErrorCatcher.html" />
+    <link rel="next" title="pyvista.core.utilities.set_error_output_file" href="pyvista.core.utilities.set_error_output_file.html" />
+    <link rel="prev" title="pyvista.core.utilities.axis_rotation" href="pyvista.core.utilities.axis_rotation.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="ja"/>
   </head>
@@ -503,10 +503,10 @@ document.write(`
 <li class="toctree-l2"><a class="reference internal" href="../geometric.html">ジオメトリオブジェクト</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../parametric.html">パラメトリックオブジェクト</a></li>
 <li class="toctree-l2 current active has-children"><a class="reference internal" href="../utilities.html">一般ユーティリティ</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="pyvista.utilities.VtkErrorCatcher.html">pyvista.utilities.VtkErrorCatcher</a></li>
-<li class="toctree-l3 current active"><a class="current reference internal" href="#">pyvista.utilities.axis_rotation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pyvista.utilities.is_inside_bounds.html">pyvista.utilities.is_inside_bounds</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pyvista.utilities.set_error_output_file.html">pyvista.utilities.set_error_output_file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.core.utilities.VtkErrorCatcher.html">pyvista.core.utilities.VtkErrorCatcher</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.core.utilities.axis_rotation.html">pyvista.core.utilities.axis_rotation</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">pyvista.core.utilities.is_inside_bounds</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.core.utilities.set_error_output_file.html">pyvista.core.utilities.set_error_output_file</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyvista.array_from_vtkmatrix.html">pyvista.array_from_vtkmatrix</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyvista.cubemap.html">pyvista.cubemap</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyvista.cubemap_from_filenames.html">pyvista.cubemap_from_filenames</a></li>
@@ -590,7 +590,7 @@ document.write(`
     
     <li class="breadcrumb-item"><a href="../utilities.html" class="nav-link">一般ユーティリティ</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page">pyvista.utilities.axis_rotation</li>
+    <li class="breadcrumb-item active" aria-current="page">pyvista.core.utilities.is_inside_bounds</li>
   </ul>
 </nav>
 </div>
@@ -607,47 +607,29 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="pyvista-utilities-axis-rotation">
-<h1>pyvista.utilities.axis_rotation<a class="headerlink" href="#pyvista-utilities-axis-rotation" title="この見出しへのパーマリンク">#</a></h1>
+  <section id="pyvista-core-utilities-is-inside-bounds">
+<h1>pyvista.core.utilities.is_inside_bounds<a class="headerlink" href="#pyvista-core-utilities-is-inside-bounds" title="この見出しへのパーマリンク">#</a></h1>
 <dl class="py function">
-<dt class="sig sig-object py" id="pyvista.utilities.axis_rotation">
-<span class="sig-name descname"><span class="pre">axis_rotation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">points</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angle</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inplace</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">deg</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'z'</span></span></em><span class="sig-paren">)</span><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/utilities/helpers.py#L1451-L1499"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.utilities.axis_rotation" title="この定義へのパーマリンク">#</a></dt>
-<dd><p>軸を中心に角度をつけて点を回転させます．</p>
+<dt class="sig sig-object py" id="pyvista.core.utilities.is_inside_bounds">
+<span class="sig-name descname"><span class="pre">is_inside_bounds</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">point</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bounds</span></span></em><span class="sig-paren">)</span><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/core/utilities/helpers.py#L252-L289"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.core.utilities.is_inside_bounds" title="この定義へのパーマリンク">#</a></dt>
+<dd><p>ポイントが境界のセット内にあるかどうかをチェックします．</p>
+<p>これは再帰的に実装されているため，N次元になります．</p>
 <dl class="field-list">
 <dt class="field-odd">パラメータ<span class="colon">:</span></dt>
 <dd class="field-odd"><dl>
-<dt><strong>points</strong><span class="classifier"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.24)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></span></dt><dd><p>形状が <code class="docutils literal notranslate"><span class="pre">(N,</span> <span class="pre">3)</span></code> である点の配列です．</p>
+<dt><strong>point</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/glossary.html#term-sequence" title="(in Python v3.11)"><span>sequence</span></a>[<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a>]</span></dt><dd><p>3項目の直交点（例 <code class="docutils literal notranslate"><span class="pre">[x,</span> <span class="pre">y,</span> <span class="pre">z]</span></code> ）．</p>
 </dd>
-<dt><strong>angle</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a></span></dt><dd><p>回転角度．</p>
-</dd>
-<dt><strong>inplace</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.11)"><span class="xref std std-ref">bool</span></a>, default: <a class="reference external" href="https://docs.python.org/3/library/constants.html#False" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">False</span></code></a></span></dt><dd><p>何も返さずにin-placeポイントを更新します．</p>
-</dd>
-<dt><strong>deg</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.11)"><span class="xref std std-ref">bool</span></a>, default: <a class="reference external" href="https://docs.python.org/3/library/constants.html#True" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">True</span></code></a></span></dt><dd><p><code class="docutils literal notranslate"><span class="pre">True</span></code> の場合，角度はラジアンではなく，度として解釈されます．</p>
-</dd>
-<dt><strong>axis</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a>, default: &quot;z&quot;</span></dt><dd><p>回転させる軸の名前を指定します．有効なオプションは <code class="docutils literal notranslate"><span class="pre">'x'</span></code>, <code class="docutils literal notranslate"><span class="pre">'y'</span></code>, および <code class="docutils literal notranslate"><span class="pre">'z'</span></code> です．</p>
+<dt><strong>bounds</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/glossary.html#term-sequence" title="(in Python v3.11)"><span>sequence</span></a>[<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a>]</span></dt><dd><p><code class="docutils literal notranslate"><span class="pre">(xMin,</span> <span class="pre">xMax,</span> <span class="pre">yMin,</span> <span class="pre">yMax,</span> <span class="pre">zMin,</span> <span class="pre">zMax)</span></code> という形で，6つのアイテムの境界線を設定します．</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">戻り値<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.24)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></dt><dd><p>回転した点．</p>
+<dt><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.11)"><span class="xref std std-ref">bool</span></a></dt><dd><p><code class="docutils literal notranslate"><span class="pre">point</span></code> が <code class="docutils literal notranslate"><span class="pre">bounds</span></code> 内にある場合は <code class="docutils literal notranslate"><span class="pre">True</span></code> となります．</p>
 </dd>
 </dl>
 </dd>
 </dl>
-<p class="rubric">例</p>
-<p>点の集合をx軸を中心に90度回転させるインプレース機能．</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyvista</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pyvista</span> <span class="kn">import</span> <span class="n">examples</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">points</span> <span class="o">=</span> <span class="n">examples</span><span class="o">.</span><span class="n">load_airplane</span><span class="p">()</span><span class="o">.</span><span class="n">points</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">points_orig</span> <span class="o">=</span> <span class="n">points</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">pyvista</span><span class="o">.</span><span class="n">axis_rotation</span><span class="p">(</span><span class="n">points</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">deg</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">points</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">points_orig</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]))</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">points</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="o">-</span><span class="n">points_orig</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]))</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">points</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">points_orig</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]))</span>
-</pre></div>
-</div>
 </dd></dl>
 
 </section>
@@ -669,14 +651,14 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pyvista.utilities.axis_rotation"><code class="docutils literal notranslate"><span class="pre">axis_rotation()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pyvista.core.utilities.is_inside_bounds"><code class="docutils literal notranslate"><span class="pre">is_inside_bounds()</span></code></a></li>
 </ul>
   </nav></div>
 
   <div class="sidebar-secondary-item">
   
   <div class="tocsection editthispage">
-    <a href="http://github.com/pyvista/pyvista/edit/main/pyvista/utilities/helpers.py">
+    <a href="http://github.com/pyvista/pyvista/edit/main/pyvista/core/utilities/helpers.py">
       <i class="fa-solid fa-pencil"></i>
       
       

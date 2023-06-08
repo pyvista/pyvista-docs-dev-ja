@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>pyvista.utilities.set_error_output_file &#8212; PyVista 0.40.dev0 ドキュメント</title>
+    <title>pyvista.core.utilities.features.perlin_noise &#8212; PyVista 0.40.dev0 ドキュメント</title>
   
   
   
@@ -68,15 +68,15 @@
                 gtag('js', new Date());
                 gtag('config', 'UA-140243896-1');
             </script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'api/utilities/_autosummary/pyvista.utilities.set_error_output_file';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'api/core/_autosummary/pyvista.core.utilities.features.perlin_noise';</script>
     <script>
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://docs.pyvista.org/versions.json';
         DOCUMENTATION_OPTIONS.theme_switcher_version_match = 'dev';
         </script>
     <link rel="index" title="索引" href="../../../genindex.html" />
     <link rel="search" title="検索" href="../../../search.html" />
-    <link rel="next" title="pyvista.array_from_vtkmatrix" href="pyvista.array_from_vtkmatrix.html" />
-    <link rel="prev" title="pyvista.utilities.is_inside_bounds" href="pyvista.utilities.is_inside_bounds.html" />
+    <link rel="next" title="プロット" href="../../plotting/index.html" />
+    <link rel="prev" title="pyvista.core.utilities.features.sample_function" href="pyvista.core.utilities.features.sample_function.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="ja"/>
   </head>
@@ -497,49 +497,26 @@ document.write(`
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
   <div class="bd-toc-item navbar-nav"><p aria-level="2" class="caption" role="heading"><span class="caption-text">APIリファレンス</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../core/index.html">コアAPI</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../index.html">コアAPI</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../objects.html">DataObject</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dataset.html">データセット</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pointsets.html">ポイントセット</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../grids.html">グリッドデータ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../composite.html">複合データセット</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../filters.html">フィルタ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../camera.html">カメラ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lights.html">ライト</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cells.html">セル</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers.html">ヘルパー</a></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="../misc.html">その他</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="pyvista.core.utilities.features.sample_function.html">pyvista.core.utilities.features.sample_function</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">pyvista.core.utilities.features.perlin_noise</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../../plotting/index.html">プロット</a></li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="../index.html">ユーティリティ</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../geometric.html">ジオメトリオブジェクト</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../parametric.html">パラメトリックオブジェクト</a></li>
-<li class="toctree-l2 current active has-children"><a class="reference internal" href="../utilities.html">一般ユーティリティ</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="pyvista.utilities.VtkErrorCatcher.html">pyvista.utilities.VtkErrorCatcher</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pyvista.utilities.axis_rotation.html">pyvista.utilities.axis_rotation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pyvista.utilities.is_inside_bounds.html">pyvista.utilities.is_inside_bounds</a></li>
-<li class="toctree-l3 current active"><a class="current reference internal" href="#">pyvista.utilities.set_error_output_file</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pyvista.array_from_vtkmatrix.html">pyvista.array_from_vtkmatrix</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pyvista.cubemap.html">pyvista.cubemap</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pyvista.cubemap_from_filenames.html">pyvista.cubemap_from_filenames</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pyvista.image_to_texture.html">pyvista.image_to_texture</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pyvista.is_pyvista_dataset.html">pyvista.is_pyvista_dataset</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pyvista.numpy_to_texture.html">pyvista.numpy_to_texture</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pyvista.pyvista_ndarray.html">pyvista.pyvista_ndarray</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pyvista.vtkmatrix_from_array.html">pyvista.vtkmatrix_from_array</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pyvista.wrap.html">pyvista.wrap</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pyvista.read.html">pyvista.read</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pyvista.read_exodus.html">pyvista.read_exodus</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pyvista.read_legacy.html">pyvista.read_legacy</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pyvista.read_texture.html">pyvista.read_texture</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pyvista.save_meshio.html">pyvista.save_meshio</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pyvista.CellType.html">pyvista.CellType</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pyvista.fit_plane_to_points.html">pyvista.fit_plane_to_points</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pyvista.lines_from_points.html">pyvista.lines_from_points</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pyvista.vector_poly_data.html">pyvista.vector_poly_data</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pyvista.vtk_points.html">pyvista.vtk_points</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pyvista.cell_array.html">pyvista.cell_array</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pyvista.convert_array.html">pyvista.convert_array</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pyvista.field_array.html">pyvista.field_array</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pyvista.get_array.html">pyvista.get_array</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pyvista.point_array.html">pyvista.point_array</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pyvista.compare_images.html">pyvista.compare_images</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pyvista.Color.html">pyvista.Color</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pyvista.ColorLike.html">pyvista.ColorLike</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pyvista.start_xvfb.html">pyvista.start_xvfb</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pyvista.Report.html">pyvista.Report</a></li>
-</ul>
-</li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="../../utilities/index.html">ユーティリティ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../readers/index.html">リーダー</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../examples/index.html">例</a></li>
 </ul>
@@ -588,9 +565,9 @@ document.write(`
     <li class="breadcrumb-item"><i class="fa-solid fa-ellipsis"></i></li>
     
     
-    <li class="breadcrumb-item"><a href="../utilities.html" class="nav-link">一般ユーティリティ</a></li>
+    <li class="breadcrumb-item"><a href="../misc.html" class="nav-link">その他</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page">pyvista.utilities.set_error_output_file</li>
+    <li class="breadcrumb-item active" aria-current="page">pyvista.core.utilities.features.perlin_noise</li>
   </ul>
 </nav>
 </div>
@@ -607,28 +584,50 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="pyvista-utilities-set-error-output-file">
-<h1>pyvista.utilities.set_error_output_file<a class="headerlink" href="#pyvista-utilities-set-error-output-file" title="この見出しへのパーマリンク">#</a></h1>
+  <section id="pyvista-core-utilities-features-perlin-noise">
+<h1>pyvista.core.utilities.features.perlin_noise<a class="headerlink" href="#pyvista-core-utilities-features-perlin-noise" title="この見出しへのパーマリンク">#</a></h1>
 <dl class="py function">
-<dt class="sig sig-object py" id="pyvista.utilities.set_error_output_file">
-<span class="sig-name descname"><span class="pre">set_error_output_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/utilities/errors.py#L18-L39"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.utilities.set_error_output_file" title="この定義へのパーマリンク">#</a></dt>
-<dd><p>VTKエラーを書き出すファイルを設定します．</p>
+<dt class="sig sig-object py" id="pyvista.core.utilities.features.perlin_noise">
+<span class="sig-name descname"><span class="pre">perlin_noise</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">amplitude</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">freq</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Sequence" title="(in Python v3.11)"><span class="pre">Sequence</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><span class="pre">float</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phase</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Sequence" title="(in Python v3.11)"><span class="pre">Sequence</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><span class="pre">float</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/core/utilities/features.py#L290-L352"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.core.utilities.features.perlin_noise" title="この定義へのパーマリンク">#</a></dt>
+<dd><p>Perlin ノイズを実装する暗黙の関数を返します．</p>
+<p><code class="docutils literal notranslate"><span class="pre">vtk.vtkPerlinNoise</span></code> を用いて，Perlin noise field を陰関数として計算します． <code class="docutils literal notranslate"><span class="pre">vtk.vtkPerlinNoise</span></code> は <code class="docutils literal notranslate"><span class="pre">vtk.vtkImplicitFunction</span></code> の具象実装である．Perlin noise は Ken Perlin によって開発された非周期的で連続的なノイズ関数で，実世界のオブジェクトのモデリングに有用です．</p>
+<p>ノイズパターンの振幅と周波数は調整可能です．このPerlinノイズの実装は，Graphics Gems IIのGreg Wardのバージョンから密接に派生したものです．</p>
 <dl class="field-list">
 <dt class="field-odd">パラメータ<span class="colon">:</span></dt>
 <dd class="field-odd"><dl>
-<dt><strong>filename</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a></span></dt><dd><p>VTKのエラーを書き込むファイルのパス．</p>
+<dt><strong>amplitude</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a></span></dt><dd><p>ノイズ関数の振幅．</p>
+<p>振幅 <code class="docutils literal notranslate"><span class="pre">amplitude</span></code> は負になることがある．ノイズ関数は <code class="docutils literal notranslate"><span class="pre">-|Amplitude|</span></code> と <code class="docutils literal notranslate"><span class="pre">|Amplitude|</span></code> の間でランダムに変化します．したがって，値の範囲は <code class="docutils literal notranslate"><span class="pre">2*|Amplitude|</span></code> と大きくなっています．初期振幅は1です．</p>
+</dd>
+<dt><strong>freq</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/glossary.html#term-sequence" title="(in Python v3.11)"><span>sequence</span></a>[<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a>]</span></dt><dd><p>ノイズ関数の周波数，または物理的なスケール（高いほど細かいスケール）．</p>
+<p>周波数は，軸ごとに調整することも，全軸で同じにすることも可能です．</p>
+</dd>
+<dt><strong>phase</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/glossary.html#term-sequence" title="(in Python v3.11)"><span>sequence</span></a>[<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a>]</span></dt><dd><p>ノイズ関数の位相を設定／取得します．</p>
+<p>このパラメータは，空間内でノイズ関数をシフトさせるために使用することができます（おそらく，別のスケールのノイズパターンとのビートを避けるため）．位相は約単位ごとに繰り返す傾向があるので，0.5の位相は半周期のシフトとなります．</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">戻り値<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">vtkFileOutputWindow</span></code></dt><dd><p>VTKファイルの出力画面．</p>
-</dd>
-<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">vtkOutputWindow</span></code></dt><dd><p>VTKの出力画面．</p>
-</dd>
-</dl>
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">vtk.vtkPerlinNoise</span></code></dt><dd><p>Instance of <code class="docutils literal notranslate"><span class="pre">vtk.vtkPerlinNoise</span></code> to a Perlin noise field as an
+implicit function. Use with <a class="reference internal" href="pyvista.core.utilities.features.sample_function.html#pyvista.core.utilities.features.sample_function" title="pyvista.core.utilities.features.sample_function"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyvista.sample_function()</span></code></a>.</p>
 </dd>
 </dl>
+</dd>
+</dl>
+<p class="rubric">例</p>
+<p>振幅0.1，全軸の周波数1，全軸の位相0，Perlinノイズ関数を作成します．</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyvista</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">noise</span> <span class="o">=</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">perlin_noise</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>構造格子上でPerlinノイズをサンプリングし，それをプロットする．</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">grid</span> <span class="o">=</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">sample_function</span><span class="p">(</span><span class="n">noise</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">grid</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+<figure class="align-default">
+<img alt="../../../_images/pyvista-core-utilities-features-perlin_noise-1_00_00.png" src="../../../_images/pyvista-core-utilities-features-perlin_noise-1_00_00.png" />
+</figure>
 </dd></dl>
 
 </section>
@@ -650,14 +649,14 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pyvista.utilities.set_error_output_file"><code class="docutils literal notranslate"><span class="pre">set_error_output_file()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pyvista.core.utilities.features.perlin_noise"><code class="docutils literal notranslate"><span class="pre">perlin_noise()</span></code></a></li>
 </ul>
   </nav></div>
 
   <div class="sidebar-secondary-item">
   
   <div class="tocsection editthispage">
-    <a href="http://github.com/pyvista/pyvista/edit/main/pyvista/utilities/errors.py">
+    <a href="http://github.com/pyvista/pyvista/edit/main/pyvista/core/utilities/features.py">
       <i class="fa-solid fa-pencil"></i>
       
       

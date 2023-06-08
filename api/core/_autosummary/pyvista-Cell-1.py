@@ -1,7 +1,7 @@
 # Get the 0-th cell from a :class:`pyvista.PolyData`.
 #
-import pyvista
-mesh = pyvista.Sphere()
+import pyvista as pv
+mesh = pv.Sphere()
 cell = mesh.get_cell(0)
 cell  # doctest: +SKIP
 # Expected:
