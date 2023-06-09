@@ -75,7 +75,7 @@
         </script>
     <link rel="index" title="索引" href="../../../genindex.html" />
     <link rel="search" title="検索" href="../../../search.html" />
-    <link rel="next" title="pyvista.PolyDataFilters.boolean_add" href="pyvista.PolyDataFilters.boolean_add.html" />
+    <link rel="next" title="pyvista.PolyDataFilters.append_polydata" href="pyvista.PolyDataFilters.append_polydata.html" />
     <link rel="prev" title="pyvista.DataSetFilters.warp_by_vector" href="pyvista.DataSetFilters.warp_by_vector.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="ja"/>
@@ -506,6 +506,7 @@ document.write(`
 <li class="toctree-l2 current active has-children"><a class="reference internal" href="../filters.html">フィルタ</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="pyvista.DataSetFilters.html">pyvista.DataSetFilters</a></li>
 <li class="toctree-l3 current active has-children"><a class="current reference internal" href="#">pyvista.PolyDataFilters</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="pyvista.PolyDataFilters.append_polydata.html">pyvista.PolyDataFilters.append_polydata</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyvista.PolyDataFilters.boolean_add.html">pyvista.PolyDataFilters.boolean_add</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyvista.PolyDataFilters.boolean_cut.html">pyvista.PolyDataFilters.boolean_cut</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyvista.PolyDataFilters.boolean_difference.html">pyvista.PolyDataFilters.boolean_difference</a></li>
@@ -634,132 +635,135 @@ document.write(`
 <h1>pyvista.PolyDataFilters<a class="headerlink" href="#pyvista-polydatafilters" title="この見出しへのパーマリンク">#</a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="pyvista.PolyDataFilters">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">PolyDataFilters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/core/filters/poly_data.py#L30-L3643"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.PolyDataFilters" title="この定義へのパーマリンク">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">PolyDataFilters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/core/filters/poly_data.py#L30-L3729"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.PolyDataFilters" title="この定義へのパーマリンク">#</a></dt>
 <dd><p>ポリデータデータセットのフィルタ/アルゴリズムを管理する内部クラス．</p>
 <p class="rubric">メソッド</p>
 <table class="autosummary longtable table autosummary">
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.PolyDataFilters.boolean_add.html#pyvista.PolyDataFilters.boolean_add" title="pyvista.PolyDataFilters.boolean_add"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyDataFilters.boolean_add</span></code></a>(*args, **kwargs)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.PolyDataFilters.append_polydata.html#pyvista.PolyDataFilters.append_polydata" title="pyvista.PolyDataFilters.append_polydata"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyDataFilters.append_polydata</span></code></a>(*meshes[, ...])</p></td>
+<td><p>Append one or more PolyData into this one.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.PolyDataFilters.boolean_add.html#pyvista.PolyDataFilters.boolean_add" title="pyvista.PolyDataFilters.boolean_add"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyDataFilters.boolean_add</span></code></a>(*args, **kwargs)</p></td>
 <td><p>2つのメッシュを結合します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.PolyDataFilters.boolean_cut.html#pyvista.PolyDataFilters.boolean_cut" title="pyvista.PolyDataFilters.boolean_cut"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyDataFilters.boolean_cut</span></code></a>(*args, **kwargs)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.PolyDataFilters.boolean_cut.html#pyvista.PolyDataFilters.boolean_cut" title="pyvista.PolyDataFilters.boolean_cut"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyDataFilters.boolean_cut</span></code></a>(*args, **kwargs)</p></td>
 <td><p>2つのメッシュをカットします．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.PolyDataFilters.boolean_difference.html#pyvista.PolyDataFilters.boolean_difference" title="pyvista.PolyDataFilters.boolean_difference"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyDataFilters.boolean_difference</span></code></a>(other_mesh)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.PolyDataFilters.boolean_difference.html#pyvista.PolyDataFilters.boolean_difference" title="pyvista.PolyDataFilters.boolean_difference"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyDataFilters.boolean_difference</span></code></a>(other_mesh)</p></td>
 <td><p>2つのメッシュの間でブーリアン値の差分演算を行います．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.PolyDataFilters.boolean_intersection.html#pyvista.PolyDataFilters.boolean_intersection" title="pyvista.PolyDataFilters.boolean_intersection"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyDataFilters.boolean_intersection</span></code></a>(other_mesh)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.PolyDataFilters.boolean_intersection.html#pyvista.PolyDataFilters.boolean_intersection" title="pyvista.PolyDataFilters.boolean_intersection"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyDataFilters.boolean_intersection</span></code></a>(other_mesh)</p></td>
 <td><p>2つのメッシュにブーリアンの交差演算を行います．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.PolyDataFilters.boolean_union.html#pyvista.PolyDataFilters.boolean_union" title="pyvista.PolyDataFilters.boolean_union"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyDataFilters.boolean_union</span></code></a>(other_mesh[, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.PolyDataFilters.boolean_union.html#pyvista.PolyDataFilters.boolean_union" title="pyvista.PolyDataFilters.boolean_union"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyDataFilters.boolean_union</span></code></a>(other_mesh[, ...])</p></td>
 <td><p>2つのメッシュにブーリアンの和集合演算を行います．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.PolyDataFilters.clean.html#pyvista.PolyDataFilters.clean" title="pyvista.PolyDataFilters.clean"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyDataFilters.clean</span></code></a>([point_merging, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.PolyDataFilters.clean.html#pyvista.PolyDataFilters.clean" title="pyvista.PolyDataFilters.clean"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyDataFilters.clean</span></code></a>([point_merging, ...])</p></td>
 <td><p>メッシュをクリーンします．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.PolyDataFilters.clip_closed_surface.html#pyvista.PolyDataFilters.clip_closed_surface" title="pyvista.PolyDataFilters.clip_closed_surface"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyDataFilters.clip_closed_surface</span></code></a>([...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.PolyDataFilters.clip_closed_surface.html#pyvista.PolyDataFilters.clip_closed_surface" title="pyvista.PolyDataFilters.clip_closed_surface"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyDataFilters.clip_closed_surface</span></code></a>([...])</p></td>
 <td><p>閉じたポリデータサーフェスを平面でクリップします．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.PolyDataFilters.collision.html#pyvista.PolyDataFilters.collision" title="pyvista.PolyDataFilters.collision"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyDataFilters.collision</span></code></a>(other_mesh[, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.PolyDataFilters.collision.html#pyvista.PolyDataFilters.collision" title="pyvista.PolyDataFilters.collision"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyDataFilters.collision</span></code></a>(other_mesh[, ...])</p></td>
 <td><p>2つの多面体サーフェス間の衝突判定を行います．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.PolyDataFilters.compute_arc_length.html#pyvista.PolyDataFilters.compute_arc_length" title="pyvista.PolyDataFilters.compute_arc_length"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyDataFilters.compute_arc_length</span></code></a>([...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.PolyDataFilters.compute_arc_length.html#pyvista.PolyDataFilters.compute_arc_length" title="pyvista.PolyDataFilters.compute_arc_length"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyDataFilters.compute_arc_length</span></code></a>([...])</p></td>
 <td><p>精査する線の長さに対する円弧の長さを計算します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.PolyDataFilters.compute_normals.html#pyvista.PolyDataFilters.compute_normals" title="pyvista.PolyDataFilters.compute_normals"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyDataFilters.compute_normals</span></code></a>([...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.PolyDataFilters.compute_normals.html#pyvista.PolyDataFilters.compute_normals" title="pyvista.PolyDataFilters.compute_normals"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyDataFilters.compute_normals</span></code></a>([...])</p></td>
 <td><p>メッシュのポイント法線やセル法線を計算します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.PolyDataFilters.contour_banded.html#pyvista.PolyDataFilters.contour_banded" title="pyvista.PolyDataFilters.contour_banded"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyDataFilters.contour_banded</span></code></a>(n_contours[, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.PolyDataFilters.contour_banded.html#pyvista.PolyDataFilters.contour_banded" title="pyvista.PolyDataFilters.contour_banded"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyDataFilters.contour_banded</span></code></a>(n_contours[, ...])</p></td>
 <td><p>塗りつぶしコンターを生成します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.PolyDataFilters.curvature.html#pyvista.PolyDataFilters.curvature" title="pyvista.PolyDataFilters.curvature"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyDataFilters.curvature</span></code></a>([curv_type, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.PolyDataFilters.curvature.html#pyvista.PolyDataFilters.curvature" title="pyvista.PolyDataFilters.curvature"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyDataFilters.curvature</span></code></a>([curv_type, ...])</p></td>
 <td><p>メッシュのポイント単位の曲率を取得します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.PolyDataFilters.decimate.html#pyvista.PolyDataFilters.decimate" title="pyvista.PolyDataFilters.decimate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyDataFilters.decimate</span></code></a>(target_reduction[, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.PolyDataFilters.decimate.html#pyvista.PolyDataFilters.decimate" title="pyvista.PolyDataFilters.decimate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyDataFilters.decimate</span></code></a>(target_reduction[, ...])</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">vtkQuadricDecimation</span></code> を使用して，3角形メッシュ内の3角形の数を減らします．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.PolyDataFilters.decimate_pro.html#pyvista.PolyDataFilters.decimate_pro" title="pyvista.PolyDataFilters.decimate_pro"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyDataFilters.decimate_pro</span></code></a>(reduction[, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.PolyDataFilters.decimate_pro.html#pyvista.PolyDataFilters.decimate_pro" title="pyvista.PolyDataFilters.decimate_pro"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyDataFilters.decimate_pro</span></code></a>(reduction[, ...])</p></td>
 <td><p>3角形メッシュ内の3角形の数を減らします．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.PolyDataFilters.delaunay_2d.html#pyvista.PolyDataFilters.delaunay_2d" title="pyvista.PolyDataFilters.delaunay_2d"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyDataFilters.delaunay_2d</span></code></a>([tol, alpha, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.PolyDataFilters.delaunay_2d.html#pyvista.PolyDataFilters.delaunay_2d" title="pyvista.PolyDataFilters.delaunay_2d"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyDataFilters.delaunay_2d</span></code></a>([tol, alpha, ...])</p></td>
 <td><p>最適フィット平面に沿って2D Delaunayフィルタを適用します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.PolyDataFilters.edge_mask.html#pyvista.PolyDataFilters.edge_mask" title="pyvista.PolyDataFilters.edge_mask"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyDataFilters.edge_mask</span></code></a>(angle[, progress_bar])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.PolyDataFilters.edge_mask.html#pyvista.PolyDataFilters.edge_mask" title="pyvista.PolyDataFilters.edge_mask"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyDataFilters.edge_mask</span></code></a>(angle[, progress_bar])</p></td>
 <td><p>angleより大きいサーフェス角度を持つサーフェスメッシュのポイントのマスクを取得します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.PolyDataFilters.extrude.html#pyvista.PolyDataFilters.extrude" title="pyvista.PolyDataFilters.extrude"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyDataFilters.extrude</span></code></a>(vector[, capping, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.PolyDataFilters.extrude.html#pyvista.PolyDataFilters.extrude" title="pyvista.PolyDataFilters.extrude"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyDataFilters.extrude</span></code></a>(vector[, capping, ...])</p></td>
 <td><p>フリーエッジから &quot;skirt&quot; を作成してポリゴンデータを掃除します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.PolyDataFilters.extrude_rotate.html#pyvista.PolyDataFilters.extrude_rotate" title="pyvista.PolyDataFilters.extrude_rotate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyDataFilters.extrude_rotate</span></code></a>([resolution, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.PolyDataFilters.extrude_rotate.html#pyvista.PolyDataFilters.extrude_rotate" title="pyvista.PolyDataFilters.extrude_rotate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyDataFilters.extrude_rotate</span></code></a>([resolution, ...])</p></td>
 <td><p>フリーエッジとフリーラインから &quot;skirt&quot; を作成し，頂点からラインを作成して，ポリゴンデータをスイープします．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.PolyDataFilters.extrude_trim.html#pyvista.PolyDataFilters.extrude_trim" title="pyvista.PolyDataFilters.extrude_trim"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyDataFilters.extrude_trim</span></code></a>(direction, ...)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.PolyDataFilters.extrude_trim.html#pyvista.PolyDataFilters.extrude_trim" title="pyvista.PolyDataFilters.extrude_trim"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyDataFilters.extrude_trim</span></code></a>(direction, ...)</p></td>
 <td><p>サーフェスでトリミングされたポリゴンデータを押し出す．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.PolyDataFilters.fill_holes.html#pyvista.PolyDataFilters.fill_holes" title="pyvista.PolyDataFilters.fill_holes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyDataFilters.fill_holes</span></code></a>(hole_size[, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.PolyDataFilters.fill_holes.html#pyvista.PolyDataFilters.fill_holes" title="pyvista.PolyDataFilters.fill_holes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyDataFilters.fill_holes</span></code></a>(hole_size[, ...])</p></td>
 <td><p>pyvista.PolyData または vtk.vtkPolyData オブジェクトの穴を埋めます．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.PolyDataFilters.flip_normals.html#pyvista.PolyDataFilters.flip_normals" title="pyvista.PolyDataFilters.flip_normals"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyDataFilters.flip_normals</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.PolyDataFilters.flip_normals.html#pyvista.PolyDataFilters.flip_normals" title="pyvista.PolyDataFilters.flip_normals"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyDataFilters.flip_normals</span></code></a>()</p></td>
 <td><p>ポイントの順序を逆にして，3角形メッシュの法線を反転します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.PolyDataFilters.geodesic.html#pyvista.PolyDataFilters.geodesic" title="pyvista.PolyDataFilters.geodesic"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyDataFilters.geodesic</span></code></a>(start_vertex, ...)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.PolyDataFilters.geodesic.html#pyvista.PolyDataFilters.geodesic" title="pyvista.PolyDataFilters.geodesic"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyDataFilters.geodesic</span></code></a>(start_vertex, ...)</p></td>
 <td><p>Dijkstraのアルゴリズムを使用して，2つの頂点間の測地線パスを計算します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.PolyDataFilters.geodesic_distance.html#pyvista.PolyDataFilters.geodesic_distance" title="pyvista.PolyDataFilters.geodesic_distance"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyDataFilters.geodesic_distance</span></code></a>(...[, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.PolyDataFilters.geodesic_distance.html#pyvista.PolyDataFilters.geodesic_distance" title="pyvista.PolyDataFilters.geodesic_distance"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyDataFilters.geodesic_distance</span></code></a>(...[, ...])</p></td>
 <td><p>Dijkstraのアルゴリズムを使用して，2つの頂点間の測地線距離を計算します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.PolyDataFilters.intersection.html#pyvista.PolyDataFilters.intersection" title="pyvista.PolyDataFilters.intersection"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyDataFilters.intersection</span></code></a>(mesh[, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.PolyDataFilters.intersection.html#pyvista.PolyDataFilters.intersection" title="pyvista.PolyDataFilters.intersection"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyDataFilters.intersection</span></code></a>(mesh[, ...])</p></td>
 <td><p>2つのメッシュ間の交差を計算します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.PolyDataFilters.merge.html#pyvista.PolyDataFilters.merge" title="pyvista.PolyDataFilters.merge"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyDataFilters.merge</span></code></a>(dataset[, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.PolyDataFilters.merge.html#pyvista.PolyDataFilters.merge" title="pyvista.PolyDataFilters.merge"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyDataFilters.merge</span></code></a>(dataset[, ...])</p></td>
 <td><p>このメッシュを1つまたは複数のデータセットと結合します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.PolyDataFilters.multi_ray_trace.html#pyvista.PolyDataFilters.multi_ray_trace" title="pyvista.PolyDataFilters.multi_ray_trace"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyDataFilters.multi_ray_trace</span></code></a>(origins, ...)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.PolyDataFilters.multi_ray_trace.html#pyvista.PolyDataFilters.multi_ray_trace" title="pyvista.PolyDataFilters.multi_ray_trace"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyDataFilters.multi_ray_trace</span></code></a>(origins, ...)</p></td>
 <td><p>複数のレイトレース計算を実行します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.PolyDataFilters.plot_boundaries.html#pyvista.PolyDataFilters.plot_boundaries" title="pyvista.PolyDataFilters.plot_boundaries"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyDataFilters.plot_boundaries</span></code></a>([...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.PolyDataFilters.plot_boundaries.html#pyvista.PolyDataFilters.plot_boundaries" title="pyvista.PolyDataFilters.plot_boundaries"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyDataFilters.plot_boundaries</span></code></a>([...])</p></td>
 <td><p>メッシュの境界をプロットします．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.PolyDataFilters.plot_curvature.html#pyvista.PolyDataFilters.plot_curvature" title="pyvista.PolyDataFilters.plot_curvature"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyDataFilters.plot_curvature</span></code></a>([curv_type])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.PolyDataFilters.plot_curvature.html#pyvista.PolyDataFilters.plot_curvature" title="pyvista.PolyDataFilters.plot_curvature"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyDataFilters.plot_curvature</span></code></a>([curv_type])</p></td>
 <td><p>曲率をプロットします．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.PolyDataFilters.plot_normals.html#pyvista.PolyDataFilters.plot_normals" title="pyvista.PolyDataFilters.plot_normals"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyDataFilters.plot_normals</span></code></a>([show_mesh, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.PolyDataFilters.plot_normals.html#pyvista.PolyDataFilters.plot_normals" title="pyvista.PolyDataFilters.plot_normals"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyDataFilters.plot_normals</span></code></a>([show_mesh, ...])</p></td>
 <td><p>メッシュのポイント法線をプロットします．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.PolyDataFilters.project_points_to_plane.html#pyvista.PolyDataFilters.project_points_to_plane" title="pyvista.PolyDataFilters.project_points_to_plane"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyDataFilters.project_points_to_plane</span></code></a>([...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.PolyDataFilters.project_points_to_plane.html#pyvista.PolyDataFilters.project_points_to_plane" title="pyvista.PolyDataFilters.project_points_to_plane"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyDataFilters.project_points_to_plane</span></code></a>([...])</p></td>
 <td><p>このメッシュの点を平面に投影します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.PolyDataFilters.ray_trace.html#pyvista.PolyDataFilters.ray_trace" title="pyvista.PolyDataFilters.ray_trace"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyDataFilters.ray_trace</span></code></a>(origin, end_point)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.PolyDataFilters.ray_trace.html#pyvista.PolyDataFilters.ray_trace" title="pyvista.PolyDataFilters.ray_trace"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyDataFilters.ray_trace</span></code></a>(origin, end_point)</p></td>
 <td><p>単一のレイトレース計算を実行します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.PolyDataFilters.reconstruct_surface.html#pyvista.PolyDataFilters.reconstruct_surface" title="pyvista.PolyDataFilters.reconstruct_surface"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyDataFilters.reconstruct_surface</span></code></a>([...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.PolyDataFilters.reconstruct_surface.html#pyvista.PolyDataFilters.reconstruct_surface" title="pyvista.PolyDataFilters.reconstruct_surface"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyDataFilters.reconstruct_surface</span></code></a>([...])</p></td>
 <td><p>このデータセットの点から曲面を再構成します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.PolyDataFilters.remove_points.html#pyvista.PolyDataFilters.remove_points" title="pyvista.PolyDataFilters.remove_points"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyDataFilters.remove_points</span></code></a>(remove[, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.PolyDataFilters.remove_points.html#pyvista.PolyDataFilters.remove_points" title="pyvista.PolyDataFilters.remove_points"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyDataFilters.remove_points</span></code></a>(remove[, ...])</p></td>
 <td><p>点を削除してメッシュを再構築します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.PolyDataFilters.ribbon.html#pyvista.PolyDataFilters.ribbon" title="pyvista.PolyDataFilters.ribbon"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyDataFilters.ribbon</span></code></a>([width, scalars, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.PolyDataFilters.ribbon.html#pyvista.PolyDataFilters.ribbon" title="pyvista.PolyDataFilters.ribbon"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyDataFilters.ribbon</span></code></a>([width, scalars, ...])</p></td>
 <td><p>このデータセットに線分のリボンを作成します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.PolyDataFilters.smooth.html#pyvista.PolyDataFilters.smooth" title="pyvista.PolyDataFilters.smooth"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyDataFilters.smooth</span></code></a>([n_iter, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.PolyDataFilters.smooth.html#pyvista.PolyDataFilters.smooth" title="pyvista.PolyDataFilters.smooth"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyDataFilters.smooth</span></code></a>([n_iter, ...])</p></td>
 <td><p>Laplacianスムージングを使用してポイント座標を調整します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.PolyDataFilters.smooth_taubin.html#pyvista.PolyDataFilters.smooth_taubin" title="pyvista.PolyDataFilters.smooth_taubin"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyDataFilters.smooth_taubin</span></code></a>([n_iter, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.PolyDataFilters.smooth_taubin.html#pyvista.PolyDataFilters.smooth_taubin" title="pyvista.PolyDataFilters.smooth_taubin"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyDataFilters.smooth_taubin</span></code></a>([n_iter, ...])</p></td>
 <td><p>PolyData DataSet をTaubinスムージングでスムージングします．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.PolyDataFilters.strip.html#pyvista.PolyDataFilters.strip" title="pyvista.PolyDataFilters.strip"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyDataFilters.strip</span></code></a>([join, max_length, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.PolyDataFilters.strip.html#pyvista.PolyDataFilters.strip" title="pyvista.PolyDataFilters.strip"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyDataFilters.strip</span></code></a>([join, max_length, ...])</p></td>
 <td><p>ポリゴンデータセルをストリップします．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.PolyDataFilters.subdivide.html#pyvista.PolyDataFilters.subdivide" title="pyvista.PolyDataFilters.subdivide"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyDataFilters.subdivide</span></code></a>(nsub[, subfilter, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.PolyDataFilters.subdivide.html#pyvista.PolyDataFilters.subdivide" title="pyvista.PolyDataFilters.subdivide"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyDataFilters.subdivide</span></code></a>(nsub[, subfilter, ...])</p></td>
 <td><p>単一の接続された3角形メッシュ内の3角形の数を増やします．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.PolyDataFilters.subdivide_adaptive.html#pyvista.PolyDataFilters.subdivide_adaptive" title="pyvista.PolyDataFilters.subdivide_adaptive"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyDataFilters.subdivide_adaptive</span></code></a>([...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.PolyDataFilters.subdivide_adaptive.html#pyvista.PolyDataFilters.subdivide_adaptive" title="pyvista.PolyDataFilters.subdivide_adaptive"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyDataFilters.subdivide_adaptive</span></code></a>([...])</p></td>
 <td><p>3角形メッシュ内の3角形の数を増やします．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.PolyDataFilters.triangulate.html#pyvista.PolyDataFilters.triangulate" title="pyvista.PolyDataFilters.triangulate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyDataFilters.triangulate</span></code></a>([inplace, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.PolyDataFilters.triangulate.html#pyvista.PolyDataFilters.triangulate" title="pyvista.PolyDataFilters.triangulate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyDataFilters.triangulate</span></code></a>([inplace, ...])</p></td>
 <td><p>すべて3角形のメッシュを取得します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.PolyDataFilters.tube.html#pyvista.PolyDataFilters.tube" title="pyvista.PolyDataFilters.tube"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyDataFilters.tube</span></code></a>([radius, scalars, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.PolyDataFilters.tube.html#pyvista.PolyDataFilters.tube" title="pyvista.PolyDataFilters.tube"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PolyDataFilters.tube</span></code></a>([radius, scalars, ...])</p></td>
 <td><p>各入力ラインの周囲にチューブを生成します．</p></td>
 </tr>
 </tbody>

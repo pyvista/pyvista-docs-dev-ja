@@ -648,11 +648,7 @@ document.write(`
 <section class="sphx-glr-example-title" id="fast-fourier-transform-with-perlin-noise">
 <span id="image-fft-perlin-example"></span><span id="sphx-glr-examples-01-filter-image-fft-perlin-noise-py"></span><h1>Perlinノイズによる高速フーリエ変換<a class="headerlink" href="#fast-fourier-transform-with-perlin-noise" title="この見出しへのパーマリンク">#</a></h1>
 <p>この例では， <a class="reference internal" href="../../api/core/_autosummary/pyvista.UniformGridFilters.fft.html#pyvista.UniformGridFilters.fft" title="pyvista.UniformGridFilters.fft"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyvista.UniformGridFilters.fft()</span></code></a> フィルターを使用して， <a class="reference internal" href="../../api/core/_autosummary/pyvista.UniformGrid.html#pyvista.UniformGrid" title="pyvista.UniformGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.UniformGrid</span></code></a> に高速フーリエ変換（FFT）を適用する方法を示しています．</p>
-<p>Here, we demonstrate FFT usage by first generating Perlin noise using
-<a class="reference internal" href="../../api/core/_autosummary/pyvista.core.utilities.features.sample_function.html#pyvista.core.utilities.features.sample_function" title="pyvista.core.utilities.features.sample_function"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyvista.sample_function()</span></code></a> to
-sample <a class="reference internal" href="../../api/core/_autosummary/pyvista.core.utilities.features.perlin_noise.html#pyvista.core.utilities.features.perlin_noise" title="pyvista.core.utilities.features.perlin_noise"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyvista.perlin_noise</span></code></a>,
-and then performing FFT of the sampled noise to show the frequency content of
-that noise.</p>
+<p>ここでは，まず <a class="reference internal" href="../../api/core/_autosummary/pyvista.core.utilities.features.sample_function.html#pyvista.core.utilities.features.sample_function" title="pyvista.core.utilities.features.sample_function"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyvista.sample_function()</span></code></a> を使って Perlin ノイズを生成して <a class="reference internal" href="../../api/core/_autosummary/pyvista.core.utilities.features.perlin_noise.html#pyvista.core.utilities.features.perlin_noise" title="pyvista.core.utilities.features.perlin_noise"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyvista.perlin_noise</span></code></a> をサンプリングし，そのノイズの周波数コンテンツを示すためにサンプルしたノイズを FFT して FFT 使用法を実演しています．</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <span class="kn">import</span> <span class="nn">pyvista</span> <span class="k">as</span> <span class="nn">pv</span>
@@ -690,9 +686,7 @@ that noise.</p>
 </section>
 <section id="plot-the-frequency-domain">
 <h1>周波数領域をプロットする<a class="headerlink" href="#plot-the-frequency-domain" title="この見出しへのパーマリンク">#</a></h1>
-<p>Now, plot the noise in the frequency domain. Note how there is more high
-frequency content in the x direction and this matches the frequencies given
-to <a class="reference internal" href="../../api/core/_autosummary/pyvista.core.utilities.features.perlin_noise.html#pyvista.core.utilities.features.perlin_noise" title="pyvista.core.utilities.features.perlin_noise"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyvista.perlin_noise</span></code></a>.</p>
+<p>さて，ノイズを周波数領域でプロットしてみましょう．これは <a class="reference internal" href="../../api/core/_autosummary/pyvista.core.utilities.features.perlin_noise.html#pyvista.core.utilities.features.perlin_noise" title="pyvista.core.utilities.features.perlin_noise"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyvista.perlin_noise</span></code></a> で指定した周波数と一致しています．</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># scale to make the plot viewable</span>
 <span class="n">subset</span><span class="p">[</span><span class="s1">&#39;scalars&#39;</span><span class="p">]</span> <span class="o">=</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.ufunc.html#numpy.ufunc" title="numpy.ufunc" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">np</span><span class="o">.</span><span class="n">abs</span></a><span class="p">(</span><span class="n">subset</span><span class="o">.</span><span class="n">active_scalars</span><span class="p">)</span>
 <span class="n">warped_subset</span> <span class="o">=</span> <span class="n">subset</span><span class="o">.</span><span class="n">warp_by_scalar</span><span class="p">(</span><span class="n">factor</span><span class="o">=</span><span class="mf">0.0001</span><span class="p">)</span>
@@ -807,7 +801,7 @@ to <a class="reference internal" href="../../api/core/_autosummary/pyvista.core.
 </div>
 <img src="../../_images/sphx_glr_image-fft-perlin-noise_006.gif" srcset="../../_images/sphx_glr_image-fft-perlin-noise_006.gif" alt="image fft perlin noise" class = "sphx-glr-single-img"/><p>上のアニメーションの左側のメッシュは，FFT振幅の生の値に基づいてワープしています．これは，アニメーションが進むにつれて，より多くの周波数を考慮することで，完全なノイズサンプルの割合が徐々に大きくなっていくことを強調しています．このため，メッシュは「平坦」に始まり，周波数のカットオフが大きくなるにつれて大きくなっていきます．</p>
 <p>一方，右側のメッシュは，カットオフ周波数に関係なく，常に同じ目に見える高さに反っています．これは，波長と周波数が反比例するため，カットオフ周波数を上げるとパーリンノイズの典型的な波長（特徴の大きさ）が減少することを強調しています．</p>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  29.523 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  28.016 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-01-filter-image-fft-perlin-noise-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/664990c23b57374e31b67f141beb0a0d/image-fft-perlin-noise.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">image-fft-perlin-noise.py</span></code></a></p>
