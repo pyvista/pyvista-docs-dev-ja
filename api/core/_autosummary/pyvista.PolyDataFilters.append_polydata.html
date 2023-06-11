@@ -636,17 +636,14 @@ document.write(`
 <dl class="py method">
 <dt class="sig sig-object py" id="pyvista.PolyDataFilters.append_polydata">
 <span class="sig-prename descclassname"><span class="pre">PolyDataFilters.</span></span><span class="sig-name descname"><span class="pre">append_polydata</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">meshes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inplace</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">progress_bar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/core/filters/poly_data.py#L364-L432"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.PolyDataFilters.append_polydata" title="この定義へのパーマリンク">#</a></dt>
-<dd><p>Append one or more PolyData into this one.</p>
-<p>Under the hood, the VTK <a class="reference external" href="https://vtk.org/doc/nightly/html/classvtkAppendPolyData.html#details">vtkAppendPolyDataFilter</a> filter is used to perform the
-append operation.</p>
+<dd><p>1つ以上のPolyDataをこのPolyDataに追加します．</p>
+<p>VTK の <a class="reference external" href="https://vtk.org/doc/nightly/html/classvtkAppendPolyData.html#details">vtkAppendPolyDataFilter</a> フィルターを使用して，追加操作を行います．</p>
 <div class="versionadded">
 <p><span class="versionmodified added">バージョン 0.40.0 で追加.</span></p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">注釈</p>
-<p>As stated in the VTK documentation of <a class="reference external" href="https://vtk.org/doc/nightly/html/classvtkAppendPolyData.html#details">vtkAppendPolyDataFilter</a>,
-point and cell data are added to the output PolyData <strong>only</strong> if they are present across <strong>all</strong>
-input PolyData.</p>
+<p><a class="reference external" href="https://vtk.org/doc/nightly/html/classvtkAppendPolyData.html#details">vtkAppendPolyDataFilter</a> のVTKドキュメントにあるように，点とセルのデータは， <strong>すべての</strong> 入力PolyDataにわたって存在する場合に <strong>のみ</strong> 出力PolyDataに追加されます．</p>
 </div>
 <div class="admonition seealso">
 <p class="admonition-title">参考</p>
@@ -655,7 +652,7 @@ input PolyData.</p>
 <dl class="field-list">
 <dt class="field-odd">パラメータ<span class="colon">:</span></dt>
 <dd class="field-odd"><dl>
-<dt><strong>*meshes</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">list</span></code></a>[<a class="reference internal" href="pyvista.PolyData.html#pyvista.PolyData" title="pyvista.PolyData"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyvista.PolyData</span></code></a>]</span></dt><dd><p>The PolyData(s) to append with the current one.</p>
+<dt><strong>*meshes</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">list</span></code></a>[<a class="reference internal" href="pyvista.PolyData.html#pyvista.PolyData" title="pyvista.PolyData"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyvista.PolyData</span></code></a>]</span></dt><dd><p>現在のデータに追加する(複数の)PolyData．</p>
 </dd>
 <dt><strong>inplace</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.11)"><span class="xref std std-ref">bool</span></a>, default: <a class="reference external" href="https://docs.python.org/3/library/constants.html#False" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">False</span></code></a></span></dt><dd><p>インプレースでメッシュを更新するかどうか．</p>
 </dd>
@@ -665,7 +662,7 @@ input PolyData.</p>
 </dd>
 <dt class="field-even">戻り値<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt><a class="reference internal" href="pyvista.PolyData.html#pyvista.PolyData" title="pyvista.PolyData"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyvista.PolyData</span></code></a></dt><dd><p>Appended PolyData(s).</p>
+<dt><a class="reference internal" href="pyvista.PolyData.html#pyvista.PolyData" title="pyvista.PolyData"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyvista.PolyData</span></code></a></dt><dd><p>追加された (複数の) PolyData．</p>
 </dd>
 </dl>
 </dd>
@@ -681,7 +678,7 @@ input PolyData.</p>
 <figure class="align-default">
 <img alt="../../../_images/pyvista-PolyDataFilters-append_polydata-1_00_00.png" src="../../../_images/pyvista-PolyDataFilters-append_polydata-1_00_00.png" />
 </figure>
-<p>Append more than one PolyData.</p>
+<p>複数のPolyDataを追加します．</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sp2</span> <span class="o">=</span> <span class="n">sp0</span><span class="o">.</span><span class="n">translate</span><span class="p">((</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">appended</span> <span class="o">=</span> <span class="n">sp0</span><span class="o">.</span><span class="n">append_polydata</span><span class="p">(</span><span class="n">sp1</span><span class="p">,</span> <span class="n">sp2</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">appended</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>

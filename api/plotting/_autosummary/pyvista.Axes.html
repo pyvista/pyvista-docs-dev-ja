@@ -600,23 +600,23 @@ document.write(`
 <dl class="py class">
 <dt class="sig sig-object py" id="pyvista.Axes">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Axes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">show_actor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">actor_scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line_width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">symmetric</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/plotting/axes.py#L7-L120"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.Axes" title="この定義へのパーマリンク">#</a></dt>
-<dd><p>PyVista wrapper for the VTK Axes class.</p>
+<dd><p>VTK AxesクラスのPyVistaラッパー．</p>
 <dl class="field-list">
 <dt class="field-odd">パラメータ<span class="colon">:</span></dt>
 <dd class="field-odd"><dl>
-<dt><strong>show_actor</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.11)"><span class="xref std std-ref">bool</span></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>Hide or show the actor of these axes.  Default <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+<dt><strong>show_actor</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.11)"><span class="xref std std-ref">bool</span></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>これらの軸のアクターを非表示または表示します．デフォルトは <code class="docutils literal notranslate"><span class="pre">False</span></code> です．</p>
 </dd>
-<dt><strong>actor_scale</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>Scale the size of the axes actor.  Default <code class="docutils literal notranslate"><span class="pre">1</span></code>.</p>
+<dt><strong>actor_scale</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>軸のアクターのサイズをスケーリングします．デフォルトは <code class="docutils literal notranslate"><span class="pre">1</span></code> です．</p>
 </dd>
-<dt><strong>line_width</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>Width of the axes lines.  Default <code class="docutils literal notranslate"><span class="pre">1</span></code>.</p>
+<dt><strong>line_width</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>軸線の幅を指定します．デフォルトは <code class="docutils literal notranslate"><span class="pre">1</span></code> です．</p>
 </dd>
-<dt><strong>symmetric</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.11)"><span class="xref std std-ref">bool</span></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>If true, the axis continue to negative values.</p>
+<dt><strong>symmetric</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.11)"><span class="xref std std-ref">bool</span></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>もしtrueなら，軸は負の値まで続きます．</p>
 </dd>
 </dl>
 </dd>
 </dl>
 <p class="rubric">例</p>
-<p>Create an instance of axes at the pyvista module level.</p>
+<p>pyvistaモジュールレベルでaxesのインスタンスを作成します．</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyvista</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">axes</span> <span class="o">=</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">Axes</span><span class="p">()</span>
 </pre></div>
@@ -625,16 +625,16 @@ document.write(`
 <table class="autosummary longtable table autosummary">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Axes.hide_actor.html#pyvista.Axes.hide_actor" title="pyvista.Axes.hide_actor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Axes.hide_actor</span></code></a>()</p></td>
-<td><p>Hide an actor of axes.</p></td>
+<td><p>軸のアクターを隠します．</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.Axes.hide_symmetric.html#pyvista.Axes.hide_symmetric" title="pyvista.Axes.hide_symmetric"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Axes.hide_symmetric</span></code></a>()</p></td>
-<td><p>Hide symmetric of axes.</p></td>
+<td><p>軸の対称性を隠します．</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Axes.show_actor.html#pyvista.Axes.show_actor" title="pyvista.Axes.show_actor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Axes.show_actor</span></code></a>()</p></td>
-<td><p>Show an actor of axes.</p></td>
+<td><p>軸のアクターを表示します．</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.Axes.show_symmetric.html#pyvista.Axes.show_symmetric" title="pyvista.Axes.show_symmetric"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Axes.show_symmetric</span></code></a>()</p></td>
-<td><p>Show symmetric of axes.</p></td>
+<td><p>軸の対称性を表示します．</p></td>
 </tr>
 </tbody>
 </table>
@@ -642,7 +642,7 @@ document.write(`
 <table class="autosummary longtable table autosummary">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Axes.origin.html#pyvista.Axes.origin" title="pyvista.Axes.origin"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Axes.origin</span></code></a></p></td>
-<td><p>Origin of the axes in world coordinates.</p></td>
+<td><p>全体座標での軸の原点．</p></td>
 </tr>
 </tbody>
 </table>

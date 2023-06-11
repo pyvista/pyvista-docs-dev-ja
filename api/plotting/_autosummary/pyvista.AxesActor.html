@@ -617,14 +617,13 @@ document.write(`
 <dl class="py class">
 <dt class="sig sig-object py" id="pyvista.AxesActor">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">AxesActor</span></span><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/plotting/axes_actor.py#L12-L498"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.AxesActor" title="この定義へのパーマリンク">#</a></dt>
-<dd><p>Axes actor wrapper for vtkAxesActor.</p>
+<dd><p>vtkAxesActor の軸のアクターラッパーです．</p>
 <p>Hybrid 2D/3D actor used to represent 3D axes in a scene. The user
 can define the geometry to use for the shaft or the tip, and the
 user can set the text for the three axes. To see full customization
-options, refer to <cite>vtkAxesActor Details
-&lt;https://vtk.org/doc/nightly/html/classvtkAxesActor.html#details&gt;</cite>.</p>
+options, refer to <a class="reference external" href="https://vtk.org/doc/nightly/html/classvtkAxesActor.html#details">vtkAxesActor Details</a>.</p>
 <p class="rubric">例</p>
-<p>Customize the axis shaft color and shape.</p>
+<p>軸の色や形をカスタマイズします．</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyvista</span> <span class="k">as</span> <span class="nn">pv</span>
 </pre></div>
 </div>
@@ -640,8 +639,7 @@ options, refer to <cite>vtkAxesActor Details
 <figure class="align-default">
 <img alt="../../../_images/pyvista-AxesActor-1_00_00.png" src="../../../_images/pyvista-AxesActor-1_00_00.png" />
 </figure>
-<p>Or you can use this as a custom orientation widget with
-<a class="reference internal" href="pyvista.Renderer.add_orientation_widget.html#pyvista.Renderer.add_orientation_widget" title="pyvista.Renderer.add_orientation_widget"><code class="xref py py-func docutils literal notranslate"><span class="pre">add_orientation_widget()</span></code></a>:</p>
+<p>または， <a class="reference internal" href="pyvista.Renderer.add_orientation_widget.html#pyvista.Renderer.add_orientation_widget" title="pyvista.Renderer.add_orientation_widget"><code class="xref py py-func docutils literal notranslate"><span class="pre">add_orientation_widget()</span></code></a> でカスタムオリエンテーションウィジェットとして使用できます:</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyvista</span> <span class="k">as</span> <span class="nn">pv</span>
 </pre></div>
 </div>
@@ -681,70 +679,70 @@ options, refer to <cite>vtkAxesActor Details
 <table class="autosummary longtable table autosummary">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.AxesActor.cone_radius.html#pyvista.AxesActor.cone_radius" title="pyvista.AxesActor.cone_radius"><code class="xref py py-obj docutils literal notranslate"><span class="pre">AxesActor.cone_radius</span></code></a></p></td>
-<td><p>Return or set the radius of the cone tip.</p></td>
+<td><p>円錐の先端の半径を返すか設定します．</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.AxesActor.cone_resolution.html#pyvista.AxesActor.cone_resolution" title="pyvista.AxesActor.cone_resolution"><code class="xref py py-obj docutils literal notranslate"><span class="pre">AxesActor.cone_resolution</span></code></a></p></td>
-<td><p>Return or set the resolution of the cone tip.</p></td>
+<td><p>円錐の解像度を返すか設定します．</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.AxesActor.cylinder_radius.html#pyvista.AxesActor.cylinder_radius" title="pyvista.AxesActor.cylinder_radius"><code class="xref py py-obj docutils literal notranslate"><span class="pre">AxesActor.cylinder_radius</span></code></a></p></td>
-<td><p>Return or set the radius of the shaft cylinder.</p></td>
+<td><p>軸筒の先端の半径を返すか設定します．</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.AxesActor.cylinder_resolution.html#pyvista.AxesActor.cylinder_resolution" title="pyvista.AxesActor.cylinder_resolution"><code class="xref py py-obj docutils literal notranslate"><span class="pre">AxesActor.cylinder_resolution</span></code></a></p></td>
-<td><p>Return or set the resolution of the shaft cylinder.</p></td>
+<td><p>軸筒の先端の解像度を返すか設定します．</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.AxesActor.label_position.html#pyvista.AxesActor.label_position" title="pyvista.AxesActor.label_position"><code class="xref py py-obj docutils literal notranslate"><span class="pre">AxesActor.label_position</span></code></a></p></td>
-<td><p>Position of the label along the axes.</p></td>
+<td><p>軸に沿ったラベルの位置．</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.AxesActor.shaft_length.html#pyvista.AxesActor.shaft_length" title="pyvista.AxesActor.shaft_length"><code class="xref py py-obj docutils literal notranslate"><span class="pre">AxesActor.shaft_length</span></code></a></p></td>
-<td><p>Return or set the length of the axes shaft.</p></td>
+<td><p>軸の長さを取得または設定します．</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.AxesActor.shaft_type.html#pyvista.AxesActor.shaft_type" title="pyvista.AxesActor.shaft_type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">AxesActor.shaft_type</span></code></a></p></td>
-<td><p>Return or set the shaft type.</p></td>
+<td><p>シャフトの種類を返すか設定します．</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.AxesActor.sphere_radius.html#pyvista.AxesActor.sphere_radius" title="pyvista.AxesActor.sphere_radius"><code class="xref py py-obj docutils literal notranslate"><span class="pre">AxesActor.sphere_radius</span></code></a></p></td>
-<td><p>Return or set the radius of the spherical tip.</p></td>
+<td><p>球体の先端の半径を返すか設定します．</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.AxesActor.sphere_resolution.html#pyvista.AxesActor.sphere_resolution" title="pyvista.AxesActor.sphere_resolution"><code class="xref py py-obj docutils literal notranslate"><span class="pre">AxesActor.sphere_resolution</span></code></a></p></td>
-<td><p>Return or set the resolution of the spherical tip.</p></td>
+<td><p>球体の先端の解像度を返すか設定します．</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.AxesActor.tip_length.html#pyvista.AxesActor.tip_length" title="pyvista.AxesActor.tip_length"><code class="xref py py-obj docutils literal notranslate"><span class="pre">AxesActor.tip_length</span></code></a></p></td>
-<td><p>Return or set the length of the tip.</p></td>
+<td><p>チップの長さを取得または設定します．</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.AxesActor.tip_type.html#pyvista.AxesActor.tip_type" title="pyvista.AxesActor.tip_type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">AxesActor.tip_type</span></code></a></p></td>
-<td><p>Return or set the shaft type.</p></td>
+<td><p>シャフトの種類を返すか設定します．</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.AxesActor.total_length.html#pyvista.AxesActor.total_length" title="pyvista.AxesActor.total_length"><code class="xref py py-obj docutils literal notranslate"><span class="pre">AxesActor.total_length</span></code></a></p></td>
-<td><p>Return or set the length of all axes.</p></td>
+<td><p>全軸の長さを取得または設定します．</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.AxesActor.visibility.html#pyvista.AxesActor.visibility" title="pyvista.AxesActor.visibility"><code class="xref py py-obj docutils literal notranslate"><span class="pre">AxesActor.visibility</span></code></a></p></td>
-<td><p>Return or set AxesActor visibility.</p></td>
+<td><p>AxesActorの可視性を返すか設定します．</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.AxesActor.x_axis_label.html#pyvista.AxesActor.x_axis_label" title="pyvista.AxesActor.x_axis_label"><code class="xref py py-obj docutils literal notranslate"><span class="pre">AxesActor.x_axis_label</span></code></a></p></td>
-<td><p>Return or set the label for the X axis.</p></td>
+<td><p>X軸のラベルを返すか設定します．</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.AxesActor.x_axis_shaft_properties.html#pyvista.AxesActor.x_axis_shaft_properties" title="pyvista.AxesActor.x_axis_shaft_properties"><code class="xref py py-obj docutils literal notranslate"><span class="pre">AxesActor.x_axis_shaft_properties</span></code></a></p></td>
-<td><p>Return or set the properties of the X axis shaft.</p></td>
+<td><p>X軸シャフトのプロパティを取得または設定します．</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.AxesActor.x_axis_tip_properties.html#pyvista.AxesActor.x_axis_tip_properties" title="pyvista.AxesActor.x_axis_tip_properties"><code class="xref py py-obj docutils literal notranslate"><span class="pre">AxesActor.x_axis_tip_properties</span></code></a></p></td>
-<td><p>Return or set the properties of the X axis tip.</p></td>
+<td><p>X軸先端のプロパティを取得または設定します．</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.AxesActor.y_axis_label.html#pyvista.AxesActor.y_axis_label" title="pyvista.AxesActor.y_axis_label"><code class="xref py py-obj docutils literal notranslate"><span class="pre">AxesActor.y_axis_label</span></code></a></p></td>
-<td><p>Return or set the label for the Y axis.</p></td>
+<td><p>Y軸のラベルを返すか設定します．</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.AxesActor.y_axis_shaft_properties.html#pyvista.AxesActor.y_axis_shaft_properties" title="pyvista.AxesActor.y_axis_shaft_properties"><code class="xref py py-obj docutils literal notranslate"><span class="pre">AxesActor.y_axis_shaft_properties</span></code></a></p></td>
-<td><p>Return or set the properties of the Y axis shaft.</p></td>
+<td><p>X軸シャフトのプロパティを取得または設定します．</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.AxesActor.y_axis_tip_properties.html#pyvista.AxesActor.y_axis_tip_properties" title="pyvista.AxesActor.y_axis_tip_properties"><code class="xref py py-obj docutils literal notranslate"><span class="pre">AxesActor.y_axis_tip_properties</span></code></a></p></td>
-<td><p>Return or set the properties of the Y axis tip.</p></td>
+<td><p>Y軸先端のプロパティを取得または設定します．</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.AxesActor.z_axis_label.html#pyvista.AxesActor.z_axis_label" title="pyvista.AxesActor.z_axis_label"><code class="xref py py-obj docutils literal notranslate"><span class="pre">AxesActor.z_axis_label</span></code></a></p></td>
-<td><p>Return or set the label for the Z axis.</p></td>
+<td><p>Z軸のラベルを返すか設定します．</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.AxesActor.z_axis_shaft_properties.html#pyvista.AxesActor.z_axis_shaft_properties" title="pyvista.AxesActor.z_axis_shaft_properties"><code class="xref py py-obj docutils literal notranslate"><span class="pre">AxesActor.z_axis_shaft_properties</span></code></a></p></td>
-<td><p>Return or set the properties of the Z axis shaft.</p></td>
+<td><p>Z軸シャフトのプロパティを取得または設定します．</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.AxesActor.z_axis_tip_properties.html#pyvista.AxesActor.z_axis_tip_properties" title="pyvista.AxesActor.z_axis_tip_properties"><code class="xref py py-obj docutils literal notranslate"><span class="pre">AxesActor.z_axis_tip_properties</span></code></a></p></td>
-<td><p>Return or set the properties of the Z axis tip.</p></td>
+<td><p>Z軸先端のプロパティを取得または設定します．</p></td>
 </tr>
 </tbody>
 </table>
