@@ -2,12 +2,12 @@
 # containing the point ``[0.3, 0.3, 0.0]`` is found.
 #
 import pyvista
-mesh = pyvista.UniformGrid(
+mesh = pyvista.ImageData(
     dimensions=[5, 5, 1], spacing=[1 / 4, 1 / 4, 0]
 )
 mesh
 # Expected:
-## UniformGrid...
+## ImageData...
 mesh.find_containing_cell([0.3, 0.3, 0.0])
 # Expected:
 ## 5

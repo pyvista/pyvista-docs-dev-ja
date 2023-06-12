@@ -11,7 +11,7 @@ pl.show()
 # scalars.
 #
 import pyvista as pv
-grid = pv.UniformGrid(dimensions=(9, 9, 9))
+grid = pv.ImageData(dimensions=(9, 9, 9))
 grid['scalars'] = -grid.x
 pl = pv.Plotter()
 _ = pl.add_volume(grid, opacity='linear')
@@ -21,7 +21,7 @@ pl.show()
 #
 import pyvista as pv
 import numpy as np
-grid = pv.UniformGrid(dimensions=(5, 20, 20))
+grid = pv.ImageData(dimensions=(5, 20, 20))
 scalars = grid.points - (grid.origin)
 scalars /= scalars.max()
 opacity = np.linalg.norm(

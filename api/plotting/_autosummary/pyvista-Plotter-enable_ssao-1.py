@@ -2,7 +2,7 @@
 # nearby each other and plot it without SSAO.
 #
 import pyvista as pv
-ugrid = pv.UniformGrid(dimensions=(3, 2, 2)).to_tetrahedra(12)
+ugrid = pv.ImageData(dimensions=(3, 2, 2)).to_tetrahedra(12)
 exploded = ugrid.explode()
 exploded.plot()
 #

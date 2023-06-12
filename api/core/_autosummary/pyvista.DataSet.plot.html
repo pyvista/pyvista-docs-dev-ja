@@ -773,9 +773,10 @@ document.write(`
 <figure class="align-default">
 <img alt="../../../_images/pyvista-DataSet-plot-1_00_00.png" src="../../../_images/pyvista-DataSet-plot-1_00_00.png" />
 </figure>
-<p>ボリュームメッシュをプロットします．UniformGridの中心からの距離で色分けします． <code class="docutils literal notranslate"><span class="pre">volume=True</span></code> が渡されることに注意してください．</p>
+<p>Plot a volume mesh. Color by distance from the center of the
+ImageData. Note <code class="docutils literal notranslate"><span class="pre">volume=True</span></code> is passed.</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">grid</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">UniformGrid</span><span class="p">(</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">grid</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">ImageData</span><span class="p">(</span>
 <span class="gp">... </span>    <span class="n">dimensions</span><span class="o">=</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">32</span><span class="p">),</span> <span class="n">spacing</span><span class="o">=</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
 <span class="gp">... </span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">grid</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">grid</span><span class="o">.</span><span class="n">center</span> <span class="o">-</span> <span class="n">grid</span><span class="o">.</span><span class="n">points</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>

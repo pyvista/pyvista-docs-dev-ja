@@ -513,7 +513,7 @@ document.write(`
 <li class="toctree-l2"><a class="reference internal" href="pyvista.Plotter.html">pyvista.Plotter</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pyvista.Property.html">pyvista.Property</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pyvista.Renderer.html">pyvista.Renderer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pyvista.plotting._BaseMapper.html">pyvista.plotting._BaseMapper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyvista.plotting.mapper._BaseMapper.html">pyvista.plotting.mapper._BaseMapper</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pyvista.plotting.opts.InterpolationType.html">pyvista.plotting.opts.InterpolationType</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pyvista.plotting.volume.Volume.html">pyvista.plotting.volume.Volume</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pyvista.plotting.volume_property.VolumeProperty.html">pyvista.plotting.volume_property.VolumeProperty</a></li>
@@ -521,7 +521,8 @@ document.write(`
 <li class="toctree-l2"><a class="reference internal" href="pyvista.CompositeAttributes.html">pyvista.CompositeAttributes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pyvista.BlockAttributes.html">pyvista.BlockAttributes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../charts/index.html">チャート</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pyvista.WidgetHelper.html">pyvista.WidgetHelper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyvista.plotting.widgets.WidgetHelper.html">pyvista.plotting.widgets.WidgetHelper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyvista.plotting.picking.PickingHelper.html">pyvista.plotting.picking.PickingHelper</a></li>
 <li class="toctree-l2 current active has-children"><a class="reference internal" href="../conv_func.html">便利な機能</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l3 current active"><a class="current reference internal" href="#">pyvista.plot</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyvista.plot_arrows.html">pyvista.plot_arrows</a></li>
@@ -711,9 +712,10 @@ document.write(`
 <figure class="align-default">
 <img alt="../../../_images/pyvista-plot-1_00_00.png" src="../../../_images/pyvista-plot-1_00_00.png" />
 </figure>
-<p>ボリュームメッシュをプロットします．UniformGridの中心からの距離で色分けします． <code class="docutils literal notranslate"><span class="pre">volume=True</span></code> が渡されることに注意してください．</p>
+<p>Plot a volume mesh. Color by distance from the center of the
+ImageData. Note <code class="docutils literal notranslate"><span class="pre">volume=True</span></code> is passed.</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">grid</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">UniformGrid</span><span class="p">(</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">grid</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">ImageData</span><span class="p">(</span>
 <span class="gp">... </span>    <span class="n">dimensions</span><span class="o">=</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">32</span><span class="p">),</span> <span class="n">spacing</span><span class="o">=</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
 <span class="gp">... </span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">grid</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">grid</span><span class="o">.</span><span class="n">center</span> <span class="o">-</span> <span class="n">grid</span><span class="o">.</span><span class="n">points</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>

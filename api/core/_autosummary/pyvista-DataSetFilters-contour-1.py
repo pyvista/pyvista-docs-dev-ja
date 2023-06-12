@@ -26,7 +26,7 @@ def f(x, y, z):
     ) ** 2 - 4 * (xx + yy) * (a_xx + b_yy - xyz * (a - b)) ** 2
 n = 100
 x_min, y_min, z_min = -1.35, -1.7, -0.65
-grid = pv.UniformGrid(
+grid = pv.ImageData(
     dimensions=(n, n, n),
     spacing=(
         abs(x_min) / n * 2,

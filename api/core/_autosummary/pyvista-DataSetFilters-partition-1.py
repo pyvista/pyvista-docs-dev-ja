@@ -1,8 +1,8 @@
-# Partition a simple UniformGrid into a :class:`pyvista.MultiBlock`
+# Partition a simple ImageData into a :class:`pyvista.MultiBlock`
 # containing each partition.
 #
 import pyvista as pv
-grid = pv.UniformGrid(dimensions=(5, 5, 5))
+grid = pv.ImageData(dimensions=(5, 5, 5))
 out = grid.partition(4, as_composite=True)
 out.plot(multi_colors=True, show_edges=True)
 #

@@ -4,10 +4,12 @@ import os
 from tempfile import mkdtemp
 import pyvista
 from pyvista import examples
+mesh = examples.load_globe()
+texture = examples.load_globe_texture()
 filename = os.path.join(mkdtemp(), 'orbit.gif')
 plotter = pyvista.Plotter(window_size=[300, 300])
 _ = plotter.add_mesh(
-    examples.load_globe(), smooth_shading=True
+    mesh, texture=texture, smooth_shading=True
 )
 plotter.open_gif(filename)
 viewup = [0, 0, 1]

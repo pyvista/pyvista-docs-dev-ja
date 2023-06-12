@@ -2,14 +2,14 @@
 # Note that there are 5 points in each direction.
 #
 import pyvista as pv
-mesh = pv.UniformGrid(dimensions=(5, 5, 5))
+mesh = pv.ImageData(dimensions=(5, 5, 5))
 mesh.volume
 # Expected:
 ## 64.0
 #
 # A mesh with 2D cells has no volume.
 #
-mesh = pv.UniformGrid(dimensions=(5, 5, 1))
+mesh = pv.ImageData(dimensions=(5, 5, 1))
 mesh.volume
 # Expected:
 ## 0.0

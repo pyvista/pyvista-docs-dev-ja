@@ -648,8 +648,11 @@ document.write(`
 <section class="sphx-glr-example-title" id="gaussian-smoothing">
 <span id="gaussian-smoothing-example"></span><span id="sphx-glr-examples-01-filter-gaussian-smoothing-py"></span><h1>Gaussianスムージング<a class="headerlink" href="#gaussian-smoothing" title="この見出しへのパーマリンク">#</a></h1>
 <p>均一グリッドデータセットでGauss畳み込みを実行します．</p>
-<p><a class="reference internal" href="../../api/core/_autosummary/pyvista.UniformGrid.html#pyvista.UniformGrid" title="pyvista.UniformGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.UniformGrid</span></code></a> データ集合(a.k.a. イメージ) aは，画像データ集合を1次元から3次元入力に対してガウス関数で畳み込むことによって平滑化することができる．これは，一般にガウスぼかしと呼ばれ，通常，ノイズを低減するか，または画像データセットの詳細を低減するために使用される．</p>
-<p><a class="reference internal" href="../../api/core/_autosummary/pyvista.UniformGridFilters.gaussian_smooth.html#pyvista.UniformGridFilters.gaussian_smooth" title="pyvista.UniformGridFilters.gaussian_smooth"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyvista.UniformGridFilters.gaussian_smooth()</span></code></a> も参照してください．</p>
+<p><a class="reference internal" href="../../api/core/_autosummary/pyvista.ImageData.html#pyvista.ImageData" title="pyvista.ImageData"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.ImageData</span></code></a> data sets (a.k.a. images) a can be smoothed by
+convolving the image data set with a Gaussian for one- to three-dimensional
+inputs. This is commonly referred to as Gaussian blurring and typically used
+to reduce noise or decrease the detail of an image dataset.</p>
+<p>See also <a class="reference internal" href="../../api/core/_autosummary/pyvista.ImageDataFilters.gaussian_smooth.html#pyvista.ImageDataFilters.gaussian_smooth" title="pyvista.ImageDataFilters.gaussian_smooth"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyvista.ImageDataFilters.gaussian_smooth()</span></code></a>.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyvista</span> <span class="k">as</span> <span class="nn">pv</span>
 <span class="kn">from</span> <span class="nn">pyvista</span> <span class="kn">import</span> <span class="n">examples</span>
 
@@ -716,7 +719,7 @@ document.write(`
 <span class="n">p</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_gaussian-smoothing_002.png" srcset="../../_images/sphx_glr_gaussian-smoothing_002.png" alt="gaussian smoothing" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  9.999 seconds)</p>
+<img src="../../_images/sphx_glr_gaussian-smoothing_002.png" srcset="../../_images/sphx_glr_gaussian-smoothing_002.png" alt="gaussian smoothing" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  7.445 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-01-filter-gaussian-smoothing-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/f23cf57bbb182e88cf2f4f001f744448/gaussian-smoothing.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">gaussian-smoothing.py</span></code></a></p>
