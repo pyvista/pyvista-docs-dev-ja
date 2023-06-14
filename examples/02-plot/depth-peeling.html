@@ -675,7 +675,9 @@ document.write(`
 </div>
 <section class="sphx-glr-example-title" id="depth-peeling">
 <span id="depth-peeling-example"></span><span id="sphx-glr-examples-02-plot-depth-peeling-py"></span><h1>Depth Peeling<a class="headerlink" href="#depth-peeling" title="この見出しへのパーマリンク">#</a></h1>
-<p>深さのピーリングは，半透明のジオメトリを正しくレンダーするテクニックです．いくつかのオペレーティングシステムとVTKのバージョンはこのルーチンで問題があるので，  <a class="reference internal" href="../../api/plotting/_autosummary/pyvista.themes.DefaultTheme.html#pyvista.themes.DefaultTheme" title="pyvista.themes.DefaultTheme"><code class="xref py py-attr docutils literal notranslate"><span class="pre">pyvista.global_theme</span></code></a>  ではデフォルトで有効になっていません．</p>
+<p>Depth peeling is a technique to correctly render translucent geometry.  This is
+not enabled by default in <a class="reference internal" href="../../api/plotting/_autosummary/pyvista.themes.Theme.html#pyvista.themes.Theme" title="pyvista.themes.Theme"><code class="xref py py-attr docutils literal notranslate"><span class="pre">pyvista.global_theme</span></code></a> as some operating systems and versions of VTK
+have issues with this routine.</p>
 <p>この例では，深度ピーリングによって得られる違いを示します．</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyvista</span> <span class="k">as</span> <span class="nn">pv</span>
 <span class="kn">from</span> <span class="nn">pyvista</span> <span class="kn">import</span> <span class="n">examples</span>
@@ -744,7 +746,7 @@ document.write(`
 <span class="n">p</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_depth-peeling_003.png" srcset="../../_images/sphx_glr_depth-peeling_003.png" alt="depth peeling" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  46.190 seconds)</p>
+<img src="../../_images/sphx_glr_depth-peeling_003.png" srcset="../../_images/sphx_glr_depth-peeling_003.png" alt="depth peeling" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  44.861 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-02-plot-depth-peeling-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/72c4c7ace56a59e9daeb766c15954da1/depth-peeling.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">depth-peeling.py</span></code></a></p>

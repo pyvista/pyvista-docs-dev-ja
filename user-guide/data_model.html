@@ -586,20 +586,8 @@ document.write(`
 <img alt="../_images/data_model_1_0.png" src="../_images/data_model_1_0.png" />
 </div>
 </div>
-<p>Here, the above datasets are ordered from most (5) to least complex
-(1). That is, every dataset can be represented as an
-<a class="reference internal" href="../api/core/_autosummary/pyvista.UnstructuredGrid.html#pyvista.UnstructuredGrid" title="pyvista.UnstructuredGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">UnstructuredGrid</span></code></a>, but the
-<a class="reference internal" href="../api/core/_autosummary/pyvista.UnstructuredGrid.html#pyvista.UnstructuredGrid" title="pyvista.UnstructuredGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">UnstructuredGrid</span></code></a> class takes the most amount of
-memory to store since they must account for every individual point and
-cell . On the other hand, since <a class="reference external" href="https://vtk.org/doc/nightly/html/classvtkImageData.html">vtkImageData</a>
-(<a class="reference internal" href="../api/core/_autosummary/pyvista.ImageData.html#pyvista.ImageData" title="pyvista.ImageData"><code class="xref py py-class docutils literal notranslate"><span class="pre">ImageData</span></code></a>) is uniformly spaced, a few integers and
-floats can describe the shape, so it takes the least amount of memory
-to store.</p>
-<p>This is because in <a class="reference internal" href="../api/core/_autosummary/pyvista.PolyData.html#pyvista.PolyData" title="pyvista.PolyData"><code class="xref py py-class docutils literal notranslate"><span class="pre">PolyData</span></code></a> or
-<a class="reference internal" href="../api/core/_autosummary/pyvista.UnstructuredGrid.html#pyvista.UnstructuredGrid" title="pyvista.UnstructuredGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">UnstructuredGrid</span></code></a>, points and cells must be explicitly
-defined. In other data types, such as <a class="reference internal" href="../api/core/_autosummary/pyvista.ImageData.html#pyvista.ImageData" title="pyvista.ImageData"><code class="xref py py-class docutils literal notranslate"><span class="pre">ImageData</span></code></a>,
-the cells (and even points) are defined as an emergent property based
-on the dimensionality of the grid.</p>
+<p>ここでは，上記のデータセットを，最も複雑なもの(5)から最も複雑でないもの(1)の順に並べています．つまり，どのデータセットも <a class="reference internal" href="../api/core/_autosummary/pyvista.UnstructuredGrid.html#pyvista.UnstructuredGrid" title="pyvista.UnstructuredGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">UnstructuredGrid</span></code></a> として表現できますが，個々の点やセルを考慮しなければならないため， <a class="reference internal" href="../api/core/_autosummary/pyvista.UnstructuredGrid.html#pyvista.UnstructuredGrid" title="pyvista.UnstructuredGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">UnstructuredGrid</span></code></a> クラスは最も多くのメモリを消費します．一方， <a class="reference external" href="https://vtk.org/doc/nightly/html/classvtkImageData.html">vtkImageData</a> (<a class="reference internal" href="../api/core/_autosummary/pyvista.ImageData.html#pyvista.ImageData" title="pyvista.ImageData"><code class="xref py py-class docutils literal notranslate"><span class="pre">ImageData</span></code></a>) は一様な間隔で配置されているので，いくつかの整数や浮動小数点数で形状を表現することができ，格納するメモリの量は最も少なくて済みます．</p>
+<p>これは， <a class="reference internal" href="../api/core/_autosummary/pyvista.PolyData.html#pyvista.PolyData" title="pyvista.PolyData"><code class="xref py py-class docutils literal notranslate"><span class="pre">PolyData</span></code></a> や <a class="reference internal" href="../api/core/_autosummary/pyvista.UnstructuredGrid.html#pyvista.UnstructuredGrid" title="pyvista.UnstructuredGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">UnstructuredGrid</span></code></a> では，ポイントやセルを明示的に定義する必要があるからです． <a class="reference internal" href="../api/core/_autosummary/pyvista.ImageData.html#pyvista.ImageData" title="pyvista.ImageData"><code class="xref py py-class docutils literal notranslate"><span class="pre">ImageData</span></code></a> などの他のデータタイプでは，セル（さらにはポイント）はグリッドの次元性に基づいた創発的なプロパティとして定義されます．</p>
 <p>実際には， <a class="reference internal" href="../api/core/_autosummary/pyvista.PolyData.html#pyvista.PolyData" title="pyvista.PolyData"><code class="xref py py-class docutils literal notranslate"><span class="pre">PolyData</span></code></a> で表される最も単純なサーフェスを作成してみましょう．まず，点を定義する必要があります．</p>
 </section>
 <section id="points-and-arrays-within-pyvista">
@@ -634,7 +622,7 @@ on the dimensionality of the grid.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>vtkDoubleArray (0x5644308507b0)
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>vtkDoubleArray (0x55ab157806c0)
   Debug: Off
   Modified Time: 67853
   Reference Count: 1
@@ -937,11 +925,7 @@ on the dimensionality of the grid.</p>
 <section id="data-arrays">
 <h2>データアレイ<a class="headerlink" href="#data-arrays" title="この見出しへのパーマリンク">#</a></h2>
 <p>各 <a class="reference internal" href="../api/core/_autosummary/pyvista.DataSet.html#pyvista.DataSet" title="pyvista.DataSet"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataSet</span></code></a> には，基礎となる数値データへのアクセスを可能にする属性が含まれています． この数値データは <a class="reference internal" href="../api/core/_autosummary/pyvista.DataSet.points.html#pyvista.DataSet.points" title="pyvista.DataSet.points"><code class="xref py py-attr docutils literal notranslate"><span class="pre">points</span></code></a> やセルに関連付けられている場合もあれば，ポイントやセルには関連付けられておらず，一般的なメッシュに関連付けられている場合もあります．</p>
-<p>To illustrate data arrays within PyVista, let's first construct a
-slightly more complex mesh than our previous example. Here, we create
-a simple mesh containing four isometric cells by starting with a
-<a class="reference internal" href="../api/core/_autosummary/pyvista.ImageData.html#pyvista.ImageData" title="pyvista.ImageData"><code class="xref py py-class docutils literal notranslate"><span class="pre">ImageData</span></code></a> and then casting it to an <a class="reference internal" href="../api/core/_autosummary/pyvista.UnstructuredGrid.html#pyvista.UnstructuredGrid" title="pyvista.UnstructuredGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">UnstructuredGrid</span></code></a> with
-<a class="reference internal" href="../api/core/_autosummary/pyvista.DataSet.cast_to_unstructured_grid.html#pyvista.DataSet.cast_to_unstructured_grid" title="pyvista.DataSet.cast_to_unstructured_grid"><code class="xref py py-func docutils literal notranslate"><span class="pre">cast_to_unstructured_grid()</span></code></a>.</p>
+<p>PyVistaでのデータ配列を説明するために，まず先ほどの例よりも少し複雑なメッシュを作ってみましょう． ここでは，まず <a class="reference internal" href="../api/core/_autosummary/pyvista.ImageData.html#pyvista.ImageData" title="pyvista.ImageData"><code class="xref py py-class docutils literal notranslate"><span class="pre">ImageData</span></code></a> から始めて， <a class="reference internal" href="../api/core/_autosummary/pyvista.DataSet.cast_to_unstructured_grid.html#pyvista.DataSet.cast_to_unstructured_grid" title="pyvista.DataSet.cast_to_unstructured_grid"><code class="xref py py-func docutils literal notranslate"><span class="pre">cast_to_unstructured_grid()</span></code></a> で <a class="reference internal" href="../api/core/_autosummary/pyvista.UnstructuredGrid.html#pyvista.UnstructuredGrid" title="pyvista.UnstructuredGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">UnstructuredGrid</span></code></a> にキャストすることで，4つのアイソメトリックなセルを含む単純なメッシュを作成します．</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">grid</span> <span class="o">=</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">ImageData</span><span class="p">(</span><span class="n">dimensions</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>

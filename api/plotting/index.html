@@ -603,7 +603,7 @@ document.write(`
 <li class="toctree-l1"><a class="reference internal" href="qt_plotting.html">PyVistaとPyQt</a></li>
 <li class="toctree-l1"><a class="reference internal" href="theme.html">テーマ</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="_autosummary/pyvista.themes.DarkTheme.html">pyvista.themes.DarkTheme</a></li>
-<li class="toctree-l2"><a class="reference internal" href="_autosummary/pyvista.themes.DefaultTheme.html">pyvista.themes.DefaultTheme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="_autosummary/pyvista.themes.Theme.html">pyvista.themes.Theme</a></li>
 <li class="toctree-l2"><a class="reference internal" href="_autosummary/pyvista.themes.DocumentTheme.html">pyvista.themes.DocumentTheme</a></li>
 <li class="toctree-l2"><a class="reference internal" href="_autosummary/pyvista.themes.ParaViewTheme.html">pyvista.themes.ParaViewTheme</a></li>
 <li class="toctree-l2"><a class="reference internal" href="_autosummary/pyvista.themes._AxesConfig.html">pyvista.themes._AxesConfig</a></li>
@@ -715,10 +715,7 @@ document.write(`
 </section>
 <section id="widget-api">
 <h2>ウィジェットAPI<a class="headerlink" href="#widget-api" title="この見出しへのパーマリンク">#</a></h2>
-<p>The <a class="reference internal" href="_autosummary/pyvista.Plotter.html#pyvista.Plotter" title="pyvista.Plotter"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.Plotter</span></code></a> class inherits all of the widget
-methods described by the <a class="reference internal" href="_autosummary/pyvista.plotting.widgets.WidgetHelper.html#pyvista.plotting.widgets.WidgetHelper" title="pyvista.plotting.widgets.WidgetHelper"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.plotting.widgets.WidgetHelper</span></code></a>
-class. For additional details, see the
-<a class="reference internal" href="../../examples/03-widgets/index.html#widgets"><span class="std std-ref">ウィジェット</span></a> examples.</p>
+<p><a class="reference internal" href="_autosummary/pyvista.Plotter.html#pyvista.Plotter" title="pyvista.Plotter"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.Plotter</span></code></a> クラスは <a class="reference internal" href="_autosummary/pyvista.plotting.widgets.WidgetHelper.html#pyvista.plotting.widgets.WidgetHelper" title="pyvista.plotting.widgets.WidgetHelper"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.plotting.widgets.WidgetHelper</span></code></a> クラスで記述されているすべてのウィジェットメソッドを継承しています．詳しくは <a class="reference internal" href="../../examples/03-widgets/index.html#widgets"><span class="std std-ref">ウィジェット</span></a> の例を参照してください．</p>
 <table class="autosummary longtable table autosummary">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="_autosummary/pyvista.plotting.widgets.WidgetHelper.html#pyvista.plotting.widgets.WidgetHelper" title="pyvista.plotting.widgets.WidgetHelper"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plotting.widgets.WidgetHelper</span></code></a>(*args, **kwargs)</p></td>
@@ -728,14 +725,12 @@ class. For additional details, see the
 </table>
 </section>
 <section id="picking-api">
-<h2>Picking API<a class="headerlink" href="#picking-api" title="この見出しへのパーマリンク">#</a></h2>
-<p>The <a class="reference internal" href="_autosummary/pyvista.Plotter.html#pyvista.Plotter" title="pyvista.Plotter"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.Plotter</span></code></a> class inherits all of the picking
-methods described by the <a class="reference internal" href="_autosummary/pyvista.plotting.picking.PickingHelper.html#pyvista.plotting.picking.PickingHelper" title="pyvista.plotting.picking.PickingHelper"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.plotting.picking.PickingHelper</span></code></a>
-class.</p>
+<h2>ピッキングAPI<a class="headerlink" href="#picking-api" title="この見出しへのパーマリンク">#</a></h2>
+<p><a class="reference internal" href="_autosummary/pyvista.Plotter.html#pyvista.Plotter" title="pyvista.Plotter"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.Plotter</span></code></a> クラスは <a class="reference internal" href="_autosummary/pyvista.plotting.picking.PickingHelper.html#pyvista.plotting.picking.PickingHelper" title="pyvista.plotting.picking.PickingHelper"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.plotting.picking.PickingHelper</span></code></a> クラスで記述されているすべてのピッキングメソッドを継承しています．</p>
 <table class="autosummary longtable table autosummary">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="_autosummary/pyvista.plotting.picking.PickingHelper.html#pyvista.plotting.picking.PickingHelper" title="pyvista.plotting.picking.PickingHelper"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plotting.picking.PickingHelper</span></code></a>(*args, **kwargs)</p></td>
-<td><p>An internal class to hold picking related features.</p></td>
+<td><p>ピッキングに関連する機能を保持するための内部クラス．</p></td>
 </tr>
 </tbody>
 </table>
@@ -779,7 +774,7 @@ class.</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#composite-plotting-reference">複合プロットリファレンス</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#charts-api">チャートAPI</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#widget-api">ウィジェットAPI</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#picking-api">Picking API</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#picking-api">ピッキングAPI</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#convenience-functions">便利な機能</a></li>
 </ul>
 </li>
