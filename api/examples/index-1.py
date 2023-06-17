@@ -1,5 +1,5 @@
-# Plot the built-in globe dataset
+# Plot the built-in hills dataset
 #
 from pyvista import examples
-globe = examples.load_globe()
-globe.plot()
+hills = examples.load_random_hills()
+hills.plot()
