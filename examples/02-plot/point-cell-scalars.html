@@ -767,7 +767,7 @@ document.write(`
 <section id="plot-point-cell-data">
 <h1>プロットポイント セルデータ<a class="headerlink" href="#plot-point-cell-data" title="この見出しへのパーマリンク">#</a></h1>
 <p>これで，各セルに対して各ポイントの値をプロットできるようになりました．これもやはり点データに割り当てることになる．</p>
-<p>ここではわかりやすくするために <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.hstack.html#numpy.hstack" title="(in NumPy v1.24)"><code class="xref py py-func docutils literal notranslate"><span class="pre">numpy.hstack()</span></code></a> を使っていますが，データの長さと点の数が一致していれば，この方法を使うことができるでしょう．</p>
+<p>ここではわかりやすくするために <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.hstack.html#numpy.hstack" title="(in NumPy v1.25)"><code class="xref py py-func docutils literal notranslate"><span class="pre">numpy.hstack()</span></code></a> を使っていますが，データの長さと点の数が一致していれば，この方法を使うことができるでしょう．</p>
 <p>プロットされた値が，セル内では連続的に見え，セル間では不連続に見える様子をご覧ください．これは，有限要素法の解から応力と歪みがどのように計算されるかに一致します．</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">split_cells</span><span class="o">.</span><span class="n">point_data</span><span class="p">[</span><span class="s1">&#39;Point Cell Data&#39;</span><span class="p">]</span> <span class="o">=</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.hstack.html#numpy.hstack" title="numpy.hstack" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">hstack</span></a><span class="p">(</span>
     <span class="p">(</span>
@@ -780,7 +780,7 @@ document.write(`
 <span class="n">split_cells</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">scalars</span><span class="o">=</span><span class="s1">&#39;Point Cell Data&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_point-cell-scalars_003.png" srcset="../../_images/sphx_glr_point-cell-scalars_003.png" alt="point cell scalars" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.995 seconds)</p>
+<img src="../../_images/sphx_glr_point-cell-scalars_003.png" srcset="../../_images/sphx_glr_point-cell-scalars_003.png" alt="point cell scalars" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.831 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-02-plot-point-cell-scalars-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/e834d342c71601ed4706fc3d43837547/point-cell-scalars.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">point-cell-scalars.py</span></code></a></p>

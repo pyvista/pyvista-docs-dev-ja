@@ -498,7 +498,7 @@ document.write(`
   <div class="bd-toc-item navbar-nav"><p aria-level="2" class="caption" role="heading"><span class="caption-text">APIリファレンス</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">コアAPI</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="objects.html">DataObject</a></li>
+<li class="toctree-l2"><a class="reference internal" href="objects.html">データオブジェクト</a></li>
 <li class="toctree-l2"><a class="reference internal" href="dataset.html">データセット</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pointsets.html">ポイントセット</a></li>
 <li class="toctree-l2"><a class="reference internal" href="grids.html">グリッドデータ</a></li>
@@ -586,8 +586,8 @@ document.write(`
 <dd><p>与えられたVTKデータオブジェクトを適切なPyVistaデータオブジェクトにラップします．</p>
 <p>その他，対応しているフォーマットは以下の通りです．</p>
 <ul class="simple">
-<li><p>2D <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.24)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> XYZの頂点を表す．</p></li>
-<li><p>3D <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.24)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> ボリュームを表します．値はスカラーです．</p></li>
+<li><p>2D <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.25)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> XYZの頂点を表す．</p></li>
+<li><p>3D <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.25)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> ボリュームを表します．値はスカラーです．</p></li>
 <li><p>3D <a class="reference external" href="https://trimsh.org/trimesh.html#trimesh.Trimesh" title="(in trimesh v3.22.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">trimesh.Trimesh</span></code></a> メッシュです．</p></li>
 <li><p>3D <code class="xref py py-class docutils literal notranslate"><span class="pre">meshio.Mesh</span></code> メッシュ．</p></li>
 </ul>
@@ -597,7 +597,7 @@ document.write(`
 <dl class="field-list">
 <dt class="field-odd">パラメータ<span class="colon">:</span></dt>
 <dd class="field-odd"><dl>
-<dt><strong>dataset</strong><span class="classifier"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.24)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> | <a class="reference external" href="https://trimsh.org/trimesh.html#trimesh.Trimesh" title="(in trimesh v3.22.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">trimesh.Trimesh</span></code></a> | <code class="xref py py-obj docutils literal notranslate"><span class="pre">vtk.DataSet</span></code></span></dt><dd><p>ラップするデータセット．</p>
+<dt><strong>dataset</strong><span class="classifier"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.25)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> | <a class="reference external" href="https://trimsh.org/trimesh.html#trimesh.Trimesh" title="(in trimesh v3.22.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">trimesh.Trimesh</span></code></a> | <code class="xref py py-obj docutils literal notranslate"><span class="pre">vtk.DataSet</span></code></span></dt><dd><p>ラップするデータセット．</p>
 </dd>
 </dl>
 </dd>
@@ -679,9 +679,9 @@ document.write(`
 <dl class="field-list">
 <dt class="field-odd">パラメータ<span class="colon">:</span></dt>
 <dd class="field-odd"><dl>
-<dt><strong>points</strong><span class="classifier"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.24)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">np.ndarray</span></code></a></span></dt><dd><p>3角形メッシュの頂点を格納する <code class="docutils literal notranslate"><span class="pre">(N,</span> <span class="pre">3)</span></code> の形を持つポイントの配列．</p>
+<dt><strong>points</strong><span class="classifier"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.25)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">np.ndarray</span></code></a></span></dt><dd><p>3角形メッシュの頂点を格納する <code class="docutils literal notranslate"><span class="pre">(N,</span> <span class="pre">3)</span></code> の形を持つポイントの配列．</p>
 </dd>
-<dt><strong>faces</strong><span class="classifier"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.24)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">np.ndarray</span></code></a></span></dt><dd><p>3角形のインデックスを含みます <code class="docutils literal notranslate"><span class="pre">(M,</span> <span class="pre">3)</span></code> の形を持つインデックスの配列．</p>
+<dt><strong>faces</strong><span class="classifier"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.25)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">np.ndarray</span></code></a></span></dt><dd><p>3角形のインデックスを含みます <code class="docutils literal notranslate"><span class="pre">(M,</span> <span class="pre">3)</span></code> の形を持つインデックスの配列．</p>
 </dd>
 </dl>
 </dd>
@@ -740,7 +740,7 @@ document.write(`
 <dl class="field-list">
 <dt class="field-odd">パラメータ<span class="colon">:</span></dt>
 <dd class="field-odd"><dl>
-<dt><strong>points</strong><span class="classifier"><a class="reference external" href="https://numpy.org/doc/stable/glossary.html#term-array_like" title="(in NumPy v1.24)"><span>array_like</span></a>[<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a>]</span></dt><dd><p>接続されたセグメントの頂点を表すポイント．たとえば，2つの線分セグメントは <code class="docutils literal notranslate"><span class="pre">np.array([[0,</span> <span class="pre">0,</span> <span class="pre">0],</span> <span class="pre">[1,</span> <span class="pre">0,</span> <span class="pre">0],</span> <span class="pre">[1,</span> <span class="pre">1,</span> <span class="pre">0]])</span></code> のように表されます．</p>
+<dt><strong>points</strong><span class="classifier"><a class="reference external" href="https://numpy.org/doc/stable/glossary.html#term-array_like" title="(in NumPy v1.25)"><span>array_like</span></a>[<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a>]</span></dt><dd><p>接続されたセグメントの頂点を表すポイント．たとえば，2つの線分セグメントは <code class="docutils literal notranslate"><span class="pre">np.array([[0,</span> <span class="pre">0,</span> <span class="pre">0],</span> <span class="pre">[1,</span> <span class="pre">0,</span> <span class="pre">0],</span> <span class="pre">[1,</span> <span class="pre">1,</span> <span class="pre">0]])</span></code> のように表されます．</p>
 </dd>
 <dt><strong>close</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.11)"><span class="xref std std-ref">bool</span></a>, default: <a class="reference external" href="https://docs.python.org/3/library/constants.html#False" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">False</span></code></a></span></dt><dd><p><code class="docutils literal notranslate"><span class="pre">True</span></code> の場合，線分セグメントを閉じてループを作成します．</p>
 </dd>
@@ -777,7 +777,7 @@ document.write(`
 <dl class="field-list">
 <dt class="field-odd">パラメータ<span class="colon">:</span></dt>
 <dd class="field-odd"><dl>
-<dt><strong>points</strong><span class="classifier"><a class="reference external" href="https://numpy.org/doc/stable/glossary.html#term-array_like" title="(in NumPy v1.24)"><span>array_like</span></a>[<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a>]</span></dt><dd><p>線分セグメントを表すポイント．2つの頂点が1つの線分セグメントを表すため，偶数を指定する必要があります．たとえば，2つの線分セグメントは <code class="docutils literal notranslate"><span class="pre">np.array([[0,</span> <span class="pre">0,</span> <span class="pre">0],</span> <span class="pre">[1,</span> <span class="pre">0,</span> <span class="pre">0],</span> <span class="pre">[1,</span> <span class="pre">0,</span> <span class="pre">0],</span> <span class="pre">[1,</span> <span class="pre">1,</span> <span class="pre">0]])</span></code> のように表されます．</p>
+<dt><strong>points</strong><span class="classifier"><a class="reference external" href="https://numpy.org/doc/stable/glossary.html#term-array_like" title="(in NumPy v1.25)"><span>array_like</span></a>[<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a>]</span></dt><dd><p>線分セグメントを表すポイント．2つの頂点が1つの線分セグメントを表すため，偶数を指定する必要があります．たとえば，2つの線分セグメントは <code class="docutils literal notranslate"><span class="pre">np.array([[0,</span> <span class="pre">0,</span> <span class="pre">0],</span> <span class="pre">[1,</span> <span class="pre">0,</span> <span class="pre">0],</span> <span class="pre">[1,</span> <span class="pre">0,</span> <span class="pre">0],</span> <span class="pre">[1,</span> <span class="pre">1,</span> <span class="pre">0]])</span></code> のように表されます．</p>
 </dd>
 </dl>
 </dd>
@@ -812,7 +812,7 @@ document.write(`
 <dl class="field-list">
 <dt class="field-odd">パラメータ<span class="colon">:</span></dt>
 <dd class="field-odd"><dl>
-<dt><strong>arr</strong><span class="classifier"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.24)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">np.ndarray</span></code></a> | <code class="xref py py-obj docutils literal notranslate"><span class="pre">vtkDataArray</span></code></span></dt><dd><p>変換する数値配列あるいはvtkDataArry．</p>
+<dt><strong>arr</strong><span class="classifier"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.25)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">np.ndarray</span></code></a> | <code class="xref py py-obj docutils literal notranslate"><span class="pre">vtkDataArray</span></code></span></dt><dd><p>変換する数値配列あるいはvtkDataArry．</p>
 </dd>
 <dt><strong>name</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>VTKのデータ配列の名前．</p>
 </dd>
@@ -824,7 +824,7 @@ document.write(`
 </dd>
 <dt class="field-even">戻り値<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">vtkDataArray</span></code> or <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.24)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></dt><dd><p>変換後の配列です． 入力が <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.24)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> であれば <code class="docutils literal notranslate"><span class="pre">vtkDataArray</span></code> を返し，入力が <code class="docutils literal notranslate"><span class="pre">vtkDataArray</span></code> であれば NumPy の <code class="docutils literal notranslate"><span class="pre">ndarray</span></code> を返す．</p>
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">vtkDataArray</span></code> or <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.25)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></dt><dd><p>変換後の配列です． 入力が <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.25)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> であれば <code class="docutils literal notranslate"><span class="pre">vtkDataArray</span></code> を返し，入力が <code class="docutils literal notranslate"><span class="pre">vtkDataArray</span></code> であれば NumPy の <code class="docutils literal notranslate"><span class="pre">ndarray</span></code> を返す．</p>
 </dd>
 </dl>
 </dd>
@@ -841,7 +841,7 @@ document.write(`
 <dl class="field-list">
 <dt class="field-odd">パラメータ<span class="colon">:</span></dt>
 <dd class="field-odd"><dl>
-<dt><strong>points</strong><span class="classifier"><a class="reference external" href="https://numpy.org/doc/stable/glossary.html#term-array_like" title="(in NumPy v1.24)"><span>array_like</span></a>[<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a>]</span></dt><dd><p>平面を通過させるための <code class="docutils literal notranslate"><span class="pre">[N</span> <span class="pre">x</span> <span class="pre">3]</span></code> 個の点の列の大きさ．</p>
+<dt><strong>points</strong><span class="classifier"><a class="reference external" href="https://numpy.org/doc/stable/glossary.html#term-array_like" title="(in NumPy v1.25)"><span>array_like</span></a>[<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a>]</span></dt><dd><p>平面を通過させるための <code class="docutils literal notranslate"><span class="pre">[N</span> <span class="pre">x</span> <span class="pre">3]</span></code> 個の点の列の大きさ．</p>
 </dd>
 <dt><strong>return_meta</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.11)"><span class="xref std std-ref">bool</span></a>, default: <a class="reference external" href="https://docs.python.org/3/library/constants.html#False" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">False</span></code></a></span></dt><dd><p><code class="docutils literal notranslate"><span class="pre">True</span></code> の場合，平面の生成に使用される中心と法線も取得します．</p>
 </dd>
@@ -851,9 +851,9 @@ document.write(`
 <dd class="field-even"><dl class="simple">
 <dt><a class="reference internal" href="_autosummary/pyvista.PolyData.html#pyvista.PolyData" title="pyvista.PolyData"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyvista.PolyData</span></code></a></dt><dd><p>平面メッシュです．</p>
 </dd>
-<dt><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.24)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></dt><dd><p><code class="docutils literal notranslate"><span class="pre">return_meta=True</span></code> の場合は平面の中心．</p>
+<dt><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.25)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></dt><dd><p><code class="docutils literal notranslate"><span class="pre">return_meta=True</span></code> の場合は平面の中心．</p>
 </dd>
-<dt><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.24)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></dt><dd><p><code class="docutils literal notranslate"><span class="pre">return_meta=True</span></code> の場合は平面の法線．</p>
+<dt><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.25)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></dt><dd><p><code class="docutils literal notranslate"><span class="pre">return_meta=True</span></code> の場合は平面の法線．</p>
 </dd>
 </dl>
 </dd>

@@ -595,10 +595,10 @@ document.write(`
 <p>PyVistaでは，様々な方法で点を作成することができますが，ここでは，いずれかの方法で効率的に点の配列を作成する方法を紹介します．</p>
 <ul class="simple">
 <li><p>VTK配列のラッピング</p></li>
-<li><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.24)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> の使用</p></li>
+<li><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.25)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> の使用</p></li>
 <li><p>または，単に <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">list</span></code></a> を使うこともできます．</p></li>
 </ul>
-<p>PyVistaでは，これら3つのアプローチに対応したPythonicメソッドを提供していますので，最も効率的な方法を選択することができます．VTK APIに慣れている場合は，VTK配列をラップすることもできますが， <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.24)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> を使う方が便利で，Pythonのループ処理のオーバーヘッドを避けることができるでしょう．</p>
+<p>PyVistaでは，これら3つのアプローチに対応したPythonicメソッドを提供していますので，最も効率的な方法を選択することができます．VTK APIに慣れている場合は，VTK配列をラップすることもできますが， <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.25)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> を使う方が便利で，Pythonのループ処理のオーバーヘッドを避けることができるでしょう．</p>
 <section id="wrapping-a-vtk-array">
 <h3>VTK配列のラッピング<a class="headerlink" href="#wrapping-a-vtk-array" title="この見出しへのパーマリンク">#</a></h3>
 <p>3角形の点を定義してみましょう．VTKのAPIを使えば，このようなことができます．</p>
@@ -622,7 +622,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>vtkDoubleArray (0x55869e17ae40)
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>vtkDoubleArray (0x55c1b465a400)
   Debug: Off
   Modified Time: 67853
   Reference Count: 1
@@ -645,7 +645,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p>PyVistaでは， <a class="reference external" href="https://vtk.org/doc/nightly/html/classvtkDataArray.html">vtkDataArray</a> クラスから直接オブジェクトを作成することをサポートしていますが， <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.24)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> を使用することで，より優れた，よりpythonicな代替手段があります．</p>
+<p>PyVistaでは， <a class="reference external" href="https://vtk.org/doc/nightly/html/classvtkDataArray.html">vtkDataArray</a> クラスから直接オブジェクトを作成することをサポートしていますが， <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.25)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> を使用することで，より優れた，よりpythonicな代替手段があります．</p>
 </section>
 <section id="using-numpy-with-pyvista">
 <h3>PyVistaでのNumPyの利用<a class="headerlink" href="#using-numpy-with-pyvista" title="この見出しへのパーマリンク">#</a></h3>
@@ -668,7 +668,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p>ここでは <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.24)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> を使用して，PyVista が基礎となる C 配列を VTK に直接 &quot;指し示す&quot; ようにしています．VTKはすでにNumPyからC配列を直接読み込むAPIを持っていますが，VTKはC++で書かれているので，PythonからVTKに転送されるすべてのものは，VTKが処理できるフォーマットである必要があります．</p>
+<p>ここでは <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.25)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> を使用して，PyVista が基礎となる C 配列を VTK に直接 &quot;指し示す&quot; ようにしています．VTKはすでにNumPyからC配列を直接読み込むAPIを持っていますが，VTKはC++で書かれているので，PythonからVTKに転送されるすべてのものは，VTKが処理できるフォーマットである必要があります．</p>
 <p>VTKオブジェクトをPyVistaで使用したい場合は，これも可能です．実際， <a class="reference internal" href="../api/utilities/_autosummary/pyvista.wrap.html#pyvista.wrap" title="pyvista.wrap"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyvista.wrap()</span></code></a> を使用すると，データの numpy ライクな表現を得ることもできます．例えば，次のようになります．</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
@@ -686,7 +686,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p>基礎となるVTK配列をラップする際には，実際にデータの浅いコピーを行うことに注意してください．つまり，基礎となるC配列からのポインタを <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.24)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> に渡すことで，2つの配列が効率的にリンクされることになります（NumPyの用語では，返される配列は基礎となるVTKデータへのビューとなります）．つまり，numpyの配列インデックスを使って配列を変更し，それを &quot;VTK側&quot; で修正させることができるのです．</p>
+<p>基礎となるVTK配列をラップする際には，実際にデータの浅いコピーを行うことに注意してください．つまり，基礎となるC配列からのポインタを <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.25)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> に渡すことで，2つの配列が効率的にリンクされることになります（NumPyの用語では，返される配列は基礎となるVTKデータへのビューとなります）．つまり，numpyの配列インデックスを使って配列を変更し，それを &quot;VTK側&quot; で修正させることができるのです．</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">wrapped</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span>
