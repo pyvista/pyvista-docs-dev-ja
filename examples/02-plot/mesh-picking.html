@@ -534,6 +534,7 @@ document.write(`
 
 <li class="toctree-l2"><a class="reference internal" href="edges.html">エッジを表示</a></li>
 <li class="toctree-l2"><a class="reference internal" href="edl.html">Eye Dome Lighting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="element-picking.html">Picking elements of a mesh</a></li>
 <li class="toctree-l2"><a class="reference internal" href="floors.html">床を使用してプロットする</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ghost-cells.html">ゴーストを使用してセルを非表示にする</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gif.html">GIFムービーの作成</a></li>
@@ -693,9 +694,9 @@ to download the full example code</p>
 </pre></div>
 </div>
 <img src="../../_images/sphx_glr_mesh-picking_001.png" srcset="../../_images/sphx_glr_mesh-picking_001.png" alt="mesh picking" class = "sphx-glr-single-img"/></section>
-<section id="pick-using-the-left-mouse-button">
-<h2>マウスの左ボタンでピックします<a class="headerlink" href="#pick-using-the-left-mouse-button" title="この見出しへのパーマリンク">#</a></h2>
-<p>マウスの左ボタンを使って選択し，選択されるたびにメッシュを「縮小」するコールバックをトリガーします．</p>
+<section id="deform-the-mesh-after-picking">
+<h2>Deform the mesh after picking<a class="headerlink" href="#deform-the-mesh-after-picking" title="この見出しへのパーマリンク">#</a></h2>
+<p>Pick to trigger a callback that &quot;shrinks&quot; the mesh each time it's selected.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">callback</span><span class="p">(</span><span class="n">mesh</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Shrink the mesh each time it&#39;s clicked.&quot;&quot;&quot;</span>
     <span class="n">shrunk</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">shrink</span><span class="p">(</span><span class="mf">0.9</span><span class="p">)</span>
@@ -705,7 +706,7 @@ to download the full example code</p>
 <span class="n">pl</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Plotter</span><span class="p">()</span>
 <span class="n">pl</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">sphere</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
 <span class="n">pl</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">cube</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">)</span>
-<span class="n">pl</span><span class="o">.</span><span class="n">enable_mesh_picking</span><span class="p">(</span><span class="n">callback</span><span class="o">=</span><span class="n">callback</span><span class="p">,</span> <span class="n">left_clicking</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">pl</span><span class="o">.</span><span class="n">enable_mesh_picking</span><span class="p">(</span><span class="n">callback</span><span class="o">=</span><span class="n">callback</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">pl</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -737,7 +738,7 @@ to download the full example code</p>
 <span class="n">pl</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_mesh-picking_003.png" srcset="../../_images/sphx_glr_mesh-picking_003.png" alt="mesh picking" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.697 seconds)</p>
+<img src="../../_images/sphx_glr_mesh-picking_003.png" srcset="../../_images/sphx_glr_mesh-picking_003.png" alt="mesh picking" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.656 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-02-plot-mesh-picking-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/289a929c20181d69e1ae243fb7ab86ea/mesh-picking.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">mesh-picking.py</span></code></a></p>
@@ -768,7 +769,7 @@ to download the full example code</p>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pick-either-a-cube-or-a-sphere-using-p">"p" で立方体か球体のどちらかを選びます</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pick-using-the-left-mouse-button">マウスの左ボタンでピックします</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deform-the-mesh-after-picking">Deform the mesh after picking</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pick-based-on-actors">アクターで選ぶ</a></li>
 </ul>
   </nav></div>

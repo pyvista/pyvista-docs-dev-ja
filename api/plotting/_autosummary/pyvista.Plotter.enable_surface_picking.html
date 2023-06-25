@@ -75,7 +75,7 @@
         </script>
     <link rel="index" title="索引" href="../../../genindex.html" />
     <link rel="search" title="検索" href="../../../search.html" />
-    <link rel="next" title="pyvista.Plotter.enable_terrain_style" href="pyvista.Plotter.enable_terrain_style.html" />
+    <link rel="next" title="pyvista.Plotter.enable_surface_point_picking" href="pyvista.Plotter.enable_surface_point_picking.html" />
     <link rel="prev" title="pyvista.Plotter.enable_stereo_render" href="pyvista.Plotter.enable_stereo_render.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="ja"/>
@@ -589,6 +589,7 @@ document.write(`
 <li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.enable_cell_picking.html">pyvista.Plotter.enable_cell_picking</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.enable_depth_of_field.html">pyvista.Plotter.enable_depth_of_field</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.enable_depth_peeling.html">pyvista.Plotter.enable_depth_peeling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.enable_element_picking.html">pyvista.Plotter.enable_element_picking</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.enable_eye_dome_lighting.html">pyvista.Plotter.enable_eye_dome_lighting</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.enable_fly_to_right_click.html">pyvista.Plotter.enable_fly_to_right_click</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.enable_geodesic_picking.html">pyvista.Plotter.enable_geodesic_picking</a></li>
@@ -602,12 +603,16 @@ document.write(`
 <li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.enable_parallel_projection.html">pyvista.Plotter.enable_parallel_projection</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.enable_path_picking.html">pyvista.Plotter.enable_path_picking</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.enable_point_picking.html">pyvista.Plotter.enable_point_picking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.enable_rectangle_picking.html">pyvista.Plotter.enable_rectangle_picking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.enable_rectangle_through_picking.html">pyvista.Plotter.enable_rectangle_through_picking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.enable_rectangle_visible_picking.html">pyvista.Plotter.enable_rectangle_visible_picking</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.enable_rubber_band_2d_style.html">pyvista.Plotter.enable_rubber_band_2d_style</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.enable_rubber_band_style.html">pyvista.Plotter.enable_rubber_band_style</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.enable_shadows.html">pyvista.Plotter.enable_shadows</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.enable_ssao.html">pyvista.Plotter.enable_ssao</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.enable_stereo_render.html">pyvista.Plotter.enable_stereo_render</a></li>
 <li class="toctree-l3 current active"><a class="current reference internal" href="#">pyvista.Plotter.enable_surface_picking</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.enable_surface_point_picking.html">pyvista.Plotter.enable_surface_point_picking</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.enable_terrain_style.html">pyvista.Plotter.enable_terrain_style</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.enable_trackball_actor_style.html">pyvista.Plotter.enable_trackball_actor_style</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.enable_trackball_style.html">pyvista.Plotter.enable_trackball_style</a></li>
@@ -712,7 +717,10 @@ document.write(`
 <li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.parallel_projection.html">pyvista.Plotter.parallel_projection</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.parallel_scale.html">pyvista.Plotter.parallel_scale</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.pickable_actors.html">pyvista.Plotter.pickable_actors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.picked_actor.html">pyvista.Plotter.picked_actor</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.picked_block_index.html">pyvista.Plotter.picked_block_index</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.picked_cell.html">pyvista.Plotter.picked_cell</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.picked_cells.html">pyvista.Plotter.picked_cells</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.picked_mesh.html">pyvista.Plotter.picked_mesh</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.picked_point.html">pyvista.Plotter.picked_point</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.render_window.html">pyvista.Plotter.render_window</a></li>
@@ -731,6 +739,8 @@ document.write(`
 <li class="toctree-l2"><a class="reference internal" href="pyvista.Renderer.html">pyvista.Renderer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pyvista.plotting.mapper._BaseMapper.html">pyvista.plotting.mapper._BaseMapper</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pyvista.plotting.opts.InterpolationType.html">pyvista.plotting.opts.InterpolationType</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyvista.plotting.opts.RepresentationType.html">pyvista.plotting.opts.RepresentationType</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyvista.plotting.opts.ElementType.html">pyvista.plotting.opts.ElementType</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pyvista.plotting.volume.Volume.html">pyvista.plotting.volume.Volume</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pyvista.plotting.volume_property.VolumeProperty.html">pyvista.plotting.volume_property.VolumeProperty</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pyvista.CompositePolyDataMapper.html">pyvista.CompositePolyDataMapper</a></li>
@@ -814,59 +824,21 @@ document.write(`
 <h1>pyvista.Plotter.enable_surface_picking<a class="headerlink" href="#pyvista-plotter-enable-surface-picking" title="この見出しへのパーマリンク">#</a></h1>
 <dl class="py method">
 <dt class="sig sig-object py" id="pyvista.Plotter.enable_surface_picking">
-<span class="sig-prename descclassname"><span class="pre">Plotter.</span></span><span class="sig-name descname"><span class="pre">enable_surface_picking</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">callback</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_message</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">font_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">18</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'pink'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">show_point</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">point_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tolerance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.025</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pickable_window</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">left_clicking</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/plotting/picking.py#L505-L634"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.Plotter.enable_surface_picking" title="この定義へのパーマリンク">#</a></dt>
-<dd><p>メッシュの表面上の点をピッキングできるようにする．</p>
+<span class="sig-prename descclassname"><span class="pre">Plotter.</span></span><span class="sig-name descname"><span class="pre">enable_surface_picking</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/plotting/picking.py#L823-L843"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.Plotter.enable_surface_picking" title="この定義へのパーマリンク">#</a></dt>
+<dd><p>Surface picking.</p>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">バージョン 0.40.0 で非推奨: </span>This method has been renamed to <code class="docutils literal notranslate"><span class="pre">enable_surface_point_picking</span></code>.</p>
+</div>
 <dl class="field-list">
 <dt class="field-odd">パラメータ<span class="colon">:</span></dt>
 <dd class="field-odd"><dl>
-<dt><strong>callback</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#callable" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">callable()</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>入力すると，選択後にこのcallableが呼び出されます． <code class="docutils literal notranslate"><span class="pre">mesh</span></code> は，このcallableの最初のパラメータとして入力されます．</p>
+<dt><strong>*args</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">tuple</span></code></a></span></dt><dd><p>位置引数．</p>
 </dd>
-<dt><strong>show_message</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.11)"><span class="xref std std-ref">bool</span></a> | <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a>, default: <a class="reference external" href="https://docs.python.org/3/library/constants.html#True" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">True</span></code></a></span></dt><dd><p>メッシュ選択ツールの使用方法に関するメッセージを表示します．これが文字列の場合は，メッセージが表示されます．</p>
-</dd>
-<dt><strong>font_size</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">int</span></code></a>, default: 18</span></dt><dd><p>メッセージのフォントサイズを設定します．</p>
-</dd>
-<dt><strong>color</strong><span class="classifier"><a class="reference internal" href="../../utilities/_autosummary/pyvista.ColorLike.html#pyvista.ColorLike" title="pyvista.ColorLike"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ColorLike</span></code></a>, default: &quot;pink&quot;</span></dt><dd><p>選択されたメッシュを表示したときの色．</p>
-</dd>
-<dt><strong>show_point</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.11)"><span class="xref std std-ref">bool</span></a>, default: <a class="reference external" href="https://docs.python.org/3/library/constants.html#True" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">True</span></code></a></span></dt><dd><p>選択をインタラクティブに表示する．</p>
-</dd>
-<dt><strong>point_size</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">int</span></code></a>, default: 10</span></dt><dd><p><code class="docutils literal notranslate"><span class="pre">show_point</span></code> が <code class="docutils literal notranslate"><span class="pre">True</span></code> の場合の選択されたポイントのサイズ．</p>
-</dd>
-<dt><strong>tolerance</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a>, default: 0.025</span></dt><dd><p>ピック操作を実行するための公差を指定してください．許容値は，レンダリングウィンドウサイズの割合で指定します．レンダリングウィンドウのサイズは対角で測定されます．</p>
-</dd>
-<dt><strong>pickable_window</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.11)"><span class="xref std std-ref">bool</span></a>, default: <a class="reference external" href="https://docs.python.org/3/library/constants.html#False" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">False</span></code></a></span></dt><dd><p><code class="docutils literal notranslate"><span class="pre">True</span></code> の場合，3Dウィンドウ内のポイントがピック可能になります．</p>
-</dd>
-<dt><strong>left_clicking</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.11)"><span class="xref std std-ref">bool</span></a>, default: <a class="reference external" href="https://docs.python.org/3/library/constants.html#False" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">False</span></code></a></span></dt><dd><p><code class="docutils literal notranslate"><span class="pre">True</span></code> の場合，マウスの左ボタンをクリックすることでメッシュをピックすることができます．</p>
-<div class="admonition note">
-<p class="admonition-title">注釈</p>
-<p>この機能を有効にすると，左クリックでピックしたメッシュのバウンディングボックスが表示され <strong>なく</strong> なります．</p>
-</div>
-</dd>
-<dt><strong>**kwargs</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">dict</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>残りのキーワード引数はすべて，選択したパスを対話的に表示する方法を制御するために使用されます．</p>
-</dd>
-</dl>
-</dd>
-<dt class="field-even">戻り値<span class="colon">:</span></dt>
-<dd class="field-even"><dl class="simple">
-<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">vtk.vtkPropPicker</span></code></dt><dd><p>プロパティピッカーです．</p>
+<dt><strong>**kwargs</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">dict</span></code></a></span></dt><dd><p>キーワード引数．</p>
 </dd>
 </dl>
 </dd>
 </dl>
-<p class="rubric">備考</p>
-<p>ピックされたポイントは <a class="reference internal" href="pyvista.Plotter.picked_point.html#pyvista.Plotter.picked_point" title="pyvista.Plotter.picked_point"><code class="xref py py-attr docutils literal notranslate"><span class="pre">picked_point</span></code></a> 属性からアクセスすることができます．</p>
-<p class="rubric">例</p>
-<p>立方体をプロットに追加し，セルピッキングを可能にします．左クリックですぐにピッキングを開始するように <code class="docutils literal notranslate"><span class="pre">left_clicking</span></code> を有効にし，ボックスを表示しないようにします． <code class="docutils literal notranslate"><span class="pre">p</span></code> キーを押してメッシュを選択することはできます．</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyvista</span> <span class="k">as</span> <span class="nn">pv</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">cube</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Cube</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">pl</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Plotter</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">cube</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">enable_surface_picking</span><span class="p">(</span><span class="n">left_clicking</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>このメソッドを使用した完全な例については， <a class="reference internal" href="../../../examples/02-plot/surface-picking.html#surface-picking-example"><span class="std std-ref">メッシュの表面上の点をピックします</span></a> を参照してください．</p>
-<figure class="align-default">
-<img alt="../../../_images/pyvista-Plotter-enable_surface_picking-1_00_00.png" src="../../../_images/pyvista-Plotter-enable_surface_picking-1_00_00.png" />
-</figure>
 </dd></dl>
 
 </section>
