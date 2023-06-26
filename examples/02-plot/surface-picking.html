@@ -534,7 +534,7 @@ document.write(`
 
 <li class="toctree-l2"><a class="reference internal" href="edges.html">エッジを表示</a></li>
 <li class="toctree-l2"><a class="reference internal" href="edl.html">Eye Dome Lighting</a></li>
-<li class="toctree-l2"><a class="reference internal" href="element-picking.html">Picking elements of a mesh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="element-picking.html">メッシュの要素をピックする</a></li>
 <li class="toctree-l2"><a class="reference internal" href="floors.html">床を使用してプロットする</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ghost-cells.html">ゴーストを使用してセルを非表示にする</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gif.html">GIFムービーの作成</a></li>
@@ -676,8 +676,7 @@ document.write(`
 </div>
 <section class="sphx-glr-example-title" id="picking-a-point-on-the-surface-of-a-mesh">
 <span id="surface-point-picking-example"></span><span id="sphx-glr-examples-02-plot-surface-picking-py"></span><h1>メッシュの表面上の点をピックします<a class="headerlink" href="#picking-a-point-on-the-surface-of-a-mesh" title="この見出しへのパーマリンク">#</a></h1>
-<p>This example demonstrates how to pick meshes using
-<a class="reference internal" href="../../api/plotting/_autosummary/pyvista.Plotter.enable_surface_point_picking.html#pyvista.Plotter.enable_surface_point_picking" title="pyvista.Plotter.enable_surface_point_picking"><code class="xref py py-func docutils literal notranslate"><span class="pre">enable_surface_point_picking()</span></code></a>.</p>
+<p>この例では， <a class="reference internal" href="../../api/plotting/_autosummary/pyvista.Plotter.enable_surface_point_picking.html#pyvista.Plotter.enable_surface_point_picking" title="pyvista.Plotter.enable_surface_point_picking"><code class="xref py py-func docutils literal notranslate"><span class="pre">enable_surface_point_picking()</span></code></a> を使用してメッシュをピックする方法を示します．</p>
 <p>これにより，メッシュの表面上のポイントをピックすることができます．</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyvista</span> <span class="k">as</span> <span class="nn">pv</span>
 </pre></div>
@@ -691,8 +690,7 @@ document.write(`
 <span class="n">pl</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_surface-picking_001.png" srcset="../../_images/sphx_glr_surface-picking_001.png" alt="surface picking" class = "sphx-glr-single-img"/><p>Enable a callback that creates a cube at the right-clicked point and add a
-label at the point as well it.</p>
+<img src="../../_images/sphx_glr_surface-picking_001.png" srcset="../../_images/sphx_glr_surface-picking_001.png" alt="surface picking" class = "sphx-glr-single-img"/><p>右クリックしたポイントにキューブを作成するコールバックを有効にし，そのポイントにラベルも追加します．</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">callback</span><span class="p">(</span><span class="n">point</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Create a cube and a label at the click point.&quot;&quot;&quot;</span>
     <span class="n">mesh</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Cube</span><span class="p">(</span><span class="n">center</span><span class="o">=</span><span class="n">point</span><span class="p">,</span> <span class="n">x_length</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">y_length</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">z_length</span><span class="o">=</span><span class="mf">0.05</span><span class="p">)</span>
@@ -706,7 +704,7 @@ label at the point as well it.</p>
 <span class="n">pl</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_surface-picking_002.png" srcset="../../_images/sphx_glr_surface-picking_002.png" alt="surface picking" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.522 seconds)</p>
+<img src="../../_images/sphx_glr_surface-picking_002.png" srcset="../../_images/sphx_glr_surface-picking_002.png" alt="surface picking" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.529 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-02-plot-surface-picking-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/4326e596dbf81c05b78f1219d2712063/surface-picking.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">surface-picking.py</span></code></a></p>

@@ -844,7 +844,7 @@ document.write(`
 <dt><strong>tolerance</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a>, default: 0.025</span></dt><dd><p>ピック操作を実行するための公差を指定してください．許容値は，レンダリングウィンドウサイズの割合で指定します．レンダリングウィンドウのサイズは対角で測定されます．</p>
 <div class="admonition warning">
 <p class="admonition-title">警告</p>
-<p>This is ignored with the <code class="docutils literal notranslate"><span class="pre">'hardware'</span></code> <code class="docutils literal notranslate"><span class="pre">picker</span></code>.</p>
+<p>これは， <code class="docutils literal notranslate"><span class="pre">'hardware'</span></code> <code class="docutils literal notranslate"><span class="pre">picker</span></code> では無視されます．</p>
 </div>
 </dd>
 <dt><strong>pickable_window</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.11)"><span class="xref std std-ref">bool</span></a>, default: <a class="reference external" href="https://docs.python.org/3/library/constants.html#False" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">False</span></code></a></span></dt><dd><p><code class="docutils literal notranslate"><span class="pre">True</span></code> の場合，3Dウィンドウ内のポイントがピック可能になります．</p>
@@ -855,21 +855,19 @@ document.write(`
 <p>この機能を有効にすると，左クリックでピックしたメッシュのバウンディングボックスが表示され <strong>なく</strong> なります．</p>
 </div>
 </dd>
-<dt><strong>picker</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a> | <code class="xref py py-obj docutils literal notranslate"><span class="pre">PickerType</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>Choice of VTK picker class type:</p>
+<dt><strong>picker</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a> | <code class="xref py py-obj docutils literal notranslate"><span class="pre">PickerType</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>VTKピッカークラスタイプの選択:</p>
 <blockquote>
 <div><ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">'hardware'</span></code>: Uses <code class="docutils literal notranslate"><span class="pre">vtkHardwarePicker</span></code> which is more
-performant for large geometries (default).</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">'cell'</span></code>: Uses <code class="docutils literal notranslate"><span class="pre">vtkCellPicker</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">'point'</span></code>: Uses <code class="docutils literal notranslate"><span class="pre">vtkPointPicker</span></code> which will snap to
-points on the surface of the mesh.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">'volume'</span></code>: Uses <code class="docutils literal notranslate"><span class="pre">vtkVolumePicker</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'hardware'</span></code>: <code class="docutils literal notranslate"><span class="pre">vtkHardwarePicker</span></code> を使用し、大きなジオメトリに対してより高いパフォーマンスを発揮します(デフォルト)．</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'cell'</span></code>: <code class="docutils literal notranslate"><span class="pre">vtkCellPicker</span></code> を使用します．</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'point'</span></code>: メッシュ表面の点にスナップする <code class="docutils literal notranslate"><span class="pre">vtkPointPicker</span></code> を使用します．</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'volume'</span></code>: <code class="docutils literal notranslate"><span class="pre">vtkVolumePicker</span></code> を使用します．</p></li>
 </ul>
 </div></blockquote>
 </dd>
-<dt><strong>use_picker</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.11)"><span class="xref std std-ref">bool</span></a>, default: <a class="reference external" href="https://docs.python.org/3/library/constants.html#False" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">False</span></code></a></span></dt><dd><p>When <code class="docutils literal notranslate"><span class="pre">True</span></code>, the callback will also be passed the picker.</p>
+<dt><strong>use_picker</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.11)"><span class="xref std std-ref">bool</span></a>, default: <a class="reference external" href="https://docs.python.org/3/library/constants.html#False" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">False</span></code></a></span></dt><dd><p><code class="docutils literal notranslate"><span class="pre">True</span></code> の場合，コールバックはピッカーも渡します．</p>
 </dd>
-<dt><strong>clear_on_no_selection</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.11)"><span class="xref std std-ref">bool</span></a>, default: <a class="reference external" href="https://docs.python.org/3/library/constants.html#True" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">True</span></code></a></span></dt><dd><p>Clear the selections when no point is selected.</p>
+<dt><strong>clear_on_no_selection</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.11)"><span class="xref std std-ref">bool</span></a>, default: <a class="reference external" href="https://docs.python.org/3/library/constants.html#True" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">True</span></code></a></span></dt><dd><p>ポイントが選択されていない場合，選択内容をクリアします．</p>
 </dd>
 <dt><strong>**kwargs</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">dict</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>残りのキーワード引数はすべて，選択したパスを対話的に表示する方法を制御するために使用されます．</p>
 </dd>
@@ -879,7 +877,7 @@ points on the surface of the mesh.</p></li>
 <p class="rubric">備考</p>
 <p>ピックされたポイントは <a class="reference internal" href="pyvista.Plotter.picked_point.html#pyvista.Plotter.picked_point" title="pyvista.Plotter.picked_point"><code class="xref py py-attr docutils literal notranslate"><span class="pre">picked_point</span></code></a> 属性からアクセスすることができます．</p>
 <p class="rubric">例</p>
-<p>Add a cube to a plot and enable cell picking.</p>
+<p>プロットに立方体を追加し，セルピッキングを有効にします．</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyvista</span> <span class="k">as</span> <span class="nn">pv</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">cube</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Cube</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">pl</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Plotter</span><span class="p">()</span>
@@ -887,7 +885,7 @@ points on the surface of the mesh.</p></li>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">enable_surface_point_picking</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>See <a class="reference internal" href="../../../examples/02-plot/surface-picking.html#surface-point-picking-example"><span class="std std-ref">メッシュの表面上の点をピックします</span></a> for a full example using this method.</p>
+<p>このメソッドを使用した完全な例については， <a class="reference internal" href="../../../examples/02-plot/surface-picking.html#surface-point-picking-example"><span class="std std-ref">メッシュの表面上の点をピックします</span></a> を参照してください．</p>
 <figure class="align-default">
 <img alt="../../../_images/pyvista-Plotter-enable_surface_point_picking-1_00_00.png" src="../../../_images/pyvista-Plotter-enable_surface_point_picking-1_00_00.png" />
 </figure>

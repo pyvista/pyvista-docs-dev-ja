@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Picking elements of a mesh &#8212; PyVista 0.40.dev0 ドキュメント</title>
+    <title>メッシュの要素をピックする &#8212; PyVista 0.40.dev0 ドキュメント</title>
   
   
   
@@ -534,7 +534,7 @@ document.write(`
 
 <li class="toctree-l2"><a class="reference internal" href="edges.html">エッジを表示</a></li>
 <li class="toctree-l2"><a class="reference internal" href="edl.html">Eye Dome Lighting</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Picking elements of a mesh</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">メッシュの要素をピックする</a></li>
 <li class="toctree-l2"><a class="reference internal" href="floors.html">床を使用してプロットする</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ghost-cells.html">ゴーストを使用してセルを非表示にする</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gif.html">GIFムービーの作成</a></li>
@@ -653,7 +653,7 @@ document.write(`
     
     <li class="breadcrumb-item"><a href="index.html" class="nav-link">プロット</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page">Picking elements of a mesh</li>
+    <li class="breadcrumb-item active" aria-current="page">メッシュの要素をピックする</li>
   </ul>
 </nav>
 </div>
@@ -672,28 +672,26 @@ document.write(`
                   
   <div class="sphx-glr-download-link-note admonition note">
 <p class="admonition-title">注釈</p>
-<p><a class="reference internal" href="#sphx-glr-download-examples-02-plot-element-picking-py"><span class="std std-ref">Go to the end</span></a>
-to download the full example code</p>
+<p><a class="reference internal" href="#sphx-glr-download-examples-02-plot-element-picking-py"><span class="std std-ref">Go to the end</span></a> をクリックすると完全なサンプルコードをダウンロードできます．</p>
 </div>
 <section class="sphx-glr-example-title" id="picking-elements-of-a-mesh">
-<span id="element-picking-example"></span><span id="sphx-glr-examples-02-plot-element-picking-py"></span><h1>Picking elements of a mesh<a class="headerlink" href="#picking-elements-of-a-mesh" title="この見出しへのパーマリンク">#</a></h1>
-<p>This example demonstrates how to pick different elements on meshes using
-<a class="reference internal" href="../../api/plotting/_autosummary/pyvista.Plotter.enable_element_picking.html#pyvista.Plotter.enable_element_picking" title="pyvista.Plotter.enable_element_picking"><code class="xref py py-func docutils literal notranslate"><span class="pre">enable_element_picking()</span></code></a>.</p>
-<p>The different elements of a mesh are:</p>
+<span id="element-picking-example"></span><span id="sphx-glr-examples-02-plot-element-picking-py"></span><h1>メッシュの要素をピックする<a class="headerlink" href="#picking-elements-of-a-mesh" title="この見出しへのパーマリンク">#</a></h1>
+<p>この例では， <a class="reference internal" href="../../api/plotting/_autosummary/pyvista.Plotter.enable_element_picking.html#pyvista.Plotter.enable_element_picking" title="pyvista.Plotter.enable_element_picking"><code class="xref py py-func docutils literal notranslate"><span class="pre">enable_element_picking()</span></code></a> を使って，メッシュ上の異なる要素をピックする方法を示します．</p>
+<p>メッシュのさまざまな要素は次のとおりです:</p>
 <ul class="simple">
-<li><p>Mesh: pick the entire mesh (equivalent to <a class="reference internal" href="../../api/plotting/_autosummary/pyvista.Plotter.enable_mesh_picking.html#pyvista.Plotter.enable_mesh_picking" title="pyvista.Plotter.enable_mesh_picking"><code class="xref py py-func docutils literal notranslate"><span class="pre">enable_mesh_picking()</span></code></a>.)</p></li>
-<li><p>Cell: pick a cell of the mesh (equivalent to <a class="reference internal" href="../../api/plotting/_autosummary/pyvista.Plotter.enable_cell_picking.html#pyvista.Plotter.enable_cell_picking" title="pyvista.Plotter.enable_cell_picking"><code class="xref py py-func docutils literal notranslate"><span class="pre">enable_cell_picking()</span></code></a>.)</p></li>
-<li><p>Face: pick a single face of a cell on the mesh</p></li>
-<li><p>Edge: pick a single edge of a cell on the mesh</p></li>
-<li><p>Point: pick a single point on the mesh</p></li>
+<li><p>Mesh: メッシュ全体をピックします( <a class="reference internal" href="../../api/plotting/_autosummary/pyvista.Plotter.enable_mesh_picking.html#pyvista.Plotter.enable_mesh_picking" title="pyvista.Plotter.enable_mesh_picking"><code class="xref py py-func docutils literal notranslate"><span class="pre">enable_mesh_picking()</span></code></a> と同じ．)</p></li>
+<li><p>Cell: メッシュのセルをピックします( <a class="reference internal" href="../../api/plotting/_autosummary/pyvista.Plotter.enable_cell_picking.html#pyvista.Plotter.enable_cell_picking" title="pyvista.Plotter.enable_cell_picking"><code class="xref py py-func docutils literal notranslate"><span class="pre">enable_cell_picking()</span></code></a> と同じ．)</p></li>
+<li><p>Face: メッシュのセルの1つの面をピックします</p></li>
+<li><p>Edge: メッシュのセルの1つの端をピックします</p></li>
+<li><p>Point: メッシュの1点をピックします</p></li>
 </ul>
-<p>These types are captured in the <a class="reference internal" href="../../api/plotting/_autosummary/pyvista.plotting.opts.ElementType.html#pyvista.plotting.opts.ElementType" title="pyvista.plotting.opts.ElementType"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.plotting.opts.ElementType</span></code></a> enum class.</p>
+<p>これらの型は <a class="reference internal" href="../../api/plotting/_autosummary/pyvista.plotting.opts.ElementType.html#pyvista.plotting.opts.ElementType" title="pyvista.plotting.opts.ElementType"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.plotting.opts.ElementType</span></code></a> に含まれています．</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyvista</span> <span class="k">as</span> <span class="nn">pv</span>
 <span class="kn">from</span> <span class="nn">pyvista.plotting.opts</span> <span class="kn">import</span> <span class="n">ElementType</span>
 </pre></div>
 </div>
 <section id="pick-face-on-voxel-cell">
-<h2>Pick Face on Voxel Cell<a class="headerlink" href="#pick-face-on-voxel-cell" title="この見出しへのパーマリンク">#</a></h2>
+<h2>ボクセルセルの面をピックする<a class="headerlink" href="#pick-face-on-voxel-cell" title="この見出しへのパーマリンク">#</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mesh</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Wavelet</span><span class="p">()</span>
 
 <span class="n">pl</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Plotter</span><span class="p">()</span>
@@ -720,7 +718,7 @@ to download the full example code</p>
 </div>
 <img src="../../_images/sphx_glr_element-picking_001.png" srcset="../../_images/sphx_glr_element-picking_001.png" alt="element picking" class = "sphx-glr-single-img"/></section>
 <section id="pick-an-edge-of-a-cell">
-<h2>Pick an Edge of a Cell<a class="headerlink" href="#pick-an-edge-of-a-cell" title="この見出しへのパーマリンク">#</a></h2>
+<h2>セルの端を選ぶ<a class="headerlink" href="#pick-an-edge-of-a-cell" title="この見出しへのパーマリンク">#</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sphere</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Sphere</span><span class="p">()</span>
 
 <span class="n">pl</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Plotter</span><span class="p">()</span>
@@ -745,7 +743,7 @@ to download the full example code</p>
     <span class="k">pass</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_element-picking_002.png" srcset="../../_images/sphx_glr_element-picking_002.png" alt="element picking" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.862 seconds)</p>
+<img src="../../_images/sphx_glr_element-picking_002.png" srcset="../../_images/sphx_glr_element-picking_002.png" alt="element picking" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.828 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-02-plot-element-picking-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/251371e0b37b17b8feb5cc0caf47f8d8/element-picking.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">element-picking.py</span></code></a></p>
@@ -775,8 +773,8 @@ to download the full example code</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pick-face-on-voxel-cell">Pick Face on Voxel Cell</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pick-an-edge-of-a-cell">Pick an Edge of a Cell</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pick-face-on-voxel-cell">ボクセルセルの面をピックする</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pick-an-edge-of-a-cell">セルの端を選ぶ</a></li>
 </ul>
   </nav></div>
 
