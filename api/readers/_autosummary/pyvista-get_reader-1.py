@@ -12,4 +12,4 @@ mesh = reader.read()
 mesh
 # Expected:
 ## PolyData ...
-mesh.plot(color='tan')
+mesh.plot(color='lightblue')

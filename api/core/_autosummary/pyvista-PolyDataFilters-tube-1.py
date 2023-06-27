@@ -9,4 +9,4 @@ f'Line Cells: {line.n_cells}'
 f'Tube Cells: {tube.n_cells}'
 # Expected:
 ## 'Tube Cells: 22'
-tube.plot(color='tan')
+tube.plot(color='lightblue')

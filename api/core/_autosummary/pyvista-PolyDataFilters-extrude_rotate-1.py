@@ -34,4 +34,4 @@ points = np.array(
 )
 spline = pyvista.Spline(points, 30)
 extruded = spline.extrude_rotate(resolution=20, capping=False)
-extruded.plot(color='tan')
+extruded.plot(color='lightblue')

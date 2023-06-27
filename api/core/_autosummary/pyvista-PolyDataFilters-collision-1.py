@@ -25,7 +25,7 @@ _ = pl.add_mesh(
 )
 _ = pl.add_mesh(
     mesh_b,
-    color='tan',
+    color='lightblue',
     line_width=5,
     opacity=0.7,
     show_edges=True,

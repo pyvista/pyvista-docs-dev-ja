@@ -12,6 +12,6 @@ _ = pl.add_mesh(
 _ = pl.add_mesh(
     sphere_b, color='b', style='wireframe', line_width=3
 )
-_ = pl.add_mesh(result, color='tan')
+_ = pl.add_mesh(result, color='lightblue')
 pl.camera_position = 'xz'
 pl.show()

@@ -19,7 +19,7 @@ mesh.verts = np.vstack(
     )
 ).T
 mesh.plot(
-    color='tan',
+    color='lightblue',
     render_points_as_spheres=True,
     point_size=60,
 )

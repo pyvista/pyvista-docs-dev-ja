@@ -756,7 +756,7 @@ Font                     :
     Float format         : None
 Auto close               : True
 Colormap                 : viridis
-Color                    : Color(name=&#39;tan&#39;, hex=&#39;#d2b48cff&#39;, opacity=255)
+Color                    : Color(name=&#39;lightblue&#39;, hex=&#39;#add8e6ff&#39;, opacity=255)
 Color Cycler             : None
 NaN color                : Color(name=&#39;darkgray&#39;, hex=&#39;#a9a9a9ff&#39;, opacity=255)
 Edge color               : Color(name=&#39;black&#39;, hex=&#39;#000000ff&#39;, opacity=255)
@@ -832,7 +832,11 @@ Before close callback    : None
 <span class="n">cpos</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Sphere</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_themes_006.png" srcset="../../_images/sphx_glr_themes_006.png" alt="themes" class = "sphx-glr-single-img"/><p>pyvistaをデフォルトの動作にリセットするには， <code class="docutils literal notranslate"><span class="pre">restore_defaults</span></code> を使用します．図形の色は，ドキュメントテーマのデフォルトの色 &quot;黄褐色&quot; ではなく，デフォルトの色 &quot;白&quot; にリセットされたことに注意してください．内部的には，適用された各テーマは， <code class="docutils literal notranslate"><span class="pre">pyvista.global_theme</span></code> 内に格納されたグローバルデフォルトプロットを変更します．</p>
+<img src="../../_images/sphx_glr_themes_006.png" srcset="../../_images/sphx_glr_themes_006.png" alt="themes" class = "sphx-glr-single-img"/><p>You can reset pyvista to default behavior with <code class="docutils literal notranslate"><span class="pre">restore_defaults</span></code>.
+Note that the figure's color was reset to the default &quot;white&quot; color
+rather than the 'lightblue' color default with the document theme.  Under
+the hood, each theme applied changes the global plot defaults stored
+within <code class="docutils literal notranslate"><span class="pre">pyvista.global_theme.</span></code></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pv</span><span class="o">.</span><span class="n">global_theme</span><span class="o">.</span><span class="n">restore_defaults</span><span class="p">()</span>
 <span class="n">cpos</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Sphere</span><span class="p">()</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 </pre></div>
@@ -882,7 +886,7 @@ Before close callback    : None
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pv</span><span class="o">.</span><span class="n">set_plot_theme</span><span class="p">(</span><span class="s2">&quot;document&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  3.764 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  3.857 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-02-plot-themes-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/9818cced84c263fa13e623b67beb9ef3/themes.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">themes.py</span></code></a></p>
