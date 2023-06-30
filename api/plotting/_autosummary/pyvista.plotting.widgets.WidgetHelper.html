@@ -528,6 +528,7 @@ document.write(`
 <li class="toctree-l3"><a class="reference internal" href="pyvista.plotting.widgets.WidgetHelper.add_camera_orientation_widget.html">pyvista.plotting.widgets.WidgetHelper.add_camera_orientation_widget</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyvista.plotting.widgets.WidgetHelper.add_checkbox_button_widget.html">pyvista.plotting.widgets.WidgetHelper.add_checkbox_button_widget</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyvista.plotting.widgets.WidgetHelper.add_line_widget.html">pyvista.plotting.widgets.WidgetHelper.add_line_widget</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.plotting.widgets.WidgetHelper.add_measurement_widget.html">pyvista.plotting.widgets.WidgetHelper.add_measurement_widget</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyvista.plotting.widgets.WidgetHelper.add_mesh_clip_box.html">pyvista.plotting.widgets.WidgetHelper.add_mesh_clip_box</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyvista.plotting.widgets.WidgetHelper.add_mesh_clip_plane.html">pyvista.plotting.widgets.WidgetHelper.add_mesh_clip_plane</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyvista.plotting.widgets.WidgetHelper.add_mesh_isovalue.html">pyvista.plotting.widgets.WidgetHelper.add_mesh_isovalue</a></li>
@@ -545,6 +546,7 @@ document.write(`
 <li class="toctree-l3"><a class="reference internal" href="pyvista.plotting.widgets.WidgetHelper.clear_button_widgets.html">pyvista.plotting.widgets.WidgetHelper.clear_button_widgets</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyvista.plotting.widgets.WidgetHelper.clear_camera_widgets.html">pyvista.plotting.widgets.WidgetHelper.clear_camera_widgets</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyvista.plotting.widgets.WidgetHelper.clear_line_widgets.html">pyvista.plotting.widgets.WidgetHelper.clear_line_widgets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.plotting.widgets.WidgetHelper.clear_measure_widgets.html">pyvista.plotting.widgets.WidgetHelper.clear_measure_widgets</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyvista.plotting.widgets.WidgetHelper.clear_plane_widgets.html">pyvista.plotting.widgets.WidgetHelper.clear_plane_widgets</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyvista.plotting.widgets.WidgetHelper.clear_slider_widgets.html">pyvista.plotting.widgets.WidgetHelper.clear_slider_widgets</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyvista.plotting.widgets.WidgetHelper.clear_sphere_widgets.html">pyvista.plotting.widgets.WidgetHelper.clear_sphere_widgets</a></li>
@@ -623,7 +625,7 @@ document.write(`
 <h1>pyvista.plotting.widgets.WidgetHelper<a class="headerlink" href="#pyvista-plotting-widgets-widgethelper" title="この見出しへのパーマリンク">#</a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="pyvista.plotting.widgets.WidgetHelper">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">WidgetHelper</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/plotting/widgets.py#L59-L2351"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.plotting.widgets.WidgetHelper" title="この定義へのパーマリンク">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">WidgetHelper</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/plotting/widgets.py#L60-L2436"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.plotting.widgets.WidgetHelper" title="この定義へのパーマリンク">#</a></dt>
 <dd><p>ウィジェットを管理する内部クラス．</p>
 <p>また，ウィジェットを含むその他のヘルパーメソッドも管理します．</p>
 <p class="rubric">メソッド</p>
@@ -641,56 +643,62 @@ document.write(`
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.plotting.widgets.WidgetHelper.add_line_widget.html#pyvista.plotting.widgets.WidgetHelper.add_line_widget" title="pyvista.plotting.widgets.WidgetHelper.add_line_widget"><code class="xref py py-obj docutils literal notranslate"><span class="pre">WidgetHelper.add_line_widget</span></code></a>(callback[, ...])</p></td>
 <td><p>シーンに線ウィジェットを追加します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.plotting.widgets.WidgetHelper.add_mesh_clip_box.html#pyvista.plotting.widgets.WidgetHelper.add_mesh_clip_box" title="pyvista.plotting.widgets.WidgetHelper.add_mesh_clip_box"><code class="xref py py-obj docutils literal notranslate"><span class="pre">WidgetHelper.add_mesh_clip_box</span></code></a>(mesh[, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.plotting.widgets.WidgetHelper.add_measurement_widget.html#pyvista.plotting.widgets.WidgetHelper.add_measurement_widget" title="pyvista.plotting.widgets.WidgetHelper.add_measurement_widget"><code class="xref py py-obj docutils literal notranslate"><span class="pre">WidgetHelper.add_measurement_widget</span></code></a>([...])</p></td>
+<td><p>Interactively measure distance with a distance widget.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.plotting.widgets.WidgetHelper.add_mesh_clip_box.html#pyvista.plotting.widgets.WidgetHelper.add_mesh_clip_box" title="pyvista.plotting.widgets.WidgetHelper.add_mesh_clip_box"><code class="xref py py-obj docutils literal notranslate"><span class="pre">WidgetHelper.add_mesh_clip_box</span></code></a>(mesh[, ...])</p></td>
 <td><p>ボックスウィジェットを使用してメッシュをクリップします．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.plotting.widgets.WidgetHelper.add_mesh_clip_plane.html#pyvista.plotting.widgets.WidgetHelper.add_mesh_clip_plane" title="pyvista.plotting.widgets.WidgetHelper.add_mesh_clip_plane"><code class="xref py py-obj docutils literal notranslate"><span class="pre">WidgetHelper.add_mesh_clip_plane</span></code></a>(mesh[, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.plotting.widgets.WidgetHelper.add_mesh_clip_plane.html#pyvista.plotting.widgets.WidgetHelper.add_mesh_clip_plane" title="pyvista.plotting.widgets.WidgetHelper.add_mesh_clip_plane"><code class="xref py py-obj docutils literal notranslate"><span class="pre">WidgetHelper.add_mesh_clip_plane</span></code></a>(mesh[, ...])</p></td>
 <td><p>プレインウィジェットを使用してメッシュをクリップします．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.plotting.widgets.WidgetHelper.add_mesh_isovalue.html#pyvista.plotting.widgets.WidgetHelper.add_mesh_isovalue" title="pyvista.plotting.widgets.WidgetHelper.add_mesh_isovalue"><code class="xref py py-obj docutils literal notranslate"><span class="pre">WidgetHelper.add_mesh_isovalue</span></code></a>(mesh[, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.plotting.widgets.WidgetHelper.add_mesh_isovalue.html#pyvista.plotting.widgets.WidgetHelper.add_mesh_isovalue" title="pyvista.plotting.widgets.WidgetHelper.add_mesh_isovalue"><code class="xref py py-obj docutils literal notranslate"><span class="pre">WidgetHelper.add_mesh_isovalue</span></code></a>(mesh[, ...])</p></td>
 <td><p>スライダを使用してメッシュの輪郭を作成します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.plotting.widgets.WidgetHelper.add_mesh_slice.html#pyvista.plotting.widgets.WidgetHelper.add_mesh_slice" title="pyvista.plotting.widgets.WidgetHelper.add_mesh_slice"><code class="xref py py-obj docutils literal notranslate"><span class="pre">WidgetHelper.add_mesh_slice</span></code></a>(mesh[, normal, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.plotting.widgets.WidgetHelper.add_mesh_slice.html#pyvista.plotting.widgets.WidgetHelper.add_mesh_slice" title="pyvista.plotting.widgets.WidgetHelper.add_mesh_slice"><code class="xref py py-obj docutils literal notranslate"><span class="pre">WidgetHelper.add_mesh_slice</span></code></a>(mesh[, normal, ...])</p></td>
 <td><p>プレインウィジェットを使用してメッシュをスライスします．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.plotting.widgets.WidgetHelper.add_mesh_slice_orthogonal.html#pyvista.plotting.widgets.WidgetHelper.add_mesh_slice_orthogonal" title="pyvista.plotting.widgets.WidgetHelper.add_mesh_slice_orthogonal"><code class="xref py py-obj docutils literal notranslate"><span class="pre">WidgetHelper.add_mesh_slice_orthogonal</span></code></a>(mesh)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.plotting.widgets.WidgetHelper.add_mesh_slice_orthogonal.html#pyvista.plotting.widgets.WidgetHelper.add_mesh_slice_orthogonal" title="pyvista.plotting.widgets.WidgetHelper.add_mesh_slice_orthogonal"><code class="xref py py-obj docutils literal notranslate"><span class="pre">WidgetHelper.add_mesh_slice_orthogonal</span></code></a>(mesh)</p></td>
 <td><p>3つのインタラクティブな平面でメッシュをスライスします．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.plotting.widgets.WidgetHelper.add_mesh_slice_spline.html#pyvista.plotting.widgets.WidgetHelper.add_mesh_slice_spline" title="pyvista.plotting.widgets.WidgetHelper.add_mesh_slice_spline"><code class="xref py py-obj docutils literal notranslate"><span class="pre">WidgetHelper.add_mesh_slice_spline</span></code></a>(mesh[, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.plotting.widgets.WidgetHelper.add_mesh_slice_spline.html#pyvista.plotting.widgets.WidgetHelper.add_mesh_slice_spline" title="pyvista.plotting.widgets.WidgetHelper.add_mesh_slice_spline"><code class="xref py py-obj docutils literal notranslate"><span class="pre">WidgetHelper.add_mesh_slice_spline</span></code></a>(mesh[, ...])</p></td>
 <td><p>スプラインウィジェットを使用してメッシュをスライスします．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.plotting.widgets.WidgetHelper.add_mesh_threshold.html#pyvista.plotting.widgets.WidgetHelper.add_mesh_threshold" title="pyvista.plotting.widgets.WidgetHelper.add_mesh_threshold"><code class="xref py py-obj docutils literal notranslate"><span class="pre">WidgetHelper.add_mesh_threshold</span></code></a>(mesh[, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.plotting.widgets.WidgetHelper.add_mesh_threshold.html#pyvista.plotting.widgets.WidgetHelper.add_mesh_threshold" title="pyvista.plotting.widgets.WidgetHelper.add_mesh_threshold"><code class="xref py py-obj docutils literal notranslate"><span class="pre">WidgetHelper.add_mesh_threshold</span></code></a>(mesh[, ...])</p></td>
 <td><p>スライダを使用してメッシュに閾値を適用します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.plotting.widgets.WidgetHelper.add_plane_widget.html#pyvista.plotting.widgets.WidgetHelper.add_plane_widget" title="pyvista.plotting.widgets.WidgetHelper.add_plane_widget"><code class="xref py py-obj docutils literal notranslate"><span class="pre">WidgetHelper.add_plane_widget</span></code></a>(callback[, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.plotting.widgets.WidgetHelper.add_plane_widget.html#pyvista.plotting.widgets.WidgetHelper.add_plane_widget" title="pyvista.plotting.widgets.WidgetHelper.add_plane_widget"><code class="xref py py-obj docutils literal notranslate"><span class="pre">WidgetHelper.add_plane_widget</span></code></a>(callback[, ...])</p></td>
 <td><p>シーンに平面ウィジェットを追加します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.plotting.widgets.WidgetHelper.add_slider_widget.html#pyvista.plotting.widgets.WidgetHelper.add_slider_widget" title="pyvista.plotting.widgets.WidgetHelper.add_slider_widget"><code class="xref py py-obj docutils literal notranslate"><span class="pre">WidgetHelper.add_slider_widget</span></code></a>(callback, rng)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.plotting.widgets.WidgetHelper.add_slider_widget.html#pyvista.plotting.widgets.WidgetHelper.add_slider_widget" title="pyvista.plotting.widgets.WidgetHelper.add_slider_widget"><code class="xref py py-obj docutils literal notranslate"><span class="pre">WidgetHelper.add_slider_widget</span></code></a>(callback, rng)</p></td>
 <td><p>スライダバーウィジェットを追加します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.plotting.widgets.WidgetHelper.add_sphere_widget.html#pyvista.plotting.widgets.WidgetHelper.add_sphere_widget" title="pyvista.plotting.widgets.WidgetHelper.add_sphere_widget"><code class="xref py py-obj docutils literal notranslate"><span class="pre">WidgetHelper.add_sphere_widget</span></code></a>(callback[, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.plotting.widgets.WidgetHelper.add_sphere_widget.html#pyvista.plotting.widgets.WidgetHelper.add_sphere_widget" title="pyvista.plotting.widgets.WidgetHelper.add_sphere_widget"><code class="xref py py-obj docutils literal notranslate"><span class="pre">WidgetHelper.add_sphere_widget</span></code></a>(callback[, ...])</p></td>
 <td><p>1つまたは複数の球ウィジェットをシーンに追加します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.plotting.widgets.WidgetHelper.add_spline_widget.html#pyvista.plotting.widgets.WidgetHelper.add_spline_widget" title="pyvista.plotting.widgets.WidgetHelper.add_spline_widget"><code class="xref py py-obj docutils literal notranslate"><span class="pre">WidgetHelper.add_spline_widget</span></code></a>(callback[, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.plotting.widgets.WidgetHelper.add_spline_widget.html#pyvista.plotting.widgets.WidgetHelper.add_spline_widget" title="pyvista.plotting.widgets.WidgetHelper.add_spline_widget"><code class="xref py py-obj docutils literal notranslate"><span class="pre">WidgetHelper.add_spline_widget</span></code></a>(callback[, ...])</p></td>
 <td><p>スプラインウィジェットを作成し，シーンに追加します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.plotting.widgets.WidgetHelper.add_text_slider_widget.html#pyvista.plotting.widgets.WidgetHelper.add_text_slider_widget" title="pyvista.plotting.widgets.WidgetHelper.add_text_slider_widget"><code class="xref py py-obj docutils literal notranslate"><span class="pre">WidgetHelper.add_text_slider_widget</span></code></a>(...[, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.plotting.widgets.WidgetHelper.add_text_slider_widget.html#pyvista.plotting.widgets.WidgetHelper.add_text_slider_widget" title="pyvista.plotting.widgets.WidgetHelper.add_text_slider_widget"><code class="xref py py-obj docutils literal notranslate"><span class="pre">WidgetHelper.add_text_slider_widget</span></code></a>(...[, ...])</p></td>
 <td><p>テキストスライダバーウィジェットを追加します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.plotting.widgets.WidgetHelper.add_volume_clip_plane.html#pyvista.plotting.widgets.WidgetHelper.add_volume_clip_plane" title="pyvista.plotting.widgets.WidgetHelper.add_volume_clip_plane"><code class="xref py py-obj docutils literal notranslate"><span class="pre">WidgetHelper.add_volume_clip_plane</span></code></a>(volume[, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.plotting.widgets.WidgetHelper.add_volume_clip_plane.html#pyvista.plotting.widgets.WidgetHelper.add_volume_clip_plane" title="pyvista.plotting.widgets.WidgetHelper.add_volume_clip_plane"><code class="xref py py-obj docutils literal notranslate"><span class="pre">WidgetHelper.add_volume_clip_plane</span></code></a>(volume[, ...])</p></td>
 <td><p>プレインウィジェットを使用してボリュームをクリップします．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.plotting.widgets.WidgetHelper.clear_box_widgets.html#pyvista.plotting.widgets.WidgetHelper.clear_box_widgets" title="pyvista.plotting.widgets.WidgetHelper.clear_box_widgets"><code class="xref py py-obj docutils literal notranslate"><span class="pre">WidgetHelper.clear_box_widgets</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.plotting.widgets.WidgetHelper.clear_box_widgets.html#pyvista.plotting.widgets.WidgetHelper.clear_box_widgets" title="pyvista.plotting.widgets.WidgetHelper.clear_box_widgets"><code class="xref py py-obj docutils literal notranslate"><span class="pre">WidgetHelper.clear_box_widgets</span></code></a>()</p></td>
 <td><p>ボックスウィジェットをすべて削除します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.plotting.widgets.WidgetHelper.clear_button_widgets.html#pyvista.plotting.widgets.WidgetHelper.clear_button_widgets" title="pyvista.plotting.widgets.WidgetHelper.clear_button_widgets"><code class="xref py py-obj docutils literal notranslate"><span class="pre">WidgetHelper.clear_button_widgets</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.plotting.widgets.WidgetHelper.clear_button_widgets.html#pyvista.plotting.widgets.WidgetHelper.clear_button_widgets" title="pyvista.plotting.widgets.WidgetHelper.clear_button_widgets"><code class="xref py py-obj docutils literal notranslate"><span class="pre">WidgetHelper.clear_button_widgets</span></code></a>()</p></td>
 <td><p>ボタンウィジェットをすべて削除します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.plotting.widgets.WidgetHelper.clear_camera_widgets.html#pyvista.plotting.widgets.WidgetHelper.clear_camera_widgets" title="pyvista.plotting.widgets.WidgetHelper.clear_camera_widgets"><code class="xref py py-obj docutils literal notranslate"><span class="pre">WidgetHelper.clear_camera_widgets</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.plotting.widgets.WidgetHelper.clear_camera_widgets.html#pyvista.plotting.widgets.WidgetHelper.clear_camera_widgets" title="pyvista.plotting.widgets.WidgetHelper.clear_camera_widgets"><code class="xref py py-obj docutils literal notranslate"><span class="pre">WidgetHelper.clear_camera_widgets</span></code></a>()</p></td>
 <td><p>カメラウィジェットをすべて削除にします．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.plotting.widgets.WidgetHelper.clear_line_widgets.html#pyvista.plotting.widgets.WidgetHelper.clear_line_widgets" title="pyvista.plotting.widgets.WidgetHelper.clear_line_widgets"><code class="xref py py-obj docutils literal notranslate"><span class="pre">WidgetHelper.clear_line_widgets</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.plotting.widgets.WidgetHelper.clear_line_widgets.html#pyvista.plotting.widgets.WidgetHelper.clear_line_widgets" title="pyvista.plotting.widgets.WidgetHelper.clear_line_widgets"><code class="xref py py-obj docutils literal notranslate"><span class="pre">WidgetHelper.clear_line_widgets</span></code></a>()</p></td>
 <td><p>ラインウィジェットをすべて削除します．</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.plotting.widgets.WidgetHelper.clear_measure_widgets.html#pyvista.plotting.widgets.WidgetHelper.clear_measure_widgets" title="pyvista.plotting.widgets.WidgetHelper.clear_measure_widgets"><code class="xref py py-obj docutils literal notranslate"><span class="pre">WidgetHelper.clear_measure_widgets</span></code></a>()</p></td>
+<td><p>Remove all of the measurement widgets.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.plotting.widgets.WidgetHelper.clear_plane_widgets.html#pyvista.plotting.widgets.WidgetHelper.clear_plane_widgets" title="pyvista.plotting.widgets.WidgetHelper.clear_plane_widgets"><code class="xref py py-obj docutils literal notranslate"><span class="pre">WidgetHelper.clear_plane_widgets</span></code></a>()</p></td>
 <td><p>プレーンウィジェットをすべて削除します．</p></td>

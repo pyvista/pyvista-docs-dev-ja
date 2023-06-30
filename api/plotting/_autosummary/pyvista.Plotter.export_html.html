@@ -531,6 +531,7 @@ document.write(`
 <li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.add_light.html">pyvista.Plotter.add_light</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.add_line_widget.html">pyvista.Plotter.add_line_widget</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.add_lines.html">pyvista.Plotter.add_lines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.add_measurement_widget.html">pyvista.Plotter.add_measurement_widget</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.add_mesh.html">pyvista.Plotter.add_mesh</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.add_mesh_clip_box.html">pyvista.Plotter.add_mesh_clip_box</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.add_mesh_clip_plane.html">pyvista.Plotter.add_mesh_clip_plane</a></li>
@@ -563,6 +564,7 @@ document.write(`
 <li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.clear_camera_widgets.html">pyvista.Plotter.clear_camera_widgets</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.clear_events_for_key.html">pyvista.Plotter.clear_events_for_key</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.clear_line_widgets.html">pyvista.Plotter.clear_line_widgets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.clear_measure_widgets.html">pyvista.Plotter.clear_measure_widgets</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.clear_on_render_callbacks.html">pyvista.Plotter.clear_on_render_callbacks</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.clear_plane_widgets.html">pyvista.Plotter.clear_plane_widgets</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.clear_slider_widgets.html">pyvista.Plotter.clear_slider_widgets</a></li>
@@ -622,6 +624,7 @@ document.write(`
 <li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.export_obj.html">pyvista.Plotter.export_obj</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.export_vrml.html">pyvista.Plotter.export_vrml</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.export_vtkjs.html">pyvista.Plotter.export_vtkjs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.export_vtksz.html">pyvista.Plotter.export_vtksz</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.fly_to.html">pyvista.Plotter.fly_to</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.fly_to_mouse_position.html">pyvista.Plotter.fly_to_mouse_position</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.generate_orbital_path.html">pyvista.Plotter.generate_orbital_path</a></li>
@@ -824,7 +827,7 @@ document.write(`
 <h1>pyvista.Plotter.export_html<a class="headerlink" href="#pyvista-plotter-export-html" title="この見出しへのパーマリンク">#</a></h1>
 <dl class="py method">
 <dt class="sig sig-object py" id="pyvista.Plotter.export_html">
-<span class="sig-prename descclassname"><span class="pre">Plotter.</span></span><span class="sig-name descname"><span class="pre">export_html</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">backend</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'pythreejs'</span></span></em><span class="sig-paren">)</span><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/plotting/plotter.py#L480-L551"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.Plotter.export_html" title="この定義へのパーマリンク">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">Plotter.</span></span><span class="sig-name descname"><span class="pre">export_html</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/plotting/plotter.py#L479-L535"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.Plotter.export_html" title="この定義へのパーマリンク">#</a></dt>
 <dd><p>このプロッタをインタラクティブなシーンとしてHTMLファイルに書き出すことができます．</p>
 <p>vtk.js ( <code class="docutils literal notranslate"><span class="pre">panel</span></code> を使用) または three.js ( <code class="docutils literal notranslate"><span class="pre">pythreejs</span></code> を使用) のいずれかを使用してシーンを公開するオプションがあります．これらはどちらも，科学的可視化のための小規模から中規模の複雑なシーンを表示するための優れた JavaScript ライブラリです．</p>
 <dl class="field-list">
@@ -832,20 +835,18 @@ document.write(`
 <dd class="field-odd"><dl>
 <dt><strong>filename</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a></span></dt><dd><p>htmlファイルのエクスポート先のパス．</p>
 </dd>
-<dt><strong>backend</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a>, default: &quot;pythreejs&quot;</span></dt><dd><p>以下のいずれかとなります．</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">'pythreejs'</span></code></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">'panel'</span></code></p></li>
-</ul>
-<p>各バックエンドの長所と短所についての詳細は， <a class="reference internal" href="../../../user-guide/jupyter/index.html#jupyter-plotting"><span class="std std-ref">Jupyterノートブックプロット</span></a> を参照してください．</p>
+</dl>
+</dd>
+<dt class="field-even">戻り値<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">StringIO</span></code></dt><dd><p>If filename is None, returns the HTML as a StringIO object.</p>
 </dd>
 </dl>
 </dd>
 </dl>
 <p class="rubric">備考</p>
-<p>バックエンドに <code class="docutils literal notranslate"><span class="pre">'pythreejs'</span></code> を使用する場合は <code class="docutils literal notranslate"><span class="pre">ipywidgets</span></code> と <code class="docutils literal notranslate"><span class="pre">pythreejs</span></code> を， <code class="docutils literal notranslate"><span class="pre">'panel'</span></code> を使用してエクスポートする場合は <code class="docutils literal notranslate"><span class="pre">'panel'</span></code> をインストールする必要があります．</p>
+<p>You will need <code class="docutils literal notranslate"><span class="pre">trame</span></code> installed.</p>
 <p class="rubric">例</p>
-<p>pythreejsバックエンドを使用してthree.jsのシーンとしてエクスポートします．</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyvista</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pyvista</span> <span class="kn">import</span> <span class="n">examples</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mesh</span> <span class="o">=</span> <span class="n">examples</span><span class="o">.</span><span class="n">load_uniform</span><span class="p">()</span>
@@ -858,12 +859,6 @@ document.write(`
 <span class="gp">... </span>    <span class="n">mesh</span><span class="p">,</span> <span class="n">scalars</span><span class="o">=</span><span class="s1">&#39;Spatial Cell Data&#39;</span><span class="p">,</span> <span class="n">show_edges</span><span class="o">=</span><span class="kc">True</span>
 <span class="gp">... </span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">pl</span><span class="o">.</span><span class="n">export_html</span><span class="p">(</span><span class="s1">&#39;pyvista.html&#39;</span><span class="p">)</span>  
-</pre></div>
-</div>
-<p>パネルバックエンドを使用して，vtk.jsのシーンとしてエクスポートします．</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pl</span><span class="o">.</span><span class="n">export_html</span><span class="p">(</span>
-<span class="gp">... </span>    <span class="s1">&#39;pyvista_panel.html&#39;</span><span class="p">,</span> <span class="n">backend</span><span class="o">=</span><span class="s1">&#39;panel&#39;</span>
-<span class="gp">... </span><span class="p">)</span>  
 </pre></div>
 </div>
 </dd></dl>

@@ -831,12 +831,45 @@ sleep<span class="w"> </span><span class="m">3</span>
 <span class="n">pyvista</span><span class="o">.</span><span class="n">set_plot_theme</span><span class="p">(</span><span class="s1">&#39;document&#39;</span><span class="p">)</span>
 <span class="n">pyvista</span><span class="o">.</span><span class="n">global_theme</span><span class="o">.</span><span class="n">window_size</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1024</span><span class="p">,</span> <span class="mi">768</span><span class="p">])</span> <span class="o">*</span> <span class="mi">2</span>
 
-<span class="o">...</span>
+<span class="n">extensions</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="o">...</span>
+    <span class="s2">&quot;sphinx_gallery.gen_gallery&quot;</span><span class="p">,</span>
+<span class="p">]</span>
 
 <span class="c1"># Add the PyVista image scraper to SG</span>
 <span class="n">sphinx_gallery_conf</span> <span class="o">=</span> <span class="p">{</span>
     <span class="o">...</span>
     <span class="s2">&quot;image_scrapers&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;pyvista&#39;</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="p">),</span>
+    <span class="o">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>We also have a Sphinx-Gallery scraper for embedding dynamic 3D scenes
+instead of static screenshots. This scraper can be enabled by passing
+an instance directly to the <code class="docutils literal notranslate"><span class="pre">image_scrapers</span></code> parameter instead of
+the string <code class="docutils literal notranslate"><span class="pre">'pyvista'</span></code> above and by registering the
+<code class="docutils literal notranslate"><span class="pre">pyvista.ext.viewer_directive</span></code> extension</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyvista</span>
+<span class="kn">from</span> <span class="nn">pyvista.plotting.utilities.sphinx_gallery</span> <span class="kn">import</span> <span class="n">DynamicScraper</span>
+
+<span class="c1"># necessary when building the sphinx gallery</span>
+<span class="n">pyvista</span><span class="o">.</span><span class="n">BUILDING_GALLERY</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">pyvista</span><span class="o">.</span><span class="n">OFF_SCREEN</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="c1"># Optional - set parameters like theme or window size</span>
+<span class="n">pyvista</span><span class="o">.</span><span class="n">set_plot_theme</span><span class="p">(</span><span class="s1">&#39;document&#39;</span><span class="p">)</span>
+<span class="n">pyvista</span><span class="o">.</span><span class="n">global_theme</span><span class="o">.</span><span class="n">window_size</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1024</span><span class="p">,</span> <span class="mi">768</span><span class="p">])</span> <span class="o">*</span> <span class="mi">2</span>
+
+<span class="n">extensions</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="o">...</span>
+    <span class="s2">&quot;sphinx_gallery.gen_gallery&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;pyvista.ext.viewer_directive&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+
+<span class="c1"># Add the PyVista image scraper to SG</span>
+<span class="n">sphinx_gallery_conf</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="o">...</span>
+    <span class="s2">&quot;image_scrapers&quot;</span><span class="p">:</span> <span class="p">(</span><span class="n">DynamicScraper</span><span class="p">(),</span> <span class="o">...</span><span class="p">,</span> <span class="p">),</span>
     <span class="o">...</span>
 <span class="p">}</span>
 </pre></div>
