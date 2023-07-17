@@ -678,7 +678,7 @@ to download the full example code</p>
 </div>
 <section class="sphx-glr-example-title" id="plotting-point-clouds">
 <span id="sphx-glr-examples-02-plot-point-clouds-py"></span><span id="id1"></span><h1>点群のプロット<a class="headerlink" href="#plotting-point-clouds" title="この見出しへのパーマリンク">#</a></h1>
-<p>この例では，PyVistaを使って <code class="docutils literal notranslate"><span class="pre">'point'</span></code> と <code class="docutils literal notranslate"><span class="pre">'point_gaussian'</span></code> の両方のスタイルを使い，点群のプロットを行う方法を紹介します．</p>
+<p>この例では，PyVistaを使って <code class="docutils literal notranslate"><span class="pre">'points'</span></code> と <code class="docutils literal notranslate"><span class="pre">'points_gaussian'</span></code> の両方のスタイルを使い，点群のプロットを行う方法を紹介します．</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <span class="kn">import</span> <span class="nn">pyvista</span> <span class="k">as</span> <span class="nn">pv</span>
@@ -694,13 +694,13 @@ to download the full example code</p>
 <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">points</span></a>
 </pre></div>
 </div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>array([[0.53097117, 0.61059761, 0.17121774],
-       [0.96499579, 0.1503092 , 0.86266024],
-       [0.9864012 , 0.72837688, 0.25621278],
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>array([[0.58585915, 0.03306501, 0.93036867],
+       [0.39847547, 0.98863284, 0.11455176],
+       [0.47834293, 0.27822733, 0.36268614],
        ...,
-       [0.29443393, 0.42426442, 0.94725608],
-       [0.99275163, 0.13192803, 0.72672232],
-       [0.49464553, 0.89245904, 0.54777252]])
+       [0.52996398, 0.92150167, 0.10270432],
+       [0.76970888, 0.60462535, 0.7455343 ],
+       [0.93668699, 0.17296315, 0.50131289]])
 </pre></div>
 </div>
 </section>
@@ -736,7 +736,7 @@ to download the full example code</p>
 <img src="../../_images/sphx_glr_point-clouds_003.png" srcset="../../_images/sphx_glr_point-clouds_003.png" alt="point clouds" class = "sphx-glr-single-img"/></section>
 <section id="point-cloud-plot-styles">
 <h1>点群プロットスタイル<a class="headerlink" href="#point-cloud-plot-styles" title="この見出しへのパーマリンク">#</a></h1>
-<p>PyVista は <code class="docutils literal notranslate"><span class="pre">'point_gaussian'</span></code> スタイルをサポートしており，点を個々のソフトスプライトとしてレンダリングします．また， <code class="docutils literal notranslate"><span class="pre">render_points_as_spheres=True</span></code> (デフォルト) を使用すると，レンダリングパフォーマンスを犠牲にして，よりソフトな点を作成することが可能になります．</p>
+<p>PyVista は <code class="docutils literal notranslate"><span class="pre">'points_gaussian'</span></code> スタイルをサポートしており，点を個々のソフトスプライトとしてレンダリングします．また， <code class="docutils literal notranslate"><span class="pre">render_points_as_spheres=True</span></code> (デフォルト) を使用すると，レンダリングパフォーマンスを犠牲にして，よりソフトな点を作成することが可能になります．</p>
 <p>再び基本的なプロットを示しますが，スタイルは <code class="docutils literal notranslate"><span class="pre">'points_gaussian'</span></code> にしてあります．</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pv</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">points</span></a><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s1">&#39;points_gaussian&#39;</span><span class="p">,</span> <span class="n">opacity</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">point_size</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
 </pre></div>
@@ -828,7 +828,7 @@ to download the full example code</p>
 <span class="n">pl</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_point-clouds_006.gif" srcset="../../_images/sphx_glr_point-clouds_006.gif" alt="point clouds" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  17.640 seconds)</p>
+<img src="../../_images/sphx_glr_point-clouds_006.gif" srcset="../../_images/sphx_glr_point-clouds_006.gif" alt="point clouds" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  13.528 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-02-plot-point-clouds-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/8b4bd029068ff761ed591d6873fb717f/point-clouds.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">point-clouds.py</span></code></a></p>

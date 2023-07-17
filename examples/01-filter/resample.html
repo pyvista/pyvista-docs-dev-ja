@@ -648,15 +648,28 @@ to download the full example code</p>
 </div>
 <section class="sphx-glr-example-title" id="resampling">
 <span id="resampling-example"></span><span id="sphx-glr-examples-01-filter-resample-py"></span><h1>再サンプリング<a class="headerlink" href="#resampling" title="この見出しへのパーマリンク">#</a></h1>
+<p>There are two main methods of interpolating or sampling data from a target mesh
+in PyVista. <a class="reference internal" href="../../api/core/_autosummary/pyvista.DataSetFilters.interpolate.html#pyvista.DataSetFilters.interpolate" title="pyvista.DataSetFilters.interpolate"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyvista.DataSetFilters.interpolate()</span></code></a> uses a distance weighting
+kernel to interpolate point data from nearby points of the target mesh onto
+the desired points.
+<a class="reference internal" href="../../api/core/_autosummary/pyvista.DataSetFilters.sample.html#pyvista.DataSetFilters.sample" title="pyvista.DataSetFilters.sample"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyvista.DataSetFilters.sample()</span></code></a> interpolates data using the
+interpolation scheme of the enclosing cell from the target mesh.</p>
+<p>If the target mesh is a point cloud, i.e. there is no connectivity in the cell
+structure, then <a class="reference internal" href="../../api/core/_autosummary/pyvista.DataSetFilters.interpolate.html#pyvista.DataSetFilters.interpolate" title="pyvista.DataSetFilters.interpolate"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyvista.DataSetFilters.interpolate()</span></code></a> is typically
+preferred.  If interpolation is desired within the cells of the target mesh, then
+<a class="reference internal" href="../../api/core/_autosummary/pyvista.DataSetFilters.sample.html#pyvista.DataSetFilters.sample" title="pyvista.DataSetFilters.sample"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyvista.DataSetFilters.sample()</span></code></a> is typically desired.</p>
+<p>This example uses <a class="reference internal" href="../../api/core/_autosummary/pyvista.DataSetFilters.sample.html#pyvista.DataSetFilters.sample" title="pyvista.DataSetFilters.sample"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyvista.DataSetFilters.sample()</span></code></a>.
+For <a class="reference internal" href="../../api/core/_autosummary/pyvista.DataSetFilters.interpolate.html#pyvista.DataSetFilters.interpolate" title="pyvista.DataSetFilters.interpolate"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyvista.DataSetFilters.interpolate()</span></code></a>, see <a class="reference internal" href="interpolate.html#interpolate-example"><span class="std std-ref">補間</span></a>.</p>
 <p>メッシュのポイント/セル配列を別のメッシュのノードにリサンプルします．</p>
-<p>この例では，ボリュームメッシュのスカラーデータを，そのボリュームに含まれる球体の表面にリサンプルします．</p>
+<p>This example will resample a volumetric mesh's scalar data onto the surface
+of a sphere contained in that volume.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyvista</span> <span class="k">as</span> <span class="nn">pv</span>
 <span class="kn">from</span> <span class="nn">pyvista</span> <span class="kn">import</span> <span class="n">examples</span>
 </pre></div>
 </div>
 <section id="simple-resample">
 <h2>簡易リサンプル<a class="headerlink" href="#simple-resample" title="この見出しへのパーマリンク">#</a></h2>
-<p>球上のグリッドポイントを照会する</p>
+<p>Query a grid's points onto a sphere</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mesh</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Sphere</span><span class="p">(</span><span class="n">center</span><span class="o">=</span><span class="p">(</span><span class="mf">4.5</span><span class="p">,</span> <span class="mf">4.5</span><span class="p">,</span> <span class="mf">4.5</span><span class="p">),</span> <span class="n">radius</span><span class="o">=</span><span class="mf">4.5</span><span class="p">)</span>
 <span class="n">data_to_probe</span> <span class="o">=</span> <span class="n">examples</span><span class="o">.</span><span class="n">load_uniform</span><span class="p">()</span>
 </pre></div>
@@ -703,7 +716,7 @@ to download the full example code</p>
 <span class="n">p</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">cpos</span></a><span class="o">=</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">cpos</span></a><span class="p">)</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_resample_003.png" srcset="../../_images/sphx_glr_resample_003.png" alt="resample" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  8.932 seconds)</p>
+<img src="../../_images/sphx_glr_resample_003.png" srcset="../../_images/sphx_glr_resample_003.png" alt="resample" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  7.191 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-01-filter-resample-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/b4489257b99060ad62626735e4f99ae0/resample.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">resample.py</span></code></a></p>
