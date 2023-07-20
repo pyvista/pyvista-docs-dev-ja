@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>pyvista.DataSetFilters.sample &#8212; PyVista 0.41.dev0 ドキュメント</title>
+    <title>pyvista.DataSetFilters.sample &#8212; PyVista 0.42.dev0 ドキュメント</title>
   
   
   
@@ -662,12 +662,7 @@ document.write(`
 <dt class="sig sig-object py" id="pyvista.DataSetFilters.sample">
 <span class="sig-prename descclassname"><span class="pre">DataSetFilters.</span></span><span class="sig-name descname"><span class="pre">sample</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tolerance</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pass_cell_data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pass_point_data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">categorical</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">progress_bar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">locator</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/core/filters/data_set.py#L3115-L3215"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.DataSetFilters.sample" title="この定義へのパーマリンク">#</a></dt>
 <dd><p>渡されたメッシュからこのメッシュに配列データをリサンプルします．</p>
-<p>For <cite>mesh1.sample(mesh2)</cite>, the arrays from <cite>mesh2</cite> are sampled onto
-the points of <cite>mesh1</cite>.  This function interpolates within an
-enclosing cell.  This contrasts with
-:function`pyvista.DataSetFilters.interpolate` that uses a distance
-weighting for nearby points.  If there is cell topology, <cite>sample</cite> is
-usually preferred.</p>
+<p><cite>mesh1.sample(mesh2)</cite> では， <cite>mesh2</cite> の配列が <cite>mesh1</cite> の点にサンプリングされます．この関数はセルを囲むように補間します．  :function`pyvista.DataSetFilters.interpolate` 関数は，近傍の点に対して距離の重み付けを行います． セルのトポロジーがある場合は，通常 <cite>sample</cite> を使用します．</p>
 <p>これは <code class="xref py py-class docutils literal notranslate"><span class="pre">vtk.vtkResampleWithDataSet</span></code> を使います．</p>
 <dl class="field-list">
 <dt class="field-odd">パラメータ<span class="colon">:</span></dt>
@@ -684,8 +679,7 @@ usually preferred.</p>
 </dd>
 <dt><strong>progress_bar</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.11)"><span class="xref std std-ref">bool</span></a>, default: <a class="reference external" href="https://docs.python.org/3/library/constants.html#False" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">False</span></code></a></span></dt><dd><p>進行状況を示す進行状況バーを表示します．</p>
 </dd>
-<dt><strong>locator</strong><span class="classifier"><code class="xref py py-obj docutils literal notranslate"><span class="pre">vtkAbstractCellLocator</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>Prototype cell locator to perform the <code class="docutils literal notranslate"><span class="pre">FindCell()</span></code>
-operation.  Default uses the DataSet <code class="docutils literal notranslate"><span class="pre">FindCell</span></code> method.</p>
+<dt><strong>locator</strong><span class="classifier"><code class="xref py py-obj docutils literal notranslate"><span class="pre">vtkAbstractCellLocator</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p><code class="docutils literal notranslate"><span class="pre">FindCell()</span></code> 操作を実行するセルロケータのプロトタイプ．デフォルトでは，DataSetの <code class="docutils literal notranslate"><span class="pre">FindCell</span></code> メソッドを使用します．</p>
 </dd>
 </dl>
 </dd>
@@ -715,9 +709,7 @@ operation.  Default uses the DataSet <code class="docutils literal notranslate">
 <figure class="align-default">
 <img alt="../../../_images/pyvista-DataSetFilters-sample-1_00_00.png" src="../../../_images/pyvista-DataSetFilters-sample-1_00_00.png" />
 </figure>
-<p>If sampling from a set of points represented by a <code class="docutils literal notranslate"><span class="pre">(n,</span> <span class="pre">3)</span></code>
-shaped <code class="docutils literal notranslate"><span class="pre">numpy.ndarray</span></code>, they need to be converted to a
-PyVista DataSet, e.g. <a class="reference internal" href="pyvista.PolyData.html#pyvista.PolyData" title="pyvista.PolyData"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.PolyData</span></code></a>, first.</p>
+<p><code class="docutils literal notranslate"><span class="pre">(n,</span> <span class="pre">3)</span></code> 形式の <code class="docutils literal notranslate"><span class="pre">numpy.ndarray</span></code> で表現される点の集合からサンプリングする場合，それらを PyVista DataSet に変換する必要があります，例えばまず <a class="reference internal" href="pyvista.PolyData.html#pyvista.PolyData" title="pyvista.PolyData"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.PolyData</span></code></a> ．</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">points</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">6.2</span><span class="p">],</span> <span class="p">[</span><span class="mf">6.7</span><span class="p">,</span> <span class="mf">4.2</span><span class="p">,</span> <span class="mf">8.0</span><span class="p">]])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mesh</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">PolyData</span><span class="p">(</span><span class="n">points</span><span class="p">)</span>

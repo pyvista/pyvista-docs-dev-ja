@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>貢献 &#8212; PyVista 0.41.dev0 ドキュメント</title>
+    <title>貢献 &#8212; PyVista 0.42.dev0 ドキュメント</title>
   
   
   
@@ -590,12 +590,7 @@ but Slack should be reserved for ad hoc conversations and community engagement
 rather than technical discussions.</p>
 <p>For critical, high-level project support and engagement, please email
 <a class="reference external" href="mailto:info&#37;&#52;&#48;pyvista&#46;org">info<span>&#64;</span>pyvista<span>&#46;</span>org</a> - but please do not use this email for technical support.</p>
-<p>For all technical conversations, you are welcome to create an issue on the
-<a class="reference external" href="https://github.com/pyvista/pyvista/discussions">Discussions page</a>
-which we will address promptly. Through posting on the Discussions page,
-your question can be addressed by community members with the needed
-expertise and the information gained will remain available for other
-users to find.</p>
+<p>全ての技術的な会話については， <a class="reference external" href="https://github.com/pyvista/pyvista/discussions">issues ページ</a> で議論を作成していただければ，すぐに対処いたします．ディスカッションのページに投稿することで，必要な専門知識を持つコミュニティメンバーが問題に対処でき，得られた情報は他のユーザーが見つけるのに引き続き利用できます．</p>
 </section>
 <section id="reporting-bugs">
 <h2>バグの報告<a class="headerlink" href="#reporting-bugs" title="この見出しへのパーマリンク">#</a></h2>
@@ -874,8 +869,7 @@ codespell................................................................Passed
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">--reset_image_cache</span></code> を実行すると， <code class="docutils literal notranslate"><span class="pre">tests/plotting/test_plotting.py</span></code> の各テストに対して新しいイメージが作成されます．テストや，メジャーまたはマイナーリリースの可能性がある場合を除き，推奨されません．Linux上で実行していて，リグレッションテストを一時的に無視したい場合は， <code class="docutils literal notranslate"><span class="pre">--ignore_image_cache</span></code> を使用することができます．CIテストでは，回帰テストが引き続き行われることを理解してください．</p>
 <p>現在のところ，画像は <code class="docutils literal notranslate"><span class="pre">tests/plotting/test_plotting.py</span></code> にあるテストからのみキャッシュされます． デフォルトでは， <code class="docutils literal notranslate"><span class="pre">Plotter.show</span></code> を使用するテストは，自動的に画像をキャッシュします． 画像のキャッシュをスキップするには， <code class="docutils literal notranslate"><span class="pre">verify_image_cache</span></code> フィクスチャを使用します．</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@skip_no_plotting</span>
-<span class="k">def</span> <span class="nf">test_add_background_image_not_global</span><span class="p">(</span><span class="n">verify_image_cache</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">test_add_background_image_not_global</span><span class="p">(</span><span class="n">verify_image_cache</span><span class="p">):</span>
     <span class="n">verify_image_cache</span><span class="o">.</span><span class="n">skip</span> <span class="o">=</span> <span class="kc">True</span>  <span class="c1"># Turn off caching</span>
     <span class="n">plotter</span> <span class="o">=</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">Plotter</span><span class="p">()</span>
     <span class="n">plotter</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">sphere</span><span class="p">)</span>
