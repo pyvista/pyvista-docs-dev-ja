@@ -613,15 +613,13 @@ document.write(`
 <dt class="sig sig-object py" id="pyvista.fit_plane_to_points">
 <span class="sig-name descname"><span class="pre">fit_plane_to_points</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">points</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_meta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/core/utilities/points.py#L182-L298"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.fit_plane_to_points" title="この定義へのパーマリンク">#</a></dt>
 <dd><p>SVDアルゴリズムを用いて，平面を点の集合にフィットさせます．</p>
-<p>The plane is automatically sized and oriented to fit the extents of
-the points.</p>
+<p>平面は，ポイントの範囲に合うように自動的にサイズと向きが調整されます．</p>
 <dl class="field-list">
 <dt class="field-odd">パラメータ<span class="colon">:</span></dt>
 <dd class="field-odd"><dl>
 <dt><strong>points</strong><span class="classifier"><a class="reference external" href="https://numpy.org/doc/stable/glossary.html#term-array_like" title="(in NumPy v1.25)"><span>array_like</span></a>[<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a>]</span></dt><dd><p>平面を通過させるための <code class="docutils literal notranslate"><span class="pre">[N</span> <span class="pre">x</span> <span class="pre">3]</span></code> 個の点の列の大きさ．</p>
 </dd>
-<dt><strong>return_meta</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.11)"><span class="xref std std-ref">bool</span></a>, default: <a class="reference external" href="https://docs.python.org/3/library/constants.html#False" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">False</span></code></a></span></dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">True</span></code>, also returns the center and normal of the
-generated plane.</p>
+<dt><strong>return_meta</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.11)"><span class="xref std std-ref">bool</span></a>, default: <a class="reference external" href="https://docs.python.org/3/library/constants.html#False" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">False</span></code></a></span></dt><dd><p>もし <code class="docutils literal notranslate"><span class="pre">True</span></code> ならば，生成された平面の中心と法線も返します．</p>
 </dd>
 </dl>
 </dd>
@@ -667,7 +665,7 @@ generated plane.</p>
 <figure class="align-default">
 <img alt="../../../_images/pyvista-fit_plane_to_points-1_00_00.png" src="../../../_images/pyvista-fit_plane_to_points-1_00_00.png" />
 </figure>
-<p>Fit a plane to a mesh.</p>
+<p>平面をメッシュにフィットさせます．</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyvista</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pyvista</span> <span class="kn">import</span> <span class="n">examples</span>
 <span class="gp">&gt;&gt;&gt;</span>

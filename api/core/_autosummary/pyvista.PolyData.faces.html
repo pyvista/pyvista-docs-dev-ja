@@ -503,6 +503,7 @@ document.write(`
 <li class="toctree-l2 current active has-children"><a class="reference internal" href="../pointsets.html">ポイントセット</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="pyvista.PointSet.html">pyvista.PointSet</a></li>
 <li class="toctree-l3 current active has-children"><a class="reference internal" href="pyvista.PolyData.html">pyvista.PolyData</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="pyvista.PolyData.from_regular_faces.html">pyvista.PolyData.from_regular_faces</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyvista.PolyData.save.html">pyvista.PolyData.save</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyvista.PolyData.cell_normals.html">pyvista.PolyData.cell_normals</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyvista.PolyData.face_normals.html">pyvista.PolyData.face_normals</a></li>
@@ -517,6 +518,7 @@ document.write(`
 <li class="toctree-l4"><a class="reference internal" href="pyvista.PolyData.n_verts.html">pyvista.PolyData.n_verts</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyvista.PolyData.obbTree.html">pyvista.PolyData.obbTree</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyvista.PolyData.point_normals.html">pyvista.PolyData.point_normals</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyvista.PolyData.regular_faces.html">pyvista.PolyData.regular_faces</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyvista.PolyData.strips.html">pyvista.PolyData.strips</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyvista.PolyData.verts.html">pyvista.PolyData.verts</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyvista.PolyData.volume.html">pyvista.PolyData.volume</a></li>
@@ -610,7 +612,7 @@ document.write(`
 <h1>pyvista.PolyData.faces<a class="headerlink" href="#pyvista-polydata-faces" title="この見出しへのパーマリンク">#</a></h1>
 <dl class="py property">
 <dt class="sig sig-object py" id="pyvista.PolyData.faces">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">PolyData.</span></span><span class="sig-name descname"><span class="pre">faces</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.25)"><span class="pre">ndarray</span></a></em><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/core/pointset.py#L752-L810"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.PolyData.faces" title="この定義へのパーマリンク">#</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">PolyData.</span></span><span class="sig-name descname"><span class="pre">faces</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.25)"><span class="pre">ndarray</span></a></em><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/core/pointset.py#L757-L819"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.PolyData.faces" title="この定義へのパーマリンク">#</a></dt>
 <dd><p>このPolyDataの面の接続性配列を返します．</p>
 <p>面の配列は次のように構成されています:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">n0</span><span class="p">,</span> <span class="n">p0_0</span><span class="p">,</span> <span class="n">p0_1</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">p0_n</span><span class="p">,</span> <span class="n">n1</span><span class="p">,</span> <span class="n">p1_0</span><span class="p">,</span> <span class="n">p1_1</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">p1_n</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span>
@@ -630,6 +632,12 @@ document.write(`
 </dl>
 </dd>
 </dl>
+<div class="admonition seealso">
+<p class="admonition-title">参考</p>
+<dl class="simple">
+<dt><a class="reference internal" href="pyvista.PolyData.regular_faces.html#pyvista.PolyData.regular_faces" title="pyvista.PolyData.regular_faces"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyvista.PolyData.regular_faces</span></code></a></dt><dd></dd>
+</dl>
+</div>
 <p class="rubric">備考</p>
 <p>返された配列はその場で変更することはできず，変更しようとすると <code class="docutils literal notranslate"><span class="pre">ValueError</span></code> が発生します．</p>
 <p>ただし，面を直接設定することも可能です．例をご覧ください．</p>
