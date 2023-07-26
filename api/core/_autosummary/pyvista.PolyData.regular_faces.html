@@ -613,11 +613,11 @@ document.write(`
 <dl class="py property">
 <dt class="sig sig-object py" id="pyvista.PolyData.regular_faces">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">PolyData.</span></span><span class="sig-name descname"><span class="pre">regular_faces</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.25)"><span class="pre">ndarray</span></a></em><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/core/pointset.py#L830-L862"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.PolyData.regular_faces" title="この定義へのパーマリンク">#</a></dt>
-<dd><p>Return a face array of point indices when all faces have the same size.</p>
+<dd><p>すべての面が同じ大きさである場合，点のインデックスの面配列を返します．</p>
 <dl class="field-list simple">
 <dt class="field-odd">戻り値<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.25)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></dt><dd><p>Array of face indices with shape (n_faces, face_size).</p>
+<dt><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.25)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a></dt><dd><p>形状(n_faces, face_size)を持つ面インデックスの配列．</p>
 </dd>
 </dl>
 </dd>
@@ -629,11 +629,9 @@ document.write(`
 </dl>
 </div>
 <p class="rubric">備考</p>
-<p>This property does not validate that the mesh's faces are all
-actually the same size. If they're not, this property may either
-raise a <cite>ValueError</cite> or silently return an incorrect array.</p>
+<p>このプロパティは，メッシュの面が実際にすべて同じサイズであるかどうかを検証しません．そうでない場合，このプロパティは <cite>ValueError</cite> を発生させるか，不正な配列を無言で返します．</p>
 <p class="rubric">例</p>
-<p>Get the face array of a tetrahedron as a 4x3 array</p>
+<p>正四面体の面配列を4x3の配列で取得します</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyvista</span> <span class="k">as</span> <span class="nn">pv</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">tetra</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Tetrahedron</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">tetra</span><span class="o">.</span><span class="n">regular_faces</span>
