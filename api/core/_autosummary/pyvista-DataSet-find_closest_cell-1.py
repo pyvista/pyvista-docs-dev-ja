@@ -7,7 +7,7 @@ point = [0.1, 0.2, 0.3]
 index = mesh.find_closest_cell(point)
 index
 # Expected:
-## 591
+## 338
 #
 # Make sure that this cell indeed is the closest to
 # ``[0.1, 0.2, 0.3]``.
@@ -18,7 +18,7 @@ relative_position = cell_centers.points - point
 distance = np.linalg.norm(relative_position, axis=1)
 np.argmin(distance)
 # Expected:
-## 591
+## 338
 #
 # Find the nearest cells to several random points that
 # are centered on the origin.

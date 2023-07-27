@@ -637,8 +637,8 @@ to download the full example code</p>
 </div>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Original foo sphere:
 Type: &lt;class &#39;__main__.FooData&#39;&gt;
-Maximum point index: 4975
-Location of maximum point: [ 3.5634708e-01 -1.1460996e-16  3.5073745e-01]
+Maximum point index: 26
+Location of maximum point: [0.35634708 0.         0.35073745]
 </pre></div>
 </div>
 <p><a class="reference internal" href="../../api/core/_autosummary/pyvista.DataSet.rotate_y.html#pyvista.DataSet.rotate_y" title="pyvista.DataSet.rotate_y"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyvista.DataSet.rotate_y()</span></code></a> のようなインプレース操作を使っても，オブジェクトの型には影響しません．</p>
@@ -651,8 +651,8 @@ Location of maximum point: [ 3.5634708e-01 -1.1460996e-16  3.5073745e-01]
 </div>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Rotated foo sphere:
 Type: &lt;class &#39;__main__.FooData&#39;&gt;
-Maximum point index: 75
-Location of maximum point: [0.35073745 0.         0.35634708]
+Maximum point index: 4926
+Location of maximum point: [ 3.5073745e-01 -1.1460996e-16  3.5634708e-01]
 </pre></div>
 </div>
 <p>しかし，フィルター操作によって，元の型とは異なるものを含む，異なる <code class="docutils literal notranslate"><span class="pre">DataSet</span></code> 型が返されることがあります． このような場合， <a class="reference internal" href="../../api/core/_autosummary/pyvista.PolyDataFilters.decimate.html#pyvista.PolyDataFilters.decimate" title="pyvista.PolyDataFilters.decimate"><code class="xref py py-func docutils literal notranslate"><span class="pre">decimate</span></code></a> メソッドは <a class="reference internal" href="../../api/core/_autosummary/pyvista.PolyData.html#pyvista.PolyData" title="pyvista.PolyData"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.PolyData</span></code></a> オブジェクトを取得します．</p>
@@ -673,8 +673,8 @@ Type: &lt;class &#39;pyvista.core.pointset.PolyData&#39;&gt;
 </pre></div>
 </div>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Type: &lt;class &#39;__main__.FooData&#39;&gt;
-Maximum point index: 94
-Location of maximum point: [0.35073745 0.         0.35634708]
+Maximum point index: 2481
+Location of maximum point: [ 3.5073745e-01 -1.1460996e-16  3.5634708e-01]
 </pre></div>
 </div>
 </section>
@@ -695,8 +695,8 @@ Location of maximum point: [0.35073745 0.         0.35634708]
 </div>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Original foo sphere:
 Type: &lt;class &#39;__main__.FooData&#39;&gt;
-Maximum point index: 4975
-Location of maximum point: [ 3.5634708e-01 -1.1460996e-16  3.5073745e-01]
+Maximum point index: 26
+Location of maximum point: [0.35634708 0.         0.35073745]
 </pre></div>
 </div>
 <p><a class="reference internal" href="../../api/core/_autosummary/pyvista.DataSet.rotate_y.html#pyvista.DataSet.rotate_y" title="pyvista.DataSet.rotate_y"><code class="xref py py-func docutils literal notranslate"><span class="pre">rotate_y</span></code></a> のようなインプレース操作を使っても，オブジェクトの型には影響しません．</p>
@@ -709,8 +709,8 @@ Location of maximum point: [ 3.5634708e-01 -1.1460996e-16  3.5073745e-01]
 </div>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Rotated foo sphere:
 Type: &lt;class &#39;__main__.FooData&#39;&gt;
-Maximum point index: 75
-Location of maximum point: [0.35073745 0.         0.35634708]
+Maximum point index: 4926
+Location of maximum point: [ 3.5073745e-01 -1.1460996e-16  3.5634708e-01]
 </pre></div>
 </div>
 <p><a class="reference internal" href="../../api/core/_autosummary/pyvista.PolyData.html#pyvista.PolyData" title="pyvista.PolyData"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.PolyData</span></code></a> を返していたフィルター操作が <code class="docutils literal notranslate"><span class="pre">FooData</span></code> を返すようになりました．</p>
@@ -723,8 +723,8 @@ Location of maximum point: [0.35073745 0.         0.35634708]
 </div>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Decimated foo sphere:
 Type: &lt;class &#39;__main__.FooData&#39;&gt;
-Maximum point index: 94
-Location of maximum point: [0.35073745 0.         0.35634708]
+Maximum point index: 2481
+Location of maximum point: [ 3.5073745e-01 -1.1460996e-16  3.5634708e-01]
 </pre></div>
 </div>
 <p>ユーザーは，ネイティブの <a class="reference internal" href="../../api/core/_autosummary/pyvista.PolyData.html#pyvista.PolyData" title="pyvista.PolyData"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.PolyData</span></code></a> オブジェクトを作成することができますが，この方法を使用すると，意図しない結果になる可能性があります． このような場合は，型を直接管理する方法を使用することをお勧めします．</p>
@@ -753,7 +753,7 @@ This operation fails
     <a href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">pyvista</span><span class="o">.</span><span class="n">_wrappers</span></a><span class="p">[</span><span class="s1">&#39;vtkPolyData&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">PolyData</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.188 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.214 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-99-advanced-extending-pyvista-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/d5aa63f14646f54f070d177157d810b8/extending-pyvista.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">extending-pyvista.py</span></code></a></p>

@@ -16,11 +16,10 @@ mesh.point_data
 #
 mesh.point_data.active_normals
 # Expected:
-## pyvista_ndarray([[0.000000e+00,  0.000000e+00, -1.000000e+00],
-##                  [0.000000e+00,  0.000000e+00, -1.000000e+00],
-##                  [0.000000e+00,  0.000000e+00, -1.000000e+00],
-##                  [0.000000e+00,  0.000000e+00, -1.000000e+00]],
-##                 dtype=float32)
+## pyvista_ndarray([[0., 0., 1.],
+##                  [0., 0., 1.],
+##                  [0., 0., 1.],
+##                  [0., 0., 1.]], dtype=float32)
 #
 # Assign normals to the cell arrays.  An array will be added
 # named ``"Normals"``.

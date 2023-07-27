@@ -5,7 +5,7 @@ mesh = pyvista.Sphere()
 index = mesh.find_closest_point((0, 1, 0))
 index
 # Expected:
-## 212
+## 239
 #
 # Get the coordinate of that point.
 #

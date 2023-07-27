@@ -660,9 +660,13 @@ document.write(`
 <h1>pyvista.DataSetFilters.compute_implicit_distance<a class="headerlink" href="#pyvista-datasetfilters-compute-implicit-distance" title="この見出しへのパーマリンク">#</a></h1>
 <dl class="py method">
 <dt class="sig sig-object py" id="pyvista.DataSetFilters.compute_implicit_distance">
-<span class="sig-prename descclassname"><span class="pre">DataSetFilters.</span></span><span class="sig-name descname"><span class="pre">compute_implicit_distance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">surface</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inplace</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/core/filters/data_set.py#L399-L460"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.DataSetFilters.compute_implicit_distance" title="この定義へのパーマリンク">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">DataSetFilters.</span></span><span class="sig-name descname"><span class="pre">compute_implicit_distance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">surface</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inplace</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/core/filters/data_set.py#L399-L485"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.DataSetFilters.compute_implicit_distance" title="この定義へのパーマリンク">#</a></dt>
 <dd><p>ポイントから表面までのインプリシット距離を計算します．</p>
 <p>このフィルタは，このメッシュのすべての節点から指定されたサーフェスまでの暗黙の距離を計算します．この距離は，  <code class="docutils literal notranslate"><span class="pre">'implicit_distance'</span></code> という点配列として追加されます．</p>
+<p>Nodes of this mesh which are interior to the input surface
+geometry have a negative distance, and nodes on the exterior
+have a positive distance. Nodes which intersect the input
+surface has a distance of zero.</p>
 <dl class="field-list">
 <dt class="field-odd">パラメータ<span class="colon">:</span></dt>
 <dd class="field-odd"><dl>
@@ -682,7 +686,7 @@ document.write(`
 <p class="rubric">例</p>
 <p>球と平面上のすべての点間の距離を計算します．</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyvista</span> <span class="k">as</span> <span class="nn">pv</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">sphere</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Sphere</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sphere</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Sphere</span><span class="p">(</span><span class="n">radius</span><span class="o">=</span><span class="mf">0.35</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">plane</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Plane</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">sphere</span><span class="o">.</span><span class="n">compute_implicit_distance</span><span class="p">(</span><span class="n">plane</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">dist</span> <span class="o">=</span> <span class="n">sphere</span><span class="p">[</span><span class="s1">&#39;implicit_distance&#39;</span><span class="p">]</span>
@@ -690,7 +694,8 @@ document.write(`
 <span class="go">&lt;class &#39;pyvista.core.pyvista_ndarray.pyvista_ndarray&#39;&gt;</span>
 </pre></div>
 </div>
-<p>これらの距離をヒートマップとしてプロットします</p>
+<p>Plot these distances as a heatmap. Note how distances above the
+plane are positive, and distances below the plane are negative.</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pl</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Plotter</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span>
 <span class="gp">... </span>    <span class="n">sphere</span><span class="p">,</span> <span class="n">scalars</span><span class="o">=</span><span class="s1">&#39;implicit_distance&#39;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;bwr&#39;</span>
@@ -701,6 +706,28 @@ document.write(`
 </div>
 <figure class="align-default">
 <img alt="../../../_images/pyvista-DataSetFilters-compute_implicit_distance-1_00_00.png" src="../../../_images/pyvista-DataSetFilters-compute_implicit_distance-1_00_00.png" />
+</figure>
+<p>We can also compute the distance from all the points on the
+plane to the sphere.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">plane</span><span class="o">.</span><span class="n">compute_implicit_distance</span><span class="p">(</span><span class="n">sphere</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Again, we can plot these distances as a heatmap. Note how
+distances inside the sphere are negative and distances outside
+the sphere are positive.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pl</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Plotter</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">plane</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">scalars</span><span class="o">=</span><span class="s1">&#39;implicit_distance&#39;</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;bwr&#39;</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">clim</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">0.35</span><span class="p">,</span> <span class="mf">0.35</span><span class="p">],</span>
+<span class="gp">... </span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">sphere</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s1">&#39;wireframe&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pl</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<figure class="align-default">
+<img alt="../../../_images/pyvista-DataSetFilters-compute_implicit_distance-1_01_00.png" src="../../../_images/pyvista-DataSetFilters-compute_implicit_distance-1_01_00.png" />
 </figure>
 <p>このフィルターを使用したその他の例については， <a class="reference internal" href="../../../examples/01-filter/clipping-with-surface.html#clip-with-surface-example"><span class="std std-ref">サーフェスを使用したクリップ</span></a> と <a class="reference internal" href="../../../examples/01-filter/voxelize.html#voxelize-surface-mesh-example"><span class="std std-ref">サーフェスメッシュをボクセル化する</span></a> を参照してください．</p>
 </dd></dl>

@@ -2,4 +2,4 @@ import pyvista as pv
 mesh = pv.Sphere()
 mesh.get_cell(0).center
 # Expected:
-## (-0.0356, 0.00375, -0.498)
+## (0.03564589594801267, 0.0037465346977114677, 0.49804598093032837)

@@ -690,7 +690,7 @@ document.write(`
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mesh_b</span> <span class="o">=</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">Cube</span><span class="p">((</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">))</span><span class="o">.</span><span class="n">extract_cells</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">collision</span><span class="p">,</span> <span class="n">ncol</span> <span class="o">=</span> <span class="n">mesh_a</span><span class="o">.</span><span class="n">collision</span><span class="p">(</span><span class="n">mesh_b</span><span class="p">,</span> <span class="n">cell_tolerance</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">collision</span><span class="p">[</span><span class="s1">&#39;ContactCells&#39;</span><span class="p">][:</span><span class="mi">10</span><span class="p">]</span>
-<span class="go">pyvista_ndarray([471, 471, 468, 468, 469, 469, 466, 466, 467, 467])</span>
+<span class="go">pyvista_ndarray([464,   0,   0,  29,  29,  27,  27,  28,  28,  23])</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">&quot;ContactCells&quot;</span></code> のフィールドデータを使ってコリジョンマスクを作成し，コリジョンをプロットします． 衝突のあったセルは赤で表示されます．</p>
