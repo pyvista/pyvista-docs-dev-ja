@@ -663,10 +663,7 @@ document.write(`
 <span class="sig-prename descclassname"><span class="pre">DataSetFilters.</span></span><span class="sig-name descname"><span class="pre">compute_implicit_distance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">surface</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inplace</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/core/filters/data_set.py#L399-L485"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.DataSetFilters.compute_implicit_distance" title="この定義へのパーマリンク">#</a></dt>
 <dd><p>ポイントから表面までのインプリシット距離を計算します．</p>
 <p>このフィルタは，このメッシュのすべての節点から指定されたサーフェスまでの暗黙の距離を計算します．この距離は，  <code class="docutils literal notranslate"><span class="pre">'implicit_distance'</span></code> という点配列として追加されます．</p>
-<p>Nodes of this mesh which are interior to the input surface
-geometry have a negative distance, and nodes on the exterior
-have a positive distance. Nodes which intersect the input
-surface has a distance of zero.</p>
+<p>入力サーフェス形状の内側にあるこのメッシュのノードは負の距離を持ち，外側にあるノードは正の距離を持ちます．入力サーフェスと交差するノードの距離は0になります．</p>
 <dl class="field-list">
 <dt class="field-odd">パラメータ<span class="colon">:</span></dt>
 <dd class="field-odd"><dl>
@@ -694,8 +691,7 @@ surface has a distance of zero.</p>
 <span class="go">&lt;class &#39;pyvista.core.pyvista_ndarray.pyvista_ndarray&#39;&gt;</span>
 </pre></div>
 </div>
-<p>Plot these distances as a heatmap. Note how distances above the
-plane are positive, and distances below the plane are negative.</p>
+<p>これらの距離をヒートマップとしてプロットします．平面より上の距離は正で，平面より下の距離は負であることに注意してください．</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pl</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Plotter</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span>
 <span class="gp">... </span>    <span class="n">sphere</span><span class="p">,</span> <span class="n">scalars</span><span class="o">=</span><span class="s1">&#39;implicit_distance&#39;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;bwr&#39;</span>
@@ -707,14 +703,11 @@ plane are positive, and distances below the plane are negative.</p>
 <figure class="align-default">
 <img alt="../../../_images/pyvista-DataSetFilters-compute_implicit_distance-1_00_00.png" src="../../../_images/pyvista-DataSetFilters-compute_implicit_distance-1_00_00.png" />
 </figure>
-<p>We can also compute the distance from all the points on the
-plane to the sphere.</p>
+<p>また、平面上のすべての点から球までの距離も計算することができます．</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">plane</span><span class="o">.</span><span class="n">compute_implicit_distance</span><span class="p">(</span><span class="n">sphere</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Again, we can plot these distances as a heatmap. Note how
-distances inside the sphere are negative and distances outside
-the sphere are positive.</p>
+<p>ここでも，これらの距離をヒートマップとしてプロットすることができます．球の内側の距離は負で，球の外側の距離は正であることに注意しましょう．</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pl</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Plotter</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span>
 <span class="gp">... </span>    <span class="n">plane</span><span class="p">,</span>
