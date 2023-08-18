@@ -520,6 +520,7 @@ document.write(`
 <li class="toctree-l4"><a class="reference internal" href="pyvista.CompositeFilters.outline.html">pyvista.CompositeFilters.outline</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyvista.CompositeFilters.outline_corners.html">pyvista.CompositeFilters.outline_corners</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyvista.CompositeFilters.point_data_to_cell_data.html">pyvista.CompositeFilters.point_data_to_cell_data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyvista.CompositeFilters.sample.html">pyvista.CompositeFilters.sample</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyvista.CompositeFilters.slice.html">pyvista.CompositeFilters.slice</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyvista.CompositeFilters.slice_along_axis.html">pyvista.CompositeFilters.slice_along_axis</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyvista.CompositeFilters.slice_along_line.html">pyvista.CompositeFilters.slice_along_line</a></li>
@@ -609,7 +610,7 @@ document.write(`
 <h1>pyvista.CompositeFilters<a class="headerlink" href="#pyvista-compositefilters" title="この見出しへのパーマリンク">#</a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="pyvista.CompositeFilters">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">CompositeFilters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/core/filters/composite.py#L13-L202"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.CompositeFilters" title="この定義へのパーマリンク">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">CompositeFilters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/core/filters/composite.py#L13-L204"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.CompositeFilters" title="この定義へのパーマリンク">#</a></dt>
 <dd><p>複合データデータセットのフィルタ/アルゴリズムを管理する内部クラス．</p>
 <p class="rubric">メソッド</p>
 <table class="autosummary longtable table autosummary">
@@ -650,19 +651,22 @@ document.write(`
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.CompositeFilters.point_data_to_cell_data.html#pyvista.CompositeFilters.point_data_to_cell_data" title="pyvista.CompositeFilters.point_data_to_cell_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CompositeFilters.point_data_to_cell_data</span></code></a>([...])</p></td>
 <td><p>点データをセルデータに変換します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.CompositeFilters.slice.html#pyvista.CompositeFilters.slice" title="pyvista.CompositeFilters.slice"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CompositeFilters.slice</span></code></a>([normal, origin, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.CompositeFilters.sample.html#pyvista.CompositeFilters.sample" title="pyvista.CompositeFilters.sample"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CompositeFilters.sample</span></code></a>(target[, tolerance, ...])</p></td>
+<td><p>渡されたメッシュからこのメッシュに配列データをリサンプルします．</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.CompositeFilters.slice.html#pyvista.CompositeFilters.slice" title="pyvista.CompositeFilters.slice"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CompositeFilters.slice</span></code></a>([normal, origin, ...])</p></td>
 <td><p>指定した原点および法線ベクトル方向の平面でデータセットをスライスします．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.CompositeFilters.slice_along_axis.html#pyvista.CompositeFilters.slice_along_axis" title="pyvista.CompositeFilters.slice_along_axis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CompositeFilters.slice_along_axis</span></code></a>([n, axis, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.CompositeFilters.slice_along_axis.html#pyvista.CompositeFilters.slice_along_axis" title="pyvista.CompositeFilters.slice_along_axis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CompositeFilters.slice_along_axis</span></code></a>([n, axis, ...])</p></td>
 <td><p>指定した軸に沿って，入力データセットのスライスを多数作成します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.CompositeFilters.slice_along_line.html#pyvista.CompositeFilters.slice_along_line" title="pyvista.CompositeFilters.slice_along_line"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CompositeFilters.slice_along_line</span></code></a>(line[, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.CompositeFilters.slice_along_line.html#pyvista.CompositeFilters.slice_along_line" title="pyvista.CompositeFilters.slice_along_line"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CompositeFilters.slice_along_line</span></code></a>(line[, ...])</p></td>
 <td><p>パスとしてpolyline/splineを使用してデータセットをスライスします．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.CompositeFilters.slice_orthogonal.html#pyvista.CompositeFilters.slice_orthogonal" title="pyvista.CompositeFilters.slice_orthogonal"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CompositeFilters.slice_orthogonal</span></code></a>([x, y, z, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.CompositeFilters.slice_orthogonal.html#pyvista.CompositeFilters.slice_orthogonal" title="pyvista.CompositeFilters.slice_orthogonal"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CompositeFilters.slice_orthogonal</span></code></a>([x, y, z, ...])</p></td>
 <td><p>3つの直交平面上のデータセットから3つの直交スライスを作成します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.CompositeFilters.triangulate.html#pyvista.CompositeFilters.triangulate" title="pyvista.CompositeFilters.triangulate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CompositeFilters.triangulate</span></code></a>([inplace, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.CompositeFilters.triangulate.html#pyvista.CompositeFilters.triangulate" title="pyvista.CompositeFilters.triangulate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CompositeFilters.triangulate</span></code></a>([inplace, ...])</p></td>
 <td><p>すべて3角形のメッシュを取得します．</p></td>
 </tr>
 </tbody>
