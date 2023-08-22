@@ -612,7 +612,7 @@ document.write(`
 <h1>pyvista.DataSetAttributes<a class="headerlink" href="#pyvista-datasetattributes" title="この見出しへのパーマリンク">#</a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="pyvista.DataSetAttributes">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DataSetAttributes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vtkobject</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">vtkFieldData</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataset</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">vtkDataSet</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">association</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pyvista.core.utilities.arrays.FieldAssociation.html#pyvista.core.utilities.arrays.FieldAssociation" title="pyvista.core.utilities.arrays.FieldAssociation"><span class="pre">FieldAssociation</span></a></span></em><span class="sig-paren">)</span><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/core/datasetattributes.py#L32-L1268"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.DataSetAttributes" title="この定義へのパーマリンク">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DataSetAttributes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">vtkobject</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">vtkFieldData</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataset</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">vtkDataSet</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">association</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="pyvista.core.utilities.arrays.FieldAssociation.html#pyvista.core.utilities.arrays.FieldAssociation" title="pyvista.core.utilities.arrays.FieldAssociation"><span class="pre">FieldAssociation</span></a></span></em><span class="sig-paren">)</span><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/core/datasetattributes.py#L32-L1349"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.DataSetAttributes" title="この定義へのパーマリンク">#</a></dt>
 <dd><p><code class="docutils literal notranslate"><span class="pre">vtk.DataSetAttributes</span></code> の Python フレンドリーラッパーです．</p>
 <p>このクラスは， <code class="docutils literal notranslate"><span class="pre">dict</span></code> に似たインタフェースを実装することで，属性タイプごとに現在の配列のいずれかをアクティブな配列として選択する機能を提供します．</p>
 <p>データ配列を追加する際に，スカラーやベクトルをアクティブにしたくない場合には， <a class="reference internal" href="pyvista.DataSetAttributes.set_array.html#pyvista.DataSetAttributes.set_array" title="pyvista.DataSetAttributes.set_array"><code class="xref py py-func docutils literal notranslate"><span class="pre">DataSetAttributes.set_array()</span></code></a> を使用してください．</p>
@@ -727,28 +727,28 @@ document.write(`
 <table class="autosummary longtable table autosummary">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.DataSetAttributes.active_normals.html#pyvista.DataSetAttributes.active_normals" title="pyvista.DataSetAttributes.active_normals"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSetAttributes.active_normals</span></code></a></p></td>
-<td><p>法線を返すか設定します．</p></td>
+<td><p>Return the normals.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.DataSetAttributes.active_normals_name.html#pyvista.DataSetAttributes.active_normals_name" title="pyvista.DataSetAttributes.active_normals_name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSetAttributes.active_normals_name</span></code></a></p></td>
-<td><p>法線配列の名前を返すか設定します．</p></td>
+<td><p>Return the name of the normals array.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.DataSetAttributes.active_scalars.html#pyvista.DataSetAttributes.active_scalars" title="pyvista.DataSetAttributes.active_scalars"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSetAttributes.active_scalars</span></code></a></p></td>
 <td><p>アクティブなスカラーを取得します．</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.DataSetAttributes.active_scalars_name.html#pyvista.DataSetAttributes.active_scalars_name" title="pyvista.DataSetAttributes.active_scalars_name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSetAttributes.active_scalars_name</span></code></a></p></td>
-<td><p>アクティブなスカラーの名前．</p></td>
+<td><p>Return name of the active scalars.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.DataSetAttributes.active_t_coords.html#pyvista.DataSetAttributes.active_t_coords" title="pyvista.DataSetAttributes.active_t_coords"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSetAttributes.active_t_coords</span></code></a></p></td>
-<td><p>アクティブなテクスチャ座標の配列を返すか設定します．</p></td>
+<td><p>Return the active texture coordinates array.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.DataSetAttributes.active_t_coords_name.html#pyvista.DataSetAttributes.active_t_coords_name" title="pyvista.DataSetAttributes.active_t_coords_name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSetAttributes.active_t_coords_name</span></code></a></p></td>
-<td><p>アクティブなテクスチャの座標配列の名前です．</p></td>
+<td><p>Return the name of the active texture coordinates array.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.DataSetAttributes.active_vectors.html#pyvista.DataSetAttributes.active_vectors" title="pyvista.DataSetAttributes.active_vectors"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSetAttributes.active_vectors</span></code></a></p></td>
 <td><p>アクティブなベクトルをpyvista_ndarrayとして返します．</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.DataSetAttributes.active_vectors_name.html#pyvista.DataSetAttributes.active_vectors_name" title="pyvista.DataSetAttributes.active_vectors_name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSetAttributes.active_vectors_name</span></code></a></p></td>
-<td><p>アクティブベクターの名前．</p></td>
+<td><p>Return name of the active vectors.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.DataSetAttributes.valid_array_len.html#pyvista.DataSetAttributes.valid_array_len" title="pyvista.DataSetAttributes.valid_array_len"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSetAttributes.valid_array_len</span></code></a></p></td>
 <td><p>データセットに追加する際のデータの長さを返します．</p></td>

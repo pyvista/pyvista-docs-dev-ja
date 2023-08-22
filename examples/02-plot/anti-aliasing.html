@@ -673,31 +673,26 @@ document.write(`
                   
   <div class="sphx-glr-download-link-note admonition note">
 <p class="admonition-title">注釈</p>
-<p><a class="reference internal" href="#sphx-glr-download-examples-02-plot-anti-aliasing-py"><span class="std std-ref">Go to the end</span></a>
-to download the full example code</p>
+<p><a class="reference internal" href="#sphx-glr-download-examples-02-plot-anti-aliasing-py"><span class="std std-ref">Go to the end</span></a> をクリックすると完全なサンプルコードをダウンロードできます．</p>
 </div>
 <section class="sphx-glr-example-title" id="anti-aliasing">
 <span id="anti-aliasing-example"></span><span id="sphx-glr-examples-02-plot-anti-aliasing-py"></span><h1>アンチエイリアシング<a class="headerlink" href="#anti-aliasing" title="この見出しへのパーマリンク">#</a></h1>
 <p>PyVistaでアンチエイリアシングのデモを行います．</p>
 <p>PyVistaは，3種類のアンチエイリアスをサポートしています:</p>
 <ul class="simple">
-<li><p>SSAA - Super-Sample Anti-Aliasing</p></li>
-<li><p>MSAA - Multi-Sample Anti-Aliasing</p></li>
-<li><p>FXAA - Fast Approximate Anti-Aliasing</p></li>
+<li><p>SSAA  - スーパーサンプリングアンチエイリアシング</p></li>
+<li><p>MSAA - マルチサンプルアンチエイリアシング</p></li>
+<li><p>FXAA - 高速近似アンチエイリアシング</p></li>
 </ul>
-<p>By default, MSAA anti-aliasing is enabled using 8 samples. This is the default
-for VTK.</p>
+<p>デフォルトでは，MSAAアンチエイリアスは8サンプルを使用して有効になっています．これはVTKのデフォルトです．</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyvista</span> <span class="k">as</span> <span class="nn">pv</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">pv</span><span class="o">.</span><span class="n">global_theme</span><span class="o">.</span><span class="n">multi_samples</span>
 <span class="go">8</span>
 </pre></div>
 </div>
-<p>You can enable additional line smoothing by enabling SSAA or FXAA</p>
+<p>SSAAまたはFXAAを有効にすることで，追加のラインスムージングを有効にできます．</p>
 <p><strong>どのようなアンチエイリアシング技術を使うべきでしょうか？</strong></p>
-<p>Normally, the default MSAA anti-aliasing should be sufficient as it strikes a
-balance between efficiency and quality. If you desire additional smoothing, you
-can either increase the number of <code class="docutils literal notranslate"><span class="pre">multi_samples</span></code> or use SSAA. Low-end PCs
-should consider FXAA.</p>
+<p>通常，デフォルトのMSAAアンチエイリアスは，効率と品質のバランスを取るため，十分であるべきです．さらにスムージングをかけたい場合は， <code class="docutils literal notranslate"><span class="pre">multi_samples</span></code> の数を増やすか，SSAAを使用します．ローエンドのPCはFXAAを検討してください．</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyvista</span> <span class="k">as</span> <span class="nn">pv</span>
 
 <span class="n">mesh</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Icosphere</span><span class="p">()</span>
@@ -716,9 +711,8 @@ should consider FXAA.</p>
 </div>
 <img src="../../_images/sphx_glr_anti-aliasing_001.png" srcset="../../_images/sphx_glr_anti-aliasing_001.png" alt="anti aliasing" class = "sphx-glr-single-img"/></section>
 <section id="default-multi-sample-anti-aliasing-msaa">
-<h1>Default: Multi-Sample Anti-Aliasing (MSAA)<a class="headerlink" href="#default-multi-sample-anti-aliasing-msaa" title="この見出しへのパーマリンク">#</a></h1>
-<p>Next, let's show the default anti-aliasing configuration. By default, PyVista
-uses 8 samples of MSAA.</p>
+<h1>デフォルト: マルチサンプルアンチエイリアシング(MSAA)<a class="headerlink" href="#default-multi-sample-anti-aliasing-msaa" title="この見出しへのパーマリンク">#</a></h1>
+<p>次に，デフォルトのアンチエイリアス設定を示します．デフォルトでは，PyVistaは8サンプルのMSAAを使用します．</p>
 <p>MSAAまたはマルチサンプルアンチエイリアスは，SSAAの最適化で，シーンの重複する領域に焦点を当てることで，計算が必要なピクセルシェーダーの評価量を削減します．その結果，エッジに沿ったアンチエイリアシングはSSAAと同等になり，サーフェスに沿ったアンチエイリアシングはSSAAの計算の大部分を占めるため，より少なくなります．MSAAはSSAAに比べ大幅に計算量が少なく，同等の画質が得られます．</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pl</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Plotter</span><span class="p">()</span>
 <span class="n">pl</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s1">&#39;wireframe&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">line_width</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
@@ -726,7 +720,7 @@ uses 8 samples of MSAA.</p>
 <span class="n">pl</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_anti-aliasing_002.png" srcset="../../_images/sphx_glr_anti-aliasing_002.png" alt="anti aliasing" class = "sphx-glr-single-img"/><p>You can increase the smoothing by increasing multi_samples</p>
+<img src="../../_images/sphx_glr_anti-aliasing_002.png" srcset="../../_images/sphx_glr_anti-aliasing_002.png" alt="anti aliasing" class = "sphx-glr-single-img"/><p>multi_samples を増やすことで，平滑度を上げることができます．</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pl</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Plotter</span><span class="p">()</span>
 <span class="n">pl</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s1">&#39;wireframe&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">line_width</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">pl</span><span class="o">.</span><span class="n">enable_anti_aliasing</span><span class="p">(</span><span class="s1">&#39;msaa&#39;</span><span class="p">,</span> <span class="n">multi_samples</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
@@ -737,12 +731,9 @@ uses 8 samples of MSAA.</p>
 <img src="../../_images/sphx_glr_anti-aliasing_003.png" srcset="../../_images/sphx_glr_anti-aliasing_003.png" alt="anti aliasing" class = "sphx-glr-single-img"/></section>
 <section id="fast-approximate-anti-aliasing-fxaa">
 <h1>高速近似アンチエイリアシング (FXAA)<a class="headerlink" href="#fast-approximate-anti-aliasing-fxaa" title="この見出しへのパーマリンク">#</a></h1>
-<p>FXAA is the most performant of all three anti-aliasing techniques. This is
-because, in terms of hardware or GPU, FXAA is not that demanding. It directly
-smooths the 2D image and this reduces the strain on the GPU, making it best
-for low-end PCs.</p>
+<p>FXAAは，3つのアンチエイリアシング技術の中で最もパフォーマンスが高い技術です．これは，ハードウェアやGPUの観点から，FXAAがそれほど要求されないためです．2D画像を直接平滑化するので，GPUへの負担が少なく，ローエンドのPCに最適です．</p>
 <p>FXAAはレンダリング画像に対してのみ動作するため，通常は鮮明さを保つためにシャープにされているビジュアルオーバーレイの一部が滑らかになったり，テクスチャが滑らかになったりすることがあります．一般的に，FXAA は MSAA や SSAA よりも劣ります．</p>
-<p>Note how the line width has been adjusted for consistency.</p>
+<p>一貫性を保つために，線幅が調整されていることに注目してください．</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pl</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Plotter</span><span class="p">()</span>
 <span class="n">pl</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s1">&#39;wireframe&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">line_width</span><span class="o">=</span><span class="mf">1.5</span><span class="p">)</span>
 <span class="n">pl</span><span class="o">.</span><span class="n">camera</span><span class="o">.</span><span class="n">zoom</span><span class="p">(</span><span class="mf">1.5</span><span class="p">)</span>
@@ -754,7 +745,7 @@ for low-end PCs.</p>
 <section id="super-sample-anti-aliasing-ssaa">
 <h1>スーパーサンプルアンチエイリアシング(SSAA)<a class="headerlink" href="#super-sample-anti-aliasing-ssaa" title="この見出しへのパーマリンク">#</a></h1>
 <p>SSAAまたはスーパーサンプルアンチエイリアシングは，アンチエイリアシングのブルートフォース当り方式です．最高の画質が得られますが，膨大なリソースコストがかかります．SSAAは，シーンをより高い解像度でレンダリングすることで機能します．最終的な画像は，平均化フィルタを使用して巨大なソース画像をダウンサンプリングすることによって生成されます．これはローパスフィルタとして機能し，ギザギザの原因となる高周波成分を除去します．</p>
-<p>Note how the line width has been adjusted for consistency.</p>
+<p>一貫性を保つために，線幅が調整されていることに注目してください．</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pl</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Plotter</span><span class="p">()</span>
 <span class="n">pl</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s1">&#39;wireframe&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">line_width</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
 <span class="n">pl</span><span class="o">.</span><span class="n">camera</span><span class="o">.</span><span class="n">zoom</span><span class="p">(</span><span class="mf">1.5</span><span class="p">)</span>
@@ -764,9 +755,8 @@ for low-end PCs.</p>
 </div>
 <img src="../../_images/sphx_glr_anti-aliasing_005.png" srcset="../../_images/sphx_glr_anti-aliasing_005.png" alt="anti aliasing" class = "sphx-glr-single-img"/></section>
 <section id="compare-render-time">
-<h1>Compare render time<a class="headerlink" href="#compare-render-time" title="この見出しへのパーマリンク">#</a></h1>
-<p>You can compare the time to render for each one of the anti-aliasing
-approaches with:</p>
+<h1>レンダリング時間を比較する<a class="headerlink" href="#compare-render-time" title="この見出しへのパーマリンク">#</a></h1>
+<p>各アンチエイリアシングアプローチのレンダリングにかかる時間は，以下で比較できます:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">n_render</span> <span class="o">=</span> <span class="mi">100</span>
 <span class="k">for</span> <span class="n">anti_aliasing</span> <span class="ow">in</span> <span class="p">[</span><span class="kc">False</span><span class="p">,</span> <span class="s1">&#39;fxaa&#39;</span><span class="p">,</span> <span class="s1">&#39;msaa&#39;</span><span class="p">,</span> <span class="s1">&#39;ssaa&#39;</span><span class="p">]:</span>
 
@@ -787,15 +777,14 @@ approaches with:</p>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Render time for </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">anti_aliasing</span><span class="p">)</span><span class="si">:</span><span class="s1">6</span><span class="si">}</span><span class="s1">: </span><span class="si">{</span><span class="n">telap</span><span class="o">*</span><span class="mi">1000</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1"> ms&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Here are the timings from an NVIDIA Quadro P2000 and a Intel(R) Xeon(R)
-E-2288G CPU &#64; 3.70GHz:</p>
+<p>以下は，NVIDIA Quadro P2000とIntel(R) Xeon(R) E-2288G CPU &#64; 3.70GHzの計時です:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Render time for False : 37.045 ms
 Render time for fxaa  : 40.458 ms
 Render time for msaa  : 42.566 ms
 Render time for ssaa  : 51.450 ms
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  2.566 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  2.620 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-02-plot-anti-aliasing-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/10481a8d754f5651142daca74e8fbe2e/anti-aliasing.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">anti-aliasing.py</span></code></a></p>
@@ -826,10 +815,10 @@ Render time for ssaa  : 51.450 ms
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">アンチエイリアシング</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#no-anti-aliasing">アンチエイリアシングなし</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#default-multi-sample-anti-aliasing-msaa">Default: Multi-Sample Anti-Aliasing (MSAA)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#default-multi-sample-anti-aliasing-msaa">デフォルト: マルチサンプルアンチエイリアシング(MSAA)</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#fast-approximate-anti-aliasing-fxaa">高速近似アンチエイリアシング (FXAA)</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#super-sample-anti-aliasing-ssaa">スーパーサンプルアンチエイリアシング(SSAA)</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#compare-render-time">Compare render time</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#compare-render-time">レンダリング時間を比較する</a></li>
 </ul>
 
   </nav></div>

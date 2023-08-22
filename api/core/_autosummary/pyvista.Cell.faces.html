@@ -605,8 +605,17 @@ document.write(`
 <h1>pyvista.Cell.faces<a class="headerlink" href="#pyvista-cell-faces" title="この見出しへのパーマリンク">#</a></h1>
 <dl class="py property">
 <dt class="sig sig-object py" id="pyvista.Cell.faces">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Cell.</span></span><span class="sig-name descname"><span class="pre">faces</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="pyvista.Cell.html#pyvista.Cell" title="pyvista.core.cell.Cell"><span class="pre">Cell</span></a><span class="p"><span class="pre">]</span></span></em><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/core/cell.py#L325-L337"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.Cell.faces" title="この定義へのパーマリンク">#</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Cell.</span></span><span class="sig-name descname"><span class="pre">faces</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference internal" href="pyvista.Cell.html#pyvista.Cell" title="pyvista.core.cell.Cell"><span class="pre">Cell</span></a><span class="p"><span class="pre">]</span></span></em><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/core/cell.py#L372-L391"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.Cell.faces" title="この定義へのパーマリンク">#</a></dt>
 <dd><p>セルを構成する面のリストを返します．</p>
+<dl class="field-list simple">
+<dt class="field-odd">戻り値<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">List</span></code>[<a class="reference internal" href="pyvista.Cell.html#pyvista.Cell" title="pyvista.Cell"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Cell</span></code></a>]</dt><dd><p>A list of faces composing the cell.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">例</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pyvista.examples.cells</span> <span class="kn">import</span> <span class="n">Tetrahedron</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mesh</span> <span class="o">=</span> <span class="n">Tetrahedron</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">cell</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">get_cell</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>

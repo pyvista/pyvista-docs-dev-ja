@@ -822,7 +822,7 @@ document.write(`
 <h1>pyvista.Plotter<a class="headerlink" href="#pyvista-plotter" title="この見出しへのパーマリンク">#</a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="pyvista.Plotter">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Plotter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/plotting/plotter.py#L6237-L6905"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.Plotter" title="この定義へのパーマリンク">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Plotter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/plotting/plotter.py#L6291-L6959"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.Plotter" title="この定義へのパーマリンク">#</a></dt>
 <dd><p>vtkメッシュまたは無感覚な配列を表示するためのオブジェクトのプロット．</p>
 <dl class="field-list">
 <dt class="field-odd">パラメータ<span class="colon">:</span></dt>
@@ -1484,7 +1484,7 @@ document.write(`
 <td><p>アクティブなレンダウィンドウのカメラ位置を取得します．</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.camera_set.html#pyvista.Plotter.camera_set" title="pyvista.Plotter.camera_set"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.camera_set</span></code></a></p></td>
-<td><p>アクティブなレンダラーのカメラが設定されている場合に取得します．</p></td>
+<td><p>Return or set if the camera of the active renderer has been set.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.center.html#pyvista.Plotter.center" title="pyvista.Plotter.center"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.center</span></code></a></p></td>
 <td><p>アクティブなレンダラーの中心を取得します．</p></td>
@@ -1517,10 +1517,10 @@ document.write(`
 <td><p></p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.parallel_projection.html#pyvista.Plotter.parallel_projection" title="pyvista.Plotter.parallel_projection"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.parallel_projection</span></code></a></p></td>
-<td><p>アクティブなレンダーウィンドウの平行投影状態を取得します．</p></td>
+<td><p>Return or set parallel projection state of active render window.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.parallel_scale.html#pyvista.Plotter.parallel_scale" title="pyvista.Plotter.parallel_scale"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.parallel_scale</span></code></a></p></td>
-<td><p>アクティブなレンダーウィンドウの平行スケールを取得します．</p></td>
+<td><p>Return or set parallel scale of active render window.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.pickable_actors.html#pyvista.Plotter.pickable_actors" title="pyvista.Plotter.pickable_actors"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.pickable_actors</span></code></a></p></td>
 <td><p>選択可能なアクターを返す，または設定します．</p></td>
@@ -1544,7 +1544,7 @@ document.write(`
 <td><p>ピックした点を返します．</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.render_window.html#pyvista.Plotter.render_window" title="pyvista.Plotter.render_window"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.render_window</span></code></a></p></td>
-<td><p>vtkRenderWindowにアクセスします．</p></td>
+<td><p>Access the vtkRenderWindow attached to this plotter.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.renderer.html#pyvista.Plotter.renderer" title="pyvista.Plotter.renderer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.renderer</span></code></a></p></td>
 <td><p>アクティブなレンダラーを取得します．</p></td>
@@ -1559,7 +1559,7 @@ document.write(`
 <td><p>アクティブなレンダラーのスケーリングを取得します．</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.shape.html#pyvista.Plotter.shape" title="pyvista.Plotter.shape"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.shape</span></code></a></p></td>
-<td><p>プロッタの形状．</p></td>
+<td><p>Return the shape of the plotter.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.store_image.html#pyvista.Plotter.store_image" title="pyvista.Plotter.store_image"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.store_image</span></code></a></p></td>
 <td><p>最後にレンダリングされたフレームをクローズ時に保存します．</p></td>

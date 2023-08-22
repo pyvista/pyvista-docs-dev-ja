@@ -711,6 +711,34 @@ python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </sp
 <li><p>関数の戻り値が1つの場合，リターンセクションにはパラメータ名を含めません．複数の戻り値(図示せず)には，入力パラメータと同じ形式で，各戻り値に対して説明的なパラメータ名を付ける必要があります．</p></li>
 <li><p>サンプルセクションは，ギャラリーの &quot;完全なサンプル&quot; が存在する場合，それを参照します．</p></li>
 </ul>
+<p>These standards will be enforced using <code class="docutils literal notranslate"><span class="pre">pre-commit</span></code> using
+<code class="docutils literal notranslate"><span class="pre">numpydoc-validate</span></code>, with errors being reported as:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>+-----------------+--------------------------+---------+-------------------------------------------------+
+| file            | item                     | check   | description                                     |
++=================+==========================+=========+=================================================+
+| cells.py:85     | cells.create_mixed_cells | RT05    | Return value description should finish with &quot;.&quot; |
++-----------------+--------------------------+---------+-------------------------------------------------+
+| cells.py:85     | cells.create_mixed_cells | RT05    | Return value description should finish with &quot;.&quot; |
++-----------------+--------------------------+---------+-------------------------------------------------+
+| features.py:250 | features.merge           | PR09    | Parameter &quot;datasets&quot; description should finish  |
+|                 |                          |         | with &quot;.&quot;                                        |
++-----------------+--------------------------+---------+-------------------------------------------------+
+</pre></div>
+</div>
+<p>If for whatever reason you feel that your function should have an exception to
+any of the rules, add an exception to the function either in the
+<code class="docutils literal notranslate"><span class="pre">[tool.numpydoc_validation]</span></code> section in <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> or add an inline
+comment to exclude a certain check. For example, we do not enforce
+documentation strings for setters and skip the GL08 check.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@strips</span><span class="o">.</span><span class="n">setter</span>
+<span class="k">def</span> <span class="nf">strips</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">strips</span><span class="p">):</span>  <span class="c1"># numpydoc ignore=GL08</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">strips</span><span class="p">,</span> <span class="n">CellArray</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">SetStrips</span><span class="p">(</span><span class="n">strips</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">SetStrips</span><span class="p">(</span><span class="n">CellArray</span><span class="p">(</span><span class="n">strips</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>See the available validation checks in <a class="reference external" href="https://numpydoc.readthedocs.io/en/latest/validation.html">numpydoc Validation</a>.</p>
 </section>
 <section id="deprecating-features-or-other-backwards-breaking-changes">
 <h4>非推奨の機能またはその他の後方互換性のない変更<a class="headerlink" href="#deprecating-features-or-other-backwards-breaking-changes" title="この見出しへのパーマリンク">#</a></h4>

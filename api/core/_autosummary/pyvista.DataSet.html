@@ -663,8 +663,18 @@ document.write(`
 <h1>pyvista.DataSet<a class="headerlink" href="#pyvista-dataset" title="この見出しへのパーマリンク">#</a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="pyvista.DataSet">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DataSet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/core/dataset.py#L113-L3236"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.DataSet" title="この定義へのパーマリンク">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DataSet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/core/dataset.py#L123-L3413"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.DataSet" title="この定義へのパーマリンク">#</a></dt>
 <dd><p>空間的に参照されるオブジェクトに共通するメソッド．</p>
+<dl class="field-list simple">
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>*args</strong></dt><dd><p>Any extra args are passed as option to spatially referenced objects.</p>
+</dd>
+<dt><strong>**kwargs</strong></dt><dd><p>Any extra keyword args are passed as option to spatially referenced objects.</p>
+</dd>
+</dl>
+</dd>
+</dl>
 <p class="rubric">メソッド</p>
 <table class="autosummary longtable table autosummary">
 <tbody>
@@ -821,7 +831,7 @@ document.write(`
 <td><p>アクティブなスカラーの名前を取得します．</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.DataSet.active_t_coords.html#pyvista.DataSet.active_t_coords" title="pyvista.DataSet.active_t_coords"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.active_t_coords</span></code></a></p></td>
-<td><p>ポイント上のアクティブなテクスチャ座標を取得または設定します．</p></td>
+<td><p>ポイント上のアクティブなテクスチャ座標を取得します．</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.DataSet.active_tensors.html#pyvista.DataSet.active_tensors" title="pyvista.DataSet.active_tensors"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.active_tensors</span></code></a></p></td>
 <td><p>​アクティブなテンソル配列を取得します．</p></td>
@@ -857,7 +867,7 @@ document.write(`
 <td><p>すべてのセルを簡単にループさせる方法を提供するジェネレーター．</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.DataSet.cell_data.html#pyvista.DataSet.cell_data" title="pyvista.DataSet.cell_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.cell_data</span></code></a></p></td>
-<td><p>DataSetAttributesとしてvtkCellDataを取得します．</p></td>
+<td><p>Return cell data as DataSetAttributes.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.DataSet.center.html#pyvista.DataSet.center" title="pyvista.DataSet.center"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.center</span></code></a></p></td>
 <td><p>境界ボックスの中心を取得します．</p></td>
@@ -881,7 +891,7 @@ document.write(`
 <td><p>ポイント数を取得します．</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.DataSet.point_data.html#pyvista.DataSet.point_data" title="pyvista.DataSet.point_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.point_data</span></code></a></p></td>
-<td><p>DataSetAttributesとしてvtkPointDataを取得します．</p></td>
+<td><p>Return point data as DataSetAttributes.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.DataSet.points.html#pyvista.DataSet.points" title="pyvista.DataSet.points"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.points</span></code></a></p></td>
 <td><p>ポイントへの参照をnumpyオブジェクトとして取得します．</p></td>

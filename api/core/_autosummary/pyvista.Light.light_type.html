@@ -619,8 +619,8 @@ document.write(`
 <h1>pyvista.Light.light_type<a class="headerlink" href="#pyvista-light-light-type" title="この見出しへのパーマリンク">#</a></h1>
 <dl class="py property">
 <dt class="sig sig-object py" id="pyvista.Light.light_type">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Light.</span></span><span class="sig-name descname"><span class="pre">light_type</span></span><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/plotting/lights.py#L823-L871"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.Light.light_type" title="この定義へのパーマリンク">#</a></dt>
-<dd><p>ライトタイプを取得します．</p>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Light.</span></span><span class="sig-name descname"><span class="pre">light_type</span></span><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/plotting/lights.py#L810-L861"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.Light.light_type" title="この定義へのパーマリンク">#</a></dt>
+<dd><p>Return or set the light type.</p>
 <p>既定のライトタイプは，ワールド座標空間に存在するシーンライトです．</p>
 <p>ヘッドライトはカメラにアタッチされ，常にカメラの焦点を指します．</p>
 <p>カメラライトもカメラとともに移動しますが，カメラに対して任意の相対位置を持つことができます．カメラライトは (0, 0, 1) にカメラが位置する座標空間で定義され，距離1で (0, 0, 0) を見て (0, 1, 0) が上になります．カメラライトは変換行列を使用してこの空間を確立します．つまり，カメラに対して固定の <a class="reference internal" href="pyvista.Light.position.html#pyvista.Light.position" title="pyvista.Light.position"><code class="xref py py-attr docutils literal notranslate"><span class="pre">position</span></code></a> を持ち，カメラを移動すると， <a class="reference internal" href="pyvista.Light.transform_matrix.html#pyvista.Light.transform_matrix" title="pyvista.Light.transform_matrix"><code class="xref py py-attr docutils literal notranslate"><span class="pre">transform_matrix</span></code></a>  (焦点についても同じことが言えます)の変更を介して <a class="reference internal" href="pyvista.Light.world_position.html#pyvista.Light.world_position" title="pyvista.Light.world_position"><code class="xref py py-attr docutils literal notranslate"><span class="pre">world_position</span></code></a> にのみ影響します．</p>
@@ -632,6 +632,8 @@ document.write(`
 <li><p><code class="docutils literal notranslate"><span class="pre">Light.SCENE_LIGHT</span> <span class="pre">==</span> <span class="pre">3</span></code></p></li>
 </ul>
 </div></blockquote>
+<p>If setting the value, either an integer code or a class constant enum
+value must be used.</p>
 <p class="rubric">例</p>
 <p>プロッタの既定のライトキットの最初の2つのライトのタイプを確認します．</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyvista</span> <span class="k">as</span> <span class="nn">pv</span>
