@@ -623,9 +623,9 @@ document.write(`
 <dl class="field-list">
 <dt class="field-odd">パラメータ<span class="colon">:</span></dt>
 <dd class="field-odd"><dl>
-<dt><strong>*args</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">dict</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>Data object dictionary.</p>
+<dt><strong>*args</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">dict</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>データオブジェクト辞書．</p>
 </dd>
-<dt><strong>**kwargs</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">dict</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>See <a class="reference internal" href="../../utilities/_autosummary/pyvista.read.html#pyvista.read" title="pyvista.read"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyvista.read()</span></code></a> for additional options.</p>
+<dt><strong>**kwargs</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">dict</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>その他のオプションについては， <a class="reference internal" href="../../utilities/_autosummary/pyvista.read.html#pyvista.read" title="pyvista.read"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyvista.read()</span></code></a> を参照してください．</p>
 </dd>
 </dl>
 </dd>
@@ -706,13 +706,13 @@ document.write(`
 <td><p>MultiBlockをIterableで拡張します．</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.MultiBlock.get.html#pyvista.MultiBlock.get" title="pyvista.MultiBlock.get"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MultiBlock.get</span></code></a>(index[, default])</p></td>
-<td><p>ブロックを名前で取得します．</p></td>
+<td><p>ブロックを名前で返します．</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.MultiBlock.get_block_name.html#pyvista.MultiBlock.get_block_name" title="pyvista.MultiBlock.get_block_name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MultiBlock.get_block_name</span></code></a>(index)</p></td>
-<td><p>指定したインデックスのブロック名を文字列で取得します．</p></td>
+<td><p>指定したインデックスのブロック名を文字列で返します．</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.MultiBlock.get_data_range.html#pyvista.MultiBlock.get_data_range" title="pyvista.MultiBlock.get_data_range"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MultiBlock.get_data_range</span></code></a>(name[, allow_missing])</p></td>
-<td><p>すべてのブロックにわたる配列名の最小値/最大値を取得します．</p></td>
+<td><p>すべてのブロックにわたる配列名の最小値/最大値を返します．</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.MultiBlock.get_index_by_name.html#pyvista.MultiBlock.get_index_by_name" title="pyvista.MultiBlock.get_index_by_name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MultiBlock.get_index_by_name</span></code></a>(name)</p></td>
 <td><p>ブロック名でインデックス番号を検索します．</p></td>
@@ -721,7 +721,7 @@ document.write(`
 <td><p>インデックスの前にデータを挿入します．</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.MultiBlock.keys.html#pyvista.MultiBlock.keys" title="pyvista.MultiBlock.keys"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MultiBlock.keys</span></code></a>()</p></td>
-<td><p>データセット内のすべてのブロック名を取得します．</p></td>
+<td><p>データセット内のすべてのブロック名を返します．</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.MultiBlock.plot.html#pyvista.MultiBlock.plot" title="pyvista.MultiBlock.plot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MultiBlock.plot</span></code></a>([off_screen, full_screen, ...])</p></td>
 <td><p>PyVista，numpy，またはvtkオブジェクトをプロットします．</p></td>
@@ -753,19 +753,19 @@ document.write(`
 <td><p>ブロック間の境界の最小/最大を検索します．</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.MultiBlock.center.html#pyvista.MultiBlock.center" title="pyvista.MultiBlock.center"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MultiBlock.center</span></code></a></p></td>
-<td><p>境界ボックスの中心を取得します．</p></td>
+<td><p>境界ボックスの中心を返します．</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.MultiBlock.is_all_polydata.html#pyvista.MultiBlock.is_all_polydata" title="pyvista.MultiBlock.is_all_polydata"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MultiBlock.is_all_polydata</span></code></a></p></td>
 <td><p>すべてのブロックが <a class="reference internal" href="pyvista.PolyData.html#pyvista.PolyData" title="pyvista.PolyData"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.PolyData</span></code></a> である場合に， <code class="docutils literal notranslate"><span class="pre">True</span></code> を返します．</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.MultiBlock.length.html#pyvista.MultiBlock.length" title="pyvista.MultiBlock.length"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MultiBlock.length</span></code></a></p></td>
-<td><p>境界ボックスの対角線の長さを取得します．</p></td>
+<td><p>境界ボックスの対角線の長さを返します．</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.MultiBlock.n_blocks.html#pyvista.MultiBlock.n_blocks" title="pyvista.MultiBlock.n_blocks"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MultiBlock.n_blocks</span></code></a></p></td>
-<td><p>ブロックセットの総数を取得します．</p></td>
+<td><p>ブロックセットの総数を返します．</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.MultiBlock.volume.html#pyvista.MultiBlock.volume" title="pyvista.MultiBlock.volume"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MultiBlock.volume</span></code></a></p></td>
-<td><p>このデータセット内のすべてのメッシュの合計ボリュームを取得します．</p></td>
+<td><p>このデータセット内のすべてのメッシュの合計ボリュームを返します．</p></td>
 </tr>
 </tbody>
 </table>

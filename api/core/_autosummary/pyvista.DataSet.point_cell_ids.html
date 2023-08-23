@@ -664,7 +664,7 @@ document.write(`
 <dl class="py method">
 <dt class="sig sig-object py" id="pyvista.DataSet.point_cell_ids">
 <span class="sig-prename descclassname"><span class="pre">DataSet.</span></span><span class="sig-name descname"><span class="pre">point_cell_ids</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ind</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.11)"><span class="pre">List</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/core/dataset.py#L3286-L3351"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.DataSet.point_cell_ids" title="この定義へのパーマリンク">#</a></dt>
-<dd><p>ind番目の点を使用するセルIDを取得します．</p>
+<dd><p>ind番目の点を使用するセルIDを返します．</p>
 <p>vtkDataSet の <a class="reference external" href="https://vtk.org/doc/nightly/html/classvtkDataSet.html#a36d1d8f67ad67adf4d1a9cfb30dade49">GetPointCells</a> をインプリメントします．</p>
 <dl class="field-list">
 <dt class="field-odd">パラメータ<span class="colon">:</span></dt>
@@ -681,7 +681,7 @@ document.write(`
 </dd>
 </dl>
 <p class="rubric">例</p>
-<p>0番目の点を用いてセルIDを取得します．</p>
+<p>0番目の点を用いてセルIDを返します．</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyvista</span> <span class="k">as</span> <span class="nn">pv</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mesh</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Sphere</span><span class="p">(</span><span class="n">theta_resolution</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mesh</span><span class="o">.</span><span class="n">point_cell_ids</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>

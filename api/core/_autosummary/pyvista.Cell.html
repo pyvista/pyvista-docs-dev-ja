@@ -624,7 +624,7 @@ document.write(`
 <p>このクラスを使って <a class="reference internal" href="pyvista.DataSet.html#pyvista.DataSet" title="pyvista.DataSet"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.DataSet</span></code></a> から個々のセルにアクセスすると， <a class="reference internal" href="pyvista.PolyData.faces.html#pyvista.PolyData.faces" title="pyvista.PolyData.faces"><code class="xref py py-attr docutils literal notranslate"><span class="pre">pyvista.PolyData.faces</span></code></a> や <a class="reference internal" href="pyvista.UnstructuredGrid.cells.html#pyvista.UnstructuredGrid.cells" title="pyvista.UnstructuredGrid.cells"><code class="xref py py-attr docutils literal notranslate"><span class="pre">pyvista.UnstructuredGrid.cells</span></code></a> 属性からバルクデータにアクセスするよりもはるかに遅くなります．</p>
 <p>また，このセルオブジェクトは元のセルのディープコピーであり，元のセルとは関連性がないことに注意してください．そのセルのデータ（例えば <a class="reference internal" href="pyvista.Cell.points.html#pyvista.Cell.points" title="pyvista.Cell.points"><code class="xref py py-attr docutils literal notranslate"><span class="pre">pyvista.Cell.points</span></code></a> ）を変更しても，オリジナルのデータセットが変更されることはありません．</p>
 <p class="rubric">例</p>
-<p><a class="reference internal" href="pyvista.PolyData.html#pyvista.PolyData" title="pyvista.PolyData"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.PolyData</span></code></a> から 0 番目のセルを取得します．</p>
+<p><a class="reference internal" href="pyvista.PolyData.html#pyvista.PolyData" title="pyvista.PolyData"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.PolyData</span></code></a> から 0 番目のセルを返します．</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyvista</span> <span class="k">as</span> <span class="nn">pv</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mesh</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Sphere</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">cell</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">get_cell</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
@@ -641,7 +641,7 @@ document.write(`
 <span class="go">  Z Bounds:   -5.000e-01, -4.971e-01</span>
 </pre></div>
 </div>
-<p><a class="reference internal" href="pyvista.UnstructuredGrid.html#pyvista.UnstructuredGrid" title="pyvista.UnstructuredGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.UnstructuredGrid</span></code></a> から 0 番目のセルを取得します．</p>
+<p><a class="reference internal" href="pyvista.UnstructuredGrid.html#pyvista.UnstructuredGrid" title="pyvista.UnstructuredGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.UnstructuredGrid</span></code></a> から 0 番目のセルを返します．</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pyvista</span> <span class="kn">import</span> <span class="n">examples</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mesh</span> <span class="o">=</span> <span class="n">examples</span><span class="o">.</span><span class="n">load_hexbeam</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">cell</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">get_cell</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
@@ -665,13 +665,13 @@ document.write(`
 <td><p>このセルを非構造化グリッドにキャストします．</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.Cell.copy.html#pyvista.Cell.copy" title="pyvista.Cell.copy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Cell.copy</span></code></a>([deep])</p></td>
-<td><p>セルのコピーを取得します．</p></td>
+<td><p>セルのコピーを返します．</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Cell.get_edge.html#pyvista.Cell.get_edge" title="pyvista.Cell.get_edge"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Cell.get_edge</span></code></a>(index)</p></td>
-<td><p>セルを構成する i 番目の辺を取得します．</p></td>
+<td><p>セルを構成する i 番目の辺を返します．</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.Cell.get_face.html#pyvista.Cell.get_face" title="pyvista.Cell.get_face"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Cell.get_face</span></code></a>(index)</p></td>
-<td><p>セルを構成する i 番目の面を取得します．</p></td>
+<td><p>セルを構成する i 番目の面を返します．</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Cell.plot.html#pyvista.Cell.plot" title="pyvista.Cell.plot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Cell.plot</span></code></a>(**kwargs)</p></td>
 <td><p>このセルをプロットします．</p></td>
@@ -682,10 +682,10 @@ document.write(`
 <table class="autosummary longtable table autosummary">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Cell.bounds.html#pyvista.Cell.bounds" title="pyvista.Cell.bounds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Cell.bounds</span></code></a></p></td>
-<td><p>セルの境界を <code class="docutils literal notranslate"><span class="pre">[xmin,</span> <span class="pre">xmax,</span> <span class="pre">ymin,</span> <span class="pre">ymax,</span> <span class="pre">zmin,</span> <span class="pre">zmax]</span></code> で取得します．</p></td>
+<td><p>セルの境界を <code class="docutils literal notranslate"><span class="pre">[xmin,</span> <span class="pre">xmax,</span> <span class="pre">ymin,</span> <span class="pre">ymax,</span> <span class="pre">zmin,</span> <span class="pre">zmax]</span></code> で返します．</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.Cell.center.html#pyvista.Cell.center" title="pyvista.Cell.center"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Cell.center</span></code></a></p></td>
-<td><p>メッシュの中心を取得します．</p></td>
+<td><p>メッシュの中心を返します．</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Cell.dimension.html#pyvista.Cell.dimension" title="pyvista.Cell.dimension"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Cell.dimension</span></code></a></p></td>
 <td><p>セルの次元を返します．</p></td>
@@ -700,22 +700,22 @@ document.write(`
 <td><p>セルが線形であるかどうかを返します．</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Cell.n_edges.html#pyvista.Cell.n_edges" title="pyvista.Cell.n_edges"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Cell.n_edges</span></code></a></p></td>
-<td><p>セルを構成するエッジの数を取得します．</p></td>
+<td><p>セルを構成するエッジの数を返します．</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.Cell.n_faces.html#pyvista.Cell.n_faces" title="pyvista.Cell.n_faces"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Cell.n_faces</span></code></a></p></td>
-<td><p>セルを構成する面の数を取得します．</p></td>
+<td><p>セルを構成する面の数を返します．</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Cell.n_points.html#pyvista.Cell.n_points" title="pyvista.Cell.n_points"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Cell.n_points</span></code></a></p></td>
-<td><p>セルを構成する点の数を取得します．</p></td>
+<td><p>セルを構成する点の数を返します．</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.Cell.point_ids.html#pyvista.Cell.point_ids" title="pyvista.Cell.point_ids"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Cell.point_ids</span></code></a></p></td>
-<td><p>セルを構成する点IDを取得します．</p></td>
+<td><p>セルを構成する点IDを返します．</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Cell.points.html#pyvista.Cell.points" title="pyvista.Cell.points"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Cell.points</span></code></a></p></td>
-<td><p>セルの点座標を取得します．</p></td>
+<td><p>セルの点座標を返します．</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.Cell.type.html#pyvista.Cell.type" title="pyvista.Cell.type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Cell.type</span></code></a></p></td>
-<td><p>enum <a class="reference internal" href="../../utilities/_autosummary/pyvista.CellType.html#pyvista.CellType" title="pyvista.CellType"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.CellType</span></code></a> からセルの種類を取得します．</p></td>
+<td><p>enum <a class="reference internal" href="../../utilities/_autosummary/pyvista.CellType.html#pyvista.CellType" title="pyvista.CellType"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.CellType</span></code></a> からセルの種類を返します．</p></td>
 </tr>
 </tbody>
 </table>

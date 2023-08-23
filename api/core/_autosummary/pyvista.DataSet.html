@@ -668,9 +668,9 @@ document.write(`
 <dl class="field-list simple">
 <dt class="field-odd">パラメータ<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>*args</strong></dt><dd><p>Any extra args are passed as option to spatially referenced objects.</p>
+<dt><strong>*args</strong></dt><dd><p>余分な引数は，空間的に参照されるオブジェクトのオプションとして渡されます．</p>
 </dd>
-<dt><strong>**kwargs</strong></dt><dd><p>Any extra keyword args are passed as option to spatially referenced objects.</p>
+<dt><strong>**kwargs</strong></dt><dd><p>余分なキーワード引数は，空間的に参照されるオブジェクトのオプションとして渡されます．</p>
 </dd>
 </dl>
 </dd>
@@ -685,28 +685,28 @@ document.write(`
 <td><p>このデータセットからポイントを抽出し， <a class="reference internal" href="pyvista.PolyData.html#pyvista.PolyData" title="pyvista.PolyData"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.PolyData</span></code></a> を返します．</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.DataSet.cast_to_unstructured_grid.html#pyvista.DataSet.cast_to_unstructured_grid" title="pyvista.DataSet.cast_to_unstructured_grid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.cast_to_unstructured_grid</span></code></a>()</p></td>
-<td><p>このオブジェクトの新しい表現を <a class="reference internal" href="pyvista.UnstructuredGrid.html#pyvista.UnstructuredGrid" title="pyvista.UnstructuredGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.UnstructuredGrid</span></code></a> として取得します．</p></td>
+<td><p>このオブジェクトの新しい表現を <a class="reference internal" href="pyvista.UnstructuredGrid.html#pyvista.UnstructuredGrid" title="pyvista.UnstructuredGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.UnstructuredGrid</span></code></a> として返します．</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.DataSet.cell_bounds.html#pyvista.DataSet.cell_bounds" title="pyvista.DataSet.cell_bounds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.cell_bounds</span></code></a>(ind)</p></td>
-<td><p>セルの境界ボックスを取得します．</p></td>
+<td><p>セルの境界ボックスを返します．</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.DataSet.cell_n_points.html#pyvista.DataSet.cell_n_points" title="pyvista.DataSet.cell_n_points"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.cell_n_points</span></code></a>(ind)</p></td>
-<td><p>セル内のポイント数を取得します．</p></td>
+<td><p>セル内のポイント数を返します．</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.DataSet.cell_neighbors.html#pyvista.DataSet.cell_neighbors" title="pyvista.DataSet.cell_neighbors"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.cell_neighbors</span></code></a>(ind[, connections])</p></td>
-<td><p>ind番目のセルの近傍セルを取得します．</p></td>
+<td><p>ind番目のセルの近傍セルを返します．</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.DataSet.cell_neighbors_levels.html#pyvista.DataSet.cell_neighbors_levels" title="pyvista.DataSet.cell_neighbors_levels"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.cell_neighbors_levels</span></code></a>(ind[, ...])</p></td>
-<td><p>セル近傍の連続したレベルを取得します．</p></td>
+<td><p>セル近傍の連続したレベルを返します．</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.DataSet.cell_point_ids.html#pyvista.DataSet.cell_point_ids" title="pyvista.DataSet.cell_point_ids"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.cell_point_ids</span></code></a>(ind)</p></td>
 <td><p>セル内の点座標を返します．</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.DataSet.cell_points.html#pyvista.DataSet.cell_points" title="pyvista.DataSet.cell_points"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.cell_points</span></code></a>(ind)</p></td>
-<td><p>セル内の点を取得します．</p></td>
+<td><p>セル内の点を返します．</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.DataSet.cell_type.html#pyvista.DataSet.cell_type" title="pyvista.DataSet.cell_type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.cell_type</span></code></a>(ind)</p></td>
-<td><p>セルの型を取得します．</p></td>
+<td><p>セルの型を返します．</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.DataSet.clear_cell_data.html#pyvista.DataSet.clear_cell_data" title="pyvista.DataSet.clear_cell_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.clear_cell_data</span></code></a>()</p></td>
 <td><p>すべてのセル配列を削除します．</p></td>
@@ -757,13 +757,13 @@ document.write(`
 <td><p>点，セル，フィールドのデータの両方から配列を検索します．</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.DataSet.get_array_association.html#pyvista.DataSet.get_array_association" title="pyvista.DataSet.get_array_association"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.get_array_association</span></code></a>(name[, preference])</p></td>
-<td><p>配列の関連付けを取得します．</p></td>
+<td><p>配列の関連付けを返します．</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.DataSet.get_cell.html#pyvista.DataSet.get_cell" title="pyvista.DataSet.get_cell"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.get_cell</span></code></a>(index)</p></td>
 <td><p><a class="reference internal" href="pyvista.Cell.html#pyvista.Cell" title="pyvista.Cell"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.Cell</span></code></a> オブジェクトを返します．</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.DataSet.get_data_range.html#pyvista.DataSet.get_data_range" title="pyvista.DataSet.get_data_range"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.get_data_range</span></code></a>([arr_var, preference])</p></td>
-<td><p>指定した配列のNaN以外の最小値と最大値を取得します．</p></td>
+<td><p>指定した配列のNaN以外の最小値と最大値を返します．</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.DataSet.overwrite.html#pyvista.DataSet.overwrite" title="pyvista.DataSet.overwrite"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.overwrite</span></code></a>(mesh)</p></td>
 <td><p>このデータセットin-placeを新しいデータセットのジオメトリとデータで上書きします．</p></td>
@@ -772,16 +772,16 @@ document.write(`
 <td><p>PyVista，numpy，またはvtkオブジェクトをプロットします．</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.DataSet.point_cell_ids.html#pyvista.DataSet.point_cell_ids" title="pyvista.DataSet.point_cell_ids"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.point_cell_ids</span></code></a>(ind)</p></td>
-<td><p>ind番目の点を使用するセルIDを取得します．</p></td>
+<td><p>ind番目の点を使用するセルIDを返します．</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.DataSet.point_is_inside_cell.html#pyvista.DataSet.point_is_inside_cell" title="pyvista.DataSet.point_is_inside_cell"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.point_is_inside_cell</span></code></a>(ind, point)</p></td>
 <td><p>1つ以上の点がセル内にあるかどうかを返します．</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.DataSet.point_neighbors.html#pyvista.DataSet.point_neighbors" title="pyvista.DataSet.point_neighbors"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.point_neighbors</span></code></a>(ind)</p></td>
-<td><p>ind番目の点の近傍点を取得します．</p></td>
+<td><p>ind番目の点の近傍点を返します．</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.DataSet.point_neighbors_levels.html#pyvista.DataSet.point_neighbors_levels" title="pyvista.DataSet.point_neighbors_levels"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.point_neighbors_levels</span></code></a>(ind[, n_levels])</p></td>
-<td><p>ポイント近傍の連続したレベルを取得します．</p></td>
+<td><p>ポイント近傍の連続したレベルを返します．</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.DataSet.rename_array.html#pyvista.DataSet.rename_array" title="pyvista.DataSet.rename_array"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.rename_array</span></code></a>(old_name, new_name[, ...])</p></td>
 <td><p>配列名を変更するには，配列を検索して名前を変更します．</p></td>
@@ -819,85 +819,85 @@ document.write(`
 <table class="autosummary longtable table autosummary">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.DataSet.active_normals.html#pyvista.DataSet.active_normals" title="pyvista.DataSet.active_normals"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.active_normals</span></code></a></p></td>
-<td><p>アクティブな法線を配列で取得します．</p></td>
+<td><p>アクティブな法線を配列で返します．</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.DataSet.active_scalars.html#pyvista.DataSet.active_scalars" title="pyvista.DataSet.active_scalars"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.active_scalars</span></code></a></p></td>
-<td><p>アクティブなスカラーを配列で取得します．</p></td>
+<td><p>アクティブなスカラーを配列で返します．</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.DataSet.active_scalars_info.html#pyvista.DataSet.active_scalars_info" title="pyvista.DataSet.active_scalars_info"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.active_scalars_info</span></code></a></p></td>
 <td><p>アクティブなスカラーの関連付けと名前を返します．</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.DataSet.active_scalars_name.html#pyvista.DataSet.active_scalars_name" title="pyvista.DataSet.active_scalars_name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.active_scalars_name</span></code></a></p></td>
-<td><p>アクティブなスカラーの名前を取得します．</p></td>
+<td><p>アクティブなスカラーの名前を返します．</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.DataSet.active_t_coords.html#pyvista.DataSet.active_t_coords" title="pyvista.DataSet.active_t_coords"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.active_t_coords</span></code></a></p></td>
-<td><p>ポイント上のアクティブなテクスチャ座標を取得します．</p></td>
+<td><p>ポイント上のアクティブなテクスチャ座標を返します．</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.DataSet.active_tensors.html#pyvista.DataSet.active_tensors" title="pyvista.DataSet.active_tensors"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.active_tensors</span></code></a></p></td>
-<td><p>​アクティブなテンソル配列を取得します．</p></td>
+<td><p>​アクティブなテンソル配列を返します．</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.DataSet.active_tensors_info.html#pyvista.DataSet.active_tensors_info" title="pyvista.DataSet.active_tensors_info"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.active_tensors_info</span></code></a></p></td>
 <td><p>​アクティブなテンソルのフィールドと名前を取得します: [field, name]．</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.DataSet.active_tensors_name.html#pyvista.DataSet.active_tensors_name" title="pyvista.DataSet.active_tensors_name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.active_tensors_name</span></code></a></p></td>
-<td><p>アクティブなテンソル配列の名前を取得します．</p></td>
+<td><p>アクティブなテンソル配列の名前を返します．</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.DataSet.active_vectors.html#pyvista.DataSet.active_vectors" title="pyvista.DataSet.active_vectors"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.active_vectors</span></code></a></p></td>
-<td><p>アクティブなベクトル配列を取得します．</p></td>
+<td><p>アクティブなベクトル配列を返します．</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.DataSet.active_vectors_info.html#pyvista.DataSet.active_vectors_info" title="pyvista.DataSet.active_vectors_info"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.active_vectors_info</span></code></a></p></td>
 <td><p>アクティブなベクトルの関連付けと名前を返します．</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.DataSet.active_vectors_name.html#pyvista.DataSet.active_vectors_name" title="pyvista.DataSet.active_vectors_name"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.active_vectors_name</span></code></a></p></td>
-<td><p>アクティブなベクトル配列の名前を取得します．</p></td>
+<td><p>アクティブなベクトル配列の名前を返します．</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.DataSet.area.html#pyvista.DataSet.area" title="pyvista.DataSet.area"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.area</span></code></a></p></td>
 <td><p>2Dの場合，メッシュの面積を返します．</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.DataSet.array_names.html#pyvista.DataSet.array_names" title="pyvista.DataSet.array_names"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.array_names</span></code></a></p></td>
-<td><p>データセットの配列名のリストを取得します．</p></td>
+<td><p>データセットの配列名のリストを返します．</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.DataSet.arrows.html#pyvista.DataSet.arrows" title="pyvista.DataSet.arrows"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.arrows</span></code></a></p></td>
-<td><p>アクティブなベクトルデータのグリフ表現を矢印で取得します．</p></td>
+<td><p>アクティブなベクトルデータのグリフ表現を矢印で返します．</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.DataSet.bounds.html#pyvista.DataSet.bounds" title="pyvista.DataSet.bounds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.bounds</span></code></a></p></td>
-<td><p>このデータセットの境界ボックスを取得します．</p></td>
+<td><p>このデータセットの境界ボックスを返します．</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.DataSet.cell.html#pyvista.DataSet.cell" title="pyvista.DataSet.cell"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.cell</span></code></a></p></td>
 <td><p>すべてのセルを簡単にループさせる方法を提供するジェネレーター．</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.DataSet.cell_data.html#pyvista.DataSet.cell_data" title="pyvista.DataSet.cell_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.cell_data</span></code></a></p></td>
-<td><p>Return cell data as DataSetAttributes.</p></td>
+<td><p>DataSetAttributesとしてセルデータを返します．</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.DataSet.center.html#pyvista.DataSet.center" title="pyvista.DataSet.center"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.center</span></code></a></p></td>
-<td><p>境界ボックスの中心を取得します．</p></td>
+<td><p>境界ボックスの中心を返します．</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.DataSet.length.html#pyvista.DataSet.length" title="pyvista.DataSet.length"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.length</span></code></a></p></td>
-<td><p>境界ボックスの対角線の長さを取得します．</p></td>
+<td><p>境界ボックスの対角線の長さを返します．</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.DataSet.n_arrays.html#pyvista.DataSet.n_arrays" title="pyvista.DataSet.n_arrays"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.n_arrays</span></code></a></p></td>
-<td><p>データセット内に存在する配列の数を取得します．</p></td>
+<td><p>データセット内に存在する配列の数を返します．</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.DataSet.n_cells.html#pyvista.DataSet.n_cells" title="pyvista.DataSet.n_cells"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.n_cells</span></code></a></p></td>
-<td><p>データセット全体のセル数を取得します．</p></td>
+<td><p>データセット全体のセル数を返します．</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.DataSet.n_points.html#pyvista.DataSet.n_points" title="pyvista.DataSet.n_points"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.n_points</span></code></a></p></td>
-<td><p>データセット全体のポイント数を取得します．</p></td>
+<td><p>データセット全体のポイント数を返します．</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.DataSet.number_of_cells.html#pyvista.DataSet.number_of_cells" title="pyvista.DataSet.number_of_cells"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.number_of_cells</span></code></a></p></td>
-<td><p>セルの数を取得します．</p></td>
+<td><p>セルの数を返します．</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.DataSet.number_of_points.html#pyvista.DataSet.number_of_points" title="pyvista.DataSet.number_of_points"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.number_of_points</span></code></a></p></td>
-<td><p>ポイント数を取得します．</p></td>
+<td><p>ポイント数を返します．</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.DataSet.point_data.html#pyvista.DataSet.point_data" title="pyvista.DataSet.point_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.point_data</span></code></a></p></td>
-<td><p>Return point data as DataSetAttributes.</p></td>
+<td><p>DataSetAttributesとしてポイントデータを返します．</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.DataSet.points.html#pyvista.DataSet.points" title="pyvista.DataSet.points"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.points</span></code></a></p></td>
-<td><p>ポイントへの参照をnumpyオブジェクトとして取得します．</p></td>
+<td><p>ポイントへの参照をnumpyオブジェクトとして返します．</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.DataSet.volume.html#pyvista.DataSet.volume" title="pyvista.DataSet.volume"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSet.volume</span></code></a></p></td>
-<td><p>メッシュボリュームを取得します．</p></td>
+<td><p>メッシュボリュームを返します．</p></td>
 </tr>
 </tbody>
 </table>

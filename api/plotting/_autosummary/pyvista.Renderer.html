@@ -800,10 +800,10 @@ document.write(`
 <td><p>Surface Space Ambient Occlusion (SSAO)を有効化します．</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.Renderer.get_default_cam_pos.html#pyvista.Renderer.get_default_cam_pos" title="pyvista.Renderer.get_default_cam_pos"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Renderer.get_default_cam_pos</span></code></a>([negative])</p></td>
-<td><p>デフォルトの焦点とビューアップを取得します．</p></td>
+<td><p>デフォルトの焦点とビューアップを返します．</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Renderer.get_pick_position.html#pyvista.Renderer.get_pick_position" title="pyvista.Renderer.get_pick_position"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Renderer.get_pick_position</span></code></a>()</p></td>
-<td><p>選択位置/領域を <code class="docutils literal notranslate"><span class="pre">x0,</span> <span class="pre">y0,</span> <span class="pre">x1,</span> <span class="pre">y1</span></code> として取得します．</p></td>
+<td><p>選択位置/領域を <code class="docutils literal notranslate"><span class="pre">x0,</span> <span class="pre">y0,</span> <span class="pre">x1,</span> <span class="pre">y1</span></code> として返します．</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.Renderer.hide_axes.html#pyvista.Renderer.hide_axes" title="pyvista.Renderer.hide_axes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Renderer.hide_axes</span></code></a>()</p></td>
 <td><p>軸方向ウィジェットを非表示にします．</p></td>
@@ -913,13 +913,13 @@ document.write(`
 <table class="autosummary longtable table autosummary">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Renderer.actors.html#pyvista.Renderer.actors" title="pyvista.Renderer.actors"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Renderer.actors</span></code></a></p></td>
-<td><p>このレンダラに割り当てられているアクターのディクショナリを取得します．</p></td>
+<td><p>このレンダラに割り当てられているアクターのディクショナリを返します．</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.Renderer.axes_enabled.html#pyvista.Renderer.axes_enabled" title="pyvista.Renderer.axes_enabled"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Renderer.axes_enabled</span></code></a></p></td>
-<td><p>軸が有効な時に <code class="docutils literal notranslate"><span class="pre">True</span></code> を取得します．</p></td>
+<td><p>軸が有効な時に <code class="docutils literal notranslate"><span class="pre">True</span></code> を返します．</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Renderer.background_color.html#pyvista.Renderer.background_color" title="pyvista.Renderer.background_color"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Renderer.background_color</span></code></a></p></td>
-<td><p>このレンダラのバックグラウンドカラーを取得します．</p></td>
+<td><p>このレンダラのバックグラウンドカラーを返します．</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.Renderer.border_color.html#pyvista.Renderer.border_color" title="pyvista.Renderer.border_color"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Renderer.border_color</span></code></a></p></td>
 <td><p>境界線の色を返します．</p></td>
@@ -928,19 +928,19 @@ document.write(`
 <td><p>境界線の幅を返します．</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.Renderer.bounds.html#pyvista.Renderer.bounds" title="pyvista.Renderer.bounds"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Renderer.bounds</span></code></a></p></td>
-<td><p>レンダリングウィンドウに存在するすべてのアクターの境界を取得します．</p></td>
+<td><p>レンダリングウィンドウに存在するすべてのアクターの境界を返します．</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Renderer.camera.html#pyvista.Renderer.camera" title="pyvista.Renderer.camera"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Renderer.camera</span></code></a></p></td>
-<td><p>レンダリングシーンのアクティブカメラを取得します．</p></td>
+<td><p>レンダリングシーンのアクティブカメラを返します．</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.Renderer.camera_position.html#pyvista.Renderer.camera_position" title="pyvista.Renderer.camera_position"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Renderer.camera_position</span></code></a></p></td>
-<td><p>Return or set the camera position of active render window.</p></td>
+<td><p>アクティブなレンダウィンドウのカメラ位置を取得するか設定します．</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Renderer.camera_set.html#pyvista.Renderer.camera_set" title="pyvista.Renderer.camera_set"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Renderer.camera_set</span></code></a></p></td>
 <td><p>このカメラが設定されているかどうかを取得または設定します．</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.Renderer.center.html#pyvista.Renderer.center" title="pyvista.Renderer.center"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Renderer.center</span></code></a></p></td>
-<td><p>シーン内に存在するすべてのデータを囲むバウンディングボックスの中心を取得します．</p></td>
+<td><p>シーン内に存在するすべてのデータを囲むバウンディングボックスの中心を返します．</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Renderer.has_border.html#pyvista.Renderer.has_border" title="pyvista.Renderer.has_border"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Renderer.has_border</span></code></a></p></td>
 <td><p>レンダラに境界線があるかどうかを返します．</p></td>
@@ -958,19 +958,19 @@ document.write(`
 <td><p>凡例アクター．</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.Renderer.length.html#pyvista.Renderer.length" title="pyvista.Renderer.length"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Renderer.length</span></code></a></p></td>
-<td><p>シーンのバウンディングボックスの対角線の長さを取得します．</p></td>
+<td><p>シーンのバウンディングボックスの対角線の長さを返します．</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Renderer.lights.html#pyvista.Renderer.lights" title="pyvista.Renderer.lights"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Renderer.lights</span></code></a></p></td>
-<td><p>レンダラのすべてのライトのリストを取得します．</p></td>
+<td><p>レンダラのすべてのライトのリストを返します．</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.Renderer.next_color.html#pyvista.Renderer.next_color" title="pyvista.Renderer.next_color"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Renderer.next_color</span></code></a></p></td>
 <td><p>このレンダラーのカラーサイクラーから次の色を返します．</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Renderer.parallel_projection.html#pyvista.Renderer.parallel_projection" title="pyvista.Renderer.parallel_projection"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Renderer.parallel_projection</span></code></a></p></td>
-<td><p>アクティブなレンダーウィンドウの平行投影状態を取得します．</p></td>
+<td><p>アクティブなレンダーウィンドウの平行投影状態を返します．</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.Renderer.parallel_scale.html#pyvista.Renderer.parallel_scale" title="pyvista.Renderer.parallel_scale"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Renderer.parallel_scale</span></code></a></p></td>
-<td><p>アクティブなレンダーウィンドウの平行スケールを取得します．</p></td>
+<td><p>アクティブなレンダーウィンドウの平行スケールを返します．</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Renderer.viewport.html#pyvista.Renderer.viewport" title="pyvista.Renderer.viewport"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Renderer.viewport</span></code></a></p></td>
 <td><p>レンダラのビューポート．</p></td>

@@ -628,7 +628,7 @@ document.write(`
 <span class="gp">&gt;&gt;&gt; </span><span class="n">camera</span> <span class="o">=</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">Camera</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>プロッタのアクティブカメラにアクセスし，カメラの位置を取得します．</p>
+<p>プロッタのアクティブカメラにアクセスし，カメラの位置を返します．</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pl</span> <span class="o">=</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">Plotter</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">pl</span><span class="o">.</span><span class="n">camera</span><span class="o">.</span><span class="n">position</span>
 <span class="go">(1.0, 1.0, 1.0)</span>
@@ -641,7 +641,7 @@ document.write(`
 <table class="autosummary longtable table autosummary">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Camera.copy.html#pyvista.Camera.copy" title="pyvista.Camera.copy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Camera.copy</span></code></a>()</p></td>
-<td><p>カメラのディープコピーを取得します．</p></td>
+<td><p>カメラのディープコピーを返します．</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.Camera.disable_parallel_projection.html#pyvista.Camera.disable_parallel_projection" title="pyvista.Camera.disable_parallel_projection"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Camera.disable_parallel_projection</span></code></a>()</p></td>
 <td><p>平行投影の使用を無効にします．</p></td>
@@ -662,7 +662,7 @@ document.write(`
 <td><p>カメラパラメータをParaviewカメラファイル (拡張子.pvcc) に書き込みます．</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.Camera.view_frustum.html#pyvista.Camera.view_frustum" title="pyvista.Camera.view_frustum"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Camera.view_frustum</span></code></a>([aspect])</p></td>
-<td><p>視錐台を取得します．</p></td>
+<td><p>視錐台を返します．</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Camera.zoom.html#pyvista.Camera.zoom" title="pyvista.Camera.zoom"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Camera.zoom</span></code></a>(value)</p></td>
 <td><p>カメラのズームを設定します．</p></td>
@@ -673,7 +673,7 @@ document.write(`
 <table class="autosummary longtable table autosummary">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Camera.azimuth.html#pyvista.Camera.azimuth" title="pyvista.Camera.azimuth"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Camera.azimuth</span></code></a></p></td>
-<td><p>Return or set the azimuth of the camera.</p></td>
+<td><p>カメラの方位を返すか設定します．</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.Camera.clipping_range.html#pyvista.Camera.clipping_range" title="pyvista.Camera.clipping_range"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Camera.clipping_range</span></code></a></p></td>
 <td><p>クリッピング・プレーンの位置を返すか設定します．</p></td>
@@ -685,7 +685,7 @@ document.write(`
 <td><p>カメラから焦点距離の距離を返すか設定します．</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Camera.elevation.html#pyvista.Camera.elevation" title="pyvista.Camera.elevation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Camera.elevation</span></code></a></p></td>
-<td><p>Return or set the vertical rotation of the scene.</p></td>
+<td><p>シーンの垂直方向の回転を返すか設定します．</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.Camera.focal_point.html#pyvista.Camera.focal_point" title="pyvista.Camera.focal_point"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Camera.focal_point</span></code></a></p></td>
 <td><p>全体座標におけるカメラの焦点の位置．</p></td>
@@ -697,7 +697,7 @@ document.write(`
 <td><p>カメラのモデル変換行列を返すか設定します．</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Camera.parallel_projection.html#pyvista.Camera.parallel_projection" title="pyvista.Camera.parallel_projection"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Camera.parallel_projection</span></code></a></p></td>
-<td><p>平行投影の状態を取得します．</p></td>
+<td><p>平行投影の状態を返します．</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.Camera.parallel_scale.html#pyvista.Camera.parallel_scale" title="pyvista.Camera.parallel_scale"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Camera.parallel_scale</span></code></a></p></td>
 <td><p>平行投影に使用されるスケーリングを返すか設定します．</p></td>
@@ -706,7 +706,7 @@ document.write(`
 <td><p>全体座標でのカメラの位置を返すか設定します．</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.Camera.roll.html#pyvista.Camera.roll" title="pyvista.Camera.roll"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Camera.roll</span></code></a></p></td>
-<td><p>Return or set the roll of the camera about the direction of projection.</p></td>
+<td><p>投影方向に対するカメラのロールを返すか設定します．</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Camera.thickness.html#pyvista.Camera.thickness" title="pyvista.Camera.thickness"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Camera.thickness</span></code></a></p></td>
 <td><p>クリッピング平面間の距離を返すか設定します．</p></td>
