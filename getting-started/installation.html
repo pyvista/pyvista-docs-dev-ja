@@ -582,7 +582,6 @@ document.write(`
 <li><p><a class="reference external" href="https://colorcet.holoviz.org/">colorcet</a> - Python で使用するための，知覚的に正確な 256 色のカラーマップです．</p></li>
 <li><p><a class="reference external" href="https://github.com/Kitware/trame">trame</a> - Jupyterのクライアントおよびサーバーサイドのレンダリングに使用されます．</p></li>
 <li><p><a class="reference external" href="https://pypi.org/project/meshio/">meshio</a> - 多くのメッシュ形式の入力/出力．</p></li>
-<li><p><a class="reference external" href="https://pythreejs.readthedocs.io/en/stable/">pythreejs</a> - Jupyter ウィジェットベースのノートブック拡張で，Jupyter がモダンブラウザの WebGL 機能を利用できるようにします．</p></li>
 </ul>
 </section>
 <section id="pypi">
@@ -796,27 +795,6 @@ sleep<span class="w"> </span><span class="m">3</span>
 </div>
 <p>これでJupyterフロントエンドに直接ビジュアライゼーションが表示されるようになったはずです．</p>
 </section>
-<section id="pythreejs-rendering-in-jupyter">
-<h3>JupyterでのPyThreeJSレンダリング<a class="headerlink" href="#pythreejs-rendering-in-jupyter" title="この見出しへのパーマリンク">#</a></h3>
-<p>2つ目のオプションは，<code class="docutils literal notranslate"><span class="pre">PyVista</span></code> のバックエンドを <code class="docutils literal notranslate"><span class="pre">pythreejs</span></code> に変更することです．</p>
-<p>そのために，まずJupyterサーバーを立ち上げます:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>jupyter<span class="w"> </span>lab<span class="w"> </span>--NotebookApp.token<span class="o">=</span><span class="s1">&#39;&#39;</span><span class="w"> </span>--no-browser<span class="w"> </span>--port<span class="o">=</span><span class="m">8888</span>
-</pre></div>
-</div>
-<p>Webブラウザで <code class="docutils literal notranslate"><span class="pre">localhost:8888</span></code> にアクセスします．</p>
-<p>最後にPyVistaのバックエンドをWeb可視化ライブラリに変更します: <code class="docutils literal notranslate"><span class="pre">pythreejs</span></code> ．</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyvista</span>
-<span class="n">pyvista</span><span class="o">.</span><span class="n">global_theme</span><span class="o">.</span><span class="n">jupyter_backend</span><span class="o">=</span><span class="s1">&#39;pythreejs&#39;</span>
-<span class="n">pl</span> <span class="o">=</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">Plotter</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
-<span class="n">actor</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">pyvista</span><span class="o">.</span><span class="n">Cube</span><span class="p">())</span>
-<span class="n">pl</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="n">actor</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">pyvista</span><span class="o">.</span><span class="n">Sphere</span><span class="p">())</span>
-<span class="n">pl</span><span class="o">.</span><span class="n">set_background</span><span class="p">(</span><span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="n">all_renderers</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="n">pl</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-<p>これでJupyterフロントエンドに直接ビジュアライゼーションが表示されるようになったはずです．</p>
-</section>
 </section>
 <section id="running-with-sphinx-gallery">
 <h2>Sphinx-Galleryでの実行<a class="headerlink" href="#running-with-sphinx-gallery" title="この見出しへのパーマリンク">#</a></h2>
@@ -902,7 +880,6 @@ sleep<span class="w"> </span><span class="m">3</span>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#running-on-remote-servers">リモートサーバーでの実行</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#running-on-wsl">WSLでの動作</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vtk-link-to-jupyter">JupyterへのVTKリンク</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pythreejs-rendering-in-jupyter">JupyterでのPyThreeJSレンダリング</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#running-with-sphinx-gallery">Sphinx-Galleryでの実行</a></li>

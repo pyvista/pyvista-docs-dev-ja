@@ -15,16 +15,6 @@ _ = pl.add_mesh(pv.Cube())
 pl.show(auto_close=False)  # doctest:+SKIP
 pl.show(screenshot='my_image.png')  # doctest:+SKIP
 #
-# Display a ``pythreejs`` scene within a jupyter notebook
-#
-pl.show(jupyter_backend='pythreejs')  # doctest:+SKIP
-#
-# Return a ``pythreejs`` scene.
-#
-pl.show(
-    jupyter_backend='pythreejs', return_viewer=True
-)  # doctest:+SKIP
-#
 # Obtain the camera position when using ``show``.
 #
 pl = pv.Plotter()

@@ -671,35 +671,31 @@ document.write(`
 <h1>pyvista.plotting.themes.Theme.jupyter_backend<a class="headerlink" href="#pyvista-plotting-themes-theme-jupyter-backend" title="この見出しへのパーマリンク">#</a></h1>
 <dl class="py property">
 <dt class="sig sig-object py" id="pyvista.plotting.themes.Theme.jupyter_backend">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Theme.</span></span><span class="sig-name descname"><span class="pre">jupyter_backend</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></em><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/plotting/themes.py#L1807-L1877"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.plotting.themes.Theme.jupyter_backend" title="この定義へのパーマリンク">#</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Theme.</span></span><span class="sig-name descname"><span class="pre">jupyter_backend</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></em><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/plotting/themes.py#L1807-L1853"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.plotting.themes.Theme.jupyter_backend" title="この定義へのパーマリンク">#</a></dt>
 <dd><p>Return or set the jupyter notebook plotting backend.</p>
 <p>プロット時に使用するJupyterバックエンドです．次のいずれかである必要があります．</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">'ipyvtklink'</span></code> : 非推奨．リモートでレンダリングし，結果のVTKイメージをクライアントにストリーミングします．すべてのVTKメソッドをサポートしますが，リモートレンダリングのために遅延が発生します．ヘッドレスサーバーで表示する場合は，仮想フレームバッファをセットアップする必要があります． <code class="docutils literal notranslate"><span class="pre">ipyvtklink</span></code> がインストールされている必要があります．</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">'panel'</span></code> : VTKレンダーウィンドウをvtkjsオブジェクトに変換し，それをjupyterlabで可視化します．ほとんどのVTKオブジェクトをサポートします．ヘッドレスサーバーで表示する場合は，仮想フレームバッファをセットアップする必要があります． <code class="docutils literal notranslate"><span class="pre">panel</span></code> がインストールされている必要があります．</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">'ipygany'</span></code> : すべてのメッシュを <code class="docutils literal notranslate"><span class="pre">ipygany</span></code> メッシュに変換し，クライアント側でレンダリングするメッシュをストリーミングします．VTKメッシュをサポートしていますが，他にはほとんどありません． <code class="docutils literal notranslate"><span class="pre">none</span></code> を除き，これは仮想フレームバッファを必要としない唯一の方法です． <code class="docutils literal notranslate"><span class="pre">ipygany</span></code> がインストールされている必要があります．</p></li>
-<li><p>'pythreejs'`` : すべてのメッシュを <code class="docutils literal notranslate"><span class="pre">pythreejs</span></code> のメッシュに変換し，それらをストリームしてクライアント側でレンダリングします． <code class="docutils literal notranslate"><span class="pre">ipygany</span></code> を除けば，この方法は仮想フレームバッファを必要としない唯一の方法です． 必ず <code class="docutils literal notranslate"><span class="pre">pythreejs</span></code> がインストールされている必要があります．</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">'static'</span></code> : JupyterLab環境内に単一の静的イメージを表示します．ヘッドレスサーバーで表示する場合も仮想フレームバッファをセットアップする必要がありますが，追加のモジュールをインストールする必要はありません．</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'static'</span></code> : Display a single static image within the
+Jupyterlab environment.  Still requires that a virtual
+framebuffer be set up when displaying on a headless server,
+but does not require any additional modules to be installed.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'client'</span></code> : Export/serialize the scene graph to be rendered
+with VTK.js client-side through <code class="docutils literal notranslate"><span class="pre">trame</span></code>. Requires <code class="docutils literal notranslate"><span class="pre">trame</span></code>
+and <code class="docutils literal notranslate"><span class="pre">jupyter-server-proxy</span></code> to be installed.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'server'</span></code>: Render remotely and stream the resulting VTK
+images back to the client using <code class="docutils literal notranslate"><span class="pre">trame</span></code>. This replaces the
+<code class="docutils literal notranslate"><span class="pre">'ipyvtklink'</span></code> backend with better performance.
+Supports the most VTK features, but suffers from minor lag due
+to remote rendering. Requires that a virtual framebuffer be set
+up when displaying on a headless server. Must have at least <code class="docutils literal notranslate"><span class="pre">trame</span></code>
+and <code class="docutils literal notranslate"><span class="pre">jupyter-server-proxy</span></code> installed for cloud/remote Jupyter
+instances. This mode is also aliased by <code class="docutils literal notranslate"><span class="pre">'trame'</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'trame'</span></code>: The full Trame-based backend that combines both
+<code class="docutils literal notranslate"><span class="pre">'server'</span></code> and <code class="docutils literal notranslate"><span class="pre">'client'</span></code> into one backend. This requires a
+virtual frame buffer.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">'none'</span></code> : jupyterlab内にプロットを表示せず，専用のVTKレンダリングウィンドウを使用して表示します．これは，仮想フレームバッファがあっても，ヘッドレスサーバー上では何も生成しません．</p></li>
 </ul>
 <p class="rubric">例</p>
-<p>pythreejsバックエンドを有効にします．</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyvista</span> <span class="k">as</span> <span class="nn">pv</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">pv</span><span class="o">.</span><span class="n">set_jupyter_backend</span><span class="p">(</span><span class="s1">&#39;pythreejs&#39;</span><span class="p">)</span>  
-</pre></div>
-</div>
-<p>ipygany バックエンドを有効にします．</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pv</span><span class="o">.</span><span class="n">set_jupyter_backend</span><span class="p">(</span><span class="s1">&#39;ipygany&#39;</span><span class="p">)</span>  
-</pre></div>
-</div>
-<p>panelバックエンドを有効にします．</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pv</span><span class="o">.</span><span class="n">set_jupyter_backend</span><span class="p">(</span><span class="s1">&#39;panel&#39;</span><span class="p">)</span>  
-</pre></div>
-</div>
-<p>ipyvtklink バックエンドを有効にします(非推奨)．</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pv</span><span class="o">.</span><span class="n">set_jupyter_backend</span><span class="p">(</span><span class="s1">&#39;ipyvtklink&#39;</span><span class="p">)</span>  
-</pre></div>
-</div>
 <p>静止画像を表示するだけです．</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pv</span><span class="o">.</span><span class="n">set_jupyter_backend</span><span class="p">(</span><span class="s1">&#39;static&#39;</span><span class="p">)</span>  
 </pre></div>
