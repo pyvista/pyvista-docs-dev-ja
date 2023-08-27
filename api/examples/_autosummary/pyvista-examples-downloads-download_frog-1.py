@@ -7,4 +7,5 @@ cpos = [
 dataset = examples.download_frog()
 dataset.plot(volume=True, cpos=cpos)
 #
-# See :ref:`volume_rendering_example` for an example using
+# See :func:`download_frog_tissue` for segmentation labels associated
+# with this dataset.

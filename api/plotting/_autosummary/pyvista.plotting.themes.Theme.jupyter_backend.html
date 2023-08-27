@@ -58,7 +58,7 @@
     <script src="../../../_static/asciinema-player_2.6.1.js"></script>
     <script src="../../../_static/translations.js?v=4dbe4bdc"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
     <script src="../../../_static/design-tabs.js?v=36754332"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-140243896-1"></script>
     <script>
@@ -675,24 +675,10 @@ document.write(`
 <dd><p>Return or set the jupyter notebook plotting backend.</p>
 <p>プロット時に使用するJupyterバックエンドです．次のいずれかである必要があります．</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">'static'</span></code> : Display a single static image within the
-Jupyterlab environment.  Still requires that a virtual
-framebuffer be set up when displaying on a headless server,
-but does not require any additional modules to be installed.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">'client'</span></code> : Export/serialize the scene graph to be rendered
-with VTK.js client-side through <code class="docutils literal notranslate"><span class="pre">trame</span></code>. Requires <code class="docutils literal notranslate"><span class="pre">trame</span></code>
-and <code class="docutils literal notranslate"><span class="pre">jupyter-server-proxy</span></code> to be installed.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">'server'</span></code>: Render remotely and stream the resulting VTK
-images back to the client using <code class="docutils literal notranslate"><span class="pre">trame</span></code>. This replaces the
-<code class="docutils literal notranslate"><span class="pre">'ipyvtklink'</span></code> backend with better performance.
-Supports the most VTK features, but suffers from minor lag due
-to remote rendering. Requires that a virtual framebuffer be set
-up when displaying on a headless server. Must have at least <code class="docutils literal notranslate"><span class="pre">trame</span></code>
-and <code class="docutils literal notranslate"><span class="pre">jupyter-server-proxy</span></code> installed for cloud/remote Jupyter
-instances. This mode is also aliased by <code class="docutils literal notranslate"><span class="pre">'trame'</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">'trame'</span></code>: The full Trame-based backend that combines both
-<code class="docutils literal notranslate"><span class="pre">'server'</span></code> and <code class="docutils literal notranslate"><span class="pre">'client'</span></code> into one backend. This requires a
-virtual frame buffer.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'static'</span></code> : Jupyterlab環境内に単一の静的イメージを表示します．ヘッドレスサーバーで表示する場合も仮想フレームバッファをセットアップする必要がありますが，追加のモジュールをインストールする必要はありません．</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'client'</span></code> : VTK.jsのクライアントサイドでレンダリングするシーングラフを， <code class="docutils literal notranslate"><span class="pre">trame</span></code> を通してエクスポート/シリアライズすることができます． <code class="docutils literal notranslate"><span class="pre">trame</span></code> と <code class="docutils literal notranslate"><span class="pre">jupyter-server-proxy</span></code> がインストールされている必要があります．</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'server'</span></code>: リモートでレンダリングを行い，生成されたVTKイメージを <code class="docutils literal notranslate"><span class="pre">trame</span></code> を用いてクライアントにストリームバックします．これは <code class="docutils literal notranslate"><span class="pre">'ipyvtklink'</span></code> バックエンドを置き換えるもので，より良いパフォーマンスを発揮します．ほとんどの VTK 機能をサポートしていますが，リモートレンダリングによる小さな遅延に悩まされています．ヘッドレスサーバで表示する場合は，仮想フレームバッファをセットアップする必要があります．クラウド/リモートJupyterインスタンスでは，少なくとも <code class="docutils literal notranslate"><span class="pre">trame</span></code> と <code class="docutils literal notranslate"><span class="pre">jupyter-server-proxy</span></code> がインストールされている必要があります．このモードは <code class="docutils literal notranslate"><span class="pre">'trame'</span></code> というエイリアスでもあります．</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'trame'</span></code>: <code class="docutils literal notranslate"><span class="pre">'server'</span></code> と <code class="docutils literal notranslate"><span class="pre">'client'</span></code> の両方を一つのバックエンドに統合したTrameベースのフルバックエンドです．これには仮想フレームバッファが必要です．</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">'none'</span></code> : jupyterlab内にプロットを表示せず，専用のVTKレンダリングウィンドウを使用して表示します．これは，仮想フレームバッファがあっても，ヘッドレスサーバー上では何も生成しません．</p></li>
 </ul>
 <p class="rubric">例</p>
