@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>pyvista.plotting.widgets.AffineWidget3D &#8212; PyVista 0.42.dev0 ドキュメント</title>
+    <title>pyvista.plotting.widgets.AffineWidget3D &#8212; PyVista 0.43.dev0 ドキュメント</title>
   
   
   
@@ -39,7 +39,7 @@
     <link rel="stylesheet" type="text/css" href="../../../_static/summary.css?v=09e0a9f3" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery.css?v=61a4c737" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-binder.css?v=f4aeca0c" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-dataframe.css?v=e5fbc548" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
     <link rel="stylesheet" type="text/css" href="../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
     <link rel="stylesheet" type="text/css" href="../../../_static/cards.css?v=d8ea150e" />
@@ -49,7 +49,7 @@
   <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
 <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
-    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js?v=b34ff734"></script>
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js?v=2c0d63ae"></script>
     <script src="../../../_static/doctools.js?v=888ff710"></script>
     <script src="../../../_static/sphinx_highlight.js?v=4825356b"></script>
     <script src="../../../_static/thebelab-helper.js"></script>
@@ -603,52 +603,41 @@ document.write(`
 <dl class="py class">
 <dt class="sig sig-object py" id="pyvista.plotting.widgets.AffineWidget3D">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">AffineWidget3D</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">plotter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">actor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">origin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scale</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.15</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">line_radius</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.02</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">always_visible</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axes_colors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">release_callback</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interact_callback</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/plotting/affine_widget.py#L99-L509"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.plotting.widgets.AffineWidget3D" title="この定義へのパーマリンク">#</a></dt>
-<dd><p>3D affine transform widget.</p>
-<p>This widget allows interactive transformations including translation and
-rotation using the left mouse button.</p>
+<dd><p>3D affine 変換ウィジェット．</p>
+<p>このウィジェットは，マウスの左ボタンを使って，平行移動と回転を含むインタラクティブな変形を可能にする．</p>
 <dl class="field-list">
 <dt class="field-odd">パラメータ<span class="colon">:</span></dt>
 <dd class="field-odd"><dl>
-<dt><strong>plotter</strong><span class="classifier"><a class="reference internal" href="pyvista.Plotter.html#pyvista.Plotter" title="pyvista.Plotter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyvista.Plotter</span></code></a></span></dt><dd><p>The plotter object.</p>
+<dt><strong>plotter</strong><span class="classifier"><a class="reference internal" href="pyvista.Plotter.html#pyvista.Plotter" title="pyvista.Plotter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyvista.Plotter</span></code></a></span></dt><dd><p>プロッターオブジェクト．</p>
 </dd>
-<dt><strong>actor</strong><span class="classifier"><a class="reference internal" href="pyvista.Actor.html#pyvista.Actor" title="pyvista.Actor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyvista.Actor</span></code></a></span></dt><dd><p>The actor to which the widget is attached to.</p>
+<dt><strong>actor</strong><span class="classifier"><a class="reference internal" href="pyvista.Actor.html#pyvista.Actor" title="pyvista.Actor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyvista.Actor</span></code></a></span></dt><dd><p>ウィジェットがアタッチされているアクター．</p>
 </dd>
-<dt><strong>origin</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/glossary.html#term-sequence" title="(in Python v3.11)"><span>sequence</span></a>[<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a>], <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>Origin of the widget. Default is the center of the main actor.</p>
+<dt><strong>origin</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/glossary.html#term-sequence" title="(in Python v3.11)"><span>sequence</span></a>[<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a>], <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>ウィジェットの原点．デフォルトはメインアクターの中心です．</p>
 </dd>
-<dt><strong>start</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.11)"><span class="xref std std-ref">bool</span></a>, default: <a class="reference external" href="https://docs.python.org/3/library/constants.html#True" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">True</span></code></a></span></dt><dd><p>If True, start the widget immediately.</p>
+<dt><strong>start</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.11)"><span class="xref std std-ref">bool</span></a>, default: <a class="reference external" href="https://docs.python.org/3/library/constants.html#True" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">True</span></code></a></span></dt><dd><p>もしTrueなら，すぐにウィジェットを開始します．</p>
 </dd>
-<dt><strong>scale</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a>, default: 0.15</span></dt><dd><p>Scale factor for the widget relative to the length of the actor.</p>
+<dt><strong>scale</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a>, default: 0.15</span></dt><dd><p>アクターの長さに対するウィジェットのスケール係数．</p>
 </dd>
-<dt><strong>line_radius</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a>, default: 0.02</span></dt><dd><p>Relative radius of the lines composing the widget.</p>
+<dt><strong>line_radius</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a>, default: 0.02</span></dt><dd><p>ウィジェットを構成する線の相対半径．</p>
 </dd>
-<dt><strong>always_visible</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.11)"><span class="xref std std-ref">bool</span></a>, default: <a class="reference external" href="https://docs.python.org/3/library/constants.html#True" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">True</span></code></a></span></dt><dd><p>Make the widget always visible. Setting this to <code class="docutils literal notranslate"><span class="pre">False</span></code> will cause
-the widget geometry to be hidden by other actors in the plotter.</p>
+<dt><strong>always_visible</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.11)"><span class="xref std std-ref">bool</span></a>, default: <a class="reference external" href="https://docs.python.org/3/library/constants.html#True" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">True</span></code></a></span></dt><dd><p>ウィジェットを常に表示するようにします．これを <code class="docutils literal notranslate"><span class="pre">False</span></code> に設定すると，プロッタ内の他のアクタによってウィジェットのジオメトリが隠されます．</p>
 </dd>
-<dt><strong>axes_colors</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">tuple</span></code></a>[<code class="xref py py-obj docutils literal notranslate"><span class="pre">ColorLike</span></code>], <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>Uses the theme by default. Configure the individual axis colors by
-modifying either the theme with <code class="docutils literal notranslate"><span class="pre">pv.global_theme.axes.x_color</span> <span class="pre">=</span>
-<span class="pre">&lt;COLOR&gt;</span></code> or setting this with a <code class="docutils literal notranslate"><span class="pre">tuple</span></code> as in <code class="docutils literal notranslate"><span class="pre">('r',</span> <span class="pre">'g',</span> <span class="pre">'b')</span></code>.</p>
+<dt><strong>axes_colors</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">tuple</span></code></a>[<code class="xref py py-obj docutils literal notranslate"><span class="pre">ColorLike</span></code>], <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>デフォルトでテーマを使用します．各軸の色を設定するには， <code class="docutils literal notranslate"><span class="pre">pv.global_theme.axes.x_color</span> <span class="pre">=</span> <span class="pre">1</span></code> または <code class="docutils literal notranslate"><span class="pre">('r',</span> <span class="pre">'g',</span> <span class="pre">'b')</span></code> のように <code class="docutils literal notranslate"><span class="pre">tuple</span></code> で設定します．</p>
 </dd>
-<dt><strong>axes</strong><span class="classifier"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.25)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p><code class="docutils literal notranslate"><span class="pre">(3,</span> <span class="pre">3)</span></code> Numpy array defining the X, Y, and Z axes. By default this
-matches the default coordinate system.</p>
+<dt><strong>axes</strong><span class="classifier"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.25)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p><code class="docutils literal notranslate"><span class="pre">(3,</span> <span class="pre">3)</span></code> X軸，Y軸，Z軸を定義するNumpy配列．デフォルトでは，これはデフォルトの座標系と一致する．</p>
 </dd>
-<dt><strong>release_callback</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#callable" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">callable()</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>Call this method when releasing the left mouse button. It is passed the
-<code class="docutils literal notranslate"><span class="pre">user_matrix</span></code> of the actor.</p>
+<dt><strong>release_callback</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#callable" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">callable()</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>マウスの左ボタンを離すときにこのメソッドを呼び出します．このメソッドにはアクタの <code class="docutils literal notranslate"><span class="pre">user_matrix</span></code> が渡されます．</p>
 </dd>
-<dt><strong>interact_callback</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#callable" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">callable()</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>Call this method when moving the mouse with the left mouse button
-pressed down and a valid movement actor selected. It is passed the
-<code class="docutils literal notranslate"><span class="pre">user_matrix</span></code> of the actor.</p>
+<dt><strong>interact_callback</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#callable" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">callable()</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>マウスの左ボタンが押下され，有効な移動アクタが選択された状態でマウスを移動するときに，このメソッドを呼び出します．このメソッドには，アクタの <code class="docutils literal notranslate"><span class="pre">user_matrix</span></code> が渡されます．</p>
 </dd>
 </dl>
 </dd>
 </dl>
 <p class="rubric">備考</p>
-<p>After interacting with the actor, the transform will be stored within
-<a class="reference internal" href="pyvista.Actor.user_matrix.html#pyvista.Actor.user_matrix" title="pyvista.Actor.user_matrix"><code class="xref py py-attr docutils literal notranslate"><span class="pre">pyvista.Actor.user_matrix</span></code></a> but will not be applied to the
-dataset. Use this matrix in conjunction with
-<a class="reference internal" href="../../core/_autosummary/pyvista.DataSetFilters.transform.html#pyvista.DataSetFilters.transform" title="pyvista.DataSetFilters.transform"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyvista.DataSetFilters.transform()</span></code></a> to transform the dataset.</p>
-<p>Requires VTK &gt;= v9.2</p>
+<p>アクタと対話した後，変換結果は <a class="reference internal" href="pyvista.Actor.user_matrix.html#pyvista.Actor.user_matrix" title="pyvista.Actor.user_matrix"><code class="xref py py-attr docutils literal notranslate"><span class="pre">pyvista.Actor.user_matrix</span></code></a> 内に保存されますが，データセットには適用されません．データセットを変換するには，この行列を <a class="reference internal" href="../../core/_autosummary/pyvista.DataSetFilters.transform.html#pyvista.DataSetFilters.transform" title="pyvista.DataSetFilters.transform"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyvista.DataSetFilters.transform()</span></code></a> と組み合わせて使用します．</p>
+<p>VTK &gt;= v9.2 が必要です．</p>
 <p class="rubric">例</p>
-<p>Create the affine widget outside of the plotter and add it.</p>
+<p>プロッターの外部に affine ウィジェットを作成し，追加します．</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyvista</span> <span class="k">as</span> <span class="nn">pv</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">pl</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Plotter</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">actor</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">pv</span><span class="o">.</span><span class="n">Sphere</span><span class="p">())</span>
@@ -659,7 +648,7 @@ dataset. Use this matrix in conjunction with
 <figure class="align-default">
 <img alt="../../../_images/pyvista-plotting-widgets-AffineWidget3D-1_00_00.png" src="../../../_images/pyvista-plotting-widgets-AffineWidget3D-1_00_00.png" />
 </figure>
-<p>Access the transform from the actor.</p>
+<p>アクターから変換にアクセスします．</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">actor</span><span class="o">.</span><span class="n">user_matrix</span>
 <span class="go">array([[1., 0., 0., 0.],</span>
 <span class="go">       [0., 1., 0., 0.],</span>
@@ -671,13 +660,13 @@ dataset. Use this matrix in conjunction with
 <table class="autosummary longtable table autosummary">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.plotting.widgets.AffineWidget3D.disable.html#pyvista.plotting.widgets.AffineWidget3D.disable" title="pyvista.plotting.widgets.AffineWidget3D.disable"><code class="xref py py-obj docutils literal notranslate"><span class="pre">AffineWidget3D.disable</span></code></a>()</p></td>
-<td><p>Disable the widget.</p></td>
+<td><p>ウィジェットを無効にします．</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.plotting.widgets.AffineWidget3D.enable.html#pyvista.plotting.widgets.AffineWidget3D.enable" title="pyvista.plotting.widgets.AffineWidget3D.enable"><code class="xref py py-obj docutils literal notranslate"><span class="pre">AffineWidget3D.enable</span></code></a>()</p></td>
-<td><p>Enable the widget.</p></td>
+<td><p>ウィジェットを有効にします．</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.plotting.widgets.AffineWidget3D.remove.html#pyvista.plotting.widgets.AffineWidget3D.remove" title="pyvista.plotting.widgets.AffineWidget3D.remove"><code class="xref py py-obj docutils literal notranslate"><span class="pre">AffineWidget3D.remove</span></code></a>()</p></td>
-<td><p>Disable and delete all actors of this widget.</p></td>
+<td><p>このウィジェットのすべてのアクタを無効にして削除します．</p></td>
 </tr>
 </tbody>
 </table>
@@ -685,10 +674,10 @@ dataset. Use this matrix in conjunction with
 <table class="autosummary longtable table autosummary">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.plotting.widgets.AffineWidget3D.axes.html#pyvista.plotting.widgets.AffineWidget3D.axes" title="pyvista.plotting.widgets.AffineWidget3D.axes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">AffineWidget3D.axes</span></code></a></p></td>
-<td><p>Return or set the axes of the widget.</p></td>
+<td><p>ウィジェットの軸を返すか設定します．</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.plotting.widgets.AffineWidget3D.origin.html#pyvista.plotting.widgets.AffineWidget3D.origin" title="pyvista.plotting.widgets.AffineWidget3D.origin"><code class="xref py py-obj docutils literal notranslate"><span class="pre">AffineWidget3D.origin</span></code></a></p></td>
-<td><p>Origin of the widget.</p></td>
+<td><p>ウィジェットの原点．</p></td>
 </tr>
 </tbody>
 </table>

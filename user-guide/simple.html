@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>APIの基本的な使用方法 &#8212; PyVista 0.42.dev0 ドキュメント</title>
+    <title>APIの基本的な使用方法 &#8212; PyVista 0.43.dev0 ドキュメント</title>
   
   
   
@@ -39,7 +39,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/summary.css?v=09e0a9f3" />
     <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=61a4c737" />
     <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css?v=f4aeca0c" />
-    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css?v=e5fbc548" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css?v=2082cf3c" />
     <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
     <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
     <link rel="stylesheet" type="text/css" href="../_static/cards.css?v=d8ea150e" />
@@ -49,7 +49,7 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=b34ff734"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=2c0d63ae"></script>
     <script src="../_static/doctools.js?v=888ff710"></script>
     <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
     <script src="../_static/thebelab-helper.js"></script>
@@ -676,7 +676,7 @@ document.write(`
 <img alt="../_images/simple_1_0.png" src="../_images/simple_1_0.png" />
 </div>
 </div>
-<p>プロッターオブジェクトを作成して，シーンの微調整を行うこともできます．まず， <a class="reference internal" href="../api/plotting/_autosummary/pyvista.Plotter.html#pyvista.Plotter" title="pyvista.Plotter"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.Plotter</span></code></a> や <a class="reference external" href="https://qtdocs.pyvista.org/api_reference.html#pyvistaqt.BackgroundPlotter" title="(in PyVistaQt v0.1.0.dev1+g89f785e)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvistaqt.BackgroundPlotter</span></code></a> などのプロッターをインスタンス化します． <a class="reference internal" href="../api/plotting/_autosummary/pyvista.Plotter.html#pyvista.Plotter" title="pyvista.Plotter"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.Plotter</span></code></a> は， <a class="reference internal" href="../api/plotting/_autosummary/pyvista.Plotter.show.html#pyvista.Plotter.show" title="pyvista.Plotter.show"><code class="xref py py-func docutils literal notranslate"><span class="pre">show()</span></code></a> を呼び出した後，コードの実行を一時停止するレンダリングウィンドウを作成します．</p>
+<p>プロッターオブジェクトを作成して，シーンの微調整を行うこともできます．まず， <a class="reference internal" href="../api/plotting/_autosummary/pyvista.Plotter.html#pyvista.Plotter" title="pyvista.Plotter"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.Plotter</span></code></a> や <a class="reference external" href="https://qtdocs.pyvista.org/api_reference.html#pyvistaqt.BackgroundPlotter" title="(in PyVistaQt v0.1.0.dev1+gee4bbf9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvistaqt.BackgroundPlotter</span></code></a> などのプロッターをインスタンス化します． <a class="reference internal" href="../api/plotting/_autosummary/pyvista.Plotter.html#pyvista.Plotter" title="pyvista.Plotter"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.Plotter</span></code></a> は， <a class="reference internal" href="../api/plotting/_autosummary/pyvista.Plotter.show.html#pyvista.Plotter.show" title="pyvista.Plotter.show"><code class="xref py py-func docutils literal notranslate"><span class="pre">show()</span></code></a> を呼び出した後，コードの実行を一時停止するレンダリングウィンドウを作成します．</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mesh</span> <span class="o">=</span> <span class="n">examples</span><span class="o">.</span><span class="n">load_airplane</span><span class="p">()</span>
@@ -705,7 +705,7 @@ document.write(`
 <p>使用する用途に応じて，使用可能なすべてのプロッタとオプションを確認してください．</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="../api/plotting/_autosummary/pyvista.Plotter.html#pyvista.Plotter" title="pyvista.Plotter"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.Plotter</span></code></a>: 閉じるまでコードを一時停止する標準的なプロッタです．</p></li>
-<li><p><a class="reference external" href="https://qtdocs.pyvista.org/api_reference.html#pyvistaqt.BackgroundPlotter" title="(in PyVistaQt v0.1.0.dev1+g89f785e)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvistaqt.BackgroundPlotter</span></code></a>:  インタラクティブで，コードの実行を一時停止しないレンダリングウィンドウを作成します(詳細は <a class="reference external" href="https://qtdocs.pyvista.org/">pyvistaqt</a> ライブラリを参照してください)．</p></li>
+<li><p><a class="reference external" href="https://qtdocs.pyvista.org/api_reference.html#pyvistaqt.BackgroundPlotter" title="(in PyVistaQt v0.1.0.dev1+gee4bbf9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvistaqt.BackgroundPlotter</span></code></a>:  インタラクティブで，コードの実行を一時停止しないレンダリングウィンドウを作成します(詳細は <a class="reference external" href="https://qtdocs.pyvista.org/">pyvistaqt</a> ライブラリを参照してください)．</p></li>
 </ul>
 </section>
 <section id="exporting">
