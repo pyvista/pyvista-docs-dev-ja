@@ -991,6 +991,7 @@ python -msphinx -M html . _build
 <p>マイナーリリースは， <code class="docutils literal notranslate"><span class="pre">pyvista</span></code> の機能と安定性を改善する機能およびバグリリースです．マイナーリリースが作成される前に，次のことが発生します．</p>
 <ol class="arabic">
 <li><p><code class="docutils literal notranslate"><span class="pre">main</span></code> ブランチから <code class="docutils literal notranslate"><span class="pre">release/MAJOR.MINOR</span></code> という名前の新しいブランチを作成します(例: <code class="docutils literal notranslate"><span class="pre">release/0.25</span></code> )．</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pyvista/_version.py</span></code> の開発バージョン番号を更新し，コミットします(例: <code class="docutils literal notranslate"><span class="pre">0,</span> <span class="pre">26,</span> <span class="pre">'dev0'</span></code>)．ブランチをGitHubにプッシュし，mainにマージする今回のリリースの新しいPRを作成します．リリースに注力している間は，mainへの開発はこの時点では制限されるべきです．</p></li>
 <li><p><a class="reference external" href="#testing">テストのセクション</a> で概説されているように，すべてのテストをローカルで実行し，すべてが合格していることを確認します．</p></li>
 <li><p>リンクが古くなっていないことを確認するために，リンクチェックを行いながらドキュメントをローカルにテストしてビルドします．また， <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">clean</span></code> を実行して，結果がキャッシュされていないことを確認してください．</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>doc
@@ -1001,7 +1002,6 @@ make<span class="w"> </span>html<span class="w"> </span>-b<span class="w"> </spa
 </div>
 </li>
 <li><p>ドキュメントをビルドしたら，ローカル・ビルドを開き，サンプル・ギャラリーで明らかな問題がないか調べてください．</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">pyvista/_version.py</span></code> の開発バージョン番号を更新し，コミットします(例: <code class="docutils literal notranslate"><span class="pre">0,</span> <span class="pre">26,</span> <span class="pre">'dev0'</span></code>)．ブランチをGitHubにプッシュし，mainにマージする今回のリリースの新しいPRを作成します．リリースに注力している間は，mainへの開発はこの時点では制限されるべきです．</p></li>
 <li><p>新しいリリースを機能的にテストするのは <code class="docutils literal notranslate"><span class="pre">pyvista</span></code> コミュニティの責任です．このブランチをローカルにインストールして運用環境で使用することをお勧めします．検出されたバグについては，ホットフィックスをこのリリースブランチにプッシュする必要があります．</p></li>
 <li><p>このブランチが安定版として一般公開されると，PR は main にマージされます． <code class="docutils literal notranslate"><span class="pre">release/MAJOR.MINOR</span></code> ブランチのバージョン番号を更新した後， <code class="docutils literal notranslate"><span class="pre">release/MAJOR.MINOR</span></code> ブランチは <code class="docutils literal notranslate"><span class="pre">vMAJOR.MINOR.0</span></code> リリースというタグが付けられます．リリースブランチは削除されません．次のようにリリースにタグを付けます:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>tag<span class="w"> </span>v<span class="k">$(</span>python<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;import pyvista as pv; print(pv.__version__)&quot;</span><span class="k">)</span>

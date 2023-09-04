@@ -848,8 +848,7 @@ document.write(`
 </ul>
 <p>デフォルトは <a class="reference internal" href="pyvista.plotting.themes._Font.color.html#pyvista.plotting.themes._Font.color" title="pyvista.plotting.themes._Font.color"><code class="xref py py-attr docutils literal notranslate"><span class="pre">pyvista.global_theme.font.color</span></code></a> です．</p>
 </dd>
-<dt><strong>font</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a>, default: 'arial'</span></dt><dd><p>Font name may be <code class="docutils literal notranslate"><span class="pre">'courier'</span></code>, <code class="docutils literal notranslate"><span class="pre">'times'</span></code>, or <code class="docutils literal notranslate"><span class="pre">'arial'</span></code>.
-This is ignored if the <cite>font_file</cite> is set.</p>
+<dt><strong>font</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a>, default: 'arial'</span></dt><dd><p>フォント名は <code class="docutils literal notranslate"><span class="pre">'courier'</span></code>, `` times'<code class="docutils literal notranslate"><span class="pre">,</span> <span class="pre">``'arial'</span></code> のいずれかです．これは <cite>font_file</cite> が設定されている場合は無視されます．</p>
 </dd>
 <dt><strong>shadow</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.11)"><span class="xref std std-ref">bool</span></a>, default: <a class="reference external" href="https://docs.python.org/3/library/constants.html#False" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">False</span></code></a></span></dt><dd><p>テキストに黒い影を追加します．</p>
 </dd>
@@ -859,8 +858,7 @@ This is ignored if the <cite>font_file</cite> is set.</p>
 </dd>
 <dt><strong>orientation</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a>, default: 0.0</span></dt><dd><p>テキストを反時計回りに回転させる度数の角度． テキストは，テキストの端または角にあるアンカーポイントを中心に回転されます． デフォルトは水平(0.0度)です．</p>
 </dd>
-<dt><strong>font_file</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a>, default: <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">None</span></code></a></span></dt><dd><p>The absolute file path to a local file containing a freetype
-readable font.</p>
+<dt><strong>font_file</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a>, default: <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">None</span></code></a></span></dt><dd><p>フリータイプ可読フォントを含むローカルファイルへの絶対フ ァ イ ルパス．</p>
 </dd>
 <dt><strong>render</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.11)"><span class="xref std std-ref">bool</span></a>, default: <a class="reference external" href="https://docs.python.org/3/library/constants.html#True" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">True</span></code></a></span></dt><dd><p><code class="docutils literal notranslate"><span class="pre">True</span></code> のときに強制的にレンダーします．</p>
 </dd>
@@ -874,7 +872,7 @@ readable font.</p>
 </dd>
 </dl>
 <p class="rubric">例</p>
-<p>Add blue text to the upper right of the plotter.</p>
+<p>プロッターの右上に青いテキストを追加します．</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyvista</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">pl</span> <span class="o">=</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">Plotter</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">actor</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">add_text</span><span class="p">(</span>
@@ -890,7 +888,7 @@ readable font.</p>
 <figure class="align-default">
 <img alt="../../../_images/pyvista-Plotter-add_text-1_00_00.png" src="../../../_images/pyvista-Plotter-add_text-1_00_00.png" />
 </figure>
-<p>Add text and use a custom freetype readable font file.</p>
+<p>テキストを追加し，カスタムフリータイプ可読フォントファイルを使用する．</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pl</span> <span class="o">=</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">Plotter</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">actor</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">add_text</span><span class="p">(</span>
 <span class="gp">... </span>    <span class="s1">&#39;Text&#39;</span><span class="p">,</span>
