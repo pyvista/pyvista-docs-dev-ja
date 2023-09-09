@@ -1,0 +1,824 @@
+
+<!DOCTYPE html>
+
+
+<html lang="ja" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Customize Trame toolbar &#8212; PyVista 0.43.dev0 ドキュメント</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=649a27d8" />
+    <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/thebelab.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/asciinema-player_2.6.1.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/asciinema-custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/no_search_highlight.css?v=0f58e32f" />
+    <link rel="stylesheet" type="text/css" href="../../_static/summary.css?v=09e0a9f3" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css?v=61a4c737" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../../_static/cards.css?v=d8ea150e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/no_italic.css?v=7ec6bf1f" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js?v=2c0d63ae"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../../_static/thebelab-helper.js"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=49e1bf35"></script>
+    <script src="../../_static/asciinema-player_2.6.1.js"></script>
+    <script src="../../_static/translations.js?v=4dbe4bdc"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-140243896-1"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'UA-140243896-1');
+            </script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'examples/99-advanced/customization-trame-toolbar';</script>
+    <script>
+        DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://docs.pyvista.org/versions.json';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = 'dev';
+        </script>
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="検索" href="../../search.html" />
+    <link rel="next" title="PyVistaの拡張" href="extending-pyvista.html" />
+    <link rel="prev" title="原子軌道のプロット" href="atomic-orbitals.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="ja"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+    <span class="fa-solid fa-bars"></span>
+  </label>
+  
+  <div class="navbar-header-items__start">
+    
+      <div class="navbar-item">
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/pyvista_logo_sm.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../_static/pyvista_logo_sm.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+    
+  </div>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item"><nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../getting-started/index.html">
+                        はじめに
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../user-guide/index.html">
+                        ユーザーガイド
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="../index.html">
+                        例
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../api/index.html">
+                        APIリファレンス
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../extras/index.html">
+                        その他
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="検索" aria-label="検索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+        </div>
+      
+      
+        <div class="navbar-item">
+<script>
+document.write(`
+  <div class="version-switcher__container dropdown">
+    <button type="button" class="version-switcher__button btn btn-sm navbar-btn dropdown-toggle" data-bs-toggle="dropdown">
+      dev  <!-- this text may get changed later by javascript -->
+      <span class="caret"></span>
+    </button>
+    <div class="version-switcher__menu dropdown-menu list-group-flush py-0">
+    <!-- dropdown will be populated by javascript on page load -->
+    </div>
+  </div>
+`);
+</script></div>
+      
+        <div class="navbar-item">
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/pyvista/pyvista" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github"></i></span>
+            <label class="sr-only">GitHub</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="http://slack.pyvista.org" title="Slack Community" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fab fa-slack"></i></span>
+            <label class="sr-only">Slack Community</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/pyvista/pyvista/discussions" title="Support" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-comment fa-fw"></i></span>
+            <label class="sr-only">Support</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/pyvista/pyvista/blob/main/CONTRIBUTING.rst" title="Contributing" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-gavel fa-fw"></i></span>
+            <label class="sr-only">Contributing</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://doi.org/10.21105/joss.01450" title="The Paper" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-file-text fa-fw"></i></span>
+            <label class="sr-only">The Paper</label></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="検索" aria-label="検索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+    </div>
+  
+
+  
+    <label class="sidebar-toggle secondary-toggle" for="__secondary">
+      <span class="fa-solid fa-outdent"></span>
+    </label>
+  
+</div>
+
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          <div class="navbar-item"><nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../getting-started/index.html">
+                        はじめに
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../user-guide/index.html">
+                        ユーザーガイド
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="../index.html">
+                        例
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../api/index.html">
+                        APIリファレンス
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../extras/index.html">
+                        その他
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+<script>
+document.write(`
+  <div class="version-switcher__container dropdown">
+    <button type="button" class="version-switcher__button btn btn-sm navbar-btn dropdown-toggle" data-bs-toggle="dropdown">
+      dev  <!-- this text may get changed later by javascript -->
+      <span class="caret"></span>
+    </button>
+    <div class="version-switcher__menu dropdown-menu list-group-flush py-0">
+    <!-- dropdown will be populated by javascript on page load -->
+    </div>
+  </div>
+`);
+</script></div>
+        
+          <div class="navbar-item">
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/pyvista/pyvista" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github"></i></span>
+            <label class="sr-only">GitHub</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="http://slack.pyvista.org" title="Slack Community" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fab fa-slack"></i></span>
+            <label class="sr-only">Slack Community</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/pyvista/pyvista/discussions" title="Support" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-comment fa-fw"></i></span>
+            <label class="sr-only">Support</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/pyvista/pyvista/blob/main/CONTRIBUTING.rst" title="Contributing" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-gavel fa-fw"></i></span>
+            <label class="sr-only">Contributing</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://doi.org/10.21105/joss.01450" title="The Paper" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-file-text fa-fw"></i></span>
+            <label class="sr-only">The Paper</label></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item"><nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../00-load/index.html">メッシュ作成</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../01-filter/index.html">フィルタリング</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02-plot/index.html">プロット</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03-widgets/index.html">ウィジェット</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04-lights/index.html">照明</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../98-common/index.html">共通</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">詳細設定</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="add-example.html">新しいギャラリーを追加する例</a></li>
+<li class="toctree-l2"><a class="reference internal" href="antarctica-compare.html">メッシュ領域間でフィールドを比較</a></li>
+<li class="toctree-l2"><a class="reference internal" href="atomic-orbitals.html">原子軌道のプロット</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Customize Trame toolbar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="extending-pyvista.html">PyVistaの拡張</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fea-hertzian-contact-pressure.html">Hertの接触応力を可視化する</a></li>
+
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="magnetic-fields.html">磁場をプロットする</a></li>
+<li class="toctree-l2"><a class="reference internal" href="openfoam-cooling.html">電子機器の冷却CFD</a></li>
+<li class="toctree-l2"><a class="reference internal" href="openfoam-example.html">OpenFOAMデータのプロット</a></li>
+<li class="toctree-l2"><a class="reference internal" href="openfoam-tubes.html">CFDデータをプロットする</a></li>
+<li class="toctree-l2"><a class="reference internal" href="osmnx-example.html">オープンストリートマップデータのプロット</a></li>
+<li class="toctree-l2"><a class="reference internal" href="planets.html">3D地球と天体</a></li>
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="plotting-algorithms.html">VTKアルゴリズムでプロットする</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pump-bracket.html">ポンプブラケットのモーダル解析の可視化</a></li>
+
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="ray-trace-moeller.html">Moeller-Trumboreアルゴリズムの可視化</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ray-trace.html">レイトレーシング</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sphere_eversion.html">球体を裏返す</a></li>
+<li class="toctree-l2"><a class="reference internal" href="warp-by-vector-eigenmodes.html">振動の固有振動モードを表示します</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumbs">
+  <ul class="bd-breadcrumbs" role="navigation" aria-label="Breadcrumb">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../index.html" class="nav-link">例</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">詳細設定</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">Customize Trame toolbar</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <div class="sphx-glr-download-link-note admonition note">
+<p class="admonition-title">注釈</p>
+<p><a class="reference internal" href="#sphx-glr-download-examples-99-advanced-customization-trame-toolbar-py"><span class="std std-ref">Go to the end</span></a>
+to download the full example code</p>
+</div>
+<section class="sphx-glr-example-title" id="customize-trame-toolbar">
+<span id="customize-trame-toolbar-example"></span><span id="sphx-glr-examples-99-advanced-customization-trame-toolbar-py"></span><h1>Customize Trame toolbar<a class="headerlink" href="#customize-trame-toolbar" title="この見出しへのパーマリンク">#</a></h1>
+<p>Bring more of the power of trame to the jupyter view.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">asyncio</span>
+
+<span class="kn">import</span> <span class="nn">vtk</span>
+
+<span class="kn">import</span> <span class="nn">pyvista</span> <span class="k">as</span> <span class="nn">pv</span>
+<span class="kn">from</span> <span class="nn">pyvista.trame.ui.vuetify2</span> <span class="kn">import</span> <span class="n">button</span><span class="p">,</span> <span class="n">divider</span><span class="p">,</span> <span class="n">select</span><span class="p">,</span> <span class="n">slider</span><span class="p">,</span> <span class="n">text_field</span>
+</pre></div>
+</div>
+<p>Let's first create the menu items we want to add to the trame's toolbar.
+Here we want a &quot;play&quot; button that will be later connected to a slider
+through the <code class="docutils literal notranslate"><span class="pre">button_play</span></code> function. The slider itself will represent the
+&quot;resolution&quot; of the model we will render, a text field where the value of
+the &quot;resolution&quot; will be displayed.
+We will also add a dropdown menu to toggle the visibility of the model.
+The dividers are the same as already used to divide and organize the toolbar.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">custom_tools</span><span class="p">():</span>
+    <span class="n">divider</span><span class="p">(</span><span class="n">vertical</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">classes</span><span class="o">=</span><span class="s1">&#39;mx-1&#39;</span><span class="p">)</span>
+    <span class="n">button</span><span class="p">(</span>
+        <span class="n">click</span><span class="o">=</span><span class="n">button_play</span><span class="p">,</span>
+        <span class="n">icon</span><span class="o">=</span><span class="s1">&#39;mdi-play&#39;</span><span class="p">,</span>
+        <span class="n">tooltip</span><span class="o">=</span><span class="s1">&#39;Play&#39;</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="n">slider</span><span class="p">(</span>
+        <span class="n">model</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;resolution&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>
+        <span class="n">tooltip</span><span class="o">=</span><span class="s2">&quot;Resolution slider&quot;</span><span class="p">,</span>
+        <span class="nb">min</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+        <span class="nb">max</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+        <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+        <span class="n">dense</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">hide_details</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">style</span><span class="o">=</span><span class="s2">&quot;width: 300px&quot;</span><span class="p">,</span>
+        <span class="n">classes</span><span class="o">=</span><span class="s1">&#39;my-0 py-0 ml-1 mr-1&#39;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">text_field</span><span class="p">(</span>
+        <span class="n">model</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;resolution&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>
+        <span class="n">tooltip</span><span class="o">=</span><span class="s2">&quot;Resolution value&quot;</span><span class="p">,</span>
+        <span class="n">readonly</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;number&quot;</span><span class="p">,</span>
+        <span class="n">dense</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">hide_details</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">style</span><span class="o">=</span><span class="s2">&quot;min-width: 40px; width: 60px&quot;</span><span class="p">,</span>
+        <span class="n">classes</span><span class="o">=</span><span class="s1">&#39;my-0 py-0 ml-1 mr-1&#39;</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="n">divider</span><span class="p">(</span><span class="n">vertical</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">classes</span><span class="o">=</span><span class="s1">&#39;mx-1&#39;</span><span class="p">)</span>
+    <span class="n">select</span><span class="p">(</span>
+        <span class="n">model</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;visibility&quot;</span><span class="p">,</span> <span class="s2">&quot;Show&quot;</span><span class="p">),</span>
+        <span class="n">tooltip</span><span class="o">=</span><span class="s2">&quot;Toggle visibility&quot;</span><span class="p">,</span>
+        <span class="n">items</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Visibility&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;Hide&quot;</span><span class="p">,</span> <span class="s2">&quot;Show&quot;</span><span class="p">]],</span>
+        <span class="n">hide_details</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">dense</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+<p>The button callback function <code class="docutils literal notranslate"><span class="pre">button_play</span></code> needs to be created before starting
+the server. This function will toggle the boolean state variable <code class="docutils literal notranslate"><span class="pre">play</span></code>
+and flush the server, i.e. &quot;force&quot; the server to see the change.
+We will see more on the state variables in a bit, but we need to create the
+function here otherwise the server will complain <code class="docutils literal notranslate"><span class="pre">button_play</span></code> does not exist.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">button_play</span><span class="p">():</span>
+    <a href="https://docs.python.org/3/library/functions.html#bool" title="builtins.bool" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">state</span><span class="o">.</span><span class="n">play</span></a> <span class="o">=</span> <span class="ow">not</span> <a href="https://docs.python.org/3/library/functions.html#bool" title="builtins.bool" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">state</span><span class="o">.</span><span class="n">play</span></a>
+    <span class="n">state</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>We will do a simple rendering of a Cone using the vtk <cite>vtkConeSouce</cite>
+algorithm.</p>
+<p>When using the <code class="docutils literal notranslate"><span class="pre">pl.show</span></code> method. The function we created <code class="docutils literal notranslate"><span class="pre">custom_tools</span></code>
+should be passed as a <code class="docutils literal notranslate"><span class="pre">jupyter_kwargs</span></code> argument under the key
+<code class="docutils literal notranslate"><span class="pre">add_menu_items</span></code>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pl</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Plotter</span><span class="p">(</span><span class="n">notebook</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">algo</span> <span class="o">=</span> <span class="n">vtk</span><span class="o">.</span><span class="n">vtkConeSource</span><span class="p">()</span>
+<span class="n">mesh_actor</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">algo</span><span class="p">)</span>
+
+<span class="n">widget</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">jupyter_kwargs</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">add_menu_items</span><span class="o">=</span><span class="n">custom_tools</span><span class="p">),</span> <span class="n">return_viewer</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<img src="../../_images/sphx_glr_customization-trame-toolbar_001.png" srcset="../../_images/sphx_glr_customization-trame-toolbar_001.png" alt="customization trame toolbar" class = "sphx-glr-single-img"/><p>To interact with <code class="docutils literal notranslate"><span class="pre">trame</span></code>'s server we need to get the server's state.</p>
+<p>We initialize the <code class="docutils literal notranslate"><span class="pre">play</span></code> variable in the shared state and this will be
+controlled by the play button we created. Note that when creating the
+<code class="docutils literal notranslate"><span class="pre">slider</span></code>, the <code class="docutils literal notranslate"><span class="pre">text_field</span></code> and the <code class="docutils literal notranslate"><span class="pre">select</span></code> tools, we passed something
+like <code class="docutils literal notranslate"><span class="pre">model=(&quot;variable&quot;,</span> <span class="pre">value).</span> <span class="pre">This</span> <span class="pre">will</span> <span class="pre">automatically</span> <span class="pre">create</span> <span class="pre">the</span> <span class="pre">variable</span>
+<span class="pre">&quot;variable&quot;</span> <span class="pre">with</span> <span class="pre">value</span> <span class="pre">``value</span></code> in the server's shared state, so we do not need
+to create <code class="docutils literal notranslate"><span class="pre">state.resolution</span></code> or <code class="docutils literal notranslate"><span class="pre">state.visibility</span></code>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">state</span><span class="p">,</span> <span class="n">ctrl</span> <span class="o">=</span> <span class="n">widget</span><span class="o">.</span><span class="n">viewer</span><span class="o">.</span><span class="n">server</span><span class="o">.</span><span class="n">state</span><span class="p">,</span> <span class="n">widget</span><span class="o">.</span><span class="n">viewer</span><span class="o">.</span><span class="n">server</span><span class="o">.</span><span class="n">controller</span>
+<a href="https://docs.python.org/3/library/functions.html#bool" title="builtins.bool" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">state</span><span class="o">.</span><span class="n">play</span></a> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">ctrl</span><span class="o">.</span><span class="n">view_update</span> <span class="o">=</span> <span class="n">widget</span><span class="o">.</span><span class="n">viewer</span><span class="o">.</span><span class="n">update</span>
+</pre></div>
+</div>
+<p>Now we can create the callback functions for our menu items.</p>
+<p>The functions are decorated with a <code class="docutils literal notranslate"><span class="pre">state.change(&quot;variable&quot;)</span></code>. This means
+they will be called when this specific variable has its value changed in the
+server's shared state. When <code class="docutils literal notranslate"><span class="pre">resolution</span></code> changes, we want to update the
+resolution of our cone algorithm. When <code class="docutils literal notranslate"><span class="pre">visibility</span></code> changes, we want to toggle the
+visibility of our cone.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">play</span></code> variable is a little bit trickier. We want to start something like
+a timer so that an animation can be set to play. To do that with <code class="docutils literal notranslate"><span class="pre">trame</span></code> we need
+to have an asynchronous function so we can continue to do stuff while the
+&quot;timer&quot; function is running. The <code class="docutils literal notranslate"><span class="pre">_play</span></code> function will be called when the <code class="docutils literal notranslate"><span class="pre">play</span></code>
+variable is changed (when we click the play button, through the <code class="docutils literal notranslate"><span class="pre">button_play</span></code>
+callback). While <code class="docutils literal notranslate"><span class="pre">state.play</span></code> is <code class="docutils literal notranslate"><span class="pre">True</span></code> we want to play the animation. We
+change the <code class="docutils literal notranslate"><span class="pre">state.resolution</span></code> value, but to really call the <code class="docutils literal notranslate"><span class="pre">update_resolution</span></code>
+function we need to <code class="docutils literal notranslate"><span class="pre">flush</span></code> the server and force it to see the change in
+the shared variables. When <code class="docutils literal notranslate"><span class="pre">state.play</span></code> changes to <code class="docutils literal notranslate"><span class="pre">False</span></code>, the animation stops.</p>
+<p>Note that using <code class="docutils literal notranslate"><span class="pre">while</span> <span class="pre">play:</span> <span class="pre">...</span></code> would not work here because it is not the
+actual state variable, but only an argument value passed to the callback function.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># trame callbacks</span>
+<span class="nd">@state</span><span class="o">.</span><span class="n">change</span><span class="p">(</span><span class="s2">&quot;play&quot;</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span> <span class="nf">_play</span><span class="p">(</span><span class="n">play</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">while</span> <a href="https://docs.python.org/3/library/functions.html#bool" title="builtins.bool" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">state</span><span class="o">.</span><span class="n">play</span></a><span class="p">:</span>
+        <a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">state</span><span class="o">.</span><span class="n">resolution</span></a> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="n">state</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span>
+        <span class="k">if</span> <a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">state</span><span class="o">.</span><span class="n">resolution</span></a> <span class="o">&gt;=</span> <span class="mi">20</span><span class="p">:</span>
+            <a href="https://docs.python.org/3/library/functions.html#bool" title="builtins.bool" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">state</span><span class="o">.</span><span class="n">play</span></a> <span class="o">=</span> <span class="kc">False</span>
+        <span class="k">await</span> <a href="https://docs.python.org/3/library/asyncio-task.html#asyncio.sleep" title="asyncio.sleep" class="sphx-glr-backref-module-asyncio sphx-glr-backref-type-py-function"><span class="n">asyncio</span><span class="o">.</span><span class="n">sleep</span></a><span class="p">(</span><span class="mf">0.3</span><span class="p">)</span>
+
+
+<span class="nd">@state</span><span class="o">.</span><span class="n">change</span><span class="p">(</span><span class="s2">&quot;resolution&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">update_resolution</span><span class="p">(</span><span class="n">resolution</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="n">algo</span><span class="o">.</span><span class="n">SetResolution</span><span class="p">(</span><span class="n">resolution</span><span class="p">)</span>
+    <span class="n">ctrl</span><span class="o">.</span><span class="n">view_update</span><span class="p">()</span>
+
+
+<span class="nd">@state</span><span class="o">.</span><span class="n">change</span><span class="p">(</span><span class="s2">&quot;visibility&quot;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">set_visibility</span><span class="p">(</span><span class="n">visibility</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="n">toggle</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Hide&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Show&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">}</span>
+    <span class="n">mesh_actor</span><span class="o">.</span><span class="n">SetVisibility</span><span class="p">(</span><span class="n">toggle</span><span class="p">[</span><span class="n">visibility</span><span class="p">])</span>
+    <span class="n">ctrl</span><span class="o">.</span><span class="n">view_update</span><span class="p">()</span>
+
+
+<span class="n">widget</span>
+</pre></div>
+</div>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Widget(value=&quot;&lt;iframe src=&#39;http://localhost:36129/index.html?ui=P_0x7fc830f0cd60_0&amp;reconnect=auto&#39; class=&#39;pyvista&#39; style=&#39;width: 99%; height: 600px; border: 1px solid rgb(221,221,221);&#39;&gt;&lt;/iframe&gt;&quot;)
+</pre></div>
+</div>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 0.285 seconds)</p>
+<div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-99-advanced-customization-trame-toolbar-py">
+<div class="sphx-glr-download sphx-glr-download-python docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/e90e733dfa0c3a9a6fc2ea81fe66155b/customization-trame-toolbar.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">customization-trame-toolbar.py</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/494e7d057b94c5582cdd05f593a969ae/customization-trame-toolbar.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">customization-trame-toolbar.ipynb</span></code></a></p>
+</div>
+</div>
+<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Sphinx-Galleryによるギャラリー</a></p>
+</section>
+
+
+                </article>
+              
+              
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  
+  <div class="tocsection editthispage">
+    <a href="http://github.com/pyvista/pyvista/edit/main/examples/99-advanced/customization-trame-toolbar.py">
+      <i class="fa-solid fa-pencil"></i>
+      
+      
+        
+          GitHub で編集する
+        
+      
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+  <p class="copyright">
+    
+      © Copyright 2017-2023, The PyVista Developers.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item"><p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.13.3.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

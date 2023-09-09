@@ -1005,7 +1005,11 @@ make<span class="w"> </span>html<span class="w"> </span>-b<span class="w"> </spa
 <li><p>新しいリリースを機能的にテストするのは <code class="docutils literal notranslate"><span class="pre">pyvista</span></code> コミュニティの責任です．このブランチをローカルにインストールして運用環境で使用することをお勧めします．検出されたバグについては，ホットフィックスをこのリリースブランチにプッシュする必要があります．</p></li>
 <li><p>このブランチが安定版として一般公開されると，PR は main にマージされます． <code class="docutils literal notranslate"><span class="pre">release/MAJOR.MINOR</span></code> ブランチのバージョン番号を更新した後， <code class="docutils literal notranslate"><span class="pre">release/MAJOR.MINOR</span></code> ブランチは <code class="docutils literal notranslate"><span class="pre">vMAJOR.MINOR.0</span></code> リリースというタグが付けられます．リリースブランチは削除されません．次のようにリリースにタグを付けます:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>tag<span class="w"> </span>v<span class="k">$(</span>python<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;import pyvista as pv; print(pv.__version__)&quot;</span><span class="k">)</span>
-git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>--tags
+</pre></div>
+</div>
+</li>
+<li><p>Please check again that the tag has been created correctly and push the tag.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>--tags
 </pre></div>
 </div>
 </li>
