@@ -3,6 +3,9 @@
 import pyvista
 mesh = pyvista.Sphere() + pyvista.Cube()
 largest = mesh.extract_largest()
-largest.point_data.clear()
-largest.cell_data.clear()
 largest.plot()
+#
+# See :ref:`connectivity_example` and :ref:`volumetric_example` for
+# more examples using this filter.
+#
+# .. seealso::

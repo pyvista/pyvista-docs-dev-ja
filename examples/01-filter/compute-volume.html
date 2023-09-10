@@ -786,10 +786,11 @@ High grade volume: 32.0
 Original volume: 729.0
 </pre></div>
 </div>
-<p>あるいはもっと良い方法として， <code class="docutils literal notranslate"><span class="pre">largest=True</span></code> を <code class="docutils literal notranslate"><span class="pre">connectivity</span></code> フィルタに渡すか， <code class="docutils literal notranslate"><span class="pre">extract_largest</span></code> フィルタ(どちらも同じ)を使用することで，閾値を設定したデータセットから最大のボリュームを単純に抽出することもできます．</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Grab the largest connected volume present</span>
-<span class="n">largest</span> <span class="o">=</span> <span class="n">threshed</span><span class="o">.</span><span class="n">connectivity</span><span class="p">(</span><span class="n">largest</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="c1"># or: largest = threshed.extract_largest()</span>
+<p>Or better yet, you could simply extract the largest volume from your
+dataset directly by passing <code class="docutils literal notranslate"><span class="pre">'largest'</span></code> to the <code class="docutils literal notranslate"><span class="pre">connectivity</span></code> and
+specify the same scalar range used earlier for thresholding.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Grab the largest connected volume within a scalar range</span>
+<span class="n">largest</span> <span class="o">=</span> <span class="n">threshed</span><span class="o">.</span><span class="n">connectivity</span><span class="p">(</span><span class="s1">&#39;largest&#39;</span><span class="p">,</span> <span class="n">scalar_range</span><span class="o">=</span><span class="p">[</span><span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.50</span><span class="p">])</span>
 
 <span class="c1"># Get volume as numeric value</span>
 <a href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float64" title="numpy.float64" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute"><span class="n">large_volume</span></a> <span class="o">=</span> <span class="n">largest</span><span class="o">.</span><a href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float64" title="numpy.float64" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute"><span class="n">volume</span></a>
@@ -848,34 +849,34 @@ Body 1 volume: 32.000
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Body </span><span class="si">{</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">i</span></a><span class="si">:</span><span class="s2">02d</span><span class="si">}</span><span class="s2"> volume: </span><span class="si">{</span><span class="n">body</span><span class="o">.</span><a href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float64" title="numpy.float64" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute"><span class="n">volume</span></a><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Body 00 volume: 66761.000
-Body 01 volume: 16120.000
-Body 02 volume: 1150.000
-Body 03 volume: 5166.000
-Body 04 volume: 2085.000
-Body 05 volume: 12490.000
-Body 06 volume: 152667.000
-Body 07 volume: 32520.000
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Body 00 volume: 152667.000
+Body 01 volume: 152638.000
+Body 02 volume: 108024.000
+Body 03 volume: 66761.000
+Body 04 volume: 32520.000
+Body 05 volume: 31866.000
+Body 06 volume: 27857.000
+Body 07 volume: 18269.000
 Body 08 volume: 18238.000
-Body 09 volume: 152638.000
-Body 10 volume: 1889.000
-Body 11 volume: 31866.000
+Body 09 volume: 16120.000
+Body 10 volume: 12550.000
+Body 11 volume: 12490.000
 Body 12 volume: 9861.000
-Body 13 volume: 108024.000
-Body 14 volume: 1548.000
-Body 15 volume: 27857.000
-Body 16 volume: 1443.000
-Body 17 volume: 8239.000
-Body 18 volume: 12550.000
-Body 19 volume: 18269.000
-Body 20 volume: 2270.000
+Body 13 volume: 8239.000
+Body 14 volume: 5166.000
+Body 15 volume: 2270.000
+Body 16 volume: 2085.000
+Body 17 volume: 1889.000
+Body 18 volume: 1548.000
+Body 19 volume: 1443.000
+Body 20 volume: 1150.000
 </pre></div>
 </div>
 <p>そして，あらゆるボリュームを可視化します．</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bodies</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">scalars</span><span class="o">=</span><span class="s2">&quot;TOTAL VOLUME&quot;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;viridis&quot;</span><span class="p">,</span> <span class="n">show_grid</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_compute-volume_004.png" srcset="../../_images/sphx_glr_compute-volume_004.png" alt="compute volume" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 13.065 seconds)</p>
+<img src="../../_images/sphx_glr_compute-volume_004.png" srcset="../../_images/sphx_glr_compute-volume_004.png" alt="compute volume" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 11.248 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-01-filter-compute-volume-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/6bce5e00bc370f5ce96e59726644605e/compute-volume.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">compute-volume.py</span></code></a></p>
