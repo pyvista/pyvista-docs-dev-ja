@@ -609,13 +609,7 @@ document.write(`
 <span class="kn">from</span> <span class="nn">pyvista.trame.ui.vuetify2</span> <span class="kn">import</span> <span class="n">button</span><span class="p">,</span> <span class="n">divider</span><span class="p">,</span> <span class="n">select</span><span class="p">,</span> <span class="n">slider</span><span class="p">,</span> <span class="n">text_field</span>
 </pre></div>
 </div>
-<p>Let's first create the menu items we want to add to the trame's toolbar.
-Here we want a &quot;play&quot; button that will be later connected to a slider
-through the <code class="docutils literal notranslate"><span class="pre">button_play</span></code> function. The slider itself will represent the
-&quot;resolution&quot; of the model we will render, a text field where the value of
-the &quot;resolution&quot; will be displayed.
-We will also add a dropdown menu to toggle the visibility of the model.
-The dividers are the same as already used to divide and organize the toolbar.</p>
+<p>まず，trameのツールバーに追加したいメニュー項目を作成しましょう．ここでは， <code class="docutils literal notranslate"><span class="pre">button_play</span></code> 関数を通してsliderに接続される &quot;play&quot; ボタンを作成します．sliderはレンダリングするモデルの &quot;resolution&quot; を表し， &quot;resolution&quot; の値が表示されるテキストフィールドになります．また，モデルの表示を切り替えるドロップダウンメニューも追加します．dividerは，ツールバーを分割して整理するために既に使用したものと同じです．</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">custom_tools</span><span class="p">():</span>
     <span class="n">divider</span><span class="p">(</span><span class="n">vertical</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">classes</span><span class="o">=</span><span class="s1">&#39;mx-1&#39;</span><span class="p">)</span>
     <span class="n">button</span><span class="p">(</span>
@@ -656,21 +650,14 @@ The dividers are the same as already used to divide and organize the toolbar.</p
     <span class="p">)</span>
 </pre></div>
 </div>
-<p>The button callback function <code class="docutils literal notranslate"><span class="pre">button_play</span></code> needs to be created before starting
-the server. This function will toggle the boolean state variable <code class="docutils literal notranslate"><span class="pre">play</span></code>
-and flush the server, i.e. &quot;force&quot; the server to see the change.
-We will see more on the state variables in a bit, but we need to create the
-function here otherwise the server will complain <code class="docutils literal notranslate"><span class="pre">button_play</span></code> does not exist.</p>
+<p>ボタンコールバック関数 <code class="docutils literal notranslate"><span class="pre">button_play</span></code> はサーバーを起動する前に作成する必要があります．この関数はブール値の状態変数 <code class="docutils literal notranslate"><span class="pre">play</span></code> をトグルし，サーバーをフラッシュします．ステート変数についてはもう少し詳しく説明しますが，ここで関数を作成する必要があります．</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">button_play</span><span class="p">():</span>
     <a href="https://docs.python.org/3/library/functions.html#bool" title="builtins.bool" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">state</span><span class="o">.</span><span class="n">play</span></a> <span class="o">=</span> <span class="ow">not</span> <a href="https://docs.python.org/3/library/functions.html#bool" title="builtins.bool" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">state</span><span class="o">.</span><span class="n">play</span></a>
     <span class="n">state</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>We will do a simple rendering of a Cone using the vtk <cite>vtkConeSouce</cite>
-algorithm.</p>
-<p>When using the <code class="docutils literal notranslate"><span class="pre">pl.show</span></code> method. The function we created <code class="docutils literal notranslate"><span class="pre">custom_tools</span></code>
-should be passed as a <code class="docutils literal notranslate"><span class="pre">jupyter_kwargs</span></code> argument under the key
-<code class="docutils literal notranslate"><span class="pre">add_menu_items</span></code>.</p>
+<p>vtk <cite>vtkConeSouce</cite> アルゴリズムを使用して，コーンの簡単なレンダリングを行います．</p>
+<p><code class="docutils literal notranslate"><span class="pre">pl.show</span></code> メソッドを使用する場合．作成した <code class="docutils literal notranslate"><span class="pre">custom_tools</span></code> 関数を <code class="docutils literal notranslate"><span class="pre">jupyter_kwargs</span></code> 引数として <code class="docutils literal notranslate"><span class="pre">add_menu_items</span></code> キーで渡す必要があります．</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pl</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Plotter</span><span class="p">(</span><span class="n">notebook</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">algo</span> <span class="o">=</span> <span class="n">vtk</span><span class="o">.</span><span class="n">vtkConeSource</span><span class="p">()</span>
 <span class="n">mesh_actor</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">algo</span><span class="p">)</span>
@@ -678,35 +665,17 @@ should be passed as a <code class="docutils literal notranslate"><span class="pr
 <span class="n">widget</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">jupyter_kwargs</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">add_menu_items</span><span class="o">=</span><span class="n">custom_tools</span><span class="p">),</span> <span class="n">return_viewer</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_customization-trame-toolbar_001.png" srcset="../../_images/sphx_glr_customization-trame-toolbar_001.png" alt="customization trame toolbar" class = "sphx-glr-single-img"/><p>To interact with <code class="docutils literal notranslate"><span class="pre">trame</span></code>'s server we need to get the server's state.</p>
-<p>We initialize the <code class="docutils literal notranslate"><span class="pre">play</span></code> variable in the shared state and this will be
-controlled by the play button we created. Note that when creating the
-<code class="docutils literal notranslate"><span class="pre">slider</span></code>, the <code class="docutils literal notranslate"><span class="pre">text_field</span></code> and the <code class="docutils literal notranslate"><span class="pre">select</span></code> tools, we passed something
-like <code class="docutils literal notranslate"><span class="pre">model=(&quot;variable&quot;,</span> <span class="pre">value).</span> <span class="pre">This</span> <span class="pre">will</span> <span class="pre">automatically</span> <span class="pre">create</span> <span class="pre">the</span> <span class="pre">variable</span>
-<span class="pre">&quot;variable&quot;</span> <span class="pre">with</span> <span class="pre">value</span> <span class="pre">``value</span></code> in the server's shared state, so we do not need
-to create <code class="docutils literal notranslate"><span class="pre">state.resolution</span></code> or <code class="docutils literal notranslate"><span class="pre">state.visibility</span></code>.</p>
+<img src="../../_images/sphx_glr_customization-trame-toolbar_001.png" srcset="../../_images/sphx_glr_customization-trame-toolbar_001.png" alt="customization trame toolbar" class = "sphx-glr-single-img"/><p><code class="docutils literal notranslate"><span class="pre">trame</span></code> のサーバーと対話するためには，サーバーの状態を取得する必要があります．</p>
+<p>共有ステートで <code class="docutils literal notranslate"><span class="pre">play</span></code> 変数を初期化し，作成した再生ボタンでコントロールできるようにします．なお， <code class="docutils literal notranslate"><span class="pre">slider</span></code> ， <code class="docutils literal notranslate"><span class="pre">text_field</span></code> ， <code class="docutils literal notranslate"><span class="pre">select</span></code> ツールを作成する際に， <code class="docutils literal notranslate"><span class="pre">model=(&quot;variable&quot;,</span> <span class="pre">value)</span></code> のようなものを渡しています．これにより，サーバーの共有ステートに値 <code class="docutils literal notranslate"><span class="pre">value</span></code> を持つ変数 &quot;variable&quot; が自動的に作成されるため， <code class="docutils literal notranslate"><span class="pre">state.resolution</span></code> や <code class="docutils literal notranslate"><span class="pre">state.visibility</span></code> を作成する必要はありません．</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">state</span><span class="p">,</span> <span class="n">ctrl</span> <span class="o">=</span> <span class="n">widget</span><span class="o">.</span><span class="n">viewer</span><span class="o">.</span><span class="n">server</span><span class="o">.</span><span class="n">state</span><span class="p">,</span> <span class="n">widget</span><span class="o">.</span><span class="n">viewer</span><span class="o">.</span><span class="n">server</span><span class="o">.</span><span class="n">controller</span>
 <a href="https://docs.python.org/3/library/functions.html#bool" title="builtins.bool" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">state</span><span class="o">.</span><span class="n">play</span></a> <span class="o">=</span> <span class="kc">False</span>
 <span class="n">ctrl</span><span class="o">.</span><span class="n">view_update</span> <span class="o">=</span> <span class="n">widget</span><span class="o">.</span><span class="n">viewer</span><span class="o">.</span><span class="n">update</span>
 </pre></div>
 </div>
-<p>Now we can create the callback functions for our menu items.</p>
-<p>The functions are decorated with a <code class="docutils literal notranslate"><span class="pre">state.change(&quot;variable&quot;)</span></code>. This means
-they will be called when this specific variable has its value changed in the
-server's shared state. When <code class="docutils literal notranslate"><span class="pre">resolution</span></code> changes, we want to update the
-resolution of our cone algorithm. When <code class="docutils literal notranslate"><span class="pre">visibility</span></code> changes, we want to toggle the
-visibility of our cone.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">play</span></code> variable is a little bit trickier. We want to start something like
-a timer so that an animation can be set to play. To do that with <code class="docutils literal notranslate"><span class="pre">trame</span></code> we need
-to have an asynchronous function so we can continue to do stuff while the
-&quot;timer&quot; function is running. The <code class="docutils literal notranslate"><span class="pre">_play</span></code> function will be called when the <code class="docutils literal notranslate"><span class="pre">play</span></code>
-variable is changed (when we click the play button, through the <code class="docutils literal notranslate"><span class="pre">button_play</span></code>
-callback). While <code class="docutils literal notranslate"><span class="pre">state.play</span></code> is <code class="docutils literal notranslate"><span class="pre">True</span></code> we want to play the animation. We
-change the <code class="docutils literal notranslate"><span class="pre">state.resolution</span></code> value, but to really call the <code class="docutils literal notranslate"><span class="pre">update_resolution</span></code>
-function we need to <code class="docutils literal notranslate"><span class="pre">flush</span></code> the server and force it to see the change in
-the shared variables. When <code class="docutils literal notranslate"><span class="pre">state.play</span></code> changes to <code class="docutils literal notranslate"><span class="pre">False</span></code>, the animation stops.</p>
-<p>Note that using <code class="docutils literal notranslate"><span class="pre">while</span> <span class="pre">play:</span> <span class="pre">...</span></code> would not work here because it is not the
-actual state variable, but only an argument value passed to the callback function.</p>
+<p>これで，メニュー項目のコールバック関数を作成できるようになりました．</p>
+<p>関数は <code class="docutils literal notranslate"><span class="pre">state.change(&quot;variable&quot;)</span></code> でデコレートされています．これは，この特定の変数の値がサーバーの共有ステートで変更されたときに呼び出されることを意味します． <code class="docutils literal notranslate"><span class="pre">resolution</span></code> が変更されると，コーンアルゴリズムの解像度を更新します． <code class="docutils literal notranslate"><span class="pre">visibility</span></code> が変更されると，コーンの可視性を切り替えます．</p>
+<p>変数 <code class="docutils literal notranslate"><span class="pre">play</span></code> は少しトリッキーです．アニメーションを再生するためにタイマーのようなものをスタートさせたいです．これを <code class="docutils literal notranslate"><span class="pre">trame</span></code> で行うには，非同期関数が必要です．関数 <code class="docutils literal notranslate"><span class="pre">_play</span></code> は，変数 <code class="docutils literal notranslate"><span class="pre">play</span></code> が変更された時に (再生ボタンをクリックした時、コールバック <code class="docutils literal notranslate"><span class="pre">button_play</span></code> を通して) 呼び出されます． <code class="docutils literal notranslate"><span class="pre">state.play</span></code> が <code class="docutils literal notranslate"><span class="pre">True</span></code> の間，アニメーションを再生したいです． <code class="docutils literal notranslate"><span class="pre">state.resolution</span></code> の値を変更しますが，実際に <code class="docutils literal notranslate"><span class="pre">update_resolution</span></code> 関数を呼び出すには，サーバーを <code class="docutils literal notranslate"><span class="pre">flush</span></code> して，共有変数の変更を確認させる必要があります． <code class="docutils literal notranslate"><span class="pre">state.play</span></code> が <code class="docutils literal notranslate"><span class="pre">False</span></code> に変更されると，アニメーションは停止します．</p>
+<p>実際のステート変数ではなく，コールバック関数に渡される引数値でしかないため， <code class="docutils literal notranslate"><span class="pre">while</span> <span class="pre">play:</span> <span class="pre">...</span></code> を使用してもここでは機能しないことに注意してください．</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># trame callbacks</span>
 <span class="nd">@state</span><span class="o">.</span><span class="n">change</span><span class="p">(</span><span class="s2">&quot;play&quot;</span><span class="p">)</span>
 <span class="k">async</span> <span class="k">def</span> <span class="nf">_play</span><span class="p">(</span><span class="n">play</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
@@ -734,10 +703,10 @@ actual state variable, but only an argument value passed to the callback functio
 <span class="n">widget</span>
 </pre></div>
 </div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Widget(value=&quot;&lt;iframe src=&#39;http://localhost:42521/index.html?ui=P_0x7fa71da6cd00_0&amp;reconnect=auto&#39; class=&#39;pyvista&#39; style=&#39;width: 99%; height: 600px; border: 1px solid rgb(221,221,221);&#39;&gt;&lt;/iframe&gt;&quot;)
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Widget(value=&quot;&lt;iframe src=&#39;http://localhost:35393/index.html?ui=P_0x7effb2ecdca0_0&amp;reconnect=auto&#39; class=&#39;pyvista&#39; style=&#39;width: 99%; height: 600px; border: 1px solid rgb(221,221,221);&#39;&gt;&lt;/iframe&gt;&quot;)
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 0.248 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 0.227 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-99-advanced-customization-trame-toolbar-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/e90e733dfa0c3a9a6fc2ea81fe66155b/customization-trame-toolbar.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">customization-trame-toolbar.py</span></code></a></p>
