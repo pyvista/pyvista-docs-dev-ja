@@ -508,6 +508,10 @@ document.write(`
 <li class="toctree-l2"><a class="reference internal" href="compute-normals.html">表面の法線を計算します</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">ボリューム分析</a></li>
 <li class="toctree-l2"><a class="reference internal" href="connectivity.html">連結度</a></li>
+
+
+
+
 <li class="toctree-l2"><a class="reference internal" href="contouring.html">コンタリング</a></li>
 <li class="toctree-l2"><a class="reference internal" href="decimate.html">間引き</a></li>
 <li class="toctree-l2"><a class="reference internal" href="distance-between-surfaces.html">2つのサーフェス間の距離</a></li>
@@ -786,9 +790,12 @@ High grade volume: 32.0
 Original volume: 729.0
 </pre></div>
 </div>
-<p>あるいは，単純に <code class="docutils literal notranslate"><span class="pre">connectivity</span></code> に <code class="docutils literal notranslate"><span class="pre">'largest'</span></code> を渡し，先ほど閾値処理で使用したのと同じスカラー範囲を指定することで，データセットから最大のボリュームを直接抽出することもできます．</p>
+<p>Or better yet, you could simply extract the largest volume from your
+dataset directly by passing <code class="docutils literal notranslate"><span class="pre">'largest'</span></code> to the <code class="docutils literal notranslate"><span class="pre">connectivity</span></code> and
+specifying the scalar range of interest.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Grab the largest connected volume within a scalar range</span>
-<span class="n">largest</span> <span class="o">=</span> <span class="n">threshed</span><span class="o">.</span><span class="n">connectivity</span><span class="p">(</span><span class="s1">&#39;largest&#39;</span><span class="p">,</span> <span class="n">scalar_range</span><span class="o">=</span><span class="p">[</span><span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.50</span><span class="p">])</span>
+<a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">scalar_range</span></a> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">77</span><span class="p">]</span>  <span class="c1"># Range corresponding to bottom 15% of values</span>
+<span class="n">largest</span> <span class="o">=</span> <span class="n">threshed</span><span class="o">.</span><span class="n">connectivity</span><span class="p">(</span><span class="s1">&#39;largest&#39;</span><span class="p">,</span> <a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">scalar_range</span></a><span class="o">=</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">scalar_range</span></a><span class="p">)</span>
 
 <span class="c1"># Get volume as numeric value</span>
 <a href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float64" title="numpy.float64" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute"><span class="n">large_volume</span></a> <span class="o">=</span> <span class="n">largest</span><span class="o">.</span><a href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float64" title="numpy.float64" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute"><span class="n">volume</span></a>
@@ -874,7 +881,7 @@ Body 20 volume: 1150.000
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bodies</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">scalars</span><span class="o">=</span><span class="s2">&quot;TOTAL VOLUME&quot;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;viridis&quot;</span><span class="p">,</span> <span class="n">show_grid</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_compute-volume_004.png" srcset="../../_images/sphx_glr_compute-volume_004.png" alt="compute volume" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 10.972 seconds)</p>
+<img src="../../_images/sphx_glr_compute-volume_004.png" srcset="../../_images/sphx_glr_compute-volume_004.png" alt="compute volume" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 10.423 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-01-filter-compute-volume-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/6bce5e00bc370f5ce96e59726644605e/compute-volume.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">compute-volume.py</span></code></a></p>
