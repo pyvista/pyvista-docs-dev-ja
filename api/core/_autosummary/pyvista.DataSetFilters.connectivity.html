@@ -667,11 +667,9 @@ document.write(`
 <div class="versionadded">
 <p><span class="versionmodified added">バージョン 0.43.0 で追加: </span></p>
 <ul class="simple">
-<li><p>New extraction modes: <code class="docutils literal notranslate"><span class="pre">'specified'</span></code>, <code class="docutils literal notranslate"><span class="pre">'cell_seed'</span></code>, <code class="docutils literal notranslate"><span class="pre">'point_seed'</span></code>,
-and <code class="docutils literal notranslate"><span class="pre">'closest'</span></code>.</p></li>
-<li><p>Extracted regions are now sorted in descending order by
-cell count.</p></li>
-<li><p>Region connectivity can be controlled using <code class="docutils literal notranslate"><span class="pre">scalar_range</span></code>.</p></li>
+<li><p>新しい抽出モード: <code class="docutils literal notranslate"><span class="pre">'specified'</span></code> ， <code class="docutils literal notranslate"><span class="pre">'cell_seed'</span></code> ， <code class="docutils literal notranslate"><span class="pre">'point_seed'</span></code> ， <code class="docutils literal notranslate"><span class="pre">'close'</span></code> ．</p></li>
+<li><p>抽出された領域は，セル数の降順でソートされるようになりました．</p></li>
+<li><p>領域の連結性は <code class="docutils literal notranslate"><span class="pre">scalar_range</span></code> を使用して制御できます．</p></li>
 </ul>
 </div>
 <div class="deprecated">
@@ -689,20 +687,16 @@ cell count.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">'closest'</span></code> :指定した点に最も近い領域を抽出します．点を指定するには <code class="docutils literal notranslate"><span class="pre">closest_point</span></code> を使用する．</p></li>
 </ul>
 </dd>
-<dt><strong>variable_input</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a> | <a class="reference external" href="https://docs.python.org/3/glossary.html#term-sequence" title="(in Python v3.11)"><span>sequence</span></a>[<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a>], <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>The convenience parameter used for specifying any required input
-values for some values of <code class="docutils literal notranslate"><span class="pre">extraction_mode</span></code>. Setting
-<code class="docutils literal notranslate"><span class="pre">variable_input</span></code> is equivalent to setting:</p>
+<dt><strong>variable_input</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a> | <a class="reference external" href="https://docs.python.org/3/glossary.html#term-sequence" title="(in Python v3.11)"><span>sequence</span></a>[<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a>], <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p><code class="docutils literal notranslate"><span class="pre">extraction_mode</span></code> の値に必要な入力値を指定するための便利なパラメータです． <code class="docutils literal notranslate"><span class="pre">variable_input</span></code> を設定することは以下を設定することと同じです:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">'region_ids'</span></code> if mode is <code class="docutils literal notranslate"><span class="pre">'specified'</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">'cell_ids'</span></code> if mode is <code class="docutils literal notranslate"><span class="pre">'cell_seed'</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">'point_ids'</span></code> if mode is <code class="docutils literal notranslate"><span class="pre">'point_seed'</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">'closest_point'</span></code> if mode is <code class="docutils literal notranslate"><span class="pre">'closest'</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'region_ids'</span></code> モードが <code class="docutils literal notranslate"><span class="pre">'specified'</span></code> の場合．</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'cell_ids'</span></code> モードが <code class="docutils literal notranslate"><span class="pre">'cell_seed'</span></code> の場合．</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'point_ids'</span></code> モードが <code class="docutils literal notranslate"><span class="pre">'point_seed'</span></code> の場合．</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">'closest_point'</span></code> モードが <code class="docutils literal notranslate"><span class="pre">'closest'</span></code> の場合．</p></li>
 </ul>
-<p>It has no effect if the mode is <code class="docutils literal notranslate"><span class="pre">'all'</span></code> or <code class="docutils literal notranslate"><span class="pre">'largest'</span></code>.</p>
+<p>モードが <code class="docutils literal notranslate"><span class="pre">'all'</span></code> または <code class="docutils literal notranslate"><span class="pre">'largest'</span></code> の場合は効果がありません．</p>
 </dd>
-<dt><strong>scalar_range</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/glossary.html#term-sequence" title="(in Python v3.11)"><span>sequence</span></a>[<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a>], <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>Scalar range in the form <code class="docutils literal notranslate"><span class="pre">[min,</span> <span class="pre">max]</span></code>. If set, the connectivity is
-restricted to cells with at least one point with scalar values in
-the specified range.</p>
+<dt><strong>scalar_range</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/glossary.html#term-sequence" title="(in Python v3.11)"><span>sequence</span></a>[<a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a>], <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p><code class="docutils literal notranslate"><span class="pre">[min,</span> <span class="pre">max]</span></code> 形式のスカラー範囲．設定された場合，接続性は指定された範囲内のスカラー値を持つ点を少なくとも1つ持つセルに制限されます．</p>
 </dd>
 <dt><strong>scalars</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p><code class="docutils literal notranslate"><span class="pre">scalar_range</span></code> が指定された場合に使用するスカラーの名前．デフォルトは現在アクティブなスカラーです．</p>
 <div class="admonition note">
@@ -710,10 +704,7 @@ the specified range.</p>
 <p>このフィルタは領域の連結性を決定するために点スカラーを必要とします．セルスカラーが提供された場合，それらはフィルタを適用する前にまず <a class="reference internal" href="pyvista.DataSetFilters.cell_data_to_point_data.html#pyvista.DataSetFilters.cell_data_to_point_data" title="pyvista.DataSetFilters.cell_data_to_point_data"><code class="xref py py-func docutils literal notranslate"><span class="pre">cell_data_to_point_data()</span></code></a> によって点スカラーに変換されます．変換された点スカラーはフィルタを適用した後に出力から取り除かれます．</p>
 </div>
 </dd>
-<dt><strong>label_regions</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.11)"><span class="xref std std-ref">bool</span></a>, default: <a class="reference external" href="https://docs.python.org/3/library/constants.html#True" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">True</span></code></a></span></dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">True</span></code>, <code class="docutils literal notranslate"><span class="pre">'RegionId'</span></code> point and cell scalar arrays are stored.
-Each region is assigned a unique ID. IDs are zero-indexed and are
-assigned by region cell count in descending order (i.e. the largest
-region has ID <code class="docutils literal notranslate"><span class="pre">0</span></code>).</p>
+<dt><strong>label_regions</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.11)"><span class="xref std std-ref">bool</span></a>, default: <a class="reference external" href="https://docs.python.org/3/library/constants.html#True" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">True</span></code></a></span></dt><dd><p>もし <code class="docutils literal notranslate"><span class="pre">True</span></code> なら， <code class="docutils literal notranslate"><span class="pre">'RegionId'</span></code> 点とセルのスカラー配列が格納されます．各領域には一意の ID が割り当てられます．IDはゼロインデックスで，領域のセル数の降順で割り当てられます (つまり，最大の領域はID <code class="docutils literal notranslate"><span class="pre">0</span></code> を持ちます) ．</p>
 </dd>
 <dt><strong>region_ids</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/glossary.html#term-sequence" title="(in Python v3.11)"><span>sequence</span></a>[<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">int</span></code></a>], <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>抽出する領域ID． <code class="docutils literal notranslate"><span class="pre">extraction_mode</span></code> が <code class="docutils literal notranslate"><span class="pre">specified</span></code> の場合のみ使用されます．</p>
 </dd>
@@ -745,8 +736,7 @@ region has ID <code class="docutils literal notranslate"><span class="pre">0</sp
 </dl>
 </div>
 <p class="rubric">例</p>
-<p>Create a single mesh with three disconnected regions where each
-region has a different cell count.</p>
+<p>各領域のセル数は異なります．3つの切り離された領域を持つ単一のメッシュを作成します．</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyvista</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">large</span> <span class="o">=</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">Sphere</span><span class="p">(</span>
 <span class="gp">... </span>    <span class="n">center</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">phi_resolution</span><span class="o">=</span><span class="mi">40</span><span class="p">,</span> <span class="n">theta_resolution</span><span class="o">=</span><span class="mi">40</span>
@@ -760,7 +750,7 @@ region has a different cell count.</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mesh</span> <span class="o">=</span> <span class="n">large</span> <span class="o">+</span> <span class="n">medium</span> <span class="o">+</span> <span class="n">small</span>
 </pre></div>
 </div>
-<p>Plot their connectivity.</p>
+<p>接続性をプロットします．</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">conn</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">connectivity</span><span class="p">(</span><span class="s1">&#39;all&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">conn</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">cmap</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="s1">&#39;blue&#39;</span><span class="p">],</span> <span class="n">show_edges</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
@@ -768,7 +758,7 @@ region has a different cell count.</p>
 <figure class="align-default">
 <img alt="../../../_images/pyvista-DataSetFilters-connectivity-1_00_00.png" src="../../../_images/pyvista-DataSetFilters-connectivity-1_00_00.png" />
 </figure>
-<p>Restrict connectivity to a scalar range.</p>
+<p>接続をスカラー範囲に制限します．</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mesh</span><span class="p">[</span><span class="s1">&#39;y_coordinates&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">points</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">conn</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">connectivity</span><span class="p">(</span><span class="s1">&#39;all&#39;</span><span class="p">,</span> <span class="n">scalar_range</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">conn</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">cmap</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="s1">&#39;blue&#39;</span><span class="p">],</span> <span class="n">show_edges</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -777,7 +767,7 @@ region has a different cell count.</p>
 <figure class="align-default">
 <img alt="../../../_images/pyvista-DataSetFilters-connectivity-1_01_00.png" src="../../../_images/pyvista-DataSetFilters-connectivity-1_01_00.png" />
 </figure>
-<p>Extract the region closest to the origin.</p>
+<p>原点に最も近い領域を抽出します．</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">conn</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">connectivity</span><span class="p">(</span><span class="s1">&#39;closest&#39;</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">conn</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">show_edges</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
@@ -785,7 +775,7 @@ region has a different cell count.</p>
 <figure class="align-default">
 <img alt="../../../_images/pyvista-DataSetFilters-connectivity-1_02_00.png" src="../../../_images/pyvista-DataSetFilters-connectivity-1_02_00.png" />
 </figure>
-<p>Extract a region using a cell ID <code class="docutils literal notranslate"><span class="pre">100</span></code> as a seed.</p>
+<p>セルID <code class="docutils literal notranslate"><span class="pre">100</span></code> をシードとして領域を抽出します．</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">conn</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">connectivity</span><span class="p">(</span><span class="s1">&#39;cell_seed&#39;</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">conn</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">show_edges</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
@@ -801,10 +791,7 @@ region has a different cell count.</p>
 <figure class="align-default">
 <img alt="../../../_images/pyvista-DataSetFilters-connectivity-1_04_00.png" src="../../../_images/pyvista-DataSetFilters-connectivity-1_04_00.png" />
 </figure>
-<p>Extract the largest and smallest regions by specifying their
-region IDs. Note that the region IDs of the output differ from
-the specified IDs since the input has three regions but the output
-only has two.</p>
+<p>領域IDを指定して，最大と最小の領域を抽出します．入力には3つの領域がありますが，出力には2つしかないので，出力の領域IDは指定されたIDとは異なることに注意してください．</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">large_id</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># largest always has ID &#39;0&#39;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">small_id</span> <span class="o">=</span> <span class="mi">2</span>  <span class="c1"># smallest has ID &#39;N-1&#39; with N=3 regions</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">conn</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">connectivity</span><span class="p">(</span><span class="s1">&#39;specified&#39;</span><span class="p">,</span> <span class="p">(</span><span class="n">small_id</span><span class="p">,</span> <span class="n">large_id</span><span class="p">))</span>

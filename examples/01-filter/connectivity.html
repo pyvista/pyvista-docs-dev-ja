@@ -650,20 +650,19 @@ document.write(`
 </div>
 <section class="sphx-glr-example-title" id="connectivity">
 <span id="connectivity-example"></span><span id="sphx-glr-examples-01-filter-connectivity-py"></span><h1>連結度<a class="headerlink" href="#connectivity" title="この見出しへのパーマリンク">#</a></h1>
-<p>This example highlights some applications of the <a class="reference internal" href="../../api/core/_autosummary/pyvista.DataSetFilters.connectivity.html#pyvista.DataSetFilters.connectivity" title="pyvista.DataSetFilters.connectivity"><code class="xref py py-func docutils literal notranslate"><span class="pre">connectivity()</span></code></a>
-filter.</p>
+<p>この例では， <a class="reference internal" href="../../api/core/_autosummary/pyvista.DataSetFilters.connectivity.html#pyvista.DataSetFilters.connectivity" title="pyvista.DataSetFilters.connectivity"><code class="xref py py-func docutils literal notranslate"><span class="pre">connectivity()</span></code></a> フィルタの応用例を紹介します．</p>
 </section>
 <section id="remove-noisy-isosurfaces">
-<h1>Remove Noisy Isosurfaces<a class="headerlink" href="#remove-noisy-isosurfaces" title="この見出しへのパーマリンク">#</a></h1>
-<p>Use connectivity to remove noisy isosurfaces.</p>
-<p>This section is similar to <a class="reference external" href="https://kitware.github.io/vtk-examples/site/Python/VisualizationAlgorithms/PineRootConnectivity/">this VTK example</a>.</p>
+<h1>ノイズの多い等値面を取り除く<a class="headerlink" href="#remove-noisy-isosurfaces" title="この見出しへのパーマリンク">#</a></h1>
+<p>ノイズの多い等値面を削除するには，連結度を使用します．</p>
+<p>このセクションは <a class="reference external" href="https://kitware.github.io/vtk-examples/site/Python/VisualizationAlgorithms/PineRootConnectivity/">この VTK の例</a> に似ています．</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <span class="kn">import</span> <span class="nn">pyvista</span> <span class="k">as</span> <span class="nn">pv</span>
 <span class="kn">from</span> <span class="nn">pyvista</span> <span class="kn">import</span> <span class="n">examples</span>
 </pre></div>
 </div>
-<p>Load a dataset with noisy isosurfaces.</p>
+<p>ノイズの多い等値面を持つデータセットをロードします</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pine_roots</span> <span class="o">=</span> <span class="n">examples</span><span class="o">.</span><span class="n">download_pine_roots</span><span class="p">()</span>
 
 <span class="c1"># Plot the raw data</span>
@@ -674,10 +673,7 @@ filter.</p>
 <span class="n">p</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">cpos</span></a><span class="o">=</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">cpos</span></a><span class="p">)</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_connectivity_001.png" srcset="../../_images/sphx_glr_connectivity_001.png" alt="connectivity" class = "sphx-glr-single-img"/><p>The plotted mesh is very noisy. We can extract the largest connected
-isosurface using the <code class="docutils literal notranslate"><span class="pre">'largest'</span></code> <code class="docutils literal notranslate"><span class="pre">extraction_mode</span></code> of  the
-<a class="reference internal" href="../../api/core/_autosummary/pyvista.DataSetFilters.connectivity.html#pyvista.DataSetFilters.connectivity" title="pyvista.DataSetFilters.connectivity"><code class="xref py py-func docutils literal notranslate"><span class="pre">connectivity()</span></code></a> filter. Equivalently,
-<a class="reference internal" href="../../api/core/_autosummary/pyvista.DataSetFilters.extract_largest.html#pyvista.DataSetFilters.extract_largest" title="pyvista.DataSetFilters.extract_largest"><code class="xref py py-func docutils literal notranslate"><span class="pre">extract_largest()</span></code></a> may also be used.</p>
+<img src="../../_images/sphx_glr_connectivity_001.png" srcset="../../_images/sphx_glr_connectivity_001.png" alt="connectivity" class = "sphx-glr-single-img"/><p>プロットされたメッシュは非常にノイズが多いです． <a class="reference internal" href="../../api/core/_autosummary/pyvista.DataSetFilters.connectivity.html#pyvista.DataSetFilters.connectivity" title="pyvista.DataSetFilters.connectivity"><code class="xref py py-func docutils literal notranslate"><span class="pre">connectivity()</span></code></a> フィルタの <code class="docutils literal notranslate"><span class="pre">'largest'</span></code> <code class="docutils literal notranslate"><span class="pre">extraction_mode</span></code> を使用することで，最大連結等曲面を抽出することができます．同様に， <a class="reference internal" href="../../api/core/_autosummary/pyvista.DataSetFilters.extract_largest.html#pyvista.DataSetFilters.extract_largest" title="pyvista.DataSetFilters.extract_largest"><code class="xref py py-func docutils literal notranslate"><span class="pre">extract_largest()</span></code></a> フィルタを使用することもできます．</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Grab the largest connected volume present</span>
 <span class="n">largest</span> <span class="o">=</span> <span class="n">pine_roots</span><span class="o">.</span><span class="n">connectivity</span><span class="p">(</span><span class="s1">&#39;largest&#39;</span><span class="p">)</span>
 <span class="c1"># or: largest = mesh.extract_largest()</span>
@@ -691,23 +687,19 @@ isosurface using the <code class="docutils literal notranslate"><span class="pre
 </div>
 <img src="../../_images/sphx_glr_connectivity_002.png" srcset="../../_images/sphx_glr_connectivity_002.png" alt="connectivity" class = "sphx-glr-single-img"/></section>
 <section id="extract-small-regions">
-<h1>Extract Small Regions<a class="headerlink" href="#extract-small-regions" title="この見出しへのパーマリンク">#</a></h1>
-<p>Use connectivity to extract the smaller 'noisy' regions that were
-removed in the remove noisy isosurfaces example above.</p>
-<p>First, get a list of all region ids.</p>
+<h1>小領域の抽出<a class="headerlink" href="#extract-small-regions" title="この見出しへのパーマリンク">#</a></h1>
+<p>上記のノイズの多い等値面を除去する例で除去された，より小さい 'noisy' な領域を抽出するために接続性を使用します．</p>
+<p>まず，すべての領域IDのリストを取得します．</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">all_regions</span> <span class="o">=</span> <span class="n">pine_roots</span><span class="o">.</span><span class="n">connectivity</span><span class="p">(</span><span class="s1">&#39;all&#39;</span><span class="p">)</span>
 <span class="n">region_ids</span> <span class="o">=</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.unique.html#numpy.unique" title="numpy.unique" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">unique</span></a><span class="p">(</span><span class="n">all_regions</span><span class="p">[</span><span class="s1">&#39;RegionId&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
-<p>Since the region IDs are sorted in descending order (by cell count),
-we can extract all regions <em>except</em> for the largest one using the
-<code class="docutils literal notranslate"><span class="pre">'specified'</span></code> <code class="docutils literal notranslate"><span class="pre">extraction_mode</span></code> of the <a class="reference internal" href="../../api/core/_autosummary/pyvista.DataSetFilters.connectivity.html#pyvista.DataSetFilters.connectivity" title="pyvista.DataSetFilters.connectivity"><code class="xref py py-func docutils literal notranslate"><span class="pre">connectivity()</span></code></a>
-filter.</p>
+<p>領域IDは降順 (セル数順) にソートされているので， <a class="reference internal" href="../../api/core/_autosummary/pyvista.DataSetFilters.connectivity.html#pyvista.DataSetFilters.connectivity" title="pyvista.DataSetFilters.connectivity"><code class="xref py py-func docutils literal notranslate"><span class="pre">connectivity()</span></code></a> フィルタの <code class="docutils literal notranslate"><span class="pre">'specified'`</span></code> <code class="docutils literal notranslate"><span class="pre">extraction_mode</span></code> を使用して，最大の領域を除くすべての領域を抽出することができます．</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">noise_region_ids</span> <span class="o">=</span> <span class="n">region_ids</span><span class="p">[</span><span class="mi">1</span><span class="p">::]</span>  <span class="c1"># All region ids except &#39;0&#39;</span>
 <span class="n">noise</span> <span class="o">=</span> <span class="n">pine_roots</span><span class="o">.</span><span class="n">connectivity</span><span class="p">(</span><span class="s1">&#39;specified&#39;</span><span class="p">,</span> <span class="n">noise_region_ids</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Plot the noisy regions. For context, also plot the largest region.</p>
+<p>ノイズの多い領域をプロットします．文脈のために、最大の領域もプロットします．</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Plotter</span><span class="p">()</span>
 <span class="n">p</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">noise</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;glasbey&#39;</span><span class="p">,</span> <span class="n">categories</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">p</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">largest</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;lightgray&#39;</span><span class="p">,</span> <span class="n">opacity</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
@@ -718,18 +710,18 @@ filter.</p>
 </div>
 <img src="../../_images/sphx_glr_connectivity_003.png" srcset="../../_images/sphx_glr_connectivity_003.png" alt="connectivity" class = "sphx-glr-single-img"/></section>
 <section id="label-disconnected-regions">
-<h1>Label Disconnected Regions<a class="headerlink" href="#label-disconnected-regions" title="この見出しへのパーマリンク">#</a></h1>
-<p>Use connectivity to label all disconnected regions.</p>
-<p>This section is similar to <a class="reference external" href="https://examples.vtk.org/site/Cxx/PolyData/ColorDisconnectedRegionsDemo/">this VTK example</a>.</p>
-<p>First, load a dataset with disconnected regions.</p>
+<h1>切断された領域にラベルをする<a class="headerlink" href="#label-disconnected-regions" title="この見出しへのパーマリンク">#</a></h1>
+<p>接続性を使用して，すべての切断された領域にラベルを付けます．</p>
+<p>このセクションは <a href="#id1"><span class="problematic" id="id2">`このVTKの例&lt;https://examples.vtk.org/site/Cxx/PolyData/ColorDisconnectedRegionsDemo/&gt;`__</span></a> に似ています．</p>
+<p>まず，切断された領域を含むデータセットをロードします．</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mesh</span> <span class="o">=</span> <span class="n">examples</span><span class="o">.</span><span class="n">download_foot_bones</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>Extract all regions.</p>
+<p>すべての領域を抽出します．</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conn</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">connectivity</span><span class="p">(</span><span class="s1">&#39;all&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Plot the labeled regions.</p>
+<p>ラベルを付けた領域をプロットします．</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Format scalar bar text for integer values.</span>
 <a href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">scalar_bar_args</span></a> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
     <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;%.f&#39;</span><span class="p">,</span>
@@ -747,19 +739,14 @@ filter.</p>
 </div>
 <img src="../../_images/sphx_glr_connectivity_004.png" srcset="../../_images/sphx_glr_connectivity_004.png" alt="connectivity" class = "sphx-glr-single-img"/></section>
 <section id="extract-regions-from-seed-points">
-<h1>Extract Regions From Seed Points<a class="headerlink" href="#extract-regions-from-seed-points" title="この見出しへのパーマリンク">#</a></h1>
-<p>Use connectivity to extract regions of interest using scalar data and
-seed points.</p>
-<p>First, create a dataset with salient features. Here, we create hills
-and use curvature to define its peaks and valleys.</p>
+<h1>シードポイントから領域を抽出する<a class="headerlink" href="#extract-regions-from-seed-points" title="この見出しへのパーマリンク">#</a></h1>
+<p>スカラーデータとシードポイントを用いて，連結性を利用して関心のある領域を抽出します．</p>
+<p>まず，顕著な特徴を持つデータセットを作成します．ここでは丘を作り，曲率を使って山と谷を定義します．</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mesh</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">ParametricRandomHills</span><span class="p">()</span>
 <span class="n">mesh</span><span class="p">[</span><span class="s2">&quot;Curvature&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">curvature</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>Visualize the peaks and valleys.
-Peaks have large positive curvature (i.e. are convex).
-Valleys have large negative curvature (i.e. are concave).
-Flat regions have curvature close to zero.</p>
+<p>山と谷を視覚化します．山は正の曲率が大きい (つまり凸状) 谷は負の曲率が大きい (つまり凹状) 平坦な領域は曲率がゼロに近いです．</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mesh</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
     <span class="n">clim</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">],</span>
     <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;bwr&#39;</span><span class="p">,</span>
@@ -768,10 +755,7 @@ Flat regions have curvature close to zero.</p>
 <span class="p">)</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_connectivity_005.png" srcset="../../_images/sphx_glr_connectivity_005.png" alt="connectivity" class = "sphx-glr-single-img"/><p>Extract a region of interest using the
-<code class="docutils literal notranslate"><span class="pre">'point_seed'</span></code> <code class="docutils literal notranslate"><span class="pre">extraction_mode</span></code> of the <a class="reference internal" href="../../api/core/_autosummary/pyvista.DataSetFilters.connectivity.html#pyvista.DataSetFilters.connectivity" title="pyvista.DataSetFilters.connectivity"><code class="xref py py-func docutils literal notranslate"><span class="pre">connectivity()</span></code></a>
-filter. Let's extract the steepest peak using a seed point where the
-curvature is maximized.</p>
+<img src="../../_images/sphx_glr_connectivity_005.png" srcset="../../_images/sphx_glr_connectivity_005.png" alt="connectivity" class = "sphx-glr-single-img"/><p><a class="reference internal" href="../../api/core/_autosummary/pyvista.DataSetFilters.connectivity.html#pyvista.DataSetFilters.connectivity" title="pyvista.DataSetFilters.connectivity"><code class="xref py py-func docutils literal notranslate"><span class="pre">connectivity()</span></code></a> フィルターの <code class="docutils literal notranslate"><span class="pre">'point_seed'</span></code> <code class="docutils literal notranslate"><span class="pre">extraction_mode</span></code> を使用して関心のある領域を抽出します． 曲率が最大になるシードポイントを使用して，最も急峻なピークを抽出してみましょう．</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get seed point</span>
 <a href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.int64" title="numpy.int64" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute"><span class="n">peak_point_id</span></a> <span class="o">=</span> <a href="https://numpy.org/doc/stable/reference/generated/numpy.argmax.html#numpy.argmax" title="numpy.argmax" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">argmax</span></a><span class="p">(</span><span class="n">mesh</span><span class="p">[</span><span class="s1">&#39;Curvature&#39;</span><span class="p">])</span>
 
@@ -782,9 +766,7 @@ curvature is maximized.</p>
 <span class="n">peak_mesh</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">connectivity</span><span class="p">(</span><span class="s1">&#39;point_seed&#39;</span><span class="p">,</span> <a href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.int64" title="numpy.int64" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute"><span class="n">peak_point_id</span></a><span class="p">,</span> <span class="n">scalar_range</span><span class="o">=</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">peak_range</span></a><span class="p">)</span>
 </pre></div>
 </div>
-<p>Let's also extract the closest valley to the steepest peak using the
-<code class="docutils literal notranslate"><span class="pre">'closest'</span></code> <code class="docutils literal notranslate"><span class="pre">extraction_mode</span></code> of the <a class="reference internal" href="../../api/core/_autosummary/pyvista.DataSetFilters.connectivity.html#pyvista.DataSetFilters.connectivity" title="pyvista.DataSetFilters.connectivity"><code class="xref py py-func docutils literal notranslate"><span class="pre">connectivity()</span></code></a>
-filter.</p>
+<p><a class="reference internal" href="../../api/core/_autosummary/pyvista.DataSetFilters.connectivity.html#pyvista.DataSetFilters.connectivity" title="pyvista.DataSetFilters.connectivity"><code class="xref py py-func docutils literal notranslate"><span class="pre">connectivity()</span></code></a> フィルターの <code class="docutils literal notranslate"><span class="pre">'closeest'</span></code> <code class="docutils literal notranslate"><span class="pre">extraction_mode</span></code> を使用して，最も急峻なピークに最も近い谷も抽出してみましょう．</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">valley_range</span></a> <span class="o">=</span> <span class="p">[</span><a href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.float64" title="numpy.float64" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute"><span class="n">data_min</span></a><span class="p">,</span> <span class="o">-</span><span class="mf">0.2</span><span class="p">]</span>  <span class="c1"># Valley if curvature &lt; -0.2</span>
 <span class="n">peak_point</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">points</span><span class="p">[</span><a href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.int64" title="numpy.int64" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-attribute"><span class="n">peak_point_id</span></a><span class="p">]</span>
 <span class="n">valley_mesh</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">connectivity</span><span class="p">(</span><span class="s1">&#39;closest&#39;</span><span class="p">,</span> <span class="n">peak_point</span><span class="p">,</span> <span class="n">scalar_range</span><span class="o">=</span><a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">valley_range</span></a><span class="p">)</span>
@@ -799,7 +781,7 @@ filter.</p>
 <span class="n">p</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_connectivity_006.png" srcset="../../_images/sphx_glr_connectivity_006.png" alt="connectivity" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 14.011 seconds)</p>
+<img src="../../_images/sphx_glr_connectivity_006.png" srcset="../../_images/sphx_glr_connectivity_006.png" alt="connectivity" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 13.113 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-01-filter-connectivity-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/ebb47cef7f07a02d638c878f2f435ae0/connectivity.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">connectivity.py</span></code></a></p>
@@ -829,10 +811,10 @@ filter.</p>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">連結度</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#remove-noisy-isosurfaces">Remove Noisy Isosurfaces</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#extract-small-regions">Extract Small Regions</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#label-disconnected-regions">Label Disconnected Regions</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#extract-regions-from-seed-points">Extract Regions From Seed Points</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#remove-noisy-isosurfaces">ノイズの多い等値面を取り除く</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#extract-small-regions">小領域の抽出</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#label-disconnected-regions">切断された領域にラベルをする</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#extract-regions-from-seed-points">シードポイントから領域を抽出する</a></li>
 </ul>
 
   </nav></div>
