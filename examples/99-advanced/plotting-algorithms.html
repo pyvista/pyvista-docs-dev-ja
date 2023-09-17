@@ -616,13 +616,13 @@ to download the full example code</p>
 </pre></div>
 </div>
 <p>ソースアルゴリズムとして <code class="docutils literal notranslate"><span class="pre">vtkConeSource</span></code> を使用します．このソースは，インスタンスのパラメータに応じて動的にコーンオブジェクトを作成します．この例では， <code class="docutils literal notranslate"><span class="pre">vtkConeSource.SetResolution()</span></code> を介して，コーンソースアルゴリズムの解像度を設定するコールバックを接続します．</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">algo</span> <span class="o">=</span> <span class="n">vtk</span><span class="o">.</span><span class="n">vtkConeSource</span><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">algo</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">ConeSource</span><span class="p">()</span>
 
 
 <span class="k">def</span> <span class="nf">update_resolution</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Callback to set the resolution of the cone generator.&quot;&quot;&quot;</span>
     <span class="n">res</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
-    <span class="n">algo</span><span class="o">.</span><span class="n">SetResolution</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+    <span class="n">algo</span><span class="o">.</span><span class="n">resolution</span> <span class="o">=</span> <span class="n">res</span>
 </pre></div>
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">vtkConeSource</span></code> (<code class="docutils literal notranslate"><span class="pre">vtkAlgorithm</span></code> のサブクラス) を直接プロッタに渡し，スライダウィジェットを解像度を調整するコールバックに接続します．</p>
@@ -687,7 +687,7 @@ to download the full example code</p>
 <span class="n">p</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_plotting-algorithms_003.png" srcset="../../_images/sphx_glr_plotting-algorithms_003.png" alt="plotting algorithms" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 6.492 seconds)</p>
+<img src="../../_images/sphx_glr_plotting-algorithms_003.png" srcset="../../_images/sphx_glr_plotting-algorithms_003.png" alt="plotting algorithms" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 8.109 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-99-advanced-plotting-algorithms-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/0d0cd93a9234d1762838613f260c5414/plotting-algorithms.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plotting-algorithms.py</span></code></a></p>

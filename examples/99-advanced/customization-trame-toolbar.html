@@ -603,8 +603,6 @@ document.write(`
 <p>jupyterのビューにtrameのパワーをもっともたらします．</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">asyncio</span>
 
-<span class="kn">import</span> <span class="nn">vtk</span>
-
 <span class="kn">import</span> <span class="nn">pyvista</span> <span class="k">as</span> <span class="nn">pv</span>
 <span class="kn">from</span> <span class="nn">pyvista.trame.ui.vuetify2</span> <span class="kn">import</span> <span class="n">button</span><span class="p">,</span> <span class="n">divider</span><span class="p">,</span> <span class="n">select</span><span class="p">,</span> <span class="n">slider</span><span class="p">,</span> <span class="n">text_field</span>
 </pre></div>
@@ -659,7 +657,7 @@ document.write(`
 <p>vtk <cite>vtkConeSouce</cite> アルゴリズムを使用して，コーンの簡単なレンダリングを行います．</p>
 <p><code class="docutils literal notranslate"><span class="pre">pl.show</span></code> メソッドを使用する場合．作成した <code class="docutils literal notranslate"><span class="pre">custom_tools</span></code> 関数を <code class="docutils literal notranslate"><span class="pre">jupyter_kwargs</span></code> 引数として <code class="docutils literal notranslate"><span class="pre">add_menu_items</span></code> キーで渡す必要があります．</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pl</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Plotter</span><span class="p">(</span><span class="n">notebook</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">algo</span> <span class="o">=</span> <span class="n">vtk</span><span class="o">.</span><span class="n">vtkConeSource</span><span class="p">()</span>
+<span class="n">algo</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">ConeSource</span><span class="p">()</span>
 <span class="n">mesh_actor</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">algo</span><span class="p">)</span>
 
 <span class="n">widget</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="n">jupyter_kwargs</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">add_menu_items</span><span class="o">=</span><span class="n">custom_tools</span><span class="p">),</span> <span class="n">return_viewer</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -689,24 +687,24 @@ document.write(`
 
 <span class="nd">@state</span><span class="o">.</span><span class="n">change</span><span class="p">(</span><span class="s2">&quot;resolution&quot;</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">update_resolution</span><span class="p">(</span><span class="n">resolution</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-    <span class="n">algo</span><span class="o">.</span><span class="n">SetResolution</span><span class="p">(</span><span class="n">resolution</span><span class="p">)</span>
+    <span class="n">algo</span><span class="o">.</span><span class="n">resolution</span> <span class="o">=</span> <span class="n">resolution</span>
     <span class="n">ctrl</span><span class="o">.</span><span class="n">view_update</span><span class="p">()</span>
 
 
 <span class="nd">@state</span><span class="o">.</span><span class="n">change</span><span class="p">(</span><span class="s2">&quot;visibility&quot;</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">set_visibility</span><span class="p">(</span><span class="n">visibility</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="n">toggle</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Hide&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;Show&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">}</span>
-    <span class="n">mesh_actor</span><span class="o">.</span><span class="n">SetVisibility</span><span class="p">(</span><span class="n">toggle</span><span class="p">[</span><span class="n">visibility</span><span class="p">])</span>
+    <span class="n">mesh_actor</span><span class="o">.</span><span class="n">visibility</span> <span class="o">=</span> <span class="n">toggle</span><span class="p">[</span><span class="n">visibility</span><span class="p">]</span>
     <span class="n">ctrl</span><span class="o">.</span><span class="n">view_update</span><span class="p">()</span>
 
 
 <span class="n">widget</span>
 </pre></div>
 </div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Widget(value=&quot;&lt;iframe src=&#39;http://localhost:42073/index.html?ui=P_0x7f0f02db1610_0&amp;reconnect=auto&#39; class=&#39;pyvista&#39; style=&#39;width: 99%; height: 600px; border: 1px solid rgb(221,221,221);&#39;&gt;&lt;/iframe&gt;&quot;)
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Widget(value=&quot;&lt;iframe src=&#39;http://localhost:41339/index.html?ui=P_0x7f405c929b20_0&amp;reconnect=auto&#39; class=&#39;pyvista&#39; style=&#39;width: 99%; height: 600px; border: 1px solid rgb(221,221,221);&#39;&gt;&lt;/iframe&gt;&quot;)
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 0.226 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 0.270 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-99-advanced-customization-trame-toolbar-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/e90e733dfa0c3a9a6fc2ea81fe66155b/customization-trame-toolbar.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">customization-trame-toolbar.py</span></code></a></p>

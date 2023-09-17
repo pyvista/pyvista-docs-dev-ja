@@ -554,6 +554,7 @@ document.write(`
 <li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.add_spline_widget.html">pyvista.Plotter.add_spline_widget</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.add_text.html">pyvista.Plotter.add_text</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.add_text_slider_widget.html">pyvista.Plotter.add_text_slider_widget</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.add_timer_event.html">pyvista.Plotter.add_timer_event</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.add_title.html">pyvista.Plotter.add_title</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.add_volume.html">pyvista.Plotter.add_volume</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.add_volume_clip_plane.html">pyvista.Plotter.add_volume_clip_plane</a></li>
@@ -740,6 +741,8 @@ document.write(`
 </li>
 <li class="toctree-l2"><a class="reference internal" href="pyvista.Property.html">pyvista.Property</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pyvista.Renderer.html">pyvista.Renderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyvista.RenderWindowInteractor.html">pyvista.RenderWindowInteractor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyvista.Timer.html">pyvista.Timer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pyvista.plotting.mapper._BaseMapper.html">pyvista.plotting.mapper._BaseMapper</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pyvista.plotting.opts.InterpolationType.html">pyvista.plotting.opts.InterpolationType</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pyvista.plotting.opts.RepresentationType.html">pyvista.plotting.opts.RepresentationType</a></li>
@@ -828,7 +831,7 @@ document.write(`
 <h1>pyvista.Plotter.enable_rubber_band_2d_style<a class="headerlink" href="#pyvista-plotter-enable-rubber-band-2d-style" title="この見出しへのパーマリンク">#</a></h1>
 <dl class="py method">
 <dt class="sig sig-object py" id="pyvista.Plotter.enable_rubber_band_2d_style">
-<span class="sig-prename descclassname"><span class="pre">Plotter.</span></span><span class="sig-name descname"><span class="pre">enable_rubber_band_2d_style</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/plotting/plotter.py#L752-L785"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.Plotter.enable_rubber_band_2d_style" title="この定義へのパーマリンク">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">Plotter.</span></span><span class="sig-name descname"><span class="pre">enable_rubber_band_2d_style</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/plotting/plotter.py#L820-L853"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.Plotter.enable_rubber_band_2d_style" title="この定義へのパーマリンク">#</a></dt>
 <dd><p>インタラクティブスタイルをラバーバンド2Dに設定します．</p>
 <p>このインターアクタースタイルではカメラの回転は許可されていません．ズームはカメラの平行スケールにのみ影響し，カメラが平行投影モードであることを前提としています．左ボタンで輪ゴムを引くスタイルも可能です．カメラを変更すると，ボタンを押したときに <code class="docutils literal notranslate"><span class="pre">StartInteractionEvent</span></code> が呼び出され，マウス(またはホイール)を移動したときに <code class="docutils literal notranslate"><span class="pre">InteractionEvent</span></code> が呼び出され，ボタンを放したときに <code class="docutils literal notranslate"><span class="pre">EndInteractionEvent</span></code> が呼び出されます．</p>
 <blockquote>

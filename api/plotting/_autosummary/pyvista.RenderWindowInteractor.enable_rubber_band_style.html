@@ -1,0 +1,749 @@
+
+<!DOCTYPE html>
+
+
+<html lang="ja" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>pyvista.RenderWindowInteractor.enable_rubber_band_style &#8212; PyVista 0.43.dev0 ドキュメント</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=649a27d8" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/jupyter-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/thebelab.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/asciinema-player_2.6.1.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/asciinema-custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/no_search_highlight.css?v=0f58e32f" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/summary.css?v=09e0a9f3" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery.css?v=61a4c737" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/cards.css?v=d8ea150e" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/no_italic.css?v=7ec6bf1f" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js?v=2c0d63ae"></script>
+    <script src="../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../../../_static/thebelab-helper.js"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=49e1bf35"></script>
+    <script src="../../../_static/asciinema-player_2.6.1.js"></script>
+    <script src="../../../_static/translations.js?v=4dbe4bdc"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+    <script src="../../../_static/design-tabs.js?v=36754332"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-140243896-1"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'UA-140243896-1');
+            </script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'api/plotting/_autosummary/pyvista.RenderWindowInteractor.enable_rubber_band_style';</script>
+    <script>
+        DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://docs.pyvista.org/versions.json';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = 'dev';
+        </script>
+    <link rel="index" title="索引" href="../../../genindex.html" />
+    <link rel="search" title="検索" href="../../../search.html" />
+    <link rel="next" title="pyvista.RenderWindowInteractor.enable_terrain_style" href="pyvista.RenderWindowInteractor.enable_terrain_style.html" />
+    <link rel="prev" title="pyvista.RenderWindowInteractor.enable_rubber_band_2d_style" href="pyvista.RenderWindowInteractor.enable_rubber_band_2d_style.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="ja"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+    <span class="fa-solid fa-bars"></span>
+  </label>
+  
+  <div class="navbar-header-items__start">
+    
+      <div class="navbar-item">
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/pyvista_logo_sm.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../../_static/pyvista_logo_sm.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+    
+  </div>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item"><nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../getting-started/index.html">
+                        はじめに
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../user-guide/index.html">
+                        ユーザーガイド
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../examples/index.html">
+                        例
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="../../index.html">
+                        APIリファレンス
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../extras/index.html">
+                        その他
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="検索" aria-label="検索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+        </div>
+      
+      
+        <div class="navbar-item">
+<script>
+document.write(`
+  <div class="version-switcher__container dropdown">
+    <button type="button" class="version-switcher__button btn btn-sm navbar-btn dropdown-toggle" data-bs-toggle="dropdown">
+      dev  <!-- this text may get changed later by javascript -->
+      <span class="caret"></span>
+    </button>
+    <div class="version-switcher__menu dropdown-menu list-group-flush py-0">
+    <!-- dropdown will be populated by javascript on page load -->
+    </div>
+  </div>
+`);
+</script></div>
+      
+        <div class="navbar-item">
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/pyvista/pyvista" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github"></i></span>
+            <label class="sr-only">GitHub</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="http://slack.pyvista.org" title="Slack Community" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fab fa-slack"></i></span>
+            <label class="sr-only">Slack Community</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/pyvista/pyvista/discussions" title="Support" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-comment fa-fw"></i></span>
+            <label class="sr-only">Support</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/pyvista/pyvista/blob/main/CONTRIBUTING.rst" title="Contributing" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-gavel fa-fw"></i></span>
+            <label class="sr-only">Contributing</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://doi.org/10.21105/joss.01450" title="The Paper" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-file-text fa-fw"></i></span>
+            <label class="sr-only">The Paper</label></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="検索" aria-label="検索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+    </div>
+  
+
+  
+    <label class="sidebar-toggle secondary-toggle" for="__secondary">
+      <span class="fa-solid fa-outdent"></span>
+    </label>
+  
+</div>
+
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          <div class="navbar-item"><nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../getting-started/index.html">
+                        はじめに
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../user-guide/index.html">
+                        ユーザーガイド
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../examples/index.html">
+                        例
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="../../index.html">
+                        APIリファレンス
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../extras/index.html">
+                        その他
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+<script>
+document.write(`
+  <div class="version-switcher__container dropdown">
+    <button type="button" class="version-switcher__button btn btn-sm navbar-btn dropdown-toggle" data-bs-toggle="dropdown">
+      dev  <!-- this text may get changed later by javascript -->
+      <span class="caret"></span>
+    </button>
+    <div class="version-switcher__menu dropdown-menu list-group-flush py-0">
+    <!-- dropdown will be populated by javascript on page load -->
+    </div>
+  </div>
+`);
+</script></div>
+        
+          <div class="navbar-item">
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/pyvista/pyvista" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github"></i></span>
+            <label class="sr-only">GitHub</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="http://slack.pyvista.org" title="Slack Community" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fab fa-slack"></i></span>
+            <label class="sr-only">Slack Community</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/pyvista/pyvista/discussions" title="Support" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-comment fa-fw"></i></span>
+            <label class="sr-only">Support</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/pyvista/pyvista/blob/main/CONTRIBUTING.rst" title="Contributing" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-gavel fa-fw"></i></span>
+            <label class="sr-only">Contributing</label></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://doi.org/10.21105/joss.01450" title="The Paper" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-file-text fa-fw"></i></span>
+            <label class="sr-only">The Paper</label></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item"><nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><p aria-level="2" class="caption" role="heading"><span class="caption-text">APIリファレンス</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../core/index.html">コアAPI</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../index.html">プロット</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../plotting.html">プロット</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../qt_plotting.html">PyVistaとPyQt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../theme.html">テーマ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../trame.html">Trame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyvista.Actor.html">pyvista.Actor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyvista.Axes.html">pyvista.Axes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyvista.AxesActor.html">pyvista.AxesActor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyvista.CameraPosition.html">pyvista.CameraPosition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyvista.CubeAxesActor.html">pyvista.CubeAxesActor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyvista.DataSetMapper.html">pyvista.DataSetMapper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyvista.LookupTable.html">pyvista.LookupTable</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyvista.Plotter.html">pyvista.Plotter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyvista.Property.html">pyvista.Property</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyvista.Renderer.html">pyvista.Renderer</a></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="pyvista.RenderWindowInteractor.html">pyvista.RenderWindowInteractor</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="pyvista.RenderWindowInteractor.add_key_event.html">pyvista.RenderWindowInteractor.add_key_event</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.RenderWindowInteractor.add_observer.html">pyvista.RenderWindowInteractor.add_observer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.RenderWindowInteractor.add_pick_obeserver.html">pyvista.RenderWindowInteractor.add_pick_obeserver</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.RenderWindowInteractor.add_timer_event.html">pyvista.RenderWindowInteractor.add_timer_event</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.RenderWindowInteractor.clear_events_for_key.html">pyvista.RenderWindowInteractor.clear_events_for_key</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.RenderWindowInteractor.clear_key_event_callbacks.html">pyvista.RenderWindowInteractor.clear_key_event_callbacks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.RenderWindowInteractor.close.html">pyvista.RenderWindowInteractor.close</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.RenderWindowInteractor.create_timer.html">pyvista.RenderWindowInteractor.create_timer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.RenderWindowInteractor.destroy_timer.html">pyvista.RenderWindowInteractor.destroy_timer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.RenderWindowInteractor.enable_image_style.html">pyvista.RenderWindowInteractor.enable_image_style</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.RenderWindowInteractor.enable_joystick_actor_style.html">pyvista.RenderWindowInteractor.enable_joystick_actor_style</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.RenderWindowInteractor.enable_joystick_style.html">pyvista.RenderWindowInteractor.enable_joystick_style</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.RenderWindowInteractor.enable_rubber_band_2d_style.html">pyvista.RenderWindowInteractor.enable_rubber_band_2d_style</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">pyvista.RenderWindowInteractor.enable_rubber_band_style</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.RenderWindowInteractor.enable_terrain_style.html">pyvista.RenderWindowInteractor.enable_terrain_style</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.RenderWindowInteractor.enable_trackball_actor_style.html">pyvista.RenderWindowInteractor.enable_trackball_actor_style</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.RenderWindowInteractor.enable_trackball_style.html">pyvista.RenderWindowInteractor.enable_trackball_style</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.RenderWindowInteractor.enable_zoom_style.html">pyvista.RenderWindowInteractor.enable_zoom_style</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.RenderWindowInteractor.fly_to.html">pyvista.RenderWindowInteractor.fly_to</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.RenderWindowInteractor.get_desired_update_rate.html">pyvista.RenderWindowInteractor.get_desired_update_rate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.RenderWindowInteractor.get_event_position.html">pyvista.RenderWindowInteractor.get_event_position</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.RenderWindowInteractor.get_event_subplot_loc.html">pyvista.RenderWindowInteractor.get_event_subplot_loc</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.RenderWindowInteractor.get_interactor_style.html">pyvista.RenderWindowInteractor.get_interactor_style</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.RenderWindowInteractor.get_picker.html">pyvista.RenderWindowInteractor.get_picker</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.RenderWindowInteractor.get_poked_renderer.html">pyvista.RenderWindowInteractor.get_poked_renderer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.RenderWindowInteractor.initialize.html">pyvista.RenderWindowInteractor.initialize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.RenderWindowInteractor.key_press_event.html">pyvista.RenderWindowInteractor.key_press_event</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.RenderWindowInteractor.poked_subplot.html">pyvista.RenderWindowInteractor.poked_subplot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.RenderWindowInteractor.process_events.html">pyvista.RenderWindowInteractor.process_events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.RenderWindowInteractor.remove_observer.html">pyvista.RenderWindowInteractor.remove_observer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.RenderWindowInteractor.remove_observers.html">pyvista.RenderWindowInteractor.remove_observers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.RenderWindowInteractor.reset_picker.html">pyvista.RenderWindowInteractor.reset_picker</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.RenderWindowInteractor.set_picker.html">pyvista.RenderWindowInteractor.set_picker</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.RenderWindowInteractor.set_render_window.html">pyvista.RenderWindowInteractor.set_render_window</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.RenderWindowInteractor.start.html">pyvista.RenderWindowInteractor.start</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.RenderWindowInteractor.terminate_app.html">pyvista.RenderWindowInteractor.terminate_app</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.RenderWindowInteractor.track_click_position.html">pyvista.RenderWindowInteractor.track_click_position</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.RenderWindowInteractor.track_mouse_position.html">pyvista.RenderWindowInteractor.track_mouse_position</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.RenderWindowInteractor.untrack_click_position.html">pyvista.RenderWindowInteractor.untrack_click_position</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.RenderWindowInteractor.untrack_mouse_position.html">pyvista.RenderWindowInteractor.untrack_mouse_position</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.RenderWindowInteractor.update_style.html">pyvista.RenderWindowInteractor.update_style</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.RenderWindowInteractor.initialized.html">pyvista.RenderWindowInteractor.initialized</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.RenderWindowInteractor.picker.html">pyvista.RenderWindowInteractor.picker</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pyvista.Timer.html">pyvista.Timer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyvista.plotting.mapper._BaseMapper.html">pyvista.plotting.mapper._BaseMapper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyvista.plotting.opts.InterpolationType.html">pyvista.plotting.opts.InterpolationType</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyvista.plotting.opts.RepresentationType.html">pyvista.plotting.opts.RepresentationType</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyvista.plotting.opts.ElementType.html">pyvista.plotting.opts.ElementType</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyvista.plotting.volume.Volume.html">pyvista.plotting.volume.Volume</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyvista.plotting.volume_property.VolumeProperty.html">pyvista.plotting.volume_property.VolumeProperty</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyvista.CompositePolyDataMapper.html">pyvista.CompositePolyDataMapper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyvista.CompositeAttributes.html">pyvista.CompositeAttributes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyvista.BlockAttributes.html">pyvista.BlockAttributes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../charts/index.html">チャート</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyvista.plotting.widgets.WidgetHelper.html">pyvista.plotting.widgets.WidgetHelper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyvista.plotting.widgets.AffineWidget3D.html">pyvista.plotting.widgets.AffineWidget3D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyvista.plotting.picking.PickingHelper.html">pyvista.plotting.picking.PickingHelper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../conv_func.html">便利な機能</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../utilities/index.html">ユーティリティ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../readers/index.html">リーダー</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/index.html">例</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+
+
+<nav aria-label="Breadcrumbs">
+  <ul class="bd-breadcrumbs" role="navigation" aria-label="Breadcrumb">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../index.html" class="nav-link">APIリファレンス</a></li>
+    
+    
+    <li class="breadcrumb-item"><i class="fa-solid fa-ellipsis"></i></li>
+    
+    
+    <li class="breadcrumb-item"><a href="pyvista.RenderWindowInteractor.html" class="nav-link">pyvista.RenderWindowInteractor</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">pyvista.RenderWindowInteractor.enable_rubber_band_style</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="pyvista-renderwindowinteractor-enable-rubber-band-style">
+<h1>pyvista.RenderWindowInteractor.enable_rubber_band_style<a class="headerlink" href="#pyvista-renderwindowinteractor-enable-rubber-band-style" title="この見出しへのパーマリンク">#</a></h1>
+<dl class="py method">
+<dt class="sig sig-object py" id="pyvista.RenderWindowInteractor.enable_rubber_band_style">
+<span class="sig-prename descclassname"><span class="pre">RenderWindowInteractor.</span></span><span class="sig-name descname"><span class="pre">enable_rubber_band_style</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/plotting/render_window_interactor.py#L789-L818"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.RenderWindowInteractor.enable_rubber_band_style" title="この定義へのパーマリンク">#</a></dt>
+<dd><p>インタラクティブスタイルをラバーバンド選択に設定します．</p>
+<p>このインタラクタスタイルを使用すると， 'r' をクリックしてからマウスの左ボタンを使用して，レンダウィンドウに長方形を描画できます．マウスボタンを放すと，アタッチされたピッカーが選択長方形の中心にあるピクセルを操作します．ピッカーがvtkAreaPickerである場合は，選択長方形全体を操作します． 'p' キーを押すと，1 x 1の長方形上で上記のピック操作が行われます．その他の点では，トラックボールカメラスタイルと同じように動作します．</p>
+<p class="rubric">例</p>
+<p>ラバーバンドインタラクティブスタイルのプロッタを使用して，簡単なシーンを作成します．</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyvista</span> <span class="k">as</span> <span class="nn">pv</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plotter</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Plotter</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">plotter</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">pv</span><span class="o">.</span><span class="n">Cube</span><span class="p">(</span><span class="n">center</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">plotter</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">pv</span><span class="o">.</span><span class="n">Cube</span><span class="p">(</span><span class="n">center</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plotter</span><span class="o">.</span><span class="n">show_axes</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plotter</span><span class="o">.</span><span class="n">enable_rubber_band_style</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plotter</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>  
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
+
+
+                </article>
+              
+              
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pyvista.RenderWindowInteractor.enable_rubber_band_style"><code class="docutils literal notranslate"><span class="pre">RenderWindowInteractor.enable_rubber_band_style()</span></code></a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  
+  <div class="tocsection editthispage">
+    <a href="http://github.com/pyvista/pyvista/edit/main/pyvista/plotting/render_window_interactor.py">
+      <i class="fa-solid fa-pencil"></i>
+      
+      
+        
+          GitHub で編集する
+        
+      
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+  <p class="copyright">
+    
+      © Copyright 2017-2023, The PyVista Developers.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item"><p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.13.3.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

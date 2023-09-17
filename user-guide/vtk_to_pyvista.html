@@ -608,7 +608,7 @@ document.write(`
 </div>
 <p>ここでは，PyVistaがいくつかのことをしてくれています．</p>
 <ol class="arabic">
-<li><p>PyVistaでは，データの次元（ <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.25)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> の形をしている）とデータの値を1行にまとめています．VTKでは，データの形状(空間上の位置)を表すために &quot;タプル&quot; を使用し，データの種類(1=スカラー/スカラーフィールド，2=ベクトル/ベクトルフィールド，n=テンソル/テンソルフィールド)を表すために &quot;コンポーネント&quot; を使用しています．ここでは，1つの変数に形状と値が具体的に格納されています．</p></li>
+<li><p>PyVistaでは，データの次元（ <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.26)"><code class="xref py py-class docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a> の形をしている）とデータの値を1行にまとめています．VTKでは，データの形状(空間上の位置)を表すために &quot;タプル&quot; を使用し，データの種類(1=スカラー/スカラーフィールド，2=ベクトル/ベクトルフィールド，n=テンソル/テンソルフィールド)を表すために &quot;コンポーネント&quot; を使用しています．ここでは，1つの変数に形状と値が具体的に格納されています．</p></li>
 <li><p><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.UniformGrid</span></code> は <a class="reference external" href="https://vtk.org/doc/nightly/html/classvtkImageData.html">vtk.vtkImageData</a> をラップしたものです．名前が違うだけで，どちらも等間隔の点のコンテナです． <a class="reference external" href="https://vtk.org/doc/nightly/html/classvtkImageData.html">vtk.vtkImageData</a> で使用するデータは &quot;画像&quot; である必要はありません．</p>
 <p>さらに，コンテナが等間隔のデータ用であることがわかっているので， pyvista はデフォルトで原点と間隔を <code class="docutils literal notranslate"><span class="pre">(0,</span> <span class="pre">0,</span> <span class="pre">0)</span></code> と <code class="docutils literal notranslate"><span class="pre">(1,</span> <span class="pre">1,</span> <span class="pre">1)</span></code> に設定します．これは，PyVistaとPythonのもう一つの素晴らしい点です．VTKライブラリのすべてを前もって知っておく必要はなく，非常に簡単に始めることができます．慣れてきて，もっと複雑なことをする必要が出てきたら，もっと深く掘り下げることができます．例えば，原点と間隔の変更は以下のように簡単にできます．</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">grid</span><span class="o">.</span><span class="n">origin</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
@@ -667,12 +667,12 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>vtkPoints (0x560a9121cd20)
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>vtkPoints (0x55ba97813710)
   Debug: Off
   Modified Time: 15776
   Reference Count: 1
   Registered Events: (none)
-  Data: 0x560a8eb95690
+  Data: 0x55ba94cce260
   Data Array Name: Points
   Number Of Points: 3
   Bounds: 
@@ -766,12 +766,12 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>vtkPolyData (0x560a91656990)
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>vtkPolyData (0x55ba9404edb0)
   Debug: Off
   Modified Time: 15859
   Reference Count: 1
   Registered Events: (none)
-  Information: 0x560a8ea05830
+  Information: 0x55ba95175ea0
   Data Released: False
   Global Release Data: Off
   UpdateTime: 0
@@ -791,10 +791,10 @@ document.write(`
     Reference Count: 1
     Registered Events: 
       Registered Observers:
-        vtkObserver (0x560a8ea05f10)
+        vtkObserver (0x55ba914fb840)
           Event: 33
           EventName: ModifiedEvent
-          Command: 0x560a8af096b0
+          Command: 0x55ba95175e50
           Priority: 0
           Tag: 1
     Number Of Arrays: 0
@@ -820,10 +820,10 @@ document.write(`
     Reference Count: 1
     Registered Events: 
       Registered Observers:
-        vtkObserver (0x560a8ea05800)
+        vtkObserver (0x55ba95175e20)
           Event: 33
           EventName: ModifiedEvent
-          Command: 0x560a8af096b0
+          Command: 0x55ba95175e50
           Priority: 0
           Tag: 1
     Number Of Arrays: 0
@@ -850,7 +850,7 @@ document.write(`
   Compute Time: 15923
   Editable: false
   Number Of Points: 3
-  Point Coordinates: 0x560a9121cd20
+  Point Coordinates: 0x55ba97813710
   PointLocator: 0
   CellLocator: 0
   Number Of Vertices: 0
