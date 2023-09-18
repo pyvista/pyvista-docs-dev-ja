@@ -643,22 +643,18 @@ document.write(`
 <dl class="py class">
 <dt class="sig sig-object py" id="pyvista.RenderWindowInteractor">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">RenderWindowInteractor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">plotter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">desired_update_rate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">30</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">light_follow_camera</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interactor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/plotting/render_window_interactor.py#L56-L1195"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.RenderWindowInteractor" title="この定義へのパーマリンク">#</a></dt>
-<dd><p>Wrap vtk.vtkRenderWindowInteractor.</p>
-<p>This class has been added for the purpose of making some methods
-we add to the RenderWindowInteractor more python, like certain
-testing methods.</p>
+<dd><p>vtk.vtkRenderWindowInteractor をラップします．</p>
+<p>このクラスは，RenderWindowInteractorに追加するいくつかのメソッドをよりpythonらしくする目的で追加されました．</p>
 <dl class="field-list">
 <dt class="field-odd">パラメータ<span class="colon">:</span></dt>
 <dd class="field-odd"><dl>
-<dt><strong>plotter</strong><span class="classifier"><a class="reference internal" href="pyvista.Plotter.html#pyvista.Plotter" title="pyvista.Plotter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyvista.Plotter</span></code></a></span></dt><dd><p>Plotter object upon which the initialization of
-RenderWindowInteractor is based.</p>
+<dt><strong>plotter</strong><span class="classifier"><a class="reference internal" href="pyvista.Plotter.html#pyvista.Plotter" title="pyvista.Plotter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyvista.Plotter</span></code></a></span></dt><dd><p>RenderWindowInteractor の初期化の基となるプロッターオブジェクト．</p>
 </dd>
-<dt><strong>desired_update_rate</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a>, default: 30</span></dt><dd><p>The desired update rate of the interactor.</p>
+<dt><strong>desired_update_rate</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a>, default: 30</span></dt><dd><p>インタラクタの希望する更新レート．</p>
 </dd>
-<dt><strong>light_follow_camera</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.11)"><span class="xref std std-ref">bool</span></a>, default: <a class="reference external" href="https://docs.python.org/3/library/constants.html#True" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">True</span></code></a></span></dt><dd><p>If set to <code class="docutils literal notranslate"><span class="pre">True</span></code>, the light follows the camera.</p>
+<dt><strong>light_follow_camera</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.11)"><span class="xref std std-ref">bool</span></a>, default: <a class="reference external" href="https://docs.python.org/3/library/constants.html#True" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">True</span></code></a></span></dt><dd><p>もし``True``に設定すると，ライトはカメラに追従します．</p>
 </dd>
-<dt><strong>interactor</strong><span class="classifier"><code class="xref py py-obj docutils literal notranslate"><span class="pre">vtk.vtkRenderWindowInteractor</span></code>, default: <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">None</span></code></a></span></dt><dd><p>The render window interactor. If set to <code class="docutils literal notranslate"><span class="pre">None</span></code>, a new
-vtkRenderWindowInteractor instance will be created.</p>
+<dt><strong>interactor</strong><span class="classifier"><code class="xref py py-obj docutils literal notranslate"><span class="pre">vtk.vtkRenderWindowInteractor</span></code>, default: <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">None</span></code></a></span></dt><dd><p>レンダーウィンドウのインタラクタを指定します． <code class="docutils literal notranslate"><span class="pre">None</span></code> に設定すると，新しい vtkRenderWindowInteractor のインスタンスが作成されます．</p>
 </dd>
 </dl>
 </dd>
@@ -670,28 +666,28 @@ vtkRenderWindowInteractor instance will be created.</p>
 <td><p>指定されたキーが押されたときにコールバックに関数を追加します．</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.RenderWindowInteractor.add_observer.html#pyvista.RenderWindowInteractor.add_observer" title="pyvista.RenderWindowInteractor.add_observer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RenderWindowInteractor.add_observer</span></code></a>(event, call)</p></td>
-<td><p>Add an observer for the given event.</p></td>
+<td><p>指定されたイベントのオブザーバーを追加します．</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.RenderWindowInteractor.add_pick_obeserver.html#pyvista.RenderWindowInteractor.add_pick_obeserver" title="pyvista.RenderWindowInteractor.add_pick_obeserver"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RenderWindowInteractor.add_pick_obeserver</span></code></a>(...)</p></td>
-<td><p>Add an observer to call back when pick events end.</p></td>
+<td><p>ピックイベントの終了時にコールバックするオブザーバーを追加します．</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.RenderWindowInteractor.add_timer_event.html#pyvista.RenderWindowInteractor.add_timer_event" title="pyvista.RenderWindowInteractor.add_timer_event"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RenderWindowInteractor.add_timer_event</span></code></a>(...)</p></td>
-<td><p>Add a function to callback as timer event.</p></td>
+<td><p>タイマーイベントとしてコールバックする関数を追加します．</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.RenderWindowInteractor.clear_events_for_key.html#pyvista.RenderWindowInteractor.clear_events_for_key" title="pyvista.RenderWindowInteractor.clear_events_for_key"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RenderWindowInteractor.clear_events_for_key</span></code></a>(key)</p></td>
 <td><p>キーに関連付けられているコールバックを削除します．</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.RenderWindowInteractor.clear_key_event_callbacks.html#pyvista.RenderWindowInteractor.clear_key_event_callbacks" title="pyvista.RenderWindowInteractor.clear_key_event_callbacks"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RenderWindowInteractor.clear_key_event_callbacks</span></code></a>()</p></td>
-<td><p>Clear key event callbacks.</p></td>
+<td><p>キーイベントのコールバックを消去します．</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.RenderWindowInteractor.close.html#pyvista.RenderWindowInteractor.close" title="pyvista.RenderWindowInteractor.close"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RenderWindowInteractor.close</span></code></a>()</p></td>
-<td><p>Close out the render window interactor.</p></td>
+<td><p>レンダーウィンドウのインタラクタを閉じる．</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.RenderWindowInteractor.create_timer.html#pyvista.RenderWindowInteractor.create_timer" title="pyvista.RenderWindowInteractor.create_timer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RenderWindowInteractor.create_timer</span></code></a>(duration)</p></td>
-<td><p>Create a timer.</p></td>
+<td><p>タイマーを作成します．</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.RenderWindowInteractor.destroy_timer.html#pyvista.RenderWindowInteractor.destroy_timer" title="pyvista.RenderWindowInteractor.destroy_timer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RenderWindowInteractor.destroy_timer</span></code></a>(timer_id)</p></td>
-<td><p>Destroy the given timer.</p></td>
+<td><p>指定されたタイマーを破棄します．</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.RenderWindowInteractor.enable_image_style.html#pyvista.RenderWindowInteractor.enable_image_style" title="pyvista.RenderWindowInteractor.enable_image_style"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RenderWindowInteractor.enable_image_style</span></code></a>()</p></td>
 <td><p>インタラクティブスタイルをImageに設定します．</p></td>
@@ -721,58 +717,58 @@ vtkRenderWindowInteractor instance will be created.</p>
 <td><p>インタラクティブスタイルをラバーバンドズームに設定します．</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.RenderWindowInteractor.fly_to.html#pyvista.RenderWindowInteractor.fly_to" title="pyvista.RenderWindowInteractor.fly_to"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RenderWindowInteractor.fly_to</span></code></a>(renderer, point)</p></td>
-<td><p>Fly the interactor to the given point in a renderer.</p></td>
+<td><p>インタラクタをレンダラーの指定されたポイントに飛ばします．</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.RenderWindowInteractor.get_desired_update_rate.html#pyvista.RenderWindowInteractor.get_desired_update_rate" title="pyvista.RenderWindowInteractor.get_desired_update_rate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RenderWindowInteractor.get_desired_update_rate</span></code></a>()</p></td>
-<td><p>Get the desired update rate.</p></td>
+<td><p>希望する更新レートを取得します．</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.RenderWindowInteractor.get_event_position.html#pyvista.RenderWindowInteractor.get_event_position" title="pyvista.RenderWindowInteractor.get_event_position"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RenderWindowInteractor.get_event_position</span></code></a>()</p></td>
-<td><p>Get the event position.</p></td>
+<td><p>イベントポジションを取得します．</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.RenderWindowInteractor.get_event_subplot_loc.html#pyvista.RenderWindowInteractor.get_event_subplot_loc" title="pyvista.RenderWindowInteractor.get_event_subplot_loc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RenderWindowInteractor.get_event_subplot_loc</span></code></a>()</p></td>
-<td><p>Get the subplot location of the last event.</p></td>
+<td><p>最後のイベントのサブプロットの位置を取得します．</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.RenderWindowInteractor.get_interactor_style.html#pyvista.RenderWindowInteractor.get_interactor_style" title="pyvista.RenderWindowInteractor.get_interactor_style"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RenderWindowInteractor.get_interactor_style</span></code></a>()</p></td>
-<td><p>Get the interactor style.</p></td>
+<td><p>インタラクタのスタイルを取得します．</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.RenderWindowInteractor.get_picker.html#pyvista.RenderWindowInteractor.get_picker" title="pyvista.RenderWindowInteractor.get_picker"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RenderWindowInteractor.get_picker</span></code></a>()</p></td>
-<td><p>Get the picker.</p></td>
+<td><p>ピッカーを取得する．</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.RenderWindowInteractor.get_poked_renderer.html#pyvista.RenderWindowInteractor.get_poked_renderer" title="pyvista.RenderWindowInteractor.get_poked_renderer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RenderWindowInteractor.get_poked_renderer</span></code></a>([x, y])</p></td>
-<td><p>Get poked renderer for last or specific event position.</p></td>
+<td><p>最後の，あるいは特定のイベント位置の突き刺さったレンダラーを取得します．</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.RenderWindowInteractor.initialize.html#pyvista.RenderWindowInteractor.initialize" title="pyvista.RenderWindowInteractor.initialize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RenderWindowInteractor.initialize</span></code></a>()</p></td>
-<td><p>Initialize the interactor.</p></td>
+<td><p>インタラクタを初期化します．</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.RenderWindowInteractor.key_press_event.html#pyvista.RenderWindowInteractor.key_press_event" title="pyvista.RenderWindowInteractor.key_press_event"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RenderWindowInteractor.key_press_event</span></code></a>(obj, ...)</p></td>
 <td><p>キー押下イベントを聞きます．</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.RenderWindowInteractor.poked_subplot.html#pyvista.RenderWindowInteractor.poked_subplot" title="pyvista.RenderWindowInteractor.poked_subplot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RenderWindowInteractor.poked_subplot</span></code></a>()</p></td>
-<td><p>Activate the sublot that was last interacted.</p></td>
+<td><p>最後に操作されたサブプロットをアクティブにします．</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.RenderWindowInteractor.process_events.html#pyvista.RenderWindowInteractor.process_events" title="pyvista.RenderWindowInteractor.process_events"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RenderWindowInteractor.process_events</span></code></a>()</p></td>
-<td><p>Process events.</p></td>
+<td><p>イベントを処理します．</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.RenderWindowInteractor.remove_observer.html#pyvista.RenderWindowInteractor.remove_observer" title="pyvista.RenderWindowInteractor.remove_observer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RenderWindowInteractor.remove_observer</span></code></a>(observer)</p></td>
-<td><p>Remove an observer.</p></td>
+<td><p>オブザーバーを削除します．</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.RenderWindowInteractor.remove_observers.html#pyvista.RenderWindowInteractor.remove_observers" title="pyvista.RenderWindowInteractor.remove_observers"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RenderWindowInteractor.remove_observers</span></code></a>([event])</p></td>
-<td><p>Remove all observers.</p></td>
+<td><p>すべてのオブザーバーを削除します．</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.RenderWindowInteractor.reset_picker.html#pyvista.RenderWindowInteractor.reset_picker" title="pyvista.RenderWindowInteractor.reset_picker"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RenderWindowInteractor.reset_picker</span></code></a>()</p></td>
-<td><p>Reset the picker.</p></td>
+<td><p>ピッカーをリセットします．</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.RenderWindowInteractor.set_picker.html#pyvista.RenderWindowInteractor.set_picker" title="pyvista.RenderWindowInteractor.set_picker"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RenderWindowInteractor.set_picker</span></code></a>(picker)</p></td>
-<td><p>Set the picker for the interactor.</p></td>
+<td><p>インタラクタのピッカーを設定します．</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.RenderWindowInteractor.set_render_window.html#pyvista.RenderWindowInteractor.set_render_window" title="pyvista.RenderWindowInteractor.set_render_window"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RenderWindowInteractor.set_render_window</span></code></a>(...)</p></td>
-<td><p>Set the render window for the interactor.</p></td>
+<td><p>インタラクタのレンダーウィンドウを設定します．</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.RenderWindowInteractor.start.html#pyvista.RenderWindowInteractor.start" title="pyvista.RenderWindowInteractor.start"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RenderWindowInteractor.start</span></code></a>()</p></td>
-<td><p>Start interactions.</p></td>
+<td><p>インタラクションを開始します．</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.RenderWindowInteractor.terminate_app.html#pyvista.RenderWindowInteractor.terminate_app" title="pyvista.RenderWindowInteractor.terminate_app"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RenderWindowInteractor.terminate_app</span></code></a>()</p></td>
-<td><p>Terminate the app.</p></td>
+<td><p>アプリを終了します．</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.RenderWindowInteractor.track_click_position.html#pyvista.RenderWindowInteractor.track_click_position" title="pyvista.RenderWindowInteractor.track_click_position"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RenderWindowInteractor.track_click_position</span></code></a>([...])</p></td>
 <td><p>クリック位置を記録します．</p></td>
@@ -787,7 +783,7 @@ vtkRenderWindowInteractor instance will be created.</p>
 <td><p>マウス位置のトラッキングを停止します．</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.RenderWindowInteractor.update_style.html#pyvista.RenderWindowInteractor.update_style" title="pyvista.RenderWindowInteractor.update_style"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RenderWindowInteractor.update_style</span></code></a>()</p></td>
-<td><p>Update the camera interactor style.</p></td>
+<td><p>カメラのインタラクタスタイルを更新します．</p></td>
 </tr>
 </tbody>
 </table>
@@ -795,10 +791,10 @@ vtkRenderWindowInteractor instance will be created.</p>
 <table class="autosummary longtable table autosummary">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.RenderWindowInteractor.initialized.html#pyvista.RenderWindowInteractor.initialized" title="pyvista.RenderWindowInteractor.initialized"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RenderWindowInteractor.initialized</span></code></a></p></td>
-<td><p>Return if the interactor has been initialized.</p></td>
+<td><p>インタラクターが初期化されたかどうかを返します．</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.RenderWindowInteractor.picker.html#pyvista.RenderWindowInteractor.picker" title="pyvista.RenderWindowInteractor.picker"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RenderWindowInteractor.picker</span></code></a></p></td>
-<td><p>Get/set the picker.</p></td>
+<td><p>ピッカーを取得/設定します．</p></td>
 </tr>
 </tbody>
 </table>

@@ -648,22 +648,19 @@ document.write(`
 <dl class="py method">
 <dt class="sig sig-object py" id="pyvista.RenderWindowInteractor.create_timer">
 <span class="sig-prename descclassname"><span class="pre">RenderWindowInteractor.</span></span><span class="sig-name descname"><span class="pre">create_timer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">duration</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">repeating</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/plotting/render_window_interactor.py#L1004-L1027"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.RenderWindowInteractor.create_timer" title="この定義へのパーマリンク">#</a></dt>
-<dd><p>Create a timer.</p>
+<dd><p>タイマーを作成します．</p>
 <dl class="field-list">
 <dt class="field-odd">パラメータ<span class="colon">:</span></dt>
 <dd class="field-odd"><dl>
-<dt><strong>duration</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">int</span></code></a></span></dt><dd><p>Time (in milliseconds) before the timer emits a TimerEvent.</p>
+<dt><strong>duration</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">int</span></code></a></span></dt><dd><p>タイマーがTimerEventを発するまでの時間 (ミリ秒単位) ．</p>
 </dd>
-<dt><strong>repeating</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.11)"><span class="xref std std-ref">bool</span></a>, default: <a class="reference external" href="https://docs.python.org/3/library/constants.html#True" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">True</span></code></a></span></dt><dd><p>When <code class="docutils literal notranslate"><span class="pre">False</span></code> a one-shot timer is created, which only fires
-once. When <code class="docutils literal notranslate"><span class="pre">True</span></code> a repeating timer is created, which
-continuously fires (every <code class="docutils literal notranslate"><span class="pre">duration</span></code> milliseconds) until
-destruction.</p>
+<dt><strong>repeating</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.11)"><span class="xref std std-ref">bool</span></a>, default: <a class="reference external" href="https://docs.python.org/3/library/constants.html#True" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">True</span></code></a></span></dt><dd><p><code class="docutils literal notranslate"><span class="pre">False</span></code> の場合，ワンショットタイマーが作成され，一度だけ起動されます． <code class="docutils literal notranslate"><span class="pre">True</span></code> の場合，繰り返しタイマーが作成され，破壊されるまで( <code class="docutils literal notranslate"><span class="pre">duration</span></code> ミリ秒ごとに) 継続的に起動します．</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">戻り値<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">int</span></code></a></dt><dd><p>Timer ID.</p>
+<dt><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">int</span></code></a></dt><dd><p>タイマーID．</p>
 </dd>
 </dl>
 </dd>

@@ -648,18 +648,17 @@ document.write(`
 <dl class="py method">
 <dt class="sig sig-object py" id="pyvista.RenderWindowInteractor.remove_observers">
 <span class="sig-prename descclassname"><span class="pre">RenderWindowInteractor.</span></span><span class="sig-name descname"><span class="pre">remove_observers</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/plotting/render_window_interactor.py#L245-L275"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.RenderWindowInteractor.remove_observers" title="この定義へのパーマリンク">#</a></dt>
-<dd><p>Remove all observers.</p>
+<dd><p>すべてのオブザーバーを削除します．</p>
 <dl class="field-list">
 <dt class="field-odd">パラメータ<span class="colon">:</span></dt>
 <dd class="field-odd"><dl>
-<dt><strong>event</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a> | <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">int</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>If provided, only removes observers of the given event. Otherwise,
-if it is <code class="docutils literal notranslate"><span class="pre">None</span></code>, removes all observers.</p>
+<dt><strong>event</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a> | <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">int</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>指定された場合，指定されたイベントのオブザーバのみを削除します．そうでない場合， <code class="docutils literal notranslate"><span class="pre">None</span></code> であれば，すべてのオブザーバを削除します．</p>
 </dd>
 </dl>
 </dd>
 </dl>
 <p class="rubric">例</p>
-<p>Add two observers and immediately remove them.</p>
+<p>2つのオブザーバーを追加し，すぐに削除します．</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyvista</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">pl</span> <span class="o">=</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">Plotter</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">obs_enter</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">iren</span><span class="o">.</span><span class="n">add_observer</span><span class="p">(</span>

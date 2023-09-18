@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>Geometry &#8212; PyVista 0.43.dev0 ドキュメント</title>
+    <title>ジオメトリー &#8212; PyVista 0.43.dev0 ドキュメント</title>
   
   
   
@@ -499,7 +499,7 @@ document.write(`
 <li class="toctree-l1"><a class="reference internal" href="../core/index.html">コアAPI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../plotting/index.html">プロット</a></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">ユーティリティ</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2 current active has-children"><a class="current reference internal" href="#">Geometry</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 current active has-children"><a class="current reference internal" href="#">ジオメトリー</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="_autosummary/pyvista.Arrow.html">pyvista.Arrow</a></li>
 <li class="toctree-l3"><a class="reference internal" href="_autosummary/pyvista.Box.html">pyvista.Box</a></li>
 <li class="toctree-l3"><a class="reference internal" href="_autosummary/pyvista.Circle.html">pyvista.Circle</a></li>
@@ -581,7 +581,7 @@ document.write(`
     
     <li class="breadcrumb-item"><a href="index.html" class="nav-link">ユーティリティ</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page">Geometry</li>
+    <li class="breadcrumb-item active" aria-current="page">ジオメトリー</li>
   </ul>
 </nav>
 </div>
@@ -599,30 +599,17 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section id="geometry">
-<h1>Geometry<a class="headerlink" href="#geometry" title="この見出しへのパーマリンク">#</a></h1>
+<h1>ジオメトリー<a class="headerlink" href="#geometry" title="この見出しへのパーマリンク">#</a></h1>
 <p>PyVistaには，単純な幾何学的オブジェクトを生成するための関数がいくつかあります． これらの関数のAPIリファレンスはこのページにあります． 詳細は <a class="reference internal" href="../../examples/00-load/create-geometric-objects.html#ref-geometric-example"><span class="std std-ref">ジオメトリオブジェクト</span></a> の例を参照してください．</p>
-<p>PyVista provides both geometric objects and geometric sources. These two types
-serve similar but distinct purposes. Both allow you to create various types of
-geometry, but they differ mainly in their level of abstraction and usage
-scenarios.</p>
-<p>If you are looking for an easy and Pythonic way to generate geometric shapes,
-PyVista's geometric objects may be more appropriate. If you need more control
-over the geometry or are building a complex VTK pipeline, then using geometric
-sources would be more suitable.</p>
+<p>PyVistaはジオメトリックオブジェクトとジオメトリックソースの両方を提供します．この2つのタイプは似ていますが使用目的が異なります．どちらも様々なタイプのジオメトリを作成することができますが，主に抽象化のレベルと使用シナリオが異なります．</p>
+<p>幾何学的な形状を生成する簡単でPythonicな方法を探しているのであれば，PyVistaのジオメトリックオブジェクトの方が適しているかもしれません．ジオメトリをもっと制御する必要がある場合や，複雑なVTKパイプラインを構築する場合は，ジオメトリソースを使用する方が適しているでしょう．</p>
 <section id="geometric-objects">
 <h2>ジオメトリオブジェクト<a class="headerlink" href="#geometric-objects" title="この見出しへのパーマリンク">#</a></h2>
 <ul class="simple">
-<li><p>High-Level Abstraction: Geometric objects like Box, Circle, Arrow, etc., in
-PyVista are high-level Pythonic wrappers around VTK's underlying geometric
-constructs. They provide a more user-friendly way to create geometries and
-might include additional utility functions or attributes.</p></li>
-<li><p>Self-contained: Geometric objects are often intended to be stand-alone
-entities, fully encapsulating the properties of the shape they represent.</p></li>
-<li><p>Quick Prototyping: These are often used for quick and simple tasks where
-complex control over the geometry is not required.</p></li>
-<li><p>Specific to PyVista: While they may be built on top of VTK, these high-level
-abstractions might be unique to PyVista and not directly translatable to raw
-VTK code.</p></li>
+<li><p>高レベルの抽象化: PyVista の Box，Circle，Arrow などの幾何オブジェクトは，VTK の基本的な幾何構造を Pythonic で高水準にラップしたものです．これらのオブジェクトは，ジオメトリを作成するための，よりユーザーフレンドリーな方法を提供し，追加のユーティリティ関数や属性を含むかもしれません．</p></li>
+<li><p>自己完結している: ジオメトリックオブジェクトは多くの場合，独立したエンティティであることを意図しており，それらが表現する形状のプロパティを完全にカプセル化しています．</p></li>
+<li><p>クイックプロトタイピング: これらは，ジオメトリに対する複雑な制御を必要としません，迅速でシンプルなタスクによく使用されます．</p></li>
+<li><p>PyVista 固有のもの: それらはVTKの上に構築されるかもしれないが，これらの高レベルの抽象化はPyVista独自のものであり，生のVTKコードに直接翻訳できないかもしれません．</p></li>
 </ul>
 <table class="autosummary longtable table autosummary">
 <tbody>
@@ -717,23 +704,17 @@ VTK code.</p></li>
 </table>
 </section>
 <section id="geometric-sources">
-<h2>Geometric Sources<a class="headerlink" href="#geometric-sources" title="この見出しへのパーマリンク">#</a></h2>
-<p>Geometric sources are closer to the actual VTK pipeline. They serve as the
-'source' nodes in a VTK pipeline and generate specific types of geometry.</p>
+<h2>ジオメトリソース<a class="headerlink" href="#geometric-sources" title="この見出しへのパーマリンク">#</a></h2>
+<p>ジオメトリックソースは，実際の VTK パイプラインに近いものです．VTK パイプラインの 'source' ノードとして機能し，特定のタイプのジオメトリを生成します．</p>
 <ul class="simple">
-<li><p>Pipeline Integration: These sources are meant to be integrated into a VTK
-pipeline, and their output can be directly connected to other pipeline stages
-like filters, mappers, etc.</p></li>
-<li><p>Fine Control: They often offer more parameters to control the geometry and
-may be more suitable for scenarios where you need to have fine-grained
-control over the generated geometry.</p></li>
-<li><p>VTK Compatible: Since they are closer to raw VTK, transitioning from PyVista
-to VTK or vice versa might be smoother when using geometric sources.</p></li>
+<li><p>パイプラインの統合: これらのソースはVTKパイプラインに統合されることを意図しており，その出力はフィルターやマッパーなどの他のパイプラインステージに直接接続することができます．</p></li>
+<li><p>細かい制御: 多くの場合，ジオメトリを制御するためのより多くのパラメータを提供し，生成されたジオメトリをきめ細かく制御する必要がある場合に適しています．</p></li>
+<li><p>VTK互換: これらは生のVTKに近いため，ジオメトリソースを使用する場合，PyVistaからVTK，またはその逆への移行がスムーズになるかもしれません．</p></li>
 </ul>
 <table class="autosummary longtable table autosummary">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="_autosummary/pyvista.ConeSource.html#pyvista.ConeSource" title="pyvista.ConeSource"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ConeSource</span></code></a>([center, direction, height, ...])</p></td>
-<td><p>Cone source algorithm class.</p></td>
+<td><p>円錐ソースアルゴリズムクラス</p></td>
 </tr>
 </tbody>
 </table>
@@ -758,7 +739,7 @@ to VTK or vice versa might be smoother when using geometric sources.</p></li>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#geometric-objects">ジオメトリオブジェクト</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#geometric-sources">Geometric Sources</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#geometric-sources">ジオメトリソース</a></li>
 </ul>
   </nav></div>
 
