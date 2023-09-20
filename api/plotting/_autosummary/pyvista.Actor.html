@@ -512,7 +512,6 @@ document.write(`
 <li class="toctree-l3"><a class="reference internal" href="pyvista.Actor.pickable.html">pyvista.Actor.pickable</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyvista.Actor.prop.html">pyvista.Actor.prop</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyvista.Actor.texture.html">pyvista.Actor.texture</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pyvista.Actor.user_matrix.html">pyvista.Actor.user_matrix</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyvista.Actor.visibility.html">pyvista.Actor.visibility</a></li>
 </ul>
 </li>
@@ -610,7 +609,7 @@ document.write(`
 <h1>pyvista.Actor<a class="headerlink" href="#pyvista-actor" title="この見出しへのパーマリンク">#</a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="pyvista.Actor">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Actor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mapper</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prop</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/plotting/actor.py#L17-L435"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.Actor" title="この定義へのパーマリンク">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Actor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mapper</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prop</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/plotting/actor.py#L14-L385"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.Actor" title="この定義へのパーマリンク">#</a></dt>
 <dd><p>vtkActor のラップ．</p>
 <p>このクラスは，レンダリングされたシーンのジオメトリとプロパティを表現します．通常， <a class="reference internal" href="#pyvista.Actor" title="pyvista.Actor"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.Actor</span></code></a> は <a class="reference internal" href="pyvista.Plotter.add_mesh.html#pyvista.Plotter.add_mesh" title="pyvista.Plotter.add_mesh"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyvista.Plotter.add_mesh()</span></code></a> から作成されますが， <a class="reference internal" href="pyvista.DataSetMapper.html#pyvista.DataSetMapper" title="pyvista.DataSetMapper"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.DataSetMapper</span></code></a> から直接アクターを作成する方が便利な場合があります．</p>
 <dl class="field-list">
@@ -641,7 +640,7 @@ document.write(`
 <span class="go">  X Bounds                    -4.993E-01, 4.993E-01</span>
 <span class="go">  Y Bounds                    -4.965E-01, 4.965E-01</span>
 <span class="go">  Z Bounds                    -5.000E-01, 5.000E-01</span>
-<span class="go">  User matrix:                Unset</span>
+<span class="go">  User matrix:                Set</span>
 <span class="go">  Has mapper:                 True</span>
 <span class="go">...</span>
 </pre></div>
@@ -706,10 +705,7 @@ document.write(`
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Actor.texture.html#pyvista.Actor.texture" title="pyvista.Actor.texture"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Actor.texture</span></code></a></p></td>
 <td><p>アクターのテクスチャを返すか設定します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Actor.user_matrix.html#pyvista.Actor.user_matrix" title="pyvista.Actor.user_matrix"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Actor.user_matrix</span></code></a></p></td>
-<td><p>方向行列を返すか設定します．</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Actor.visibility.html#pyvista.Actor.visibility" title="pyvista.Actor.visibility"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Actor.visibility</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Actor.visibility.html#pyvista.Actor.visibility" title="pyvista.Actor.visibility"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Actor.visibility</span></code></a></p></td>
 <td><p>アクターの可視性を返すか設定します．</p></td>
 </tr>
 </tbody>
