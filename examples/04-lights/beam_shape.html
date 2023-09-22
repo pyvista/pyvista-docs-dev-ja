@@ -576,7 +576,7 @@ document.write(`
 <p><a class="reference internal" href="#sphx-glr-download-examples-04-lights-beam-shape-py"><span class="std std-ref">Go to the end</span></a> をクリックすると完全なサンプルコードをダウンロードできます．</p>
 </div>
 <section class="sphx-glr-example-title" id="beam-shape">
-<span id="ref-light-beam-shape-example"></span><span id="sphx-glr-examples-04-lights-beam-shape-py"></span><h1>ビーム形状<a class="headerlink" href="#beam-shape" title="この見出しへのパーマリンク">#</a></h1>
+<span id="light-beam-shape-example"></span><span id="sphx-glr-examples-04-lights-beam-shape-py"></span><h1>ビーム形状<a class="headerlink" href="#beam-shape" title="この見出しへのパーマリンク">#</a></h1>
 <p>既定のディレクショナルライトは非常に離れたポイントソースで，ジオメトリのカスタマイズオプションはライトの位置と焦点によって定義されるビーム方向の選択だけです．ただし，ポジションライトには，より多くのビームカスタマイズオプションがあります．</p>
 <p>2つの半球を考えてみましょう:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyvista</span> <span class="k">as</span> <span class="nn">pv</span>
@@ -629,7 +629,10 @@ document.write(`
 <span class="n">plotter</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_beam_shape_003.png" srcset="../../_images/sphx_glr_beam_shape_003.png" alt="beam shape" class = "sphx-glr-single-img"/><p>これで両半球の内側のサーフェスが照らされました．コーンアングルが90度(以上)の位置ライトは，ライトの公称位置にあるポイントソースとして機能します．減衰も表示できます． <a class="reference internal" href="attenuation.html#ref-attenuation-example"><span class="std std-ref">減衰</span></a> の例を参照してください．</p>
+<img src="../../_images/sphx_glr_beam_shape_003.png" srcset="../../_images/sphx_glr_beam_shape_003.png" alt="beam shape" class = "sphx-glr-single-img"/><p>Now the inner surface of both hemispheres is lit. A positional light with a
+cone angle of 90 degrees (or more) acts as a point source located at the
+light's nominal position. It could still display attenuation, see the
+<a class="reference internal" href="attenuation.html#attenuation-example"><span class="std std-ref">減衰</span></a> example.</p>
 <p>スポットライト(コーンアングルが90度未満のポジショナルライト)に切り替えると， <a class="reference internal" href="../../api/core/_autosummary/pyvista.Light.exponent.html#pyvista.Light.exponent" title="pyvista.Light.exponent"><code class="xref py py-attr docutils literal notranslate"><span class="pre">pyvista.Light.exponent</span></code></a> プロパティを使用したビーム成形が有効になります．このために半球を並べて，それぞれの中心にライトを配置しましょう．1つのスポットライトで，1つは単に位置を示すライトです．</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plotter</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Plotter</span><span class="p">(</span><span class="n">lighting</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">)</span>
 
@@ -686,7 +689,7 @@ document.write(`
 </pre></div>
 </div>
 <img src="../../_images/sphx_glr_beam_shape_005.png" srcset="../../_images/sphx_glr_beam_shape_005.png" alt="beam shape" class = "sphx-glr-single-img"/><p>指数0.3のスポットライトは実質的に均一で，指数5のスポットライトはライトの軸に沿って目に見えるようにフォーカスされています．</p>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 2.075 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 2.156 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-04-lights-beam-shape-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/0d407081552f9cf08e5c613698b02d0f/beam_shape.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">beam_shape.py</span></code></a></p>

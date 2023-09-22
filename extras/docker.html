@@ -593,7 +593,12 @@ docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </
 docker<span class="w"> </span>push<span class="w"> </span><span class="nv">$IMAGE</span>
 </pre></div>
 </div>
-<p>jupyterlabでレンタルする際にオフスクリーンGPUをサポートさせたい場合は， <a class="reference internal" href="building_vtk.html#ref-building-vtk"><span class="std std-ref">VTKの構築</span></a> のEGLでのビルドに関する注意を参照するか， <a class="reference external" href="https://github.com/pyvista/pyvista/releases/tag/0.27.0">Release 0.27.0</a> のカスタムのプリビルドwheelを使用してください． <code class="docutils literal notranslate"><span class="pre">pyvista/docker/jupyter.Dockerfile</span></code> のDockerイメージを次のように変更して，カスタマイズしたvtk wheelをdockerイメージにインストールします．</p>
+<p>If you wish to have off-screen GPU support when rending on jupyterlab,
+see the notes about building with EGL at <a class="reference internal" href="building_vtk.html#building-vtk"><span class="std std-ref">VTKの構築</span></a>,
+or use the custom, pre-built wheels at
+<a class="reference external" href="https://github.com/pyvista/pyvista/releases/tag/0.27.0">Release 0.27.0</a>.
+Install that customized vtk wheel onto your docker image by modifying
+the docker image at <code class="docutils literal notranslate"><span class="pre">pyvista/docker/jupyter.Dockerfile</span></code> with:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">COPY</span> <span class="n">vtk</span><span class="o">-</span><span class="mf">9.0.20201105</span><span class="o">-</span><span class="n">cp38</span><span class="o">-</span><span class="n">cp38</span><span class="o">-</span><span class="n">linux_x86_64</span><span class="o">.</span><span class="n">whl</span> <span class="o">/</span><span class="n">tmp</span><span class="o">/</span>
 <span class="n">RUN</span> <span class="n">pip</span> <span class="n">install</span> <span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">vtk</span><span class="o">-</span><span class="mf">9.0.20201105</span><span class="o">-</span><span class="n">cp38</span><span class="o">-</span><span class="n">cp38</span><span class="o">-</span><span class="n">linux_x86_64</span><span class="o">.</span><span class="n">whl</span>
 </pre></div>

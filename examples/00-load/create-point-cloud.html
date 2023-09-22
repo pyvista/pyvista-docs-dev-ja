@@ -633,11 +633,11 @@ document.write(`
 <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">points</span></a><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span> <span class="p">:]</span>
 </pre></div>
 </div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>pyvista_ndarray([[4.81000275e+05, 4.40016840e+06, 1.76037000e+03],
-                 [4.80933675e+05, 4.40010610e+06, 1.77295996e+03],
-                 [4.80959475e+05, 4.40023460e+06, 1.75780005e+03],
-                 [4.81092375e+05, 4.40014580e+06, 1.75985999e+03],
-                 [4.81046275e+05, 4.40023390e+06, 1.75742004e+03]])
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>pyvista_ndarray([[4.80960275e+05, 4.40020090e+06, 1.76641003e+03],
+                 [4.80937775e+05, 4.40014810e+06, 1.76235999e+03],
+                 [4.81000975e+05, 4.40011290e+06, 1.76170996e+03],
+                 [4.80952575e+05, 4.40012050e+06, 1.76276001e+03],
+                 [4.80930275e+05, 4.40016310e+06, 1.76169995e+03]])
 </pre></div>
 </div>
 <p>サンプルデータまたは独自のプロジェクトからポイント/頂点のNumPy配列を取得したので，これらのポイントのPyVistaメッシュを作成するのは簡単です．</p>
@@ -668,7 +668,9 @@ document.write(`
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>True
 </pre></div>
 </div>
-<p>これでPyVistaメッシュができたので，プロットすることができます．ここでは，eye domeライティングを使用するオプションを追加します．これは，ポイントクラウド( <a class="reference internal" href="../02-plot/edl.html#ref-edl"><span class="std std-ref">Eye Dome Lighting</span></a> についてもっと学ぶ)を使用して深さの認識を向上させるシェーディング技法です．</p>
+<p>And now that we have a PyVista mesh, we can plot it. Note that we add an
+option to use eye dome lighting - this is a shading technique to improve
+depth perception with point clouds (learn more in <a class="reference internal" href="../02-plot/edl.html#edl"><span class="std std-ref">Eye Dome Lighting</span></a>).</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">point_cloud</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">eye_dome_lighting</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -704,11 +706,11 @@ document.write(`
 <span class="n">vectors</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span> <span class="p">:]</span>
 </pre></div>
 </div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>pyvista_ndarray([[ 0.9356611 ,  0.3128143 , -0.16335703],
-                 [ 0.59432556,  0.80422276, -0.00170004],
-                 [-0.14308321, -0.67308033, -0.72559635],
-                 [ 0.43038553,  0.89278281, -0.13306821],
-                 [-0.89772545, -0.178275  , -0.40287348]])
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>pyvista_ndarray([[ 0.60121275,  0.08764099, -0.7942684 ],
+                 [-0.61434476,  0.71773479,  0.32777627],
+                 [-0.75280469,  0.65501397,  0.06512913],
+                 [-0.87125007,  0.39200344,  0.29539233],
+                 [ 0.04614248, -0.3725091 , -0.9268807 ]])
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">point_cloud</span><span class="p">[</span><span class="s1">&#39;vectors&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">vectors</span>
@@ -731,7 +733,7 @@ document.write(`
 <span class="n">plotter</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_create-point-cloud_003.png" srcset="../../_images/sphx_glr_create-point-cloud_003.png" alt="create point cloud" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 7.362 seconds)</p>
+<img src="../../_images/sphx_glr_create-point-cloud_003.png" srcset="../../_images/sphx_glr_create-point-cloud_003.png" alt="create point cloud" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 5.308 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-00-load-create-point-cloud-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/b56f133896ca717685efadc3dcd1d66c/create-point-cloud.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">create-point-cloud.py</span></code></a></p>

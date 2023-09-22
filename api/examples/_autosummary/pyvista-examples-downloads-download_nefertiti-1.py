@@ -7,5 +7,5 @@ dataset.plot(cpos="xz")
 # * :ref:`surface_normal_example`
 # * :ref:`extract_edges_example`
 # * :ref:`show_edges_example`
-# * :ref:`ref_edl`
+# * :ref:`edl`
 # * :ref:`pbr_example`
