@@ -633,11 +633,11 @@ document.write(`
 <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">points</span></a><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span> <span class="p">:]</span>
 </pre></div>
 </div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>pyvista_ndarray([[4.80960275e+05, 4.40020090e+06, 1.76641003e+03],
-                 [4.80937775e+05, 4.40014810e+06, 1.76235999e+03],
-                 [4.81000975e+05, 4.40011290e+06, 1.76170996e+03],
-                 [4.80952575e+05, 4.40012050e+06, 1.76276001e+03],
-                 [4.80930275e+05, 4.40016310e+06, 1.76169995e+03]])
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>pyvista_ndarray([[4.81077675e+05, 4.40021410e+06, 1.75969995e+03],
+                 [4.81105175e+05, 4.40018100e+06, 1.76955005e+03],
+                 [4.81126475e+05, 4.40020750e+06, 1.76938000e+03],
+                 [4.80972175e+05, 4.40009520e+06, 1.77441003e+03],
+                 [4.81065675e+05, 4.40023620e+06, 1.75715002e+03]])
 </pre></div>
 </div>
 <p>サンプルデータまたは独自のプロジェクトからポイント/頂点のNumPy配列を取得したので，これらのポイントのPyVistaメッシュを作成するのは簡単です．</p>
@@ -654,7 +654,7 @@ document.write(`
 <tr><td>N Strips</td><td>0</td></tr>
 <tr><td>X Bounds</td><td>4.809e+05, 4.811e+05</td></tr>
 <tr><td>Y Bounds</td><td>4.400e+06, 4.400e+06</td></tr>
-<tr><td>Z Bounds</td><td>1.754e+03, 1.787e+03</td></tr>
+<tr><td>Z Bounds</td><td>1.754e+03, 1.784e+03</td></tr>
 <tr><td>N Arrays</td><td>0</td></tr>
 </table>
 
@@ -668,9 +668,7 @@ document.write(`
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>True
 </pre></div>
 </div>
-<p>And now that we have a PyVista mesh, we can plot it. Note that we add an
-option to use eye dome lighting - this is a shading technique to improve
-depth perception with point clouds (learn more in <a class="reference internal" href="../02-plot/edl.html#edl"><span class="std std-ref">Eye Dome Lighting</span></a>).</p>
+<p>これでPyVistaメッシュができたので，プロットすることができます．ここでは，eye domeライティングを使用するオプションを追加します．これは，ポイントクラウド( <a class="reference internal" href="../02-plot/edl.html#edl"><span class="std std-ref">Eye Dome Lighting</span></a> についてもっと学ぶ)を使用して深さの認識を向上させるシェーディング技法です．</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">point_cloud</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">eye_dome_lighting</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -706,11 +704,11 @@ depth perception with point clouds (learn more in <a class="reference internal" 
 <span class="n">vectors</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span> <span class="p">:]</span>
 </pre></div>
 </div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>pyvista_ndarray([[ 0.60121275,  0.08764099, -0.7942684 ],
-                 [-0.61434476,  0.71773479,  0.32777627],
-                 [-0.75280469,  0.65501397,  0.06512913],
-                 [-0.87125007,  0.39200344,  0.29539233],
-                 [ 0.04614248, -0.3725091 , -0.9268807 ]])
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>pyvista_ndarray([[ 0.5925435 ,  0.62624882, -0.50666026],
+                 [-0.04535929, -0.4624116 ,  0.8855044 ],
+                 [ 0.81787568, -0.57135603,  0.06805626],
+                 [ 0.61582269, -0.78788268,  0.00181332],
+                 [ 0.52178688,  0.82806675, -0.20504611]])
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">point_cloud</span><span class="p">[</span><span class="s1">&#39;vectors&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">vectors</span>
@@ -733,7 +731,7 @@ depth perception with point clouds (learn more in <a class="reference internal" 
 <span class="n">plotter</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_create-point-cloud_003.png" srcset="../../_images/sphx_glr_create-point-cloud_003.png" alt="create point cloud" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 5.308 seconds)</p>
+<img src="../../_images/sphx_glr_create-point-cloud_003.png" srcset="../../_images/sphx_glr_create-point-cloud_003.png" alt="create point cloud" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 5.800 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-00-load-create-point-cloud-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/b56f133896ca717685efadc3dcd1d66c/create-point-cloud.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">create-point-cloud.py</span></code></a></p>

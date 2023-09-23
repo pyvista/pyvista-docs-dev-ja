@@ -573,14 +573,8 @@ document.write(`
                   
   <section id="core-api">
 <span id="core-api-index"></span><h1>コアAPI<a class="headerlink" href="#core-api" title="この見出しへのパーマリンク">#</a></h1>
-<p>The <a class="reference external" href="https://vtk.org">Visualization Toolkit</a> (VTK), developed by <a class="reference external" href="https://www.kitware.com">Kitware</a>, has many mesh data
-types that PyVista wraps.
-This chapter is intended to describe these different mesh types and how we wrap
-and implement each of those mesh types in VTK. This chapter also highlights
-how all PyVista types have direct access to common VTK filters
-(see <a class="reference internal" href="filters.html#filters"><span class="std std-ref">フィルタ</span></a>).</p>
-<p>All PyVista meshes inherit from the DataSet type (see <a class="reference internal" href="dataset.html#dataset"><span class="std std-ref">データセット</span></a>).
-PyVista has the following mesh types:</p>
+<p><a class="reference external" href="https://www.kitware.com">Kitware</a> によって開発された <a class="reference external" href="https://vtk.org">Visualization Toolkit</a> (VTK) には，PyVistaがラップする多くのメッシュデータ型があります．この章では，これらの異なるメッシュタイプと，VTKでこれらのメッシュタイプをラップして実装する方法について説明します．また，すべてのPyVistaタイプが共通のVTKフィルタ( <a class="reference internal" href="filters.html#filters"><span class="std std-ref">フィルタ</span></a> を参照)に直接アクセスする方法についても説明します．</p>
+<p>すべてのPyVistaメッシュは，DataSet型( <a class="reference internal" href="dataset.html#dataset"><span class="std std-ref">データセット</span></a> を参照)から継承されます．PyVistaには次のメッシュタイプがあります．</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="_autosummary/pyvista.PointSet.html#pyvista.PointSet" title="pyvista.PointSet"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.PointSet</span></code></a> は，点の集合を表現するために使用されます．これは，ジオメトリを表現するために &quot;point&quot; 配列を明示的に使用するデータセットのためのインタフェースを提供するためのものです．class:<cite>pyvista.PointSet</cite> クラスは， <a class="reference external" href="https://www.vtk.org/doc/nightly/html/classvtkPointSet.html">vtk.vtkPointSet</a> を拡張したものです．</p></li>
 <li><p><a class="reference internal" href="_autosummary/pyvista.PolyData.html#pyvista.PolyData" title="pyvista.PolyData"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.PolyData</span></code></a> は，頂点，線，ポリゴン，および3角形を構築する1 Dまたは2 Dジオメトリで構成されます．一般的に <a class="reference internal" href="_autosummary/pyvista.PolyData.html#pyvista.PolyData" title="pyvista.PolyData"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.PolyData</span></code></a> を使用して，散乱点と閉じた/開いたサーフェス(非体積データセット)を構築します． <a class="reference internal" href="_autosummary/pyvista.PolyData.html#pyvista.PolyData" title="pyvista.PolyData"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.PolyData</span></code></a> クラスは <a class="reference external" href="https://vtk.org/doc/nightly/html/classvtkPolyData.html">vtk.vtkPolyData</a> の拡張です．</p></li>

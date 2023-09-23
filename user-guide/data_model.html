@@ -561,11 +561,7 @@ document.write(`
                   
   <section id="pyvista-data-model">
 <span id="id1"></span><h1>PyVistaデータモデル<a class="headerlink" href="#pyvista-data-model" title="この見出しへのパーマリンク">#</a></h1>
-<p>This section of the user guide explains in detail how to construct
-meshes from scratch and to utilize the underlying VTK data model but
-using the PyVista framework. Many of our <a class="reference internal" href="../examples/index.html#examples"><span class="std std-ref">例</span></a> simply
-load data from files, but don't explain how to construct meshes or
-place data within datasets.</p>
+<p>このセクションでは，PyVistaフレームワークを使って，スクラッチからメッシュを作成する方法や，基礎となるVTKデータモデルを利用する方法を詳しく説明します． 私たちの <a class="reference internal" href="../examples/index.html#examples"><span class="std std-ref">例</span></a> の多くは，単にファイルからデータを読み込むだけで，メッシュを構築したり，データセット内にデータを配置する方法を説明していません．</p>
 <div class="admonition note">
 <p class="admonition-title">注釈</p>
 <p>以下のドキュメントセクションはVTKを参照していますが，VTKの知識を必要とするものではありません． VTKとの詳細な比較や，VTKのPythonバインディングのために書かれたコードをPyVistaに翻訳したい方は， <a class="reference internal" href="vtk_to_pyvista.html#vtk-to-pyvista-docs"><span class="std std-ref">VTKからPyVistaへの移行</span></a> を参照してください．</p>
@@ -576,10 +572,7 @@ place data within datasets.</p>
 <p>VTKやPyVistaでデータを可視化するには，2つの情報が必要です．空間内の位置や値を表すデータのジオメトリと，データセット内の点が互いにどのように接続されているかを表すトポロジです．</p>
 <p>一番上のレベルには <a class="reference external" href="https://vtk.org/doc/nightly/html/classvtkDataObject.html">vtkDataObject</a> があります．これはジオメトリやトポロジーを持たない，単なるデータの &quot;塊&quot; です．これには <a class="reference external" href="https://vtk.org/doc/nightly/html/classvtkFieldData.html">vtkFieldData</a> の配列が含まれます．その下にあるのが <a class="reference external" href="https://vtk.org/doc/nightly/html/classvtkDataSet.html">vtkDataSet</a> で，これは <a class="reference external" href="https://vtk.org/doc/nightly/html/classvtkDataObject.html">vtkDataObject</a> にジオメトリやトポロジを追加するものです．データセット内の全ての点やセルには特定の値が関連付けられている．これらの値は空間に配置され，接続されなければならないので， <a class="reference external" href="https://vtk.org/doc/nightly/html/classvtkDataArray.html">vtkDataArray</a> クラスに保持され，これは単なるヒープ上のメモリバッファです．PyVistaでは，99%の場合， <a class="reference external" href="https://vtk.org/doc/nightly/html/classvtkDataObject.html">vtkDataObject</a> オブジェクトではなく， <a class="reference external" href="https://vtk.org/doc/nightly/html/classvtkDataSet.html">vtkDataSet</a> オブジェクトを操作します．PyVista は VTK と同じデータ型を使用しますが，使いやすくするために，よりpythonicな方法で構造化しています．</p>
 <p>VTKがどのようにデータを構成しているかの背景を知りたい方は， <a class="reference external" href="https://vimeo.com/32232190">Introduction to VTK in Python by Kitware</a> や， <a class="reference external" href="https://kitware.github.io/vtk-examples/site/">Kitware's GitHub site</a> に掲載されている多数のコード例をご覧ください．VTKで実装されている3Dモデリング全般に関連する数学的概念の優れた入門書は，Carnegie Mellon大学のKeenan Crane教授による <a class="reference external" href="https://www.youtube.com/playlist?list=PL9_jI1bdZmz0hIrNCMQW1YmZysAiIYSSS">Discrete Differential Geometry YouTube Series</a> です．ここで紹介されている概念は，データセットがVTKのようなライブラリでどのように構造化されているかについての理解を深めるのに役立ちます．</p>
-<p>At the most fundamental level, all PyVista geometry classes inherit
-from the <a class="reference internal" href="../api/core/dataset.html#dataset"><span class="std std-ref">データセット</span></a> class. A dataset has geometry, topology,
-and attributes describing that geometry in the form of point, cell, or
-field arrays.</p>
+<p>最も基本的なレベルでは，すべての PyVista ジオメトリクラスは， <a class="reference internal" href="../api/core/dataset.html#dataset"><span class="std std-ref">データセット</span></a> クラスを継承しています．データセットは，ジオメトリ，トポロジー，そして，ポイント，セル，フィールドアレイの形でジオメトリを記述する属性を持っています．</p>
 <p>PyVistaのジオメトリは，点とセルで表現されます． 例えば， <a class="reference internal" href="../api/core/_autosummary/pyvista.PolyData.html#pyvista.PolyData" title="pyvista.PolyData"><code class="xref py py-class docutils literal notranslate"><span class="pre">PolyData</span></code></a> の中の1つのセルを考えてみましょう．</p>
 <div class="jupyter_cell docutils container">
 <div class="cell_output docutils container">
@@ -628,7 +621,7 @@ field arrays.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>vtkDoubleArray (0x555a998844a0)
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>vtkDoubleArray (0x56029833b870)
   Debug: Off
   Modified Time: 99399
   Reference Count: 1
@@ -1294,9 +1287,7 @@ Contains arrays :
 </section>
 <section id="active-texture-coordinates">
 <h3>アクティブテクスチャの座標<a class="headerlink" href="#active-texture-coordinates" title="この見出しへのパーマリンク">#</a></h3>
-<p>The <a class="reference internal" href="../api/core/_autosummary/pyvista.DataSet.active_t_coords.html#pyvista.DataSet.active_t_coords" title="pyvista.DataSet.active_t_coords"><code class="xref py py-attr docutils literal notranslate"><span class="pre">active_t_coords</span></code></a> array is used for
-rendering textures. See <a class="reference internal" href="../examples/02-plot/texture.html#texture-example"><span class="std std-ref">テクスチャを適用する</span></a> for examples using
-this array.</p>
+<p><a class="reference internal" href="../api/core/_autosummary/pyvista.DataSet.active_t_coords.html#pyvista.DataSet.active_t_coords" title="pyvista.DataSet.active_t_coords"><code class="xref py py-attr docutils literal notranslate"><span class="pre">active_t_coords</span></code></a> の配列は，テクスチャのレンダリングに使用されます． この配列を使った例については， <a class="reference internal" href="../examples/02-plot/texture.html#texture-example"><span class="std std-ref">テクスチャを適用する</span></a> を参照してください．</p>
 </section>
 <section id="active-vectors">
 <h3>アクティブベクター<a class="headerlink" href="#active-vectors" title="この見出しへのパーマリンク">#</a></h3>
