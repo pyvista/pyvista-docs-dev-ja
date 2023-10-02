@@ -18,12 +18,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
 
   
-  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -46,8 +46,9 @@
     <link rel="stylesheet" type="text/css" href="../../_static/no_italic.css?v=7ec6bf1f" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js?v=2c0d63ae"></script>
     <script src="../../_static/doctools.js?v=888ff710"></script>
@@ -69,8 +70,10 @@
             </script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'examples/01-filter/sg_execution_times';</script>
     <script>
+        DOCUMENTATION_OPTIONS.theme_version = '0.14.1';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://docs.pyvista.org/versions.json';
         DOCUMENTATION_OPTIONS.theme_switcher_version_match = 'dev';
+        DOCUMENTATION_OPTIONS.show_version_warning_banner = false;
         </script>
     <link rel="index" title="索引" href="../../genindex.html" />
     <link rel="search" title="検索" href="../../search.html" />
@@ -84,6 +87,15 @@
   
   
   <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -124,7 +136,8 @@
     <span class="fa-solid fa-bars"></span>
   </label>
   
-  <div class="navbar-header-items__start">
+  
+  <div class="col-lg-3 navbar-header-items__start">
     
       <div class="navbar-item">
   
@@ -146,7 +159,6 @@
 </a></div>
     
   </div>
-  
   
   <div class="col-lg-9 navbar-header-items">
     
@@ -205,13 +217,15 @@
       
         <div class="navbar-item navbar-persistent--container">
           
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="検索" aria-label="検索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="検索" aria-label="検索" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass"></i>
-  </button>
-`);
-</script>
+    <span class="search-button__default-text">検索</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
         </div>
       
       
@@ -219,11 +233,11 @@ document.write(`
 <script>
 document.write(`
   <div class="version-switcher__container dropdown">
-    <button type="button" class="version-switcher__button btn btn-sm navbar-btn dropdown-toggle" data-bs-toggle="dropdown">
-      dev  <!-- this text may get changed later by javascript -->
+    <button id="versionswitcherbutton" type="button" role="button" class="version-switcher__button btn btn-sm navbar-btn dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="listbox" aria-controls="versionswitcherlist" aria-label="Version switcher list">
+      Choose version  <!-- this text may get changed later by javascript -->
       <span class="caret"></span>
     </button>
-    <div class="version-switcher__menu dropdown-menu list-group-flush py-0">
+    <div id="versionswitcherlist" class="version-switcher__menu dropdown-menu list-group-flush py-0" role="listbox" aria-labelledby="versionswitcherbutton">
     <!-- dropdown will be populated by javascript on page load -->
     </div>
   </div>
@@ -233,10 +247,10 @@ document.write(`
         <div class="navbar-item">
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script></div>
@@ -252,8 +266,8 @@ document.write(`
           
           
           
-          <a href="https://github.com/pyvista/pyvista" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github"></i></span>
-            <label class="sr-only">GitHub</label></a>
+          <a href="https://github.com/pyvista/pyvista" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
         </li>
         <li class="nav-item">
           
@@ -264,8 +278,8 @@ document.write(`
           
           
           
-          <a href="http://slack.pyvista.org" title="Slack Community" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fab fa-slack"></i></span>
-            <label class="sr-only">Slack Community</label></a>
+          <a href="http://slack.pyvista.org" title="Slack Community" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fab fa-slack fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">Slack Community</span></a>
         </li>
         <li class="nav-item">
           
@@ -276,8 +290,8 @@ document.write(`
           
           
           
-          <a href="https://github.com/pyvista/pyvista/discussions" title="Support" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-comment fa-fw"></i></span>
-            <label class="sr-only">Support</label></a>
+          <a href="https://github.com/pyvista/pyvista/discussions" title="Support" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-comment fa-fw fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">Support</span></a>
         </li>
         <li class="nav-item">
           
@@ -288,8 +302,8 @@ document.write(`
           
           
           
-          <a href="https://github.com/pyvista/pyvista/blob/main/CONTRIBUTING.rst" title="Contributing" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-gavel fa-fw"></i></span>
-            <label class="sr-only">Contributing</label></a>
+          <a href="https://github.com/pyvista/pyvista/blob/main/CONTRIBUTING.rst" title="Contributing" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-gavel fa-fw fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">Contributing</span></a>
         </li>
         <li class="nav-item">
           
@@ -300,8 +314,8 @@ document.write(`
           
           
           
-          <a href="https://doi.org/10.21105/joss.01450" title="The Paper" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-file-text fa-fw"></i></span>
-            <label class="sr-only">The Paper</label></a>
+          <a href="https://doi.org/10.21105/joss.01450" title="The Paper" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-file-text fa-fw fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">The Paper</span></a>
         </li>
 </ul></div>
       
@@ -311,18 +325,20 @@ document.write(`
   
   
     <div class="navbar-persistent--mobile">
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="検索" aria-label="検索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="検索" aria-label="検索" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass"></i>
-  </button>
-`);
-</script>
+    <span class="search-button__default-text">検索</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
     </div>
   
 
   
-    <label class="sidebar-toggle secondary-toggle" for="__secondary">
+    <label class="sidebar-toggle secondary-toggle" for="__secondary" tabindex="0">
       <span class="fa-solid fa-outdent"></span>
     </label>
   
@@ -398,11 +414,11 @@ document.write(`
 <script>
 document.write(`
   <div class="version-switcher__container dropdown">
-    <button type="button" class="version-switcher__button btn btn-sm navbar-btn dropdown-toggle" data-bs-toggle="dropdown">
-      dev  <!-- this text may get changed later by javascript -->
+    <button id="versionswitcherbutton" type="button" role="button" class="version-switcher__button btn btn-sm navbar-btn dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="listbox" aria-controls="versionswitcherlist" aria-label="Version switcher list">
+      Choose version  <!-- this text may get changed later by javascript -->
       <span class="caret"></span>
     </button>
-    <div class="version-switcher__menu dropdown-menu list-group-flush py-0">
+    <div id="versionswitcherlist" class="version-switcher__menu dropdown-menu list-group-flush py-0" role="listbox" aria-labelledby="versionswitcherbutton">
     <!-- dropdown will be populated by javascript on page load -->
     </div>
   </div>
@@ -412,10 +428,10 @@ document.write(`
           <div class="navbar-item">
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script></div>
@@ -431,8 +447,8 @@ document.write(`
           
           
           
-          <a href="https://github.com/pyvista/pyvista" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github"></i></span>
-            <label class="sr-only">GitHub</label></a>
+          <a href="https://github.com/pyvista/pyvista" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
         </li>
         <li class="nav-item">
           
@@ -443,8 +459,8 @@ document.write(`
           
           
           
-          <a href="http://slack.pyvista.org" title="Slack Community" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fab fa-slack"></i></span>
-            <label class="sr-only">Slack Community</label></a>
+          <a href="http://slack.pyvista.org" title="Slack Community" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fab fa-slack fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">Slack Community</span></a>
         </li>
         <li class="nav-item">
           
@@ -455,8 +471,8 @@ document.write(`
           
           
           
-          <a href="https://github.com/pyvista/pyvista/discussions" title="Support" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-comment fa-fw"></i></span>
-            <label class="sr-only">Support</label></a>
+          <a href="https://github.com/pyvista/pyvista/discussions" title="Support" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-comment fa-fw fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">Support</span></a>
         </li>
         <li class="nav-item">
           
@@ -467,8 +483,8 @@ document.write(`
           
           
           
-          <a href="https://github.com/pyvista/pyvista/blob/main/CONTRIBUTING.rst" title="Contributing" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-gavel fa-fw"></i></span>
-            <label class="sr-only">Contributing</label></a>
+          <a href="https://github.com/pyvista/pyvista/blob/main/CONTRIBUTING.rst" title="Contributing" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-gavel fa-fw fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">Contributing</span></a>
         </li>
         <li class="nav-item">
           
@@ -479,8 +495,8 @@ document.write(`
           
           
           
-          <a href="https://doi.org/10.21105/joss.01450" title="The Paper" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-file-text fa-fw"></i></span>
-            <label class="sr-only">The Paper</label></a>
+          <a href="https://doi.org/10.21105/joss.01450" title="The Paper" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-file-text fa-fw fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">The Paper</span></a>
         </li>
 </ul></div>
         
@@ -512,8 +528,8 @@ document.write(`
 
 
 
-<nav aria-label="Breadcrumbs">
-  <ul class="bd-breadcrumbs" role="navigation" aria-label="Breadcrumb">
+<nav aria-label="Breadcrumb">
+  <ul class="bd-breadcrumbs">
     
     <li class="breadcrumb-item breadcrumb-home">
       <a href="../../index.html" class="nav-link" aria-label="Home">
@@ -539,179 +555,179 @@ document.write(`
                   
   <section id="computation-times">
 <span id="sphx-glr-examples-01-filter-sg-execution-times"></span><h1>計算時間<a class="headerlink" href="#computation-times" title="この見出しへのパーマリンク">#</a></h1>
-<p><strong>08:00.328</strong> total execution time for <strong>examples_01-filter</strong> files:</p>
+<p><strong>09:39.951</strong> total execution time for <strong>examples_01-filter</strong> files:</p>
 <table class="table">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="image-fft-perlin-noise.html#sphx-glr-examples-01-filter-image-fft-perlin-noise-py"><span class="std std-ref">Perlinノイズによる高速フーリエ変換</span></a> (<code class="docutils literal notranslate"><span class="pre">image-fft-perlin-noise.py</span></code>)</p></td>
-<td><p>01:12.997</p></td>
+<td><p>01:27.143</p></td>
 <td><p>0.0 MB</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="compute-normals.html#sphx-glr-examples-01-filter-compute-normals-py"><span class="std std-ref">表面の法線を計算します</span></a> (<code class="docutils literal notranslate"><span class="pre">compute-normals.py</span></code>)</p></td>
-<td><p>00:58.710</p></td>
+<td><p>01:15.473</p></td>
 <td><p>0.0 MB</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="clipping-with-surface.html#sphx-glr-examples-01-filter-clipping-with-surface-py"><span class="std std-ref">サーフェスを使用したクリップ</span></a> (<code class="docutils literal notranslate"><span class="pre">clipping-with-surface.py</span></code>)</p></td>
-<td><p>00:52.161</p></td>
+<td><p>01:00.204</p></td>
 <td><p>0.0 MB</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="slicing.html#sphx-glr-examples-01-filter-slicing-py"><span class="std std-ref">スライシング</span></a> (<code class="docutils literal notranslate"><span class="pre">slicing.py</span></code>)</p></td>
-<td><p>00:31.389</p></td>
+<td><p>00:37.227</p></td>
 <td><p>0.0 MB</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="streamlines.html#sphx-glr-examples-01-filter-streamlines-py"><span class="std std-ref">流線</span></a> (<code class="docutils literal notranslate"><span class="pre">streamlines.py</span></code>)</p></td>
-<td><p>00:27.097</p></td>
+<td><p>00:32.883</p></td>
 <td><p>0.0 MB</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="gaussian-smoothing.html#sphx-glr-examples-01-filter-gaussian-smoothing-py"><span class="std std-ref">Gaussianスムージング</span></a> (<code class="docutils literal notranslate"><span class="pre">gaussian-smoothing.py</span></code>)</p></td>
-<td><p>00:18.891</p></td>
+<td><p>00:24.038</p></td>
 <td><p>0.0 MB</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="geodesic.html#sphx-glr-examples-01-filter-geodesic-py"><span class="std std-ref">測地パス</span></a> (<code class="docutils literal notranslate"><span class="pre">geodesic.py</span></code>)</p></td>
-<td><p>00:17.583</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="image-fft.html#sphx-glr-examples-01-filter-image-fft-py"><span class="std std-ref">高速Fourier変換</span></a> (<code class="docutils literal notranslate"><span class="pre">image-fft.py</span></code>)</p></td>
+<td><p>00:20.720</p></td>
 <td><p>0.0 MB</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="image-fft.html#sphx-glr-examples-01-filter-image-fft-py"><span class="std std-ref">高速Fourier変換</span></a> (<code class="docutils literal notranslate"><span class="pre">image-fft.py</span></code>)</p></td>
-<td><p>00:17.341</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="geodesic.html#sphx-glr-examples-01-filter-geodesic-py"><span class="std std-ref">測地パス</span></a> (<code class="docutils literal notranslate"><span class="pre">geodesic.py</span></code>)</p></td>
+<td><p>00:18.163</p></td>
 <td><p>0.0 MB</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="voxelize.html#sphx-glr-examples-01-filter-voxelize-py"><span class="std std-ref">サーフェスメッシュをボクセル化する</span></a> (<code class="docutils literal notranslate"><span class="pre">voxelize.py</span></code>)</p></td>
-<td><p>00:14.007</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="contouring.html#sphx-glr-examples-01-filter-contouring-py"><span class="std std-ref">コンタリング</span></a> (<code class="docutils literal notranslate"><span class="pre">contouring.py</span></code>)</p></td>
+<td><p>00:16.815</p></td>
 <td><p>0.0 MB</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="contouring.html#sphx-glr-examples-01-filter-contouring-py"><span class="std std-ref">コンタリング</span></a> (<code class="docutils literal notranslate"><span class="pre">contouring.py</span></code>)</p></td>
-<td><p>00:13.660</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="voxelize.html#sphx-glr-examples-01-filter-voxelize-py"><span class="std std-ref">サーフェスメッシュをボクセル化する</span></a> (<code class="docutils literal notranslate"><span class="pre">voxelize.py</span></code>)</p></td>
+<td><p>00:16.770</p></td>
 <td><p>0.0 MB</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="glyphs.html#sphx-glr-examples-01-filter-glyphs-py"><span class="std std-ref">字形のプロット (ベクトルかPolyData)</span></a> (<code class="docutils literal notranslate"><span class="pre">glyphs.py</span></code>)</p></td>
-<td><p>00:12.984</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="connectivity.html#sphx-glr-examples-01-filter-connectivity-py"><span class="std std-ref">連結度</span></a> (<code class="docutils literal notranslate"><span class="pre">connectivity.py</span></code>)</p></td>
+<td><p>00:15.679</p></td>
 <td><p>0.0 MB</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="connectivity.html#sphx-glr-examples-01-filter-connectivity-py"><span class="std std-ref">連結度</span></a> (<code class="docutils literal notranslate"><span class="pre">connectivity.py</span></code>)</p></td>
-<td><p>00:12.447</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="glyphs.html#sphx-glr-examples-01-filter-glyphs-py"><span class="std std-ref">字形のプロット (ベクトルかPolyData)</span></a> (<code class="docutils literal notranslate"><span class="pre">glyphs.py</span></code>)</p></td>
+<td><p>00:15.641</p></td>
 <td><p>0.0 MB</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="flying_edges.html#sphx-glr-examples-01-filter-flying-edges-py"><span class="std std-ref">マーチングキューブ</span></a> (<code class="docutils literal notranslate"><span class="pre">flying_edges.py</span></code>)</p></td>
-<td><p>00:12.434</p></td>
-<td><p>0.0 MB</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="compute-volume.html#sphx-glr-examples-01-filter-compute-volume-py"><span class="std std-ref">ボリューム分析</span></a> (<code class="docutils literal notranslate"><span class="pre">compute-volume.py</span></code>)</p></td>
-<td><p>00:11.161</p></td>
-<td><p>0.0 MB</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="resample.html#sphx-glr-examples-01-filter-resample-py"><span class="std std-ref">再サンプリング</span></a> (<code class="docutils literal notranslate"><span class="pre">resample.py</span></code>)</p></td>
-<td><p>00:11.007</p></td>
+<td><p>00:14.742</p></td>
 <td><p>0.0 MB</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="interpolate.html#sphx-glr-examples-01-filter-interpolate-py"><span class="std std-ref">補間</span></a> (<code class="docutils literal notranslate"><span class="pre">interpolate.py</span></code>)</p></td>
-<td><p>00:10.932</p></td>
+<td><p>00:14.010</p></td>
+<td><p>0.0 MB</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="compute-volume.html#sphx-glr-examples-01-filter-compute-volume-py"><span class="std std-ref">ボリューム分析</span></a> (<code class="docutils literal notranslate"><span class="pre">compute-volume.py</span></code>)</p></td>
+<td><p>00:13.151</p></td>
+<td><p>0.0 MB</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="resample.html#sphx-glr-examples-01-filter-resample-py"><span class="std std-ref">再サンプリング</span></a> (<code class="docutils literal notranslate"><span class="pre">resample.py</span></code>)</p></td>
+<td><p>00:13.070</p></td>
 <td><p>0.0 MB</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="boolean-operations.html#sphx-glr-examples-01-filter-boolean-operations-py"><span class="std std-ref">ブール演算</span></a> (<code class="docutils literal notranslate"><span class="pre">boolean-operations.py</span></code>)</p></td>
-<td><p>00:10.363</p></td>
+<td><p>00:12.105</p></td>
 <td><p>0.0 MB</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="using-filters.html#sphx-glr-examples-01-filter-using-filters-py"><span class="std std-ref">共通フィルタの使用</span></a> (<code class="docutils literal notranslate"><span class="pre">using-filters.py</span></code>)</p></td>
-<td><p>00:09.652</p></td>
+<td><p>00:11.460</p></td>
 <td><p>0.0 MB</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="collisions.html#sphx-glr-examples-01-filter-collisions-py"><span class="std std-ref">衝突</span></a> (<code class="docutils literal notranslate"><span class="pre">collisions.py</span></code>)</p></td>
-<td><p>00:08.928</p></td>
+<td><p>00:10.527</p></td>
 <td><p>0.0 MB</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="sampling_functions_2d.html#sphx-glr-examples-01-filter-sampling-functions-2d-py"><span class="std std-ref">サンプル関数:2DでのPerlinノイズ</span></a> (<code class="docutils literal notranslate"><span class="pre">sampling_functions_2d.py</span></code>)</p></td>
-<td><p>00:07.813</p></td>
+<td><p>00:09.645</p></td>
 <td><p>0.0 MB</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="streamlines_2D.html#sphx-glr-examples-01-filter-streamlines-2d-py"><span class="std std-ref">2D流線</span></a> (<code class="docutils literal notranslate"><span class="pre">streamlines_2D.py</span></code>)</p></td>
-<td><p>00:05.253</p></td>
+<td><p>00:06.841</p></td>
 <td><p>0.0 MB</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="glyphs_table.html#sphx-glr-examples-01-filter-glyphs-table-py"><span class="std std-ref">字形表</span></a> (<code class="docutils literal notranslate"><span class="pre">glyphs_table.py</span></code>)</p></td>
-<td><p>00:04.743</p></td>
+<td><p>00:05.649</p></td>
 <td><p>0.0 MB</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="gradients.html#sphx-glr-examples-01-filter-gradients-py"><span class="std std-ref">フィールドの勾配を計算する</span></a> (<code class="docutils literal notranslate"><span class="pre">gradients.py</span></code>)</p></td>
-<td><p>00:04.289</p></td>
+<td><p>00:05.035</p></td>
 <td><p>0.0 MB</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="distance-between-surfaces.html#sphx-glr-examples-01-filter-distance-between-surfaces-py"><span class="std std-ref">2つのサーフェス間の距離</span></a> (<code class="docutils literal notranslate"><span class="pre">distance-between-surfaces.py</span></code>)</p></td>
-<td><p>00:03.604</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="extract-edges.html#sphx-glr-examples-01-filter-extract-edges-py"><span class="std std-ref">エッジを抽出</span></a> (<code class="docutils literal notranslate"><span class="pre">extract-edges.py</span></code>)</p></td>
+<td><p>00:04.964</p></td>
 <td><p>0.0 MB</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="extract-edges.html#sphx-glr-examples-01-filter-extract-edges-py"><span class="std std-ref">エッジを抽出</span></a> (<code class="docutils literal notranslate"><span class="pre">extract-edges.py</span></code>)</p></td>
-<td><p>00:03.381</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="distance-between-surfaces.html#sphx-glr-examples-01-filter-distance-between-surfaces-py"><span class="std std-ref">2つのサーフェス間の距離</span></a> (<code class="docutils literal notranslate"><span class="pre">distance-between-surfaces.py</span></code>)</p></td>
+<td><p>00:04.177</p></td>
 <td><p>0.0 MB</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="clipping.html#sphx-glr-examples-01-filter-clipping-py"><span class="std std-ref">平面とボックスでクリップします</span></a> (<code class="docutils literal notranslate"><span class="pre">clipping.py</span></code>)</p></td>
-<td><p>00:03.328</p></td>
+<td><p>00:04.103</p></td>
 <td><p>0.0 MB</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="rotate.html#sphx-glr-examples-01-filter-rotate-py"><span class="std std-ref">回転</span></a> (<code class="docutils literal notranslate"><span class="pre">rotate.py</span></code>)</p></td>
-<td><p>00:02.982</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="cell-centers.html#sphx-glr-examples-01-filter-cell-centers-py"><span class="std std-ref">セルの中心を抽出</span></a> (<code class="docutils literal notranslate"><span class="pre">cell-centers.py</span></code>)</p></td>
+<td><p>00:03.861</p></td>
 <td><p>0.0 MB</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="cell-centers.html#sphx-glr-examples-01-filter-cell-centers-py"><span class="std std-ref">セルの中心を抽出</span></a> (<code class="docutils literal notranslate"><span class="pre">cell-centers.py</span></code>)</p></td>
-<td><p>00:02.978</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="rotate.html#sphx-glr-examples-01-filter-rotate-py"><span class="std std-ref">回転</span></a> (<code class="docutils literal notranslate"><span class="pre">rotate.py</span></code>)</p></td>
+<td><p>00:03.800</p></td>
 <td><p>0.0 MB</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="subdivide.html#sphx-glr-examples-01-filter-subdivide-py"><span class="std std-ref">セルの細分化</span></a> (<code class="docutils literal notranslate"><span class="pre">subdivide.py</span></code>)</p></td>
-<td><p>00:02.346</p></td>
+<td><p>00:02.765</p></td>
 <td><p>0.0 MB</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="surface-smoothing.html#sphx-glr-examples-01-filter-surface-smoothing-py"><span class="std std-ref">サーフェイススムージング</span></a> (<code class="docutils literal notranslate"><span class="pre">surface-smoothing.py</span></code>)</p></td>
-<td><p>00:02.119</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="decimate.html#sphx-glr-examples-01-filter-decimate-py"><span class="std std-ref">間引き</span></a> (<code class="docutils literal notranslate"><span class="pre">decimate.py</span></code>)</p></td>
+<td><p>00:02.559</p></td>
 <td><p>0.0 MB</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="decimate.html#sphx-glr-examples-01-filter-decimate-py"><span class="std std-ref">間引き</span></a> (<code class="docutils literal notranslate"><span class="pre">decimate.py</span></code>)</p></td>
-<td><p>00:01.984</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="surface-smoothing.html#sphx-glr-examples-01-filter-surface-smoothing-py"><span class="std std-ref">サーフェイススムージング</span></a> (<code class="docutils literal notranslate"><span class="pre">surface-smoothing.py</span></code>)</p></td>
+<td><p>00:02.420</p></td>
 <td><p>0.0 MB</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="extrude-trim.html#sphx-glr-examples-01-filter-extrude-trim-py"><span class="std std-ref">押し出しトリム</span></a> (<code class="docutils literal notranslate"><span class="pre">extrude-trim.py</span></code>)</p></td>
-<td><p>00:01.797</p></td>
+<td><p>00:02.087</p></td>
 <td><p>0.0 MB</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="project-plane.html#sphx-glr-examples-01-filter-project-plane-py"><span class="std std-ref">平面に投影</span></a> (<code class="docutils literal notranslate"><span class="pre">project-plane.py</span></code>)</p></td>
-<td><p>00:01.490</p></td>
+<td><p>00:02.016</p></td>
 <td><p>0.0 MB</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="extract-cells-inside-surface.html#sphx-glr-examples-01-filter-extract-cells-inside-surface-py"><span class="std std-ref">サーフェス内のセルを抽出</span></a> (<code class="docutils literal notranslate"><span class="pre">extract-cells-inside-surface.py</span></code>)</p></td>
-<td><p>00:01.479</p></td>
+<td><p>00:01.939</p></td>
 <td><p>0.0 MB</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="warp-by-vector.html#sphx-glr-examples-01-filter-warp-by-vector-py"><span class="std std-ref">ベクトルによるワープ</span></a> (<code class="docutils literal notranslate"><span class="pre">warp-by-vector.py</span></code>)</p></td>
-<td><p>00:01.249</p></td>
+<td><p>00:01.484</p></td>
 <td><p>0.0 MB</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="sampling_functions_3d.html#sphx-glr-examples-01-filter-sampling-functions-3d-py"><span class="std std-ref">サンプル関数:3DでのPerlinノイズ</span></a> (<code class="docutils literal notranslate"><span class="pre">sampling_functions_3d.py</span></code>)</p></td>
-<td><p>00:01.021</p></td>
+<td><p>00:01.186</p></td>
 <td><p>0.0 MB</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="integrate-data.html#sphx-glr-examples-01-filter-integrate-data-py"><span class="std std-ref">データの積分</span></a> (<code class="docutils literal notranslate"><span class="pre">integrate-data.py</span></code>)</p></td>
-<td><p>00:00.996</p></td>
+<td><p>00:01.151</p></td>
 <td><p>0.0 MB</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="extrude-rotate.html#sphx-glr-examples-01-filter-extrude-rotate-py"><span class="std std-ref">押し出し回転</span></a> (<code class="docutils literal notranslate"><span class="pre">extrude-rotate.py</span></code>)</p></td>
-<td><p>00:00.910</p></td>
+<td><p>00:01.064</p></td>
 <td><p>0.0 MB</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="extract-surface.html#sphx-glr-examples-01-filter-extract-surface-py"><span class="std std-ref">表面を抽出</span></a> (<code class="docutils literal notranslate"><span class="pre">extract-surface.py</span></code>)</p></td>
-<td><p>00:00.853</p></td>
+<td><p>00:01.011</p></td>
 <td><p>0.0 MB</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="surface_reconstruction.html#sphx-glr-examples-01-filter-surface-reconstruction-py"><span class="std std-ref">サーフェスの再構築</span></a> (<code class="docutils literal notranslate"><span class="pre">surface_reconstruction.py</span></code>)</p></td>
-<td><p>00:00.541</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="poly-ray-trace.html#sphx-glr-examples-01-filter-poly-ray-trace-py"><span class="std std-ref">レイトレーシング</span></a> (<code class="docutils literal notranslate"><span class="pre">poly-ray-trace.py</span></code>)</p></td>
+<td><p>00:00.651</p></td>
 <td><p>0.0 MB</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="poly-ray-trace.html#sphx-glr-examples-01-filter-poly-ray-trace-py"><span class="std std-ref">レイトレーシング</span></a> (<code class="docutils literal notranslate"><span class="pre">poly-ray-trace.py</span></code>)</p></td>
-<td><p>00:00.523</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="surface_reconstruction.html#sphx-glr-examples-01-filter-surface-reconstruction-py"><span class="std std-ref">サーフェスの再構築</span></a> (<code class="docutils literal notranslate"><span class="pre">surface_reconstruction.py</span></code>)</p></td>
+<td><p>00:00.649</p></td>
 <td><p>0.0 MB</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="mesh-quality.html#sphx-glr-examples-01-filter-mesh-quality-py"><span class="std std-ref">メッシュ品質の計算</span></a> (<code class="docutils literal notranslate"><span class="pre">mesh-quality.py</span></code>)</p></td>
-<td><p>00:00.509</p></td>
+<td><p>00:00.588</p></td>
 <td><p>0.0 MB</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="reflect.html#sphx-glr-examples-01-filter-reflect-py"><span class="std std-ref">メッシュを反射</span></a> (<code class="docutils literal notranslate"><span class="pre">reflect.py</span></code>)</p></td>
-<td><p>00:00.396</p></td>
+<td><p>00:00.486</p></td>
 <td><p>0.0 MB</p></td>
 </tr>
 </tbody>
@@ -720,6 +736,8 @@ document.write(`
 
 
                 </article>
+              
+              
               
               
               
@@ -757,8 +775,8 @@ document.write(`
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -777,10 +795,11 @@ document.write(`
     </div>
   
   
+  
     <div class="footer-items__end">
       
         <div class="footer-item"><p class="theme-version">
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.13.3.
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.14.1.
 </p></div>
       
     </div>

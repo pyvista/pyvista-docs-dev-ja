@@ -18,12 +18,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=ac02cc09edc035673794" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=ac02cc09edc035673794" rel="stylesheet" />
 
   
-  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=ac02cc09edc035673794" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -46,8 +46,9 @@
     <link rel="stylesheet" type="text/css" href="../../_static/no_italic.css?v=7ec6bf1f" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=ac02cc09edc035673794"></script>
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js?v=2c0d63ae"></script>
     <script src="../../_static/doctools.js?v=888ff710"></script>
@@ -69,8 +70,10 @@
             </script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'examples/02-plot/sg_execution_times';</script>
     <script>
+        DOCUMENTATION_OPTIONS.theme_version = '0.14.1';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://docs.pyvista.org/versions.json';
         DOCUMENTATION_OPTIONS.theme_switcher_version_match = 'dev';
+        DOCUMENTATION_OPTIONS.show_version_warning_banner = false;
         </script>
     <link rel="index" title="索引" href="../../genindex.html" />
     <link rel="search" title="検索" href="../../search.html" />
@@ -84,6 +87,15 @@
   
   
   <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -124,7 +136,8 @@
     <span class="fa-solid fa-bars"></span>
   </label>
   
-  <div class="navbar-header-items__start">
+  
+  <div class="col-lg-3 navbar-header-items__start">
     
       <div class="navbar-item">
   
@@ -146,7 +159,6 @@
 </a></div>
     
   </div>
-  
   
   <div class="col-lg-9 navbar-header-items">
     
@@ -205,13 +217,15 @@
       
         <div class="navbar-item navbar-persistent--container">
           
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="検索" aria-label="検索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="検索" aria-label="検索" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass"></i>
-  </button>
-`);
-</script>
+    <span class="search-button__default-text">検索</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
         </div>
       
       
@@ -219,11 +233,11 @@ document.write(`
 <script>
 document.write(`
   <div class="version-switcher__container dropdown">
-    <button type="button" class="version-switcher__button btn btn-sm navbar-btn dropdown-toggle" data-bs-toggle="dropdown">
-      dev  <!-- this text may get changed later by javascript -->
+    <button id="versionswitcherbutton" type="button" role="button" class="version-switcher__button btn btn-sm navbar-btn dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="listbox" aria-controls="versionswitcherlist" aria-label="Version switcher list">
+      Choose version  <!-- this text may get changed later by javascript -->
       <span class="caret"></span>
     </button>
-    <div class="version-switcher__menu dropdown-menu list-group-flush py-0">
+    <div id="versionswitcherlist" class="version-switcher__menu dropdown-menu list-group-flush py-0" role="listbox" aria-labelledby="versionswitcherbutton">
     <!-- dropdown will be populated by javascript on page load -->
     </div>
   </div>
@@ -233,10 +247,10 @@ document.write(`
         <div class="navbar-item">
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script></div>
@@ -252,8 +266,8 @@ document.write(`
           
           
           
-          <a href="https://github.com/pyvista/pyvista" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github"></i></span>
-            <label class="sr-only">GitHub</label></a>
+          <a href="https://github.com/pyvista/pyvista" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
         </li>
         <li class="nav-item">
           
@@ -264,8 +278,8 @@ document.write(`
           
           
           
-          <a href="http://slack.pyvista.org" title="Slack Community" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fab fa-slack"></i></span>
-            <label class="sr-only">Slack Community</label></a>
+          <a href="http://slack.pyvista.org" title="Slack Community" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fab fa-slack fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">Slack Community</span></a>
         </li>
         <li class="nav-item">
           
@@ -276,8 +290,8 @@ document.write(`
           
           
           
-          <a href="https://github.com/pyvista/pyvista/discussions" title="Support" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-comment fa-fw"></i></span>
-            <label class="sr-only">Support</label></a>
+          <a href="https://github.com/pyvista/pyvista/discussions" title="Support" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-comment fa-fw fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">Support</span></a>
         </li>
         <li class="nav-item">
           
@@ -288,8 +302,8 @@ document.write(`
           
           
           
-          <a href="https://github.com/pyvista/pyvista/blob/main/CONTRIBUTING.rst" title="Contributing" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-gavel fa-fw"></i></span>
-            <label class="sr-only">Contributing</label></a>
+          <a href="https://github.com/pyvista/pyvista/blob/main/CONTRIBUTING.rst" title="Contributing" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-gavel fa-fw fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">Contributing</span></a>
         </li>
         <li class="nav-item">
           
@@ -300,8 +314,8 @@ document.write(`
           
           
           
-          <a href="https://doi.org/10.21105/joss.01450" title="The Paper" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-file-text fa-fw"></i></span>
-            <label class="sr-only">The Paper</label></a>
+          <a href="https://doi.org/10.21105/joss.01450" title="The Paper" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-file-text fa-fw fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">The Paper</span></a>
         </li>
 </ul></div>
       
@@ -311,18 +325,20 @@ document.write(`
   
   
     <div class="navbar-persistent--mobile">
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="検索" aria-label="検索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="検索" aria-label="検索" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass"></i>
-  </button>
-`);
-</script>
+    <span class="search-button__default-text">検索</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
     </div>
   
 
   
-    <label class="sidebar-toggle secondary-toggle" for="__secondary">
+    <label class="sidebar-toggle secondary-toggle" for="__secondary" tabindex="0">
       <span class="fa-solid fa-outdent"></span>
     </label>
   
@@ -398,11 +414,11 @@ document.write(`
 <script>
 document.write(`
   <div class="version-switcher__container dropdown">
-    <button type="button" class="version-switcher__button btn btn-sm navbar-btn dropdown-toggle" data-bs-toggle="dropdown">
-      dev  <!-- this text may get changed later by javascript -->
+    <button id="versionswitcherbutton" type="button" role="button" class="version-switcher__button btn btn-sm navbar-btn dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="listbox" aria-controls="versionswitcherlist" aria-label="Version switcher list">
+      Choose version  <!-- this text may get changed later by javascript -->
       <span class="caret"></span>
     </button>
-    <div class="version-switcher__menu dropdown-menu list-group-flush py-0">
+    <div id="versionswitcherlist" class="version-switcher__menu dropdown-menu list-group-flush py-0" role="listbox" aria-labelledby="versionswitcherbutton">
     <!-- dropdown will be populated by javascript on page load -->
     </div>
   </div>
@@ -412,10 +428,10 @@ document.write(`
           <div class="navbar-item">
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script></div>
@@ -431,8 +447,8 @@ document.write(`
           
           
           
-          <a href="https://github.com/pyvista/pyvista" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github"></i></span>
-            <label class="sr-only">GitHub</label></a>
+          <a href="https://github.com/pyvista/pyvista" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
         </li>
         <li class="nav-item">
           
@@ -443,8 +459,8 @@ document.write(`
           
           
           
-          <a href="http://slack.pyvista.org" title="Slack Community" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fab fa-slack"></i></span>
-            <label class="sr-only">Slack Community</label></a>
+          <a href="http://slack.pyvista.org" title="Slack Community" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fab fa-slack fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">Slack Community</span></a>
         </li>
         <li class="nav-item">
           
@@ -455,8 +471,8 @@ document.write(`
           
           
           
-          <a href="https://github.com/pyvista/pyvista/discussions" title="Support" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-comment fa-fw"></i></span>
-            <label class="sr-only">Support</label></a>
+          <a href="https://github.com/pyvista/pyvista/discussions" title="Support" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-comment fa-fw fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">Support</span></a>
         </li>
         <li class="nav-item">
           
@@ -467,8 +483,8 @@ document.write(`
           
           
           
-          <a href="https://github.com/pyvista/pyvista/blob/main/CONTRIBUTING.rst" title="Contributing" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-gavel fa-fw"></i></span>
-            <label class="sr-only">Contributing</label></a>
+          <a href="https://github.com/pyvista/pyvista/blob/main/CONTRIBUTING.rst" title="Contributing" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-gavel fa-fw fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">Contributing</span></a>
         </li>
         <li class="nav-item">
           
@@ -479,8 +495,8 @@ document.write(`
           
           
           
-          <a href="https://doi.org/10.21105/joss.01450" title="The Paper" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-file-text fa-fw"></i></span>
-            <label class="sr-only">The Paper</label></a>
+          <a href="https://doi.org/10.21105/joss.01450" title="The Paper" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-file-text fa-fw fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">The Paper</span></a>
         </li>
 </ul></div>
         
@@ -512,8 +528,8 @@ document.write(`
 
 
 
-<nav aria-label="Breadcrumbs">
-  <ul class="bd-breadcrumbs" role="navigation" aria-label="Breadcrumb">
+<nav aria-label="Breadcrumb">
+  <ul class="bd-breadcrumbs">
     
     <li class="breadcrumb-item breadcrumb-home">
       <a href="../../index.html" class="nav-link" aria-label="Home">
@@ -539,227 +555,227 @@ document.write(`
                   
   <section id="computation-times">
 <span id="sphx-glr-examples-02-plot-sg-execution-times"></span><h1>計算時間<a class="headerlink" href="#computation-times" title="この見出しへのパーマリンク">#</a></h1>
-<p><strong>84:54.999</strong> total execution time for <strong>examples_02-plot</strong> files:</p>
+<p><strong>105:10.170</strong> total execution time for <strong>examples_02-plot</strong> files:</p>
 <table class="table">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="depth_of_field.html#sphx-glr-examples-02-plot-depth-of-field-py"><span class="std std-ref">被写界深度のプロット</span></a> (<code class="docutils literal notranslate"><span class="pre">depth_of_field.py</span></code>)</p></td>
-<td><p>29:13.834</p></td>
+<td><p>36:17.911</p></td>
 <td><p>0.0 MB</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pbr.html#sphx-glr-examples-02-plot-pbr-py"><span class="std std-ref">物理ベースのレンダリング</span></a> (<code class="docutils literal notranslate"><span class="pre">pbr.py</span></code>)</p></td>
-<td><p>28:47.716</p></td>
+<td><p>35:39.991</p></td>
 <td><p>0.0 MB</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="backface_props.html#sphx-glr-examples-02-plot-backface-props-py"><span class="std std-ref">バックフェイスプロパティの設定</span></a> (<code class="docutils literal notranslate"><span class="pre">backface_props.py</span></code>)</p></td>
-<td><p>14:11.109</p></td>
+<td><p>17:53.554</p></td>
 <td><p>0.0 MB</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="orbit.html#sphx-glr-examples-02-plot-orbit-py"><span class="std std-ref">オービット</span></a> (<code class="docutils literal notranslate"><span class="pre">orbit.py</span></code>)</p></td>
-<td><p>01:36.211</p></td>
+<td><p>01:53.801</p></td>
 <td><p>0.0 MB</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="edl.html#sphx-glr-examples-02-plot-edl-py"><span class="std std-ref">Eye Dome Lighting</span></a> (<code class="docutils literal notranslate"><span class="pre">edl.py</span></code>)</p></td>
-<td><p>01:20.386</p></td>
+<td><p>01:36.049</p></td>
 <td><p>0.0 MB</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="volume.html#sphx-glr-examples-02-plot-volume-py"><span class="std std-ref">ボリュームレンダリング</span></a> (<code class="docutils literal notranslate"><span class="pre">volume.py</span></code>)</p></td>
-<td><p>01:12.675</p></td>
+<td><p>01:30.236</p></td>
 <td><p>0.0 MB</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="isovalue.html#sphx-glr-examples-02-plot-isovalue-py"><span class="std std-ref">等値移動</span></a> (<code class="docutils literal notranslate"><span class="pre">isovalue.py</span></code>)</p></td>
-<td><p>00:43.895</p></td>
-<td><p>0.0 MB</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="topo-map.html#sphx-glr-examples-02-plot-topo-map-py"><span class="std std-ref">地形図</span></a> (<code class="docutils literal notranslate"><span class="pre">topo-map.py</span></code>)</p></td>
-<td><p>00:40.067</p></td>
-<td><p>0.0 MB</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="depth-peeling.html#sphx-glr-examples-02-plot-depth-peeling-py"><span class="std std-ref">Depth Peeling</span></a> (<code class="docutils literal notranslate"><span class="pre">depth-peeling.py</span></code>)</p></td>
-<td><p>00:39.259</p></td>
+<td><p>00:51.234</p></td>
 <td><p>0.0 MB</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="ssao.html#sphx-glr-examples-02-plot-ssao-py"><span class="std std-ref">Surface Space Ambient Occlusion</span></a> (<code class="docutils literal notranslate"><span class="pre">ssao.py</span></code>)</p></td>
-<td><p>00:35.847</p></td>
+<td><p>00:49.173</p></td>
 <td><p>0.0 MB</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="background_image.html#sphx-glr-examples-02-plot-background-image-py"><span class="std std-ref">背景イメージ</span></a> (<code class="docutils literal notranslate"><span class="pre">background_image.py</span></code>)</p></td>
-<td><p>00:28.006</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="topo-map.html#sphx-glr-examples-02-plot-topo-map-py"><span class="std std-ref">地形図</span></a> (<code class="docutils literal notranslate"><span class="pre">topo-map.py</span></code>)</p></td>
+<td><p>00:47.446</p></td>
 <td><p>0.0 MB</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="opacity.html#sphx-glr-examples-02-plot-opacity-py"><span class="std std-ref">不透明度を指定してプロット</span></a> (<code class="docutils literal notranslate"><span class="pre">opacity.py</span></code>)</p></td>
-<td><p>00:26.245</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="depth-peeling.html#sphx-glr-examples-02-plot-depth-peeling-py"><span class="std std-ref">Depth Peeling</span></a> (<code class="docutils literal notranslate"><span class="pre">depth-peeling.py</span></code>)</p></td>
+<td><p>00:46.397</p></td>
+<td><p>0.0 MB</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="opacity.html#sphx-glr-examples-02-plot-opacity-py"><span class="std std-ref">不透明度を指定してプロット</span></a> (<code class="docutils literal notranslate"><span class="pre">opacity.py</span></code>)</p></td>
+<td><p>00:34.114</p></td>
+<td><p>0.0 MB</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="background_image.html#sphx-glr-examples-02-plot-background-image-py"><span class="std std-ref">背景イメージ</span></a> (<code class="docutils literal notranslate"><span class="pre">background_image.py</span></code>)</p></td>
+<td><p>00:33.320</p></td>
 <td><p>0.0 MB</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="movie_glyphs.html#sphx-glr-examples-02-plot-movie-glyphs-py"><span class="std std-ref">グリフを使ったムービーの保存</span></a> (<code class="docutils literal notranslate"><span class="pre">movie_glyphs.py</span></code>)</p></td>
-<td><p>00:23.162</p></td>
+<td><p>00:27.347</p></td>
 <td><p>0.0 MB</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="movie.html#sphx-glr-examples-02-plot-movie-py"><span class="std std-ref">MP 4ムービーを作成する</span></a> (<code class="docutils literal notranslate"><span class="pre">movie.py</span></code>)</p></td>
-<td><p>00:18.892</p></td>
+<td><p>00:21.594</p></td>
 <td><p>0.0 MB</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="point-clouds.html#sphx-glr-examples-02-plot-point-clouds-py"><span class="std std-ref">点群のプロット</span></a> (<code class="docutils literal notranslate"><span class="pre">point-clouds.py</span></code>)</p></td>
-<td><p>00:17.221</p></td>
+<td><p>00:20.200</p></td>
 <td><p>0.0 MB</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="ghost-cells.html#sphx-glr-examples-02-plot-ghost-cells-py"><span class="std std-ref">ゴーストを使用してセルを非表示にする</span></a> (<code class="docutils literal notranslate"><span class="pre">ghost-cells.py</span></code>)</p></td>
-<td><p>00:16.855</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="blurring.html#sphx-glr-examples-02-plot-blurring-py"><span class="std std-ref">ぼかし</span></a> (<code class="docutils literal notranslate"><span class="pre">blurring.py</span></code>)</p></td>
+<td><p>00:18.748</p></td>
 <td><p>0.0 MB</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="moving_cmap.html#sphx-glr-examples-02-plot-moving-cmap-py"><span class="std std-ref">カラーマップが移動する静止物体のGIFムービーを作成します</span></a> (<code class="docutils literal notranslate"><span class="pre">moving_cmap.py</span></code>)</p></td>
-<td><p>00:15.951</p></td>
+<td><p>00:18.656</p></td>
 <td><p>0.0 MB</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="lighting_mesh.html#sphx-glr-examples-02-plot-lighting-mesh-py"><span class="std std-ref">照明プロパティ</span></a> (<code class="docutils literal notranslate"><span class="pre">lighting_mesh.py</span></code>)</p></td>
-<td><p>00:15.689</p></td>
+<td><p>00:18.578</p></td>
 <td><p>0.0 MB</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="blurring.html#sphx-glr-examples-02-plot-blurring-py"><span class="std std-ref">ぼかし</span></a> (<code class="docutils literal notranslate"><span class="pre">blurring.py</span></code>)</p></td>
-<td><p>00:15.480</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="ghost-cells.html#sphx-glr-examples-02-plot-ghost-cells-py"><span class="std std-ref">ゴーストを使用してセルを非表示にする</span></a> (<code class="docutils literal notranslate"><span class="pre">ghost-cells.py</span></code>)</p></td>
+<td><p>00:18.143</p></td>
 <td><p>0.0 MB</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="cmap.html#sphx-glr-examples-02-plot-cmap-py"><span class="std std-ref">カラーマップの選択肢</span></a> (<code class="docutils literal notranslate"><span class="pre">cmap.py</span></code>)</p></td>
-<td><p>00:15.182</p></td>
+<td><p>00:18.133</p></td>
 <td><p>0.0 MB</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="themes.html#sphx-glr-examples-02-plot-themes-py"><span class="std std-ref">グローバルおよびローカルプロットテーマの制御</span></a> (<code class="docutils literal notranslate"><span class="pre">themes.py</span></code>)</p></td>
-<td><p>00:13.766</p></td>
+<td><p>00:16.660</p></td>
 <td><p>0.0 MB</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="scalar-bars.html#sphx-glr-examples-02-plot-scalar-bars-py"><span class="std std-ref">スカラーバーをカスタマイズ</span></a> (<code class="docutils literal notranslate"><span class="pre">scalar-bars.py</span></code>)</p></td>
-<td><p>00:13.744</p></td>
+<td><p>00:16.145</p></td>
 <td><p>0.0 MB</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="texture.html#sphx-glr-examples-02-plot-texture-py"><span class="std std-ref">テクスチャを適用する</span></a> (<code class="docutils literal notranslate"><span class="pre">texture.py</span></code>)</p></td>
-<td><p>00:12.943</p></td>
+<td><p>00:15.906</p></td>
 <td><p>0.0 MB</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="lookup-table.html#sphx-glr-examples-02-plot-lookup-table-py"><span class="std std-ref">ルックアップテーブル</span></a> (<code class="docutils literal notranslate"><span class="pre">lookup-table.py</span></code>)</p></td>
-<td><p>00:12.883</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="edges.html#sphx-glr-examples-02-plot-edges-py"><span class="std std-ref">エッジを表示</span></a> (<code class="docutils literal notranslate"><span class="pre">edges.py</span></code>)</p></td>
+<td><p>00:15.350</p></td>
 <td><p>0.0 MB</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="edges.html#sphx-glr-examples-02-plot-edges-py"><span class="std std-ref">エッジを表示</span></a> (<code class="docutils literal notranslate"><span class="pre">edges.py</span></code>)</p></td>
-<td><p>00:12.860</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="lookup-table.html#sphx-glr-examples-02-plot-lookup-table-py"><span class="std std-ref">ルックアップテーブル</span></a> (<code class="docutils literal notranslate"><span class="pre">lookup-table.py</span></code>)</p></td>
+<td><p>00:15.091</p></td>
 <td><p>0.0 MB</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="silhouette.html#sphx-glr-examples-02-plot-silhouette-py"><span class="std std-ref">シルエットハイライト</span></a> (<code class="docutils literal notranslate"><span class="pre">silhouette.py</span></code>)</p></td>
-<td><p>00:12.463</p></td>
+<td><p>00:14.508</p></td>
 <td><p>0.0 MB</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="ortho-slices.html#sphx-glr-examples-02-plot-ortho-slices-py"><span class="std std-ref">直交スライス</span></a> (<code class="docutils literal notranslate"><span class="pre">ortho-slices.py</span></code>)</p></td>
-<td><p>00:11.223</p></td>
+<td><p>00:13.116</p></td>
 <td><p>0.0 MB</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="composite-picking.html#sphx-glr-examples-02-plot-composite-picking-py"><span class="std std-ref">Compositeピッキング</span></a> (<code class="docutils literal notranslate"><span class="pre">composite-picking.py</span></code>)</p></td>
-<td><p>00:09.285</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="floors.html#sphx-glr-examples-02-plot-floors-py"><span class="std std-ref">床を使用してプロットする</span></a> (<code class="docutils literal notranslate"><span class="pre">floors.py</span></code>)</p></td>
+<td><p>00:13.094</p></td>
 <td><p>0.0 MB</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="floors.html#sphx-glr-examples-02-plot-floors-py"><span class="std std-ref">床を使用してプロットする</span></a> (<code class="docutils literal notranslate"><span class="pre">floors.py</span></code>)</p></td>
-<td><p>00:07.568</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="composite-picking.html#sphx-glr-examples-02-plot-composite-picking-py"><span class="std std-ref">Compositeピッキング</span></a> (<code class="docutils literal notranslate"><span class="pre">composite-picking.py</span></code>)</p></td>
+<td><p>00:10.962</p></td>
 <td><p>0.0 MB</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="chart_overlays.html#sphx-glr-examples-02-plot-chart-overlays-py"><span class="std std-ref">チャートのオーバーレイ</span></a> (<code class="docutils literal notranslate"><span class="pre">chart_overlays.py</span></code>)</p></td>
-<td><p>00:07.180</p></td>
+<td><p>00:08.802</p></td>
 <td><p>0.0 MB</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="chart_basics.html#sphx-glr-examples-02-plot-chart-basics-py"><span class="std std-ref">チャートの基本</span></a> (<code class="docutils literal notranslate"><span class="pre">chart_basics.py</span></code>)</p></td>
-<td><p>00:03.995</p></td>
+<td><p>00:04.739</p></td>
 <td><p>0.0 MB</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="multi-window.html#sphx-glr-examples-02-plot-multi-window-py"><span class="std std-ref">マルチウィンドウプロット</span></a> (<code class="docutils literal notranslate"><span class="pre">multi-window.py</span></code>)</p></td>
-<td><p>00:03.952</p></td>
+<td><p>00:04.566</p></td>
 <td><p>0.0 MB</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="linked.html#sphx-glr-examples-02-plot-linked-py"><span class="std std-ref">サブプロットのリンクビュー</span></a> (<code class="docutils literal notranslate"><span class="pre">linked.py</span></code>)</p></td>
-<td><p>00:03.668</p></td>
+<td><p>00:04.204</p></td>
 <td><p>0.0 MB</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="plot-over-line.html#sphx-glr-examples-02-plot-plot-over-line-py"><span class="std std-ref">線上のプロット</span></a> (<code class="docutils literal notranslate"><span class="pre">plot-over-line.py</span></code>)</p></td>
-<td><p>00:03.180</p></td>
+<td><p>00:03.717</p></td>
 <td><p>0.0 MB</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="gif.html#sphx-glr-examples-02-plot-gif-py"><span class="std std-ref">GIFムービーの作成</span></a> (<code class="docutils literal notranslate"><span class="pre">gif.py</span></code>)</p></td>
-<td><p>00:03.078</p></td>
+<td><p>00:03.490</p></td>
 <td><p>0.0 MB</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="interpolate-before-map.html#sphx-glr-examples-02-plot-interpolate-before-map-py"><span class="std std-ref">マッピング前に補間</span></a> (<code class="docutils literal notranslate"><span class="pre">interpolate-before-map.py</span></code>)</p></td>
-<td><p>00:02.904</p></td>
+<td><p>00:03.450</p></td>
 <td><p>0.0 MB</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="bounds.html#sphx-glr-examples-02-plot-bounds-py"><span class="std std-ref">境界のプロット</span></a> (<code class="docutils literal notranslate"><span class="pre">bounds.py</span></code>)</p></td>
-<td><p>00:02.790</p></td>
+<td><p>00:03.340</p></td>
 <td><p>0.0 MB</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="shading.html#sphx-glr-examples-02-plot-shading-py"><span class="std std-ref">シェーディングのタイプ</span></a> (<code class="docutils literal notranslate"><span class="pre">shading.py</span></code>)</p></td>
-<td><p>00:02.739</p></td>
+<td><p>00:03.152</p></td>
 <td><p>0.0 MB</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="anti-aliasing.html#sphx-glr-examples-02-plot-anti-aliasing-py"><span class="std std-ref">アンチエイリアシング</span></a> (<code class="docutils literal notranslate"><span class="pre">anti-aliasing.py</span></code>)</p></td>
-<td><p>00:02.558</p></td>
+<td><p>00:03.037</p></td>
 <td><p>0.0 MB</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="spherical.html#sphx-glr-examples-02-plot-spherical-py"><span class="std std-ref">球座標でデータをプロットする</span></a> (<code class="docutils literal notranslate"><span class="pre">spherical.py</span></code>)</p></td>
-<td><p>00:01.897</p></td>
+<td><p>00:02.322</p></td>
 <td><p>0.0 MB</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="color_cycler.html#sphx-glr-examples-02-plot-color-cycler-py"><span class="std std-ref">カラーサイクリング</span></a> (<code class="docutils literal notranslate"><span class="pre">color_cycler.py</span></code>)</p></td>
-<td><p>00:01.789</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="vector-component.html#sphx-glr-examples-02-plot-vector-component-py"><span class="std std-ref">プロットベクトルコンポーネント</span></a> (<code class="docutils literal notranslate"><span class="pre">vector-component.py</span></code>)</p></td>
+<td><p>00:02.174</p></td>
 <td><p>0.0 MB</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="vector-component.html#sphx-glr-examples-02-plot-vector-component-py"><span class="std std-ref">プロットベクトルコンポーネント</span></a> (<code class="docutils literal notranslate"><span class="pre">vector-component.py</span></code>)</p></td>
-<td><p>00:01.644</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="color_cycler.html#sphx-glr-examples-02-plot-color-cycler-py"><span class="std std-ref">カラーサイクリング</span></a> (<code class="docutils literal notranslate"><span class="pre">color_cycler.py</span></code>)</p></td>
+<td><p>00:02.070</p></td>
 <td><p>0.0 MB</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="element-picking.html#sphx-glr-examples-02-plot-element-picking-py"><span class="std std-ref">メッシュの要素をピックする</span></a> (<code class="docutils literal notranslate"><span class="pre">element-picking.py</span></code>)</p></td>
-<td><p>00:01.601</p></td>
+<td><p>00:01.958</p></td>
 <td><p>0.0 MB</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="vertices.html#sphx-glr-examples-02-plot-vertices-py"><span class="std std-ref">可視頂点</span></a> (<code class="docutils literal notranslate"><span class="pre">vertices.py</span></code>)</p></td>
-<td><p>00:01.562</p></td>
+<td><p>00:01.817</p></td>
 <td><p>0.0 MB</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="point-picking.html#sphx-glr-examples-02-plot-point-picking-py"><span class="std std-ref">メッシュ上の点の選択</span></a> (<code class="docutils literal notranslate"><span class="pre">point-picking.py</span></code>)</p></td>
-<td><p>00:01.468</p></td>
+<td><p>00:01.783</p></td>
 <td><p>0.0 MB</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="point-cell-scalars.html#sphx-glr-examples-02-plot-point-cell-scalars-py"><span class="std std-ref">ポイントセルスカラー</span></a> (<code class="docutils literal notranslate"><span class="pre">point-cell-scalars.py</span></code>)</p></td>
-<td><p>00:01.431</p></td>
+<td><p>00:01.634</p></td>
 <td><p>0.0 MB</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="labels.html#sphx-glr-examples-02-plot-labels-py"><span class="std std-ref">ラベルポイント</span></a> (<code class="docutils literal notranslate"><span class="pre">labels.py</span></code>)</p></td>
-<td><p>00:01.363</p></td>
+<td><p>00:01.529</p></td>
 <td><p>0.0 MB</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="mesh-picking.html#sphx-glr-examples-02-plot-mesh-picking-py"><span class="std std-ref">メッシュのピッキング</span></a> (<code class="docutils literal notranslate"><span class="pre">mesh-picking.py</span></code>)</p></td>
-<td><p>00:01.278</p></td>
+<td><p>00:01.448</p></td>
 <td><p>0.0 MB</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="image_depth.html#sphx-glr-examples-02-plot-image-depth-py"><span class="std std-ref">デプスイメージをレンダーする</span></a> (<code class="docutils literal notranslate"><span class="pre">image_depth.py</span></code>)</p></td>
-<td><p>00:00.889</p></td>
-<td><p>0.0 MB</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="clear.html#sphx-glr-examples-02-plot-clear-py"><span class="std std-ref">メッシュまたはプロット全体の消去</span></a> (<code class="docutils literal notranslate"><span class="pre">clear.py</span></code>)</p></td>
-<td><p>00:00.799</p></td>
-<td><p>0.0 MB</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="surface-picking.html#sphx-glr-examples-02-plot-surface-picking-py"><span class="std std-ref">メッシュの表面上の点をピックします</span></a> (<code class="docutils literal notranslate"><span class="pre">surface-picking.py</span></code>)</p></td>
-<td><p>00:00.793</p></td>
+<td><p>00:01.020</p></td>
 <td><p>0.0 MB</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="distance-along-spline.html#sphx-glr-examples-02-plot-distance-along-spline-py"><span class="std std-ref">線上の距離に応じたラベル</span></a> (<code class="docutils literal notranslate"><span class="pre">distance-along-spline.py</span></code>)</p></td>
-<td><p>00:00.711</p></td>
+<td><p>00:00.988</p></td>
+<td><p>0.0 MB</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="clear.html#sphx-glr-examples-02-plot-clear-py"><span class="std std-ref">メッシュまたはプロット全体の消去</span></a> (<code class="docutils literal notranslate"><span class="pre">clear.py</span></code>)</p></td>
+<td><p>00:00.919</p></td>
+<td><p>0.0 MB</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="surface-picking.html#sphx-glr-examples-02-plot-surface-picking-py"><span class="std std-ref">メッシュの表面上の点をピックします</span></a> (<code class="docutils literal notranslate"><span class="pre">surface-picking.py</span></code>)</p></td>
+<td><p>00:00.876</p></td>
 <td><p>0.0 MB</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="plot-over-circular-arc.html#sphx-glr-examples-02-plot-plot-over-circular-arc-py"><span class="std std-ref">円形円弧上にスカラーをプロットします</span></a> (<code class="docutils literal notranslate"><span class="pre">plot-over-circular-arc.py</span></code>)</p></td>
-<td><p>00:00.516</p></td>
+<td><p>00:00.771</p></td>
 <td><p>0.0 MB</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="screenshot.html#sphx-glr-examples-02-plot-screenshot-py"><span class="std std-ref">スクリーンショットを保存する</span></a> (<code class="docutils literal notranslate"><span class="pre">screenshot.py</span></code>)</p></td>
-<td><p>00:00.515</p></td>
+<td><p>00:00.591</p></td>
 <td><p>0.0 MB</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="distance_measurement.html#sphx-glr-examples-02-plot-distance-measurement-py"><span class="std std-ref">距離を測る</span></a> (<code class="docutils literal notranslate"><span class="pre">distance_measurement.py</span></code>)</p></td>
-<td><p>00:00.282</p></td>
+<td><p>00:00.316</p></td>
 <td><p>0.0 MB</p></td>
 </tr>
 </tbody>
@@ -768,6 +784,8 @@ document.write(`
 
 
                 </article>
+              
+              
               
               
               
@@ -805,8 +823,8 @@ document.write(`
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=ac02cc09edc035673794"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=ac02cc09edc035673794"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -825,10 +843,11 @@ document.write(`
     </div>
   
   
+  
     <div class="footer-items__end">
       
         <div class="footer-item"><p class="theme-version">
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.13.3.
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.14.1.
 </p></div>
       
     </div>
