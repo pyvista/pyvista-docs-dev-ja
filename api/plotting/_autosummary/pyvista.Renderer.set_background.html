@@ -713,7 +713,7 @@ document.write(`
 <h1>pyvista.Renderer.set_background<a class="headerlink" href="#pyvista-renderer-set-background" title="この見出しへのパーマリンク">#</a></h1>
 <dl class="py method">
 <dt class="sig sig-object py" id="pyvista.Renderer.set_background">
-<span class="sig-prename descclassname"><span class="pre">Renderer.</span></span><span class="sig-name descname"><span class="pre">set_background</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">color</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">top</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/plotting/renderer.py#L3023-L3064"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.Renderer.set_background" title="この定義へのパーマリンク">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">Renderer.</span></span><span class="sig-name descname"><span class="pre">set_background</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">color</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">top</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">right</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">side</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">corner</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/plotting/renderer.py#L3023-L3105"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.Renderer.set_background" title="この定義へのパーマリンク">#</a></dt>
 <dd><p>このレンダラーの背景色を設定します．</p>
 <dl class="field-list">
 <dt class="field-odd">パラメータ<span class="colon">:</span></dt>
@@ -727,6 +727,18 @@ document.write(`
 </ul>
 </dd>
 <dt><strong>top</strong><span class="classifier"><a class="reference internal" href="../../utilities/_autosummary/pyvista.ColorLike.html#pyvista.ColorLike" title="pyvista.ColorLike"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ColorLike</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>これを指定すると， <code class="docutils literal notranslate"><span class="pre">color</span></code> 引数が一番下にあり， <code class="docutils literal notranslate"><span class="pre">top</span></code> で指定されたカラーがレンダラの一番上のカラーであるグラディエントバックグラウンドが有効になります．</p>
+</dd>
+<dt><strong>right</strong><span class="classifier"><a class="reference internal" href="../../utilities/_autosummary/pyvista.ColorLike.html#pyvista.ColorLike" title="pyvista.ColorLike"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ColorLike</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>If given, this will enable a gradient background where the
+<code class="docutils literal notranslate"><span class="pre">color</span></code> argument is at the left and the color given in
+<code class="docutils literal notranslate"><span class="pre">right</span></code> will be the color at the right of the renderer.</p>
+</dd>
+<dt><strong>side</strong><span class="classifier"><a class="reference internal" href="../../utilities/_autosummary/pyvista.ColorLike.html#pyvista.ColorLike" title="pyvista.ColorLike"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ColorLike</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>If given, this will enable a gradient background where the
+<code class="docutils literal notranslate"><span class="pre">color</span></code> argument is at the center and the color given in
+<code class="docutils literal notranslate"><span class="pre">side</span></code> will be the color at the side of the renderer.</p>
+</dd>
+<dt><strong>corner</strong><span class="classifier"><a class="reference internal" href="../../utilities/_autosummary/pyvista.ColorLike.html#pyvista.ColorLike" title="pyvista.ColorLike"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ColorLike</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>If given, this will enable a gradient background where the
+<code class="docutils literal notranslate"><span class="pre">color</span></code> argument is at the center and the color given in
+<code class="docutils literal notranslate"><span class="pre">corner</span></code> will be the color at the corner of the renderer.</p>
 </dd>
 </dl>
 </dd>
