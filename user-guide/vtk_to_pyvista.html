@@ -683,12 +683,12 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>vtkPoints (0x5616b6a44860)
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>vtkPoints (0x55c19d739470)
   Debug: Off
   Modified Time: 15826
   Reference Count: 1
   Registered Events: (none)
-  Data: 0x5616b6a442b0
+  Data: 0x55c19eee8b70
   Data Array Name: Points
   Number Of Points: 3
   Bounds: 
@@ -774,7 +774,7 @@ document.write(`
 <section id="object-representation">
 <span id="vtk-vs-pyvista-object-repr"></span><h2>オブジェクトの表現<a class="headerlink" href="#object-representation" title="この見出しへのパーマリンク">#</a></h2>
 <p>VTKもPyVistaもオブジェクトの表現を提供しています．</p>
-<p>VTK は <a class="reference external" href="https://docs.python.org/3/library/functions.html#print" title="(in Python v3.11)"><code class="xref py py-func docutils literal notranslate"><span class="pre">print()</span></code></a> でアクセスできるデータ型の詳細な表現を提供しています(デバッギングに便利)．これは <code class="docutils literal notranslate"><span class="pre">__repr__</span></code> が ( <code class="docutils literal notranslate"><span class="pre">__str__</span></code> とは異なり) 各オブジェクトに関する最小限の情報しか提供していないためです．</p>
+<p>VTK は <a class="reference external" href="https://docs.python.org/3.11/library/functions.html#print" title="(in Python v3.11)"><code class="xref py py-func docutils literal notranslate"><span class="pre">print()</span></code></a> でアクセスできるデータ型の詳細な表現を提供しています(デバッギングに便利)．これは <code class="docutils literal notranslate"><span class="pre">__repr__</span></code> が ( <code class="docutils literal notranslate"><span class="pre">__str__</span></code> とは異なり) 各オブジェクトに関する最小限の情報しか提供していないためです．</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">vtk_poly_data</span><span class="p">)</span>
@@ -782,12 +782,12 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>vtkPolyData (0x5616b66bbff0)
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>vtkPolyData (0x55c19b431a00)
   Debug: Off
   Modified Time: 15909
   Reference Count: 1
   Registered Events: (none)
-  Information: 0x5616b711c260
+  Information: 0x55c19d73a9b0
   Data Released: False
   Global Release Data: Off
   UpdateTime: 0
@@ -807,10 +807,10 @@ document.write(`
     Reference Count: 1
     Registered Events: 
       Registered Observers:
-        vtkObserver (0x5616b711c230)
+        vtkObserver (0x55c19d73aba0)
           Event: 33
           EventName: ModifiedEvent
-          Command: 0x5616b3a73bb0
+          Command: 0x55c1988db760
           Priority: 0
           Tag: 1
     Number Of Arrays: 0
@@ -836,10 +836,10 @@ document.write(`
     Reference Count: 1
     Registered Events: 
       Registered Observers:
-        vtkObserver (0x5616b711cea0)
+        vtkObserver (0x55c19d73a980)
           Event: 33
           EventName: ModifiedEvent
-          Command: 0x5616b3a73bb0
+          Command: 0x55c1988db760
           Priority: 0
           Tag: 1
     Number Of Arrays: 0
@@ -866,7 +866,7 @@ document.write(`
   Compute Time: 15973
   Editable: false
   Number Of Points: 3
-  Point Coordinates: 0x5616b6a44860
+  Point Coordinates: 0x55c19d739470
   PointLocator: 0
   CellLocator: 0
   Number Of Vertices: 0
@@ -887,7 +887,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p>PyVista は <a class="reference external" href="https://docs.python.org/3/library/functions.html#repr" title="(in Python v3.11)"><code class="xref py py-func docutils literal notranslate"><span class="pre">repr()</span></code></a> で最小限のデータを表示することにしており，アトリビュートの大部分はメッシュ上の明示的なアトリビュートアクセスを優先しています．例えば，以下のようになります．</p>
+<p>PyVista は <a class="reference external" href="https://docs.python.org/3.11/library/functions.html#repr" title="(in Python v3.11)"><code class="xref py py-func docutils literal notranslate"><span class="pre">repr()</span></code></a> で最小限のデータを表示することにしており，アトリビュートの大部分はメッシュ上の明示的なアトリビュートアクセスを優先しています．例えば，以下のようになります．</p>
 <div class="jupyter_cell jupyter_container docutils container">
 <div class="cell_input code_cell docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">poly_data</span>

@@ -856,7 +856,7 @@ document.write(`
 <dd class="field-odd"><dl>
 <dt><strong>mesh</strong> : <a class="reference internal" href="../../core/_autosummary/pyvista.DataSet.html#pyvista.DataSet" title="pyvista.DataSet"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyvista.DataSet</span></code></a> か <code class="xref py py-obj docutils literal notranslate"><span class="pre">vtk.vtkAlgorithm</span></code><span class="classifier">pyvista.DataSet か vtk.vtkAlgorithm</span></dt><dd><p>シーンに追加する入力データセットと，当該メッシュを生成する閾値やアルゴリズム．</p>
 </dd>
-<dt><strong>generate_triangles</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.11)"><span class="xref std std-ref">bool</span></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>これが有効な場合(デフォルトで <code class="docutils literal notranslate"><span class="pre">False</span></code> )，出力は3角形になります．それ以外の場合，出力は交差ポリゴンになります．</p>
+<dt><strong>generate_triangles</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.11)"><span class="xref std std-ref">bool</span></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>これが有効な場合(デフォルトで <code class="docutils literal notranslate"><span class="pre">False</span></code> )，出力は3角形になります．それ以外の場合，出力は交差ポリゴンになります．</p>
 </dd>
 <dt><strong>widget_color</strong><span class="classifier"><a class="reference internal" href="../../utilities/_autosummary/pyvista.ColorLike.html#pyvista.ColorLike" title="pyvista.ColorLike"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ColorLike</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>ウィジェットの色．文字列，RGB配列，または16進数の色文字列のいずれかです．  例えば</p>
 <ul class="simple">
@@ -866,17 +866,17 @@ document.write(`
 <li><p><code class="docutils literal notranslate"><span class="pre">color='#FFFFFF'</span></code></p></li>
 </ul>
 </dd>
-<dt><strong>tubing</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.11)"><span class="xref std std-ref">bool</span></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>インプリシット平面ウィジェットを使用する場合，平面の境界の周囲にチューブを表示するかどうかを制御します．</p>
+<dt><strong>tubing</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.11)"><span class="xref std std-ref">bool</span></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>インプリシット平面ウィジェットを使用する場合，平面の境界の周囲にチューブを表示するかどうかを制御します．</p>
 </dd>
 <dt><strong>interaction_event</strong><span class="classifier"><code class="xref py py-obj docutils literal notranslate"><span class="pre">vtk.vtkCommand.EventIds</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>コールバックのトリガーに使用するVTKインタラクションイベントです．</p>
 </dd>
-<dt><strong>**kwargs</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">dict</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>すべての追加キーワード引数は <a class="reference internal" href="pyvista.Plotter.add_mesh.html#pyvista.Plotter.add_mesh" title="pyvista.Plotter.add_mesh"><code class="xref py py-func docutils literal notranslate"><span class="pre">Plotter.add_mesh()</span></code></a> に渡され，メッシュの表示方法を制御します．</p>
+<dt><strong>**kwargs</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/stdtypes.html#dict" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">dict</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>すべての追加キーワード引数は <a class="reference internal" href="pyvista.Plotter.add_mesh.html#pyvista.Plotter.add_mesh" title="pyvista.Plotter.add_mesh"><code class="xref py py-func docutils literal notranslate"><span class="pre">Plotter.add_mesh()</span></code></a> に渡され，メッシュの表示方法を制御します．</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">戻り値<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">list</span></code></a></dt><dd><p>vtk.vtkActor(s)のリストです．</p>
+<dt><a class="reference external" href="https://docs.python.org/3.11/library/stdtypes.html#list" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">list</span></code></a></dt><dd><p>vtk.vtkActor(s)のリストです．</p>
 </dd>
 </dl>
 </dd>

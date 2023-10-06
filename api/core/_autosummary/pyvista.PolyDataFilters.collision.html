@@ -662,26 +662,26 @@ document.write(`
 <dd class="field-odd"><dl>
 <dt><strong>other_mesh</strong><span class="classifier"><a class="reference internal" href="pyvista.DataSet.html#pyvista.DataSet" title="pyvista.DataSet"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyvista.DataSet</span></code></a></span></dt><dd><p>衝突をテストする他のメッシュ． 他のメッシュがサーフェスでない場合は，その外面が抽出され，3角測量されます．</p>
 </dd>
-<dt><strong>contact_mode</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">int</span></code></a>, default: 0</span></dt><dd><p>接触モード． 以下のいずれかになります．</p>
+<dt><strong>contact_mode</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/functions.html#int" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">int</span></code></a>, default: 0</span></dt><dd><p>接触モード． 以下のいずれかになります．</p>
 <ul class="simple">
 <li><p>0 - すべての接触．2点/コリジョンで全ての接触セルペアを見つけます</p></li>
 <li><p>1 - ファーストコンタクト．ファーストコンタクトポイントを素早く見つけます．</p></li>
 <li><p>2 - ハーフコンタクト．接触しているすべてのセルペアを，1コリジョンにつき1ポイントで見つける．</p></li>
 </ul>
 </dd>
-<dt><strong>box_tolerance</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a>, default: 0.001</span></dt><dd><p>全体座標でのOBB（Oriented Bounding Box）ツリーの許容範囲．</p>
+<dt><strong>box_tolerance</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/functions.html#float" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a>, default: 0.001</span></dt><dd><p>全体座標でのOBB（Oriented Bounding Box）ツリーの許容範囲．</p>
 </dd>
-<dt><strong>cell_tolerance</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a>, default: 0.0</span></dt><dd><p>セルの許容量（2乗値）．</p>
+<dt><strong>cell_tolerance</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/functions.html#float" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a>, default: 0.0</span></dt><dd><p>セルの許容量（2乗値）．</p>
 </dd>
-<dt><strong>n_cells_per_node</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">int</span></code></a>, default: 2</span></dt><dd><p>各OBBのセルの数．</p>
+<dt><strong>n_cells_per_node</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/functions.html#int" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">int</span></code></a>, default: 2</span></dt><dd><p>各OBBのセルの数．</p>
 </dd>
-<dt><strong>generate_scalars</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.11)"><span class="xref std std-ref">bool</span></a>, default: <a class="reference external" href="https://docs.python.org/3/library/constants.html#False" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">False</span></code></a></span></dt><dd><p>コンタクトセルを可視化するフラグ． もし <code class="docutils literal notranslate"><span class="pre">True</span></code> ならば，接触しているセルは赤から青へと色づけされ，最初に決定された衝突は赤になります． この配列は <code class="docutils literal notranslate"><span class="pre">&quot;collision_rgba&quot;</span></code> として格納される．</p>
+<dt><strong>generate_scalars</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.11)"><span class="xref std std-ref">bool</span></a>, default: <a class="reference external" href="https://docs.python.org/3.11/library/constants.html#False" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">False</span></code></a></span></dt><dd><p>コンタクトセルを可視化するフラグ． もし <code class="docutils literal notranslate"><span class="pre">True</span></code> ならば，接触しているセルは赤から青へと色づけされ，最初に決定された衝突は赤になります． この配列は <code class="docutils literal notranslate"><span class="pre">&quot;collision_rgba&quot;</span></code> として格納される．</p>
 <div class="admonition note">
 <p class="admonition-title">注釈</p>
 <p>これにより，メッシュ内の他のセルアレイが削除されます．</p>
 </div>
 </dd>
-<dt><strong>progress_bar</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.11)"><span class="xref std std-ref">bool</span></a>, default: <a class="reference external" href="https://docs.python.org/3/library/constants.html#False" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">False</span></code></a></span></dt><dd><p>進行状況を示す進行状況バーを表示します．</p>
+<dt><strong>progress_bar</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.11)"><span class="xref std std-ref">bool</span></a>, default: <a class="reference external" href="https://docs.python.org/3.11/library/constants.html#False" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">False</span></code></a></span></dt><dd><p>進行状況を示す進行状況バーを表示します．</p>
 </dd>
 </dl>
 </dd>
@@ -689,7 +689,7 @@ document.write(`
 <dd class="field-even"><dl class="simple">
 <dt><a class="reference internal" href="pyvista.PolyData.html#pyvista.PolyData" title="pyvista.PolyData"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyvista.PolyData</span></code></a></dt><dd><p><code class="docutils literal notranslate"><span class="pre">&quot;ContactCells&quot;</span></code> という名前の <code class="docutils literal notranslate"><span class="pre">field_data</span></code> 属性のコリジョンを含みますメッシュです． この配列は，コリジョンがある場合にのみ存在します．</p>
 </dd>
-<dt><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">int</span></code></a></dt><dd><p>衝突の数．</p>
+<dt><a class="reference external" href="https://docs.python.org/3.11/library/functions.html#int" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">int</span></code></a></dt><dd><p>衝突の数．</p>
 </dd>
 </dl>
 </dd>
