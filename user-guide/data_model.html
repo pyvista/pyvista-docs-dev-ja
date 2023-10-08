@@ -602,11 +602,7 @@ document.write(`
 </div>
 </div>
 <p>ここでは，上記のデータセットを，最も複雑なもの(5)から最も複雑でないもの(1)の順に並べています．つまり，どのデータセットも <a class="reference internal" href="../api/core/_autosummary/pyvista.UnstructuredGrid.html#pyvista.UnstructuredGrid" title="pyvista.UnstructuredGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">UnstructuredGrid</span></code></a> として表現できますが，個々の点やセルを考慮しなければならないため， <a class="reference internal" href="../api/core/_autosummary/pyvista.UnstructuredGrid.html#pyvista.UnstructuredGrid" title="pyvista.UnstructuredGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">UnstructuredGrid</span></code></a> クラスは最も多くのメモリを消費します．一方， <a class="reference external" href="https://vtk.org/doc/nightly/html/classvtkImageData.html">vtkImageData</a> (<a class="reference internal" href="../api/core/_autosummary/pyvista.ImageData.html#pyvista.ImageData" title="pyvista.ImageData"><code class="xref py py-class docutils literal notranslate"><span class="pre">ImageData</span></code></a>) は一様な間隔で配置されているので，いくつかの整数や浮動小数点数で形状を表現することができ，格納するメモリの量は最も少なくて済みます．</p>
-<p>This is because in <a class="reference internal" href="../api/core/_autosummary/pyvista.PolyData.html#pyvista.PolyData" title="pyvista.PolyData"><code class="xref py py-class docutils literal notranslate"><span class="pre">PolyData</span></code></a> or
-<a class="reference internal" href="../api/core/_autosummary/pyvista.UnstructuredGrid.html#pyvista.UnstructuredGrid" title="pyvista.UnstructuredGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">UnstructuredGrid</span></code></a>, points, and cells must be explicitly
-defined. In other data types, such as <a class="reference internal" href="../api/core/_autosummary/pyvista.ImageData.html#pyvista.ImageData" title="pyvista.ImageData"><code class="xref py py-class docutils literal notranslate"><span class="pre">ImageData</span></code></a>,
-the cells (and even points) are defined as an emergent property based
-on the dimensionality of the grid.</p>
+<p>これは， <a class="reference internal" href="../api/core/_autosummary/pyvista.PolyData.html#pyvista.PolyData" title="pyvista.PolyData"><code class="xref py py-class docutils literal notranslate"><span class="pre">PolyData</span></code></a> や <a class="reference internal" href="../api/core/_autosummary/pyvista.UnstructuredGrid.html#pyvista.UnstructuredGrid" title="pyvista.UnstructuredGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">UnstructuredGrid</span></code></a> では，ポイント，やセルを明示的に定義する必要があるからです． <a class="reference internal" href="../api/core/_autosummary/pyvista.ImageData.html#pyvista.ImageData" title="pyvista.ImageData"><code class="xref py py-class docutils literal notranslate"><span class="pre">ImageData</span></code></a> などの他のデータタイプでは，セル（さらにはポイント）はグリッドの次元性に基づいた創発的なプロパティとして定義されます．</p>
 <p>実際には， <a class="reference internal" href="../api/core/_autosummary/pyvista.PolyData.html#pyvista.PolyData" title="pyvista.PolyData"><code class="xref py py-class docutils literal notranslate"><span class="pre">PolyData</span></code></a> で表される最も単純なサーフェスを作成してみましょう．まず，点を定義する必要があります．</p>
 </section>
 <section id="points-and-arrays-within-pyvista">
@@ -641,7 +637,7 @@ on the dimensionality of the grid.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>vtkDoubleArray (0x558c17234650)
+<div class="output stream highlight-none notranslate"><div class="highlight"><pre><span></span>vtkDoubleArray (0x558516ebd0b0)
   Debug: Off
   Modified Time: 99399
   Reference Count: 1
