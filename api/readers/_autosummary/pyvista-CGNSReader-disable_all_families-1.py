@@ -1,7 +1,7 @@
 # Disable reading all bases.
 #
-import pyvista
+import pyvista as pv
 from pyvista import examples
 filename = examples.download_cgns_multi(load=False)
-reader = pyvista.CGNSReader(filename)
+reader = pv.CGNSReader(filename)
 reader.disable_all_families()

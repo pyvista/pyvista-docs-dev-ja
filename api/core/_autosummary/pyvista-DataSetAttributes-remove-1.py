@@ -1,7 +1,7 @@
 # Add a point data array to a DataSet and then remove it.
 #
-import pyvista
-mesh = pyvista.Cube()
+import pyvista as pv
+mesh = pv.Cube()
 mesh.point_data['my_data'] = range(mesh.n_points)
 mesh.point_data.remove('my_data')
 #

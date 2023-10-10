@@ -1,8 +1,8 @@
 # Use the dark theme for a plotter.
 #
-import pyvista
+import pyvista as pv
 from pyvista import themes
-pl = pyvista.Plotter()
+pl = pv.Plotter()
 pl.theme = themes.DarkTheme()
-actor = pl.add_mesh(pyvista.Sphere())
+actor = pl.add_mesh(pv.Sphere())
 pl.show()

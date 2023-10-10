@@ -1,7 +1,7 @@
 # Find the index of the closest point to ``(0, 1, 0)``.
 #
-import pyvista
-mesh = pyvista.Sphere()
+import pyvista as pv
+mesh = pv.Sphere()
 index = mesh.find_closest_point((0, 1, 0))
 index
 # Expected:

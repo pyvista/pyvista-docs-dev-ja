@@ -1,6 +1,6 @@
 # First, plot the high order FEM-like elements.
 #
-import pyvista
+import pyvista as pv
 import numpy as np
 points = np.array(
     [
@@ -14,7 +14,7 @@ points = np.array(
 )
 cells = np.array([6, 0, 1, 2, 3, 4, 5])
 cell_types = np.array([69])
-mesh = pyvista.UnstructuredGrid(cells, cell_types, points)
+mesh = pv.UnstructuredGrid(cells, cell_types, points)
 mesh.plot(show_edges=True, line_width=5)
 #
 # Now, plot the tessellated mesh.

@@ -639,14 +639,14 @@ document.write(`
 </dd>
 <dt class="field-even">戻り値<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt><a class="reference internal" href="../../core/_autosummary/pyvista.PolyData.html#pyvista.PolyData" title="pyvista.PolyData"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyvista.PolyData</span></code></a></dt><dd><p>メッシュには， <code class="docutils literal notranslate"><span class="pre">orig</span></code> 点と，各点におけるベクトルとその大きさを表す <code class="docutils literal notranslate"><span class="pre">'vectors'</span></code> および <code class="docutils literal notranslate"><span class="pre">'mag'</span></code> 点の配列が含まれます．</p>
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">pv.PolyData</span></code></dt><dd><p>メッシュには， <code class="docutils literal notranslate"><span class="pre">orig</span></code> 点と，各点におけるベクトルとその大きさを表す <code class="docutils literal notranslate"><span class="pre">'vectors'</span></code> および <code class="docutils literal notranslate"><span class="pre">'mag'</span></code> 点の配列が含まれます．</p>
 </dd>
 </dl>
 </dd>
 </dl>
 <p class="rubric">例</p>
 <p>基本的なベクトルフィールドを作成します． これは，各点にベクトルと大きさが付いている点群です．</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyvista</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyvista</span> <span class="k">as</span> <span class="nn">pv</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">points</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">x</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span> <span class="n">y</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">size</span><span class="p">)))</span><span class="o">.</span><span class="n">T</span>
@@ -655,7 +655,7 @@ document.write(`
 <span class="gp">&gt;&gt;&gt; </span><span class="n">vectors</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">(</span>
 <span class="gp">... </span>    <span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span> <span class="o">**</span> <span class="mi">3</span><span class="p">,</span> <span class="n">v</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span> <span class="o">**</span> <span class="mi">3</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">u</span><span class="o">.</span><span class="n">size</span><span class="p">))</span>
 <span class="gp">... </span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">pdata</span> <span class="o">=</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">vector_poly_data</span><span class="p">(</span><span class="n">points</span><span class="p">,</span> <span class="n">vectors</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pdata</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">vector_poly_data</span><span class="p">(</span><span class="n">points</span><span class="p">,</span> <span class="n">vectors</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">pdata</span><span class="o">.</span><span class="n">point_data</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
 <span class="go">[&#39;vectors&#39;, &#39;mag&#39;]</span>
 </pre></div>

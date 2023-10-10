@@ -1,14 +1,14 @@
 # Create a single mesh with three disconnected regions where each
 # region has a different cell count.
 #
-import pyvista
-large = pyvista.Sphere(
+import pyvista as pv
+large = pv.Sphere(
     center=(-4, 0, 0), phi_resolution=40, theta_resolution=40
 )
-medium = pyvista.Sphere(
+medium = pv.Sphere(
     center=(-2, 0, 0), phi_resolution=15, theta_resolution=15
 )
-small = pyvista.Sphere(
+small = pv.Sphere(
     center=(0, 0, 0), phi_resolution=7, theta_resolution=7
 )
 mesh = large + medium + small

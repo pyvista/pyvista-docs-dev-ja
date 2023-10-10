@@ -1,8 +1,8 @@
 # Create a mesh, compute the normals inplace, and return the
 # normals vector array.
 #
-import pyvista
-mesh = pyvista.Sphere()
+import pyvista as pv
+mesh = pv.Sphere()
 _ = mesh.compute_normals(inplace=True)
 mesh.active_vectors  # doctest:+SKIP
 # Expected:

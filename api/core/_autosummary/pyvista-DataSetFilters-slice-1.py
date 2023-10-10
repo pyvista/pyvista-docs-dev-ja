@@ -1,7 +1,7 @@
 # Slice the surface of a sphere.
 #
-import pyvista
-sphere = pyvista.Sphere()
+import pyvista as pv
+sphere = pv.Sphere()
 slice_x = sphere.slice(normal='x')
 slice_y = sphere.slice(normal='y')
 slice_z = sphere.slice(normal='z')

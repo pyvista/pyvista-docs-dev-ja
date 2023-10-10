@@ -1,7 +1,7 @@
 # Store data with point association in a DataSet.
 #
-import pyvista
-mesh = pyvista.Cube()
+import pyvista as pv
+mesh = pv.Cube()
 mesh.clear_data()
 mesh.point_data['my_data'] = range(mesh.n_points)
 #

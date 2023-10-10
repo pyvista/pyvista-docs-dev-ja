@@ -1,8 +1,8 @@
 # Add cell arrays to a mesh and list the available ``cell_data``.
 #
-import pyvista
+import pyvista as pv
 import numpy as np
-mesh = pyvista.Cube()
+mesh = pv.Cube()
 mesh.clear_data()
 mesh.cell_data['my_array'] = np.random.random(mesh.n_cells)
 mesh.cell_data['my_other_array'] = np.arange(mesh.n_cells)

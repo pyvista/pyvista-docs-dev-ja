@@ -633,19 +633,19 @@ document.write(`
 <dl class="field-list">
 <dt class="field-odd">パラメータ<span class="colon">:</span></dt>
 <dd class="field-odd"><dl>
-<dt><strong>renderer</strong><span class="classifier"><a class="reference internal" href="../../plotting/_autosummary/pyvista.Renderer.html#pyvista.Renderer" title="pyvista.Renderer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyvista.Renderer</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>カメラを装着するレンダラ．</p>
+<dt><strong>renderer</strong><span class="classifier"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pv.Renderer</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>カメラを装着するレンダラ．</p>
 </dd>
 </dl>
 </dd>
 </dl>
 <p class="rubric">例</p>
 <p>pyvistaモジュールレベルでカメラを作成します．</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyvista</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">camera</span> <span class="o">=</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">Camera</span><span class="p">()</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyvista</span> <span class="k">as</span> <span class="nn">pv</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">camera</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Camera</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>プロッタのアクティブカメラにアクセスし，カメラの位置を返します．</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pl</span> <span class="o">=</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">Plotter</span><span class="p">()</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pl</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Plotter</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">pl</span><span class="o">.</span><span class="n">camera</span><span class="o">.</span><span class="n">position</span>
 <span class="go">(1.0, 1.0, 1.0)</span>
 </pre></div>

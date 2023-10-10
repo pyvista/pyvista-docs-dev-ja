@@ -1,7 +1,7 @@
 # Create a "spring" using the rotational extrusion filter.
 #
-import pyvista
-profile = pyvista.Polygon(
+import pyvista as pv
+profile = pv.Polygon(
     center=[1.25, 0.0, 0.0],
     radius=0.2,
     normal=(0, 1, 0),
@@ -32,6 +32,6 @@ points = np.array(
         [-0.2, 0, 1.0],
     ]
 )
-spline = pyvista.Spline(points, 30)
+spline = pv.Spline(points, 30)
 extruded = spline.extrude_rotate(resolution=20, capping=False)
 extruded.plot(color='lightblue')

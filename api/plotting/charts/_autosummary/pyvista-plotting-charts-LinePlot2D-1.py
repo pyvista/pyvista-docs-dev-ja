@@ -1,10 +1,10 @@
 # Create a 2D chart plotting an approximate satellite
 # trajectory.
 #
-import pyvista
+import pyvista as pv
 from pyvista import examples
 import numpy as np
-chart = pyvista.Chart2D()
+chart = pv.Chart2D()
 x = np.linspace(0, 1, 100)
 y = np.sin(6.5*x-1)
 _ = chart.line(x, y, "y", 4)

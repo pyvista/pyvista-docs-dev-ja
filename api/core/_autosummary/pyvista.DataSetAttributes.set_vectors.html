@@ -649,9 +649,9 @@ document.write(`
 <p>非方向性のデータ（温度値や RGBA 値のような複数成分のスカラー）を追加する場合には， <a class="reference internal" href="pyvista.DataSetAttributes.set_scalars.html#pyvista.DataSetAttributes.set_scalars" title="pyvista.DataSetAttributes.set_scalars"><code class="xref py py-func docutils literal notranslate"><span class="pre">DataSetAttributes.set_scalars()</span></code></a> を使用することも可能です．</p>
 <p class="rubric">例</p>
 <p>ランダムなベクトルを点データとしてメッシュに追加します．</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyvista</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyvista</span> <span class="k">as</span> <span class="nn">pv</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mesh</span> <span class="o">=</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">Cube</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mesh</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Cube</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mesh</span><span class="o">.</span><span class="n">clear_data</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">vectors</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">((</span><span class="n">mesh</span><span class="o">.</span><span class="n">n_points</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mesh</span><span class="o">.</span><span class="n">point_data</span><span class="o">.</span><span class="n">set_vectors</span><span class="p">(</span><span class="n">vectors</span><span class="p">,</span> <span class="s1">&#39;my-vectors&#39;</span><span class="p">)</span>

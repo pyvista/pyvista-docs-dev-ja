@@ -2,8 +2,8 @@
 # active normals for the dataset.  Show that this is the same size
 # as the number of points.
 #
-import pyvista
-mesh = pyvista.Sphere()
+import pyvista as pv
+mesh = pv.Sphere()
 mesh = mesh.compute_normals()
 normals = mesh.active_normals
 normals.shape

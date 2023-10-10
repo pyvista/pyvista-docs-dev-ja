@@ -1,7 +1,7 @@
 # Create a 2D chart with multiple line and scatter plot.
 #
-import pyvista
-chart = pyvista.Chart2D()
+import pyvista as pv
+chart = pv.Chart2D()
 _ = chart.plot([0, 1, 2], [2, 1, 3], "o-b")
 _ = chart.plot([-2, -1, 0], [3, 1, 2], "d-r")
 chart.show()

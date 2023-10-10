@@ -1,7 +1,7 @@
 # Create a ``ImageData`` and show its extent.
 #
-import pyvista
-grid = pyvista.ImageData(dimensions=(10, 10, 10))
+import pyvista as pv
+grid = pv.ImageData(dimensions=(10, 10, 10))
 grid.extent
 # Expected:
 ## (0, 9, 0, 9, 0, 9)

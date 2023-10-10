@@ -1,8 +1,8 @@
 # Add field data to a PolyData dataset and then return it.
 #
-import pyvista
+import pyvista as pv
 import numpy as np
-mesh = pyvista.Sphere()
+mesh = pv.Sphere()
 mesh.field_data['my-field-data'] = np.arange(10)
 mesh.field_data['my-field-data']
 # Expected:

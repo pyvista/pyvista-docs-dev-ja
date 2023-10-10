@@ -1,7 +1,7 @@
 # Add a point array to a mesh.
 #
-import pyvista
-mesh = pyvista.Cube()
+import pyvista as pv
+mesh = pv.Cube()
 data = range(mesh.n_points)
 mesh.point_data.set_array(data, 'my-data')
 mesh.point_data['my-data']

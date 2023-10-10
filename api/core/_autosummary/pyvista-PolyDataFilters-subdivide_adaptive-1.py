@@ -1,8 +1,8 @@
 # First, load the example airplane mesh and plot it.
 #
-import pyvista
+import pyvista as pv
 from pyvista import examples
-mesh = pyvista.PolyData(examples.planefile)
+mesh = pv.PolyData(examples.planefile)
 mesh.plot(show_edges=True, line_width=3)
 #
 # Subdivide the mesh

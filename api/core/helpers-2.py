@@ -2,7 +2,7 @@
 # nine vertices and eight faces.
 #
 import numpy as np
-import pyvista
+import pyvista as pv
 points = np.array(
     [
         [0, 0, 0],
@@ -28,5 +28,5 @@ faces = np.array(
         [4, 8, 7],
     ]
 )
-tri_mesh = pyvista.make_tri_mesh(points, faces)
+tri_mesh = pv.make_tri_mesh(points, faces)
 tri_mesh.plot(show_edges=True, line_width=5)

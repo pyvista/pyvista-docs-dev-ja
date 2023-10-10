@@ -1,11 +1,11 @@
 # Demonstrate a boolean union with two spheres.  Note how the
 # final mesh includes both spheres.
 #
-import pyvista
-sphere_a = pyvista.Sphere()
-sphere_b = pyvista.Sphere(center=(0.5, 0, 0))
+import pyvista as pv
+sphere_a = pv.Sphere()
+sphere_b = pv.Sphere(center=(0.5, 0, 0))
 result = sphere_a.boolean_union(sphere_b)
-pl = pyvista.Plotter()
+pl = pv.Plotter()
 _ = pl.add_mesh(
     sphere_a, color='r', style='wireframe', line_width=3
 )

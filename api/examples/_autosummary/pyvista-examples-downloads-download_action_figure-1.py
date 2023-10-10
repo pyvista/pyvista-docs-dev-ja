@@ -2,12 +2,12 @@
 # physically based rendering and lighting to make a good looking
 # plot.
 #
-import pyvista
+import pyvista as pv
 from pyvista import examples
 dataset = examples.download_action_figure()
 _ = dataset.clean(inplace=True)
-pl = pyvista.Plotter(lighting=None)
-pl.add_light(pyvista.Light((30, 10, 10)))
+pl = pv.Plotter(lighting=None)
+pl.add_light(pv.Light((30, 10, 10)))
 _ = pl.add_mesh(
     dataset,
     color='w',

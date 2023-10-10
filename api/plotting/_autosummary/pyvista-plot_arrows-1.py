@@ -1,15 +1,15 @@
 # Plot a single random arrow.
 #
 import numpy as np
-import pyvista
+import pyvista as pv
 cent = np.random.random(3)
 direction = np.random.random(3)
-pyvista.plot_arrows(cent, direction)
+pv.plot_arrows(cent, direction)
 #
 # Plot 100 random arrows.
 #
 import numpy as np
-import pyvista
+import pyvista as pv
 cent = np.random.random((100, 3))
 direction = np.random.random((100, 3))
-pyvista.plot_arrows(cent, direction)
+pv.plot_arrows(cent, direction)

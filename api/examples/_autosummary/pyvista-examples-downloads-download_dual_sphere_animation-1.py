@@ -1,9 +1,9 @@
 import os
 from tempfile import mkdtemp
-import pyvista
+import pyvista as pv
 from pyvista import examples
 filename = examples.download_dual_sphere_animation(load=False)
-reader = pyvista.PVDReader(filename)
+reader = pv.PVDReader(filename)
 #
 # Write the gif to a temporary directory. Normally you would write to a local
 # path.
@@ -12,7 +12,7 @@ gif_filename = os.path.join(mkdtemp(), 'dual_sphere.gif')
 #
 # Generate the animation.
 #
-plotter = pyvista.Plotter()
+plotter = pv.Plotter()
 plotter.open_gif(gif_filename)
 for time_value in reader.time_values:
     reader.set_active_time_value(time_value)

@@ -2,9 +2,9 @@
 # active scalars in the point array are the most recently added
 # array.
 #
-import pyvista
+import pyvista as pv
 import numpy as np
-mesh = pyvista.Cube()
+mesh = pv.Cube()
 mesh.point_data['data0'] = np.arange(mesh.n_points)
 mesh.point_data.active_scalars
 # Expected:

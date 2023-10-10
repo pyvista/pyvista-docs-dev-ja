@@ -1,5 +1,5 @@
 # Create and plot an icosahedron.
 #
-import pyvista
-tetra = pyvista.Icosahedron()
+import pyvista as pv
+tetra = pv.Icosahedron()
 tetra.plot(categories=True)

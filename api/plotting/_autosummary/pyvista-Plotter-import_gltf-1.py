@@ -1,4 +1,4 @@
-import pyvista
+import pyvista as pv
 from pyvista import examples
 helmet_file = (
     examples.gltf.download_damaged_helmet()
@@ -6,7 +6,7 @@ helmet_file = (
 texture = (
     examples.hdr.download_dikhololo_night()
 )  # doctest:+SKIP
-pl = pyvista.Plotter()  # doctest:+SKIP
+pl = pv.Plotter()  # doctest:+SKIP
 pl.import_gltf(helmet_file)  # doctest:+SKIP
 pl.set_environment_texture(cubemap)  # doctest:+SKIP
 pl.camera.zoom(1.8)  # doctest:+SKIP

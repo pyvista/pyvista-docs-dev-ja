@@ -1,3 +1,3 @@
-import pyvista
-pl = pyvista.Plotter()
+import pyvista as pv
+pl = pv.Plotter()
 pl.disable_shadows()

@@ -1,5 +1,5 @@
 # Create and plot a dodecahedron.
 #
-import pyvista
-tetra = pyvista.Dodecahedron()
+import pyvista as pv
+tetra = pv.Dodecahedron()
 tetra.plot(categories=True)

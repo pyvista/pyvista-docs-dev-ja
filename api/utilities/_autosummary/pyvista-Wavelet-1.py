@@ -1,5 +1,5 @@
-import pyvista
-wavelet = pyvista.Wavelet(
+import pyvista as pv
+wavelet = pv.Wavelet(
     extent=(0, 50, 0, 50, 0, 10),
     x_freq=20,
     y_freq=10,

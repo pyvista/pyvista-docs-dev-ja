@@ -1,8 +1,8 @@
 # Create a stack plot with custom label.
 #
-import pyvista
+import pyvista as pv
 import numpy as np
-chart = pyvista.Chart2D()
+chart = pv.Chart2D()
 plot = chart.stack([0, 1, 2], [2, 1, 3])
 chart.show()
 #

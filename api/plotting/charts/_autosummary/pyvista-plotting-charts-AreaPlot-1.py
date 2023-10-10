@@ -1,11 +1,11 @@
 # Create an area plot showing the minimum and maximum precipitation observed in each month.
 #
-import pyvista
+import pyvista as pv
 import numpy as np
 x = np.arange(12)
 p_min = [11, 0, 16, 2, 23, 18, 25, 17, 9, 12, 14, 21]
 p_max = [87, 64, 92, 73, 91, 94, 107, 101, 84, 88, 95, 103]
-chart = pyvista.Chart2D()
+chart = pv.Chart2D()
 _ = chart.area(x, p_min, p_max)
 chart.x_axis.tick_locations = x
 chart.x_axis.tick_labels = ["Jan", "Feb", "Mar", "Apr", "May",

@@ -2,8 +2,8 @@
 # vectors to the normals, and show that the active vectors are
 # the ``'Normals'`` array associated with points.
 #
-import pyvista
-mesh = pyvista.Sphere()
+import pyvista as pv
+mesh = pv.Sphere()
 _ = mesh.compute_normals(inplace=True)
 mesh.active_vectors_name = 'Normals'
 mesh.active_vectors_info

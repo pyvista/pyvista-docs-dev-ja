@@ -1,7 +1,7 @@
 # Create a blue color with half opacity.
 #
-import pyvista
-c = pyvista.Color("blue", opacity=128)
+import pyvista as pv
+c = pv.Color("blue", opacity=128)
 c
 # Expected:
 ## Color(name='blue', hex='#0000ff80', opacity=128)
@@ -11,7 +11,7 @@ c.int_rgb
 #
 # Create a red color using an integer RGB sequence.
 #
-c = pyvista.Color([255, 0, 0])
+c = pv.Color([255, 0, 0])
 c
 # Expected:
 ## Color(name='red', hex='#ff0000ff', opacity=255)

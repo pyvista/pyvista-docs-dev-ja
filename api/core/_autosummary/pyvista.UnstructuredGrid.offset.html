@@ -630,9 +630,9 @@ document.write(`
 <p>返された配列は不変であり，書き込むことはできません．この配列を変更する必要がある場合は， <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.copy.html#numpy.copy" title="(in NumPy v1.26)"><code class="xref py py-func docutils literal notranslate"><span class="pre">numpy.copy()</span></code></a> を用いてコピーを作成します．</p>
 <p class="rubric">例</p>
 <p>セルのオフセット配列を返す． このメッシュはすべて6面体のセルで構成されているので，各セルが前のセルよりも8大きい値で始まっていることに注意してください．</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyvista</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyvista</span> <span class="k">as</span> <span class="nn">pv</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pyvista</span> <span class="kn">import</span> <span class="n">examples</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">hex_beam</span> <span class="o">=</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">examples</span><span class="o">.</span><span class="n">hexbeamfile</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">hex_beam</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">examples</span><span class="o">.</span><span class="n">hexbeamfile</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">hex_beam</span><span class="o">.</span><span class="n">offset</span>
 <span class="go">array([  0,   8,  16,  24,  32,  40,  48,  56,  64,  72,  80,  88,  96,</span>
 <span class="go">       104, 112, 120, 128, 136, 144, 152, 160, 168, 176, 184, 192, 200,</span>

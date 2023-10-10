@@ -1,5 +1,5 @@
 # Create a ParametricKlein mesh.
 #
-import pyvista
-mesh = pyvista.ParametricKlein()
+import pyvista as pv
+mesh = pv.ParametricKlein()
 mesh.plot(color='w', smooth_shading=True)

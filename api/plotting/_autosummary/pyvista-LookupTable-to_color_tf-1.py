@@ -1,5 +1,5 @@
-import pyvista
-lut = pyvista.LookupTable()
+import pyvista as pv
+lut = pv.LookupTable()
 tf = lut.to_color_tf()
 tf
 # Expected:

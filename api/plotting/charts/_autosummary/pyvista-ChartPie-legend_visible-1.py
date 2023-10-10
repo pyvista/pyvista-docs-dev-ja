@@ -1,7 +1,7 @@
 # Create a pie chart with custom labels.
 #
-import pyvista
-chart = pyvista.ChartPie([5, 4, 3, 2, 1])
+import pyvista as pv
+chart = pv.ChartPie([5, 4, 3, 2, 1])
 chart.plot.labels = ["A", "B", "C", "D", "E"]
 chart.show()
 #

@@ -1,8 +1,8 @@
 # Add field data to a PolyData dataset.
 #
-import pyvista
+import pyvista as pv
 import numpy as np
-mesh = pyvista.Sphere()
+mesh = pv.Sphere()
 mesh.add_field_data(np.arange(10), 'my-field-data')
 mesh['my-field-data']
 # Expected:
@@ -10,7 +10,7 @@ mesh['my-field-data']
 #
 # Add field data to a ImageData dataset.
 #
-mesh = pyvista.ImageData(dimensions=(2, 2, 1))
+mesh = pv.ImageData(dimensions=(2, 2, 1))
 mesh.add_field_data(
     ['I could', 'write', 'notes', 'here'], 'my-field-data'
 )
@@ -20,9 +20,9 @@ mesh['my-field-data']
 #
 # Add field data to a MultiBlock dataset.
 #
-blocks = pyvista.MultiBlock()
-blocks.append(pyvista.Sphere())
-blocks["cube"] = pyvista.Cube(center=(0, 0, -1))
+blocks = pv.MultiBlock()
+blocks.append(pv.Sphere())
+blocks["cube"] = pv.Cube(center=(0, 0, -1))
 blocks.add_field_data([1, 2, 3], 'my-field-data')
 blocks.field_data['my-field-data']
 # Expected:

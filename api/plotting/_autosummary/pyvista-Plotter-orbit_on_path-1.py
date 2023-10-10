@@ -2,12 +2,12 @@
 #
 import os
 from tempfile import mkdtemp
-import pyvista
+import pyvista as pv
 from pyvista import examples
 mesh = examples.load_globe()
 texture = examples.load_globe_texture()
 filename = os.path.join(mkdtemp(), 'orbit.gif')
-plotter = pyvista.Plotter(window_size=[300, 300])
+plotter = pv.Plotter(window_size=[300, 300])
 _ = plotter.add_mesh(
     mesh, texture=texture, smooth_shading=True
 )

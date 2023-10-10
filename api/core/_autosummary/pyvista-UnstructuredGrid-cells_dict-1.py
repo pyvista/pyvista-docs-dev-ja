@@ -7,9 +7,9 @@
 # approach may be more helpful than the ``cells`` property when
 # extracting cells.
 #
-import pyvista
+import pyvista as pv
 from pyvista import examples
-hex_beam = pyvista.read(examples.hexbeamfile)
+hex_beam = pv.read(examples.hexbeamfile)
 hex_beam.cells_dict  # doctest:+SKIP
 # Expected:
 ## {12: array([[ 0,  2,  8,  7, 27, 36, 90, 81],

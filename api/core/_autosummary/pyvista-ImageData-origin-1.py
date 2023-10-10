@@ -1,5 +1,5 @@
-import pyvista
-grid = pyvista.ImageData(dimensions=(5, 5, 5))
+import pyvista as pv
+grid = pv.ImageData(dimensions=(5, 5, 5))
 grid.origin
 # Expected:
 ## (0.0, 0.0, 0.0)
@@ -7,7 +7,7 @@ grid.origin
 # Show how the origin is in the bottom "southwest" corner of the
 # ImageData.
 #
-pl = pyvista.Plotter()
+pl = pv.Plotter()
 _ = pl.add_mesh(grid, show_edges=True)
 _ = pl.add_axes_at_origin(ylabel=None)
 pl.camera_position = 'xz'
@@ -17,7 +17,7 @@ pl.show()
 # ImageData.
 #
 grid.origin = (1, 1, 1)
-pl = pyvista.Plotter()
+pl = pv.Plotter()
 _ = pl.add_mesh(grid, show_edges=True)
 _ = pl.add_axes_at_origin(ylabel=None)
 pl.camera_position = 'xz'

@@ -1,13 +1,13 @@
 # First define a function to add two charts to a renderer.
 #
-import pyvista
+import pyvista as pv
 def plotter_with_charts():
-    pl = pyvista.Plotter()
+    pl = pv.Plotter()
     pl.background_color = 'w'
-    chart_left = pyvista.Chart2D(size=(0.5, 1))
+    chart_left = pv.Chart2D(size=(0.5, 1))
     _ = chart_left.line([0, 1, 2], [2, 1, 3])
     pl.add_chart(chart_left)
-    chart_right = pyvista.Chart2D(size=(0.5, 1), loc=(0.5, 0))
+    chart_right = pv.Chart2D(size=(0.5, 1), loc=(0.5, 0))
     _ = chart_right.line([0, 1, 2], [3, 1, 2])
     pl.add_chart(chart_right)
     return pl, chart_left, chart_right

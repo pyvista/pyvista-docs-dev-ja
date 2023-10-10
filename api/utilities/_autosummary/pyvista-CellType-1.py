@@ -3,7 +3,7 @@
 #
 import numpy as np
 from pyvista import CellType
-import pyvista
+import pyvista as pv
 cells = np.array([8, 0, 1, 2, 3, 4, 5, 6, 7])
 cell_type = np.array([CellType.HEXAHEDRON], np.int8)
 points = np.array(
@@ -19,7 +19,7 @@ points = np.array(
     ],
     dtype=np.float32,
 )
-grid = pyvista.UnstructuredGrid(cells, cell_type, points)
+grid = pv.UnstructuredGrid(cells, cell_type, points)
 grid
 # Expected:
 ## UnstructuredGrid (...)

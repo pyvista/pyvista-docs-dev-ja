@@ -1,6 +1,6 @@
 # Sample a dataset over a circular arc.
 #
-import pyvista
+import pyvista as pv
 from pyvista import examples
 uniform = examples.load_uniform()
 uniform["height"] = uniform.points[:, 2]
@@ -14,7 +14,7 @@ center = [
 arc = uniform.sample_over_circular_arc_normal(
     center, normal=normal, polar=polar
 )
-pl = pyvista.Plotter()
+pl = pv.Plotter()
 _ = pl.add_mesh(uniform, style='wireframe')
 _ = pl.add_mesh(arc, line_width=10)
 pl.show_axes()

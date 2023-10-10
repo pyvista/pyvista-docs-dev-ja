@@ -1,6 +1,6 @@
-import pyvista
+import pyvista as pv
 from pyvista import examples
-pl = pyvista.Plotter(shape=(1, 2))
+pl = pv.Plotter(shape=(1, 2))
 pl.subplot(0, 0)
 pl.show_axes()
 mesh1 = examples.download_teapot().rotate_x(90, inplace=False)

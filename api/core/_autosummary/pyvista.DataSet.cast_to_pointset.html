@@ -685,7 +685,7 @@ document.write(`
 </dd>
 <dt class="field-even">戻り値<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt><a class="reference internal" href="pyvista.PointSet.html#pyvista.PointSet" title="pyvista.PointSet"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyvista.PointSet</span></code></a></dt><dd><p>データセットを <a class="reference internal" href="pyvista.PointSet.html#pyvista.PointSet" title="pyvista.PointSet"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.PointSet</span></code></a> にキャストします．</p>
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">pv.PointSet</span></code></dt><dd><p>データセットを <a class="reference internal" href="pyvista.PointSet.html#pyvista.PointSet" title="pyvista.PointSet"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.PointSet</span></code></a> にキャストします．</p>
 </dd>
 </dl>
 </dd>
@@ -693,8 +693,8 @@ document.write(`
 <p class="rubric">備考</p>
 <p>これにより，元のメッシュのポイントとポイント/セルデータのディープコピーが作成されます．</p>
 <p class="rubric">例</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyvista</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mesh</span> <span class="o">=</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">Wavelet</span><span class="p">()</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyvista</span> <span class="k">as</span> <span class="nn">pv</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mesh</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Wavelet</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">pointset</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">cast_to_pointset</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">type</span><span class="p">(</span><span class="n">pointset</span><span class="p">)</span>
 <span class="go">&lt;class &#39;pyvista.core.pointset.PointSet&#39;&gt;</span>

@@ -1,5 +1,5 @@
-import pyvista
-mesh = pyvista.Cube()
+import pyvista as pv
+mesh = pv.Cube()
 mesh.clear_data()
 mesh.cell_data['data0'] = [0] * mesh.n_cells
 mesh.cell_data['data1'] = range(mesh.n_cells)

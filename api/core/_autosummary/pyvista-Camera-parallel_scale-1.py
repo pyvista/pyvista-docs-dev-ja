@@ -1,5 +1,5 @@
-import pyvista
-pl = pyvista.Plotter()
+import pyvista as pv
+pl = pv.Plotter()
 pl.camera.parallel_scale
 # Expected:
 ## 1.0

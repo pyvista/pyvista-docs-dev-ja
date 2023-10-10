@@ -1,6 +1,6 @@
 # Extract the surface of an UnstructuredGrid.
 #
-import pyvista
+import pyvista as pv
 from pyvista import examples
 grid = examples.load_hexbeam()
 surf = grid.extract_surface()

@@ -1,7 +1,7 @@
 # Add field data to a PolyData dataset and then remove it.
 #
-import pyvista
-mesh = pyvista.Sphere()
+import pyvista as pv
+mesh = pv.Sphere()
 mesh.field_data['my-field-data'] = range(10)
 len(mesh.field_data)
 # Expected:

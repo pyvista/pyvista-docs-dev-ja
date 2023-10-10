@@ -1,7 +1,7 @@
-import pyvista
+import pyvista as pv
 from pyvista import examples
 dataset = examples.download_bolt_nut()
-pl = pyvista.Plotter()
+pl = pv.Plotter()
 _ = pl.add_volume(
     dataset,
     cmap="coolwarm",

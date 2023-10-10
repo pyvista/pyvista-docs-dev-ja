@@ -1,5 +1,5 @@
-import pyvista
-pl = pyvista.Plotter()
+import pyvista as pv
+pl = pv.Plotter()
 pl.camera.elevation
 # Expected:
 ## 0.0

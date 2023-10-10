@@ -2,9 +2,9 @@
 # all hexahedral cells, note how each cell starts at 8 greater
 # than the prior cell.
 #
-import pyvista
+import pyvista as pv
 from pyvista import examples
-hex_beam = pyvista.read(examples.hexbeamfile)
+hex_beam = pv.read(examples.hexbeamfile)
 hex_beam.offset
 # Expected:
 ## array([  0,   8,  16,  24,  32,  40,  48,  56,  64,  72,  80,  88,  96,

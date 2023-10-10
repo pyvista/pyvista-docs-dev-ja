@@ -1,8 +1,8 @@
 # Create a pie plot with custom label.
 #
-import pyvista
+import pyvista as pv
 import numpy as np
-chart = pyvista.ChartPie([4, 3, 2, 1])
+chart = pv.ChartPie([4, 3, 2, 1])
 plot = chart.plot
 chart.show()
 #

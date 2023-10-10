@@ -1,7 +1,7 @@
 # Store data with point association in a DataSet.
 #
-import pyvista
-mesh = pyvista.Cube()
+import pyvista as pv
+mesh = pv.Cube()
 mesh.point_data['my_data'] = range(mesh.n_points)
 data = mesh.point_data['my_data']
 data
@@ -25,7 +25,7 @@ del mesh.point_data['my_data']
 # Print the available arrays from dataset attributes.
 #
 import numpy as np
-mesh = pyvista.Plane(i_resolution=1, j_resolution=1)
+mesh = pv.Plane(i_resolution=1, j_resolution=1)
 mesh.point_data.set_array(range(4), 'my-data')
 mesh.point_data.set_array(range(5, 9), 'my-other-data')
 vectors0 = np.random.random((4, 3))

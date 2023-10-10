@@ -2,10 +2,10 @@
 # to orange.  Add a cube to the left plot and a sphere to the
 # right.
 #
-import pyvista
-pl = pyvista.Plotter(shape=(1, 2))
-actor = pl.add_mesh(pyvista.Cube())
+import pyvista as pv
+pl = pv.Plotter(shape=(1, 2))
+actor = pl.add_mesh(pv.Cube())
 pl.subplot(0, 1)
-actor = pl.add_mesh(pyvista.Sphere())
+actor = pl.add_mesh(pv.Sphere())
 pl.set_background('orange', all_renderers=False)
 pl.show()

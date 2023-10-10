@@ -2,9 +2,9 @@
 # active vectors in the point array are the most recently added
 # array.
 #
-import pyvista
+import pyvista as pv
 import numpy as np
-mesh = pyvista.Cube()
+mesh = pv.Cube()
 vectors = np.random.random((mesh.n_points, 3))
 mesh.point_data.set_vectors(vectors, 'my-vectors')
 vectors_out = mesh.point_data.active_vectors

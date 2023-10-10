@@ -1,8 +1,8 @@
 # Create a mesh and return the points of the mesh as a numpy
 # array.
 #
-import pyvista
-cube = pyvista.Cube()
+import pyvista as pv
+cube = pv.Cube()
 points = cube.points
 points
 # Expected:

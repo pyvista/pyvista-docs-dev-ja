@@ -1,6 +1,6 @@
-import pyvista
+import pyvista as pv
 import numpy as np
-mesh = pyvista.Sphere()
+mesh = pv.Sphere()
 mesh.point_data.set_vectors(
     np.random.random((mesh.n_points, 3)), 'my-vectors'
 )

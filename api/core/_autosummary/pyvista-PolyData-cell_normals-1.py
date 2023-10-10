@@ -1,5 +1,5 @@
-import pyvista
-sphere = pyvista.Sphere()
+import pyvista as pv
+sphere = pv.Sphere()
 sphere.cell_normals  # doctest:+SKIP
 # Expected:
 ## pyvista_ndarray([[-0.05413816,  0.00569015, -0.9985172 ],

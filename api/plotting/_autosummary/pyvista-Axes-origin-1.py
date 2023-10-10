@@ -1,5 +1,5 @@
-import pyvista
-axes = pyvista.Axes()
+import pyvista as pv
+axes = pv.Axes()
 axes.origin
 # Expected:
 ## (0.0, 0.0, 0.0)

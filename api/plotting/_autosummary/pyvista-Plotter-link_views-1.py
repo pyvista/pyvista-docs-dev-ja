@@ -1,9 +1,9 @@
 # Not linked view case.
 #
-import pyvista
+import pyvista as pv
 from pyvista import demos
 ocube = demos.orientation_cube()
-pl = pyvista.Plotter(shape=(1, 2))
+pl = pv.Plotter(shape=(1, 2))
 pl.subplot(0, 0)
 _ = pl.add_mesh(ocube['cube'], show_edges=True)
 _ = pl.add_mesh(ocube['x_p'], color='blue')
@@ -26,7 +26,7 @@ pl.show()
 #
 # Linked view case.
 #
-pl = pyvista.Plotter(shape=(1, 2))
+pl = pv.Plotter(shape=(1, 2))
 pl.subplot(0, 0)
 _ = pl.add_mesh(ocube['cube'], show_edges=True)
 _ = pl.add_mesh(ocube['x_p'], color='blue')

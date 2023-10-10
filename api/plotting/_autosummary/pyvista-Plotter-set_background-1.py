@@ -1,7 +1,7 @@
 # Set the background color to black.
 #
-import pyvista
-plotter = pyvista.Plotter()
+import pyvista as pv
+plotter = pv.Plotter()
 plotter.set_background('black')
 plotter.background_color
 # Expected:
@@ -11,8 +11,8 @@ plotter.close()
 # Set the background color at the bottom to black and white at
 # the top.  Display a cone as well.
 #
-import pyvista
-pl = pyvista.Plotter()
-actor = pl.add_mesh(pyvista.Cone())
+import pyvista as pv
+pl = pv.Plotter()
+actor = pl.add_mesh(pv.Cone())
 pl.set_background('black', top='white')
 pl.show()

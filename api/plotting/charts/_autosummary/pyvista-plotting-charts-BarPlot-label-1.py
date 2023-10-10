@@ -1,8 +1,8 @@
 # Create a bar plot with custom label.
 #
-import pyvista
+import pyvista as pv
 import numpy as np
-chart = pyvista.Chart2D()
+chart = pv.Chart2D()
 plot = chart.bar([1, 2, 3], [2, 1, 3])
 chart.show()
 #

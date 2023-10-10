@@ -1,7 +1,7 @@
 # Create a 5 x 5 x 5 uniform grid.
 #
-import pyvista
-grid = pyvista.ImageData(dimensions=(5, 5, 5))
+import pyvista as pv
+grid = pv.ImageData(dimensions=(5, 5, 5))
 grid.spacing
 # Expected:
 ## (1.0, 1.0, 1.0)

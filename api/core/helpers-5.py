@@ -1,13 +1,13 @@
 # Fit a plane to a random point cloud.
 #
-import pyvista
+import pyvista as pv
 import numpy as np
 cloud = np.random.random((10, 3))
 cloud[:, 2] *= 0.1
-plane, center, normal = pyvista.fit_plane_to_points(
+plane, center, normal = pv.fit_plane_to_points(
     cloud, return_meta=True
 )
-pl = pyvista.Plotter()
+pl = pv.Plotter()
 _ = pl.add_mesh(
     plane, color='lightblue', style='wireframe', line_width=4
 )
@@ -21,11 +21,11 @@ pl.show()
 #
 # Fit a plane to a mesh.
 #
-import pyvista
+import pyvista as pv
 from pyvista import examples
 mesh = examples.download_shark()
-plane = pyvista.fit_plane_to_points(mesh.points)
-pl = pyvista.Plotter()
+plane = pv.fit_plane_to_points(mesh.points)
+pl = pv.Plotter()
 _ = pl.add_mesh(
     plane, show_edges=True, color='lightblue', opacity=0.25
 )

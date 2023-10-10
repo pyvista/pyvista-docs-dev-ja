@@ -1,7 +1,7 @@
 # First, plot the original cube.
 #
-import pyvista
-mesh = pyvista.Cube()
+import pyvista as pv
+mesh = pv.Cube()
 mesh.plot(show_edges=True, line_width=5)
 #
 # Now, plot the mesh with shrunk faces.

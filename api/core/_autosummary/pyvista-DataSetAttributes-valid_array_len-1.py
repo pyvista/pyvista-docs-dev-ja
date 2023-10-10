@@ -2,8 +2,8 @@
 # cells for point and cell arrays, and there is no length limit
 # for field data.
 #
-import pyvista
-mesh = pyvista.Cube()
+import pyvista as pv
+mesh = pv.Cube()
 mesh.n_points, mesh.n_cells
 # Expected:
 ## (8, 6)

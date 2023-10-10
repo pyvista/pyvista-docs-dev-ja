@@ -26,9 +26,9 @@ mesh.cell_neighbors(0, "faces")
 # Show a visual example.
 #
 from functools import partial
-import pyvista
-mesh = pyvista.Sphere(theta_resolution=10)
-pl = pyvista.Plotter(shape=(1, 2))
+import pyvista as pv
+mesh = pv.Sphere(theta_resolution=10)
+pl = pv.Plotter(shape=(1, 2))
 pl.link_views()
 add_point_labels = partial(
     pl.add_point_labels,

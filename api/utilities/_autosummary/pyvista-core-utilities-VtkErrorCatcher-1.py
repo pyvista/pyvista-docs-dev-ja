@@ -1,5 +1,5 @@
 # Catch VTK errors using the context manager.
 #
-import pyvista
-with pyvista.VtkErrorCatcher() as error_catcher:
-    sphere = pyvista.Sphere()
+import pyvista as pv
+with pv.VtkErrorCatcher() as error_catcher:
+    sphere = pv.Sphere()

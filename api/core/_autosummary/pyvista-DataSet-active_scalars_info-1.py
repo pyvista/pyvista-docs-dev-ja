@@ -2,8 +2,8 @@
 # scalars info.  Note how when the scalars are added, they
 # automatically become the active scalars.
 #
-import pyvista
-mesh = pyvista.Sphere()
+import pyvista as pv
+mesh = pv.Sphere()
 mesh['Z Height'] = mesh.points[:, 2]
 mesh.active_scalars_info
 # Expected:

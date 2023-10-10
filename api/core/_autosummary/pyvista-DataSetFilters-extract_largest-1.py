@@ -1,7 +1,7 @@
 # Join two meshes together, extract the largest, and plot it.
 #
-import pyvista
-mesh = pyvista.Sphere() + pyvista.Cube()
+import pyvista as pv
+mesh = pv.Sphere() + pv.Cube()
 largest = mesh.extract_largest()
 largest.plot()
 #

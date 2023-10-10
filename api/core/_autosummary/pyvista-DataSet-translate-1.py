@@ -1,7 +1,7 @@
 # Create a sphere and translate it by ``(2, 1, 2)``.
 #
-import pyvista
-mesh = pyvista.Sphere()
+import pyvista as pv
+mesh = pv.Sphere()
 mesh.center
 # Expected:
 ## [0.0, 0.0, 0.0]

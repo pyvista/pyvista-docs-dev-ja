@@ -1,9 +1,9 @@
 # Create a cube, assign a point array to the mesh named
 # ``'my_array'``, and rename it to ``'my_renamed_array'``.
 #
-import pyvista
+import pyvista as pv
 import numpy as np
-cube = pyvista.Cube()
+cube = pv.Cube()
 cube['my_array'] = range(cube.n_points)
 cube.rename_array('my_array', 'my_renamed_array')
 cube['my_renamed_array']

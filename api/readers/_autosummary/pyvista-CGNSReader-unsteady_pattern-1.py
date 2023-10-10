@@ -1,9 +1,9 @@
 # Set reading the unsteady pattern to ``True``.
 #
-import pyvista
+import pyvista as pv
 from pyvista import examples
 filename = examples.download_cgns_multi(load=False)
-reader = pyvista.CGNSReader(filename)
+reader = pv.CGNSReader(filename)
 reader.unsteady_pattern = True
 reader.unsteady_pattern
 # Expected:

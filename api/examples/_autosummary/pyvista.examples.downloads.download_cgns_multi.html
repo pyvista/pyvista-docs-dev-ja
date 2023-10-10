@@ -785,7 +785,7 @@ document.write(`
 </dd>
 <dt class="field-even">戻り値<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt><a class="reference internal" href="../../core/_autosummary/pyvista.MultiBlock.html#pyvista.MultiBlock" title="pyvista.MultiBlock"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyvista.MultiBlock</span></code></a> | <a class="reference external" href="https://docs.python.org/3.11/library/stdtypes.html#str" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a></dt><dd><p>構造化された，4ブロック，2D（3次元の2平面）多要素翼，セル中心解を持つ． <code class="docutils literal notranslate"><span class="pre">load</span></code> が <code class="docutils literal notranslate"><span class="pre">False</span></code> の場合，サンプル CGNS ファイルのパスが返されます．</p>
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">pv.MultiBlock</span></code> | <a class="reference external" href="https://docs.python.org/3.11/library/stdtypes.html#str" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a></dt><dd><p>構造化された，4ブロック，2D（3次元の2平面）多要素翼，セル中心解を持つ． <code class="docutils literal notranslate"><span class="pre">load</span></code> が <code class="docutils literal notranslate"><span class="pre">False</span></code> の場合，サンプル CGNS ファイルのパスが返されます．</p>
 </dd>
 </dl>
 </dd>
@@ -793,7 +793,7 @@ document.write(`
 <p class="rubric">例</p>
 <p>翼のデータセットをプロットします．マルチブロックをマージして，Airfoilの <code class="docutils literal notranslate"><span class="pre">&quot;ViscosityEddy&quot;</span></code> をプロットしてください．このデータセットでは，解がセル内に格納されているため，セルデータを点データに変換します．</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pyvista</span> <span class="kn">import</span> <span class="n">examples</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyvista</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyvista</span> <span class="k">as</span> <span class="nn">pv</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">dataset</span> <span class="o">=</span> <span class="n">examples</span><span class="o">.</span><span class="n">download_cgns_multi</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ugrid</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">combine</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ugrid</span> <span class="o">=</span> <span class="n">ugrid</span> <span class="o">=</span> <span class="n">ugrid</span><span class="o">.</span><span class="n">cell_data_to_point_data</span><span class="p">()</span>

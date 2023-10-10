@@ -689,7 +689,7 @@ document.write(`
 </dd>
 <dt class="field-even">戻り値<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt><a class="reference internal" href="pyvista.PolyData.html#pyvista.PolyData" title="pyvista.PolyData"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyvista.PolyData</span></code></a></dt><dd><p>間引済みメッシュ</p>
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">pv.PolyData</span></code></dt><dd><p>間引済みメッシュ</p>
 </dd>
 </dl>
 </dd>
@@ -698,8 +698,8 @@ document.write(`
 <p>セグメンテーションフォルトまたはその他のエラーが発生した場合は，このフィルタを使用する前に <a class="reference internal" href="pyvista.PolyDataFilters.clean.html#pyvista.PolyDataFilters.clean" title="pyvista.PolyDataFilters.clean"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyvista.PolyDataFilters.clean()</span></code></a> を使用して無効なセルを削除することを検討してください．</p>
 <p class="rubric">例</p>
 <p>球体をデシメーションします． まず，球体をプロットします．</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyvista</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">sphere</span> <span class="o">=</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">Sphere</span><span class="p">(</span><span class="n">phi_resolution</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">theta_resolution</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyvista</span> <span class="k">as</span> <span class="nn">pv</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sphere</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Sphere</span><span class="p">(</span><span class="n">phi_resolution</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">theta_resolution</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">sphere</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">show_edges</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">line_width</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>

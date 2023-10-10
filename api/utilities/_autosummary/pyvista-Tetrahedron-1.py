@@ -1,5 +1,5 @@
 # Create and plot a tetrahedron.
 #
-import pyvista
-tetra = pyvista.Tetrahedron()
+import pyvista as pv
+tetra = pv.Tetrahedron()
 tetra.plot(categories=True)

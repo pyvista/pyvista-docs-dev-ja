@@ -1,15 +1,15 @@
-import pyvista
+import pyvista as pv
 import vtk
 import numpy as np
 #
 # Create an empty structured grid.
 #
-grid = pyvista.StructuredGrid()
+grid = pv.StructuredGrid()
 #
 # Initialize from a ``vtk.vtkStructuredGrid`` object
 #
 vtkgrid = vtk.vtkStructuredGrid()
-grid = pyvista.StructuredGrid(vtkgrid)
+grid = pv.StructuredGrid(vtkgrid)
 #
 # Create from NumPy arrays.
 #
@@ -17,7 +17,7 @@ xrng = np.arange(-10, 10, 2, dtype=np.float32)
 yrng = np.arange(-10, 10, 5, dtype=np.float32)
 zrng = np.arange(-10, 10, 1, dtype=np.float32)
 x, y, z = np.meshgrid(xrng, yrng, zrng, indexing='ij')
-grid = pyvista.StructuredGrid(x, y, z)
+grid = pv.StructuredGrid(x, y, z)
 grid
 # Expected:
 ## StructuredGrid (...)

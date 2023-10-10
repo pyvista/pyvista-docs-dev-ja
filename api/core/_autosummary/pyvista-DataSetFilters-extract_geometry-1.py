@@ -1,8 +1,8 @@
 # Extract the surface of a sample unstructured grid.
 #
-import pyvista
+import pyvista as pv
 from pyvista import examples
-hex_beam = pyvista.read(examples.hexbeamfile)
+hex_beam = pv.read(examples.hexbeamfile)
 hex_beam.extract_geometry()
 # Expected:
 ## PolyData (...)

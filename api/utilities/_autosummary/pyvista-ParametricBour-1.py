@@ -1,5 +1,5 @@
 # Create a ParametricBour mesh.
 #
-import pyvista
-mesh = pyvista.ParametricBour()
+import pyvista as pv
+mesh = pv.ParametricBour()
 mesh.plot(color='w', smooth_shading=True)

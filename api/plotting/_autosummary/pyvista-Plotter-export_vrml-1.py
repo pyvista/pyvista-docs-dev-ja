@@ -1,5 +1,5 @@
-import pyvista
+import pyvista as pv
 from pyvista import examples
-pl = pyvista.Plotter()
+pl = pv.Plotter()
 _ = pl.add_mesh(examples.load_hexbeam())
 pl.export_vrml("sample")  # doctest:+SKIP

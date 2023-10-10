@@ -1,7 +1,7 @@
 # Create a DataSet with a variety of arrays.
 #
-import pyvista
-mesh = pyvista.Cube()
+import pyvista as pv
+mesh = pv.Cube()
 mesh.clear_data()
 mesh.point_data['point-data'] = range(mesh.n_points)
 mesh.cell_data['cell-data'] = range(mesh.n_cells)

@@ -1,10 +1,10 @@
 # Create a legend by labeling the meshes when using ``add_mesh``
 #
-import pyvista
+import pyvista as pv
 from pyvista import examples
-sphere = pyvista.Sphere(center=(0, 0, 1))
-cube = pyvista.Cube()
-plotter = pyvista.Plotter()
+sphere = pv.Sphere(center=(0, 0, 1))
+cube = pv.Cube()
+plotter = pv.Plotter()
 _ = plotter.add_mesh(
     sphere, 'grey', smooth_shading=True, label='Sphere'
 )
@@ -14,7 +14,7 @@ plotter.show()
 #
 # Alternatively provide labels in the plotter.
 #
-plotter = pyvista.Plotter()
+plotter = pv.Plotter()
 _ = plotter.add_mesh(sphere, 'grey', smooth_shading=True)
 _ = plotter.add_mesh(cube, 'r')
 legend_entries = []

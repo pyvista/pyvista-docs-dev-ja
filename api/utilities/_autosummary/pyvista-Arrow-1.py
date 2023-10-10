@@ -1,5 +1,5 @@
 # Plot a default arrow.
 #
-import pyvista
-mesh = pyvista.Arrow()
+import pyvista as pv
+mesh = pv.Arrow()
 mesh.plot(show_edges=True)

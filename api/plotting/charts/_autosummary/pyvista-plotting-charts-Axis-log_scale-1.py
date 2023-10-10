@@ -1,7 +1,7 @@
 # Create a 2D chart.
 #
-import pyvista
-chart = pyvista.Chart2D()
+import pyvista as pv
+chart = pv.Chart2D()
 _ = chart.line([0, 1, 2, 3, 4], [1e0, 1e1, 1e2, 1e3, 1e4])
 chart.show()
 #

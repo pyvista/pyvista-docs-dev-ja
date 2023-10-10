@@ -1,9 +1,9 @@
 # Load the cube mesh and plot it
 #
-import pyvista
+import pyvista as pv
 from pyvista import demos
 ocube = demos.orientation_cube()
-pl = pyvista.Plotter()
+pl = pv.Plotter()
 _ = pl.add_mesh(ocube['cube'], show_edges=True)
 _ = pl.add_mesh(ocube['x_p'], color='blue')
 _ = pl.add_mesh(ocube['x_n'], color='blue')

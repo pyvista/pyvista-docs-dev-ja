@@ -1,5 +1,5 @@
 # Create and plot a dodecahedron.
 #
-import pyvista
-dodeca = pyvista.PlatonicSolid('dodecahedron')
+import pyvista as pv
+dodeca = pv.PlatonicSolid('dodecahedron')
 dodeca.plot(categories=True)

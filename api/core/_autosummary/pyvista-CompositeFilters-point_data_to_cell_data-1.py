@@ -6,15 +6,15 @@
 # First, plot these values as point values to show the
 # difference between point and cell data.
 #
-import pyvista
-sphere = pyvista.Sphere(theta_resolution=10, phi_resolution=10)
+import pyvista as pv
+sphere = pv.Sphere(theta_resolution=10, phi_resolution=10)
 sphere['Z Coordinates'] = sphere.points[:, 2]
 sphere.plot()
 #
 # Now, convert these values to cell data and then plot it.
 #
-import pyvista
-sphere = pyvista.Sphere(theta_resolution=10, phi_resolution=10)
+import pyvista as pv
+sphere = pv.Sphere(theta_resolution=10, phi_resolution=10)
 sphere['Z Coordinates'] = sphere.points[:, 2]
 sphere = sphere.point_data_to_cell_data()
 sphere.plot()

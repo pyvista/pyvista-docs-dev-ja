@@ -1,5 +1,5 @@
 # Create a ParametricBoy mesh.
 #
-import pyvista
-mesh = pyvista.ParametricBoy()
+import pyvista as pv
+mesh = pv.ParametricBoy()
 mesh.plot(color='w', smooth_shading=True)

@@ -1,7 +1,7 @@
-import pyvista
-sphere = pyvista.Sphere()
+import pyvista as pv
+sphere = pv.Sphere()
 sphere['Data'] = sphere.points[:, 2]
-plotter = pyvista.Plotter()
+plotter = pv.Plotter()
 _ = plotter.add_mesh(sphere)
 plotter.scalar_bars
 # Expected:

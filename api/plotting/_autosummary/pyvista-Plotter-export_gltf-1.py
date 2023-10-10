@@ -1,13 +1,13 @@
 # Output a simple point cloud represented as balls.
 #
 import numpy as np
-import pyvista
+import pyvista as pv
 point_cloud = np.random.random((100, 3))
-pdata = pyvista.PolyData(point_cloud)
+pdata = pv.PolyData(point_cloud)
 pdata['orig_sphere'] = np.arange(100)
-sphere = pyvista.Sphere(radius=0.02)
+sphere = pv.Sphere(radius=0.02)
 pc = pdata.glyph(scale=False, geom=sphere, orient=False)
-pl = pyvista.Plotter()
+pl = pv.Plotter()
 _ = pl.add_mesh(
     pc,
     cmap='reds',

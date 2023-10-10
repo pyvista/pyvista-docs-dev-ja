@@ -1,12 +1,12 @@
 # Show a sphere is manifold.
 #
-import pyvista
-pyvista.Sphere().is_manifold
+import pyvista as pv
+pv.Sphere().is_manifold
 # Expected:
 ## True
 #
 # Show a plane is not manifold.
 #
-pyvista.Plane().is_manifold
+pv.Plane().is_manifold
 # Expected:
 ## False

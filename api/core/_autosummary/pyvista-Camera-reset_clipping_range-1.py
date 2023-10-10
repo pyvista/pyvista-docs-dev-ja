@@ -1,6 +1,6 @@
-import pyvista
-pl = pyvista.Plotter()
-_ = pl.add_mesh(pyvista.Sphere())
+import pyvista as pv
+pl = pv.Plotter()
+_ = pl.add_mesh(pv.Sphere())
 pl.camera.clipping_range = (1, 2)
 pl.camera.reset_clipping_range()  # doctest:+SKIP
 # Expected:

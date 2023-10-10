@@ -1,5 +1,5 @@
-import pyvista
-mesh = pyvista.Cube()
+import pyvista as pv
+mesh = pv.Cube()
 mesh.clear_data()
 scalars = range(mesh.n_points)
 mesh.point_data.set_scalars(scalars, 'my-scalars')

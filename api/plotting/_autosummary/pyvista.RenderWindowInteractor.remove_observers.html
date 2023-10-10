@@ -676,8 +676,8 @@ document.write(`
 </dl>
 <p class="rubric">例</p>
 <p>2つのオブザーバーを追加し，すぐに削除します．</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyvista</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">pl</span> <span class="o">=</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">Plotter</span><span class="p">()</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyvista</span> <span class="k">as</span> <span class="nn">pv</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pl</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Plotter</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">obs_enter</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">iren</span><span class="o">.</span><span class="n">add_observer</span><span class="p">(</span>
 <span class="gp">... </span>    <span class="s2">&quot;EnterEvent&quot;</span><span class="p">,</span> <span class="k">lambda</span> <span class="o">*</span><span class="n">_</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Enter!&#39;</span><span class="p">)</span>
 <span class="gp">... </span><span class="p">)</span>

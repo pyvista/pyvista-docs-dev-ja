@@ -40,9 +40,7 @@ py = examples.download_sky(direction='posy')  # doctest:+SKIP
 ny = examples.download_sky(direction='negy')  # doctest:+SKIP
 pz = examples.download_sky(direction='posz')  # doctest:+SKIP
 nz = examples.download_sky(direction='negz')  # doctest:+SKIP
-texture = pyvista.Texture(
-    [px, nx, py, ny, pz, nz]
-)  # doctest:+SKIP
+texture = pv.Texture([px, nx, py, ny, pz, nz])  # doctest:+SKIP
 texture.cube_map  # doctest:+SKIP
 # Expected:
 ## True

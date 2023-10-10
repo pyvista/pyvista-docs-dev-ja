@@ -1,9 +1,9 @@
 # Disable distributing blocks.
 #
-import pyvista
+import pyvista as pv
 from pyvista import examples
 filename = examples.download_cgns_multi(load=False)
-reader = pyvista.CGNSReader(filename)
+reader = pv.CGNSReader(filename)
 reader.distribute_blocks = False
 reader.distribute_blocks
 # Expected:

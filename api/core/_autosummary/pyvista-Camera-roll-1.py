@@ -1,5 +1,5 @@
-import pyvista
-pl = pyvista.Plotter()
+import pyvista as pv
+pl = pv.Plotter()
 pl.camera.roll
 # Expected:
 ## -120.00000000000001

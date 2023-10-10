@@ -1,5 +1,5 @@
 # Load an example mesh using the legacy reader.
 #
-import pyvista
+import pyvista as pv
 from pyvista import examples
-mesh = pyvista.read_legacy(examples.uniformfile)  # doctest:+SKIP
+mesh = pv.read_legacy(examples.uniformfile)  # doctest:+SKIP

@@ -1,6 +1,6 @@
 # Create a stack plot showing the amount of vehicles sold per type.
 #
-import pyvista
+import pyvista as pv
 import numpy as np
 year = [f"{y}" for y in np.arange(2011, 2021)]
 x = np.arange(len(year))
@@ -10,7 +10,7 @@ n_h = [5563, 7642, 11937, 13905, 22807, 46700, 60875,
        53689, 46650, 50321]
 n_f = [166556, 157249, 151552, 138183, 129669,
        113985, 92965, 73683, 57097, 29499]
-chart = pyvista.Chart2D()
+chart = pv.Chart2D()
 plot = chart.stack(x, [n_e, n_h, n_f])
 plot.labels = ["Electric", "Hybrid", "Fossil"]
 chart.x_axis.label = "Year"

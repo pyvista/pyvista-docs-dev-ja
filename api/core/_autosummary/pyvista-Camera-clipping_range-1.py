@@ -1,5 +1,5 @@
-import pyvista
-pl = pyvista.Plotter()
+import pyvista as pv
+pl = pv.Plotter()
 pl.camera.clipping_range
 # Expected:
 ## (0.01, 1000.01)

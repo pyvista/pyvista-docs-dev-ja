@@ -1,7 +1,7 @@
 # Generate a mesh with quadrilateral faces.
 #
-import pyvista
-plane = pyvista.Plane()
+import pyvista as pv
+plane = pv.Plane()
 plane.point_data.clear()
 plane.plot(show_edges=True, line_width=5)
 #

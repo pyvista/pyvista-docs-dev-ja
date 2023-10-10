@@ -2,7 +2,7 @@
 # beam.  Note how the cells have "padding" indicating the number
 # of points per cell.
 #
-import pyvista
+import pyvista as pv
 from pyvista import examples
 grid = examples.load_hexbeam()
 grid.cells[:18]

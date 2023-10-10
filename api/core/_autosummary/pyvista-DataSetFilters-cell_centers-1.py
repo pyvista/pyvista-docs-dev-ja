@@ -1,8 +1,8 @@
-import pyvista
-mesh = pyvista.Plane()
+import pyvista as pv
+mesh = pv.Plane()
 mesh.point_data.clear()
 centers = mesh.cell_centers()
-pl = pyvista.Plotter()
+pl = pv.Plotter()
 actor = pl.add_mesh(mesh, show_edges=True)
 actor = pl.add_points(
     centers,

@@ -638,7 +638,7 @@ document.write(`
 </dd>
 <dt class="field-even">戻り値<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt><a class="reference internal" href="../../core/_autosummary/pyvista.PolyData.html#pyvista.PolyData" title="pyvista.PolyData"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyvista.PolyData</span></code></a></dt><dd><p>ParametricSuperEllipsoid表面．</p>
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">pv.PolyData</span></code></dt><dd><p>ParametricSuperEllipsoid表面．</p>
 </dd>
 </dl>
 </dd>
@@ -646,16 +646,16 @@ document.write(`
 <div class="admonition seealso">
 <p class="admonition-title">参考</p>
 <dl class="simple">
-<dt><a class="reference internal" href="pyvista.ParametricSuperToroid.html#pyvista.ParametricSuperToroid" title="pyvista.ParametricSuperToroid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyvista.ParametricSuperToroid</span></code></a></dt><dd><p>Toroidal equivalent of ParametricSuperEllipsoid.</p>
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">pv.ParametricSuperToroid</span></code></dt><dd><p>Toroidal equivalent of ParametricSuperEllipsoid.</p>
 </dd>
-<dt><a class="reference internal" href="pyvista.Superquadric.html#pyvista.Superquadric" title="pyvista.Superquadric"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyvista.Superquadric</span></code></a></dt><dd><p>追加のパラメータを持つ幾何学的なオブジェクト．</p>
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">pv.Superquadric</span></code></dt><dd><p>追加のパラメータを持つ幾何学的なオブジェクト．</p>
 </dd>
 </dl>
 </div>
 <p class="rubric">例</p>
 <p>滑らかなエッジを持つボックスのようなParametricSuperEllipsoidサーフェスを作成します．</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyvista</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mesh</span> <span class="o">=</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">ParametricSuperEllipsoid</span><span class="p">(</span><span class="n">n1</span><span class="o">=</span><span class="mf">0.02</span><span class="p">,</span> <span class="n">n2</span><span class="o">=</span><span class="mf">0.02</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyvista</span> <span class="k">as</span> <span class="nn">pv</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mesh</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">ParametricSuperEllipsoid</span><span class="p">(</span><span class="n">n1</span><span class="o">=</span><span class="mf">0.02</span><span class="p">,</span> <span class="n">n2</span><span class="o">=</span><span class="mf">0.02</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mesh</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">smooth_shading</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -663,7 +663,7 @@ document.write(`
 <img alt="../../../_images/pyvista-ParametricSuperEllipsoid-1_00_00.png" src="../../../_images/pyvista-ParametricSuperEllipsoid-1_00_00.png" />
 </figure>
 <p>回転するコマのようなものを作ります．</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mesh</span> <span class="o">=</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">ParametricSuperEllipsoid</span><span class="p">(</span><span class="n">n1</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">n2</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">mesh</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">ParametricSuperEllipsoid</span><span class="p">(</span><span class="n">n1</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">n2</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mesh</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">smooth_shading</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cpos</span><span class="o">=</span><span class="s1">&#39;xz&#39;</span><span class="p">)</span>
 </pre></div>
 </div>

@@ -1,5 +1,5 @@
 # Create a ParametricTorus mesh.
 #
-import pyvista
-mesh = pyvista.ParametricTorus()
+import pyvista as pv
+mesh = pv.ParametricTorus()
 mesh.plot(color='w', smooth_shading=True)

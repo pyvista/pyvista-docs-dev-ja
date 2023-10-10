@@ -3,7 +3,7 @@
 # dataset, the solution is stored within the cells.
 #
 from pyvista import examples
-import pyvista
+import pyvista as pv
 dataset = examples.download_cgns_multi()
 ugrid = dataset.combine()
 ugrid = ugrid = ugrid.cell_data_to_point_data()

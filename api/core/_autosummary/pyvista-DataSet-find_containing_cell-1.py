@@ -1,8 +1,8 @@
 # A unit square with 16 equal sized cells is created and a cell
 # containing the point ``[0.3, 0.3, 0.0]`` is found.
 #
-import pyvista
-mesh = pyvista.ImageData(
+import pyvista as pv
+mesh = pv.ImageData(
     dimensions=[5, 5, 1], spacing=[1 / 4, 1 / 4, 0]
 )
 mesh

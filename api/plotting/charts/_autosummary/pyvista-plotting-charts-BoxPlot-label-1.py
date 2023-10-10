@@ -1,8 +1,8 @@
 # Create a box plot with custom label.
 #
-import pyvista
+import pyvista as pv
 import numpy as np
-chart = pyvista.ChartBox([[0, 1, 1, 2, 3, 3, 4]])
+chart = pv.ChartBox([[0, 1, 1, 2, 3, 3, 4]])
 plot = chart.plot
 chart.show()
 #

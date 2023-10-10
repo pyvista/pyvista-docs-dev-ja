@@ -1,5 +1,5 @@
-import pyvista
-plotter = pyvista.Plotter()
+import pyvista as pv
+plotter = pv.Plotter()
 plotter.camera.view_angle
 # Expected:
 ## 30.0

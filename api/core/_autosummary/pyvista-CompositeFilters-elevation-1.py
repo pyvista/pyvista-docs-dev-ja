@@ -1,8 +1,8 @@
 # Generate the "elevation" scalars for a sphere mesh.  This is
 # simply the height in Z from the XY plane.
 #
-import pyvista
-sphere = pyvista.Sphere()
+import pyvista as pv
+sphere = pv.Sphere()
 sphere_elv = sphere.elevation()
 sphere_elv.plot(smooth_shading=True)
 #

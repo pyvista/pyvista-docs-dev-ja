@@ -1,7 +1,7 @@
-import pyvista
+import pyvista as pv
 from pyvista import examples
 dataset = examples.download_head()
-pl = pyvista.Plotter()
+pl = pv.Plotter()
 _ = pl.add_volume(dataset, cmap="cool", opacity="sigmoid_6")
 pl.camera_position = [
     (-228.0, -418.0, -158.0),

@@ -1,10 +1,10 @@
-import pyvista
+import pyvista as pv
 from pyvista import examples
 filename = examples.download_backward_facing_step(load=False)
 filename.split("/")[-1]  # omit the path
 # Expected:
 ## 'foam_case_0_0_0_0.case'
-reader = pyvista.get_reader(filename)
+reader = pv.get_reader(filename)
 reader
 # Expected:
 ## EnSightReader('.../foam_case_0_0_0_0.case')

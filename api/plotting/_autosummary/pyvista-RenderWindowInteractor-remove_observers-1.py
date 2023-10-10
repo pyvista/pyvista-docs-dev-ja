@@ -1,7 +1,7 @@
 # Add two observers and immediately remove them.
 #
-import pyvista
-pl = pyvista.Plotter()
+import pyvista as pv
+pl = pv.Plotter()
 obs_enter = pl.iren.add_observer(
     "EnterEvent", lambda *_: print('Enter!')
 )

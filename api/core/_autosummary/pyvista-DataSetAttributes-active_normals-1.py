@@ -1,7 +1,7 @@
 # First, compute cell normals.
 #
-import pyvista
-mesh = pyvista.Plane(i_resolution=1, j_resolution=1)
+import pyvista as pv
+mesh = pv.Plane(i_resolution=1, j_resolution=1)
 mesh.point_data
 # Expected:
 ## pyvista DataSetAttributes

@@ -629,15 +629,15 @@ document.write(`
 <div class="admonition seealso">
 <p class="admonition-title">参考</p>
 <dl class="simple">
-<dt><a class="reference internal" href="pyvista.DataSet.get_cell.html#pyvista.DataSet.get_cell" title="pyvista.DataSet.get_cell"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyvista.DataSet.get_cell</span></code></a></dt><dd></dd>
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">pv.DataSet.get_cell</span></code></dt><dd></dd>
 </dl>
 </div>
 <p class="rubric">例</p>
 <p>サンプルの6角ビームのセル辞書を返します．ヘックスビームの例では，すべての6面体セルのみで構成されているため，キーと値のペアが1つしかないことに注意してください．これは <code class="docutils literal notranslate"><span class="pre">CellType.HEXAHEDRON</span></code> で，12と評価されます．</p>
 <p>また，セル配列にはパディングがないことにも注意してください． この方法は，セルを抽出する際に <code class="docutils literal notranslate"><span class="pre">cells</span></code> プロパティよりも役に立つかもしれません．</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyvista</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyvista</span> <span class="k">as</span> <span class="nn">pv</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pyvista</span> <span class="kn">import</span> <span class="n">examples</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">hex_beam</span> <span class="o">=</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">examples</span><span class="o">.</span><span class="n">hexbeamfile</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">hex_beam</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">examples</span><span class="o">.</span><span class="n">hexbeamfile</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">hex_beam</span><span class="o">.</span><span class="n">cells_dict</span>  
 <span class="go">{12: array([[ 0,  2,  8,  7, 27, 36, 90, 81],</span>
 <span class="go">        [ 2,  1,  4,  8, 36, 18, 54, 90],</span>

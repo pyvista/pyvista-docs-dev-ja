@@ -2,7 +2,7 @@
 #
 # .. pyvista-plot::
 #
-import pyvista
+import pyvista as pv
 import numpy as np
 import matplotlib.pyplot as plt
 #
@@ -18,5 +18,5 @@ _ = f.colorbar(strm.lines)
 _ = ax.set_title('Streamplot with varying Color')
 plt.tight_layout()
 #
-chart = pyvista.ChartMPL(f)
+chart = pv.ChartMPL(f)
 chart.show()

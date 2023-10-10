@@ -2,7 +2,7 @@
 # This dataset is a multiblock dataset, and the fluid velocity is in the
 # first block.
 #
-import pyvista
+import pyvista as pv
 from pyvista import examples
 mesh = examples.download_cylinder_crossflow()
 streams = mesh[0].streamlines_evenly_spaced_2D(
@@ -10,7 +10,7 @@ streams = mesh[0].streamlines_evenly_spaced_2D(
     separating_distance=3,
     separating_distance_ratio=0.2,
 )
-plotter = pyvista.Plotter()
+plotter = pv.Plotter()
 _ = plotter.add_mesh(
     streams.tube(radius=0.02), scalars="vorticity_mag"
 )

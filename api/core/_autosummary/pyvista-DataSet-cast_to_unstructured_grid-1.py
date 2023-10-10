@@ -1,8 +1,8 @@
 # Cast a :class:`pyvista.PolyData` to a
 # :class:`pyvista.UnstructuredGrid`.
 #
-import pyvista
-mesh = pyvista.Sphere()
+import pyvista as pv
+mesh = pv.Sphere()
 type(mesh)
 # Expected:
 ## <class 'pyvista.core.pointset.PolyData'>

@@ -1,7 +1,7 @@
 # Add blue text to the upper right of the plotter.
 #
-import pyvista
-pl = pyvista.Plotter()
+import pyvista as pv
+pl = pv.Plotter()
 actor = pl.add_text(
     'Sample Text',
     position='upper_right',
@@ -13,7 +13,7 @@ pl.show()
 #
 # Add text and use a custom freetype readable font file.
 #
-pl = pyvista.Plotter()
+pl = pv.Plotter()
 actor = pl.add_text(
     'Text',
     font_file='/home/user/Mplus2-Regular.ttf',

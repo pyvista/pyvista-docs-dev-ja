@@ -1,9 +1,9 @@
 # Load a CGNS file.  All arrays are loaded by default.
 #
-import pyvista
+import pyvista as pv
 from pyvista import examples
 filename = examples.download_cgns_multi(load=False)
-reader = pyvista.CGNSReader(filename)
+reader = pv.CGNSReader(filename)
 reader.load_boundary_patch = False
 ds = reader.read()
 ds[0][0].cell_data

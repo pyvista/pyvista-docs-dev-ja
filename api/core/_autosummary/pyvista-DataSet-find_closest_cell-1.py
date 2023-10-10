@@ -1,8 +1,8 @@
 # Find nearest cell on a sphere centered on the
 # origin to the point ``[0.1, 0.2, 0.3]``.
 #
-import pyvista
-mesh = pyvista.Sphere()
+import pyvista as pv
+mesh = pv.Sphere()
 point = [0.1, 0.2, 0.3]
 index = mesh.find_closest_cell(point)
 index
@@ -35,7 +35,7 @@ indices.shape
 # ``z`` normal and ``z=0``.  The closest point inside the cell is
 # not usually at a nodal point.
 #
-unit_square = pyvista.Rectangle()
+unit_square = pv.Rectangle()
 index, closest_point = unit_square.find_closest_cell(
     [0.25, 0.25, 0.5], return_closest_point=True
 )

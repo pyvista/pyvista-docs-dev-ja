@@ -1,6 +1,6 @@
-import pyvista
+import pyvista as pv
 import numpy as np
-pl = pyvista.Plotter()
+pl = pv.Plotter()
 pl.camera.model_transform_matrix
 # Expected:
 ## array([[1., 0., 0., 0.],

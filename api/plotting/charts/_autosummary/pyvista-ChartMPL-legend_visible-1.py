@@ -2,12 +2,12 @@
 #
 # .. pyvista-plot::
 #
-import pyvista
+import pyvista as pv
 import matplotlib.pyplot as plt
 f, ax = plt.subplots()
 _ = ax.plot([0, 1, 2], [2, 1, 3], label="Line")
 _ = ax.scatter([0, 1, 2], [3, 2, 1], label="Points")
-chart = pyvista.ChartMPL(f)
+chart = pv.ChartMPL(f)
 chart.legend_visible = True
 chart.show()
 #
