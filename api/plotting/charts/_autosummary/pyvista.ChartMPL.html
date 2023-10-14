@@ -529,6 +529,8 @@ document.write(`
 <li class="toctree-l2"><a class="reference internal" href="../../_autosummary/pyvista.Property.html">pyvista.Property</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../_autosummary/pyvista.Renderer.html">pyvista.Renderer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../_autosummary/pyvista.RenderWindowInteractor.html">pyvista.RenderWindowInteractor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../_autosummary/pyvista.Text.html">pyvista.Text</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../_autosummary/pyvista.TextProperty.html">pyvista.TextProperty</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../_autosummary/pyvista.Timer.html">pyvista.Timer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../_autosummary/pyvista.plotting.mapper._BaseMapper.html">pyvista.plotting.mapper._BaseMapper</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../_autosummary/pyvista.plotting.opts.InterpolationType.html">pyvista.plotting.opts.InterpolationType</a></li>
@@ -653,7 +655,7 @@ document.write(`
 <h1>pyvista.ChartMPL<a class="headerlink" href="#pyvista-chartmpl" title="この見出しへのパーマリンク">#</a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="pyvista.ChartMPL">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ChartMPL</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">figure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(1,</span> <span class="pre">1)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0,</span> <span class="pre">0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">redraw_on_render</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/plotting/charts.py#L4113-L4375"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.ChartMPL" title="この定義へのパーマリンク">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ChartMPL</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">figure</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(1,</span> <span class="pre">1)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loc</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0,</span> <span class="pre">0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">redraw_on_render</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/plotting/charts.py#L4115-L4377"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.ChartMPL" title="この定義へのパーマリンク">#</a></dt>
 <dd><p>既存のmatplotlibの図から新しいチャートを作成します．</p>
 <dl class="field-list">
 <dt class="field-odd">パラメータ<span class="colon">:</span></dt>
@@ -736,7 +738,7 @@ document.write(`
 <td><p>このチャートに関連するmatplotlibの図を返します．</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.ChartMPL.legend_visible.html#pyvista.ChartMPL.legend_visible" title="pyvista.ChartMPL.legend_visible"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChartMPL.legend_visible</span></code></a></p></td>
-<td><p>チャートの凡例の可視を返すか設定します．</p></td>
+<td><p>チャートの凡例の表示を返すか設定します．</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.ChartMPL.loc.html#pyvista.ChartMPL.loc" title="pyvista.ChartMPL.loc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChartMPL.loc</span></code></a></p></td>
 <td><p>正規化された座標でチャートの位置を返すか設定します．</p></td>
@@ -754,7 +756,7 @@ document.write(`
 <td><p>チャートのタイトルを返すか設定します．</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.ChartMPL.visible.html#pyvista.ChartMPL.visible" title="pyvista.ChartMPL.visible"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ChartMPL.visible</span></code></a></p></td>
-<td><p>チャートの見え方を返すか設定します．</p></td>
+<td><p>チャートの表示を返すか設定します．</p></td>
 </tr>
 </tbody>
 </table>

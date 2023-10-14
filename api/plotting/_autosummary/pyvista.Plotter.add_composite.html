@@ -759,6 +759,8 @@ document.write(`
 <li class="toctree-l2"><a class="reference internal" href="pyvista.Property.html">pyvista.Property</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pyvista.Renderer.html">pyvista.Renderer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pyvista.RenderWindowInteractor.html">pyvista.RenderWindowInteractor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyvista.Text.html">pyvista.Text</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyvista.TextProperty.html">pyvista.TextProperty</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pyvista.Timer.html">pyvista.Timer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pyvista.plotting.mapper._BaseMapper.html">pyvista.plotting.mapper._BaseMapper</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pyvista.plotting.opts.InterpolationType.html">pyvista.plotting.opts.InterpolationType</a></li>
@@ -853,7 +855,7 @@ document.write(`
 <dl class="field-list">
 <dt class="field-odd">パラメータ<span class="colon">:</span></dt>
 <dd class="field-odd"><dl>
-<dt><strong>dataset</strong><span class="classifier"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pv.MultiBlock</span></code></span></dt><dd><p><a class="reference internal" href="../../core/_autosummary/pyvista.MultiBlock.html#pyvista.MultiBlock" title="pyvista.MultiBlock"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.MultiBlock</span></code></a> データセットです．</p>
+<dt><strong>dataset</strong><span class="classifier"><a class="reference internal" href="../../core/_autosummary/pyvista.MultiBlock.html#pyvista.MultiBlock" title="pyvista.MultiBlock"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyvista.MultiBlock</span></code></a></span></dt><dd><p><a class="reference internal" href="../../core/_autosummary/pyvista.MultiBlock.html#pyvista.MultiBlock" title="pyvista.MultiBlock"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.MultiBlock</span></code></a> データセットです．</p>
 </dd>
 <dt><strong>color</strong><span class="classifier"><a class="reference internal" href="../../utilities/_autosummary/pyvista.ColorLike.html#pyvista.ColorLike" title="pyvista.ColorLike"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ColorLike</span></code></a>, default: <a class="reference internal" href="pyvista.plotting.themes.Theme.color.html#pyvista.plotting.themes.Theme.color" title="pyvista.plotting.themes.Theme.color"><code class="xref py py-attr docutils literal notranslate"><span class="pre">pyvista.plotting.themes.Theme.color</span></code></a></span></dt><dd><p>メッシュ全体を単一のソリッドカラーにします．文字列，RGBリスト，または16進カラー文字列．例: <code class="docutils literal notranslate"><span class="pre">color='white'</span></code> ， <code class="docutils literal notranslate"><span class="pre">color='w'</span></code> ， <code class="docutils literal notranslate"><span class="pre">color=[1.0,</span> <span class="pre">1.0,</span> <span class="pre">1.0]</span></code> ， <code class="docutils literal notranslate"><span class="pre">color='#FFFFFF'</span></code> ．スカラーが指定されている場合，色は上書きされます．合成データセットの各要素を個別に着色するには，各サブデータセットに対して <code class="docutils literal notranslate"><span class="pre">add_mesh</span></code> を繰り返し呼び出す必要があります．</p>
 </dd>
@@ -976,15 +978,15 @@ document.write(`
 </dd>
 <dt class="field-even">戻り値<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">pv.Actor</span></code></dt><dd><p>合成されたデータセットのアクター．</p>
+<dt><a class="reference internal" href="pyvista.Actor.html#pyvista.Actor" title="pyvista.Actor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyvista.Actor</span></code></a></dt><dd><p>合成されたデータセットのアクター．</p>
 </dd>
-<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">pv.CompositePolyDataMapper</span></code></dt><dd><p>複合 PolyData マッパー．</p>
+<dt><a class="reference internal" href="pyvista.CompositePolyDataMapper.html#pyvista.CompositePolyDataMapper" title="pyvista.CompositePolyDataMapper"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyvista.CompositePolyDataMapper</span></code></a></dt><dd><p>複合 PolyData マッパー．</p>
 </dd>
 </dl>
 </dd>
 </dl>
 <p class="rubric">例</p>
-<p>球体と立方体をマルチブロックデータセットとしてプロッターに追加し，ブロックの可視性と色を変更します．</p>
+<p>球体と立方体をマルチブロックデータセットとしてプロッターに追加し，ブロックの表示と色を変更します．</p>
 <p>インデックス <code class="docutils literal notranslate"><span class="pre">1</span></code> と <code class="docutils literal notranslate"><span class="pre">2</span></code> は，複合データセットの個々のブロックにアクセスするために使用されることに注意してください．これは， <a class="reference internal" href="../../core/_autosummary/pyvista.MultiBlock.html#pyvista.MultiBlock" title="pyvista.MultiBlock"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.MultiBlock</span></code></a> が &quot;tree&quot; のルートノードであり，インデックス <code class="docutils literal notranslate"><span class="pre">0</span></code> になっているためです．これにより，個々のブロックや，ネストした複数のコンポジットデータセットの場合には，コンポジットデータセットそのものにアクセスすることができます．</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyvista</span> <span class="k">as</span> <span class="nn">pv</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">dataset</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">MultiBlock</span><span class="p">(</span>

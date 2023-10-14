@@ -529,6 +529,8 @@ document.write(`
 <li class="toctree-l2"><a class="reference internal" href="pyvista.Property.html">pyvista.Property</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pyvista.Renderer.html">pyvista.Renderer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pyvista.RenderWindowInteractor.html">pyvista.RenderWindowInteractor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyvista.Text.html">pyvista.Text</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyvista.TextProperty.html">pyvista.TextProperty</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pyvista.Timer.html">pyvista.Timer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pyvista.plotting.mapper._BaseMapper.html">pyvista.plotting.mapper._BaseMapper</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pyvista.plotting.opts.InterpolationType.html">pyvista.plotting.opts.InterpolationType</a></li>
@@ -626,9 +628,9 @@ document.write(`
 <dl class="field-list">
 <dt class="field-odd">パラメータ<span class="colon">:</span></dt>
 <dd class="field-odd"><dl>
-<dt><strong>plotter</strong><span class="classifier"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pv.Plotter</span></code></span></dt><dd><p>プロッターオブジェクト．</p>
+<dt><strong>plotter</strong><span class="classifier"><a class="reference internal" href="pyvista.Plotter.html#pyvista.Plotter" title="pyvista.Plotter"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyvista.Plotter</span></code></a></span></dt><dd><p>プロッターオブジェクト．</p>
 </dd>
-<dt><strong>actor</strong><span class="classifier"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pv.Actor</span></code></span></dt><dd><p>ウィジェットがアタッチされているアクター．</p>
+<dt><strong>actor</strong><span class="classifier"><a class="reference internal" href="pyvista.Actor.html#pyvista.Actor" title="pyvista.Actor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyvista.Actor</span></code></a></span></dt><dd><p>ウィジェットがアタッチされているアクター．</p>
 </dd>
 <dt><strong>origin</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/glossary.html#term-sequence" title="(in Python v3.11)"><span>sequence</span></a>[<a class="reference external" href="https://docs.python.org/3.11/library/functions.html#float" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a>], <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>ウィジェットの原点．デフォルトはメインアクターの中心です．</p>
 </dd>
@@ -640,7 +642,7 @@ document.write(`
 </dd>
 <dt><strong>always_visible</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.11)"><span class="xref std std-ref">bool</span></a>, default: <a class="reference external" href="https://docs.python.org/3.11/library/constants.html#True" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">True</span></code></a></span></dt><dd><p>ウィジェットを常に表示するようにします．これを <code class="docutils literal notranslate"><span class="pre">False</span></code> に設定すると，プロッタ内の他のアクタによってウィジェットのジオメトリが隠されます．</p>
 </dd>
-<dt><strong>axes_colors</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/stdtypes.html#tuple" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">tuple</span></code></a>[<code class="xref py py-obj docutils literal notranslate"><span class="pre">ColorLike</span></code>], <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>デフォルトでテーマを使用します．各軸の色を設定するには， <code class="docutils literal notranslate"><span class="pre">pv.global_theme.axes.x_color</span> <span class="pre">=</span> <span class="pre">1</span></code> または <code class="docutils literal notranslate"><span class="pre">('r',</span> <span class="pre">'g',</span> <span class="pre">'b')</span></code> のように <code class="docutils literal notranslate"><span class="pre">tuple</span></code> で設定します．</p>
+<dt><strong>axes_colors</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/stdtypes.html#tuple" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">tuple</span></code></a>[<code class="xref py py-obj docutils literal notranslate"><span class="pre">ColorLike</span></code>], <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>デフォルトでテーマを使用します．各軸の色を設定するには， <code class="docutils literal notranslate"><span class="pre">pyvista.global_theme.axes.x_color</span> <span class="pre">=</span> <span class="pre">1</span></code> または <code class="docutils literal notranslate"><span class="pre">('r',</span> <span class="pre">'g',</span> <span class="pre">'b')</span></code> のように <code class="docutils literal notranslate"><span class="pre">tuple</span></code> で設定します．</p>
 </dd>
 <dt><strong>axes</strong><span class="classifier"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.26)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">numpy.ndarray</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p><code class="docutils literal notranslate"><span class="pre">(3,</span> <span class="pre">3)</span></code> X軸，Y軸，Z軸を定義するNumpy配列．デフォルトでは，これはデフォルトの座標系と一致する．</p>
 </dd>

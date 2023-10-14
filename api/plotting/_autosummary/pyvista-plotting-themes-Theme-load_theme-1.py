@@ -13,7 +13,7 @@ pv.global_theme.font.size
 ## 20
 #
 # Create a custom theme from the dark theme and load it into
-# pv.
+# pyvista.
 #
 from pyvista.plotting.themes import DarkTheme
 my_theme = DarkTheme()

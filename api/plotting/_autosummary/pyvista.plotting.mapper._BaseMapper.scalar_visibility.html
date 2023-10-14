@@ -529,6 +529,8 @@ document.write(`
 <li class="toctree-l2"><a class="reference internal" href="pyvista.Property.html">pyvista.Property</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pyvista.Renderer.html">pyvista.Renderer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pyvista.RenderWindowInteractor.html">pyvista.RenderWindowInteractor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyvista.Text.html">pyvista.Text</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyvista.TextProperty.html">pyvista.TextProperty</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pyvista.Timer.html">pyvista.Timer</a></li>
 <li class="toctree-l2 current active has-children"><a class="reference internal" href="pyvista.plotting.mapper._BaseMapper.html">pyvista.plotting.mapper._BaseMapper</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="pyvista.plotting.mapper._BaseMapper.copy.html">pyvista.plotting.mapper._BaseMapper.copy</a></li>
@@ -631,9 +633,9 @@ document.write(`
 <dl class="py property">
 <dt class="sig sig-object py" id="pyvista.plotting.mapper._BaseMapper.scalar_visibility">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">_BaseMapper.</span></span><span class="sig-name descname"><span class="pre">scalar_visibility</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3.11/library/functions.html#bool" title="(in Python v3.11)"><span class="pre">bool</span></a></em><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/plotting/mapper.py#L319-L350"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.plotting.mapper._BaseMapper.scalar_visibility" title="この定義へのパーマリンク">#</a></dt>
-<dd><p>スカラーの見え方を返すか設定します．</p>
+<dd><p>スカラーの表示を返すか設定します．</p>
 <p class="rubric">例</p>
-<p>スカラー可視が <code class="docutils literal notranslate"><span class="pre">False</span></code> であることを示します．</p>
+<p>スカラー表示が <code class="docutils literal notranslate"><span class="pre">False</span></code> であることを示します．</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyvista</span> <span class="k">as</span> <span class="nn">pv</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mesh</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Sphere</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">pl</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Plotter</span><span class="p">()</span>
@@ -643,7 +645,7 @@ document.write(`
 <span class="gp">&gt;&gt;&gt; </span><span class="n">pl</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>スカラー可視が <code class="docutils literal notranslate"><span class="pre">True</span></code> であることを示します．</p>
+<p>スカラー表示が <code class="docutils literal notranslate"><span class="pre">True</span></code> であることを示します．</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyvista</span> <span class="k">as</span> <span class="nn">pv</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">dataset</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">MultiBlock</span><span class="p">(</span>
 <span class="gp">... </span>    <span class="p">[</span><span class="n">pv</span><span class="o">.</span><span class="n">Cube</span><span class="p">(),</span> <span class="n">pv</span><span class="o">.</span><span class="n">Sphere</span><span class="p">(</span><span class="n">center</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))]</span>
