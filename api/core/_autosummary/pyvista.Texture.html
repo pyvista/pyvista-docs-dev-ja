@@ -518,7 +518,6 @@ document.write(`
 <li class="toctree-l3"><a class="reference internal" href="pyvista.Table.html">pyvista.Table</a></li>
 <li class="toctree-l3 current active has-children"><a class="current reference internal" href="#">pyvista.Texture</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l4"><a class="reference internal" href="pyvista.Texture.copy.html">pyvista.Texture.copy</a></li>
-<li class="toctree-l4"><a class="reference internal" href="pyvista.Texture.flip.html">pyvista.Texture.flip</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyvista.Texture.flip_x.html">pyvista.Texture.flip_x</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyvista.Texture.flip_y.html">pyvista.Texture.flip_y</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyvista.Texture.plot.html">pyvista.Texture.plot</a></li>
@@ -624,7 +623,7 @@ document.write(`
 <h1>pyvista.Texture<a class="headerlink" href="#pyvista-texture" title="この見出しへのパーマリンク">#</a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="pyvista.Texture">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Texture</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uinput</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/plotting/texture.py#L18-L652"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.Texture" title="この定義へのパーマリンク">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Texture</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">uinput</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/plotting/texture.py#L17-L630"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.Texture" title="この定義へのパーマリンク">#</a></dt>
 <dd><p>vtkTexture のラップ．</p>
 <p>テクスチャは， <a class="reference internal" href="../../../examples/02-plot/texture.html#texture-example"><span class="std std-ref">テクスチャを適用する</span></a> のように，表面に画像を適用するために使用することができます．</p>
 <p>また，シーンの照明に影響を与える環境テクスチャや， <a class="reference internal" href="../../../examples/02-plot/pbr.html#pbr-example"><span class="std std-ref">物理ベースのレンダリング</span></a> や <a class="reference internal" href="../../../examples/99-advanced/planets.html#planets-example"><span class="std std-ref">3D地球と天体</span></a> のように環境キューブマップとして使用することも可能です．</p>
@@ -699,34 +698,31 @@ document.write(`
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Texture.copy.html#pyvista.Texture.copy" title="pyvista.Texture.copy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Texture.copy</span></code></a>()</p></td>
 <td><p>このテクスチャのコピーを作成します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Texture.flip.html#pyvista.Texture.flip" title="pyvista.Texture.flip"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Texture.flip</span></code></a>(axis)</p></td>
-<td><p>このテクスチャを指定された軸に沿ってinplaceで反転させます．</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Texture.flip_x.html#pyvista.Texture.flip_x" title="pyvista.Texture.flip_x"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Texture.flip_x</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Texture.flip_x.html#pyvista.Texture.flip_x" title="pyvista.Texture.flip_x"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Texture.flip_x</span></code></a>()</p></td>
 <td><p>テクスチャをx方向に反転させます．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Texture.flip_y.html#pyvista.Texture.flip_y" title="pyvista.Texture.flip_y"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Texture.flip_y</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Texture.flip_y.html#pyvista.Texture.flip_y" title="pyvista.Texture.flip_y"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Texture.flip_y</span></code></a>()</p></td>
 <td><p>テクスチャをy方向に反転させます．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Texture.plot.html#pyvista.Texture.plot" title="pyvista.Texture.plot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Texture.plot</span></code></a>(**kwargs)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Texture.plot.html#pyvista.Texture.plot" title="pyvista.Texture.plot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Texture.plot</span></code></a>(**kwargs)</p></td>
 <td><p>テクスチャーを画像でプロットします．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Texture.rotate_ccw.html#pyvista.Texture.rotate_ccw" title="pyvista.Texture.rotate_ccw"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Texture.rotate_ccw</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Texture.rotate_ccw.html#pyvista.Texture.rotate_ccw" title="pyvista.Texture.rotate_ccw"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Texture.rotate_ccw</span></code></a>()</p></td>
 <td><p>このテクスチャを反時計回りに90度回転させます．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Texture.rotate_cw.html#pyvista.Texture.rotate_cw" title="pyvista.Texture.rotate_cw"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Texture.rotate_cw</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Texture.rotate_cw.html#pyvista.Texture.rotate_cw" title="pyvista.Texture.rotate_cw"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Texture.rotate_cw</span></code></a>()</p></td>
 <td><p>このテクスチャを時計回りに90度回転させます．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Texture.to_array.html#pyvista.Texture.to_array" title="pyvista.Texture.to_array"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Texture.to_array</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Texture.to_array.html#pyvista.Texture.to_array" title="pyvista.Texture.to_array"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Texture.to_array</span></code></a>()</p></td>
 <td><p>テクスチャーを配列で返します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Texture.to_grayscale.html#pyvista.Texture.to_grayscale" title="pyvista.Texture.to_grayscale"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Texture.to_grayscale</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Texture.to_grayscale.html#pyvista.Texture.to_grayscale" title="pyvista.Texture.to_grayscale"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Texture.to_grayscale</span></code></a>()</p></td>
 <td><p>このテクスチャを単一成分(グレースケール)テクスチャとして変換します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Texture.to_image.html#pyvista.Texture.to_image" title="pyvista.Texture.to_image"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Texture.to_image</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Texture.to_image.html#pyvista.Texture.to_image" title="pyvista.Texture.to_image"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Texture.to_image</span></code></a>()</p></td>
 <td><p>テクスチャーを画像で返します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Texture.to_skybox.html#pyvista.Texture.to_skybox" title="pyvista.Texture.to_skybox"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Texture.to_skybox</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Texture.to_skybox.html#pyvista.Texture.to_skybox" title="pyvista.Texture.to_skybox"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Texture.to_skybox</span></code></a>()</p></td>
 <td><p>キューブマッピングが有効な場合，テクスチャを <code class="docutils literal notranslate"><span class="pre">vtkSkybox</span></code> として返します．</p></td>
 </tr>
 </tbody>
