@@ -77,7 +77,7 @@
         </script>
     <link rel="index" title="索引" href="../../../genindex.html" />
     <link rel="search" title="検索" href="../../../search.html" />
-    <link rel="next" title="pyvista.DataSetAttributes.active_vectors" href="pyvista.DataSetAttributes.active_vectors.html" />
+    <link rel="next" title="pyvista.DataSetAttributes.active_texture_coordinates" href="pyvista.DataSetAttributes.active_texture_coordinates.html" />
     <link rel="prev" title="pyvista.DataSetAttributes.active_t_coords" href="pyvista.DataSetAttributes.active_t_coords.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="ja"/>
@@ -535,6 +535,8 @@ document.write(`
 <li class="toctree-l4"><a class="reference internal" href="pyvista.DataSetAttributes.active_scalars_name.html">pyvista.DataSetAttributes.active_scalars_name</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyvista.DataSetAttributes.active_t_coords.html">pyvista.DataSetAttributes.active_t_coords</a></li>
 <li class="toctree-l4 current active"><a class="current reference internal" href="#">pyvista.DataSetAttributes.active_t_coords_name</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyvista.DataSetAttributes.active_texture_coordinates.html">pyvista.DataSetAttributes.active_texture_coordinates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyvista.DataSetAttributes.active_texture_coordinates_name.html">pyvista.DataSetAttributes.active_texture_coordinates_name</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyvista.DataSetAttributes.active_vectors.html">pyvista.DataSetAttributes.active_vectors</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyvista.DataSetAttributes.active_vectors_name.html">pyvista.DataSetAttributes.active_vectors_name</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyvista.DataSetAttributes.valid_array_len.html">pyvista.DataSetAttributes.valid_array_len</a></li>
@@ -628,8 +630,11 @@ document.write(`
 <h1>pyvista.DataSetAttributes.active_t_coords_name<a class="headerlink" href="#pyvista-datasetattributes-active-t-coords-name" title="この見出しへのパーマリンク">#</a></h1>
 <dl class="py property">
 <dt class="sig sig-object py" id="pyvista.DataSetAttributes.active_t_coords_name">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">DataSetAttributes.</span></span><span class="sig-name descname"><span class="pre">active_t_coords_name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3.11/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3.11/library/constants.html#None" title="(in Python v3.11)"><span class="pre">None</span></a></em><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/core/datasetattributes.py#L425-L445"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.DataSetAttributes.active_t_coords_name" title="この定義へのパーマリンク">#</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">DataSetAttributes.</span></span><span class="sig-name descname"><span class="pre">active_t_coords_name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3.11/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3.11/library/constants.html#None" title="(in Python v3.11)"><span class="pre">None</span></a></em><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/core/datasetattributes.py#L407-L424"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.DataSetAttributes.active_t_coords_name" title="この定義へのパーマリンク">#</a></dt>
 <dd><p>アクティブなテクスチャの座標配列の名前を返します．</p>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">バージョン 0.43.0 で非推奨: </span>Use <a class="reference internal" href="pyvista.DataSetAttributes.active_texture_coordinates_name.html#pyvista.DataSetAttributes.active_texture_coordinates_name" title="pyvista.DataSetAttributes.active_texture_coordinates_name"><code class="xref py py-func docutils literal notranslate"><span class="pre">DataSetAttributes.active_texture_coordinates_name()</span></code></a> instead.</p>
+</div>
 <dl class="field-list simple">
 <dt class="field-odd">戻り値<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
@@ -638,13 +643,6 @@ document.write(`
 </dl>
 </dd>
 </dl>
-<p class="rubric">例</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyvista</span> <span class="k">as</span> <span class="nn">pv</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mesh</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Cube</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mesh</span><span class="o">.</span><span class="n">point_data</span><span class="o">.</span><span class="n">active_t_coords_name</span>
-<span class="go">&#39;TCoords&#39;</span>
-</pre></div>
-</div>
 </dd></dl>
 
 </section>

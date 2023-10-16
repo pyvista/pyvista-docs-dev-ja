@@ -2,7 +2,7 @@
 #
 from pyvista import examples
 globe = examples.load_globe()
-globe.active_t_coords
+globe.active_texture_coordinates
 # Expected:
 ## pyvista_ndarray([[0.        , 0.        ],
 ##                  [0.        , 0.07142857],

@@ -7,7 +7,7 @@ import pyvista as pv
 from pyvista import examples
 texture = examples.download_masonry_texture()
 plane = pv.Plane()
-plane.active_t_coords *= 2
+plane.active_texture_coordinates *= 2
 #
 # Let's now set the texture wrap to clamp to edge and visualize it.
 #

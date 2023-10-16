@@ -628,70 +628,47 @@ document.write(`
 <dl class="py function">
 <dt class="sig sig-object py" id="pyvista.SolidSphere">
 <span class="sig-name descname"><span class="pre">SolidSphere</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">outer_radius</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inner_radius</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">radius_resolution</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_theta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_theta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">theta_resolution</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">30</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_phi</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_phi</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phi_resolution</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">30</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">center</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0.0,</span> <span class="pre">0.0,</span> <span class="pre">0.0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">direction</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0.0,</span> <span class="pre">0.0,</span> <span class="pre">1.0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">radians</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tol_radius</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-08</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tol_angle</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/core/utilities/geometric_objects.py#L399-L557"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.SolidSphere" title="この定義へのパーマリンク">#</a></dt>
-<dd><p>Create a solid sphere.</p>
-<p>A solid sphere fills space in 3D in comparison to
-<a class="reference internal" href="pyvista.Sphere.html#pyvista.Sphere" title="pyvista.Sphere"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyvista.Sphere()</span></code></a>, which is a 2D surface.</p>
-<p>This function uses a linear sampling of each spherical
-coordinate, whereas <a class="reference internal" href="pyvista.SolidSphereGeneric.html#pyvista.SolidSphereGeneric" title="pyvista.SolidSphereGeneric"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyvista.SolidSphereGeneric()</span></code></a>
-allows for nonuniform sampling. Angles are by default
-specified in degrees.</p>
-<p>PyVista uses a convention where <code class="docutils literal notranslate"><span class="pre">theta</span></code> represents the azimuthal
-angle (similar to degrees longitude on the globe) and <code class="docutils literal notranslate"><span class="pre">phi</span></code>
-represents the polar angle (similar to degrees latitude on the
-globe). In contrast to latitude on the globe, here
-<code class="docutils literal notranslate"><span class="pre">phi</span></code> is 0 degrees at the North Pole and 180 degrees at the South
-Pole. <code class="docutils literal notranslate"><span class="pre">phi=0</span></code> is on the positive z-axis by default.
-<code class="docutils literal notranslate"><span class="pre">theta=0</span></code> is on the positive x-axis by default.</p>
-<p>While values for theta can be any value with a maximum span of
-360 degrees, large magnitudes may result in problems with endpoint
-overlap detection.</p>
+<dd><p>中身が全部詰まった球体を作ります．</p>
+<p>2Dの表面である <a class="reference internal" href="pyvista.Sphere.html#pyvista.Sphere" title="pyvista.Sphere"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyvista.Sphere()</span></code></a> と比較して，ソリッドな球体は3Dの空間を埋めます．</p>
+<p><a class="reference internal" href="pyvista.SolidSphereGeneric.html#pyvista.SolidSphereGeneric" title="pyvista.SolidSphereGeneric"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyvista.SolidSphereGeneric()</span></code></a> では一様でないサンプリングが可能です．角度はデフォルトで度単位で指定されます．</p>
+<p>PyVistaでは， <code class="docutils literal notranslate"><span class="pre">theta</span></code> が方位角(地球上の経度のようなもの)を表し， <code class="docutils literal notranslate"><span class="pre">phi</span></code> が極角(地球上の緯度のようなもの)を表すという慣例を使っています．地球上の緯度とは対照的に，ここでは <code class="docutils literal notranslate"><span class="pre">phi</span></code> は北極で0度，南極で180度です．デフォルトでは <code class="docutils literal notranslate"><span class="pre">phi=0</span></code> が正のZ軸になります．また， <code class="docutils literal notranslate"><span class="pre">theta=0</span></code> はデフォルトで正のX軸上にあります．</p>
+<p>θの値は最大360度の範囲であればどのような値でも良いが，大きな値は終点の重なり検出で問題が生じる可能性があります．</p>
 <dl class="field-list">
 <dt class="field-odd">パラメータ<span class="colon">:</span></dt>
 <dd class="field-odd"><dl>
-<dt><strong>outer_radius</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/functions.html#float" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a>, default: 0.5</span></dt><dd><p>Outer radius of sphere.  Must be non-negative.</p>
+<dt><strong>outer_radius</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/functions.html#float" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a>, default: 0.5</span></dt><dd><p>球の外側の半径．非負でなければなりません．</p>
 </dd>
-<dt><strong>inner_radius</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/functions.html#float" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a>, default: 0.0</span></dt><dd><p>Inner radius of sphere.  Must be non-negative
-and smaller than <code class="docutils literal notranslate"><span class="pre">outer_radius</span></code>.</p>
+<dt><strong>inner_radius</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/functions.html#float" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a>, default: 0.0</span></dt><dd><p>球の内側の半径．負でなく， <code class="docutils literal notranslate"><span class="pre">outer_radius</span></code> よりも小さくなければならない．</p>
 </dd>
 <dt><strong>radius_resolution</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/functions.html#int" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">int</span></code></a>, default: 5</span></dt><dd><p>半径方向のポイント数．</p>
 </dd>
-<dt><strong>start_theta</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/functions.html#float" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a>, default: 0.0</span></dt><dd><p>Starting azimuthal angle.</p>
+<dt><strong>start_theta</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/functions.html#float" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a>, default: 0.0</span></dt><dd><p>開始方位角．</p>
 </dd>
-<dt><strong>end_theta</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/functions.html#float" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a>, default: 360.0</span></dt><dd><p>Ending azimuthal angle.
-<code class="docutils literal notranslate"><span class="pre">end_theta</span></code> must be greater than <code class="docutils literal notranslate"><span class="pre">start_theta</span></code>.</p>
+<dt><strong>end_theta</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/functions.html#float" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a>, default: 360.0</span></dt><dd><p>終了方位角． <code class="docutils literal notranslate"><span class="pre">end_theta</span></code> は <code class="docutils literal notranslate"><span class="pre">start_theta</span></code> よりも大きくなければなりません．</p>
 </dd>
-<dt><strong>theta_resolution</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/functions.html#int" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">int</span></code></a>, default: 30</span></dt><dd><p>Number of points in <code class="docutils literal notranslate"><span class="pre">theta</span></code> direction.</p>
+<dt><strong>theta_resolution</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/functions.html#int" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">int</span></code></a>, default: 30</span></dt><dd><p><code class="docutils literal notranslate"><span class="pre">theta</span></code> 方向のポイント数．</p>
 </dd>
-<dt><strong>start_phi</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/functions.html#float" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a>, default: 0.0</span></dt><dd><p>Starting polar angle.
-<code class="docutils literal notranslate"><span class="pre">phi</span></code> must lie between 0 and 180 in degrees.</p>
+<dt><strong>start_phi</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/functions.html#float" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a>, default: 0.0</span></dt><dd><p>極角を開始します． <code class="docutils literal notranslate"><span class="pre">phi</span></code> は0度から180度の間でなければなりません．</p>
 </dd>
-<dt><strong>end_phi</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/functions.html#float" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a>, default: 180.0</span></dt><dd><p>Ending polar angle.
-<code class="docutils literal notranslate"><span class="pre">phi</span></code> must lie between 0 and 180 in degrees.
-<code class="docutils literal notranslate"><span class="pre">end_phi</span></code> must be greater than <code class="docutils literal notranslate"><span class="pre">start_phi</span></code>.</p>
+<dt><strong>end_phi</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/functions.html#float" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a>, default: 180.0</span></dt><dd><p>極角を終了します． <code class="docutils literal notranslate"><span class="pre">phi</span></code> は0度から180度の間でなければなりません． <code class="docutils literal notranslate"><span class="pre">end_phi</span></code> は <code class="docutils literal notranslate"><span class="pre">start_phi</span></code> より大きくなければなりません．</p>
 </dd>
-<dt><strong>phi_resolution</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/functions.html#int" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">int</span></code></a>, default: 30</span></dt><dd><p>Number of points in <code class="docutils literal notranslate"><span class="pre">phi</span></code> direction,
-inclusive of polar axis, i.e. <code class="docutils literal notranslate"><span class="pre">phi=0</span></code> and <code class="docutils literal notranslate"><span class="pre">phi=180</span></code>
-in degrees, if applicable.</p>
+<dt><strong>phi_resolution</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/functions.html#int" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">int</span></code></a>, default: 30</span></dt><dd><p>極軸を含む <code class="docutils literal notranslate"><span class="pre">phi</span></code> 方向の点数，つまり <code class="docutils literal notranslate"><span class="pre">phi=0</span></code> と <code class="docutils literal notranslate"><span class="pre">phi=180</span></code> の度数，該当する場合．</p>
 </dd>
-<dt><strong>center</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/glossary.html#term-sequence" title="(in Python v3.11)"><span>sequence</span></a>[<a class="reference external" href="https://docs.python.org/3.11/library/functions.html#float" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a>], default: (0.0, 0.0, 0.0)</span></dt><dd><p>Center coordinate vector in <code class="docutils literal notranslate"><span class="pre">[x,</span> <span class="pre">y,</span> <span class="pre">z]</span></code>.</p>
+<dt><strong>center</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/glossary.html#term-sequence" title="(in Python v3.11)"><span>sequence</span></a>[<a class="reference external" href="https://docs.python.org/3.11/library/functions.html#float" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a>], default: (0.0, 0.0, 0.0)</span></dt><dd><p><code class="docutils literal notranslate"><span class="pre">[x,</span> <span class="pre">y,</span> <span class="pre">z]</span></code> の中心座標ベクトル．</p>
 </dd>
-<dt><strong>direction</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/glossary.html#term-sequence" title="(in Python v3.11)"><span>sequence</span></a>[<a class="reference external" href="https://docs.python.org/3.11/library/functions.html#float" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a>], default: (0.0, 0.0, 1.0)</span></dt><dd><p>Direction coordinate vector in <code class="docutils literal notranslate"><span class="pre">[x,</span> <span class="pre">y,</span> <span class="pre">z]</span></code> pointing from <code class="docutils literal notranslate"><span class="pre">center</span></code> to
-the sphere's north pole at zero degrees <code class="docutils literal notranslate"><span class="pre">phi</span></code>.</p>
+<dt><strong>direction</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/glossary.html#term-sequence" title="(in Python v3.11)"><span>sequence</span></a>[<a class="reference external" href="https://docs.python.org/3.11/library/functions.html#float" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a>], default: (0.0, 0.0, 1.0)</span></dt><dd><p><code class="docutils literal notranslate"><span class="pre">中心</span></code> から緯度 <code class="docutils literal notranslate"><span class="pre">phi</span></code> 度の球の北極を指す <code class="docutils literal notranslate"><span class="pre">[x,</span> <span class="pre">y,</span> <span class="pre">z]</span></code> の方向座標ベクトル．</p>
 </dd>
-<dt><strong>radians</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.11)"><span class="xref std std-ref">bool</span></a>, default: <a class="reference external" href="https://docs.python.org/3.11/library/constants.html#False" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">False</span></code></a></span></dt><dd><p>Whether to use radians for <code class="docutils literal notranslate"><span class="pre">theta</span></code> and <code class="docutils literal notranslate"><span class="pre">phi</span></code>. Default is degrees.</p>
+<dt><strong>radians</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.11)"><span class="xref std std-ref">bool</span></a>, default: <a class="reference external" href="https://docs.python.org/3.11/library/constants.html#False" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">False</span></code></a></span></dt><dd><p><code class="docutils literal notranslate"><span class="pre">theta</span></code> と <code class="docutils literal notranslate"><span class="pre">phi</span></code> にラジアンを使うかどうか．デフォルトは度です．</p>
 </dd>
-<dt><strong>tol_radius</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/functions.html#float" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a>, default: 1.0e-8</span></dt><dd><p>Absolute tolerance for endpoint detection for <code class="docutils literal notranslate"><span class="pre">radius</span></code>.</p>
+<dt><strong>tol_radius</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/functions.html#float" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a>, default: 1.0e-8</span></dt><dd><p><code class="docutils literal notranslate"><span class="pre">radius</span></code> に対する終点検出の絶対許容誤差．</p>
 </dd>
-<dt><strong>tol_angle</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/functions.html#float" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>Absolute tolerance for endpoint detection
-for <code class="docutils literal notranslate"><span class="pre">phi</span></code> and <code class="docutils literal notranslate"><span class="pre">theta</span></code>. Unit is determined by choice
-of <code class="docutils literal notranslate"><span class="pre">radians</span></code> parameter.  Default is 1.0e-8 degrees or
-1.0e-8 degrees converted to radians.</p>
+<dt><strong>tol_angle</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/functions.html#float" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>phi``と``θ``の端点検出の絶対許容誤差，単位は <code class="docutils literal notranslate"><span class="pre">radians</span></code> パラメータの選択によって決定されます．デフォルトは1.0e-8度，または1.0e-8度をラジアンに変換した値です．</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">戻り値<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt><a class="reference internal" href="../../core/_autosummary/pyvista.UnstructuredGrid.html#pyvista.UnstructuredGrid" title="pyvista.UnstructuredGrid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyvista.UnstructuredGrid</span></code></a></dt><dd><p>Solid sphere mesh.</p>
+<dt><a class="reference internal" href="../../core/_autosummary/pyvista.UnstructuredGrid.html#pyvista.UnstructuredGrid" title="pyvista.UnstructuredGrid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyvista.UnstructuredGrid</span></code></a></dt><dd><p>ソリッド球体メッシュ．</p>
 </dd>
 </dl>
 </dd>
@@ -699,14 +676,14 @@ of <code class="docutils literal notranslate"><span class="pre">radians</span></
 <div class="admonition seealso">
 <p class="admonition-title">参考</p>
 <dl class="simple">
-<dt><a class="reference internal" href="pyvista.Sphere.html#pyvista.Sphere" title="pyvista.Sphere"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyvista.Sphere</span></code></a></dt><dd><p>Sphere that describes outer 2D surface.</p>
+<dt><a class="reference internal" href="pyvista.Sphere.html#pyvista.Sphere" title="pyvista.Sphere"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyvista.Sphere</span></code></a></dt><dd><p>外側の2次元表面を表す球体．</p>
 </dd>
-<dt><a class="reference internal" href="pyvista.SolidSphereGeneric.html#pyvista.SolidSphereGeneric" title="pyvista.SolidSphereGeneric"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyvista.SolidSphereGeneric</span></code></a></dt><dd><p>Uses more flexible parameter definition.</p>
+<dt><a class="reference internal" href="pyvista.SolidSphereGeneric.html#pyvista.SolidSphereGeneric" title="pyvista.SolidSphereGeneric"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyvista.SolidSphereGeneric</span></code></a></dt><dd><p>より柔軟なパラメータ定義を使用します．</p>
 </dd>
 </dl>
 </div>
 <p class="rubric">例</p>
-<p>Create a solid sphere.</p>
+<p>中身が全部詰まった球体を作ります．</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyvista</span> <span class="k">as</span> <span class="nn">pv</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">solid_sphere</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">SolidSphere</span><span class="p">()</span>
@@ -716,8 +693,7 @@ of <code class="docutils literal notranslate"><span class="pre">radians</span></
 <figure class="align-default">
 <img alt="../../../_images/pyvista-SolidSphere-1_00_00.png" src="../../../_images/pyvista-SolidSphere-1_00_00.png" />
 </figure>
-<p>A solid sphere is 3D in comparison to the 2d <a class="reference internal" href="pyvista.Sphere.html#pyvista.Sphere" title="pyvista.Sphere"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyvista.Sphere()</span></code></a>.
-Generate a solid hemisphere to see the internal structure.</p>
+<p>立体の球体は2次元の <a class="reference internal" href="pyvista.Sphere.html#pyvista.Sphere" title="pyvista.Sphere"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyvista.Sphere()</span></code></a> に比べて3次元です．内部構造を見るために，立体の半球を生成してください．</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">isinstance</span><span class="p">(</span><span class="n">solid_sphere</span><span class="p">,</span> <span class="n">pv</span><span class="o">.</span><span class="n">UnstructuredGrid</span><span class="p">)</span>
 <span class="go">True</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">partial_solid_sphere</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">SolidSphere</span><span class="p">(</span>
@@ -729,9 +705,7 @@ Generate a solid hemisphere to see the internal structure.</p>
 <figure class="align-default">
 <img alt="../../../_images/pyvista-SolidSphere-1_01_00.png" src="../../../_images/pyvista-SolidSphere-1_01_00.png" />
 </figure>
-<p>To see the cell structure inside the solid sphere,
-only 1/4 of the sphere is generated. The cells are exploded
-and colored by radial position.</p>
+<p>固い球体内部のセルの構造を見るために，球体の1/4だけが生成します．セルは分解され，半径方向の位置で色分けされています．</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">partial_solid_sphere</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">SolidSphere</span><span class="p">(</span>
 <span class="gp">... </span>    <span class="n">start_theta</span><span class="o">=</span><span class="mi">180</span><span class="p">,</span>
 <span class="gp">... </span>    <span class="n">end_theta</span><span class="o">=</span><span class="mi">360</span><span class="p">,</span>

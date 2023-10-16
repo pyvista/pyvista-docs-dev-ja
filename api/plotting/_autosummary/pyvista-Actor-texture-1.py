@@ -4,7 +4,7 @@
 import pyvista as pv
 from pyvista import examples
 plane = pv.Plane()
-plane.active_t_coords is not None
+plane.active_texture_coordinates is not None
 # Expected:
 ## True
 pl = pv.Plotter()
