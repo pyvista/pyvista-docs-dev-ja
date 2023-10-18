@@ -630,7 +630,6 @@ document.write(`
 <li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.enable_shadows.html">pyvista.Plotter.enable_shadows</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.enable_ssao.html">pyvista.Plotter.enable_ssao</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.enable_stereo_render.html">pyvista.Plotter.enable_stereo_render</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.enable_surface_picking.html">pyvista.Plotter.enable_surface_picking</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.enable_surface_point_picking.html">pyvista.Plotter.enable_surface_point_picking</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.enable_terrain_style.html">pyvista.Plotter.enable_terrain_style</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.enable_trackball_actor_style.html">pyvista.Plotter.enable_trackball_actor_style</a></li>
@@ -640,7 +639,6 @@ document.write(`
 <li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.export_html.html">pyvista.Plotter.export_html</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.export_obj.html">pyvista.Plotter.export_obj</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.export_vrml.html">pyvista.Plotter.export_vrml</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.export_vtkjs.html">pyvista.Plotter.export_vtkjs</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.export_vtksz.html">pyvista.Plotter.export_vtksz</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.fly_to.html">pyvista.Plotter.fly_to</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyvista.Plotter.fly_to_mouse_position.html">pyvista.Plotter.fly_to_mouse_position</a></li>
@@ -844,7 +842,7 @@ document.write(`
 <h1>pyvista.Plotter<a class="headerlink" href="#pyvista-plotter" title="この見出しへのパーマリンク">#</a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="pyvista.Plotter">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Plotter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/plotting/plotter.py#L6274-L6930"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.Plotter" title="この定義へのパーマリンク">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Plotter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/plotting/plotter.py#L6233-L6889"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.Plotter" title="この定義へのパーマリンク">#</a></dt>
 <dd><p>vtkメッシュまたは無感覚な配列を表示するためのオブジェクトのプロット．</p>
 <dl class="field-list">
 <dt class="field-odd">パラメータ<span class="colon">:</span></dt>
@@ -1224,38 +1222,32 @@ document.write(`
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.enable_stereo_render.html#pyvista.Plotter.enable_stereo_render" title="pyvista.Plotter.enable_stereo_render"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.enable_stereo_render</span></code></a>()</p></td>
 <td><p>アナグリフステレオレンダリングを有効にします．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.enable_surface_picking.html#pyvista.Plotter.enable_surface_picking" title="pyvista.Plotter.enable_surface_picking"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.enable_surface_picking</span></code></a>(*args, **kwargs)</p></td>
-<td><p>表面ピッキング．</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.enable_surface_point_picking.html#pyvista.Plotter.enable_surface_point_picking" title="pyvista.Plotter.enable_surface_point_picking"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.enable_surface_point_picking</span></code></a>([...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.enable_surface_point_picking.html#pyvista.Plotter.enable_surface_point_picking" title="pyvista.Plotter.enable_surface_point_picking"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.enable_surface_point_picking</span></code></a>([...])</p></td>
 <td><p>メッシュの表面上の点をピッキングできるようにする．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.enable_terrain_style.html#pyvista.Plotter.enable_terrain_style" title="pyvista.Plotter.enable_terrain_style"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.enable_terrain_style</span></code></a>([...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.enable_terrain_style.html#pyvista.Plotter.enable_terrain_style" title="pyvista.Plotter.enable_terrain_style"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.enable_terrain_style</span></code></a>([...])</p></td>
 <td><p>対話型スタイルを地形に設定します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.enable_trackball_actor_style.html#pyvista.Plotter.enable_trackball_actor_style" title="pyvista.Plotter.enable_trackball_actor_style"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.enable_trackball_actor_style</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.enable_trackball_actor_style.html#pyvista.Plotter.enable_trackball_actor_style" title="pyvista.Plotter.enable_trackball_actor_style"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.enable_trackball_actor_style</span></code></a>()</p></td>
 <td><p>インタラクティブスタイルをトラックボールアクターに設定します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.enable_trackball_style.html#pyvista.Plotter.enable_trackball_style" title="pyvista.Plotter.enable_trackball_style"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.enable_trackball_style</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.enable_trackball_style.html#pyvista.Plotter.enable_trackball_style" title="pyvista.Plotter.enable_trackball_style"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.enable_trackball_style</span></code></a>()</p></td>
 <td><p>インタラクティブスタイルをトラックボールカメラに設定します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.enable_zoom_style.html#pyvista.Plotter.enable_zoom_style" title="pyvista.Plotter.enable_zoom_style"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.enable_zoom_style</span></code></a>()</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.enable_zoom_style.html#pyvista.Plotter.enable_zoom_style" title="pyvista.Plotter.enable_zoom_style"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.enable_zoom_style</span></code></a>()</p></td>
 <td><p>インタラクティブスタイルをラバーバンドズームに設定します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.export_gltf.html#pyvista.Plotter.export_gltf" title="pyvista.Plotter.export_gltf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.export_gltf</span></code></a>(filename[, inline_data, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.export_gltf.html#pyvista.Plotter.export_gltf" title="pyvista.Plotter.export_gltf"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.export_gltf</span></code></a>(filename[, inline_data, ...])</p></td>
 <td><p>現在のレンダリングシーンをglTFファイルとしてエクスポートします．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.export_html.html#pyvista.Plotter.export_html" title="pyvista.Plotter.export_html"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.export_html</span></code></a>(filename)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.export_html.html#pyvista.Plotter.export_html" title="pyvista.Plotter.export_html"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.export_html</span></code></a>(filename)</p></td>
 <td><p>このプロッタをインタラクティブなシーンとしてHTMLファイルに書き出すことができます．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.export_obj.html#pyvista.Plotter.export_obj" title="pyvista.Plotter.export_obj"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.export_obj</span></code></a>(filename)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.export_obj.html#pyvista.Plotter.export_obj" title="pyvista.Plotter.export_obj"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.export_obj</span></code></a>(filename)</p></td>
 <td><p>シーンをOBJフォーマットにエクスポートします．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.export_vrml.html#pyvista.Plotter.export_vrml" title="pyvista.Plotter.export_vrml"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.export_vrml</span></code></a>(filename)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.export_vrml.html#pyvista.Plotter.export_vrml" title="pyvista.Plotter.export_vrml"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.export_vrml</span></code></a>(filename)</p></td>
 <td><p>現在のレンダリングシーンをVRMLファイルとしてエクスポートします．</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.export_vtkjs.html#pyvista.Plotter.export_vtkjs" title="pyvista.Plotter.export_vtkjs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.export_vtkjs</span></code></a>(*args, **kwargs)</p></td>
-<td><p>現在のレンダリングシーンをVTKjsシーンとして書き出します．</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.export_vtksz.html#pyvista.Plotter.export_vtksz" title="pyvista.Plotter.export_vtksz"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.export_vtksz</span></code></a>([filename, format])</p></td>
 <td><p>このプロッタをVTK.js OfflineLocalViewファイルとしてエクスポートします．</p></td>

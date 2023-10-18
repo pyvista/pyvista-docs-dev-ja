@@ -78,7 +78,7 @@
     <link rel="index" title="索引" href="../../../genindex.html" />
     <link rel="search" title="検索" href="../../../search.html" />
     <link rel="next" title="pyvista.save_meshio" href="pyvista.save_meshio.html" />
-    <link rel="prev" title="pyvista.read_legacy" href="pyvista.read_legacy.html" />
+    <link rel="prev" title="pyvista.read_exodus" href="pyvista.read_exodus.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="ja"/>
   </head>
@@ -533,7 +533,6 @@ document.write(`
 <li class="toctree-l3"><a class="reference internal" href="pyvista.wrap.html">pyvista.wrap</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyvista.read.html">pyvista.read</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyvista.read_exodus.html">pyvista.read_exodus</a></li>
-<li class="toctree-l3"><a class="reference internal" href="pyvista.read_legacy.html">pyvista.read_legacy</a></li>
 <li class="toctree-l3 current active"><a class="current reference internal" href="#">pyvista.read_texture</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyvista.save_meshio.html">pyvista.save_meshio</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyvista.CellType.html">pyvista.CellType</a></li>
@@ -626,15 +625,13 @@ document.write(`
 <h1>pyvista.read_texture<a class="headerlink" href="#pyvista-read-texture" title="この見出しへのパーマリンク">#</a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="pyvista.read_texture">
-<span class="sig-name descname"><span class="pre">read_texture</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attrs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">progress_bar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/core/utilities/fileio.py#L288-L339"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.read_texture" title="この定義へのパーマリンク">#</a></dt>
+<span class="sig-name descname"><span class="pre">read_texture</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">progress_bar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/core/utilities/fileio.py#L237-L282"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.read_texture" title="この定義へのパーマリンク">#</a></dt>
 <dd><p>画像ファイルからテクスチャを読み込みます．</p>
 <p><code class="docutils literal notranslate"><span class="pre">vtk</span></code> がサポートするあらゆるファイルタイプの読み込みを試みますが，失敗した場合は <code class="docutils literal notranslate"><span class="pre">imageio</span></code> を使用してファイルの読み込みを試みます．</p>
 <dl class="field-list">
 <dt class="field-odd">パラメータ<span class="colon">:</span></dt>
 <dd class="field-odd"><dl>
 <dt><strong>filename</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/stdtypes.html#str" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a></span></dt><dd><p>読み込むテクスチャファイルのパスです．</p>
-</dd>
-<dt><strong>attrs</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/stdtypes.html#dict" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">dict</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>リーダーで呼び出すアトリビュートのディクショナリ．ディクショナリのキーはアトリビュート/メソッド名で，値はこれらの呼び出しに渡される引数です．呼び出すアトリビュートがない場合は， <code class="docutils literal notranslate"><span class="pre">None</span></code> を値として渡します．</p>
 </dd>
 <dt><strong>progress_bar</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.11)"><span class="xref std std-ref">bool</span></a>, default: <a class="reference external" href="https://docs.python.org/3.11/library/constants.html#False" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">False</span></code></a></span></dt><dd><p>オプションでプログレスバーを表示します．</p>
 </dd>
