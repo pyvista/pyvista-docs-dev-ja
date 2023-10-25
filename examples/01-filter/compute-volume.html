@@ -821,7 +821,7 @@ Original volume: 729.0
 <img src="../../_images/sphx_glr_compute-volume_002.png" srcset="../../_images/sphx_glr_compute-volume_002.png" alt="compute volume" class = "sphx-glr-single-img"/><hr class="docutils" />
 <section id="splitting-volumes">
 <span id="split-vol"></span><h2>ボリュームの分割<a class="headerlink" href="#splitting-volumes" title="この見出しへのパーマリンク">#</a></h2>
-<p>その代わりに，上記のようなデータセットで，接続されているすべてのボディ/ボリュームを分割したいとしたらどうでしょうか． <a class="reference internal" href="../../api/core/_autosummary/pyvista.DataSetFilters.split_bodies.html#pyvista.DataSetFilters.split_bodies" title="pyvista.DataSetFilters.split_bodies"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyvista.DataSetFilters.split_bodies()</span></code></a> フィルタを使用して，データセット内のすべての異なる接続ボリュームを <a class="reference internal" href="../../api/core/_autosummary/pyvista.MultiBlock.html#pyvista.MultiBlock" title="pyvista.MultiBlock"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.MultiBlock</span></code></a> データセット内のブロックに抽出することができます．たとえば，上記の例で，しきい値設定されたボリュームを分割します．</p>
+<p>その代わりに，上記のようなデータセットで，接続されているすべてのボディ/ボリュームを分割したいとしたらどうでしょうか． <a class="reference internal" href="../../api/core/_autosummary/pyvista.DataSetFilters.split_bodies.html#pyvista.DataSetFilters.split_bodies" title="pyvista.DataSetFilters.split_bodies"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyvista.DataSetFilters.split_bodies()</span></code></a> フィルタを使用して，データセット内のすべての異なる接続ボリュームを <a class="reference internal" href="../../api/core/_autosummary/pyvista.MultiBlock.html#pyvista.MultiBlock" title="pyvista.MultiBlock"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.MultiBlock</span></code></a> データセット内のブロックに抽出することができます．たとえば，上記の例で，閾値設定されたボリュームを分割します．</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load a simple example mesh</span>
 <span class="n">dataset</span> <span class="o">=</span> <span class="n">examples</span><span class="o">.</span><span class="n">load_uniform</span><span class="p">()</span>
 <span class="n">dataset</span><span class="o">.</span><span class="n">set_active_scalars</span><span class="p">(</span><span class="s2">&quot;Spatial Cell Data&quot;</span><span class="p">)</span>
@@ -844,7 +844,7 @@ Body 1 volume: 32.000
 <hr class="docutils" />
 <section id="a-real-dataset">
 <h2>実際のデータセット<a class="headerlink" href="#a-real-dataset" title="この見出しへのパーマリンク">#</a></h2>
-<p>これは，地下の河道の現実的なトレーニングデータセットです．これにより，データセットのチャネルがしきい値に設定され，非常に大きなボディのそれぞれが分離され，それぞれのボリュームが計算されます．</p>
+<p>これは，地下の河道の現実的なトレーニングデータセットです．これにより，データセットのチャネルが閾値に設定され，非常に大きなボディのそれぞれが分離され，それぞれのボリュームが計算されます．</p>
 <p>データをロードし，チャンネルを閾値に設定します．</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">examples</span><span class="o">.</span><span class="n">load_channels</span><span class="p">()</span>
 <span class="n">channels</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">threshold</span><span class="p">([</span><span class="mf">0.9</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">])</span>
@@ -895,7 +895,7 @@ Body 20 volume: 1150.000
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bodies</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">scalars</span><span class="o">=</span><span class="s2">&quot;TOTAL VOLUME&quot;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;viridis&quot;</span><span class="p">,</span> <span class="n">show_grid</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_compute-volume_004.png" srcset="../../_images/sphx_glr_compute-volume_004.png" alt="compute volume" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 13.017 seconds)</p>
+<img src="../../_images/sphx_glr_compute-volume_004.png" srcset="../../_images/sphx_glr_compute-volume_004.png" alt="compute volume" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 13.226 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-01-filter-compute-volume-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/6bce5e00bc370f5ce96e59726644605e/compute-volume.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">compute-volume.py</span></code></a></p>
