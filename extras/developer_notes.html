@@ -795,7 +795,7 @@ python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </sp
 </pre></div>
 </div>
 <p>上記のコード例では，3つのマイナーリリースでエラーに変換し，次のマイナーリリースで完全に削除するためにコメントが作られていることに注目してください．重要な変更の場合はこれを長くし，些細な変更の場合は短くすることができます．</p>
-<p>Here's an example of adding error test codes that raise deprecation warning messages.</p>
+<p>以下は，非推奨の警告メッセージを出すエラーテストコードを追加する例です．</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">pytest</span><span class="o">.</span><span class="n">warns</span><span class="p">(</span><span class="n">PyVistaDeprecationWarning</span><span class="p">):</span>
     <span class="n">addition</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">pv</span><span class="o">.</span><span class="n">_version</span><span class="o">.</span><span class="n">version_info</span> <span class="o">&gt;=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">40</span><span class="p">):</span>
@@ -804,8 +804,7 @@ python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </sp
         <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Remove this function&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>In the above code example, the old test code raises an error in v0.40 and v0.41.
-This will prevent us from forgetting to remove deprecations on version upgrades.</p>
+<p>上記のコード例では，古いテストコードはv0.40とv0.41でエラーを発生させます．これによって，バージョンアップ時に非推奨を削除し忘れることを防ぐことができます．</p>
 <p>既存のメソッドや関数に追加のパラメータを追加する場合には， <code class="docutils literal notranslate"><span class="pre">..</span> <span class="pre">versionadded</span></code> というsphinxディレクティブを使用することが推奨されます．例えば:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">Cube</span><span class="p">(</span><span class="n">clean</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Create a cube.</span>
