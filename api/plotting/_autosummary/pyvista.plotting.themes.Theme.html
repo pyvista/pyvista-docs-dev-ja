@@ -523,6 +523,7 @@ document.write(`
 <li class="toctree-l4"><a class="reference internal" href="pyvista.plotting.themes.Theme.restore_defaults.html">pyvista.plotting.themes.Theme.restore_defaults</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyvista.plotting.themes.Theme.save.html">pyvista.plotting.themes.Theme.save</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyvista.plotting.themes.Theme.above_range_color.html">pyvista.plotting.themes.Theme.above_range_color</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyvista.plotting.themes.Theme.allow_empty_mesh.html">pyvista.plotting.themes.Theme.allow_empty_mesh</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyvista.plotting.themes.Theme.anti_aliasing.html">pyvista.plotting.themes.Theme.anti_aliasing</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyvista.plotting.themes.Theme.auto_close.html">pyvista.plotting.themes.Theme.auto_close</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyvista.plotting.themes.Theme.axes.html">pyvista.plotting.themes.Theme.axes</a></li>
@@ -550,6 +551,7 @@ document.write(`
 <li class="toctree-l4"><a class="reference internal" href="pyvista.plotting.themes.Theme.lighting.html">pyvista.plotting.themes.Theme.lighting</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyvista.plotting.themes.Theme.lighting_params.html">pyvista.plotting.themes.Theme.lighting_params</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyvista.plotting.themes.Theme.line_width.html">pyvista.plotting.themes.Theme.line_width</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyvista.plotting.themes.Theme.logo_file.html">pyvista.plotting.themes.Theme.logo_file</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyvista.plotting.themes.Theme.multi_rendering_splitting_position.html">pyvista.plotting.themes.Theme.multi_rendering_splitting_position</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyvista.plotting.themes.Theme.multi_samples.html">pyvista.plotting.themes.Theme.multi_samples</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyvista.plotting.themes.Theme.name.html">pyvista.plotting.themes.Theme.name</a></li>
@@ -599,6 +601,7 @@ document.write(`
 <li class="toctree-l2"><a class="reference internal" href="pyvista.DataSetMapper.html">pyvista.DataSetMapper</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pyvista.LookupTable.html">pyvista.LookupTable</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pyvista.Plotter.html">pyvista.Plotter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyvista.Prop3D.html">pyvista.Prop3D</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pyvista.Property.html">pyvista.Property</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pyvista.Renderer.html">pyvista.Renderer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pyvista.RenderWindowInteractor.html">pyvista.RenderWindowInteractor</a></li>
@@ -693,7 +696,7 @@ document.write(`
 <h1>pyvista.plotting.themes.Theme<a class="headerlink" href="#pyvista-plotting-themes-theme" title="この見出しへのパーマリンク">#</a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="pyvista.plotting.themes.Theme">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Theme</span></span><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/plotting/themes.py#L1470-L2915"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.plotting.themes.Theme" title="この定義へのパーマリンク">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Theme</span></span><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/plotting/themes.py#L1471-L2983"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.plotting.themes.Theme" title="この定義へのパーマリンク">#</a></dt>
 <dd><p>ベースとなるVTKテーマ．</p>
 <p class="rubric">例</p>
 <p>グローバルな既定の背景色を白に変更します．</p>
@@ -733,86 +736,92 @@ document.write(`
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.plotting.themes.Theme.above_range_color.html#pyvista.plotting.themes.Theme.above_range_color" title="pyvista.plotting.themes.Theme.above_range_color"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Theme.above_range_color</span></code></a></p></td>
 <td><p>上記範囲のデフォルトの色を返すか設定します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.plotting.themes.Theme.anti_aliasing.html#pyvista.plotting.themes.Theme.anti_aliasing" title="pyvista.plotting.themes.Theme.anti_aliasing"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Theme.anti_aliasing</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.plotting.themes.Theme.allow_empty_mesh.html#pyvista.plotting.themes.Theme.allow_empty_mesh" title="pyvista.plotting.themes.Theme.allow_empty_mesh"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Theme.allow_empty_mesh</span></code></a></p></td>
+<td><p>Return or set whether to allow plotting empty meshes.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.plotting.themes.Theme.anti_aliasing.html#pyvista.plotting.themes.Theme.anti_aliasing" title="pyvista.plotting.themes.Theme.anti_aliasing"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Theme.anti_aliasing</span></code></a></p></td>
 <td><p>アンチエイリアスを有効または無効にします．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.plotting.themes.Theme.auto_close.html#pyvista.plotting.themes.Theme.auto_close" title="pyvista.plotting.themes.Theme.auto_close"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Theme.auto_close</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.plotting.themes.Theme.auto_close.html#pyvista.plotting.themes.Theme.auto_close" title="pyvista.plotting.themes.Theme.auto_close"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Theme.auto_close</span></code></a></p></td>
 <td><p>プロットが終了したら，自動的に図を閉じます．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.plotting.themes.Theme.axes.html#pyvista.plotting.themes.Theme.axes" title="pyvista.plotting.themes.Theme.axes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Theme.axes</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.plotting.themes.Theme.axes.html#pyvista.plotting.themes.Theme.axes" title="pyvista.plotting.themes.Theme.axes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Theme.axes</span></code></a></p></td>
 <td><p>デフォルトの <code class="docutils literal notranslate"><span class="pre">axes</span></code> の設定を返すか設定します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.plotting.themes.Theme.background.html#pyvista.plotting.themes.Theme.background" title="pyvista.plotting.themes.Theme.background"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Theme.background</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.plotting.themes.Theme.background.html#pyvista.plotting.themes.Theme.background" title="pyvista.plotting.themes.Theme.background"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Theme.background</span></code></a></p></td>
 <td><p>pyvistaプロットのデフォルトの背景色を取得するか，設定します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.plotting.themes.Theme.before_close_callback.html#pyvista.plotting.themes.Theme.before_close_callback" title="pyvista.plotting.themes.Theme.before_close_callback"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Theme.before_close_callback</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.plotting.themes.Theme.before_close_callback.html#pyvista.plotting.themes.Theme.before_close_callback" title="pyvista.plotting.themes.Theme.before_close_callback"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Theme.before_close_callback</span></code></a></p></td>
 <td><p>Plotter のデフォルトの before_close_callback 関数を返します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.plotting.themes.Theme.below_range_color.html#pyvista.plotting.themes.Theme.below_range_color" title="pyvista.plotting.themes.Theme.below_range_color"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Theme.below_range_color</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.plotting.themes.Theme.below_range_color.html#pyvista.plotting.themes.Theme.below_range_color" title="pyvista.plotting.themes.Theme.below_range_color"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Theme.below_range_color</span></code></a></p></td>
 <td><p>下記範囲のデフォルトの色を返すか設定します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.plotting.themes.Theme.camera.html#pyvista.plotting.themes.Theme.camera" title="pyvista.plotting.themes.Theme.camera"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Theme.camera</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.plotting.themes.Theme.camera.html#pyvista.plotting.themes.Theme.camera" title="pyvista.plotting.themes.Theme.camera"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Theme.camera</span></code></a></p></td>
 <td><p>デフォルトの camera の設定を返すか設定します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.plotting.themes.Theme.cmap.html#pyvista.plotting.themes.Theme.cmap" title="pyvista.plotting.themes.Theme.cmap"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Theme.cmap</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.plotting.themes.Theme.cmap.html#pyvista.plotting.themes.Theme.cmap" title="pyvista.plotting.themes.Theme.cmap"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Theme.cmap</span></code></a></p></td>
 <td><p>pyvistaのデフォルトのカラーマップを取得するか，設定します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.plotting.themes.Theme.color.html#pyvista.plotting.themes.Theme.color" title="pyvista.plotting.themes.Theme.color"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Theme.color</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.plotting.themes.Theme.color.html#pyvista.plotting.themes.Theme.color" title="pyvista.plotting.themes.Theme.color"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Theme.color</span></code></a></p></td>
 <td><p>pyvistaのメッシュのデフォルトのカラーを取得するか，設定します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.plotting.themes.Theme.color_cycler.html#pyvista.plotting.themes.Theme.color_cycler" title="pyvista.plotting.themes.Theme.color_cycler"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Theme.color_cycler</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.plotting.themes.Theme.color_cycler.html#pyvista.plotting.themes.Theme.color_cycler" title="pyvista.plotting.themes.Theme.color_cycler"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Theme.color_cycler</span></code></a></p></td>
 <td><p>メッシュの色付けに使用されるデフォルトのカラーサイクラーを返すか設定します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.plotting.themes.Theme.colorbar_horizontal.html#pyvista.plotting.themes.Theme.colorbar_horizontal" title="pyvista.plotting.themes.Theme.colorbar_horizontal"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Theme.colorbar_horizontal</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.plotting.themes.Theme.colorbar_horizontal.html#pyvista.plotting.themes.Theme.colorbar_horizontal" title="pyvista.plotting.themes.Theme.colorbar_horizontal"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Theme.colorbar_horizontal</span></code></a></p></td>
 <td><p>水平カラーバーの既定のパラメータを取得または設定します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.plotting.themes.Theme.colorbar_orientation.html#pyvista.plotting.themes.Theme.colorbar_orientation" title="pyvista.plotting.themes.Theme.colorbar_orientation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Theme.colorbar_orientation</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.plotting.themes.Theme.colorbar_orientation.html#pyvista.plotting.themes.Theme.colorbar_orientation" title="pyvista.plotting.themes.Theme.colorbar_orientation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Theme.colorbar_orientation</span></code></a></p></td>
 <td><p>デフォルトのカラーバーの方向を返すか設定します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.plotting.themes.Theme.colorbar_vertical.html#pyvista.plotting.themes.Theme.colorbar_vertical" title="pyvista.plotting.themes.Theme.colorbar_vertical"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Theme.colorbar_vertical</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.plotting.themes.Theme.colorbar_vertical.html#pyvista.plotting.themes.Theme.colorbar_vertical" title="pyvista.plotting.themes.Theme.colorbar_vertical"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Theme.colorbar_vertical</span></code></a></p></td>
 <td><p>垂直カラーバーの既定のパラメータを取得または設定します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.plotting.themes.Theme.depth_peeling.html#pyvista.plotting.themes.Theme.depth_peeling" title="pyvista.plotting.themes.Theme.depth_peeling"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Theme.depth_peeling</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.plotting.themes.Theme.depth_peeling.html#pyvista.plotting.themes.Theme.depth_peeling" title="pyvista.plotting.themes.Theme.depth_peeling"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Theme.depth_peeling</span></code></a></p></td>
 <td><p>デフォルトの深度ピーリングパラメータを戻すか設定します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.plotting.themes.Theme.edge_color.html#pyvista.plotting.themes.Theme.edge_color" title="pyvista.plotting.themes.Theme.edge_color"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Theme.edge_color</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.plotting.themes.Theme.edge_color.html#pyvista.plotting.themes.Theme.edge_color" title="pyvista.plotting.themes.Theme.edge_color"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Theme.edge_color</span></code></a></p></td>
 <td><p>デフォルトのエッジカラーを返すか設定します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.plotting.themes.Theme.enable_camera_orientation_widget.html#pyvista.plotting.themes.Theme.enable_camera_orientation_widget" title="pyvista.plotting.themes.Theme.enable_camera_orientation_widget"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Theme.enable_camera_orientation_widget</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.plotting.themes.Theme.enable_camera_orientation_widget.html#pyvista.plotting.themes.Theme.enable_camera_orientation_widget" title="pyvista.plotting.themes.Theme.enable_camera_orientation_widget"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Theme.enable_camera_orientation_widget</span></code></a></p></td>
 <td><p>すべてのプロッタでカメラの向きウィジェットを有効にします．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.plotting.themes.Theme.floor_color.html#pyvista.plotting.themes.Theme.floor_color" title="pyvista.plotting.themes.Theme.floor_color"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Theme.floor_color</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.plotting.themes.Theme.floor_color.html#pyvista.plotting.themes.Theme.floor_color" title="pyvista.plotting.themes.Theme.floor_color"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Theme.floor_color</span></code></a></p></td>
 <td><p>デフォルトのフロアカラーを返すか設定します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.plotting.themes.Theme.font.html#pyvista.plotting.themes.Theme.font" title="pyvista.plotting.themes.Theme.font"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Theme.font</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.plotting.themes.Theme.font.html#pyvista.plotting.themes.Theme.font" title="pyvista.plotting.themes.Theme.font"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Theme.font</span></code></a></p></td>
 <td><p>既定のフォントサイズ，ファミリ，色を取得または設定します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.plotting.themes.Theme.full_screen.html#pyvista.plotting.themes.Theme.full_screen" title="pyvista.plotting.themes.Theme.full_screen"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Theme.full_screen</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.plotting.themes.Theme.full_screen.html#pyvista.plotting.themes.Theme.full_screen" title="pyvista.plotting.themes.Theme.full_screen"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Theme.full_screen</span></code></a></p></td>
 <td><p>図形が全画面表示されている場合に返されます．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.plotting.themes.Theme.hidden_line_removal.html#pyvista.plotting.themes.Theme.hidden_line_removal" title="pyvista.plotting.themes.Theme.hidden_line_removal"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Theme.hidden_line_removal</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.plotting.themes.Theme.hidden_line_removal.html#pyvista.plotting.themes.Theme.hidden_line_removal" title="pyvista.plotting.themes.Theme.hidden_line_removal"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Theme.hidden_line_removal</span></code></a></p></td>
 <td><p>隠線除去を返すか設定します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.plotting.themes.Theme.image_scale.html#pyvista.plotting.themes.Theme.image_scale" title="pyvista.plotting.themes.Theme.image_scale"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Theme.image_scale</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.plotting.themes.Theme.image_scale.html#pyvista.plotting.themes.Theme.image_scale" title="pyvista.plotting.themes.Theme.image_scale"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Theme.image_scale</span></code></a></p></td>
 <td><p>デフォルトの画像スケールファクターを返すか設定します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.plotting.themes.Theme.interactive.html#pyvista.plotting.themes.Theme.interactive" title="pyvista.plotting.themes.Theme.interactive"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Theme.interactive</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.plotting.themes.Theme.interactive.html#pyvista.plotting.themes.Theme.interactive" title="pyvista.plotting.themes.Theme.interactive"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Theme.interactive</span></code></a></p></td>
 <td><p>デフォルトの <code class="docutils literal notranslate"><span class="pre">interactive</span></code> のパラメーターを返すか設定します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.plotting.themes.Theme.interpolate_before_map.html#pyvista.plotting.themes.Theme.interpolate_before_map" title="pyvista.plotting.themes.Theme.interpolate_before_map"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Theme.interpolate_before_map</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.plotting.themes.Theme.interpolate_before_map.html#pyvista.plotting.themes.Theme.interpolate_before_map" title="pyvista.plotting.themes.Theme.interpolate_before_map"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Theme.interpolate_before_map</span></code></a></p></td>
 <td><p>マッピングの前に色を補間するかどうかを返すか設定します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.plotting.themes.Theme.jupyter_backend.html#pyvista.plotting.themes.Theme.jupyter_backend" title="pyvista.plotting.themes.Theme.jupyter_backend"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Theme.jupyter_backend</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.plotting.themes.Theme.jupyter_backend.html#pyvista.plotting.themes.Theme.jupyter_backend" title="pyvista.plotting.themes.Theme.jupyter_backend"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Theme.jupyter_backend</span></code></a></p></td>
 <td><p>Return or set the jupyter notebook plotting backend.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.plotting.themes.Theme.lighting.html#pyvista.plotting.themes.Theme.lighting" title="pyvista.plotting.themes.Theme.lighting"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Theme.lighting</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.plotting.themes.Theme.lighting.html#pyvista.plotting.themes.Theme.lighting" title="pyvista.plotting.themes.Theme.lighting"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Theme.lighting</span></code></a></p></td>
 <td><p>デフォルトの <code class="docutils literal notranslate"><span class="pre">lighting</span></code> を返すか設定します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.plotting.themes.Theme.lighting_params.html#pyvista.plotting.themes.Theme.lighting_params" title="pyvista.plotting.themes.Theme.lighting_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Theme.lighting_params</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.plotting.themes.Theme.lighting_params.html#pyvista.plotting.themes.Theme.lighting_params" title="pyvista.plotting.themes.Theme.lighting_params"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Theme.lighting_params</span></code></a></p></td>
 <td><p>デフォルトの照明の設定を返すか設定します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.plotting.themes.Theme.line_width.html#pyvista.plotting.themes.Theme.line_width" title="pyvista.plotting.themes.Theme.line_width"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Theme.line_width</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.plotting.themes.Theme.line_width.html#pyvista.plotting.themes.Theme.line_width" title="pyvista.plotting.themes.Theme.line_width"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Theme.line_width</span></code></a></p></td>
 <td><p>デフォルトの線幅を返すか設定します．</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.plotting.themes.Theme.logo_file.html#pyvista.plotting.themes.Theme.logo_file" title="pyvista.plotting.themes.Theme.logo_file"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Theme.logo_file</span></code></a></p></td>
+<td><p>Return or set the logo file.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.plotting.themes.Theme.multi_rendering_splitting_position.html#pyvista.plotting.themes.Theme.multi_rendering_splitting_position" title="pyvista.plotting.themes.Theme.multi_rendering_splitting_position"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Theme.multi_rendering_splitting_position</span></code></a></p></td>
 <td><p>デフォルトの <code class="docutils literal notranslate"><span class="pre">multi_rendering_splitting_position</span></code> のパラメーターを返すか設定します．</p></td>
