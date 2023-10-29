@@ -697,14 +697,14 @@ document.write(`
 <dl class="py property">
 <dt class="sig sig-object py" id="pyvista.plotting.themes.Theme.allow_empty_mesh">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Theme.</span></span><span class="sig-name descname"><span class="pre">allow_empty_mesh</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3.11/library/functions.html#bool" title="(in Python v3.11)"><span class="pre">bool</span></a></em><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/plotting/themes.py#L2718-L2736"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.plotting.themes.Theme.allow_empty_mesh" title="この定義へのパーマリンク">#</a></dt>
-<dd><p>Return or set whether to allow plotting empty meshes.</p>
+<dd><p>空のメッシュのプロットを許可するかどうかを返すか設定します．</p>
 <p class="rubric">例</p>
-<p>Enable plotting of empty meshes.</p>
+<p>空のメッシュのプロットを有効にします．</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyvista</span> <span class="k">as</span> <span class="nn">pv</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">pv</span><span class="o">.</span><span class="n">global_theme</span><span class="o">.</span><span class="n">allow_empty_mesh</span> <span class="o">=</span> <span class="kc">True</span>
 </pre></div>
 </div>
-<p>Now add an empty mesh to a plotter</p>
+<p>ここで，空のメッシュをプロッタに追加します．</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pl</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Plotter</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">_</span> <span class="o">=</span> <span class="n">pl</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">pv</span><span class="o">.</span><span class="n">PolyData</span><span class="p">())</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">pl</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>  
