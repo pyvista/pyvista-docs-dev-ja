@@ -531,6 +531,15 @@ document.write(`
 <li class="toctree-l3"><a class="reference internal" href="_autosummary/pyvista.pyvista_ndarray.html">pyvista.pyvista_ndarray</a></li>
 <li class="toctree-l3"><a class="reference internal" href="_autosummary/pyvista.vtkmatrix_from_array.html">pyvista.vtkmatrix_from_array</a></li>
 <li class="toctree-l3"><a class="reference internal" href="_autosummary/pyvista.wrap.html">pyvista.wrap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="_autosummary/pyvista.cartesian_to_spherical.html">pyvista.cartesian_to_spherical</a></li>
+<li class="toctree-l3"><a class="reference internal" href="_autosummary/pyvista.create_grid.html">pyvista.create_grid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="_autosummary/pyvista.grid_from_sph_coords.html">pyvista.grid_from_sph_coords</a></li>
+<li class="toctree-l3"><a class="reference internal" href="_autosummary/pyvista.merge.html">pyvista.merge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="_autosummary/pyvista.perlin_noise.html">pyvista.perlin_noise</a></li>
+<li class="toctree-l3"><a class="reference internal" href="_autosummary/pyvista.sample_function.html">pyvista.sample_function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="_autosummary/pyvista.spherical_to_cartesian.html">pyvista.spherical_to_cartesian</a></li>
+<li class="toctree-l3"><a class="reference internal" href="_autosummary/pyvista.transform_vectors_sph_to_cart.html">pyvista.transform_vectors_sph_to_cart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="_autosummary/pyvista.voxelize.html">pyvista.voxelize</a></li>
 <li class="toctree-l3"><a class="reference internal" href="_autosummary/pyvista.read.html">pyvista.read</a></li>
 <li class="toctree-l3"><a class="reference internal" href="_autosummary/pyvista.read_exodus.html">pyvista.read_exodus</a></li>
 <li class="toctree-l3"><a class="reference internal" href="_autosummary/pyvista.read_texture.html">pyvista.read_texture</a></li>
@@ -664,6 +673,40 @@ document.write(`
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="_autosummary/pyvista.wrap.html#pyvista.wrap" title="pyvista.wrap"><code class="xref py py-obj docutils literal notranslate"><span class="pre">wrap</span></code></a>(dataset)</p></td>
 <td><p>与えられたVTKデータオブジェクトを適切なPyVistaデータオブジェクトにラップします．</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="features">
+<h2>Features<a class="headerlink" href="#features" title="この見出しへのパーマリンク">#</a></h2>
+<table class="autosummary longtable table autosummary">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="_autosummary/pyvista.cartesian_to_spherical.html#pyvista.cartesian_to_spherical" title="pyvista.cartesian_to_spherical"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cartesian_to_spherical</span></code></a>(x, y, z)</p></td>
+<td><p>Convert 3D Cartesian coordinates to spherical coordinates.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="_autosummary/pyvista.create_grid.html#pyvista.create_grid" title="pyvista.create_grid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_grid</span></code></a>(dataset[, dimensions])</p></td>
+<td><p>Create a uniform grid surrounding the given dataset.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="_autosummary/pyvista.grid_from_sph_coords.html#pyvista.grid_from_sph_coords" title="pyvista.grid_from_sph_coords"><code class="xref py py-obj docutils literal notranslate"><span class="pre">grid_from_sph_coords</span></code></a>(theta, phi, r)</p></td>
+<td><p>Create a structured grid from arrays of spherical coordinates.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="_autosummary/pyvista.merge.html#pyvista.merge" title="pyvista.merge"><code class="xref py py-obj docutils literal notranslate"><span class="pre">merge</span></code></a>(datasets[, merge_points, ...])</p></td>
+<td><p>Merge several datasets.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="_autosummary/pyvista.perlin_noise.html#pyvista.perlin_noise" title="pyvista.perlin_noise"><code class="xref py py-obj docutils literal notranslate"><span class="pre">perlin_noise</span></code></a>(amplitude, freq, phase)</p></td>
+<td><p>Perlin ノイズを実装する暗黙の関数を返します．</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="_autosummary/pyvista.sample_function.html#pyvista.sample_function" title="pyvista.sample_function"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sample_function</span></code></a>(function[, bounds, dim, ...])</p></td>
+<td><p>構造化された点セット上の陰関数をサンプルします．</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="_autosummary/pyvista.spherical_to_cartesian.html#pyvista.spherical_to_cartesian" title="pyvista.spherical_to_cartesian"><code class="xref py py-obj docutils literal notranslate"><span class="pre">spherical_to_cartesian</span></code></a>(r, phi, theta)</p></td>
+<td><p>Convert Spherical coordinates to 3D Cartesian coordinates.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="_autosummary/pyvista.transform_vectors_sph_to_cart.html#pyvista.transform_vectors_sph_to_cart" title="pyvista.transform_vectors_sph_to_cart"><code class="xref py py-obj docutils literal notranslate"><span class="pre">transform_vectors_sph_to_cart</span></code></a>(theta, phi, r, ...)</p></td>
+<td><p>Transform vectors from spherical (r, phi, theta) to cartesian coordinates (z, y, x).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="_autosummary/pyvista.voxelize.html#pyvista.voxelize" title="pyvista.voxelize"><code class="xref py py-obj docutils literal notranslate"><span class="pre">voxelize</span></code></a>(mesh[, density, check_surface])</p></td>
+<td><p>Voxelize mesh to UnstructuredGrid.</p></td>
 </tr>
 </tbody>
 </table>
@@ -806,6 +849,7 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#object-conversions-or-wrapping">オブジェクトの変換やラッピング</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#features">Features</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#file-io">ファイルIO</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mesh-creation">メッシュ作成</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#array-access">配列アクセス</a></li>
