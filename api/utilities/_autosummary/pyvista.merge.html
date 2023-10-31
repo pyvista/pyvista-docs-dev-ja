@@ -635,18 +635,15 @@ document.write(`
 <dl class="py function">
 <dt class="sig sig-object py" id="pyvista.merge">
 <span class="sig-name descname"><span class="pre">merge</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">datasets</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">merge_points</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">main_has_priority</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">progress_bar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/core/utilities/features.py#L278-L340"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.merge" title="この定義へのパーマリンク">#</a></dt>
-<dd><p>Merge several datasets.</p>
+<dd><p>複数のデータセットをマージします．</p>
 <div class="admonition note">
 <p class="admonition-title">注釈</p>
-<p>The behavior of this filter varies from the
-<a class="reference internal" href="../../core/_autosummary/pyvista.PolyDataFilters.boolean_union.html#pyvista.PolyDataFilters.boolean_union" title="pyvista.PolyDataFilters.boolean_union"><code class="xref py py-func docutils literal notranslate"><span class="pre">PolyDataFilters.boolean_union()</span></code></a> filter. This filter
-does not attempt to create a manifold mesh and will include
-internal surfaces when two meshes overlap.</p>
+<p>このフィルタの動作は <a class="reference internal" href="../../core/_autosummary/pyvista.PolyDataFilters.boolean_union.html#pyvista.PolyDataFilters.boolean_union" title="pyvista.PolyDataFilters.boolean_union"><code class="xref py py-func docutils literal notranslate"><span class="pre">PolyDataFilters.boolean_union()</span></code></a> フィルタとは異なります． このフィルタはマニフォールドメッシュを作成しようとはせず，2つのメッシュが重なっている場合には内部サーフェスを含みます．</p>
 </div>
 <dl class="field-list">
 <dt class="field-odd">パラメータ<span class="colon">:</span></dt>
 <dd class="field-odd"><dl>
-<dt><strong>datasets</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/glossary.html#term-sequence" title="(in Python v3.11)"><span>sequence</span></a>[<code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.Dataset</span></code>]</span></dt><dd><p>Sequence of datasets. Can be of any <code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.Dataset</span></code>.</p>
+<dt><strong>datasets</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/glossary.html#term-sequence" title="(in Python v3.11)"><span>sequence</span></a>[<code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.Dataset</span></code>]</span></dt><dd><p>データセットのシーケンス． <code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.Dataset</span></code> のいずれでもよい．</p>
 </dd>
 <dt><strong>merge_points</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.11)"><span class="xref std std-ref">bool</span></a>, default: <a class="reference external" href="https://docs.python.org/3.11/library/constants.html#True" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">True</span></code></a></span></dt><dd><p><code class="docutils literal notranslate"><span class="pre">True</span></code> の時には同等のポイントをマージします．</p>
 </dd>
@@ -658,15 +655,13 @@ internal surfaces when two meshes overlap.</p>
 </dd>
 <dt class="field-even">戻り値<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt><a class="reference internal" href="../../core/_autosummary/pyvista.DataSet.html#pyvista.DataSet" title="pyvista.DataSet"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyvista.DataSet</span></code></a></dt><dd><p><a class="reference internal" href="../../core/_autosummary/pyvista.PolyData.html#pyvista.PolyData" title="pyvista.PolyData"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.PolyData</span></code></a> if all items in datasets are
-<a class="reference internal" href="../../core/_autosummary/pyvista.PolyData.html#pyvista.PolyData" title="pyvista.PolyData"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.PolyData</span></code></a>, otherwise returns a
-<a class="reference internal" href="../../core/_autosummary/pyvista.UnstructuredGrid.html#pyvista.UnstructuredGrid" title="pyvista.UnstructuredGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.UnstructuredGrid</span></code></a>.</p>
+<dt><a class="reference internal" href="../../core/_autosummary/pyvista.DataSet.html#pyvista.DataSet" title="pyvista.DataSet"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyvista.DataSet</span></code></a></dt><dd><p>データセットのすべてのアイテムが <a class="reference internal" href="../../core/_autosummary/pyvista.PolyData.html#pyvista.PolyData" title="pyvista.PolyData"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.PolyData</span></code></a> であれば <a class="reference internal" href="../../core/_autosummary/pyvista.PolyData.html#pyvista.PolyData" title="pyvista.PolyData"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.PolyData</span></code></a> を，そうでなければ <a class="reference internal" href="../../core/_autosummary/pyvista.UnstructuredGrid.html#pyvista.UnstructuredGrid" title="pyvista.UnstructuredGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.UnstructuredGrid</span></code></a> を返します．</p>
 </dd>
 </dl>
 </dd>
 </dl>
 <p class="rubric">例</p>
-<p>Merge two polydata datasets.</p>
+<p>2つのポリデータデータセットをマージします．</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyvista</span> <span class="k">as</span> <span class="nn">pv</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">sphere</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Sphere</span><span class="p">(</span><span class="n">center</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">cube</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Cube</span><span class="p">()</span>
