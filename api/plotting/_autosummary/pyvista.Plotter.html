@@ -865,7 +865,7 @@ document.write(`
 <h1>pyvista.Plotter<a class="headerlink" href="#pyvista-plotter" title="この見出しへのパーマリンク">#</a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="pyvista.Plotter">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Plotter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/plotting/plotter.py#L6282-L6938"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.Plotter" title="この定義へのパーマリンク">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Plotter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/plotting/plotter.py#L6275-L6925"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.Plotter" title="この定義へのパーマリンク">#</a></dt>
 <dd><p>vtkメッシュまたは無感覚な配列を表示するためのオブジェクトのプロット．</p>
 <dl class="field-list">
 <dt class="field-odd">パラメータ<span class="colon">:</span></dt>
@@ -893,8 +893,6 @@ document.write(`
 </div></blockquote>
 </dd>
 <dt><strong>window_size</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/glossary.html#term-sequence" title="(in Python v3.11)"><span>sequence</span></a>[<a class="reference external" href="https://docs.python.org/3.11/library/functions.html#int" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">int</span></code></a>], <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>ピクセル単位のウィンドウサイズ．デフォルトは <code class="docutils literal notranslate"><span class="pre">[1024,</span> <span class="pre">768]</span></code> です．ただし，関連するテーマの <code class="docutils literal notranslate"><span class="pre">window_size</span></code> プロパティで別の値が設定されている場合を除きます．</p>
-</dd>
-<dt><strong>multi_samples</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/functions.html#int" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">int</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>エイリアシングを軽減するために使用されるマルチサンプルの数．4は良いデフォルトです．8はパフォーマンスに影響を与える可能性がありますが，より良い結果が得られます．</p>
 </dd>
 <dt><strong>line_smoothing</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.11)"><span class="xref std std-ref">bool</span></a>, default: <a class="reference external" href="https://docs.python.org/3.11/library/constants.html#False" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">False</span></code></a></span></dt><dd><p>Trueの場合，ラインスムージングを有効にします．</p>
 </dd>
@@ -1122,7 +1120,7 @@ document.write(`
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.clear_spline_widgets.html#pyvista.Plotter.clear_spline_widgets" title="pyvista.Plotter.clear_spline_widgets"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.clear_spline_widgets</span></code></a>()</p></td>
 <td><p>スプラインウィジェットをすべて削除します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.close.html#pyvista.Plotter.close" title="pyvista.Plotter.close"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.close</span></code></a>([render])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.close.html#pyvista.Plotter.close" title="pyvista.Plotter.close"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.close</span></code></a>()</p></td>
 <td><p>レンダーウィンドウを閉じます．</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.deep_clean.html#pyvista.Plotter.deep_clean" title="pyvista.Plotter.deep_clean"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.deep_clean</span></code></a>()</p></td>
@@ -1323,10 +1321,10 @@ document.write(`
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.isometric_view_interactive.html#pyvista.Plotter.isometric_view_interactive" title="pyvista.Plotter.isometric_view_interactive"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.isometric_view_interactive</span></code></a>()</p></td>
 <td><p>現在のインタラクティブレンダリングウィンドウをアイソメビューに設定します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.key_press_event.html#pyvista.Plotter.key_press_event" title="pyvista.Plotter.key_press_event"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.key_press_event</span></code></a>(obj, event)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.key_press_event.html#pyvista.Plotter.key_press_event" title="pyvista.Plotter.key_press_event"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.key_press_event</span></code></a>(*args)</p></td>
 <td><p>キー押下イベントを聞きます．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.left_button_down.html#pyvista.Plotter.left_button_down" title="pyvista.Plotter.left_button_down"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.left_button_down</span></code></a>(obj, event_type)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.Plotter.left_button_down.html#pyvista.Plotter.left_button_down" title="pyvista.Plotter.left_button_down"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.left_button_down</span></code></a>(*args)</p></td>
 <td><p>左ボタンダウンクリックのイベントを登録します．</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Plotter.link_views.html#pyvista.Plotter.link_views" title="pyvista.Plotter.link_views"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plotter.link_views</span></code></a>([views])</p></td>
