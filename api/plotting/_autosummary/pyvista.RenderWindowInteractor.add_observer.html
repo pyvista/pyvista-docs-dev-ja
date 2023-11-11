@@ -594,6 +594,7 @@ document.write(`
 <li class="toctree-l3"><a class="reference internal" href="pyvista.RenderWindowInteractor.update_style.html">pyvista.RenderWindowInteractor.update_style</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyvista.RenderWindowInteractor.initialized.html">pyvista.RenderWindowInteractor.initialized</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyvista.RenderWindowInteractor.picker.html">pyvista.RenderWindowInteractor.picker</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.RenderWindowInteractor.style.html">pyvista.RenderWindowInteractor.style</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="pyvista.Text.html">pyvista.Text</a></li>
@@ -687,7 +688,7 @@ document.write(`
 <h1>pyvista.RenderWindowInteractor.add_observer<a class="headerlink" href="#pyvista-renderwindowinteractor-add-observer" title="この見出しへのパーマリンク">#</a></h1>
 <dl class="py method">
 <dt class="sig sig-object py" id="pyvista.RenderWindowInteractor.add_observer">
-<span class="sig-prename descclassname"><span class="pre">RenderWindowInteractor.</span></span><span class="sig-name descname"><span class="pre">add_observer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">call</span></span></em><span class="sig-paren">)</span><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/plotting/render_window_interactor.py#L187-L219"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.RenderWindowInteractor.add_observer" title="この定義へのパーマリンク">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">RenderWindowInteractor.</span></span><span class="sig-name descname"><span class="pre">add_observer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">call</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interactor_style_fallback</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/plotting/render_window_interactor.py#L187-L232"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.RenderWindowInteractor.add_observer" title="この定義へのパーマリンク">#</a></dt>
 <dd><p>指定されたイベントのオブザーバーを追加します．</p>
 <dl class="field-list">
 <dt class="field-odd">パラメータ<span class="colon">:</span></dt>
@@ -695,6 +696,9 @@ document.write(`
 <dt><strong>event</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/stdtypes.html#str" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a> | <a class="reference external" href="https://docs.python.org/3.11/library/functions.html#int" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">int</span></code></a></span></dt><dd><p>観測するイベント．このイベントの名前 (文字列) または VTK イベント識別子 (int) のいずれか．</p>
 </dd>
 <dt><strong>call</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/functions.html#callable" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">callable()</span></code></a></span></dt><dd><p>イベントが呼び出されたときにコールされるコールバック．</p>
+</dd>
+<dt><strong>interactor_style_fallback</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.11)"><span class="xref std std-ref">bool</span></a></span></dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">True</span></code>, the observer will be added to the interactor style
+in cases known to be problematic.</p>
 </dd>
 </dl>
 </dd>
