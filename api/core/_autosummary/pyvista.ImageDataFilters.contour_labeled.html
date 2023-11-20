@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>pyvista.ImageDataFilters.high_pass &#8212; PyVista 0.43.dev0 ドキュメント</title>
+    <title>pyvista.ImageDataFilters.contour_labeled &#8212; PyVista 0.43.dev0 ドキュメント</title>
   
   
   
@@ -68,7 +68,7 @@
                 gtag('js', new Date());
                 gtag('config', 'UA-140243896-1');
             </script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'api/core/_autosummary/pyvista.ImageDataFilters.high_pass';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'api/core/_autosummary/pyvista.ImageDataFilters.contour_labeled';</script>
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.14.3';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://docs.pyvista.org/versions.json';
@@ -77,8 +77,8 @@
         </script>
     <link rel="index" title="索引" href="../../../genindex.html" />
     <link rel="search" title="検索" href="../../../search.html" />
-    <link rel="next" title="pyvista.ImageDataFilters.image_dilate_erode" href="pyvista.ImageDataFilters.image_dilate_erode.html" />
-    <link rel="prev" title="pyvista.ImageDataFilters.gaussian_smooth" href="pyvista.ImageDataFilters.gaussian_smooth.html" />
+    <link rel="next" title="pyvista.ImageDataFilters.extract_subset" href="pyvista.ImageDataFilters.extract_subset.html" />
+    <link rel="prev" title="pyvista.ImageDataFilters" href="pyvista.ImageDataFilters.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="ja"/>
   </head>
@@ -542,11 +542,11 @@ document.write(`
 <li class="toctree-l3"><a class="reference internal" href="pyvista.PolyDataFilters.html">pyvista.PolyDataFilters</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyvista.UnstructuredGridFilters.html">pyvista.UnstructuredGridFilters</a></li>
 <li class="toctree-l3 current active has-children"><a class="reference internal" href="pyvista.ImageDataFilters.html">pyvista.ImageDataFilters</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="pyvista.ImageDataFilters.contour_labeled.html">pyvista.ImageDataFilters.contour_labeled</a></li>
+<li class="toctree-l4 current active"><a class="current reference internal" href="#">pyvista.ImageDataFilters.contour_labeled</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyvista.ImageDataFilters.extract_subset.html">pyvista.ImageDataFilters.extract_subset</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyvista.ImageDataFilters.fft.html">pyvista.ImageDataFilters.fft</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyvista.ImageDataFilters.gaussian_smooth.html">pyvista.ImageDataFilters.gaussian_smooth</a></li>
-<li class="toctree-l4 current active"><a class="current reference internal" href="#">pyvista.ImageDataFilters.high_pass</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyvista.ImageDataFilters.high_pass.html">pyvista.ImageDataFilters.high_pass</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyvista.ImageDataFilters.image_dilate_erode.html">pyvista.ImageDataFilters.image_dilate_erode</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyvista.ImageDataFilters.image_threshold.html">pyvista.ImageDataFilters.image_threshold</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyvista.ImageDataFilters.low_pass.html">pyvista.ImageDataFilters.low_pass</a></li>
@@ -633,27 +633,44 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="pyvista-imagedatafilters-high-pass">
-<h1>pyvista.ImageDataFilters.high_pass<a class="headerlink" href="#pyvista-imagedatafilters-high-pass" title="この見出しへのパーマリンク">#</a></h1>
+  <section id="pyvista-imagedatafilters-contour-labeled">
+<h1>pyvista.ImageDataFilters.contour_labeled<a class="headerlink" href="#pyvista-imagedatafilters-contour-labeled" title="この見出しへのパーマリンク">#</a></h1>
 <dl class="py method">
-<dt class="sig sig-object py" id="pyvista.ImageDataFilters.high_pass">
-<span class="sig-prename descclassname"><span class="pre">ImageDataFilters.</span></span><span class="sig-name descname"><span class="pre">high_pass</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x_cutoff</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_cutoff</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z_cutoff</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_scalars_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">progress_bar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/core/filters/image_data.py#L651-L727"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.ImageDataFilters.high_pass" title="この定義へのパーマリンク">#</a></dt>
-<dd><p>Butterworth型ハイパスフィルターを周波数領域で実行します．</p>
-<p>このフィルターは <a class="reference internal" href="pyvista.ImageData.html#pyvista.ImageData" title="pyvista.ImageData"><code class="xref py py-class docutils literal notranslate"><span class="pre">ImageData</span></code></a> が複素数の点スカラーを持っていることを必要とします．これは通常 <code class="xref py py-func docutils literal notranslate"><span class="pre">ImageData.fft()</span></code> フィルターによって <a class="reference internal" href="pyvista.ImageData.html#pyvista.ImageData" title="pyvista.ImageData"><code class="xref py py-class docutils literal notranslate"><span class="pre">ImageData</span></code></a> が周波数領域に変換された後に生成されます．</p>
-<p><a class="reference internal" href="pyvista.ImageDataFilters.rfft.html#pyvista.ImageDataFilters.rfft" title="pyvista.ImageDataFilters.rfft"><code class="xref py py-func docutils literal notranslate"><span class="pre">ImageDataFilters.rfft()</span></code></a> フィルターは，出力を空間領域に戻すために使用することができます．このフィルタは低周波成分を減衰させます． 入力と出力は複素配列で，データ型は <a class="reference external" href="https://numpy.org/doc/stable/reference/arrays.scalars.html#numpy.complex128" title="(in NumPy v1.26)"><code class="xref py py-attr docutils literal notranslate"><span class="pre">numpy.complex128</span></code></a> です．</p>
-<p>入力の周波数は標準的な順序を仮定しています：各軸に沿って，まず正の周波数が0から最大まで仮定され，次に負の周波数が最大の絶対値から最小までリストアップされる．これは，グリッドの角が低い周波数に対応し，グリッドの中心が高い周波数に対応することを意味します．</p>
+<dt class="sig sig-object py" id="pyvista.ImageDataFilters.contour_labeled">
+<span class="sig-prename descclassname"><span class="pre">ImageDataFilters.</span></span><span class="sig-name descname"><span class="pre">contour_labeled</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_labels</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.11/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3.11/library/constants.html#None" title="(in Python v3.11)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">smoothing</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.11/library/functions.html#bool" title="(in Python v3.11)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">smoothing_num_iterations</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.11/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">50</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">smoothing_relaxation_factor</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.11/library/functions.html#float" title="(in Python v3.11)"><span class="pre">float</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">smoothing_constraint_distance</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.11/library/functions.html#float" title="(in Python v3.11)"><span class="pre">float</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_mesh_type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.11/library/typing.html#typing.Literal" title="(in Python v3.11)"><span class="pre">Literal</span></a><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'quads'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'triangles'</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'quads'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_style</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.11/library/typing.html#typing.Literal" title="(in Python v3.11)"><span class="pre">Literal</span></a><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'default'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'boundary'</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'default'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scalars</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.11/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3.11/library/constants.html#None" title="(in Python v3.11)"><span class="pre">None</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">progress_bar</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.11/library/functions.html#bool" title="(in Python v3.11)"><span class="pre">bool</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="pyvista.PolyData.html#pyvista.PolyData" title="pyvista.core.pointset.PolyData"><span class="pre">PolyData</span></a></span></span><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/core/filters/image_data.py#L777-L900"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.ImageDataFilters.contour_labeled" title="この定義へのパーマリンク">#</a></dt>
+<dd><p>Generate labeled contours from 3D label maps.</p>
+<p>SurfaceNets algorithm is used to extract contours preserving sharp
+boundaries for the selected labels from the label maps.
+Optionally, the boundaries can be smoothened to reduce the staircase
+appearance in case of low resolution input label maps.</p>
+<p>This filter requires that the <a class="reference internal" href="pyvista.ImageData.html#pyvista.ImageData" title="pyvista.ImageData"><code class="xref py py-class docutils literal notranslate"><span class="pre">ImageData</span></code></a> has integer point
+scalars, such as multi-label maps generated from image segmentation.</p>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<p>Requires <code class="docutils literal notranslate"><span class="pre">vtk&gt;=9.3.0</span></code>.</p>
+</div>
 <dl class="field-list">
 <dt class="field-odd">パラメータ<span class="colon">:</span></dt>
 <dd class="field-odd"><dl>
-<dt><strong>x_cutoff</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/functions.html#float" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a></span></dt><dd><p>x軸のカットオフ周波数．</p>
+<dt><strong>n_labels</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/functions.html#int" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">int</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>Number of labels to be extracted (all are extracted if None is given).</p>
 </dd>
-<dt><strong>y_cutoff</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/functions.html#float" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a></span></dt><dd><p>y軸のカットオフ周波数．</p>
+<dt><strong>smoothing</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.11)"><span class="xref std std-ref">bool</span></a>, default: <a class="reference external" href="https://docs.python.org/3.11/library/constants.html#False" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">False</span></code></a></span></dt><dd><p>Apply smoothing to the meshes.</p>
 </dd>
-<dt><strong>z_cutoff</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/functions.html#float" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a></span></dt><dd><p>Z軸のカットオフ周波数．</p>
+<dt><strong>smoothing_num_iterations</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/functions.html#int" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">int</span></code></a>, default: 50</span></dt><dd><p>Number of smoothing iterations.</p>
 </dd>
-<dt><strong>order</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/functions.html#int" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">int</span></code></a>, default: 1</span></dt><dd><p>カットオフカーブの次数です． <code class="docutils literal notranslate"><span class="pre">1/(1</span> <span class="pre">+</span> <span class="pre">(cutoff/freq(i,</span> <span class="pre">j))**(2*order))</span></code> という式で表されます．</p>
+<dt><strong>smoothing_relaxation_factor</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/functions.html#float" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a>, default: 0.5</span></dt><dd><p>Relaxation factor of the smoothing.</p>
 </dd>
-<dt><strong>output_scalars_name</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/stdtypes.html#str" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>出力するスカラーの名前．デフォルトでは，データセットのアクティブなスカラーと同じである．</p>
+<dt><strong>smoothing_constraint_distance</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/functions.html#float" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a>, default: 1</span></dt><dd><p>Constraint distance of the smoothing.</p>
+</dd>
+<dt><strong>output_mesh_type</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/stdtypes.html#str" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a>, default: 'quads'</span></dt><dd><p>Type of the output mesh. Must be either <code class="docutils literal notranslate"><span class="pre">'quads'</span></code>, or <code class="docutils literal notranslate"><span class="pre">'triangles'</span></code>.</p>
+</dd>
+<dt><strong>output_style</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/stdtypes.html#str" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a>, default: 'default'</span></dt><dd><p>Style of the output mesh. Must be either <code class="docutils literal notranslate"><span class="pre">'default'</span></code> or <code class="docutils literal notranslate"><span class="pre">'boundary'</span></code>.
+When <code class="docutils literal notranslate"><span class="pre">'default'</span></code> is specified, the filter produces a mesh with both
+interior and exterior polygons. When <code class="docutils literal notranslate"><span class="pre">'boundary'</span></code> is selected, only
+polygons on the border with the background are produced (without interior
+polygons). Note that style <code class="docutils literal notranslate"><span class="pre">'selected'</span></code> is currently not implemented.</p>
+</dd>
+<dt><strong>scalars</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/stdtypes.html#str" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>処理に使用するスカラーの名前．デフォルトは現在アクティブなスカラーです．</p>
 </dd>
 <dt><strong>progress_bar</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.11)"><span class="xref std std-ref">bool</span></a>, default: <a class="reference external" href="https://docs.python.org/3.11/library/constants.html#False" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">False</span></code></a></span></dt><dd><p>進行状況を示す進行状況バーを表示します．</p>
 </dd>
@@ -661,24 +678,18 @@ document.write(`
 </dd>
 <dt class="field-even">戻り値<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt><a class="reference internal" href="pyvista.ImageData.html#pyvista.ImageData" title="pyvista.ImageData"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyvista.ImageData</span></code></a></dt><dd><p><a class="reference internal" href="pyvista.ImageData.html#pyvista.ImageData" title="pyvista.ImageData"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.ImageData</span></code></a> にハイパスフィルターを適用したものです．</p>
+<dt><a class="reference internal" href="pyvista.PolyData.html#pyvista.PolyData" title="pyvista.PolyData"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyvista.PolyData</span></code></a></dt><dd><p><a class="reference internal" href="pyvista.PolyData.html#pyvista.PolyData" title="pyvista.PolyData"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyvista.PolyData</span></code></a> Labeled mesh with the segments labeled.</p>
 </dd>
 </dl>
 </dd>
 </dl>
-<div class="admonition seealso">
-<p class="admonition-title">参考</p>
-<dl class="simple">
-<dt><a class="reference internal" href="pyvista.ImageDataFilters.fft.html#pyvista.ImageDataFilters.fft" title="pyvista.ImageDataFilters.fft"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fft</span></code></a></dt><dd><p>直接高速Fourier変換．</p>
-</dd>
-<dt><a class="reference internal" href="pyvista.ImageDataFilters.rfft.html#pyvista.ImageDataFilters.rfft" title="pyvista.ImageDataFilters.rfft"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rfft</span></code></a></dt><dd><p>逆高速Fourier変換．</p>
-</dd>
-<dt><a class="reference internal" href="pyvista.ImageDataFilters.low_pass.html#pyvista.ImageDataFilters.low_pass" title="pyvista.ImageDataFilters.low_pass"><code class="xref py py-obj docutils literal notranslate"><span class="pre">low_pass</span></code></a></dt><dd><p>FFT出力のローパスフィルタリング．</p>
-</dd>
-</dl>
-</div>
+<p class="rubric">参考文献</p>
+<p>Sarah F. Frisken, SurfaceNets for Multi-Label Segmentations with Preservation
+of Sharp Boundaries, Journal of Computer Graphics Techniques (JCGT), vol. 11,
+no. 1, 34-54, 2022. Available online <a class="reference external" href="http://jcgt.org/published/0011/01/03/">http://jcgt.org/published/0011/01/03/</a></p>
+<p><a class="reference external" href="https://www.kitware.com/really-fast-isocontouring/">https://www.kitware.com/really-fast-isocontouring/</a></p>
 <p class="rubric">例</p>
-<p>このフィルタを使用した例は， <a class="reference internal" href="../../../examples/01-filter/image-fft-perlin-noise.html#image-fft-perlin-example"><span class="std std-ref">Perlinノイズによる高速フーリエ変換</span></a> を参照してください．</p>
+<p>See <a class="reference internal" href="../../../examples/01-filter/contouring.html#contouring-example"><span class="std std-ref">コンタリング</span></a> for a full example using this filter.</p>
 </dd></dl>
 
 </section>
@@ -702,7 +713,7 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pyvista.ImageDataFilters.high_pass"><code class="docutils literal notranslate"><span class="pre">ImageDataFilters.high_pass()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pyvista.ImageDataFilters.contour_labeled"><code class="docutils literal notranslate"><span class="pre">ImageDataFilters.contour_labeled()</span></code></a></li>
 </ul>
   </nav></div>
 

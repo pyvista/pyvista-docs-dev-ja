@@ -78,7 +78,7 @@
     <link rel="index" title="索引" href="../../../genindex.html" />
     <link rel="search" title="検索" href="../../../search.html" />
     <link rel="next" title="pyvista.ImageDataFilters.fft" href="pyvista.ImageDataFilters.fft.html" />
-    <link rel="prev" title="pyvista.ImageDataFilters" href="pyvista.ImageDataFilters.html" />
+    <link rel="prev" title="pyvista.ImageDataFilters.contour_labeled" href="pyvista.ImageDataFilters.contour_labeled.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="ja"/>
   </head>
@@ -542,6 +542,7 @@ document.write(`
 <li class="toctree-l3"><a class="reference internal" href="pyvista.PolyDataFilters.html">pyvista.PolyDataFilters</a></li>
 <li class="toctree-l3"><a class="reference internal" href="pyvista.UnstructuredGridFilters.html">pyvista.UnstructuredGridFilters</a></li>
 <li class="toctree-l3 current active has-children"><a class="reference internal" href="pyvista.ImageDataFilters.html">pyvista.ImageDataFilters</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="pyvista.ImageDataFilters.contour_labeled.html">pyvista.ImageDataFilters.contour_labeled</a></li>
 <li class="toctree-l4 current active"><a class="current reference internal" href="#">pyvista.ImageDataFilters.extract_subset</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyvista.ImageDataFilters.fft.html">pyvista.ImageDataFilters.fft</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyvista.ImageDataFilters.gaussian_smooth.html">pyvista.ImageDataFilters.gaussian_smooth</a></li>
@@ -636,7 +637,7 @@ document.write(`
 <h1>pyvista.ImageDataFilters.extract_subset<a class="headerlink" href="#pyvista-imagedatafilters-extract-subset" title="この見出しへのパーマリンク">#</a></h1>
 <dl class="py method">
 <dt class="sig sig-object py" id="pyvista.ImageDataFilters.extract_subset">
-<span class="sig-prename descclassname"><span class="pre">ImageDataFilters.</span></span><span class="sig-name descname"><span class="pre">extract_subset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">voi</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(1,</span> <span class="pre">1,</span> <span class="pre">1)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boundary</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">progress_bar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/core/filters/image_data.py#L174-L230"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.ImageDataFilters.extract_subset" title="この定義へのパーマリンク">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">ImageDataFilters.</span></span><span class="sig-name descname"><span class="pre">extract_subset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">voi</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(1,</span> <span class="pre">1,</span> <span class="pre">1)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boundary</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">progress_bar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/core/filters/image_data.py#L175-L231"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.ImageDataFilters.extract_subset" title="この定義へのパーマリンク">#</a></dt>
 <dd><p>部品を選択します．(例えば，関心のあるボリューム)</p>
 <p>このフィルタを使用するには，データ内の矩形領域を指定するi-j-k min/maxインデックスであるVOI ivarを設定します．(これらは0-オフセットであることに注意してください．)サンプリングレートを指定して，データをサブサンプリングすることもできます．</p>
 <p>このフィルタの典型的な用途は，画像処理のためにボリュームからスライスを抽出すること，データ・サイズを低減するために大容量ボリュームをサブサンプリングすること，または関心のあるデータを有するボリュームの領域を抽出することです．</p>
