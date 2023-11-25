@@ -1,0 +1,905 @@
+
+<!DOCTYPE html>
+
+
+<html lang="ja" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>pyvista.core.input_validation.validate.validate_array &#8212; PyVista 0.43.dev0 ドキュメント</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=649a27d8" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/jupyter-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/thebelab.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/asciinema-player_2.6.1.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/asciinema-custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/no_search_highlight.css?v=0f58e32f" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/summary.css?v=09e0a9f3" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery.css?v=61a4c737" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/cards.css?v=d8ea150e" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/no_italic.css?v=7ec6bf1f" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
+  <script src="../../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js?v=6e578ec8"></script>
+    <script src="../../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../../../_static/thebelab-helper.js"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=49e1bf35"></script>
+    <script src="../../../_static/asciinema-player_2.6.1.js"></script>
+    <script src="../../../_static/translations.js?v=4dbe4bdc"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+    <script src="../../../_static/design-tabs.js?v=36754332"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-140243896-1"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'UA-140243896-1');
+            </script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'api/core/_autosummary/pyvista.core.input_validation.validate.validate_array';</script>
+    <script>
+        DOCUMENTATION_OPTIONS.theme_version = '0.14.3';
+        DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://docs.pyvista.org/versions.json';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = 'dev';
+        DOCUMENTATION_OPTIONS.show_version_warning_banner = false;
+        </script>
+    <link rel="index" title="索引" href="../../../genindex.html" />
+    <link rel="search" title="検索" href="../../../search.html" />
+    <link rel="next" title="pyvista.core.input_validation.validate.validate_array3" href="pyvista.core.input_validation.validate.validate_array3.html" />
+    <link rel="prev" title="pyvista.core.input_validation.validate" href="pyvista.core.input_validation.validate.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="ja"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+    <span class="fa-solid fa-bars"></span>
+  </label>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/pyvista_logo_sm.png" class="logo__image only-light" alt="PyVista 0.43.dev0 ドキュメント - Home"/>
+    <script>document.write(`<img src="../../../_static/pyvista_logo_sm.png" class="logo__image only-dark" alt="PyVista 0.43.dev0 ドキュメント - Home"/>`);</script>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item"><nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../getting-started/index.html">
+                        はじめに
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../user-guide/index.html">
+                        ユーザーガイド
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../examples/index.html">
+                        例
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="../../index.html">
+                        APIリファレンス
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../extras/index.html">
+                        その他
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="検索" aria-label="検索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">検索</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+        </div>
+      
+      
+        <div class="navbar-item">
+<script>
+document.write(`
+  <div class="version-switcher__container dropdown">
+    <button id="pst-version-switcher-button-2"
+      type="button"
+      class="version-switcher__button btn btn-sm navbar-btn dropdown-toggle"
+      data-bs-toggle="dropdown"
+      aria-haspopup="listbox"
+      aria-controls="pst-version-switcher-list-2"
+      aria-label="Version switcher list"
+    >
+      Choose version  <!-- this text may get changed later by javascript -->
+      <span class="caret"></span>
+    </button>
+    <div id="pst-version-switcher-list-2"
+      class="version-switcher__menu dropdown-menu list-group-flush py-0"
+      role="listbox" aria-labelledby="pst-version-switcher-button-2">
+      <!-- dropdown will be populated by javascript on page load -->
+    </div>
+  </div>
+`);
+</script></div>
+      
+        <div class="navbar-item">
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/pyvista/pyvista" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="http://slack.pyvista.org" title="Slack Community" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fab fa-slack fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">Slack Community</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/pyvista/pyvista/discussions" title="Support" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-comment fa-fw fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">Support</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/pyvista/pyvista/blob/main/CONTRIBUTING.rst" title="Contributing" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-gavel fa-fw fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">Contributing</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://doi.org/10.21105/joss.01450" title="The Paper" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-file-text fa-fw fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">The Paper</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="検索" aria-label="検索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">検索</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+    </div>
+  
+
+  
+    <label class="sidebar-toggle secondary-toggle" for="__secondary" tabindex="0">
+      <span class="fa-solid fa-outdent"></span>
+    </label>
+  
+</div>
+
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          <div class="navbar-item"><nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../getting-started/index.html">
+                        はじめに
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../user-guide/index.html">
+                        ユーザーガイド
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../examples/index.html">
+                        例
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item current active">
+                      <a class="nav-link nav-internal" href="../../index.html">
+                        APIリファレンス
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../extras/index.html">
+                        その他
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+<script>
+document.write(`
+  <div class="version-switcher__container dropdown">
+    <button id="pst-version-switcher-button-3"
+      type="button"
+      class="version-switcher__button btn btn-sm navbar-btn dropdown-toggle"
+      data-bs-toggle="dropdown"
+      aria-haspopup="listbox"
+      aria-controls="pst-version-switcher-list-3"
+      aria-label="Version switcher list"
+    >
+      Choose version  <!-- this text may get changed later by javascript -->
+      <span class="caret"></span>
+    </button>
+    <div id="pst-version-switcher-list-3"
+      class="version-switcher__menu dropdown-menu list-group-flush py-0"
+      role="listbox" aria-labelledby="pst-version-switcher-button-3">
+      <!-- dropdown will be populated by javascript on page load -->
+    </div>
+  </div>
+`);
+</script></div>
+        
+          <div class="navbar-item">
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/pyvista/pyvista" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="http://slack.pyvista.org" title="Slack Community" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fab fa-slack fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">Slack Community</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/pyvista/pyvista/discussions" title="Support" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-comment fa-fw fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">Support</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/pyvista/pyvista/blob/main/CONTRIBUTING.rst" title="Contributing" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-gavel fa-fw fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">Contributing</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://doi.org/10.21105/joss.01450" title="The Paper" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-file-text fa-fw fa-lg" aria-hidden="true"></i></span>
+            <span class="sr-only">The Paper</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item"><nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><p aria-level="2" class="caption" role="heading"><span class="caption-text">APIリファレンス</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../index.html">コアAPI</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../objects.html">データオブジェクト</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dataset.html">データセット</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pointsets.html">ポイントセット</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../grids.html">グリッドデータ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../composite.html">複合データセット</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../filters.html">フィルタ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../camera.html">カメラ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lights.html">ライト</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../cells.html">セル</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../helpers.html">ヘルパー</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../misc.html">その他</a></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="../validation.html">Input Validation</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l3 current active has-children"><a class="reference internal" href="pyvista.core.input_validation.validate.html">pyvista.core.input_validation.validate</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l4 current active"><a class="current reference internal" href="#">pyvista.core.input_validation.validate.validate_array</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyvista.core.input_validation.validate.validate_array3.html">pyvista.core.input_validation.validate.validate_array3</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyvista.core.input_validation.validate.validate_arrayN.html">pyvista.core.input_validation.validate.validate_arrayN</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyvista.core.input_validation.validate.validate_arrayN_uintlike.html">pyvista.core.input_validation.validate.validate_arrayN_uintlike</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyvista.core.input_validation.validate.validate_arrayNx3.html">pyvista.core.input_validation.validate.validate_arrayNx3</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyvista.core.input_validation.validate.validate_axes.html">pyvista.core.input_validation.validate.validate_axes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyvista.core.input_validation.validate.validate_data_range.html">pyvista.core.input_validation.validate.validate_data_range</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyvista.core.input_validation.validate.validate_dtype.html">pyvista.core.input_validation.validate.validate_dtype</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyvista.core.input_validation.validate.validate_number.html">pyvista.core.input_validation.validate.validate_number</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyvista.core.input_validation.validate.validate_transform3x3.html">pyvista.core.input_validation.validate.validate_transform3x3</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyvista.core.input_validation.validate.validate_transform4x4.html">pyvista.core.input_validation.validate.validate_transform4x4</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="pyvista.core.input_validation.check.html">pyvista.core.input_validation.check</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../plotting/index.html">プロット</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../utilities/index.html">ユーティリティ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../readers/index.html">リーダー</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/index.html">例</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+
+
+<nav aria-label="Breadcrumb">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../index.html" class="nav-link">APIリファレンス</a></li>
+    
+    
+    <li class="breadcrumb-item"><i class="fa-solid fa-ellipsis"></i></li>
+    
+    
+    <li class="breadcrumb-item"><a href="pyvista.core.input_validation.validate.html" class="nav-link">pyvista.core.input_validation.validate</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">pyvista.core...</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section id="pyvista-core-input-validation-validate-validate-array">
+<h1>pyvista.core.input_validation.validate.validate_array<a class="headerlink" href="#pyvista-core-input-validation-validate-validate-array" title="この見出しへのパーマリンク">#</a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="pyvista.core.input_validation.validate.validate_array">
+<span class="sig-name descname"><span class="pre">validate_array</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">arr</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">/</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">must_have_shape</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">must_have_dtype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">must_have_length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">must_have_min_length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">must_have_max_length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">must_be_nonnegative</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">must_be_finite</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">must_be_real</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">must_be_integer_like</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">must_be_sorted</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">must_be_in_range</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">strict_lower_bound</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">strict_upper_bound</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reshape_to</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">broadcast_to</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype_out</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">as_any</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">copy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">to_list</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">to_tuple</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Array'</span></span></em><span class="sig-paren">)</span><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/core/input_validation/validate.py#L37-L333"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.core.input_validation.validate.validate_array" title="この定義へのパーマリンク">#</a></dt>
+<dd><p>Check and validate a numeric array meets specific requirements.</p>
+<p>Validate an array to ensure it is numeric, has a specific shape,
+data-type, and/or has values that meet specific
+requirements such as being sorted, integer-like, or finite.</p>
+<p>The array's output can also be reshaped or broadcast, cast as a
+nested tuple or list array, or cast to a specific data type.</p>
+<dl class="field-list">
+<dt class="field-odd">パラメータ<span class="colon">:</span></dt>
+<dd class="field-odd"><dl>
+<dt><strong>arr</strong><span class="classifier"><a class="reference external" href="https://numpy.org/doc/stable/glossary.html#term-array_like" title="(in NumPy v1.26)"><span>array_like</span></a></span></dt><dd><p>Array to be validated, in any form that can be converted to
+a <code class="xref py py-class docutils literal notranslate"><span class="pre">np.ndarray</span></code>. This includes lists, lists of tuples, tuples,
+tuples of tuples, tuples of lists and ndarrays.</p>
+</dd>
+<dt><strong>must_have_shape</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/functions.html#int" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">int</span></code></a> | <a class="reference external" href="https://docs.python.org/3.11/library/stdtypes.html#tuple" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">tuple</span></code></a>[<a class="reference external" href="https://docs.python.org/3.11/library/functions.html#int" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">int</span></code></a>, ...] | <a class="reference external" href="https://docs.python.org/3.11/library/stdtypes.html#list" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">list</span></code></a>[<a class="reference external" href="https://docs.python.org/3.11/library/functions.html#int" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">int</span></code></a>, <a class="reference external" href="https://docs.python.org/3.11/library/stdtypes.html#tuple" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">tuple</span></code></a>[<a class="reference external" href="https://docs.python.org/3.11/library/functions.html#int" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">int</span></code></a>, ...]], <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p><a class="reference internal" href="pyvista.core.input_validation.check.check_has_shape.html#pyvista.core.input_validation.check.check_has_shape" title="pyvista.core.input_validation.check.check_has_shape"><code class="xref py py-func docutils literal notranslate"><span class="pre">Check</span></code></a>
+if the array has a specific shape. Specify a single shape
+or a <code class="docutils literal notranslate"><span class="pre">list</span></code> of any allowable shapes. If an integer, the array must
+be 1-dimensional with that length. Use a value of <code class="docutils literal notranslate"><span class="pre">-1</span></code> for any
+dimension where its size is allowed to vary. Use <code class="docutils literal notranslate"><span class="pre">()</span></code> to allow
+scalar values (i.e. 0-dimensional). Set to <code class="docutils literal notranslate"><span class="pre">None</span></code> if the array
+can have any shape (default).</p>
+</dd>
+<dt><strong>must_have_dtype</strong><span class="classifier"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dtype_like</span></code> | <a class="reference external" href="https://docs.python.org/3.11/library/stdtypes.html#list" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">list</span></code></a>[<code class="xref py py-obj docutils literal notranslate"><span class="pre">dtype_like</span></code>, ...], <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p><a class="reference internal" href="pyvista.core.input_validation.check.check_is_subdtype.html#pyvista.core.input_validation.check.check_is_subdtype" title="pyvista.core.input_validation.check.check_is_subdtype"><code class="xref py py-func docutils literal notranslate"><span class="pre">Check</span></code></a>
+if the array's data-type has the given dtype. Specify a
+<code class="xref py py-class docutils literal notranslate"><span class="pre">np.dtype</span></code> object or dtype-like base class which the
+array's data must be a subtype of. If a <code class="docutils literal notranslate"><span class="pre">list</span></code>, the array's data
+must be a subtype of at least one of the specified dtypes.</p>
+</dd>
+<dt><strong>must_have_length</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/functions.html#int" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">int</span></code></a> | <a class="reference external" href="https://numpy.org/doc/stable/glossary.html#term-array_like" title="(in NumPy v1.26)"><span>array_like</span></a>[<a class="reference external" href="https://docs.python.org/3.11/library/functions.html#int" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">int</span></code></a>, ...], <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p><a class="reference internal" href="pyvista.core.input_validation.check.check_has_length.html#pyvista.core.input_validation.check.check_has_length" title="pyvista.core.input_validation.check.check_has_length"><code class="xref py py-func docutils literal notranslate"><span class="pre">Check</span></code></a>
+if the array has the given length. If multiple values are given,
+the array's length must match one of the values.</p>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<p>The array's length is determined after reshaping the array
+(if <code class="docutils literal notranslate"><span class="pre">reshape</span></code> is not <code class="docutils literal notranslate"><span class="pre">None</span></code>) and after broadcasting (if
+<code class="docutils literal notranslate"><span class="pre">broadcast_to</span></code> is not <code class="docutils literal notranslate"><span class="pre">None</span></code>). Therefore, the values of
+<cite>length`</cite> should take the array's new shape into
+consideration if applicable.</p>
+</div>
+</dd>
+<dt><strong>must_have_min_length</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/functions.html#int" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">int</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p><a class="reference internal" href="pyvista.core.input_validation.check.check_has_length.html#pyvista.core.input_validation.check.check_has_length" title="pyvista.core.input_validation.check.check_has_length"><code class="xref py py-func docutils literal notranslate"><span class="pre">Check</span></code></a>
+if the array's length is this value or greater.</p>
+</dd>
+<dt><strong>must_have_max_length</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/functions.html#int" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">int</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p><a class="reference internal" href="pyvista.core.input_validation.check.check_has_length.html#pyvista.core.input_validation.check.check_has_length" title="pyvista.core.input_validation.check.check_has_length"><code class="xref py py-func docutils literal notranslate"><span class="pre">Check</span></code></a>
+if the array' length is this value or less.</p>
+</dd>
+<dt><strong>must_be_nonnegative</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.11)"><span class="xref std std-ref">bool</span></a>, default: <a class="reference external" href="https://docs.python.org/3.11/library/constants.html#False" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">False</span></code></a></span></dt><dd><p><a class="reference internal" href="pyvista.core.input_validation.check.check_is_nonnegative.html#pyvista.core.input_validation.check.check_is_nonnegative" title="pyvista.core.input_validation.check.check_is_nonnegative"><code class="xref py py-func docutils literal notranslate"><span class="pre">Check</span></code></a>
+if all elements of the array are nonnegative.</p>
+</dd>
+<dt><strong>must_be_finite</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.11)"><span class="xref std std-ref">bool</span></a>, default: <a class="reference external" href="https://docs.python.org/3.11/library/constants.html#False" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">False</span></code></a></span></dt><dd><p><a class="reference internal" href="pyvista.core.input_validation.check.check_is_finite.html#pyvista.core.input_validation.check.check_is_finite" title="pyvista.core.input_validation.check.check_is_finite"><code class="xref py py-func docutils literal notranslate"><span class="pre">Check</span></code></a>
+if all elements of the array are finite, i.e. not <code class="docutils literal notranslate"><span class="pre">infinity</span></code>
+and not Not a Number (<code class="docutils literal notranslate"><span class="pre">NaN</span></code>).</p>
+</dd>
+<dt><strong>must_be_real</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.11)"><span class="xref std std-ref">bool</span></a>, default: <a class="reference external" href="https://docs.python.org/3.11/library/constants.html#True" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">True</span></code></a></span></dt><dd><p><a class="reference internal" href="pyvista.core.input_validation.check.check_is_real.html#pyvista.core.input_validation.check.check_is_real" title="pyvista.core.input_validation.check.check_is_real"><code class="xref py py-func docutils literal notranslate"><span class="pre">Check</span></code></a>
+if the array has real numbers, i.e. its data type is integer or
+floating.</p>
+</dd>
+<dt><strong>must_be_integer_like</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.11)"><span class="xref std std-ref">bool</span></a>, default: <a class="reference external" href="https://docs.python.org/3.11/library/constants.html#False" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">False</span></code></a></span></dt><dd><p><a class="reference internal" href="pyvista.core.input_validation.check.check_is_integerlike.html#pyvista.core.input_validation.check.check_is_integerlike" title="pyvista.core.input_validation.check.check_is_integerlike"><code class="xref py py-func docutils literal notranslate"><span class="pre">Check</span></code></a>
+if the array's values are integer-like (i.e. that
+<code class="docutils literal notranslate"><span class="pre">np.all(arr,</span> <span class="pre">np.floor(arr))</span></code>).</p>
+</dd>
+<dt><strong>must_be_sorted</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.11)"><span class="xref std std-ref">bool</span></a> | <a class="reference external" href="https://docs.python.org/3.11/library/stdtypes.html#dict" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">dict</span></code></a>, default: <a class="reference external" href="https://docs.python.org/3.11/library/constants.html#False" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">False</span></code></a></span></dt><dd><p><a class="reference internal" href="pyvista.core.input_validation.check.check_is_sorted.html#pyvista.core.input_validation.check.check_is_sorted" title="pyvista.core.input_validation.check.check_is_sorted"><code class="xref py py-func docutils literal notranslate"><span class="pre">Check</span></code></a>
+if the array's values are sorted. If <code class="docutils literal notranslate"><span class="pre">True</span></code>, the check is
+performed with default parameters:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ascending=True</span></code>: the array must be sorted in ascending order</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">strict=False</span></code>: sequential elements with the same value are allowed</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">axis=-1</span></code>: the sorting is checked along the array's last axis</p></li>
+</ul>
+<p>To check for descending order, enforce strict ordering, or to check along
+along a different axis, use a <code class="docutils literal notranslate"><span class="pre">dict</span></code> with keyword arguments that
+will be passed to <code class="docutils literal notranslate"><span class="pre">check_is_sorted</span></code>.</p>
+</dd>
+<dt><strong>must_be_in_range</strong><span class="classifier"><a class="reference external" href="https://numpy.org/doc/stable/glossary.html#term-array_like" title="(in NumPy v1.26)"><span>array_like</span></a>[<a class="reference external" href="https://docs.python.org/3.11/library/functions.html#float" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a>, <a class="reference external" href="https://docs.python.org/3.11/library/functions.html#float" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a>], <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p><a class="reference internal" href="pyvista.core.input_validation.check.check_is_in_range.html#pyvista.core.input_validation.check.check_is_in_range" title="pyvista.core.input_validation.check.check_is_in_range"><code class="xref py py-func docutils literal notranslate"><span class="pre">Check</span></code></a>
+if the array's values are all within a specific range. Range
+must be array-like with two elements specifying the minimum and
+maximum data values allowed, respectively. By default, the range
+endpoints are inclusive, i.e. values must be &gt;= minimum and &lt;=
+maximum. Use <code class="docutils literal notranslate"><span class="pre">strict_lower_bound</span></code> and/or <code class="docutils literal notranslate"><span class="pre">strict_upper_bound</span></code>
+to further restrict the allowable range.</p>
+<p>..note</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Use ``np.inf`` to check for open intervals, e.g.:
+
+* ``[-np.inf, upper_bound]`` to check if values are less
+  than (or equal to)  ``upper_bound``
+* ``[lower_bound, np.inf]`` to check if values are greater
+  than (or equal to) ``lower_bound``
+</pre></div>
+</div>
+</dd>
+<dt><strong>strict_lower_bound</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.11)"><span class="xref std std-ref">bool</span></a>, default: <a class="reference external" href="https://docs.python.org/3.11/library/constants.html#False" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">False</span></code></a></span></dt><dd><p>Enforce a strict lower bound for the range specified by
+<code class="docutils literal notranslate"><span class="pre">must_be_in_range</span></code>, i.e. array values must be strictly greater
+than the specified minimum.</p>
+</dd>
+<dt><strong>strict_upper_bound</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.11)"><span class="xref std std-ref">bool</span></a>, default: <a class="reference external" href="https://docs.python.org/3.11/library/constants.html#False" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">False</span></code></a></span></dt><dd><p>Enforce a strict upper bound for the range specified by
+<code class="docutils literal notranslate"><span class="pre">must_be_in_range</span></code>, i.e. array values must be strictly less
+than the specified maximum.</p>
+</dd>
+<dt><strong>reshape_to</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/functions.html#int" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">int</span></code></a> | <a class="reference external" href="https://docs.python.org/3.11/library/stdtypes.html#tuple" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">tuple</span></code></a>[<a class="reference external" href="https://docs.python.org/3.11/library/functions.html#int" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">int</span></code></a>, ...], <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>Reshape the output array to a new shape with <code class="xref py py-func docutils literal notranslate"><span class="pre">np.reshape()</span></code>.
+The shape should be compatible with the original shape. If an
+integer, then the result will be a 1-D array of that length. One
+shape dimension can be -1.</p>
+</dd>
+<dt><strong>broadcast_to</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/functions.html#int" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">int</span></code></a> | <a class="reference external" href="https://docs.python.org/3.11/library/stdtypes.html#tuple" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">tuple</span></code></a>[<a class="reference external" href="https://docs.python.org/3.11/library/functions.html#int" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">int</span></code></a>, ...], <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>Broadcast the array with <code class="xref py py-func docutils literal notranslate"><span class="pre">np.broadcast_to()</span></code> to a
+read-only view with the specified shape. Broadcasting is done
+after reshaping (if <code class="docutils literal notranslate"><span class="pre">reshape_to</span></code> is not <code class="docutils literal notranslate"><span class="pre">None</span></code>).</p>
+</dd>
+<dt><strong>dtype_out</strong><span class="classifier"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dtype_like</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>Set the data-type of the returned array. By default, the
+dtype is inferred from the input data.</p>
+</dd>
+<dt><strong>as_any</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.11)"><span class="xref std std-ref">bool</span></a>, default: <a class="reference external" href="https://docs.python.org/3.11/library/constants.html#True" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">True</span></code></a></span></dt><dd><p>Allow subclasses of <code class="docutils literal notranslate"><span class="pre">np.ndarray</span></code> to pass through without
+making a copy.</p>
+</dd>
+<dt><strong>copy</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.11)"><span class="xref std std-ref">bool</span></a>, default: <a class="reference external" href="https://docs.python.org/3.11/library/constants.html#False" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">False</span></code></a></span></dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">True</span></code>, a copy of the array is returned. A copy is always
+returned if the array:</p>
+<ul class="simple">
+<li><p>is a nested sequence</p></li>
+<li><p>is a subclass of <code class="docutils literal notranslate"><span class="pre">np.ndarray</span></code> and <code class="docutils literal notranslate"><span class="pre">as_any</span></code> is <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></li>
+</ul>
+<p>A copy may also be made to satisfy <code class="docutils literal notranslate"><span class="pre">dtype_out</span></code> requirements.</p>
+</dd>
+<dt><strong>to_list</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.11)"><span class="xref std std-ref">bool</span></a>, default: <a class="reference external" href="https://docs.python.org/3.11/library/constants.html#False" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">False</span></code></a></span></dt><dd><p>Return the validated array as a <code class="docutils literal notranslate"><span class="pre">list</span></code> or nested <code class="docutils literal notranslate"><span class="pre">list</span></code>. Scalar
+values are always returned as a <code class="docutils literal notranslate"><span class="pre">Number</span></code>  (i.e. <code class="docutils literal notranslate"><span class="pre">int</span></code> or <code class="docutils literal notranslate"><span class="pre">float</span></code>).
+Has no effect if <code class="docutils literal notranslate"><span class="pre">to_tuple=True</span></code>.</p>
+</dd>
+<dt><strong>to_tuple</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.11)"><span class="xref std std-ref">bool</span></a>, default: <a class="reference external" href="https://docs.python.org/3.11/library/constants.html#False" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">False</span></code></a></span></dt><dd><p>Return the validated array as a <code class="docutils literal notranslate"><span class="pre">tuple</span></code> or nested <code class="docutils literal notranslate"><span class="pre">tuple</span></code>. Scalar
+values are always returned as a <code class="docutils literal notranslate"><span class="pre">Number</span></code>  (i.e. <code class="docutils literal notranslate"><span class="pre">int</span></code> or <code class="docutils literal notranslate"><span class="pre">float</span></code>).</p>
+</dd>
+<dt><strong>name</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/stdtypes.html#str" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a>, default: &quot;Array&quot;</span></dt><dd><p>Variable name to use in the error messages if any of the
+validation checks fail.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">戻り値<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt><a class="reference external" href="https://numpy.org/doc/stable/glossary.html#term-array_like" title="(in NumPy v1.26)"><span>array_like</span></a></dt><dd><p>Validated array. Returned object is:</p>
+<ul class="simple">
+<li><p>an instance of <code class="docutils literal notranslate"><span class="pre">np.ndarray</span></code> (default), or</p></li>
+<li><p>a nested <code class="docutils literal notranslate"><span class="pre">list</span></code> (if <code class="docutils literal notranslate"><span class="pre">to_list=True</span></code>), or</p></li>
+<li><p>a nested <code class="docutils literal notranslate"><span class="pre">tuple</span></code> (if <code class="docutils literal notranslate"><span class="pre">to_tuple=True</span></code>), or</p></li>
+<li><p>a <code class="docutils literal notranslate"><span class="pre">Number</span></code> (i.e. <code class="docutils literal notranslate"><span class="pre">int</span></code> or <code class="docutils literal notranslate"><span class="pre">float</span></code>) if the input is a scalar.</p></li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">参考</p>
+<dl class="simple">
+<dt><a class="reference internal" href="pyvista.core.input_validation.validate.validate_number.html#pyvista.core.input_validation.validate.validate_number" title="pyvista.core.input_validation.validate.validate_number"><code class="xref py py-obj docutils literal notranslate"><span class="pre">validate_number</span></code></a></dt><dd><p>Specialized function for single numbers.</p>
+</dd>
+<dt><a class="reference internal" href="pyvista.core.input_validation.validate.validate_array3.html#pyvista.core.input_validation.validate.validate_array3" title="pyvista.core.input_validation.validate.validate_array3"><code class="xref py py-obj docutils literal notranslate"><span class="pre">validate_array3</span></code></a></dt><dd><p>Specialized function for 3-element arrays.</p>
+</dd>
+<dt><a class="reference internal" href="pyvista.core.input_validation.validate.validate_arrayN.html#pyvista.core.input_validation.validate.validate_arrayN" title="pyvista.core.input_validation.validate.validate_arrayN"><code class="xref py py-obj docutils literal notranslate"><span class="pre">validate_arrayN</span></code></a></dt><dd><p>Specialized function for one-dimensional arrays.</p>
+</dd>
+<dt><a class="reference internal" href="pyvista.core.input_validation.validate.validate_arrayNx3.html#pyvista.core.input_validation.validate.validate_arrayNx3" title="pyvista.core.input_validation.validate.validate_arrayNx3"><code class="xref py py-obj docutils literal notranslate"><span class="pre">validate_arrayNx3</span></code></a></dt><dd><p>Specialized function for Nx3 dimensional arrays.</p>
+</dd>
+<dt><a class="reference internal" href="pyvista.core.input_validation.validate.validate_data_range.html#pyvista.core.input_validation.validate.validate_data_range" title="pyvista.core.input_validation.validate.validate_data_range"><code class="xref py py-obj docutils literal notranslate"><span class="pre">validate_data_range</span></code></a></dt><dd><p>Specialized function for data ranges.</p>
+</dd>
+</dl>
+</div>
+<p class="rubric">例</p>
+<p>Validate a one-dimensional array has at least length two, is
+monotonically increasing (i.e. has strict ascending order), and
+is within some range.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyvista.core.input_validation</span> <span class="k">as</span> <span class="nn">valid</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">array_in</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">13</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rng</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">valid</span><span class="o">.</span><span class="n">validate_array</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">array_in</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">must_have_shape</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span>
+<span class="gp">... </span>    <span class="n">must_have_min_length</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">must_be_sorted</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">strict</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+<span class="gp">... </span>    <span class="n">must_be_in_range</span><span class="o">=</span><span class="n">rng</span><span class="p">,</span>
+<span class="gp">... </span><span class="p">)</span>
+<span class="go">array([ 1,  2,  3,  5,  8, 13])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pyvista.core.input_validation.validate.validate_array"><code class="docutils literal notranslate"><span class="pre">validate_array()</span></code></a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  
+  <div class="tocsection editthispage">
+    <a href="http://github.com/pyvista/pyvista/edit/main/pyvista/core/input_validation/validate.py">
+      <i class="fa-solid fa-pencil"></i>
+      
+      
+        
+          GitHub で編集する
+        
+      
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+  <p class="copyright">
+    
+      © Copyright 2017-2023, The PyVista Developers.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item"><p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.14.3.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

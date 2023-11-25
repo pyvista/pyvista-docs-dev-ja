@@ -850,6 +850,57 @@ python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </sp
 </pre></div>
 </div>
 </section>
+<section id="input-validation">
+<h4>Input Validation<a class="headerlink" href="#input-validation" title="この見出しへのパーマリンク">#</a></h4>
+<p>Validating user input is an essential part of software development to ensure
+algorithms perform as expected. This is especially the case in Python when
+working with multiple array-like object types (e.g. <code class="docutils literal notranslate"><span class="pre">Sequence</span></code> and
+<code class="docutils literal notranslate"><span class="pre">numpy.ndarray</span></code>) which may lack support for explicit typing and type
+hints for cases where arrays with a certain shape, dimensionality, and/or
+data type (e.g. <code class="docutils literal notranslate"><span class="pre">float</span></code>, <code class="docutils literal notranslate"><span class="pre">int</span></code>) may be required. Therefore it is imperative
+to validate all user input and raise any errors as appropriate.</p>
+<p>However, manually writing input validation routines and associated test cases
+can be time consuming and error prone. Therefore, it is recommended to make
+use of existing validation methods in <code class="docutils literal notranslate"><span class="pre">pyvista.core.input_validation</span></code>.</p>
+<p>For example, a typical validation routine for some function may look like:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">some_function</span><span class="p">(</span><span class="n">points_array</span><span class="p">,</span> <span class="n">method</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Apply a method to an Nx3 points array.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    points_array : array_like</span>
+<span class="sd">        Array-like input of points with shape Nx3.</span>
+
+<span class="sd">    method : str</span>
+<span class="sd">        Method to apply. Must be one of:</span>
+<span class="sd">            * ``&#39;method_a&#39;``</span>
+<span class="sd">            * ``&#39;method_b&#39;``</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="kn">import</span> <span class="nn">pyvista.core.input_validation</span> <span class="k">as</span> <span class="nn">valid</span>
+
+    <span class="c1"># Validate input array. There is no need to check for</span>
+    <span class="c1"># type (e.g. Sequence or np.ndarray) or array shape.</span>
+    <span class="c1"># An error is automatically raised for bad input.</span>
+    <span class="n">arr</span> <span class="o">=</span> <span class="n">valid</span><span class="o">.</span><span class="n">validate_arrayNx3</span><span class="p">(</span><span class="n">points_array</span><span class="p">)</span>
+
+    <span class="c1"># Validate input method. An error is automatically</span>
+    <span class="c1"># raised if the method is not valid.</span>
+    <span class="n">possible_methods</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;method_a&quot;</span><span class="p">,</span> <span class="s2">&quot;method_b&quot;</span><span class="p">]</span>
+    <span class="n">check_is_string_in_iterable</span><span class="p">(</span><span class="n">method</span><span class="p">,</span> <span class="n">possible_methods</span><span class="p">)</span>
+
+    <span class="c1"># Start of implementation code...</span>
+</pre></div>
+</div>
+<p>When using the array validation methods, consider setting the input
+type in the docstring to <code class="docutils literal notranslate"><span class="pre">array_like</span></code> (if appropriate), as the validation
+methods are very general and can operate on any array-like input.</p>
+<p>Note: <code class="docutils literal notranslate"><span class="pre">array_like</span></code> is a <a class="reference external" href="https://numpy.org/doc/stable/glossary.html#term-array_like">NumPy glossary term</a>,
+not an actual type. Nevertheless, it's use is common in NumPy and
+PyVista documentation. A formal <code class="docutils literal notranslate"><span class="pre">ArrayLike</span></code> type was <a class="reference external" href="https://numpy.org/devdocs/reference/typing.html#numpy.typing.ArrayLike">introduced
+in NumPy 1.20</a>,
+but its use is not currently supported in PyVista.</p>
+</section>
 <section id="branch-naming-conventions">
 <h4>ブランチの命名規則<a class="headerlink" href="#branch-naming-conventions" title="この見出しへのパーマリンク">#</a></h4>
 <p>開発を効率化するために，ブランチの命名には次の要件があります．これらの要件は，コア開発者がコードを調べる前に，あるブランチがどのような種類の変更を導入しているかを知るのに役立ちます．</p>
@@ -1119,6 +1170,7 @@ make<span class="w"> </span>html<span class="w"> </span>-b<span class="w"> </spa
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#documentation-style">ドキュメンテーションスタイル</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#docstrings">Docstrings</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#deprecating-features-or-other-backwards-breaking-changes">非推奨の機能またはその他の後方互換性のない変更</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#input-validation">Input Validation</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#branch-naming-conventions">ブランチの命名規則</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#testing">テスト</a></li>
 </ul>
