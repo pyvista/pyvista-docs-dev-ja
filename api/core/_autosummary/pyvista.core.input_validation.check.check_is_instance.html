@@ -543,7 +543,7 @@ document.write(`
 <li class="toctree-l2"><a class="reference internal" href="../cells.html">セル</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../helpers.html">ヘルパー</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../misc.html">その他</a></li>
-<li class="toctree-l2 current active has-children"><a class="reference internal" href="../validation.html">Input Validation</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="../validation.html">入力バリデーション</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="pyvista.core.input_validation.validate.html">pyvista.core.input_validation.validate</a></li>
 <li class="toctree-l3 current active has-children"><a class="reference internal" href="pyvista.core.input_validation.check.html">pyvista.core.input_validation.check</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="pyvista.core.input_validation.check.check_has_length.html">pyvista.core.input_validation.check.check_has_length</a></li>
@@ -649,27 +649,26 @@ document.write(`
 <dl class="py function">
 <dt class="sig sig-object py" id="pyvista.core.input_validation.check.check_is_instance">
 <span class="sig-name descname"><span class="pre">check_is_instance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">/</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">classinfo</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">allow_subclass</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Object'</span></span></em><span class="sig-paren">)</span><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/core/input_validation/check.py#L809-L890"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.core.input_validation.check.check_is_instance" title="この定義へのパーマリンク">#</a></dt>
-<dd><p>Check if an object is an instance of the given type or types.</p>
+<dd><p>オブジェクトが与えられた型または複数型のインスタンスであるかどうかをチェックします．</p>
 <dl class="field-list">
 <dt class="field-odd">パラメータ<span class="colon">:</span></dt>
 <dd class="field-odd"><dl>
-<dt><strong>obj</strong><span class="classifier"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Any</span></code></span></dt><dd><p>Object to check.</p>
+<dt><strong>obj</strong><span class="classifier"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Any</span></code></span></dt><dd><p>チェックするオブジェクト．</p>
 </dd>
-<dt><strong>classinfo</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/functions.html#type" title="(in Python v3.11)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">type</span></code></a> | <a class="reference external" href="https://docs.python.org/3.11/library/stdtypes.html#tuple" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">tuple</span></code></a>[<a class="reference external" href="https://docs.python.org/3.11/library/functions.html#type" title="(in Python v3.11)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">type</span></code></a>, ...]</span></dt><dd><p><code class="docutils literal notranslate"><span class="pre">type</span></code> or tuple of types. Object must be an instance of one of
-the types.</p>
+<dt><strong>classinfo</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/functions.html#type" title="(in Python v3.11)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">type</span></code></a> | <a class="reference external" href="https://docs.python.org/3.11/library/stdtypes.html#tuple" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">tuple</span></code></a>[<a class="reference external" href="https://docs.python.org/3.11/library/functions.html#type" title="(in Python v3.11)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">type</span></code></a>, ...]</span></dt><dd><p><code class="docutils literal notranslate"><span class="pre">type</span></code> またはtypeのタプル．オブジェクトはいずれかの型のインスタンスでなければなりません．</p>
 </dd>
 <dt><strong>allow_subclass</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.11)"><span class="xref std std-ref">bool</span></a>, default: <a class="reference external" href="https://docs.python.org/3.11/library/constants.html#True" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">True</span></code></a></span></dt><dd><dl class="simple">
-<dt>If <code class="docutils literal notranslate"><span class="pre">True</span></code>, the object's type must be specified by <code class="docutils literal notranslate"><span class="pre">classinfo</span></code></dt><dd><p>or any of its subclasses. Otherwise, subclasses are not allowed.</p>
+<dt>もし <code class="docutils literal notranslate"><span class="pre">True</span></code> ならば，オブジェクトのタイプは <code class="docutils literal notranslate"><span class="pre">classinfo</span></code> で指定する必要があります．</dt><dd><p>またはそのサブクラスのいずれか．そうでない場合，サブクラスは許可されません．</p>
 </dd>
 </dl>
 </dd>
-<dt><strong>name</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/stdtypes.html#str" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a>, default: &quot;Object&quot;</span></dt><dd><p>Variable name to use in the error messages if any are raised.</p>
+<dt><strong>name</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/stdtypes.html#str" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a>, default: &quot;Object&quot;</span></dt><dd><p>エラーメッセージが発生した場合に使用する変数名．</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">エラー処理<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt><a class="reference external" href="https://docs.python.org/3.11/library/exceptions.html#TypeError" title="(in Python v3.11)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TypeError</span></code></a></dt><dd><p>If object is not an instance of any of the given types.</p>
+<dt><a class="reference external" href="https://docs.python.org/3.11/library/exceptions.html#TypeError" title="(in Python v3.11)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TypeError</span></code></a></dt><dd><p>オブジェクトが指定された型のインスタンスでない場合．</p>
 </dd>
 </dl>
 </dd>
@@ -685,12 +684,12 @@ the types.</p>
 </dl>
 </div>
 <p class="rubric">例</p>
-<p>Check if an object is an instance of <code class="docutils literal notranslate"><span class="pre">complex</span></code>.</p>
+<p>オブジェクトが <code class="docutils literal notranslate"><span class="pre">complex</span></code> のインスタンスであるかどうかをチェックします．</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyvista.core.input_validation</span> <span class="k">as</span> <span class="nn">valid</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">valid</span><span class="o">.</span><span class="n">check_is_instance</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span><span class="n">j</span><span class="p">,</span> <span class="nb">complex</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Check if an object is an instance of one of several types.</p>
+<p>オブジェクトがいくつかの型のうちの1つのインスタンスであるかどうかをチェックします．</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">valid</span><span class="o">.</span><span class="n">check_is_instance</span><span class="p">(</span><span class="s2">&quot;eggs&quot;</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">))</span>
 </pre></div>
 </div>

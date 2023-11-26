@@ -543,7 +543,7 @@ document.write(`
 <li class="toctree-l2"><a class="reference internal" href="../cells.html">セル</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../helpers.html">ヘルパー</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../misc.html">その他</a></li>
-<li class="toctree-l2 current active has-children"><a class="reference internal" href="../validation.html">Input Validation</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="../validation.html">入力バリデーション</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="pyvista.core.input_validation.validate.html">pyvista.core.input_validation.validate</a></li>
 <li class="toctree-l3 current active has-children"><a class="current reference internal" href="#">pyvista.core.input_validation.check</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l4"><a class="reference internal" href="pyvista.core.input_validation.check.check_has_length.html">pyvista.core.input_validation.check.check_has_length</a></li>
@@ -625,7 +625,7 @@ document.write(`
     <li class="breadcrumb-item"><i class="fa-solid fa-ellipsis"></i></li>
     
     
-    <li class="breadcrumb-item"><a href="../validation.html" class="nav-link">Input Validation</a></li>
+    <li class="breadcrumb-item"><a href="../validation.html" class="nav-link">入力バリデーション</a></li>
     
     <li class="breadcrumb-item active" aria-current="page">pyvista.core...</li>
   </ul>
@@ -646,87 +646,87 @@ document.write(`
                   
   <section id="module-pyvista.core.input_validation.check">
 <span id="pyvista-core-input-validation-check"></span><h1>pyvista.core.input_validation.check<a class="headerlink" href="#module-pyvista.core.input_validation.check" title="この見出しへのパーマリンク">#</a></h1>
-<p>Functions that check the type and/or value of inputs.</p>
+<p>入力のタイプと/または値をチェックする関数．</p>
 <div class="versionadded">
 <p><span class="versionmodified added">バージョン 0.43.0 で追加.</span></p>
 </div>
-<p>A <code class="docutils literal notranslate"><span class="pre">check</span></code> function typically:</p>
+<p><code class="docutils literal notranslate"><span class="pre">check</span></code> 関数は通常，次のように動作します:</p>
 <ul class="simple">
-<li><p>Performs a simple validation on a single input variable.</p></li>
-<li><p>Raises an error if the check fails due to invalid input.</p></li>
-<li><p>Does not modify input or return anything.</p></li>
+<li><p>単一の入力変数に対して単純な検証を行う．</p></li>
+<li><p>無効な入力によりチェックに失敗した場合，エラーを発生させます．</p></li>
+<li><p>入力を変更したり，何も返したりしません．</p></li>
 </ul>
 <p class="rubric">関数</p>
 <table class="autosummary longtable table autosummary">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.core.input_validation.check.check_has_length.html#pyvista.core.input_validation.check.check_has_length" title="pyvista.core.input_validation.check.check_has_length"><code class="xref py py-obj docutils literal notranslate"><span class="pre">check_has_length</span></code></a>(arr, /, *[, exact_length, ...])</p></td>
-<td><p>Check if the length of an array meets specific requirements.</p></td>
+<td><p>配列の長さが特定の条件を満たすかどうかをチェックします．</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.core.input_validation.check.check_has_shape.html#pyvista.core.input_validation.check.check_has_shape" title="pyvista.core.input_validation.check.check_has_shape"><code class="xref py py-obj docutils literal notranslate"><span class="pre">check_has_shape</span></code></a>(arr, /, shape, *[, name])</p></td>
-<td><p>Check if an array has the specified shape.</p></td>
+<td><p>配列が指定された形状を持つかどうかをチェックします．</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.core.input_validation.check.check_is_arraylike.html#pyvista.core.input_validation.check.check_is_arraylike" title="pyvista.core.input_validation.check.check_is_arraylike"><code class="xref py py-obj docutils literal notranslate"><span class="pre">check_is_arraylike</span></code></a>(arr)</p></td>
-<td><p>Check if an input can be cast as a NumPy ndarray.</p></td>
+<td><p>入力がNumPyのndarrayとしてキャストできるかチェックします．</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.core.input_validation.check.check_is_dtypelike.html#pyvista.core.input_validation.check.check_is_dtypelike" title="pyvista.core.input_validation.check.check_is_dtypelike"><code class="xref py py-obj docutils literal notranslate"><span class="pre">check_is_dtypelike</span></code></a>(dtype)</p></td>
-<td><p>Check if an input is dtype-like.</p></td>
+<td><p>入力が dtype-like かどうかをチェックします．</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.core.input_validation.check.check_is_finite.html#pyvista.core.input_validation.check.check_is_finite" title="pyvista.core.input_validation.check.check_is_finite"><code class="xref py py-obj docutils literal notranslate"><span class="pre">check_is_finite</span></code></a>(arr, /, *[, name])</p></td>
-<td><p>Check if an array has finite values, i.e. no NaN or Inf values.</p></td>
+<td><p>配列が有限の値を持つかどうか，つまりNaNやInfの値を持たないかどうかをチェックします．</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.core.input_validation.check.check_is_greater_than.html#pyvista.core.input_validation.check.check_is_greater_than" title="pyvista.core.input_validation.check.check_is_greater_than"><code class="xref py py-obj docutils literal notranslate"><span class="pre">check_is_greater_than</span></code></a>(arr, /, value, *[, ...])</p></td>
-<td><p>Check if an array's elements are all greater than some value.</p></td>
+<td><p>配列の要素がすべてある値より大きいかどうかをチェックします．</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.core.input_validation.check.check_is_in_range.html#pyvista.core.input_validation.check.check_is_in_range" title="pyvista.core.input_validation.check.check_is_in_range"><code class="xref py py-obj docutils literal notranslate"><span class="pre">check_is_in_range</span></code></a>(arr, /, rng, *[, ...])</p></td>
-<td><p>Check if an array's values are all within a specific range.</p></td>
+<td><p>配列の値がすべて特定の範囲内にあるかどうかをチェックします．</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.core.input_validation.check.check_is_instance.html#pyvista.core.input_validation.check.check_is_instance" title="pyvista.core.input_validation.check.check_is_instance"><code class="xref py py-obj docutils literal notranslate"><span class="pre">check_is_instance</span></code></a>(obj, /, classinfo, *[, ...])</p></td>
-<td><p>Check if an object is an instance of the given type or types.</p></td>
+<td><p>オブジェクトが与えられた型または複数型のインスタンスであるかどうかをチェックします．</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.core.input_validation.check.check_is_integerlike.html#pyvista.core.input_validation.check.check_is_integerlike" title="pyvista.core.input_validation.check.check_is_integerlike"><code class="xref py py-obj docutils literal notranslate"><span class="pre">check_is_integerlike</span></code></a>(arr, /, *[, strict, name])</p></td>
-<td><p>Check if an array has integer or integer-like float values.</p></td>
+<td><p>配列が整数または整数のような浮動小数点値を持つかどうかをチェックします．</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.core.input_validation.check.check_is_iterable.html#pyvista.core.input_validation.check.check_is_iterable" title="pyvista.core.input_validation.check.check_is_iterable"><code class="xref py py-obj docutils literal notranslate"><span class="pre">check_is_iterable</span></code></a>(obj, /, *[, name])</p></td>
-<td><p>Check if an object is an instance of <code class="docutils literal notranslate"><span class="pre">Iterable</span></code>.</p></td>
+<td><p>オブジェクトが <code class="docutils literal notranslate"><span class="pre">Iterable</span></code> のインスタンスであるかどうかをチェックします．</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.core.input_validation.check.check_is_iterable_of_some_type.html#pyvista.core.input_validation.check.check_is_iterable_of_some_type" title="pyvista.core.input_validation.check.check_is_iterable_of_some_type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">check_is_iterable_of_some_type</span></code></a>(iterable_obj, ...)</p></td>
-<td><p>Check if an iterable's items all have a specified type.</p></td>
+<td><p>イテラブルのアイテムがすべて指定された型を持っているかどうかをチェックします．</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.core.input_validation.check.check_is_iterable_of_strings.html#pyvista.core.input_validation.check.check_is_iterable_of_strings" title="pyvista.core.input_validation.check.check_is_iterable_of_strings"><code class="xref py py-obj docutils literal notranslate"><span class="pre">check_is_iterable_of_strings</span></code></a>(iterable_obj, /, *)</p></td>
-<td><p>Check if an iterable's items are all strings.</p></td>
+<td><p>イテラブルのアイテムがすべて文字列かどうかをチェックします．</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.core.input_validation.check.check_is_less_than.html#pyvista.core.input_validation.check.check_is_less_than" title="pyvista.core.input_validation.check.check_is_less_than"><code class="xref py py-obj docutils literal notranslate"><span class="pre">check_is_less_than</span></code></a>(arr, /, value, *[, ...])</p></td>
-<td><p>Check if an array's elements are all less than some value.</p></td>
+<td><p>配列の要素がすべてある値より小さいかどうかをチェックします．</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.core.input_validation.check.check_is_nonnegative.html#pyvista.core.input_validation.check.check_is_nonnegative" title="pyvista.core.input_validation.check.check_is_nonnegative"><code class="xref py py-obj docutils literal notranslate"><span class="pre">check_is_nonnegative</span></code></a>(arr, /, *[, name])</p></td>
-<td><p>Check if an array's elements are all nonnegative.</p></td>
+<td><p>配列の要素がすべて非負かどうかをチェックします．</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.core.input_validation.check.check_is_number.html#pyvista.core.input_validation.check.check_is_number" title="pyvista.core.input_validation.check.check_is_number"><code class="xref py py-obj docutils literal notranslate"><span class="pre">check_is_number</span></code></a>(num, /, *[, name])</p></td>
-<td><p>Check if an object is an instance of <code class="docutils literal notranslate"><span class="pre">Number</span></code>.</p></td>
+<td><p>オブジェクトが <code class="docutils literal notranslate"><span class="pre">Number</span></code> のインスタンスであるかどうかをチェックします．</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.core.input_validation.check.check_is_real.html#pyvista.core.input_validation.check.check_is_real" title="pyvista.core.input_validation.check.check_is_real"><code class="xref py py-obj docutils literal notranslate"><span class="pre">check_is_real</span></code></a>(arr, /, *[, name])</p></td>
-<td><p>Check if an array has real numbers, i.e. float or integer type.</p></td>
+<td><p>配列が実数，すなわち浮動小数点数型か整数型かをチェックします．</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.core.input_validation.check.check_is_scalar.html#pyvista.core.input_validation.check.check_is_scalar" title="pyvista.core.input_validation.check.check_is_scalar"><code class="xref py py-obj docutils literal notranslate"><span class="pre">check_is_scalar</span></code></a>(scalar, /, *[, name])</p></td>
-<td><p>Check if an object is a real-valued scalar number.</p></td>
+<td><p>オブジェクトが実数値のスカラー数かどうかをチェックします．</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.core.input_validation.check.check_is_sequence.html#pyvista.core.input_validation.check.check_is_sequence" title="pyvista.core.input_validation.check.check_is_sequence"><code class="xref py py-obj docutils literal notranslate"><span class="pre">check_is_sequence</span></code></a>(obj, /, *[, name])</p></td>
-<td><p>Check if an object is an instance of <code class="docutils literal notranslate"><span class="pre">Sequence</span></code>.</p></td>
+<td><p>オブジェクトが <code class="docutils literal notranslate"><span class="pre">Sequence</span></code> のインスタンスであるかどうかをチェックします．</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.core.input_validation.check.check_is_sorted.html#pyvista.core.input_validation.check.check_is_sorted" title="pyvista.core.input_validation.check.check_is_sorted"><code class="xref py py-obj docutils literal notranslate"><span class="pre">check_is_sorted</span></code></a>(arr, /, *[, ascending, ...])</p></td>
-<td><p>Check if an array's values are sorted.</p></td>
+<td><p>配列の値がソートされているかどうかをチェックします．</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.core.input_validation.check.check_is_string.html#pyvista.core.input_validation.check.check_is_string" title="pyvista.core.input_validation.check.check_is_string"><code class="xref py py-obj docutils literal notranslate"><span class="pre">check_is_string</span></code></a>(obj, /, *[, allow_subclass, ...])</p></td>
-<td><p>Check if an object is an instance of <code class="docutils literal notranslate"><span class="pre">str</span></code>.</p></td>
+<td><p>オブジェクトが <code class="docutils literal notranslate"><span class="pre">str</span></code> のインスタンスであるかどうかをチェックします．</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.core.input_validation.check.check_is_string_in_iterable.html#pyvista.core.input_validation.check.check_is_string_in_iterable" title="pyvista.core.input_validation.check.check_is_string_in_iterable"><code class="xref py py-obj docutils literal notranslate"><span class="pre">check_is_string_in_iterable</span></code></a>(string_in, /, ...)</p></td>
-<td><p>Check if a given string is in an iterable of strings.</p></td>
+<td><p>与えられた文字列が反復可能な文字列の中にあるかどうかをチェックします．</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.core.input_validation.check.check_is_subdtype.html#pyvista.core.input_validation.check.check_is_subdtype" title="pyvista.core.input_validation.check.check_is_subdtype"><code class="xref py py-obj docutils literal notranslate"><span class="pre">check_is_subdtype</span></code></a>(arg1, arg2, /, *[, name])</p></td>
-<td><p>Check if a data-type is a subtype of another data-type(s).</p></td>
+<td><p>データ型が他の(複数の)データ型のサブタイプであるかどうかをチェックします．</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.core.input_validation.check.check_is_type.html#pyvista.core.input_validation.check.check_is_type" title="pyvista.core.input_validation.check.check_is_type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">check_is_type</span></code></a>(obj, /, classinfo, *[, name])</p></td>
-<td><p>Check if an object is one of the given type or types.</p></td>
+<td><p>オブジェクトが与えられた型または複数型のどれかであるかどうかをチェックします．</p></td>
 </tr>
 </tbody>
 </table>

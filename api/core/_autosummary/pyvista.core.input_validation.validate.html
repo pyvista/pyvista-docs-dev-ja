@@ -78,7 +78,7 @@
     <link rel="index" title="索引" href="../../../genindex.html" />
     <link rel="search" title="検索" href="../../../search.html" />
     <link rel="next" title="pyvista.core.input_validation.validate.validate_array" href="pyvista.core.input_validation.validate.validate_array.html" />
-    <link rel="prev" title="Input Validation" href="../validation.html" />
+    <link rel="prev" title="入力バリデーション" href="../validation.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="ja"/>
   </head>
@@ -543,7 +543,7 @@ document.write(`
 <li class="toctree-l2"><a class="reference internal" href="../cells.html">セル</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../helpers.html">ヘルパー</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../misc.html">その他</a></li>
-<li class="toctree-l2 current active has-children"><a class="reference internal" href="../validation.html">Input Validation</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="../validation.html">入力バリデーション</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l3 current active has-children"><a class="current reference internal" href="#">pyvista.core.input_validation.validate</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l4"><a class="reference internal" href="pyvista.core.input_validation.validate.validate_array.html">pyvista.core.input_validation.validate.validate_array</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyvista.core.input_validation.validate.validate_array3.html">pyvista.core.input_validation.validate.validate_array3</a></li>
@@ -613,7 +613,7 @@ document.write(`
     <li class="breadcrumb-item"><i class="fa-solid fa-ellipsis"></i></li>
     
     
-    <li class="breadcrumb-item"><a href="../validation.html" class="nav-link">Input Validation</a></li>
+    <li class="breadcrumb-item"><a href="../validation.html" class="nav-link">入力バリデーション</a></li>
     
     <li class="breadcrumb-item active" aria-current="page">pyvista.core...</li>
   </ul>
@@ -634,54 +634,51 @@ document.write(`
                   
   <section id="module-pyvista.core.input_validation.validate">
 <span id="pyvista-core-input-validation-validate"></span><h1>pyvista.core.input_validation.validate<a class="headerlink" href="#module-pyvista.core.input_validation.validate" title="この見出しへのパーマリンク">#</a></h1>
-<p>Functions that validate input and return a standard representation.</p>
+<p>入力を検証し，標準的な表現を返す関数．</p>
 <div class="versionadded">
 <p><span class="versionmodified added">バージョン 0.43.0 で追加.</span></p>
 </div>
-<p>A <code class="docutils literal notranslate"><span class="pre">validate</span></code> function typically:</p>
+<p><code class="docutils literal notranslate"><span class="pre">validate</span></code> 関数は通常，次のように動作します:</p>
 <ul class="simple">
-<li><p>Uses <a class="reference internal" href="pyvista.core.input_validation.check.html#module-pyvista.core.input_validation.check" title="pyvista.core.input_validation.check"><code class="xref py py-mod docutils literal notranslate"><span class="pre">check</span></code></a> functions to
-check the type and/or value of input arguments.</p></li>
-<li><p>Applies (optional) constraints, e.g. input or output must have a
-specific length, shape, type, data-type, etc.</p></li>
-<li><p>Accepts many different input types or values and standardizes the
-output as a single representation with known properties.</p></li>
+<li><p><a class="reference internal" href="pyvista.core.input_validation.check.html#module-pyvista.core.input_validation.check" title="pyvista.core.input_validation.check"><code class="xref py py-mod docutils literal notranslate"><span class="pre">check</span></code></a> 関数を使用して，入力引数の型や値をチェックします．</p></li>
+<li><p>(オプションの) 制約を適用します．例えば，入力または出力は特定の長さ，形状，タイプ，データタイプでなければならないなど．</p></li>
+<li><p>多くの異なる入力タイプや値を受け入れ，既知のプロパティを持つ単一の表現として出力を標準化します．</p></li>
 </ul>
 <p class="rubric">関数</p>
 <table class="autosummary longtable table autosummary">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.core.input_validation.validate.validate_array.html#pyvista.core.input_validation.validate.validate_array" title="pyvista.core.input_validation.validate.validate_array"><code class="xref py py-obj docutils literal notranslate"><span class="pre">validate_array</span></code></a>(arr, /, *[, must_have_shape, ...])</p></td>
-<td><p>Check and validate a numeric array meets specific requirements.</p></td>
+<td><p>数値配列が特定の要件を満たしているかチェックし，検証します．</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.core.input_validation.validate.validate_array3.html#pyvista.core.input_validation.validate.validate_array3" title="pyvista.core.input_validation.validate.validate_array3"><code class="xref py py-obj docutils literal notranslate"><span class="pre">validate_array3</span></code></a>(arr, /, *[, reshape, broadcast])</p></td>
-<td><p>Validate a numeric 1D array with 3 elements.</p></td>
+<td><p>3つの要素を持つ数値の1次元配列を検証します．</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.core.input_validation.validate.validate_arrayN.html#pyvista.core.input_validation.validate.validate_arrayN" title="pyvista.core.input_validation.validate.validate_arrayN"><code class="xref py py-obj docutils literal notranslate"><span class="pre">validate_arrayN</span></code></a>(arr, /, *[, reshape])</p></td>
-<td><p>Validate a numeric 1D array.</p></td>
+<td><p>数値の1次元配列を検証します．</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.core.input_validation.validate.validate_arrayN_uintlike.html#pyvista.core.input_validation.validate.validate_arrayN_uintlike" title="pyvista.core.input_validation.validate.validate_arrayN_uintlike"><code class="xref py py-obj docutils literal notranslate"><span class="pre">validate_arrayN_uintlike</span></code></a>(arr, /, *[, reshape])</p></td>
-<td><p>Validate a numeric 1D array of non-negative (unsigned) integers.</p></td>
+<td><p>非負 (符号なし) 整数の数値1次元配列を検証する．</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.core.input_validation.validate.validate_arrayNx3.html#pyvista.core.input_validation.validate.validate_arrayNx3" title="pyvista.core.input_validation.validate.validate_arrayNx3"><code class="xref py py-obj docutils literal notranslate"><span class="pre">validate_arrayNx3</span></code></a>(arr, /, *[, reshape])</p></td>
-<td><p>Validate an array is numeric and has shape Nx3.</p></td>
+<td><p>配列が数値で Nx3 の形状であることを検証します．</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.core.input_validation.validate.validate_axes.html#pyvista.core.input_validation.validate.validate_axes" title="pyvista.core.input_validation.validate.validate_axes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">validate_axes</span></code></a>(*axes[, normalize, ...])</p></td>
-<td><p>Validate 3D axes vectors.</p></td>
+<td><p>3D軸ベクトルを検証します．</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.core.input_validation.validate.validate_data_range.html#pyvista.core.input_validation.validate.validate_data_range" title="pyvista.core.input_validation.validate.validate_data_range"><code class="xref py py-obj docutils literal notranslate"><span class="pre">validate_data_range</span></code></a>(rng, /, **kwargs)</p></td>
-<td><p>Validate a data range.</p></td>
+<td><p>データ範囲を検証します．</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.core.input_validation.validate.validate_dtype.html#pyvista.core.input_validation.validate.validate_dtype" title="pyvista.core.input_validation.validate.validate_dtype"><code class="xref py py-obj docutils literal notranslate"><span class="pre">validate_dtype</span></code></a>(dtype_like)</p></td>
-<td><p>Validate dtype-like input and return it as a dtype object.</p></td>
+<td><p>dtype-like 入力を検証し，dtypeオブジェクトとして返します．</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.core.input_validation.validate.validate_number.html#pyvista.core.input_validation.validate.validate_number" title="pyvista.core.input_validation.validate.validate_number"><code class="xref py py-obj docutils literal notranslate"><span class="pre">validate_number</span></code></a>(num, /, *[, reshape])</p></td>
-<td><p>Validate a real, finite number.</p></td>
+<td><p>有限の実数を検証します．</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.core.input_validation.validate.validate_transform3x3.html#pyvista.core.input_validation.validate.validate_transform3x3" title="pyvista.core.input_validation.validate.validate_transform3x3"><code class="xref py py-obj docutils literal notranslate"><span class="pre">validate_transform3x3</span></code></a>(transform, /, *[, name])</p></td>
-<td><p>Validate transform-like input as a 3x3 ndarray.</p></td>
+<td><p>トランスフォームのような入力を3x3のndarrayとして検証します．</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.core.input_validation.validate.validate_transform4x4.html#pyvista.core.input_validation.validate.validate_transform4x4" title="pyvista.core.input_validation.validate.validate_transform4x4"><code class="xref py py-obj docutils literal notranslate"><span class="pre">validate_transform4x4</span></code></a>(transform, /, *[, name])</p></td>
-<td><p>Validate transform-like input as a 4x4 ndarray.</p></td>
+<td><p>トランスフォームのような入力を4x4のndarrayとして検証します．</p></td>
 </tr>
 </tbody>
 </table>

@@ -543,7 +543,7 @@ document.write(`
 <li class="toctree-l2"><a class="reference internal" href="../cells.html">セル</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../helpers.html">ヘルパー</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../misc.html">その他</a></li>
-<li class="toctree-l2 current active has-children"><a class="reference internal" href="../validation.html">Input Validation</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="../validation.html">入力バリデーション</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l3 current active has-children"><a class="reference internal" href="pyvista.core.input_validation.validate.html">pyvista.core.input_validation.validate</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="pyvista.core.input_validation.validate.validate_array.html">pyvista.core.input_validation.validate.validate_array</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyvista.core.input_validation.validate.validate_array3.html">pyvista.core.input_validation.validate.validate_array3</a></li>
@@ -637,7 +637,7 @@ document.write(`
 <dl class="py function">
 <dt class="sig sig-object py" id="pyvista.core.input_validation.validate.validate_axes">
 <span class="sig-name descname"><span class="pre">validate_axes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">axes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">normalize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">must_be_orthogonal</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">must_have_orientation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'right'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Axes'</span></span></em><span class="sig-paren">)</span><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/core/input_validation/validate.py#L336-L457"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.core.input_validation.validate.validate_axes" title="この定義へのパーマリンク">#</a></dt>
-<dd><p>Validate 3D axes vectors.</p>
+<dd><p>3D軸ベクトルを検証します．</p>
 <p>By default, the axes are normalized and checked to ensure they are orthogonal and
 have a right-handed orientation.</p>
 <dl class="field-list">
@@ -660,8 +660,7 @@ cross-product of the first axis vector with the second must have a positive
 direction. If <code class="docutils literal notranslate"><span class="pre">left</span></code>, the direction must be negative. If <code class="docutils literal notranslate"><span class="pre">None</span></code>, the
 orientation is not checked.</p>
 </dd>
-<dt><strong>name</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/stdtypes.html#str" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a>, default: &quot;Axes&quot;</span></dt><dd><p>Variable name to use in the error messages if any of the
-validation checks fail.</p>
+<dt><strong>name</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/stdtypes.html#str" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a>, default: &quot;Axes&quot;</span></dt><dd><p>エラーメッセージのバリデーションチェックに失敗した場合に使用する変数名．</p>
 </dd>
 </dl>
 </dd>
