@@ -640,30 +640,27 @@ document.write(`
 <dd><p>数値の1次元配列を検証します．</p>
 <p>配列は，入力値を確認するためにチェックされます:</p>
 <ul class="simple">
-<li><p>have shape <code class="docutils literal notranslate"><span class="pre">(N,)</span></code> or can be reshaped to <code class="docutils literal notranslate"><span class="pre">(N,)</span></code></p></li>
-<li><p>are numeric</p></li>
+<li><p>は <code class="docutils literal notranslate"><span class="pre">(N,)</span></code> の形状を持つか， <code class="docutils literal notranslate"><span class="pre">(N,)</span></code> に整形することができます．</p></li>
+<li><p>数値</p></li>
 </ul>
-<p>The returned array is formatted so that its values:</p>
+<p>返される配列はその値が以下となるようにフォーマットされます:</p>
 <ul class="simple">
-<li><p>have shape <code class="docutils literal notranslate"><span class="pre">(N,)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">(N,)</span></code> の形をしています</p></li>
 </ul>
 <dl class="field-list">
 <dt class="field-odd">パラメータ<span class="colon">:</span></dt>
 <dd class="field-odd"><dl>
-<dt><strong>arr</strong><span class="classifier"><a class="reference external" href="https://numpy.org/doc/stable/glossary.html#term-array_like" title="(in NumPy v1.26)"><span>array_like</span></a>[<a class="reference external" href="https://docs.python.org/3.11/library/functions.html#float" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a>, ...]</span></dt><dd><p>Array to validate.</p>
+<dt><strong>arr</strong><span class="classifier"><a class="reference external" href="https://numpy.org/doc/stable/glossary.html#term-array_like" title="(in NumPy v1.26)"><span>array_like</span></a>[<a class="reference external" href="https://docs.python.org/3.11/library/functions.html#float" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a>, ...]</span></dt><dd><p>検証する配列．</p>
 </dd>
-<dt><strong>reshape</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.11)"><span class="xref std std-ref">bool</span></a>, default: <a class="reference external" href="https://docs.python.org/3.11/library/constants.html#True" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">True</span></code></a></span></dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">True</span></code>, 0-dimensional scalars are reshaped to <code class="docutils literal notranslate"><span class="pre">(1,)</span></code> and 2D
-vectors with shape <code class="docutils literal notranslate"><span class="pre">(1,</span> <span class="pre">N)</span></code> are reshaped to <code class="docutils literal notranslate"><span class="pre">(N,)</span></code> to ensure the
-output is consistently one-dimensional. Otherwise, all scalar and
-2D inputs are not considered valid.</p>
+<dt><strong>reshape</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.11)"><span class="xref std std-ref">bool</span></a>, default: <a class="reference external" href="https://docs.python.org/3.11/library/constants.html#True" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">True</span></code></a></span></dt><dd><p>もし <code class="docutils literal notranslate"><span class="pre">True</span></code> ならば，0次元のスカラーは <code class="docutils literal notranslate"><span class="pre">(1,)</span></code> に整形され，形状 <code class="docutils literal notranslate"><span class="pre">(1,</span> <span class="pre">N)</span></code> の2次元のベクトルは <code class="docutils literal notranslate"><span class="pre">(1,</span> <span class="pre">N)</span></code> に整形されます．そうでない場合，スカラーと2次元の入力はすべて無効とみなされます．</p>
 </dd>
-<dt><strong>**kwargs</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/stdtypes.html#dict" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">dict</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>Additional keyword arguments passed to <a class="reference internal" href="pyvista.core.input_validation.validate.validate_array.html#pyvista.core.input_validation.validate.validate_array" title="pyvista.core.input_validation.validate.validate_array"><code class="xref py py-func docutils literal notranslate"><span class="pre">validate_array()</span></code></a>.</p>
+<dt><strong>**kwargs</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/stdtypes.html#dict" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">dict</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p><a class="reference internal" href="pyvista.core.input_validation.validate.validate_array.html#pyvista.core.input_validation.validate.validate_array" title="pyvista.core.input_validation.validate.validate_array"><code class="xref py py-func docutils literal notranslate"><span class="pre">validate_array()</span></code></a> に渡す追加のキーワード引数です．</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">戻り値<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.26)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">np.ndarray</span></code></a></dt><dd><p>Validated 1D array.</p>
+<dt><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.26)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">np.ndarray</span></code></a></dt><dd><p>検証済みの1次元配列．</p>
 </dd>
 </dl>
 </dd>
@@ -671,31 +668,30 @@ output is consistently one-dimensional. Otherwise, all scalar and
 <div class="admonition seealso">
 <p class="admonition-title">参考</p>
 <dl class="simple">
-<dt><a class="reference internal" href="pyvista.core.input_validation.validate.validate_arrayN_uintlike.html#pyvista.core.input_validation.validate.validate_arrayN_uintlike" title="pyvista.core.input_validation.validate.validate_arrayN_uintlike"><code class="xref py py-obj docutils literal notranslate"><span class="pre">validate_arrayN_uintlike</span></code></a></dt><dd><p>Similar function for non-negative integer arrays.</p>
+<dt><a class="reference internal" href="pyvista.core.input_validation.validate.validate_arrayN_uintlike.html#pyvista.core.input_validation.validate.validate_arrayN_uintlike" title="pyvista.core.input_validation.validate.validate_arrayN_uintlike"><code class="xref py py-obj docutils literal notranslate"><span class="pre">validate_arrayN_uintlike</span></code></a></dt><dd><p>非負整数配列の同様な関数 ．</p>
 </dd>
-<dt><a class="reference internal" href="pyvista.core.input_validation.validate.validate_array.html#pyvista.core.input_validation.validate.validate_array" title="pyvista.core.input_validation.validate.validate_array"><code class="xref py py-obj docutils literal notranslate"><span class="pre">validate_array</span></code></a></dt><dd><p>Generic array validation function.</p>
+<dt><a class="reference internal" href="pyvista.core.input_validation.validate.validate_array.html#pyvista.core.input_validation.validate.validate_array" title="pyvista.core.input_validation.validate.validate_array"><code class="xref py py-obj docutils literal notranslate"><span class="pre">validate_array</span></code></a></dt><dd><p>汎用的な配列検証関数．</p>
 </dd>
 </dl>
 </div>
 <p class="rubric">例</p>
-<p>Validate a 1D array with four elements.</p>
+<p>4つの要素を持つ1次元配列を検証します．</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyvista.core.input_validation</span> <span class="k">as</span> <span class="nn">valid</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">valid</span><span class="o">.</span><span class="n">validate_arrayN</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
 <span class="go">array([1, 2, 3, 4])</span>
 </pre></div>
 </div>
-<p>Scalar 0-dimensional values are automatically reshaped to be 1D.</p>
+<p>スカラー0次元の値は，自動的に1次元に整形されます．</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">valid</span><span class="o">.</span><span class="n">validate_arrayN</span><span class="p">(</span><span class="mf">42.0</span><span class="p">)</span>
 <span class="go">array([42.0])</span>
 </pre></div>
 </div>
-<p>2D arrays where the first dimension is unity are automatically
-reshaped to be 1D.</p>
+<p>最初の次元が単一である2D配列は，自動的に1Dに整形されます．</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">valid</span><span class="o">.</span><span class="n">validate_arrayN</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]])</span>
 <span class="go">array([1, 2])</span>
 </pre></div>
 </div>
-<p>Add additional constraints if needed.</p>
+<p>必要に応じて制約を追加します．</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">valid</span><span class="o">.</span><span class="n">validate_arrayN</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">must_have_length</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 <span class="go">array([1, 2, 3])</span>
 </pre></div>

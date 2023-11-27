@@ -616,31 +616,28 @@ document.write(`
                   
   <section id="input-validation">
 <h1>入力バリデーション<a class="headerlink" href="#input-validation" title="この見出しへのパーマリンク">#</a></h1>
-<p>Input validation methods for checking and/or validating a variable has the
-correct type and/or for use by an algorithm. These methods can be useful when
-writing custom <code class="docutils literal notranslate"><span class="pre">Python</span></code> methods, <code class="docutils literal notranslate"><span class="pre">VTK</span></code> wrappers, and/or when <a class="reference external" href="https://github.com/pyvista/pyvista/blob/main/CONTRIBUTING.rst">Contributing
-to PyVista</a>.</p>
-<p>Some common use cases for input validation are:</p>
+<p>変数が正しい型であること，および/またはアルゴリズムによって使用されることをチェックおよび/または検証するための入力検証メソッドです．これらのメソッドは，カスタムの <code class="docutils literal notranslate"><span class="pre">Python</span></code> メソッドや <code class="docutils literal notranslate"><span class="pre">VTK</span></code> ラッパーを書くときや， <a class="reference external" href="https://github.com/pyvista/pyvista/blob/main/CONTRIBUTING.rst">Contributing to PyVista</a> に便利です．</p>
+<p>入力検証の一般的な使用例をいくつか挙げます:</p>
 <dl class="simple">
-<dt>Validate an Nx3 point or vector array:</dt><dd><ul class="simple">
-<li><p>Use <a class="reference internal" href="_autosummary/pyvista.core.input_validation.validate.validate_arrayNx3.html#pyvista.core.input_validation.validate.validate_arrayNx3" title="pyvista.core.input_validation.validate.validate_arrayNx3"><code class="xref py py-func docutils literal notranslate"><span class="pre">validate_arrayNx3()</span></code></a></p></li>
+<dt>Nx3 の点またはベクトル配列を検証します:</dt><dd><ul class="simple">
+<li><p><a class="reference internal" href="_autosummary/pyvista.core.input_validation.validate.validate_arrayNx3.html#pyvista.core.input_validation.validate.validate_arrayNx3" title="pyvista.core.input_validation.validate.validate_arrayNx3"><code class="xref py py-func docutils literal notranslate"><span class="pre">validate_arrayNx3()</span></code></a> を使用します．</p></li>
 </ul>
 </dd>
-<dt>Validate a single 3-element vector:</dt><dd><ul class="simple">
-<li><p>Use <a class="reference internal" href="_autosummary/pyvista.core.input_validation.validate.validate_array3.html#pyvista.core.input_validation.validate.validate_array3" title="pyvista.core.input_validation.validate.validate_array3"><code class="xref py py-func docutils literal notranslate"><span class="pre">validate_array3()</span></code></a></p></li>
+<dt>3要素ベクトル1つを検証します:</dt><dd><ul class="simple">
+<li><p><a class="reference internal" href="_autosummary/pyvista.core.input_validation.validate.validate_array3.html#pyvista.core.input_validation.validate.validate_array3" title="pyvista.core.input_validation.validate.validate_array3"><code class="xref py py-func docutils literal notranslate"><span class="pre">validate_array3()</span></code></a> を使用します．</p></li>
 </ul>
 </dd>
-<dt>Validate point or cell IDs (or other unsigned integer IDs):</dt><dd><ul class="simple">
-<li><p>Use <a class="reference internal" href="_autosummary/pyvista.core.input_validation.validate.validate_arrayN_uintlike.html#pyvista.core.input_validation.validate.validate_arrayN_uintlike" title="pyvista.core.input_validation.validate.validate_arrayN_uintlike"><code class="xref py py-func docutils literal notranslate"><span class="pre">validate_arrayN_uintlike()</span></code></a></p></li>
+<dt>点またはセルのID (またはその他の符号なし整数ID) を検証します:</dt><dd><ul class="simple">
+<li><p><a class="reference internal" href="_autosummary/pyvista.core.input_validation.validate.validate_arrayN_uintlike.html#pyvista.core.input_validation.validate.validate_arrayN_uintlike" title="pyvista.core.input_validation.validate.validate_arrayN_uintlike"><code class="xref py py-func docutils literal notranslate"><span class="pre">validate_arrayN_uintlike()</span></code></a> を使用します．</p></li>
 </ul>
 </dd>
-<dt>Validate a transformation matrix:</dt><dd><ul class="simple">
-<li><p>Use <a class="reference internal" href="_autosummary/pyvista.core.input_validation.validate.validate_transform4x4.html#pyvista.core.input_validation.validate.validate_transform4x4" title="pyvista.core.input_validation.validate.validate_transform4x4"><code class="xref py py-func docutils literal notranslate"><span class="pre">validate_transform4x4()</span></code></a></p></li>
+<dt>変換行列を検証します．</dt><dd><ul class="simple">
+<li><p><a class="reference internal" href="_autosummary/pyvista.core.input_validation.validate.validate_transform4x4.html#pyvista.core.input_validation.validate.validate_transform4x4" title="pyvista.core.input_validation.validate.validate_transform4x4"><code class="xref py py-func docutils literal notranslate"><span class="pre">validate_transform4x4()</span></code></a> を使用します．</p></li>
 </ul>
 </dd>
 </dl>
 <section id="input-validation-api-reference">
-<h2>Input Validation API Reference<a class="headerlink" href="#input-validation-api-reference" title="この見出しへのパーマリンク">#</a></h2>
+<h2>入力検証 API リファレンス<a class="headerlink" href="#input-validation-api-reference" title="この見出しへのパーマリンク">#</a></h2>
 <table class="autosummary longtable table autosummary">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="_autosummary/pyvista.core.input_validation.validate.html#module-pyvista.core.input_validation.validate" title="pyvista.core.input_validation.validate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">validate</span></code></a></p></td>
@@ -673,7 +670,7 @@ to PyVista</a>.</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#input-validation-api-reference">Input Validation API Reference</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#input-validation-api-reference">入力検証 API リファレンス</a></li>
 </ul>
   </nav></div>
 

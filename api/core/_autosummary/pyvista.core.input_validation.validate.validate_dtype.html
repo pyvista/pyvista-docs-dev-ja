@@ -640,23 +640,18 @@ document.write(`
 <dd><p>dtype-like 入力を検証し，dtypeオブジェクトとして返します．</p>
 <div class="admonition warning">
 <p class="admonition-title">警告</p>
-<p>Validating a type can result in a dtype object whose type
-differs from the specified input. E.g., the type <code class="docutils literal notranslate"><span class="pre">np.number</span></code>
-is validated as a dtype object with type <code class="docutils literal notranslate"><span class="pre">np.float64</span></code>, not
-<code class="docutils literal notranslate"><span class="pre">np.number</span></code>. To only check if an input is dtype-like
-without converting it to a dtype object, use <code class="xref py py-func docutils literal notranslate"><span class="pre">check_is_dtypelike()</span></code>
-instead.</p>
+<p>型を検証すると，指定された入力と異なる型の dtype オブジェクトが返されることがあります．例えば， <code class="docutils literal notranslate"><span class="pre">np.number</span></code> 型は <code class="docutils literal notranslate"><span class="pre">np.number</span></code> ではなく <code class="docutils literal notranslate"><span class="pre">np.float64</span></code> 型の dtype オブジェクトとして検証されます．入力をdtypeオブジェクトに変換せずに，dtypeかどうかだけをチェックするには，代わりに <code class="xref py py-func docutils literal notranslate"><span class="pre">check_is_dtypelike()</span></code> を使用します．</p>
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">パラメータ<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>dtype_like</strong><span class="classifier">dtype-like</span></dt><dd><p>Data type to validate.</p>
+<dt><strong>dtype_like</strong><span class="classifier">dtype-like</span></dt><dd><p>検証するデータ型．</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">戻り値<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">np.dtype</span></code></dt><dd><p>Data type object.</p>
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">np.dtype</span></code></dt><dd><p>データ型オブジェクト．</p>
 </dd>
 </dl>
 </dd>
@@ -664,7 +659,7 @@ instead.</p>
 <div class="admonition seealso">
 <p class="admonition-title">参考</p>
 <dl class="simple">
-<dt><a class="reference internal" href="pyvista.core.input_validation.validate.validate_array.html#pyvista.core.input_validation.validate.validate_array" title="pyvista.core.input_validation.validate.validate_array"><code class="xref py py-obj docutils literal notranslate"><span class="pre">validate_array</span></code></a></dt><dd><p>Generic array validation function.</p>
+<dt><a class="reference internal" href="pyvista.core.input_validation.validate.validate_array.html#pyvista.core.input_validation.validate.validate_array" title="pyvista.core.input_validation.validate.validate_array"><code class="xref py py-obj docutils literal notranslate"><span class="pre">validate_array</span></code></a></dt><dd><p>汎用的な配列検証関数．</p>
 </dd>
 </dl>
 </div>

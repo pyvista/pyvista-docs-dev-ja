@@ -638,27 +638,17 @@ document.write(`
 <dt class="sig sig-object py" id="pyvista.core.input_validation.validate.validate_axes">
 <span class="sig-name descname"><span class="pre">validate_axes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">axes</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">normalize</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">must_be_orthogonal</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">must_have_orientation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'right'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'Axes'</span></span></em><span class="sig-paren">)</span><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/core/input_validation/validate.py#L336-L457"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.core.input_validation.validate.validate_axes" title="この定義へのパーマリンク">#</a></dt>
 <dd><p>3D軸ベクトルを検証します．</p>
-<p>By default, the axes are normalized and checked to ensure they are orthogonal and
-have a right-handed orientation.</p>
+<p>デフォルトでは，軸は正規化され，直交し，右回りであることを確認するためにチェックされます．</p>
 <dl class="field-list">
 <dt class="field-odd">パラメータ<span class="colon">:</span></dt>
 <dd class="field-odd"><dl>
-<dt><strong>*axes</strong><span class="classifier"><a class="reference external" href="https://numpy.org/doc/stable/glossary.html#term-array_like" title="(in NumPy v1.26)"><span>array_like</span></a></span></dt><dd><p>Axes to be validated. Axes may be specified as a single argument of a 3x3
-array of row vectors or as separate arguments for each 3-element axis vector.
-If only two vectors are given and <code class="docutils literal notranslate"><span class="pre">must_have_orientation</span></code> is not <code class="docutils literal notranslate"><span class="pre">None</span></code>,
-the third vector is automatically calculated as the cross-product of the
-two vectors such that the axes have the correct orientation.</p>
+<dt><strong>*axes</strong><span class="classifier"><a class="reference external" href="https://numpy.org/doc/stable/glossary.html#term-array_like" title="(in NumPy v1.26)"><span>array_like</span></a></span></dt><dd><p>検証される軸．軸は，行ベクトルの3x3配列の1つの引数として指定することも，3要素の軸ベクトルごとに別々の引数として指定することもできます．2つのベクトルしか与えられず， <code class="docutils literal notranslate"><span class="pre">must_have_orientation</span></code> が <code class="docutils literal notranslate"><span class="pre">None</span></code> でない場合，3つ目のベクトルは，軸が正しい向きになるように，2つのベクトルのクロス積として自動的に計算されます．</p>
 </dd>
-<dt><strong>normalize</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.11)"><span class="xref std std-ref">bool</span></a>, default: <a class="reference external" href="https://docs.python.org/3.11/library/constants.html#True" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">True</span></code></a></span></dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">True</span></code>, the axes vectors are individually normalized to each have a norm
-of 1.</p>
+<dt><strong>normalize</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.11)"><span class="xref std std-ref">bool</span></a>, default: <a class="reference external" href="https://docs.python.org/3.11/library/constants.html#True" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">True</span></code></a></span></dt><dd><p>もし <code class="docutils literal notranslate"><span class="pre">True</span></code> なら，軸のベクトルはそれぞれノルムが1になるように正規化されます．</p>
 </dd>
-<dt><strong>must_be_orthogonal</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.11)"><span class="xref std std-ref">bool</span></a>, default: <a class="reference external" href="https://docs.python.org/3.11/library/constants.html#True" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">True</span></code></a></span></dt><dd><p>Check if the axes are orthogonal. If <code class="docutils literal notranslate"><span class="pre">True</span></code>, the cross product between any
-two axes vectors must be parallel to the third.</p>
+<dt><strong>must_be_orthogonal</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.11)"><span class="xref std std-ref">bool</span></a>, default: <a class="reference external" href="https://docs.python.org/3.11/library/constants.html#True" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">True</span></code></a></span></dt><dd><p>軸が直交しているかチェックします．もし <code class="docutils literal notranslate"><span class="pre">True</span></code> なら，任意の2つの軸ベクトル間の外積は3つ目の軸ベクトルに平行でなければなりません．</p>
 </dd>
-<dt><strong>must_have_orientation</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/stdtypes.html#str" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a>, default: 'right'</span></dt><dd><p>Check if the axes have a specific orientation. If <code class="docutils literal notranslate"><span class="pre">right</span></code>, the
-cross-product of the first axis vector with the second must have a positive
-direction. If <code class="docutils literal notranslate"><span class="pre">left</span></code>, the direction must be negative. If <code class="docutils literal notranslate"><span class="pre">None</span></code>, the
-orientation is not checked.</p>
+<dt><strong>must_have_orientation</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/stdtypes.html#str" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a>, default: 'right'</span></dt><dd><p>軸が特定の方向を持つかどうかをチェックします．もし <code class="docutils literal notranslate"><span class="pre">right</span></code> ならば，1つ目の軸ベクトルと2つ目の軸ベクトルの積は正の方向でなければなりません． <code class="docutils literal notranslate"><span class="pre">left</span></code> の場合，方向は負でなければなりません． <code class="docutils literal notranslate"><span class="pre">None</span></code> の場合，方向はチェックされません．</p>
 </dd>
 <dt><strong>name</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/stdtypes.html#str" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a>, default: &quot;Axes&quot;</span></dt><dd><p>エラーメッセージのバリデーションチェックに失敗した場合に使用する変数名．</p>
 </dd>
@@ -666,13 +656,13 @@ orientation is not checked.</p>
 </dd>
 <dt class="field-even">戻り値<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.26)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">np.ndarray</span></code></a></dt><dd><p>Validated 3x3 axes array of row vectors.</p>
+<dt><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.26)"><code class="xref py py-obj docutils literal notranslate"><span class="pre">np.ndarray</span></code></a></dt><dd><p>行ベクトルの有効な3x3軸の配列．</p>
 </dd>
 </dl>
 </dd>
 </dl>
 <p class="rubric">例</p>
-<p>Validate an axes array.</p>
+<p>軸の配列を検証します．</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyvista.core.input_validation</span> <span class="k">as</span> <span class="nn">valid</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">valid</span><span class="o">.</span><span class="n">validate_axes</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
@@ -681,14 +671,14 @@ orientation is not checked.</p>
 <span class="go">       [0., 0., 1.]])</span>
 </pre></div>
 </div>
-<p>Validate individual axes vectors as a 3x3 array.</p>
+<p>各軸のベクトルを3x3の配列として検証します．</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">valid</span><span class="o">.</span><span class="n">validate_axes</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
 <span class="go">array([[1., 0., 0.],</span>
 <span class="go">       [0., 1., 0.],</span>
 <span class="go">       [0., 0., 1.]])</span>
 </pre></div>
 </div>
-<p>Create a validated left-handed axes array from two vectors.</p>
+<p>2つのベクトルから有効な左手軸の配列を作成します．</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">valid</span><span class="o">.</span><span class="n">validate_axes</span><span class="p">(</span>
 <span class="gp">... </span>    <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">must_have_orientation</span><span class="o">=</span><span class="s1">&#39;left&#39;</span>
 <span class="gp">... </span><span class="p">)</span>

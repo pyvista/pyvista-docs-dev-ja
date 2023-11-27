@@ -638,24 +638,24 @@ document.write(`
 <dt class="sig sig-object py" id="pyvista.core.input_validation.validate.validate_data_range">
 <span class="sig-name descname"><span class="pre">validate_data_range</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rng</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">/</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/core/input_validation/validate.py#L657-L703"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.core.input_validation.validate.validate_data_range" title="この定義へのパーマリンク">#</a></dt>
 <dd><p>データ範囲を検証します．</p>
-<p>By default, the data range is checked to ensure:</p>
+<p>デフォルトでは，以下を確実にするためにデータ範囲がチェックされます:</p>
 <ul class="simple">
-<li><p>it has two values</p></li>
-<li><p>it has real numbers</p></li>
-<li><p>the lower bound is not more than the upper bound</p></li>
+<li><p>2つの値がある</p></li>
+<li><p>実数である</p></li>
+<li><p>下限境界は上限境界を超えない</p></li>
 </ul>
 <dl class="field-list">
 <dt class="field-odd">パラメータ<span class="colon">:</span></dt>
 <dd class="field-odd"><dl>
-<dt><strong>rng</strong><span class="classifier"><a class="reference external" href="https://numpy.org/doc/stable/glossary.html#term-array_like" title="(in NumPy v1.26)"><span>array_like</span></a>[<a class="reference external" href="https://docs.python.org/3.11/library/functions.html#float" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a>, <a class="reference external" href="https://docs.python.org/3.11/library/functions.html#float" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a>]</span></dt><dd><p>Range to validate in the form <code class="docutils literal notranslate"><span class="pre">(lower_bound,</span> <span class="pre">upper_bound)</span></code>.</p>
+<dt><strong>rng</strong><span class="classifier"><a class="reference external" href="https://numpy.org/doc/stable/glossary.html#term-array_like" title="(in NumPy v1.26)"><span>array_like</span></a>[<a class="reference external" href="https://docs.python.org/3.11/library/functions.html#float" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a>, <a class="reference external" href="https://docs.python.org/3.11/library/functions.html#float" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a>]</span></dt><dd><p><code class="docutils literal notranslate"><span class="pre">(lower_bound,</span> <span class="pre">upper_bound)</span></code> 形式で検証する範囲．</p>
 </dd>
-<dt><strong>**kwargs</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/stdtypes.html#dict" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">dict</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>Additional keyword arguments passed to <a class="reference internal" href="pyvista.core.input_validation.validate.validate_array.html#pyvista.core.input_validation.validate.validate_array" title="pyvista.core.input_validation.validate.validate_array"><code class="xref py py-func docutils literal notranslate"><span class="pre">validate_array()</span></code></a>.</p>
+<dt><strong>**kwargs</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/stdtypes.html#dict" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">dict</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p><a class="reference internal" href="pyvista.core.input_validation.validate.validate_array.html#pyvista.core.input_validation.validate.validate_array" title="pyvista.core.input_validation.validate.validate_array"><code class="xref py py-func docutils literal notranslate"><span class="pre">validate_array()</span></code></a> に渡す追加のキーワード引数です．</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">戻り値<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt><a class="reference external" href="https://docs.python.org/3.11/library/stdtypes.html#tuple" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">tuple</span></code></a></dt><dd><p>Validated range as <code class="docutils literal notranslate"><span class="pre">(lower_bound,</span> <span class="pre">upper_bound)</span></code>.</p>
+<dt><a class="reference external" href="https://docs.python.org/3.11/library/stdtypes.html#tuple" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">tuple</span></code></a></dt><dd><p><code class="docutils literal notranslate"><span class="pre">(lower_bound,</span> <span class="pre">upper_bound)</span></code> 形式で検証範囲．</p>
 </dd>
 </dl>
 </dd>
@@ -663,7 +663,7 @@ document.write(`
 <div class="admonition seealso">
 <p class="admonition-title">参考</p>
 <dl class="simple">
-<dt><a class="reference internal" href="pyvista.core.input_validation.validate.validate_array.html#pyvista.core.input_validation.validate.validate_array" title="pyvista.core.input_validation.validate.validate_array"><code class="xref py py-obj docutils literal notranslate"><span class="pre">validate_array</span></code></a></dt><dd><p>Generic array validation function.</p>
+<dt><a class="reference internal" href="pyvista.core.input_validation.validate.validate_array.html#pyvista.core.input_validation.validate.validate_array" title="pyvista.core.input_validation.validate.validate_array"><code class="xref py py-obj docutils literal notranslate"><span class="pre">validate_array</span></code></a></dt><dd><p>汎用的な配列検証関数．</p>
 </dd>
 </dl>
 </div>
@@ -674,7 +674,7 @@ document.write(`
 <span class="go">(-5, 5)</span>
 </pre></div>
 </div>
-<p>Add additional constraints if needed.</p>
+<p>必要に応じて制約を追加します．</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">valid</span><span class="o">.</span><span class="n">validate_data_range</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span> <span class="n">must_be_nonnegative</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="go">(0.0, 1.0)</span>
 </pre></div>
