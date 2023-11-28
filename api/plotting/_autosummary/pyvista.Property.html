@@ -691,7 +691,7 @@ document.write(`
 </dd>
 <dt><strong>point_size</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/functions.html#float" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a>, default: <a class="reference internal" href="pyvista.plotting.themes.Theme.point_size.html#pyvista.plotting.themes.Theme.point_size" title="pyvista.plotting.themes.Theme.point_size"><code class="xref py py-attr docutils literal notranslate"><span class="pre">pyvista.plotting.themes.Theme.point_size</span></code></a></span></dt><dd><p>このプロパティで表現される点の大きさ．</p>
 </dd>
-<dt><strong>opacity</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/functions.html#float" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a>, default: <a class="reference internal" href="pyvista.plotting.themes.Theme.opacity.html#pyvista.plotting.themes.Theme.opacity" title="pyvista.plotting.themes.Theme.opacity"><code class="xref py py-attr docutils literal notranslate"><span class="pre">pyvista.plotting.themes.Theme.opacity</span></code></a></span></dt><dd><p>メッシュの不透明度．メッシュの不透明度をグローバルに適用し，どこでも一様に適用される単一の浮動小数点値です - 0と1の間でなければなりません．</p>
+<dt><strong>opacity</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/functions.html#float" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a>, default: <a class="reference internal" href="pyvista.plotting.themes.Theme.opacity.html#pyvista.plotting.themes.Theme.opacity" title="pyvista.plotting.themes.Theme.opacity"><code class="xref py py-attr docutils literal notranslate"><span class="pre">pyvista.plotting.themes.Theme.opacity</span></code></a></span></dt><dd><p>メッシュの不透明度．メッシュの不透明度をグローバルに適用し，どこでも一様に適用される単一の浮動小数点値です． - 0と1の間でなければなりません．</p>
 </dd>
 <dt><strong>ambient</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/functions.html#float" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a>, default: <a class="reference internal" href="pyvista.plotting.themes._LightingConfig.ambient.html#pyvista.plotting.themes._LightingConfig.ambient" title="pyvista.plotting.themes._LightingConfig.ambient"><code class="xref py py-attr docutils literal notranslate"><span class="pre">pyvista.plotting.themes._LightingConfig.ambient</span></code></a></span></dt><dd><p>照明が有効な場合，これは，ビューアから放射された光源に向けられていないときにアクターに到達する0から1の範囲の光の量です．</p>
 </dd>
@@ -720,14 +720,10 @@ document.write(`
 <li><p><code class="docutils literal notranslate"><span class="pre">'none'</span></code> - バックフェイスおよびフロントフェイスのカリングを無効にします．</p></li>
 </ul>
 </dd>
-<dt><strong>edge_opacity</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/functions.html#float" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a>, default: <a class="reference internal" href="pyvista.plotting.themes.Theme.edge_opacity.html#pyvista.plotting.themes.Theme.edge_opacity" title="pyvista.plotting.themes.Theme.edge_opacity"><code class="xref py py-attr docutils literal notranslate"><span class="pre">pyvista.plotting.themes.Theme.edge_opacity</span></code></a></span></dt><dd><p>Edge opacity of the mesh. A single float value that will be applied globally
-edge opacity of the mesh and uniformly applied everywhere - should be
-between 0 and 1.</p>
+<dt><strong>edge_opacity</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/functions.html#float" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a>, default: <a class="reference internal" href="pyvista.plotting.themes.Theme.edge_opacity.html#pyvista.plotting.themes.Theme.edge_opacity" title="pyvista.plotting.themes.Theme.edge_opacity"><code class="xref py py-attr docutils literal notranslate"><span class="pre">pyvista.plotting.themes.Theme.edge_opacity</span></code></a></span></dt><dd><p>メッシュのエッジの不透明度．メッシュのエッジの不透明度をグローバルに適用し，どこでも一様に適用される単一の浮動小数点値です． - 0と1の間でなければなりません．</p>
 <div class="admonition note">
 <p class="admonition-title">注釈</p>
-<p><cite>edge_opacity</cite> uses <code class="docutils literal notranslate"><span class="pre">SetEdgeOpacity</span></code> as the underlying method which
-requires VTK version 9.3 or higher. If <code class="docutils literal notranslate"><span class="pre">SetEdgeOpacity</span></code> is not
-available, <cite>edge_opacity</cite> is set to 1.</p>
+<p><cite>edge_opacity</cite> は <code class="docutils literal notranslate"><span class="pre">SetEdgeOpacity</span></code> を基礎メソッドとして使用し，VTKバージョン9.3以降を必要とします．もし <code class="docutils literal notranslate"><span class="pre">SetEdgeOpacity</span></code> が利用できない場合， <cite>edge_opacity`</cite> は 1 に設定されます．</p>
 </div>
 </dd>
 </dl>
@@ -810,7 +806,7 @@ specular power and colors.</p>
 <td><p>このプロパティのエッジの色を返すか設定します．</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="pyvista.Property.edge_opacity.html#pyvista.Property.edge_opacity" title="pyvista.Property.edge_opacity"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Property.edge_opacity</span></code></a></p></td>
-<td><p>Return or set the edge opacity of this property.</p></td>
+<td><p>このプロパティのエッジの不透明度を返すか設定します．</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.Property.interpolation.html#pyvista.Property.interpolation" title="pyvista.Property.interpolation"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Property.interpolation</span></code></a></p></td>
 <td><p>シェーディングの方法を返すか設定します．</p></td>

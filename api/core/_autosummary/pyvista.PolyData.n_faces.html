@@ -77,7 +77,7 @@
         </script>
     <link rel="index" title="索引" href="../../../genindex.html" />
     <link rel="search" title="検索" href="../../../search.html" />
-    <link rel="next" title="pyvista.PolyData.n_lines" href="pyvista.PolyData.n_lines.html" />
+    <link rel="next" title="pyvista.PolyData.n_faces_strict" href="pyvista.PolyData.n_faces_strict.html" />
     <link rel="prev" title="pyvista.PolyData.lines" href="pyvista.PolyData.lines.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="ja"/>
@@ -539,6 +539,7 @@ document.write(`
 <li class="toctree-l3 current active has-children"><a class="reference internal" href="pyvista.PolyData.html">pyvista.PolyData</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="pyvista.PolyData.from_regular_faces.html">pyvista.PolyData.from_regular_faces</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyvista.PolyData.save.html">pyvista.PolyData.save</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyvista.PolyData.use_strict_n_faces.html">pyvista.PolyData.use_strict_n_faces</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyvista.PolyData.cell_normals.html">pyvista.PolyData.cell_normals</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyvista.PolyData.face_normals.html">pyvista.PolyData.face_normals</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyvista.PolyData.faces.html">pyvista.PolyData.faces</a></li>
@@ -546,6 +547,7 @@ document.write(`
 <li class="toctree-l4"><a class="reference internal" href="pyvista.PolyData.is_manifold.html">pyvista.PolyData.is_manifold</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyvista.PolyData.lines.html">pyvista.PolyData.lines</a></li>
 <li class="toctree-l4 current active"><a class="current reference internal" href="#">pyvista.PolyData.n_faces</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyvista.PolyData.n_faces_strict.html">pyvista.PolyData.n_faces_strict</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyvista.PolyData.n_lines.html">pyvista.PolyData.n_lines</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyvista.PolyData.n_open_edges.html">pyvista.PolyData.n_open_edges</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyvista.PolyData.n_strips.html">pyvista.PolyData.n_strips</a></li>
@@ -647,15 +649,20 @@ document.write(`
 <h1>pyvista.PolyData.n_faces<a class="headerlink" href="#pyvista-polydata-n-faces" title="この見出しへのパーマリンク">#</a></h1>
 <dl class="py property">
 <dt class="sig sig-object py" id="pyvista.PolyData.n_faces">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">PolyData.</span></span><span class="sig-name descname"><span class="pre">n_faces</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3.11/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></em><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/core/pointset.py#L1065-L1079"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.PolyData.n_faces" title="この定義へのパーマリンク">#</a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">PolyData.</span></span><span class="sig-name descname"><span class="pre">n_faces</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3.11/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></em><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/core/pointset.py#L1083-L1116"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.PolyData.n_faces" title="この定義へのパーマリンク">#</a></dt>
 <dd><p>セルの数を返します．</p>
-<p><code class="docutils literal notranslate"><span class="pre">n_cells</span></code> のエイリアス．</p>
-<p class="rubric">例</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyvista</span> <span class="k">as</span> <span class="nn">pv</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">plane</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Plane</span><span class="p">(</span><span class="n">i_resolution</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">j_resolution</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">plane</span><span class="o">.</span><span class="n">n_faces</span>
-<span class="go">4</span>
-</pre></div>
+<div class="deprecated">
+<p><span class="versionmodified deprecated">バージョン 0.43.0 で非推奨: </span>The current (deprecated) behavior of this property is to
+return the total number of cells, i.e. the sum of the number of
+vertices, lines, triangle strips, and polygonal faces.
+In the future, this will change to return only the number of
+polygonal faces, i.e. those cells represented in the
+<cite>pv.PolyData.faces</cite> array. If you want the total number of cells,
+use <cite>pv.PolyData.n_cells</cite>. If you want only the number of polygonal faces,
+use <cite>pv.PolyData.n_faces_strict</cite>. Alternatively, you can opt into the
+future behavior globally by calling <cite>pv.PolyData.use_strict_n_faces(True)</cite>,
+in which case <cite>pv.PolyData.n_faces</cite> will return the same thing as
+<cite>pv.PolyData.n_faces_strict</cite>.</p>
 </div>
 </dd></dl>
 

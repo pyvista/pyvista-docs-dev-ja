@@ -571,6 +571,7 @@ document.write(`
 <li class="toctree-l4"><a class="reference internal" href="pyvista.DataSetFilters.merge.html">pyvista.DataSetFilters.merge</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyvista.DataSetFilters.outline.html">pyvista.DataSetFilters.outline</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyvista.DataSetFilters.outline_corners.html">pyvista.DataSetFilters.outline_corners</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyvista.DataSetFilters.pack_labels.html">pyvista.DataSetFilters.pack_labels</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyvista.DataSetFilters.partition.html">pyvista.DataSetFilters.partition</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyvista.DataSetFilters.plot_over_circular_arc.html">pyvista.DataSetFilters.plot_over_circular_arc</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyvista.DataSetFilters.plot_over_circular_arc_normal.html">pyvista.DataSetFilters.plot_over_circular_arc_normal</a></li>
@@ -592,6 +593,7 @@ document.write(`
 <li class="toctree-l4"><a class="reference internal" href="pyvista.DataSetFilters.slice_along_line.html">pyvista.DataSetFilters.slice_along_line</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyvista.DataSetFilters.slice_implicit.html">pyvista.DataSetFilters.slice_implicit</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyvista.DataSetFilters.slice_orthogonal.html">pyvista.DataSetFilters.slice_orthogonal</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyvista.DataSetFilters.sort_labels.html">pyvista.DataSetFilters.sort_labels</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyvista.DataSetFilters.split_bodies.html">pyvista.DataSetFilters.split_bodies</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyvista.DataSetFilters.streamlines.html">pyvista.DataSetFilters.streamlines</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyvista.DataSetFilters.streamlines_evenly_spaced_2D.html">pyvista.DataSetFilters.streamlines_evenly_spaced_2D</a></li>
@@ -695,7 +697,7 @@ document.write(`
 <h1>pyvista.DataSetFilters<a class="headerlink" href="#pyvista-datasetfilters" title="この見出しへのパーマリンク">#</a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="pyvista.DataSetFilters">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DataSetFilters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/core/filters/data_set.py#L32-L6240"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.DataSetFilters" title="この定義へのパーマリンク">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DataSetFilters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/core/filters/data_set.py#L32-L6490"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.DataSetFilters" title="この定義へのパーマリンク">#</a></dt>
 <dd><p>任意のvtkDataSetに適用できる共通フィルタのセット．</p>
 <p class="rubric">メソッド</p>
 <table class="autosummary longtable table autosummary">
@@ -796,68 +798,74 @@ document.write(`
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.DataSetFilters.outline_corners.html#pyvista.DataSetFilters.outline_corners" title="pyvista.DataSetFilters.outline_corners"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSetFilters.outline_corners</span></code></a>([factor, ...])</p></td>
 <td><p>入力データセットのコーナーのアウトラインを生成します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.DataSetFilters.partition.html#pyvista.DataSetFilters.partition" title="pyvista.DataSetFilters.partition"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSetFilters.partition</span></code></a>(n_partitions[, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.DataSetFilters.pack_labels.html#pyvista.DataSetFilters.pack_labels" title="pyvista.DataSetFilters.pack_labels"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSetFilters.pack_labels</span></code></a>([sort, scalars, ...])</p></td>
+<td><p>Renumber labeled data such that labels are contiguous.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.DataSetFilters.partition.html#pyvista.DataSetFilters.partition" title="pyvista.DataSetFilters.partition"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSetFilters.partition</span></code></a>(n_partitions[, ...])</p></td>
 <td><p>入力データセットを要求された数のパーティションに分割します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.DataSetFilters.plot_over_circular_arc.html#pyvista.DataSetFilters.plot_over_circular_arc" title="pyvista.DataSetFilters.plot_over_circular_arc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSetFilters.plot_over_circular_arc</span></code></a>(...[, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.DataSetFilters.plot_over_circular_arc.html#pyvista.DataSetFilters.plot_over_circular_arc" title="pyvista.DataSetFilters.plot_over_circular_arc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSetFilters.plot_over_circular_arc</span></code></a>(...[, ...])</p></td>
 <td><p>円弧に沿ってデータセットをサンプリングし，プロットします．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.DataSetFilters.plot_over_circular_arc_normal.html#pyvista.DataSetFilters.plot_over_circular_arc_normal" title="pyvista.DataSetFilters.plot_over_circular_arc_normal"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSetFilters.plot_over_circular_arc_normal</span></code></a>(center)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.DataSetFilters.plot_over_circular_arc_normal.html#pyvista.DataSetFilters.plot_over_circular_arc_normal" title="pyvista.DataSetFilters.plot_over_circular_arc_normal"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSetFilters.plot_over_circular_arc_normal</span></code></a>(center)</p></td>
 <td><p>法線ベクトルと極ベクトルで定義された解像度の円弧に沿ってデータセットをサンプリングし，それをプロットします．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.DataSetFilters.plot_over_line.html#pyvista.DataSetFilters.plot_over_line" title="pyvista.DataSetFilters.plot_over_line"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSetFilters.plot_over_line</span></code></a>(pointa, pointb)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.DataSetFilters.plot_over_line.html#pyvista.DataSetFilters.plot_over_line" title="pyvista.DataSetFilters.plot_over_line"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSetFilters.plot_over_line</span></code></a>(pointa, pointb)</p></td>
 <td><p>高解像度の線に沿ってデータセットをサンプリングし，プロットします．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.DataSetFilters.point_data_to_cell_data.html#pyvista.DataSetFilters.point_data_to_cell_data" title="pyvista.DataSetFilters.point_data_to_cell_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSetFilters.point_data_to_cell_data</span></code></a>([...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.DataSetFilters.point_data_to_cell_data.html#pyvista.DataSetFilters.point_data_to_cell_data" title="pyvista.DataSetFilters.point_data_to_cell_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSetFilters.point_data_to_cell_data</span></code></a>([...])</p></td>
 <td><p>点データをセルデータに変換します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.DataSetFilters.probe.html#pyvista.DataSetFilters.probe" title="pyvista.DataSetFilters.probe"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSetFilters.probe</span></code></a>(points[, tolerance, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.DataSetFilters.probe.html#pyvista.DataSetFilters.probe" title="pyvista.DataSetFilters.probe"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSetFilters.probe</span></code></a>(points[, tolerance, ...])</p></td>
 <td><p>指定したポイント位置のサンプルデータ値．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.DataSetFilters.ptc.html#pyvista.DataSetFilters.ptc" title="pyvista.DataSetFilters.ptc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSetFilters.ptc</span></code></a>([pass_point_data, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.DataSetFilters.ptc.html#pyvista.DataSetFilters.ptc" title="pyvista.DataSetFilters.ptc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSetFilters.ptc</span></code></a>([pass_point_data, ...])</p></td>
 <td><p>点データをセルデータに変換します．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.DataSetFilters.reflect.html#pyvista.DataSetFilters.reflect" title="pyvista.DataSetFilters.reflect"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSetFilters.reflect</span></code></a>(normal[, point, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.DataSetFilters.reflect.html#pyvista.DataSetFilters.reflect" title="pyvista.DataSetFilters.reflect"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSetFilters.reflect</span></code></a>(normal[, point, ...])</p></td>
 <td><p>平面でデータセットを反射します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.DataSetFilters.sample.html#pyvista.DataSetFilters.sample" title="pyvista.DataSetFilters.sample"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSetFilters.sample</span></code></a>(target[, tolerance, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.DataSetFilters.sample.html#pyvista.DataSetFilters.sample" title="pyvista.DataSetFilters.sample"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSetFilters.sample</span></code></a>(target[, tolerance, ...])</p></td>
 <td><p>渡されたメッシュからこのメッシュに配列データをリサンプルします．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.DataSetFilters.sample_over_circular_arc.html#pyvista.DataSetFilters.sample_over_circular_arc" title="pyvista.DataSetFilters.sample_over_circular_arc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSetFilters.sample_over_circular_arc</span></code></a>(...)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.DataSetFilters.sample_over_circular_arc.html#pyvista.DataSetFilters.sample_over_circular_arc" title="pyvista.DataSetFilters.sample_over_circular_arc"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSetFilters.sample_over_circular_arc</span></code></a>(...)</p></td>
 <td><p>円弧上のデータセットをサンプリングします．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.DataSetFilters.sample_over_circular_arc_normal.html#pyvista.DataSetFilters.sample_over_circular_arc_normal" title="pyvista.DataSetFilters.sample_over_circular_arc_normal"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSetFilters.sample_over_circular_arc_normal</span></code></a>(center)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.DataSetFilters.sample_over_circular_arc_normal.html#pyvista.DataSetFilters.sample_over_circular_arc_normal" title="pyvista.DataSetFilters.sample_over_circular_arc_normal"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSetFilters.sample_over_circular_arc_normal</span></code></a>(center)</p></td>
 <td><p>法線ベクトルと極ベクトルで定義された円弧上のデータセットをサンプリングし，それをプロットします．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.DataSetFilters.sample_over_line.html#pyvista.DataSetFilters.sample_over_line" title="pyvista.DataSetFilters.sample_over_line"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSetFilters.sample_over_line</span></code></a>(pointa, pointb)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.DataSetFilters.sample_over_line.html#pyvista.DataSetFilters.sample_over_line" title="pyvista.DataSetFilters.sample_over_line"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSetFilters.sample_over_line</span></code></a>(pointa, pointb)</p></td>
 <td><p>データセットを1行に抽出します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.DataSetFilters.sample_over_multiple_lines.html#pyvista.DataSetFilters.sample_over_multiple_lines" title="pyvista.DataSetFilters.sample_over_multiple_lines"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSetFilters.sample_over_multiple_lines</span></code></a>(points)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.DataSetFilters.sample_over_multiple_lines.html#pyvista.DataSetFilters.sample_over_multiple_lines" title="pyvista.DataSetFilters.sample_over_multiple_lines"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSetFilters.sample_over_multiple_lines</span></code></a>(points)</p></td>
 <td><p>データセットを複数行に分割してサンプリングする．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.DataSetFilters.select_enclosed_points.html#pyvista.DataSetFilters.select_enclosed_points" title="pyvista.DataSetFilters.select_enclosed_points"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSetFilters.select_enclosed_points</span></code></a>(surface)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.DataSetFilters.select_enclosed_points.html#pyvista.DataSetFilters.select_enclosed_points" title="pyvista.DataSetFilters.select_enclosed_points"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSetFilters.select_enclosed_points</span></code></a>(surface)</p></td>
 <td><p>ポイントが閉じた表面の内側にあるかどうかをマークします．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.DataSetFilters.separate_cells.html#pyvista.DataSetFilters.separate_cells" title="pyvista.DataSetFilters.separate_cells"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSetFilters.separate_cells</span></code></a>()</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.DataSetFilters.separate_cells.html#pyvista.DataSetFilters.separate_cells" title="pyvista.DataSetFilters.separate_cells"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSetFilters.separate_cells</span></code></a>()</p></td>
 <td><p>共有点を持たない分離されたセルを持つデータセットのコピーを返す．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.DataSetFilters.shrink.html#pyvista.DataSetFilters.shrink" title="pyvista.DataSetFilters.shrink"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSetFilters.shrink</span></code></a>([shrink_factor, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.DataSetFilters.shrink.html#pyvista.DataSetFilters.shrink" title="pyvista.DataSetFilters.shrink"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSetFilters.shrink</span></code></a>([shrink_factor, ...])</p></td>
 <td><p>メッシュの個々の面を縮小します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.DataSetFilters.slice.html#pyvista.DataSetFilters.slice" title="pyvista.DataSetFilters.slice"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSetFilters.slice</span></code></a>([normal, origin, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.DataSetFilters.slice.html#pyvista.DataSetFilters.slice" title="pyvista.DataSetFilters.slice"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSetFilters.slice</span></code></a>([normal, origin, ...])</p></td>
 <td><p>指定した原点および法線ベクトル方向の平面でデータセットをスライスします．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.DataSetFilters.slice_along_axis.html#pyvista.DataSetFilters.slice_along_axis" title="pyvista.DataSetFilters.slice_along_axis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSetFilters.slice_along_axis</span></code></a>([n, axis, ...])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.DataSetFilters.slice_along_axis.html#pyvista.DataSetFilters.slice_along_axis" title="pyvista.DataSetFilters.slice_along_axis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSetFilters.slice_along_axis</span></code></a>([n, axis, ...])</p></td>
 <td><p>指定した軸に沿って，入力データセットのスライスを多数作成します．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.DataSetFilters.slice_along_line.html#pyvista.DataSetFilters.slice_along_line" title="pyvista.DataSetFilters.slice_along_line"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSetFilters.slice_along_line</span></code></a>(line[, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.DataSetFilters.slice_along_line.html#pyvista.DataSetFilters.slice_along_line" title="pyvista.DataSetFilters.slice_along_line"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSetFilters.slice_along_line</span></code></a>(line[, ...])</p></td>
 <td><p>パスとしてpolyline/splineを使用してデータセットをスライスします．</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="pyvista.DataSetFilters.slice_implicit.html#pyvista.DataSetFilters.slice_implicit" title="pyvista.DataSetFilters.slice_implicit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSetFilters.slice_implicit</span></code></a>(implicit_function)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.DataSetFilters.slice_implicit.html#pyvista.DataSetFilters.slice_implicit" title="pyvista.DataSetFilters.slice_implicit"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSetFilters.slice_implicit</span></code></a>(implicit_function)</p></td>
 <td><p>VTK陰関数でデータセットをスライスします．</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.DataSetFilters.slice_orthogonal.html#pyvista.DataSetFilters.slice_orthogonal" title="pyvista.DataSetFilters.slice_orthogonal"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSetFilters.slice_orthogonal</span></code></a>([x, y, z, ...])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="pyvista.DataSetFilters.slice_orthogonal.html#pyvista.DataSetFilters.slice_orthogonal" title="pyvista.DataSetFilters.slice_orthogonal"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSetFilters.slice_orthogonal</span></code></a>([x, y, z, ...])</p></td>
 <td><p>3つの直交平面上のデータセットから3つの直交スライスを作成します．</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="pyvista.DataSetFilters.sort_labels.html#pyvista.DataSetFilters.sort_labels" title="pyvista.DataSetFilters.sort_labels"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSetFilters.sort_labels</span></code></a>([scalars, ...])</p></td>
+<td><p>Sort labeled data by number of points or cells.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="pyvista.DataSetFilters.split_bodies.html#pyvista.DataSetFilters.split_bodies" title="pyvista.DataSetFilters.split_bodies"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DataSetFilters.split_bodies</span></code></a>([label, ...])</p></td>
 <td><p>接続されたボディ/ボリュームを検索，ラベル付け，および分割します．</p></td>

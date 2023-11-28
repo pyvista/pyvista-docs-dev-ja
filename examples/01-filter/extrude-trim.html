@@ -758,8 +758,8 @@ to download the full example code</p>
 <span class="c1"># extrude with and without the all_edges option</span>
 <span class="n">extruded_disc</span> <span class="o">=</span> <span class="n">disc</span><span class="o">.</span><span class="n">extrude_trim</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">),</span> <span class="n">plane</span><span class="p">)</span>
 <span class="n">extruded_disc_all</span> <span class="o">=</span> <span class="n">disc</span><span class="o">.</span><span class="n">extrude_trim</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">),</span> <span class="n">plane</span><span class="p">,</span> <span class="n">extrusion</span><span class="o">=</span><span class="s1">&#39;all_edges&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Extrusion has </span><span class="si">{</span><span class="n">extruded_disc</span><span class="o">.</span><span class="n">n_faces</span><span class="si">}</span><span class="s1"> faces with default boundary_edges&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Extrusion has </span><span class="si">{</span><span class="n">extruded_disc_all</span><span class="o">.</span><span class="n">n_faces</span><span class="si">}</span><span class="s1"> faces with all_edges&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Extrusion has </span><span class="si">{</span><span class="n">extruded_disc</span><span class="o">.</span><span class="n">n_faces_strict</span><span class="si">}</span><span class="s1"> faces with default boundary_edges&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Extrusion has </span><span class="si">{</span><span class="n">extruded_disc_all</span><span class="o">.</span><span class="n">n_faces_strict</span><span class="si">}</span><span class="s1"> faces with all_edges&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Extrusion has 30 faces with default boundary_edges
@@ -828,7 +828,7 @@ Extrusion has 72 faces with all_edges
 <span class="n">pl</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_extrude-trim_003.png" srcset="../../_images/sphx_glr_extrude-trim_003.png" alt="extrude trim" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 1.230 seconds)</p>
+<img src="../../_images/sphx_glr_extrude-trim_003.png" srcset="../../_images/sphx_glr_extrude-trim_003.png" alt="extrude trim" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 1.256 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-01-filter-extrude-trim-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/2560f78adc2abfe52f7b61aba2337f3c/extrude-trim.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">extrude-trim.py</span></code></a></p>

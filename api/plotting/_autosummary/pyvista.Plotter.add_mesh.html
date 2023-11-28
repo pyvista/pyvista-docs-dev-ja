@@ -1003,14 +1003,10 @@ document.write(`
 <li><p><code class="docutils literal notranslate"><span class="pre">vertex_opacity</span></code> - 頂点の不透明度を制御します．</p></li>
 </ul>
 </dd>
-<dt><strong>edge_opacity</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/functions.html#float" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>Edge opacity of the mesh. A single float value that will be applied globally
-edge opacity of the mesh and uniformly applied everywhere - should be
-between 0 and 1.</p>
+<dt><strong>edge_opacity</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/functions.html#float" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>メッシュのエッジの不透明度．メッシュのエッジの不透明度をグローバルに適用し，どこでも一様に適用される単一の浮動小数点値です． - 0と1の間でなければなりません．</p>
 <div class="admonition note">
 <p class="admonition-title">注釈</p>
-<p><cite>edge_opacity</cite> uses <code class="docutils literal notranslate"><span class="pre">SetEdgeOpacity</span></code> as the underlying method which
-requires VTK version 9.3 or higher. If <code class="docutils literal notranslate"><span class="pre">SetEdgeOpacity</span></code> is not
-available, <cite>edge_opacity</cite> is set to 1.</p>
+<p><cite>edge_opacity</cite> は <code class="docutils literal notranslate"><span class="pre">SetEdgeOpacity</span></code> を基礎メソッドとして使用し，VTKバージョン9.3以降を必要とします．もし <code class="docutils literal notranslate"><span class="pre">SetEdgeOpacity</span></code> が利用できない場合， <cite>edge_opacity`</cite> は 1 に設定されます．</p>
 </div>
 </dd>
 <dt><strong>**kwargs</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/stdtypes.html#dict" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">dict</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>オプションのキーワード引数．</p>

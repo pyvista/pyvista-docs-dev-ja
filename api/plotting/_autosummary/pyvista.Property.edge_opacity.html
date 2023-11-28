@@ -669,17 +669,14 @@ document.write(`
 <dl class="py property">
 <dt class="sig sig-object py" id="pyvista.Property.edge_opacity">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">Property.</span></span><span class="sig-name descname"><span class="pre">edge_opacity</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3.11/library/functions.html#float" title="(in Python v3.11)"><span class="pre">float</span></a></em><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/plotting/_property.py#L423-L460"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.Property.edge_opacity" title="この定義へのパーマリンク">#</a></dt>
-<dd><p>Return or set the edge opacity of this property.</p>
-<p>Edge opacity of the mesh. A single float value that will be applied globally
-edge opacity of the mesh and uniformly applied everywhere. Between 0 and 1.</p>
+<dd><p>このプロパティのエッジの不透明度を返すか設定します．</p>
+<p>メッシュのエッジの不透明度．メッシュのエッジの不透明度をグローバルに適用し，どこでも一様に適用される単一の浮動小数点値です． - 0と1の間です．</p>
 <div class="admonition note">
 <p class="admonition-title">注釈</p>
-<p><cite>edge_opacity</cite> uses <code class="docutils literal notranslate"><span class="pre">SetEdgeOpacity</span></code> as the underlying method which
-requires VTK version 9.3 or higher. If <code class="docutils literal notranslate"><span class="pre">SetEdgeOpacity</span></code> is not
-available, <cite>edge_opacity</cite> is set to 1.</p>
+<p><cite>edge_opacity</cite> は <code class="docutils literal notranslate"><span class="pre">SetEdgeOpacity</span></code> を基礎メソッドとして使用し，VTKバージョン9.3以降を必要とします．もし <code class="docutils literal notranslate"><span class="pre">SetEdgeOpacity</span></code> が利用できない場合， <cite>edge_opacity`</cite> は 1 に設定されます．</p>
 </div>
 <p class="rubric">例</p>
-<p>Set edge opacity to <code class="docutils literal notranslate"><span class="pre">0.5</span></code>.</p>
+<p>エッジの不透明度を <code class="docutils literal notranslate"><span class="pre">0.5</span></code> に設定します．</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyvista</span> <span class="k">as</span> <span class="nn">pv</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">prop</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Property</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">prop</span><span class="o">.</span><span class="n">show_edges</span> <span class="o">=</span> <span class="kc">True</span>
@@ -688,7 +685,7 @@ available, <cite>edge_opacity</cite> is set to 1.</p>
 <span class="go">0.5</span>
 </pre></div>
 </div>
-<p>Visualize default edge opacity of <code class="docutils literal notranslate"><span class="pre">1.0</span></code>.</p>
+<p>デフォルトのエッジの不透明度 <code class="docutils literal notranslate"><span class="pre">1.0</span></code> を可視化します．</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">prop</span><span class="o">.</span><span class="n">edge_opacity</span> <span class="o">=</span> <span class="mf">1.0</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">prop</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 </pre></div>
@@ -696,7 +693,7 @@ available, <cite>edge_opacity</cite> is set to 1.</p>
 <figure class="align-default">
 <img alt="../../../_images/pyvista-Property-edge_opacity-1_00_00.png" src="../../../_images/pyvista-Property-edge_opacity-1_00_00.png" />
 </figure>
-<p>Visualize edge opacity of <code class="docutils literal notranslate"><span class="pre">0.1</span></code>.</p>
+<p>エッジの不透明度 <code class="docutils literal notranslate"><span class="pre">0.1</span></code> を可視化します．</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">prop</span><span class="o">.</span><span class="n">edge_opacity</span> <span class="o">=</span> <span class="mf">0.1</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">prop</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 </pre></div>

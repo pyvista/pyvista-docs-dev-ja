@@ -77,7 +77,7 @@
         </script>
     <link rel="index" title="索引" href="../../../genindex.html" />
     <link rel="search" title="検索" href="../../../search.html" />
-    <link rel="next" title="pyvista.PolyData.cell_normals" href="pyvista.PolyData.cell_normals.html" />
+    <link rel="next" title="pyvista.PolyData.use_strict_n_faces" href="pyvista.PolyData.use_strict_n_faces.html" />
     <link rel="prev" title="pyvista.PolyData.from_regular_faces" href="pyvista.PolyData.from_regular_faces.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="ja"/>
@@ -539,6 +539,7 @@ document.write(`
 <li class="toctree-l3 current active has-children"><a class="reference internal" href="pyvista.PolyData.html">pyvista.PolyData</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="pyvista.PolyData.from_regular_faces.html">pyvista.PolyData.from_regular_faces</a></li>
 <li class="toctree-l4 current active"><a class="current reference internal" href="#">pyvista.PolyData.save</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyvista.PolyData.use_strict_n_faces.html">pyvista.PolyData.use_strict_n_faces</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyvista.PolyData.cell_normals.html">pyvista.PolyData.cell_normals</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyvista.PolyData.face_normals.html">pyvista.PolyData.face_normals</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyvista.PolyData.faces.html">pyvista.PolyData.faces</a></li>
@@ -546,6 +547,7 @@ document.write(`
 <li class="toctree-l4"><a class="reference internal" href="pyvista.PolyData.is_manifold.html">pyvista.PolyData.is_manifold</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyvista.PolyData.lines.html">pyvista.PolyData.lines</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyvista.PolyData.n_faces.html">pyvista.PolyData.n_faces</a></li>
+<li class="toctree-l4"><a class="reference internal" href="pyvista.PolyData.n_faces_strict.html">pyvista.PolyData.n_faces_strict</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyvista.PolyData.n_lines.html">pyvista.PolyData.n_lines</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyvista.PolyData.n_open_edges.html">pyvista.PolyData.n_open_edges</a></li>
 <li class="toctree-l4"><a class="reference internal" href="pyvista.PolyData.n_strips.html">pyvista.PolyData.n_strips</a></li>
@@ -647,7 +649,7 @@ document.write(`
 <h1>pyvista.PolyData.save<a class="headerlink" href="#pyvista-polydata-save" title="この見出しへのパーマリンク">#</a></h1>
 <dl class="py method">
 <dt class="sig sig-object py" id="pyvista.PolyData.save">
-<span class="sig-prename descclassname"><span class="pre">PolyData.</span></span><span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">binary</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">texture</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">recompute_normals</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/core/pointset.py#L1081-L1188"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.PolyData.save" title="この定義へのパーマリンク">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">PolyData.</span></span><span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">binary</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">texture</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">recompute_normals</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/core/pointset.py#L1141-L1248"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.PolyData.save" title="この定義へのパーマリンク">#</a></dt>
 <dd><p>サーフェスメッシュをディスクに書き込みます．</p>
 <p>書き込まれるファイルは，ASCIIまたはバイナリのply，stl，vtkのメッシュファイルです．</p>
 <dl class="field-list">
