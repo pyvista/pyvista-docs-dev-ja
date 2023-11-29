@@ -697,36 +697,30 @@ document.write(`
 <h1>pyvista.DataSetFilters.pack_labels<a class="headerlink" href="#pyvista-datasetfilters-pack-labels" title="この見出しへのパーマリンク">#</a></h1>
 <dl class="py method">
 <dt class="sig sig-object py" id="pyvista.DataSetFilters.pack_labels">
-<span class="sig-prename descclassname"><span class="pre">DataSetFilters.</span></span><span class="sig-name descname"><span class="pre">pack_labels</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sort</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scalars</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">preference</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'point'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_scalars</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">progress_bar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inplace</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/core/filters/data_set.py#L6329-L6490"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.DataSetFilters.pack_labels" title="この定義へのパーマリンク">#</a></dt>
-<dd><p>Renumber labeled data such that labels are contiguous.</p>
-<p>This filter renumbers scalar label data of any type with <code class="docutils literal notranslate"><span class="pre">N</span></code> labels
-such that the output labels are contiguous from <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">N)</span></code>. The
-output may optionally be sorted by label count.</p>
-<p>The output array <code class="docutils literal notranslate"><span class="pre">'packed_labels'</span></code> is added to the output by default,
-and is automatically set as the active scalars.</p>
+<span class="sig-prename descclassname"><span class="pre">DataSetFilters.</span></span><span class="sig-name descname"><span class="pre">pack_labels</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sort</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scalars</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">preference</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'point'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_scalars</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">progress_bar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inplace</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/core/filters/data_set.py#L6333-L6499"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.DataSetFilters.pack_labels" title="この定義へのパーマリンク">#</a></dt>
+<dd><p>ラベルが連続するようにラベル付けされたデータを再番号付けします．</p>
+<p>このフィルタは， 出力ラベルが <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">N)</span></code> の連続したラベルになるように， <code class="docutils literal notranslate"><span class="pre">N</span></code> 個のラベルを持つ任意の型のスカラーラベルデータに番号を付け直します．出力はラベル数でソートされることもあります．</p>
+<p>出力配列 <code class="docutils literal notranslate"><span class="pre">'packed_labels'</span></code> はデフォルトで出力に追加され，自動的にアクティブスカラーとして設定されます．</p>
 <dl class="field-list">
 <dt class="field-odd">パラメータ<span class="colon">:</span></dt>
 <dd class="field-odd"><dl>
-<dt><strong>sort</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.11)"><span class="xref std std-ref">bool</span></a>, default: <a class="reference external" href="https://docs.python.org/3.11/library/constants.html#False" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">False</span></code></a></span></dt><dd><p>Whether to sort the output by label count in descending order
-(i.e. from largest to smallest).</p>
+<dt><strong>sort</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.11)"><span class="xref std std-ref">bool</span></a>, default: <a class="reference external" href="https://docs.python.org/3.11/library/constants.html#False" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">False</span></code></a></span></dt><dd><p>ラベルの数で出力を降順に並べ替えるかどうか (つまり，最も多いものから最も少ないものへ) ．</p>
 </dd>
-<dt><strong>scalars</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/stdtypes.html#str" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>Name of scalars to pack. Defaults to currently active scalars.</p>
+<dt><strong>scalars</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/stdtypes.html#str" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">optional</span></code></span></dt><dd><p>パックするスカラーの名前．デフォルトは現在アクティブなスカラーです．</p>
 </dd>
 <dt><strong>preference</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/stdtypes.html#str" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a>, default: &quot;point&quot;</span></dt><dd><p><code class="docutils literal notranslate"><span class="pre">scalars</span></code> が指定されている場合，これはデータセット内で検索するために推奨される配列型です． <code class="docutils literal notranslate"><span class="pre">'point'</span></code> または <code class="docutils literal notranslate"><span class="pre">'cell'</span></code> のいずれかでなければなりません．</p>
 </dd>
-<dt><strong>output_scalars</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/stdtypes.html#str" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference external" href="https://docs.python.org/3.11/library/constants.html#None" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">None</span></code></a></span></dt><dd><p>Name of the packed output scalars. By default, the output is
-saved to <code class="docutils literal notranslate"><span class="pre">'packed_labels'</span></code>.</p>
+<dt><strong>output_scalars</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/stdtypes.html#str" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference external" href="https://docs.python.org/3.11/library/constants.html#None" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">None</span></code></a></span></dt><dd><p>パックされた出力スカラーの名前．デフォルトでは，出力は <code class="docutils literal notranslate"><span class="pre">'packed_labels'</span></code> に保存されます．</p>
 </dd>
-<dt><strong>progress_bar</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.11)"><span class="xref std std-ref">bool</span></a>, default: <a class="reference external" href="https://docs.python.org/3.11/library/constants.html#False" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">False</span></code></a></span></dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">True</span></code>, display a progress bar. Has no effect if VTK
-version is lower than 9.3.</p>
+<dt><strong>progress_bar</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.11)"><span class="xref std std-ref">bool</span></a>, default: <a class="reference external" href="https://docs.python.org/3.11/library/constants.html#False" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">False</span></code></a></span></dt><dd><p>もし <code class="docutils literal notranslate"><span class="pre">True</span></code> ならプログレスバーを表示します．VTK のバージョンが 9.3. より低い場合は効果がありません．</p>
 </dd>
-<dt><strong>inplace</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.11)"><span class="xref std std-ref">bool</span></a>, default: <a class="reference external" href="https://docs.python.org/3.11/library/constants.html#False" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">False</span></code></a></span></dt><dd><p>If <code class="docutils literal notranslate"><span class="pre">True</span></code>, the mesh is updated in-place.</p>
+<dt><strong>inplace</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.11)"><span class="xref std std-ref">bool</span></a>, default: <a class="reference external" href="https://docs.python.org/3.11/library/constants.html#False" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">False</span></code></a></span></dt><dd><p><code class="docutils literal notranslate"><span class="pre">True</span></code> の場合，メッシュはin-place更新されます．</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">戻り値<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyvista.Dataset</span></code></dt><dd><p>Dataset with packed labels.</p>
+<dt><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyvista.Dataset</span></code></dt><dd><p>ラベルがパックされたデータセット．</p>
 </dd>
 </dl>
 </dd>
@@ -734,38 +728,45 @@ version is lower than 9.3.</p>
 <div class="admonition seealso">
 <p class="admonition-title">参考</p>
 <dl class="simple">
-<dt><a class="reference internal" href="pyvista.DataSetFilters.sort_labels.html#pyvista.DataSetFilters.sort_labels" title="pyvista.DataSetFilters.sort_labels"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sort_labels</span></code></a></dt><dd><p>Similar function with <code class="docutils literal notranslate"><span class="pre">sort=True</span></code> by default.</p>
+<dt><a class="reference internal" href="pyvista.DataSetFilters.sort_labels.html#pyvista.DataSetFilters.sort_labels" title="pyvista.DataSetFilters.sort_labels"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sort_labels</span></code></a></dt><dd><p>同様の機能で，デフォルトでは <code class="docutils literal notranslate"><span class="pre">sort=True</span></code> となります．</p>
 </dd>
 </dl>
 </div>
 <p class="rubric">備考</p>
-<p>This filter uses <code class="docutils literal notranslate"><span class="pre">vtkPackLabels</span></code> as the underlying method which
-requires VTK version 9.3 or higher. If <code class="docutils literal notranslate"><span class="pre">vtkPackLabels</span></code> is not
-available, packing is done with <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> instead which may be
-slower. For best performance, consider upgrading VTK.</p>
+<p>このフィルタは，VTKバージョン9.3以上を必要とする基礎的なメソッドとして <code class="docutils literal notranslate"><span class="pre">vtkPackLabels</span></code> を使用します． <code class="docutils literal notranslate"><span class="pre">vtkPackLabels</span></code> が利用できない場合は，代わりに <code class="docutils literal notranslate"><span class="pre">NumPy</span></code> でパッキングが行われるため，処理が遅くなる可能性があります．最高のパフォーマンスを得るためには，VTKをアップグレードすることを検討してください．</p>
 <div class="versionadded">
 <p><span class="versionmodified added">バージョン 0.43 で追加.</span></p>
 </div>
 <p class="rubric">例</p>
-<p>Pack segmented image labels.</p>
-<p>Load non-contiguous image labels
-&gt;&gt;&gt; from pyvista import examples
-&gt;&gt;&gt; import numpy as np
-&gt;&gt;&gt; image_labels = examples.download_frog_tissue()</p>
-<p>Show range of labels
-&gt;&gt;&gt; image_labels.get_data_range()
-(0, 29)</p>
-<p>Find 'gaps' in the labels
-&gt;&gt;&gt; label_numbers = np.unique(image_labels.active_scalars)
-&gt;&gt;&gt; label_max = np.max(label_numbers)
-&gt;&gt;&gt; missing_labels = set(range(label_max)) - set(label_numbers)
-&gt;&gt;&gt; len(missing_labels)
-4</p>
-<p>Pack labels to remove gaps
-&gt;&gt;&gt; packed_labels = image_labels.pack_labels()</p>
-<p>Show range of packed labels
-&gt;&gt;&gt; packed_labels.get_data_range()
-(0, 25)</p>
+<p>セグメンテーションされた画像ラベルをパックします．</p>
+<p>Load non-contiguous image labels</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pyvista</span> <span class="kn">import</span> <span class="n">examples</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">image_labels</span> <span class="o">=</span> <span class="n">examples</span><span class="o">.</span><span class="n">download_frog_tissue</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Show range of labels</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">image_labels</span><span class="o">.</span><span class="n">get_data_range</span><span class="p">()</span>
+<span class="go">(0, 29)</span>
+</pre></div>
+</div>
+<p>Find 'gaps' in the labels</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">label_numbers</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">image_labels</span><span class="o">.</span><span class="n">active_scalars</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">label_max</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">label_numbers</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">missing_labels</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">label_max</span><span class="p">))</span> <span class="o">-</span> <span class="nb">set</span><span class="p">(</span><span class="n">label_numbers</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">missing_labels</span><span class="p">)</span>
+<span class="go">4</span>
+</pre></div>
+</div>
+<p>Pack labels to remove gaps</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">packed_labels</span> <span class="o">=</span> <span class="n">image_labels</span><span class="o">.</span><span class="n">pack_labels</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Show range of packed labels</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">packed_labels</span><span class="o">.</span><span class="n">get_data_range</span><span class="p">()</span>
+<span class="go">(0, 25)</span>
+</pre></div>
+</div>
 </dd></dl>
 
 </section>

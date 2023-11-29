@@ -652,17 +652,7 @@ document.write(`
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">PolyData.</span></span><span class="sig-name descname"><span class="pre">n_faces</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3.11/library/functions.html#int" title="(in Python v3.11)"><span class="pre">int</span></a></em><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/core/pointset.py#L1083-L1116"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.PolyData.n_faces" title="この定義へのパーマリンク">#</a></dt>
 <dd><p>セルの数を返します．</p>
 <div class="deprecated">
-<p><span class="versionmodified deprecated">バージョン 0.43.0 で非推奨: </span>The current (deprecated) behavior of this property is to
-return the total number of cells, i.e. the sum of the number of
-vertices, lines, triangle strips, and polygonal faces.
-In the future, this will change to return only the number of
-polygonal faces, i.e. those cells represented in the
-<cite>pv.PolyData.faces</cite> array. If you want the total number of cells,
-use <cite>pv.PolyData.n_cells</cite>. If you want only the number of polygonal faces,
-use <cite>pv.PolyData.n_faces_strict</cite>. Alternatively, you can opt into the
-future behavior globally by calling <cite>pv.PolyData.use_strict_n_faces(True)</cite>,
-in which case <cite>pv.PolyData.n_faces</cite> will return the same thing as
-<cite>pv.PolyData.n_faces_strict</cite>.</p>
+<p><span class="versionmodified deprecated">バージョン 0.43.0 で非推奨: </span>現在の（非推奨）このプロパティの動作は，セルの総数，つまり頂点，線，三角形ストリップ，および多角形の面の数の合計を返すことです．将来的には，これは <cite>pv.PolyData.faces</cite> 配列で表されるセルの数，つまり多角形の面の数だけを返すように変更されます．セルの総数が必要な場合は， <cite>pv.PolyData.n_cells</cite> を使用してください．多角形の面の数だけが必要な場合は， <cite>pv.PolyData.n_faces_strict</cite> を使用してください．また， <cite>pv.PolyData.use_strict_n_faces(True)</cite> を呼び出すことで，将来の動作をグローバルに適用することもできます．その場合， <cite>pv.PolyData.n_faces</cite> は <cite>pv.PolyData.n_faces_strict</cite> と同じものを返します．</p>
 </div>
 </dd></dl>
 
