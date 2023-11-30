@@ -739,18 +739,18 @@ document.write(`
 </div>
 <p class="rubric">例</p>
 <p>セグメンテーションされた画像ラベルをパックします．</p>
-<p>Load non-contiguous image labels</p>
+<p>非連続なイメージラベルをロードします</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pyvista</span> <span class="kn">import</span> <span class="n">examples</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">image_labels</span> <span class="o">=</span> <span class="n">examples</span><span class="o">.</span><span class="n">download_frog_tissue</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>Show range of labels</p>
+<p>ラベルの範囲を表示します</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">image_labels</span><span class="o">.</span><span class="n">get_data_range</span><span class="p">()</span>
 <span class="go">(0, 29)</span>
 </pre></div>
 </div>
-<p>Find 'gaps' in the labels</p>
+<p>ラベルの 'ギャップ' を見つけます</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">label_numbers</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">image_labels</span><span class="o">.</span><span class="n">active_scalars</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">label_max</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">label_numbers</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">missing_labels</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">label_max</span><span class="p">))</span> <span class="o">-</span> <span class="nb">set</span><span class="p">(</span><span class="n">label_numbers</span><span class="p">)</span>
@@ -758,11 +758,11 @@ document.write(`
 <span class="go">4</span>
 </pre></div>
 </div>
-<p>Pack labels to remove gaps</p>
+<p>パックラベルを削除してギャップを埋めます</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">packed_labels</span> <span class="o">=</span> <span class="n">image_labels</span><span class="o">.</span><span class="n">pack_labels</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>Show range of packed labels</p>
+<p>パックされたラベルの範囲を表示します</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">packed_labels</span><span class="o">.</span><span class="n">get_data_range</span><span class="p">()</span>
 <span class="go">(0, 25)</span>
 </pre></div>

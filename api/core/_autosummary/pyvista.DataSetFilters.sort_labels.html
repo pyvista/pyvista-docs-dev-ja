@@ -700,8 +700,7 @@ document.write(`
 <span class="sig-prename descclassname"><span class="pre">DataSetFilters.</span></span><span class="sig-name descname"><span class="pre">sort_labels</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">scalars</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">preference</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'point'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_scalars</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">progress_bar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inplace</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/core/filters/data_set.py#L6243-L6331"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.DataSetFilters.sort_labels" title="この定義へのパーマリンク">#</a></dt>
 <dd><p>ラベル付けされたデータをポイント番号またはセル番号で並べ替えます．</p>
 <p>このフィルタは，出力ラベルが <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">N)</span></code> から連続し， (ラベル数の) 大きいものから小さいものへと降順にソートされるように， <code class="docutils literal notranslate"><span class="pre">N</span></code> のラベルを持つ任意の型のスカララベルデータをリナンバリングします．つまり，最大のラベルは <code class="docutils literal notranslate"><span class="pre">0</span></code> という値を持ち，最小のラベルは <code class="docutils literal notranslate"><span class="pre">N-1</span></code> という値を持ちます．</p>
-<p>The filter is a convenience method for <a class="reference internal" href="pyvista.DataSetFilters.pack_labels.html#pyvista.DataSetFilters.pack_labels" title="pyvista.DataSetFilters.pack_labels"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyvista.DataSetFilters.pack_labels()</span></code></a>
-with <code class="docutils literal notranslate"><span class="pre">sort=True</span></code>.</p>
+<p>フィルターは， <code class="docutils literal notranslate"><span class="pre">sort=True</span></code> を使用した <a class="reference internal" href="pyvista.DataSetFilters.pack_labels.html#pyvista.DataSetFilters.pack_labels" title="pyvista.DataSetFilters.pack_labels"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyvista.DataSetFilters.pack_labels()</span></code></a> の便利なメソッドです．</p>
 <dl class="field-list">
 <dt class="field-odd">パラメータ<span class="colon">:</span></dt>
 <dd class="field-odd"><dl>
@@ -726,13 +725,13 @@ with <code class="docutils literal notranslate"><span class="pre">sort=True</spa
 </dl>
 <p class="rubric">例</p>
 <p>ソートされた画像ラベルをパックします．</p>
-<p>Load image labels</p>
+<p>イメージラベルをロードします</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pyvista</span> <span class="kn">import</span> <span class="n">examples</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">image_labels</span> <span class="o">=</span> <span class="n">examples</span><span class="o">.</span><span class="n">download_frog_tissue</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>Show label info for first four labels</p>
+<p>最初の4つのラベルのラベル情報を表示します</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">label_number</span><span class="p">,</span> <span class="n">label_size</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span>
 <span class="gp">... </span>    <span class="n">image_labels</span><span class="p">[</span><span class="s1">&#39;MetaImage&#39;</span><span class="p">],</span> <span class="n">return_counts</span><span class="o">=</span><span class="kc">True</span>
 <span class="gp">... </span><span class="p">)</span>
@@ -742,12 +741,11 @@ with <code class="docutils literal notranslate"><span class="pre">sort=True</spa
 <span class="go">array([30805713,    35279,    19172,    38129])</span>
 </pre></div>
 </div>
-<p>Sort labels</p>
+<p>ソートラベル</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sorted_labels</span> <span class="o">=</span> <span class="n">image_labels</span><span class="o">.</span><span class="n">sort_labels</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>Show sorted label info for the four largest labels. Note
-the difference in label size after sorting.</p>
+<p>4つの最大のラベルのソートされたラベル情報を表示します．ソート後のラベルサイズの違いに注意してください．</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sorted_label_number</span><span class="p">,</span> <span class="n">sorted_label_size</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span>
 <span class="gp">... </span>    <span class="n">sorted_labels</span><span class="p">[</span><span class="s2">&quot;packed_labels&quot;</span><span class="p">],</span> <span class="n">return_counts</span><span class="o">=</span><span class="kc">True</span>
 <span class="gp">... </span><span class="p">)</span>
