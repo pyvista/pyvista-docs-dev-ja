@@ -850,43 +850,6 @@ python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </sp
 </pre></div>
 </div>
 </section>
-<section id="input-validation">
-<h4>入力バリデーション<a class="headerlink" href="#input-validation" title="この見出しへのパーマリンク">#</a></h4>
-<p>ユーザー入力の検証は，アルゴリズムが期待通りに動作することを保証するために，ソフトウェア開発において不可欠な部分です．特にPythonでは，複数の配列のようなオブジェクト型（ <code class="docutils literal notranslate"><span class="pre">Sequence</span></code> や <code class="docutils literal notranslate"><span class="pre">numpy.ndarray</span></code> など）を扱う場合，明示的な型付けや，特定の形状や次元，データ型（ <code class="docutils literal notranslate"><span class="pre">float</span></code> や <code class="docutils literal notranslate"><span class="pre">int</span></code> など）の配列が必要な場合の型ヒントをサポートしていないことがあります．</p>
-<p>しかし，入力検証ルーチンと関連するテストケースを手作業で書くのは時間がかかり，エラーになりやすいです．そのため， <code class="docutils literal notranslate"><span class="pre">pyvista.core.input_validation</span></code> にある既存のバリデーションメソッドを利用することをお勧めします．</p>
-<p>例えば，ある関数の典型的な検証ルーチンは次のようなものです:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">some_function</span><span class="p">(</span><span class="n">points_array</span><span class="p">,</span> <span class="n">method</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Apply a method to an Nx3 points array.</span>
-
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    points_array : array_like</span>
-<span class="sd">        Array-like input of points with shape Nx3.</span>
-
-<span class="sd">    method : str</span>
-<span class="sd">        Method to apply. Must be one of:</span>
-<span class="sd">            * ``&#39;method_a&#39;``</span>
-<span class="sd">            * ``&#39;method_b&#39;``</span>
-
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="kn">import</span> <span class="nn">pyvista.core.input_validation</span> <span class="k">as</span> <span class="nn">valid</span>
-
-    <span class="c1"># Validate input array. There is no need to check for</span>
-    <span class="c1"># type (e.g. Sequence or np.ndarray) or array shape.</span>
-    <span class="c1"># An error is automatically raised for bad input.</span>
-    <span class="n">arr</span> <span class="o">=</span> <span class="n">valid</span><span class="o">.</span><span class="n">validate_arrayNx3</span><span class="p">(</span><span class="n">points_array</span><span class="p">)</span>
-
-    <span class="c1"># Validate input method. An error is automatically</span>
-    <span class="c1"># raised if the method is not valid.</span>
-    <span class="n">possible_methods</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;method_a&quot;</span><span class="p">,</span> <span class="s2">&quot;method_b&quot;</span><span class="p">]</span>
-    <span class="n">check_is_string_in_iterable</span><span class="p">(</span><span class="n">method</span><span class="p">,</span> <span class="n">possible_methods</span><span class="p">)</span>
-
-    <span class="c1"># Start of implementation code...</span>
-</pre></div>
-</div>
-<p>配列の検証メソッドを使用する場合は， docstringで入力タイプを (適切な場合) <code class="docutils literal notranslate"><span class="pre">array_like</span></code> に設定することを検討してください．検証メソッドは非常に汎用的であり，配列のような入力であればどのようなものでも動作します．</p>
-<p>注: <code class="docutils literal notranslate"><span class="pre">array_like</span></code> は <a class="reference external" href="https://numpy.org/doc/stable/glossary.html#term-array_like">NumPy glossary term</a> であり、実際の型ではありません．しかし，NumPy や PyVista のドキュメントではよく使われています．正式な <code class="docutils literal notranslate"><span class="pre">ArrayLike</span></code> 型は <a class="reference external" href="https://numpy.org/devdocs/reference/typing.html#numpy.typing.ArrayLike">introduced in NumPy 1.20</a> でしたが，その使用は現在 PyVista ではサポートされていません．</p>
-</section>
 <section id="branch-naming-conventions">
 <h4>ブランチの命名規則<a class="headerlink" href="#branch-naming-conventions" title="この見出しへのパーマリンク">#</a></h4>
 <p>開発を効率化するために，ブランチの命名には次の要件があります．これらの要件は，コア開発者がコードを調べる前に，あるブランチがどのような種類の変更を導入しているかを知るのに役立ちます．</p>
@@ -1156,7 +1119,6 @@ make<span class="w"> </span>html<span class="w"> </span>-b<span class="w"> </spa
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#documentation-style">ドキュメンテーションスタイル</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#docstrings">Docstrings</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#deprecating-features-or-other-backwards-breaking-changes">非推奨の機能またはその他の後方互換性のない変更</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#input-validation">入力バリデーション</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#branch-naming-conventions">ブランチの命名規則</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#testing">テスト</a></li>
 </ul>
