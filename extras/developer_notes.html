@@ -1037,6 +1037,20 @@ python -msphinx -M html . _build
 <p>他のユーザーがコードをレビューできるようにするには，pyvistaコントリビュータグループの他の少なくとも1人のメンバーが，コードがコミュニティの標準を満たしているかどうかをレビューして検証する必要があります．承認後，書き込み権限があればブランチをマージすることができます．書き込みパーミッションがない場合，レビュー担当者または書き込みパーミッションを持つ別のユーザーがブランチをマージし，PRブランチを削除します．</p>
 <p>ブランチをカレントリリースブランチ(下記参照)とマージする必要があるかもしれませんので， <code class="docutils literal notranslate"><span class="pre">fix/</span></code> ブランチであれば削除しないでください．</p>
 </section>
+<section id="preview-the-documentation">
+<h3>Preview the Documentation<a class="headerlink" href="#preview-the-documentation" title="この見出しへのパーマリンク">#</a></h3>
+<p>Once you have make a Pull Request from the pyvista organization repository branch.
+This will automatically deploy the Preview Documentation.
+Please check the documentation that is deployed by your Pull Request
+before merging.</p>
+<p>Once you have make a Pull Request from the forked repository. You can comment
+<cite>github-actions preview</cite> on a pull request to preview documentation.
+Since this command is only available for
+<a class="reference external" href="https://github.com/orgs/pyvista/teams/developers">&#64;pyvista/developers</a> ,
+new contributors kindly request them to comment command.
+This is essential to safeguard the deployment site against
+potentially harmful commits.</p>
+</section>
 <section id="branching-model">
 <h3>ブランチモデル<a class="headerlink" href="#branching-model" title="この見出しへのパーマリンク">#</a></h3>
 <p>このプロジェクトは，安定性を犠牲にすることなく機能の迅速な開発を可能にする分岐モデルを持っており， <a class="reference external" href="https://trunkbaseddevelopment.com/">Trunk Based Development</a>  アプローチに厳密に従います．</p>
@@ -1147,6 +1161,7 @@ make<span class="w"> </span>html<span class="w"> </span>-b<span class="w"> </spa
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-new-pull-request">新規Pull Requestの作成</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#preview-the-documentation">Preview the Documentation</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#branching-model">ブランチモデル</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#minor-release-steps">マイナーリリース手順</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#patch-release-steps">パッチリリース手順</a></li>
