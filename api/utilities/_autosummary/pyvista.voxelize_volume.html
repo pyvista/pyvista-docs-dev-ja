@@ -663,18 +663,14 @@ document.write(`
 <dl class="py function">
 <dt class="sig sig-object py" id="pyvista.voxelize_volume">
 <span class="sig-name descname"><span class="pre">voxelize_volume</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mesh</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">density</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">check_surface</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/core/utilities/features.py#L102-L208"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.voxelize_volume" title="この定義へのパーマリンク">#</a></dt>
-<dd><p>Voxelize mesh to create a RectilinearGrid voxel volume.</p>
-<p>Creates a voxel volume that encloses the input mesh and discretizes the cells
-within the volume that intersect or are contained within the input mesh.
-<code class="docutils literal notranslate"><span class="pre">InsideMesh</span></code>, an array in <code class="docutils literal notranslate"><span class="pre">cell_data</span></code>, is <code class="docutils literal notranslate"><span class="pre">1</span></code> for cells inside and <code class="docutils literal notranslate"><span class="pre">0</span></code> outside.</p>
+<dd><p>メッシュをボクセル化して，RectilinearGridボクセルボリュームを作成します．</p>
+<p>入力メッシュを包含するボクセルボリュームを作成し，ボリューム内で交差するセルまたは入力メッシュ内に含まれるセルを離散化します． &quot;cell_data&quot; の中の配列 &quot;InsideMesh&quot; は，内部のセルに対して&quot;1&quot;であり，外部のセルに対して &quot;0&quot; です．</p>
 <dl class="field-list">
 <dt class="field-odd">パラメータ<span class="colon">:</span></dt>
 <dd class="field-odd"><dl>
 <dt><strong>mesh</strong><span class="classifier"><a class="reference internal" href="../../core/_autosummary/pyvista.DataSet.html#pyvista.DataSet" title="pyvista.DataSet"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyvista.DataSet</span></code></a></span></dt><dd><p>ボクセライズするメッシュ．</p>
 </dd>
-<dt><strong>density</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/functions.html#float" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a> | <a class="reference external" href="https://numpy.org/doc/stable/glossary.html#term-array_like" title="(in NumPy v1.26)"><span>array_like</span></a>[<a class="reference external" href="https://docs.python.org/3.11/library/functions.html#float" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a>]</span></dt><dd><p>The uniform size of the voxels when single float passed.
-Nonuniform voxel size if a list of values are passed along x,y,z directions.
-Defaults to 1/100th of the mesh length.</p>
+<dt><strong>density</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/functions.html#float" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a> | <a class="reference external" href="https://numpy.org/doc/stable/glossary.html#term-array_like" title="(in NumPy v1.26)"><span>array_like</span></a>[<a class="reference external" href="https://docs.python.org/3.11/library/functions.html#float" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a>]</span></dt><dd><p>単一フロートが渡された場合のボクセルの均一サイズ．x,y,z方向に値のリストが渡される場合は，デフォルトはメッシュ長の100分の1．</p>
 </dd>
 <dt><strong>check_surface</strong><span class="classifier"><a class="reference external" href="https://docs.python.org/3.11/library/stdtypes.html#bltin-boolean-values" title="(in Python v3.11)"><span class="xref std std-ref">bool</span></a>, default: <a class="reference external" href="https://docs.python.org/3.11/library/constants.html#True" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">True</span></code></a></span></dt><dd><p>サーフェスの閉合をチェックするかどうかを指定します．オンの場合，アルゴリズムは最初にサーフェスが閉じて多様体であるかどうかをチェックします．サーフェスが閉じていて多様体でない場合，ランタイムエラーが発生します．</p>
 </dd>
@@ -682,7 +678,7 @@ Defaults to 1/100th of the mesh length.</p>
 </dd>
 <dt class="field-even">戻り値<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt><a class="reference internal" href="../../core/_autosummary/pyvista.RectilinearGrid.html#pyvista.RectilinearGrid" title="pyvista.RectilinearGrid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyvista.RectilinearGrid</span></code></a></dt><dd><p>RectilinearGrid as voxelized volume with discretized cells.</p>
+<dt><a class="reference internal" href="../../core/_autosummary/pyvista.RectilinearGrid.html#pyvista.RectilinearGrid" title="pyvista.RectilinearGrid"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pyvista.RectilinearGrid</span></code></a></dt><dd><p>RectilinearGridは，離散化されたセルを持つボクセル化されたボリュームとして機能します．</p>
 </dd>
 </dl>
 </dd>
@@ -695,17 +691,17 @@ Defaults to 1/100th of the mesh length.</p>
 </dl>
 </div>
 <p class="rubric">例</p>
-<p>Create an equal density voxel volume from input mesh.</p>
+<p>入力メッシュから等密度ボクセルボリュームを作成します．</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pyvista</span> <span class="k">as</span> <span class="nn">pv</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 </pre></div>
 </div>
-<p>Load file from PyVista examples.</p>
+<p>PyVistaの例からファイルをロードします．</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pyvista</span> <span class="kn">import</span> <span class="n">examples</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mesh</span> <span class="o">=</span> <span class="n">examples</span><span class="o">.</span><span class="n">download_cow</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>Create an equal density voxel volume and plot the result.</p>
+<p>等密度ボクセルボリュームを作成し，結果をプロットします．</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">vox</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">voxelize_volume</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="mf">0.15</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">cpos</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)]</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">vox</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">scalars</span><span class="o">=</span><span class="s1">&#39;InsideMesh&#39;</span><span class="p">,</span> <span class="n">show_edges</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cpos</span><span class="o">=</span><span class="n">cpos</span><span class="p">)</span>
@@ -714,7 +710,7 @@ Defaults to 1/100th of the mesh length.</p>
 <figure class="align-default">
 <img alt="../../../_images/pyvista-voxelize_volume-1_00_00.png" src="../../../_images/pyvista-voxelize_volume-1_00_00.png" />
 </figure>
-<p>Slice the voxel volume to view <code class="docutils literal notranslate"><span class="pre">InsideMesh</span></code>.</p>
+<p>ボクセルボリュームをスライスして， <code class="docutils literal notranslate"><span class="pre">InsideMesh</span></code> を表示します．</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">slices</span> <span class="o">=</span> <span class="n">vox</span><span class="o">.</span><span class="n">slice_orthogonal</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">slices</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">scalars</span><span class="o">=</span><span class="s1">&#39;InsideMesh&#39;</span><span class="p">,</span> <span class="n">show_edges</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
@@ -722,7 +718,7 @@ Defaults to 1/100th of the mesh length.</p>
 <figure class="align-default">
 <img alt="../../../_images/pyvista-voxelize_volume-1_01_00.png" src="../../../_images/pyvista-voxelize_volume-1_01_00.png" />
 </figure>
-<p>Create a voxel volume from unequal density dimensions and plot result.</p>
+<p>不均一な密度の次元からボクセルボリュームを作成し，結果をプロットします．</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">vox</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">voxelize_volume</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="p">[</span><span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">vox</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">scalars</span><span class="o">=</span><span class="s1">&#39;InsideMesh&#39;</span><span class="p">,</span> <span class="n">show_edges</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cpos</span><span class="o">=</span><span class="n">cpos</span><span class="p">)</span>
 </pre></div>
@@ -730,7 +726,7 @@ Defaults to 1/100th of the mesh length.</p>
 <figure class="align-default">
 <img alt="../../../_images/pyvista-voxelize_volume-1_02_00.png" src="../../../_images/pyvista-voxelize_volume-1_02_00.png" />
 </figure>
-<p>Slice the unequal density voxel volume to view <code class="docutils literal notranslate"><span class="pre">InsideMesh</span></code>.</p>
+<p>不均等な密度のボクセルボリュームをスライスして， <code class="docutils literal notranslate"><span class="pre">InsideMesh</span></code> を表示します．</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">slices</span> <span class="o">=</span> <span class="n">vox</span><span class="o">.</span><span class="n">slice_orthogonal</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">slices</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">scalars</span><span class="o">=</span><span class="s1">&#39;InsideMesh&#39;</span><span class="p">,</span> <span class="n">show_edges</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cpos</span><span class="o">=</span><span class="n">cpos</span><span class="p">)</span>
 </pre></div>
