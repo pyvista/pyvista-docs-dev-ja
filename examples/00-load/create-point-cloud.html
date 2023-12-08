@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>点群を作成 &#8212; PyVista 0.43.dev0 ドキュメント</title>
+    <title>点群を作成 &#8212; PyVista 0.44.dev0 ドキュメント</title>
   
   
   
@@ -50,7 +50,7 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
   <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
 
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js?v=6e578ec8"></script>
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js?v=1f8c24a2"></script>
     <script src="../../_static/doctools.js?v=888ff710"></script>
     <script src="../../_static/sphinx_highlight.js?v=4825356b"></script>
     <script src="../../_static/thebelab-helper.js"></script>
@@ -156,8 +156,8 @@
       
     
     
-    <img src="../../_static/pyvista_logo_sm.png" class="logo__image only-light" alt="PyVista 0.43.dev0 ドキュメント - Home"/>
-    <script>document.write(`<img src="../../_static/pyvista_logo_sm.png" class="logo__image only-dark" alt="PyVista 0.43.dev0 ドキュメント - Home"/>`);</script>
+    <img src="../../_static/pyvista_logo_sm.png" class="logo__image only-light" alt="PyVista 0.44.dev0 ドキュメント - Home"/>
+    <script>document.write(`<img src="../../_static/pyvista_logo_sm.png" class="logo__image only-dark" alt="PyVista 0.44.dev0 ドキュメント - Home"/>`);</script>
   
   
 </a></div>
@@ -676,11 +676,11 @@ document.write(`
 <a href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">points</span></a><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span> <span class="p">:]</span>
 </pre></div>
 </div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>pyvista_ndarray([[4.81067375e+05, 4.40011530e+06, 1.76065002e+03],
-                 [4.80986075e+05, 4.40010700e+06, 1.76270996e+03],
-                 [4.81068875e+05, 4.40012310e+06, 1.76029004e+03],
-                 [4.80957375e+05, 4.40014800e+06, 1.77397998e+03],
-                 [4.81057075e+05, 4.40018120e+06, 1.75941003e+03]])
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>pyvista_ndarray([[4.80938975e+05, 4.40016270e+06, 1.76108997e+03],
+                 [4.81058875e+05, 4.40016290e+06, 1.76544995e+03],
+                 [4.80975075e+05, 4.40008230e+06, 1.77417004e+03],
+                 [4.80941775e+05, 4.40019390e+06, 1.75901001e+03],
+                 [4.80937475e+05, 4.40021630e+06, 1.76563000e+03]])
 </pre></div>
 </div>
 <p>サンプルデータまたは独自のプロジェクトからポイント/頂点のNumPy配列を取得したので，これらのポイントのPyVistaメッシュを作成するのは簡単です．</p>
@@ -697,7 +697,7 @@ document.write(`
 <tr><td>N Strips</td><td>0</td></tr>
 <tr><td>X Bounds</td><td>4.809e+05, 4.811e+05</td></tr>
 <tr><td>Y Bounds</td><td>4.400e+06, 4.400e+06</td></tr>
-<tr><td>Z Bounds</td><td>1.754e+03, 1.785e+03</td></tr>
+<tr><td>Z Bounds</td><td>1.754e+03, 1.787e+03</td></tr>
 <tr><td>N Arrays</td><td>0</td></tr>
 </table>
 
@@ -747,11 +747,11 @@ document.write(`
 <span class="n">vectors</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span> <span class="p">:]</span>
 </pre></div>
 </div>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>pyvista_ndarray([[-0.9909497 ,  0.0204182 , -0.13267171],
-                 [ 0.29564241, -0.66058689,  0.69008733],
-                 [-0.21869318,  0.07477761,  0.97292425],
-                 [-0.94333566,  0.33057888,  0.02890374],
-                 [ 0.23020491,  0.86524095, -0.44538051]])
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>pyvista_ndarray([[ 0.62799839, -0.58162867, -0.51703589],
+                 [-0.46591063,  0.76273386, -0.44851347],
+                 [-0.74571318, -0.53061123,  0.40294365],
+                 [-0.77844532, -0.16650929, -0.6052252 ],
+                 [ 0.48813367, -0.56659358,  0.66385031]])
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">point_cloud</span><span class="p">[</span><span class="s1">&#39;vectors&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">vectors</span>
@@ -774,7 +774,7 @@ document.write(`
 <span class="n">plotter</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img src="../../_images/sphx_glr_create-point-cloud_003.png" srcset="../../_images/sphx_glr_create-point-cloud_003.png" alt="create point cloud" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 6.090 seconds)</p>
+<img src="../../_images/sphx_glr_create-point-cloud_003.png" srcset="../../_images/sphx_glr_create-point-cloud_003.png" alt="create point cloud" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 6.923 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-00-load-create-point-cloud-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/b56f133896ca717685efadc3dcd1d66c/create-point-cloud.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">create-point-cloud.py</span></code></a></p>

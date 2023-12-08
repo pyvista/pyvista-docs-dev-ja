@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-    <title>PyVista用Jupyterバックエンドをtrame化する &#8212; PyVista 0.43.dev0 ドキュメント</title>
+    <title>PyVista用Jupyterバックエンドをtrame化する &#8212; PyVista 0.44.dev0 ドキュメント</title>
   
   
   
@@ -50,7 +50,7 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
   <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
 
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js?v=6e578ec8"></script>
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js?v=1f8c24a2"></script>
     <script src="../../_static/doctools.js?v=888ff710"></script>
     <script src="../../_static/sphinx_highlight.js?v=4825356b"></script>
     <script src="../../_static/thebelab-helper.js"></script>
@@ -156,8 +156,8 @@
       
     
     
-    <img src="../../_static/pyvista_logo_sm.png" class="logo__image only-light" alt="PyVista 0.43.dev0 ドキュメント - Home"/>
-    <script>document.write(`<img src="../../_static/pyvista_logo_sm.png" class="logo__image only-dark" alt="PyVista 0.43.dev0 ドキュメント - Home"/>`);</script>
+    <img src="../../_static/pyvista_logo_sm.png" class="logo__image only-light" alt="PyVista 0.44.dev0 ドキュメント - Home"/>
+    <script>document.write(`<img src="../../_static/pyvista_logo_sm.png" class="logo__image only-dark" alt="PyVista 0.44.dev0 ドキュメント - Home"/>`);</script>
   
   
 </a></div>
@@ -662,12 +662,10 @@ document.write(`
 </div>
 </section>
 <section id="remote-jupyter-host">
-<h2>Remote Jupyter Host<a class="headerlink" href="#remote-jupyter-host" title="この見出しへのパーマリンク">#</a></h2>
-<p>When using PyVista in Jupyter that is hosted remotely (docker, cloud JupyterHub,
-binder, or otherwise), you will need to pair the Trame backend with either
-<code class="docutils literal notranslate"><span class="pre">jupyter-server-proxy</span></code> or <code class="docutils literal notranslate"><span class="pre">trame-jupyter-extension</span></code>.</p>
+<h2>リモートJupyterホスト<a class="headerlink" href="#remote-jupyter-host" title="この見出しへのパーマリンク">#</a></h2>
+<p>リモートでホストされているJupyter (docker, cloud JupyterHub, binder, 若しくはその他)でPyVistaを使用する場合，Trameバックエンドと <code class="docutils literal notranslate"><span class="pre">jupyter-server-proxy</span></code> と <code class="docutils literal notranslate"><span class="pre">trame-jupyter-extension</span></code> いずれもペアリングする必要があります．</p>
 <section id="jupyter-server-proxy">
-<h3>Jupyter Server Proxy<a class="headerlink" href="#jupyter-server-proxy" title="この見出しへのパーマリンク">#</a></h3>
+<h3>Jupyter サーバープロキシ<a class="headerlink" href="#jupyter-server-proxy" title="この見出しへのパーマリンク">#</a></h3>
 <p><a class="reference external" href="https://jupyter-server-proxy.readthedocs.io/en/latest/">Jupyter Server Proxy</a> は，ノートブックと一緒にPyVistaプロッタのビューをホストするTrameサーバにアクセスし，Jupyterから直接認証されたウェブアクセスを提供することができます．</p>
 <p>リモート環境で <code class="docutils literal notranslate"><span class="pre">jupyter-server-proxy</span></code> を使って動作するように PyVista と Trame を設定するには，PyVista のグローバルテーマでいくつかのオプションを設定する必要があります．</p>
 <ul class="simple">
@@ -683,23 +681,18 @@ binder, or otherwise), you will need to pair the Trame backend with either
 <p>これにより，プレフィックスにユーザIDがURLに含まれるようになります．PyVistaでは，この変数があるかどうかを自動的にチェックし， <code class="docutils literal notranslate"><span class="pre">server_proxy_prefix</span></code> の前に追加します．</p>
 </section>
 <section id="trame-jupyter-extension">
-<h3>Trame Jupyter Extension<a class="headerlink" href="#trame-jupyter-extension" title="この見出しへのパーマリンク">#</a></h3>
-<p><a class="reference external" href="https://github.com/Kitware/trame-jupyter-extension/">Trame Jupyter Extension</a>
-enables the trame server and client to communicate over the existing
-<a class="reference external" href="https://jupyter-notebook.readthedocs.io/en/stable/comms.html">Jupyter Comms</a>
-infrastructure, instead of creating a separate WebSocket connection.</p>
-<p>Using this extension removes the need for a secondary web server and thus
-<code class="docutils literal notranslate"><span class="pre">jupyter-server-proxy</span></code>.</p>
-<p>Using pip, you can install the extension:</p>
+<h3>Trame Jupyterエクステンション<a class="headerlink" href="#trame-jupyter-extension" title="この見出しへのパーマリンク">#</a></h3>
+<p><a class="reference external" href="https://github.com/Kitware/trame-jupyter-extension/">Trame Jupyter Extension</a> は， WebSocket接続を個別に作成する代わりに，既存の <a class="reference external" href="https://jupyter-notebook.readthedocs.io/en/stable/comms.html">Jupyter Comms</a> インフラストラクチャ上でtrameサーバーとクライアントの通信を可能にします．</p>
+<p>この拡張機能を使用すると，2次ウェブサーバーとした <code class="docutils literal notranslate"><span class="pre">jupyter-server-proxy</span></code> の必要性がなくなります．</p>
+<p>pipを使って，拡張機能をインストールすることができます:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">trame_jupyter_extension</span>
 </pre></div>
 </div>
-<p>If using Jupyter Lab 3.x, make sure to install the version 1.x of the extension:</p>
+<p>Jupyter Lab 3.x を使用する場合は，拡張機能のバージョン 1.x をインストールしてください．</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="s2">&quot;trame_jupyter_extension&lt;2&quot;</span>
 </pre></div>
 </div>
-<p>Once the extension is installed, you can select whether PyVista will use it by
-setting the following flag to <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code>:</p>
+<p>拡張機能がインストールされたら，次のフラグを``True`` または <code class="docutils literal notranslate"><span class="pre">False</span></code> に設定することで，PyVistaがそれを使用するかどうかを選択できます．</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="../../api/plotting/_autosummary/pyvista.plotting.themes._TrameConfig.jupyter_extension_enabled.html#pyvista.plotting.themes._TrameConfig.jupyter_extension_enabled" title="pyvista.plotting.themes._TrameConfig.jupyter_extension_enabled"><code class="xref py py-attr docutils literal notranslate"><span class="pre">pyvista.global_theme.trame.jupyter_extension_enabled</span></code></a></p></li>
 </ul>
@@ -747,9 +740,9 @@ sleep<span class="w"> </span><span class="m">3</span>
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#trame-jupyter-modes">Trame Jupyterのモード</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">インストール</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#remote-jupyter-host">Remote Jupyter Host</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyter-server-proxy">Jupyter Server Proxy</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trame-jupyter-extension">Trame Jupyter Extension</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#remote-jupyter-host">リモートJupyterホスト</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#jupyter-server-proxy">Jupyter サーバープロキシ</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trame-jupyter-extension">Trame Jupyterエクステンション</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-considerations">その他の考慮事項</a></li>
