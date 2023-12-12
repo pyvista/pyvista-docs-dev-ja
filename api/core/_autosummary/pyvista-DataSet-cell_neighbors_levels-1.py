@@ -50,6 +50,6 @@ for i, ids in enumerate(neighbors, start=1):
     other_ids.extend(ids)
 cells = mesh.extract_cells(other_ids, invert=True)
 _ = pl.add_mesh(cells, color="white", show_edges=True)
-pl.view_yx()
+pl.view_xy()
 pl.camera.zoom(6.0)
 pl.show()

@@ -39,7 +39,7 @@ add_point_labels = partial(
 )
 for i, connection in enumerate(["points", "edges"]):
     pl.subplot(0, i)
-    pl.view_yx()
+    pl.view_xy()
     _ = pl.add_title(
         f"{connection.capitalize()} neighbors",
         color="red",

@@ -36,6 +36,6 @@ for i, ids in enumerate(neighbors, start=1):
         labels=[f"{i}"] * len(ids),
         text_color="red",
     )
-pl.view_yx()
+pl.view_xy()
 pl.camera.zoom(4.0)
 pl.show()

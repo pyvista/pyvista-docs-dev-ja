@@ -20,6 +20,6 @@ _ = pl.add_point_labels(
     text_color="red",
     font_size=40,
 )
-pl.camera_position = "yx"
+pl.camera_position = "xy"
 pl.camera.zoom(7.0)
 pl.show()
