@@ -1,7 +1,7 @@
 # Create a blue color with custom opacity.
 #
 import pyvista as pv
-c = pv.Color("blue", default_opacity=0.6)
+c = pv.Color('blue', default_opacity=0.6)
 c
 # Expected:
 ## Color(name='blue', hex='#0000ff99', opacity=153)

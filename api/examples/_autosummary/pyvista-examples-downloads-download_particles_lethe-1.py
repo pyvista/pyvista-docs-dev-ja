@@ -10,3 +10,7 @@ particles.plot(
     scalar_bar_args={'color': 'k'},
     cmap='bwr',
 )
+#
+# .. seealso::
+#
+#     :ref:`Particles Lethe Dataset <particles_lethe_dataset>`

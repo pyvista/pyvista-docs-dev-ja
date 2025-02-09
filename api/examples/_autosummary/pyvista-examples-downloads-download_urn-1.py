@@ -6,3 +6,7 @@ cpos = [
 ]
 dataset = examples.download_urn()
 dataset.plot(cpos=cpos)
+#
+# .. seealso::
+#
+#     :ref:`Urn Dataset <urn_dataset>`

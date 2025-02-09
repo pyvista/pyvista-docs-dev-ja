@@ -11,6 +11,6 @@ def move_center(pointa, pointb):
     normal = np.array(pointa) - np.array(pointb)
     single_slc = model.slice(normal=normal, origin=center)
 
-    _ = pl.add_mesh(single_slc, name="slc")
+    _ = pl.add_mesh(single_slc, name='slc')
 _ = pl.add_line_widget(callback=move_center, use_vertices=True)
 pl.show()

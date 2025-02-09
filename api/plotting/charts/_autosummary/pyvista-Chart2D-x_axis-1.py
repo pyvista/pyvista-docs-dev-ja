@@ -1,4 +1,7 @@
-# Create a 2D plot and hide the x axis.
+# Create a 2D plot and hide the x-axis.
+#
+# .. pyvista-plot::
+#    :force_static:
 #
 import pyvista as pv
 chart = pv.Chart2D()

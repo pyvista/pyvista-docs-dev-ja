@@ -2,7 +2,7 @@
 #
 import pyvista as pv
 import numpy as np
-points = np.random.random((3, 3))
+points = np.random.default_rng().random((3, 3))
 spline = pv.Spline(points, 10)
 spline.lines
 # Expected:

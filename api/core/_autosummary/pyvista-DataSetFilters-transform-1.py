@@ -4,9 +4,8 @@ import numpy as np
 from pyvista import examples
 mesh = examples.load_airplane()
 #
-# Here a 4x4 :class:`numpy.ndarray` is used, but
-# ``vtk.vtkMatrix4x4`` and ``vtk.vtkTransform`` are also
-# accepted.
+# Here a 4x4 :class:`numpy.ndarray` is used, but any :class:`~pyvista.TransformLike`
+# is accepted.
 #
 transform_matrix = np.array(
     [
@@ -16,5 +15,5 @@ transform_matrix = np.array(
         [0, 0, 0, 1],
     ]
 )
-transformed = mesh.transform(transform_matrix)
+transformed = mesh.transform(transform_matrix, inplace=False)
 transformed.plot(show_edges=True)

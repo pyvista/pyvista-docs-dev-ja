@@ -1,5 +1,8 @@
 # Create a matplotlib chart with an emoji as its background.
 #
+# .. pyvista-plot::
+#    :force_static:
+#
 import pyvista as pv
 from pyvista import examples
 chart = pv.ChartMPL()

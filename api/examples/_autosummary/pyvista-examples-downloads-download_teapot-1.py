@@ -1,7 +1,12 @@
 from pyvista import examples
 dataset = examples.download_teapot()
-dataset.plot(cpos="xy")
+dataset.plot(cpos='xy')
 #
-# This dataset is used in the following examples:
+# .. seealso::
 #
-# * :ref:`read_file_example`
+#     :ref:`Teapot Dataset <teapot_dataset>`
+#         See this dataset in the Dataset Gallery for more info.
+#
+#     This dataset is used in the following examples:
+#
+#     * :ref:`read_file_example`

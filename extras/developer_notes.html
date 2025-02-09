@@ -2,65 +2,72 @@
 <!DOCTYPE html>
 
 
-<html lang="ja" data-content_root="" >
+<html lang="ja" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="貢献" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://docs.pyvista.org/extras/developer_notes.html" />
+<meta property="og:site_name" content="PyVista" />
+<meta property="og:description" content="コントリビューター行動規範 Code Triage 私たちは貢献を心から歓迎し，このガイドがPyVistaコードリポジトリの理解を促進することを願っています．PyVistaソフトウェアパッケージはボランティアベースでメンテナンスされていることに注意してください．したがって，このソフトウェアをすべてのユーザにとって有用なツールにするために，ユーザの質問をサポートし，新しい機能を開発できるコミュ..." />
+<meta property="og:image" content="https://docs.pyvista.org/_static/pyvista_banner_small.png" />
+<meta property="og:image:alt" content="PyVista" />
+<meta name="description" content="コントリビューター行動規範 Code Triage 私たちは貢献を心から歓迎し，このガイドがPyVistaコードリポジトリの理解を促進することを願っています．PyVistaソフトウェアパッケージはボランティアベースでメンテナンスされていることに注意してください．したがって，このソフトウェアをすべてのユーザにとって有用なツールにするために，ユーザの質問をサポートし，新しい機能を開発できるコミュ..." />
 
-    <title>貢献 &#8212; PyVista 0.44.dev0 ドキュメント</title>
+    <title>貢献 &#8212; PyVista 0.45.dev0 ドキュメント</title>
   
   
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=649a27d8" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d75fae25" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
     <link rel="stylesheet" type="text/css" href="../_static/thebelab.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/asciinema-player_2.6.1.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/asciinema-custom.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../_static/no_search_highlight.css?v=0f58e32f" />
-    <link rel="stylesheet" type="text/css" href="../_static/summary.css?v=09e0a9f3" />
-    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=61a4c737" />
+    <link rel="stylesheet" type="text/css" href="../_static/asciinema-player_3.6.3.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/no_search_highlight.css?v=4b20ffad" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css?v=d2d258e8" />
     <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css?v=f4aeca0c" />
     <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css?v=2082cf3c" />
     <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
-    <link rel="stylesheet" type="text/css" href="../_static/cards.css?v=d8ea150e" />
-    <link rel="stylesheet" type="text/css" href="../_static/no_italic.css?v=7ec6bf1f" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/cards.css?v=90395a4f" />
+    <link rel="stylesheet" type="text/css" href="../_static/no_italic.css?v=82ad2056" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
-  <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=1f8c24a2"></script>
-    <script src="../_static/doctools.js?v=888ff710"></script>
-    <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../_static/documentation_options.js?v=812542be"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/thebelab-helper.js"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=49e1bf35"></script>
-    <script src="../_static/asciinema-player_2.6.1.js"></script>
-    <script src="../_static/translations.js?v=4dbe4bdc"></script>
+    <script src="../_static/asciinema-player_3.6.3.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../_static/translations.js?v=4755f45a"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
-    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
     <script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-140243896-1"></script>
     <script>
                 window.dataLayer = window.dataLayer || [];
@@ -68,13 +75,15 @@
                 gtag('js', new Date());
                 gtag('config', 'UA-140243896-1');
             </script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'extras/developer_notes';</script>
     <script>
-        DOCUMENTATION_OPTIONS.theme_version = '0.14.4';
-        DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://docs.pyvista.org/versions.json';
-        DOCUMENTATION_OPTIONS.theme_switcher_version_match = 'dev';
-        DOCUMENTATION_OPTIONS.show_version_warning_banner = false;
-        </script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'UA-140243896-1');
+            </script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'extras/developer_notes';</script>
+    <link rel="canonical" href="https://docs.pyvista.org/extras/developer_notes.html" />
+    <link rel="icon" href="../_static/pyvista_logo.svg"/>
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
     <link rel="next" title="Sphinx PyVista Plot ディレクティブ" href="plot_directive.html" />
@@ -88,28 +97,23 @@
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
-
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -122,8 +126,8 @@
          class="form-control"
          name="q"
          id="search-input"
-         placeholder="Search the docs ..."
-         aria-label="Search the docs ..."
+         placeholder="Search..."
+         aria-label="Search..."
          autocomplete="off"
          autocorrect="off"
          autocapitalize="off"
@@ -131,18 +135,37 @@
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
-  
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-<div class="bd-header__inner bd-page-width">
-  <label class="sidebar-toggle primary-toggle" for="__primary">
-    <span class="fa-solid fa-bars"></span>
-  </label>
-  
-  
-  <div class="col-lg-3 navbar-header-items__start">
-    
-      <div class="navbar-item">
 
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
   
 
 <a class="navbar-brand logo" href="../index.html">
@@ -156,122 +179,12 @@
       
     
     
-    <img src="../_static/pyvista_logo_sm.png" class="logo__image only-light" alt="PyVista 0.44.dev0 ドキュメント - Home"/>
-    <script>document.write(`<img src="../_static/pyvista_logo_sm.png" class="logo__image only-dark" alt="PyVista 0.44.dev0 ドキュメント - Home"/>`);</script>
+    <img src="../_static/pyvista_logo.svg" class="logo__image only-light" alt="PyVista 0.45.dev0 ドキュメント - Home"/>
+    <script>document.write(`<img src="../_static/pyvista_logo.svg" class="logo__image only-dark" alt="PyVista 0.45.dev0 ドキュメント - Home"/>`);</script>
   
   
 </a></div>
-    
-  </div>
-  
-  <div class="col-lg-9 navbar-header-items">
-    
-    <div class="me-auto navbar-header-items__center">
-      
-        <div class="navbar-item">
-<nav class="navbar-nav">
-  <p class="sidebar-header-items__title"
-     role="heading"
-     aria-level="1"
-     aria-label="Site Navigation">
-    Site Navigation
-  </p>
-  <ul class="bd-navbar-elements navbar-nav">
-    
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../getting-started/index.html">
-                        はじめに
-                      </a>
-                    </li>
-                
-
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../user-guide/index.html">
-                        ユーザーガイド
-                      </a>
-                    </li>
-                
-
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../examples/index.html">
-                        例
-                      </a>
-                    </li>
-                
-
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../api/index.html">
-                        APIリファレンス
-                      </a>
-                    </li>
-                
-
-                    <li class="nav-item current active">
-                      <a class="nav-link nav-internal" href="index.html">
-                        その他
-                      </a>
-                    </li>
-                
-  </ul>
-</nav></div>
-      
-    </div>
-    
-    
-    <div class="navbar-header-items__end">
-      
-        <div class="navbar-item navbar-persistent--container">
-          
-
- <script>
- document.write(`
-   <button class="btn navbar-btn search-button-field search-button__button" title="検索" aria-label="検索" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">検索</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script>
-        </div>
-      
-      
-        <div class="navbar-item">
-<script>
-document.write(`
-  <div class="version-switcher__container dropdown">
-    <button id="pst-version-switcher-button-2"
-      type="button"
-      class="version-switcher__button btn btn-sm navbar-btn dropdown-toggle"
-      data-bs-toggle="dropdown"
-      aria-haspopup="listbox"
-      aria-controls="pst-version-switcher-list-2"
-      aria-label="Version switcher list"
-    >
-      Choose version  <!-- this text may get changed later by javascript -->
-      <span class="caret"></span>
-    </button>
-    <div id="pst-version-switcher-list-2"
-      class="version-switcher__menu dropdown-menu list-group-flush py-0"
-      role="listbox" aria-labelledby="pst-version-switcher-button-2">
-      <!-- dropdown will be populated by javascript on page load -->
-    </div>
-  </div>
-`);
-</script></div>
-      
-        <div class="navbar-item">
-
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
-  </button>
-`);
-</script></div>
-      
-        <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
+        <div class="sidebar-primary-item"><ul class="navbar-icon-links"
     aria-label="Icon Links">
         <li class="nav-item">
           
@@ -282,7 +195,7 @@ document.write(`
           
           
           
-          <a href="https://github.com/pyvista/pyvista" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i></span>
+          <a href="https://github.com/pyvista/pyvista" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
             <span class="sr-only">GitHub</span></a>
         </li>
         <li class="nav-item">
@@ -294,7 +207,7 @@ document.write(`
           
           
           
-          <a href="https://communityinviter.com/apps/pyvista/pyvista" title="Slack Community" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fab fa-slack fa-lg" aria-hidden="true"></i></span>
+          <a href="https://communityinviter.com/apps/pyvista/pyvista" title="Slack Community" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-slack fa-lg" aria-hidden="true"></i>
             <span class="sr-only">Slack Community</span></a>
         </li>
         <li class="nav-item">
@@ -306,7 +219,7 @@ document.write(`
           
           
           
-          <a href="https://github.com/pyvista/pyvista/discussions" title="Support" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-comment fa-fw fa-lg" aria-hidden="true"></i></span>
+          <a href="https://github.com/pyvista/pyvista/discussions" title="Support" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa fa-comment fa-fw fa-lg" aria-hidden="true"></i>
             <span class="sr-only">Support</span></a>
         </li>
         <li class="nav-item">
@@ -318,7 +231,7 @@ document.write(`
           
           
           
-          <a href="https://github.com/pyvista/pyvista/blob/main/CONTRIBUTING.rst" title="Contributing" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-gavel fa-fw fa-lg" aria-hidden="true"></i></span>
+          <a href="https://github.com/pyvista/pyvista/blob/main/CONTRIBUTING.rst" title="Contributing" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa fa-gavel fa-fw fa-lg" aria-hidden="true"></i>
             <span class="sr-only">Contributing</span></a>
         </li>
         <li class="nav-item">
@@ -330,224 +243,820 @@ document.write(`
           
           
           
-          <a href="https://doi.org/10.21105/joss.01450" title="The Paper" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-file-text fa-fw fa-lg" aria-hidden="true"></i></span>
+          <a href="https://doi.org/10.21105/joss.01450" title="The Paper" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa fa-file-text fa-fw fa-lg" aria-hidden="true"></i>
             <span class="sr-only">The Paper</span></a>
         </li>
 </ul></div>
-      
-    </div>
-    
-  </div>
-  
-  
-    <div class="navbar-persistent--mobile">
-
- <script>
- document.write(`
-   <button class="btn navbar-btn search-button-field search-button__button" title="検索" aria-label="検索" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">検索</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script>
-    </div>
-  
-
-  
-    <label class="sidebar-toggle secondary-toggle" for="__secondary" tabindex="0">
-      <span class="fa-solid fa-outdent"></span>
-    </label>
-  
-</div>
-
-    </nav>
-  
-  <div class="bd-container">
-    <div class="bd-container__inner bd-page-width">
-      
-      <div class="bd-sidebar-primary bd-sidebar">
-        
-
-  
-  <div class="sidebar-header-items sidebar-primary__section">
-    
-    
-      <div class="sidebar-header-items__center">
-        
-          <div class="navbar-item">
-<nav class="navbar-nav">
-  <p class="sidebar-header-items__title"
-     role="heading"
-     aria-level="1"
-     aria-label="Site Navigation">
-    Site Navigation
-  </p>
-  <ul class="bd-navbar-elements navbar-nav">
-    
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../getting-started/index.html">
-                        はじめに
-                      </a>
-                    </li>
-                
-
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../user-guide/index.html">
-                        ユーザーガイド
-                      </a>
-                    </li>
-                
-
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../examples/index.html">
-                        例
-                      </a>
-                    </li>
-                
-
-                    <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../api/index.html">
-                        APIリファレンス
-                      </a>
-                    </li>
-                
-
-                    <li class="nav-item current active">
-                      <a class="nav-link nav-internal" href="index.html">
-                        その他
-                      </a>
-                    </li>
-                
-  </ul>
-</nav></div>
-        
-      </div>
-    
-    
-    
-      <div class="sidebar-header-items__end">
-        
-          <div class="navbar-item">
-<script>
-document.write(`
-  <div class="version-switcher__container dropdown">
-    <button id="pst-version-switcher-button-3"
-      type="button"
-      class="version-switcher__button btn btn-sm navbar-btn dropdown-toggle"
-      data-bs-toggle="dropdown"
-      aria-haspopup="listbox"
-      aria-controls="pst-version-switcher-list-3"
-      aria-label="Version switcher list"
-    >
-      Choose version  <!-- this text may get changed later by javascript -->
-      <span class="caret"></span>
-    </button>
-    <div id="pst-version-switcher-list-3"
-      class="version-switcher__menu dropdown-menu list-group-flush py-0"
-      role="listbox" aria-labelledby="pst-version-switcher-button-3">
-      <!-- dropdown will be populated by javascript on page load -->
-    </div>
-  </div>
-`);
-</script></div>
-        
-          <div class="navbar-item">
-
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
-  </button>
-`);
-</script></div>
-        
-          <div class="navbar-item"><ul class="navbar-icon-links navbar-nav"
-    aria-label="Icon Links">
-        <li class="nav-item">
-          
-          
-          
-          
-          
-          
-          
-          
-          <a href="https://github.com/pyvista/pyvista" title="GitHub" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i></span>
-            <span class="sr-only">GitHub</span></a>
-        </li>
-        <li class="nav-item">
-          
-          
-          
-          
-          
-          
-          
-          
-          <a href="https://communityinviter.com/apps/pyvista/pyvista" title="Slack Community" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fab fa-slack fa-lg" aria-hidden="true"></i></span>
-            <span class="sr-only">Slack Community</span></a>
-        </li>
-        <li class="nav-item">
-          
-          
-          
-          
-          
-          
-          
-          
-          <a href="https://github.com/pyvista/pyvista/discussions" title="Support" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-comment fa-fw fa-lg" aria-hidden="true"></i></span>
-            <span class="sr-only">Support</span></a>
-        </li>
-        <li class="nav-item">
-          
-          
-          
-          
-          
-          
-          
-          
-          <a href="https://github.com/pyvista/pyvista/blob/main/CONTRIBUTING.rst" title="Contributing" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-gavel fa-fw fa-lg" aria-hidden="true"></i></span>
-            <span class="sr-only">Contributing</span></a>
-        </li>
-        <li class="nav-item">
-          
-          
-          
-          
-          
-          
-          
-          
-          <a href="https://doi.org/10.21105/joss.01450" title="The Paper" class="nav-link" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><span><i class="fa fa-file-text fa-fw fa-lg" aria-hidden="true"></i></span>
-            <span class="sr-only">The Paper</span></a>
-        </li>
-</ul></div>
-        
-      </div>
-    
-  </div>
-  
-    <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
-<nav class="bd-docs-nav bd-links"
-     aria-label="Section Navigation">
-  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
-  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="building_vtk.html">VTKの構築</a></li>
-<li class="toctree-l1"><a class="reference internal" href="docker.html">Dockerコンテナ内のPyVista</a></li>
-<li class="toctree-l1"><a class="reference internal" href="pyinstaller.html">PyInstallerを使用したPyVistaのフリーズ</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">貢献</a></li>
-<li class="toctree-l1"><a class="reference internal" href="plot_directive.html">Sphinx PyVista Plot ディレクティブ</a></li>
-<li class="toctree-l1"><a class="reference internal" href="pytest_plugin.html">PyVista pytest プラグイン</a></li>
-<li class="toctree-l1"><a class="reference internal" href="vtk_data.html">ローカルVTKデータの使用</a></li>
-<li class="toctree-l1"><a class="reference internal" href="extending_pyvista.html">PyVistaの拡張</a></li>
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="検索" aria-label="検索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">検索</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../getting-started/index.html">はじめに</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../getting-started/why.html">なぜPyVistaなのか?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting-started/authors.html">著者と引用</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting-started/installation.html">インストール</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting-started/connections.html">接続</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting-started/external_examples.html">外部の例</a></li>
 </ul>
-</div>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../user-guide/index.html">ユーザーガイド</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../user-guide/what-is-a-mesh.html">メッシュとは?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user-guide/simple.html">APIの基本的な使用方法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user-guide/data_model.html">PyVistaデータモデル</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user-guide/vtk_to_pyvista.html">VTKからPyVistaへの移行</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../user-guide/themes.html">プロットテーマ</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../user-guide/jupyter/index.html">Jupyterノートブックプロット</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../user-guide/jupyter/trame.html">PyVista用Jupyterバックエンドをtrame化する</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../user-guide/optional_features.html">オプションの依存関係</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../tags/tagsindex.html">Tags</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../tags/filter.html">filter (45)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../examples/01-filter/boolean_operations.html">ブール演算</a></li>
+
+<li class="toctree-l3"><a class="reference internal" href="../examples/01-filter/cell_centers.html">セルの中心を抽出</a></li>
+
+
+<li class="toctree-l3"><a class="reference internal" href="../examples/01-filter/clipping.html">平面とボックスでクリップします</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/01-filter/clipping_with_surface.html">サーフェスを使用したクリップ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/01-filter/collisions.html">衝突</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/01-filter/compute_normals.html">表面の法線を計算します</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/01-filter/compute_volume.html">ボリューム分析</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/01-filter/connectivity.html">連結度</a></li>
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../examples/01-filter/contouring.html">コンタリング</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/01-filter/decimate.html">間引き</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/01-filter/distance_between_surfaces.html">2つのサーフェス間の距離</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/01-filter/extract_cells_inside_surface.html">サーフェス内のセルを抽出</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/01-filter/extract_edges.html">エッジを抽出</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/01-filter/extract_surface.html">表面を抽出</a></li>
+
+
+<li class="toctree-l3"><a class="reference internal" href="../examples/01-filter/extrude_rotate.html">押し出し回転</a></li>
+
+
+<li class="toctree-l3"><a class="reference internal" href="../examples/01-filter/extrude_trim.html">押し出しトリム</a></li>
+
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../examples/01-filter/flying_edges.html">マーチングキューブ</a></li>
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../examples/01-filter/gaussian_smoothing.html">Gaussianスムージング</a></li>
+
+<li class="toctree-l3"><a class="reference internal" href="../examples/01-filter/geodesic.html">測地パス</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/01-filter/glyphs.html">字形のプロット (ベクトルかPolyData)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/01-filter/glyphs_table.html">字形表</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/01-filter/gradients.html">フィールドの勾配を計算する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/01-filter/image_fft.html">高速Fourier変換</a></li>
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../examples/01-filter/image_fft_perlin_noise.html">Perlinノイズによる高速フーリエ変換</a></li>
+
+
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../examples/01-filter/image_representations.html">画像データの表現</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/01-filter/integrate_data.html">データの積分</a></li>
+
+<li class="toctree-l3"><a class="reference internal" href="../examples/01-filter/interpolate.html">詳細な補間点</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/01-filter/interpolate_sample.html">補間/サンプリング法の比較</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/01-filter/mesh_quality.html">メッシュ品質の計算</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/01-filter/poly_ray_trace.html">レイトレーシング</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/01-filter/project_plane.html">平面に投影</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/01-filter/reflect.html">メッシュを反射</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/01-filter/resample.html">詳細なリサンプリング</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/01-filter/rotate.html">回転</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/01-filter/sampling_functions_2d.html">サンプル関数:2DでのPerlinノイズ</a></li>
+
+
+<li class="toctree-l3"><a class="reference internal" href="../examples/01-filter/sampling_functions_3d.html">サンプル関数:3DでのPerlinノイズ</a></li>
+
+<li class="toctree-l3"><a class="reference internal" href="../examples/01-filter/slicing.html">スライシング</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/01-filter/streamlines.html">流線</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/01-filter/streamlines_2D.html">2D流線</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/01-filter/subdivide.html">セルの細分化</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/01-filter/surface_reconstruction.html">サーフェスの再構築</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/01-filter/surface_smoothing.html">サーフェイススムージング</a></li>
+
+<li class="toctree-l3"><a class="reference internal" href="../examples/01-filter/using_filters.html">共通フィルタの使用</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/01-filter/voxelize.html">サーフェスメッシュをボクセル化する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/01-filter/warp_by_vector.html">ベクトルによるワープ</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../tags/lights.html">lights (7)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../examples/04-lights/actors.html">Lightアクター</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/04-lights/attenuation.html">減衰</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/04-lights/beam_shape.html">ビーム形状</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/04-lights/light_types.html">光源タイプ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/04-lights/mesh_lighting.html">メッシュライティングの無効化</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/04-lights/plotter_builtins.html">プロッタ照明システム</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/04-lights/shadows.html">シャドウ</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../tags/load.html">load (29)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../examples/00-load/create_explicit_structured_grid.html">明示的な構造グリッドの作成</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/00-load/create_geometric_objects.html">ジオメトリオブジェクト</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/00-load/create_kochanek_spline.html">Kochanekスプラインの作成</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/00-load/create_parametric_geometric_objects.html">パラメトリックジオメトリオブジェクト</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/00-load/create_pixel_art.html">ALIEN MONSTERSのピクセルアート</a></li>
+
+
+<li class="toctree-l3"><a class="reference internal" href="../examples/00-load/create_platonic_solids.html">プラトン立体</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/00-load/create_point_cloud.html">点群を作成</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/00-load/create_pointset.html">PointSetの作成</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/00-load/create_poly.html">PolyDataを作成</a></li>
+
+<li class="toctree-l3"><a class="reference internal" href="../examples/00-load/create_polydata_strips.html">トライアングル ストリップ</a></li>
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../examples/00-load/create_polyhedron.html">多面体による非構造化グリッド</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/00-load/create_sphere.html">Create Sphere Mesh Multiple Ways</a></li>
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../examples/00-load/create_spline.html">スプラインの作成</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/00-load/create_structured_surface.html">構造化サーフェスを作成する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/00-load/create_surface_draped.html">線分から2 Dサーフェスをまとう</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/00-load/create_tri_surface.html">3角形サーフェスを作成</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/00-load/create_truss.html">円柱を用いたトラス状のFEAソリューションのプロット</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/00-load/create_uniform_grid.html">統合グリッドを作成</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/00-load/create_unstructured_surface.html">非構造化グリッドの作成</a></li>
+
+<li class="toctree-l3"><a class="reference internal" href="../examples/00-load/linear_cells.html">線形セル</a></li>
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../examples/00-load/load_gltf.html">glTFファイルの取り扱いについて</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/00-load/load_vrml.html">VRMLファイルの取り扱いについて</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/00-load/read_dolfin.html">FEniCS/Dolfinメッシュを確認．</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/00-load/read_file.html">ファイルからロードおよびプロットする</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/00-load/read_image.html">イメージファイルの読み込み</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/00-load/read_parallel.html">並列フィルタ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/00-load/reader.html">リーダーによるデータの読み込み</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/00-load/terrain_mesh.html">メッシュ後の地形</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/00-load/wrap_trimesh.html">​他のオブジェクトのラップ</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../tags/plot.html">plot (57)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../examples/02-plot/anti_aliasing.html">アンチエイリアシング</a></li>
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../examples/02-plot/backface_props.html">バックフェイスプロパティの設定</a></li>
+
+
+<li class="toctree-l3"><a class="reference internal" href="../examples/02-plot/background_image.html">背景イメージ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/02-plot/blurring.html">ぼかし</a></li>
+
+
+<li class="toctree-l3"><a class="reference internal" href="../examples/02-plot/bounds.html">境界のプロット</a></li>
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../examples/02-plot/chart_basics.html">チャートの基本</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/02-plot/chart_overlays.html">チャートのオーバーレイ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/02-plot/clear.html">メッシュまたはプロット全体の消去</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/02-plot/cmap.html">カラーマップの選択肢</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/02-plot/color_cycler.html">カラーサイクリング</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/02-plot/composite_picking.html">Compositeピッキング</a></li>
+
+
+<li class="toctree-l3"><a class="reference internal" href="../examples/02-plot/depth_of_field.html">被写界深度のプロット</a></li>
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../examples/02-plot/depth_peeling.html">Depth Peeling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/02-plot/distance_along_spline.html">線上の距離に応じたラベル</a></li>
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../examples/02-plot/distance_measurement.html">距離を測る</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/02-plot/edges.html">エッジを表示</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/02-plot/edl.html">Eye Dome Lighting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/02-plot/element_picking.html">メッシュの要素をピックする</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/02-plot/floors.html">床を使用してプロットする</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/02-plot/ghost_cells.html">ゴーストを使用してセルを非表示にする</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/02-plot/gif.html">GIFムービーの作成</a></li>
+
+
+<li class="toctree-l3"><a class="reference internal" href="../examples/02-plot/image_depth.html">デプスイメージをレンダーする</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/02-plot/interpolate_before_map.html">マッピング前に補間</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/02-plot/isovalue.html">等値移動</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/02-plot/labels.html">ラベルポイント</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/02-plot/legend.html">凡例とグリフ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/02-plot/lighting_mesh.html">照明プロパティ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/02-plot/linked.html">サブプロットのリンクビュー</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/02-plot/lookup_table.html">ルックアップテーブル</a></li>
+
+
+
+
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../examples/02-plot/mesh_picking.html">メッシュのピッキング</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/02-plot/movie.html">MP 4ムービーを作成する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/02-plot/movie_glyphs.html">グリフを使ったムービーの保存</a></li>
+
+
+<li class="toctree-l3"><a class="reference internal" href="../examples/02-plot/moving_cmap.html">カラーマップが移動する静止物体のGIFムービーを作成します</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/02-plot/multi_window.html">マルチウィンドウプロット</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/02-plot/opacity.html">不透明度を指定してプロット</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/02-plot/orbit.html">オービット</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/02-plot/ortho_slices.html">直交スライス</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/02-plot/pbr.html">物理ベースのレンダリング</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/02-plot/plot_over_circular_arc.html">円形円弧上にスカラーをプロットします</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/02-plot/plot_over_line.html">線上のプロット</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/02-plot/point_cell_scalars.html">ポイントセルスカラー</a></li>
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../examples/02-plot/point_clouds.html">点群のプロット</a></li>
+
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../examples/02-plot/point_picking.html">メッシュ上の点の選択</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/02-plot/points_gaussian_scale.html">スケーリングされたガウスポイント</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/02-plot/scalar_bars.html">スカラーバーをカスタマイズ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/02-plot/screenshot.html">スクリーンショットを保存する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/02-plot/shading.html">シェーディングのタイプ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/02-plot/silhouette.html">シルエットハイライト</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/02-plot/spherical.html">球座標でデータをプロットする</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/02-plot/ssao.html">Surface Space Ambient Occlusion</a></li>
+
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../examples/02-plot/surface_picking.html">メッシュの表面上の点をピックします</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/02-plot/texture.html">テクスチャを適用する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/02-plot/themes.html">グローバルおよびローカルプロットテーマの制御</a></li>
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../examples/02-plot/topo_map.html">地形図</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/02-plot/vector_component.html">プロットベクトルコンポーネント</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/02-plot/vertices.html">可視頂点</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/02-plot/volume.html">ボリュームレンダリング</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../tags/widgets.html">widgets (10)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../examples/03-widgets/animation.html">アニメーション</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/03-widgets/box_widget.html">ボックスウィジェット</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/03-widgets/checkbox_widget.html">チェックボックスウィジェット</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/03-widgets/clip_volume.html">クリップボリュームウィジェット</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/03-widgets/line_widget.html">線ウィジェット</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/03-widgets/multi_slider_widget.html">複数のスライダウィジェット</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/03-widgets/plane_widget.html">平面ウィジェット</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/03-widgets/slider_bar_widget.html">スライダバーウィジェット</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/03-widgets/sphere_widget.html">球体ウィジェット</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/03-widgets/spline_widget.html">スプラインウィジェット</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../examples/index.html">例</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../examples/00-load/index.html">メッシュ作成</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../examples/00-load/create_explicit_structured_grid.html">明示的な構造グリッドの作成</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/00-load/create_geometric_objects.html">ジオメトリオブジェクト</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/00-load/create_kochanek_spline.html">Kochanekスプラインの作成</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/00-load/create_parametric_geometric_objects.html">パラメトリックジオメトリオブジェクト</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/00-load/create_pixel_art.html">ALIEN MONSTERSのピクセルアート</a></li>
+
+
+<li class="toctree-l3"><a class="reference internal" href="../examples/00-load/create_platonic_solids.html">プラトン立体</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/00-load/create_point_cloud.html">点群を作成</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/00-load/create_pointset.html">PointSetの作成</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/00-load/create_poly.html">PolyDataを作成</a></li>
+
+<li class="toctree-l3"><a class="reference internal" href="../examples/00-load/create_polydata_strips.html">トライアングル ストリップ</a></li>
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../examples/00-load/create_polyhedron.html">多面体による非構造化グリッド</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/00-load/create_sphere.html">Create Sphere Mesh Multiple Ways</a></li>
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../examples/00-load/create_spline.html">スプラインの作成</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/00-load/create_structured_surface.html">構造化サーフェスを作成する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/00-load/create_surface_draped.html">線分から2 Dサーフェスをまとう</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/00-load/create_tri_surface.html">3角形サーフェスを作成</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/00-load/create_truss.html">円柱を用いたトラス状のFEAソリューションのプロット</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/00-load/create_uniform_grid.html">統合グリッドを作成</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/00-load/create_unstructured_surface.html">非構造化グリッドの作成</a></li>
+
+<li class="toctree-l3"><a class="reference internal" href="../examples/00-load/linear_cells.html">線形セル</a></li>
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../examples/00-load/load_gltf.html">glTFファイルの取り扱いについて</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/00-load/load_vrml.html">VRMLファイルの取り扱いについて</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/00-load/read_dolfin.html">FEniCS/Dolfinメッシュを確認．</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/00-load/read_file.html">ファイルからロードおよびプロットする</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/00-load/read_image.html">イメージファイルの読み込み</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/00-load/read_parallel.html">並列フィルタ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/00-load/reader.html">リーダーによるデータの読み込み</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/00-load/terrain_mesh.html">メッシュ後の地形</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/00-load/wrap_trimesh.html">​他のオブジェクトのラップ</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../examples/01-filter/index.html">フィルタリング</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../examples/01-filter/boolean_operations.html">ブール演算</a></li>
+
+<li class="toctree-l3"><a class="reference internal" href="../examples/01-filter/cell_centers.html">セルの中心を抽出</a></li>
+
+
+<li class="toctree-l3"><a class="reference internal" href="../examples/01-filter/clipping.html">平面とボックスでクリップします</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/01-filter/clipping_with_surface.html">サーフェスを使用したクリップ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/01-filter/collisions.html">衝突</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/01-filter/compute_normals.html">表面の法線を計算します</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/01-filter/compute_volume.html">ボリューム分析</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/01-filter/connectivity.html">連結度</a></li>
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../examples/01-filter/contouring.html">コンタリング</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/01-filter/decimate.html">間引き</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/01-filter/distance_between_surfaces.html">2つのサーフェス間の距離</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/01-filter/extract_cells_inside_surface.html">サーフェス内のセルを抽出</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/01-filter/extract_edges.html">エッジを抽出</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/01-filter/extract_surface.html">表面を抽出</a></li>
+
+
+<li class="toctree-l3"><a class="reference internal" href="../examples/01-filter/extrude_rotate.html">押し出し回転</a></li>
+
+
+<li class="toctree-l3"><a class="reference internal" href="../examples/01-filter/extrude_trim.html">押し出しトリム</a></li>
+
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../examples/01-filter/flying_edges.html">マーチングキューブ</a></li>
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../examples/01-filter/gaussian_smoothing.html">Gaussianスムージング</a></li>
+
+<li class="toctree-l3"><a class="reference internal" href="../examples/01-filter/geodesic.html">測地パス</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/01-filter/glyphs.html">字形のプロット (ベクトルかPolyData)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/01-filter/glyphs_table.html">字形表</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/01-filter/gradients.html">フィールドの勾配を計算する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/01-filter/image_fft.html">高速Fourier変換</a></li>
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../examples/01-filter/image_fft_perlin_noise.html">Perlinノイズによる高速フーリエ変換</a></li>
+
+
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../examples/01-filter/image_representations.html">画像データの表現</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/01-filter/integrate_data.html">データの積分</a></li>
+
+<li class="toctree-l3"><a class="reference internal" href="../examples/01-filter/interpolate.html">詳細な補間点</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/01-filter/interpolate_sample.html">補間/サンプリング法の比較</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/01-filter/mesh_quality.html">メッシュ品質の計算</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/01-filter/poly_ray_trace.html">レイトレーシング</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/01-filter/project_plane.html">平面に投影</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/01-filter/reflect.html">メッシュを反射</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/01-filter/resample.html">詳細なリサンプリング</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/01-filter/rotate.html">回転</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/01-filter/sampling_functions_2d.html">サンプル関数:2DでのPerlinノイズ</a></li>
+
+
+<li class="toctree-l3"><a class="reference internal" href="../examples/01-filter/sampling_functions_3d.html">サンプル関数:3DでのPerlinノイズ</a></li>
+
+<li class="toctree-l3"><a class="reference internal" href="../examples/01-filter/slicing.html">スライシング</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/01-filter/streamlines.html">流線</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/01-filter/streamlines_2D.html">2D流線</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/01-filter/subdivide.html">セルの細分化</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/01-filter/surface_reconstruction.html">サーフェスの再構築</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/01-filter/surface_smoothing.html">サーフェイススムージング</a></li>
+
+<li class="toctree-l3"><a class="reference internal" href="../examples/01-filter/using_filters.html">共通フィルタの使用</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/01-filter/voxelize.html">サーフェスメッシュをボクセル化する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/01-filter/warp_by_vector.html">ベクトルによるワープ</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../examples/02-plot/index.html">プロット</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../examples/02-plot/anti_aliasing.html">アンチエイリアシング</a></li>
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../examples/02-plot/backface_props.html">バックフェイスプロパティの設定</a></li>
+
+
+<li class="toctree-l3"><a class="reference internal" href="../examples/02-plot/background_image.html">背景イメージ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/02-plot/blurring.html">ぼかし</a></li>
+
+
+<li class="toctree-l3"><a class="reference internal" href="../examples/02-plot/bounds.html">境界のプロット</a></li>
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../examples/02-plot/chart_basics.html">チャートの基本</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/02-plot/chart_overlays.html">チャートのオーバーレイ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/02-plot/clear.html">メッシュまたはプロット全体の消去</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/02-plot/cmap.html">カラーマップの選択肢</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/02-plot/color_cycler.html">カラーサイクリング</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/02-plot/composite_picking.html">Compositeピッキング</a></li>
+
+
+<li class="toctree-l3"><a class="reference internal" href="../examples/02-plot/depth_of_field.html">被写界深度のプロット</a></li>
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../examples/02-plot/depth_peeling.html">Depth Peeling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/02-plot/distance_along_spline.html">線上の距離に応じたラベル</a></li>
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../examples/02-plot/distance_measurement.html">距離を測る</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/02-plot/edges.html">エッジを表示</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/02-plot/edl.html">Eye Dome Lighting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/02-plot/element_picking.html">メッシュの要素をピックする</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/02-plot/floors.html">床を使用してプロットする</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/02-plot/ghost_cells.html">ゴーストを使用してセルを非表示にする</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/02-plot/gif.html">GIFムービーの作成</a></li>
+
+
+<li class="toctree-l3"><a class="reference internal" href="../examples/02-plot/image_depth.html">デプスイメージをレンダーする</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/02-plot/interpolate_before_map.html">マッピング前に補間</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/02-plot/isovalue.html">等値移動</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/02-plot/labels.html">ラベルポイント</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/02-plot/legend.html">凡例とグリフ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/02-plot/lighting_mesh.html">照明プロパティ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/02-plot/linked.html">サブプロットのリンクビュー</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/02-plot/lookup_table.html">ルックアップテーブル</a></li>
+
+
+
+
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../examples/02-plot/mesh_picking.html">メッシュのピッキング</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/02-plot/movie.html">MP 4ムービーを作成する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/02-plot/movie_glyphs.html">グリフを使ったムービーの保存</a></li>
+
+
+<li class="toctree-l3"><a class="reference internal" href="../examples/02-plot/moving_cmap.html">カラーマップが移動する静止物体のGIFムービーを作成します</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/02-plot/multi_window.html">マルチウィンドウプロット</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/02-plot/opacity.html">不透明度を指定してプロット</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/02-plot/orbit.html">オービット</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/02-plot/ortho_slices.html">直交スライス</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/02-plot/pbr.html">物理ベースのレンダリング</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/02-plot/plot_over_circular_arc.html">円形円弧上にスカラーをプロットします</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/02-plot/plot_over_line.html">線上のプロット</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/02-plot/point_cell_scalars.html">ポイントセルスカラー</a></li>
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../examples/02-plot/point_clouds.html">点群のプロット</a></li>
+
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../examples/02-plot/point_picking.html">メッシュ上の点の選択</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/02-plot/points_gaussian_scale.html">スケーリングされたガウスポイント</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/02-plot/scalar_bars.html">スカラーバーをカスタマイズ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/02-plot/screenshot.html">スクリーンショットを保存する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/02-plot/shading.html">シェーディングのタイプ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/02-plot/silhouette.html">シルエットハイライト</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/02-plot/spherical.html">球座標でデータをプロットする</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/02-plot/ssao.html">Surface Space Ambient Occlusion</a></li>
+
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../examples/02-plot/surface_picking.html">メッシュの表面上の点をピックします</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/02-plot/texture.html">テクスチャを適用する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/02-plot/themes.html">グローバルおよびローカルプロットテーマの制御</a></li>
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../examples/02-plot/topo_map.html">地形図</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/02-plot/vector_component.html">プロットベクトルコンポーネント</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/02-plot/vertices.html">可視頂点</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/02-plot/volume.html">ボリュームレンダリング</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../examples/03-widgets/index.html">ウィジェット</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../examples/03-widgets/animation.html">アニメーション</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/03-widgets/box_widget.html">ボックスウィジェット</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/03-widgets/checkbox_widget.html">チェックボックスウィジェット</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/03-widgets/clip_volume.html">クリップボリュームウィジェット</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/03-widgets/line_widget.html">線ウィジェット</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/03-widgets/multi_slider_widget.html">複数のスライダウィジェット</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/03-widgets/plane_widget.html">平面ウィジェット</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/03-widgets/slider_bar_widget.html">スライダバーウィジェット</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/03-widgets/sphere_widget.html">球体ウィジェット</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/03-widgets/spline_widget.html">スプラインウィジェット</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../examples/04-lights/index.html">照明</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../examples/04-lights/actors.html">Lightアクター</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/04-lights/attenuation.html">減衰</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/04-lights/beam_shape.html">ビーム形状</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/04-lights/light_types.html">光源タイプ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/04-lights/mesh_lighting.html">メッシュライティングの無効化</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/04-lights/plotter_builtins.html">プロッタ照明システム</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/04-lights/shadows.html">シャドウ</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../examples/98-common/index.html">共通</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../examples/98-common/project_points_tessellate.html">ポイントを平面に投影して平面充填します．</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../examples/99-advanced/index.html">詳細設定</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../examples/99-advanced/add_example.html">新しいギャラリーを追加する例</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/99-advanced/anatomical_groups.html">Visualize Anatomical Groups</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/99-advanced/antarctica_compare.html">メッシュ領域間でフィールドを比較</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/99-advanced/atomic_orbitals.html">原子軌道のプロット</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/99-advanced/customization_trame_toolbar.html">Trameツールバーのカスタマイズ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/99-advanced/extending_pyvista.html">PyVistaの拡張</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/99-advanced/fea_hertzian_contact_pressure.html">Hertの接触応力を可視化する</a></li>
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../examples/99-advanced/magnetic_fields.html">磁場をプロットする</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/99-advanced/openfoam_cooling.html">電子機器の冷却CFD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/99-advanced/openfoam_example.html">OpenFOAMデータのプロット</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/99-advanced/openfoam_tubes.html">CFDデータをプロットする</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/99-advanced/planets.html">3D地球と天体</a></li>
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../examples/99-advanced/plotting_algorithms.html">VTKアルゴリズムでプロットする</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/99-advanced/pump_bracket.html">ポンプブラケットのモーダル解析の可視化</a></li>
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../examples/99-advanced/ray_trace_moeller.html">Moeller-Trumboreアルゴリズムの可視化</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/99-advanced/sphere_eversion.html">球体を裏返す</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../examples/99-advanced/warp_by_vector_eigenmodes.html">振動の固有振動モードを表示します</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../api/index.html">APIリファレンス</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../api/core/index.html">コアAPI</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../api/core/objects.html">データオブジェクト</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/core/dataset.html">データセット</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/core/pointsets.html">ポイントセット</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/core/grids.html">グリッドデータ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/core/composite.html">複合データセット</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/core/filters.html">フィルタ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/core/camera.html">カメラ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/core/lights.html">ライト</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/core/cells.html">セル</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/core/helpers.html">ヘルパー</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/core/misc.html">その他</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/core/typing.html">タイピング</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/core/partitioned.html">パーティショニングされたデータセット</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/core/_validation.html">Validation</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../api/plotting/index.html">プロット</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../api/plotting/plotting.html">プロット</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/plotting/qt_plotting.html">PyVistaとPyQt</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/plotting/theme.html">テーマ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/plotting/trame.html">Trame</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/plotting/_autosummary/pyvista.Actor.html">pyvista.Actor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/plotting/_autosummary/pyvista.Axes.html">pyvista.Axes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/plotting/_autosummary/pyvista.AxesActor.html">pyvista.AxesActor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/plotting/_autosummary/pyvista.AxesAssembly.html">pyvista.AxesAssembly</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/plotting/_autosummary/pyvista.AxesAssemblySymmetric.html">pyvista.AxesAssemblySymmetric</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/plotting/_autosummary/pyvista.CameraPosition.html">pyvista.CameraPosition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/plotting/_autosummary/pyvista.CornerAnnotation.html">pyvista.CornerAnnotation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/plotting/_autosummary/pyvista.CubeAxesActor.html">pyvista.CubeAxesActor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/plotting/_autosummary/pyvista.DataSetMapper.html">pyvista.DataSetMapper</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/plotting/_autosummary/pyvista.Label.html">pyvista.Label</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/plotting/_autosummary/pyvista.LookupTable.html">pyvista.LookupTable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/plotting/_autosummary/pyvista.PlanesAssembly.html">pyvista.PlanesAssembly</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/plotting/_autosummary/pyvista.Plotter.html">pyvista.Plotter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/plotting/_autosummary/pyvista.Prop3D.html">pyvista.Prop3D</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/plotting/_autosummary/pyvista.Property.html">pyvista.Property</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/plotting/_autosummary/pyvista.Renderer.html">pyvista.Renderer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/plotting/_autosummary/pyvista.RenderWindowInteractor.html">pyvista.RenderWindowInteractor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/plotting/_autosummary/pyvista.Text.html">pyvista.Text</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/plotting/_autosummary/pyvista.TextProperty.html">pyvista.TextProperty</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/plotting/_autosummary/pyvista.Timer.html">pyvista.Timer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/plotting/_autosummary/pyvista.plotting.mapper._BaseMapper.html">pyvista.plotting.mapper._BaseMapper</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/plotting/_autosummary/pyvista.plotting.opts.InterpolationType.html">pyvista.plotting.opts.InterpolationType</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/plotting/_autosummary/pyvista.plotting.opts.RepresentationType.html">pyvista.plotting.opts.RepresentationType</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/plotting/_autosummary/pyvista.plotting.opts.ElementType.html">pyvista.plotting.opts.ElementType</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/plotting/_autosummary/pyvista.plotting.volume.Volume.html">pyvista.plotting.volume.Volume</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/plotting/_autosummary/pyvista.plotting.volume_property.VolumeProperty.html">pyvista.plotting.volume_property.VolumeProperty</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/plotting/_autosummary/pyvista.CompositePolyDataMapper.html">pyvista.CompositePolyDataMapper</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/plotting/_autosummary/pyvista.CompositeAttributes.html">pyvista.CompositeAttributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/plotting/_autosummary/pyvista.BlockAttributes.html">pyvista.BlockAttributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/plotting/charts/index.html">チャート</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/plotting/_autosummary/pyvista.plotting.widgets.WidgetHelper.html">pyvista.plotting.widgets.WidgetHelper</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/plotting/_autosummary/pyvista.plotting.widgets.AffineWidget3D.html">pyvista.plotting.widgets.AffineWidget3D</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/plotting/_autosummary/pyvista.plotting.picking.PickingHelper.html">pyvista.plotting.picking.PickingHelper</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/plotting/conv_func.html">便利な機能</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../api/utilities/index.html">ユーティリティ</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../api/utilities/geometric.html">ジオメトリー</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/utilities/image.html">Image</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/utilities/parametric.html">パラメトリックオブジェクト</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/utilities/utilities.html">一般ユーティリティ</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../api/readers/index.html">リーダー</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../api/readers/_autosummary/pyvista.get_reader.html">pyvista.get_reader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/readers/_autosummary/pyvista.AVSucdReader.html">pyvista.AVSucdReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/readers/_autosummary/pyvista.BMPReader.html">pyvista.BMPReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/readers/_autosummary/pyvista.BYUReader.html">pyvista.BYUReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/readers/_autosummary/pyvista.BinaryMarchingCubesReader.html">pyvista.BinaryMarchingCubesReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/readers/_autosummary/pyvista.CGNSReader.html">pyvista.CGNSReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/readers/_autosummary/pyvista.DEMReader.html">pyvista.DEMReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/readers/_autosummary/pyvista.DICOMReader.html">pyvista.DICOMReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/readers/_autosummary/pyvista.EnSightReader.html">pyvista.EnSightReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/readers/_autosummary/pyvista.ExodusIIBlockSet.html">pyvista.ExodusIIBlockSet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/readers/_autosummary/pyvista.ExodusIIReader.html">pyvista.ExodusIIReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/readers/_autosummary/pyvista.FacetReader.html">pyvista.FacetReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/readers/_autosummary/pyvista.FLUENTCFFReader.html">pyvista.FLUENTCFFReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/readers/_autosummary/pyvista.FluentReader.html">pyvista.FluentReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/readers/_autosummary/pyvista.GambitReader.html">pyvista.GambitReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/readers/_autosummary/pyvista.GaussianCubeReader.html">pyvista.GaussianCubeReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/readers/_autosummary/pyvista.GESignaReader.html">pyvista.GESignaReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/readers/_autosummary/pyvista.GIFReader.html">pyvista.GIFReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/readers/_autosummary/pyvista.GLTFReader.html">pyvista.GLTFReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/readers/_autosummary/pyvista.HDFReader.html">pyvista.HDFReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/readers/_autosummary/pyvista.HDRReader.html">pyvista.HDRReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/readers/_autosummary/pyvista.JPEGReader.html">pyvista.JPEGReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/readers/_autosummary/pyvista.MFIXReader.html">pyvista.MFIXReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/readers/_autosummary/pyvista.MetaImageReader.html">pyvista.MetaImageReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/readers/_autosummary/pyvista.MINCImageReader.html">pyvista.MINCImageReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/readers/_autosummary/pyvista.MultiBlockPlot3DReader.html">pyvista.MultiBlockPlot3DReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/readers/_autosummary/pyvista.Nek5000Reader.html">pyvista.Nek5000Reader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/readers/_autosummary/pyvista.NIFTIReader.html">pyvista.NIFTIReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/readers/_autosummary/pyvista.NRRDReader.html">pyvista.NRRDReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/readers/_autosummary/pyvista.OBJReader.html">pyvista.OBJReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/readers/_autosummary/pyvista.OpenFOAMReader.html">pyvista.OpenFOAMReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/readers/_autosummary/pyvista.ParticleReader.html">pyvista.ParticleReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/readers/_autosummary/pyvista.PDBReader.html">pyvista.PDBReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/readers/_autosummary/pyvista.PLYReader.html">pyvista.PLYReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/readers/_autosummary/pyvista.PNGReader.html">pyvista.PNGReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/readers/_autosummary/pyvista.PNMReader.html">pyvista.PNMReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/readers/_autosummary/pyvista.POpenFOAMReader.html">pyvista.POpenFOAMReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/readers/_autosummary/pyvista.PTSReader.html">pyvista.PTSReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/readers/_autosummary/pyvista.PVDReader.html">pyvista.PVDReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/readers/_autosummary/pyvista.Plot3DMetaReader.html">pyvista.Plot3DMetaReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/readers/_autosummary/pyvista.ProStarReader.html">pyvista.ProStarReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/readers/_autosummary/pyvista.SLCReader.html">pyvista.SLCReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/readers/_autosummary/pyvista.STLReader.html">pyvista.STLReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/readers/_autosummary/pyvista.SegYReader.html">pyvista.SegYReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/readers/_autosummary/pyvista.TIFFReader.html">pyvista.TIFFReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/readers/_autosummary/pyvista.TecplotReader.html">pyvista.TecplotReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/readers/_autosummary/pyvista.VTKDataSetReader.html">pyvista.VTKDataSetReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/readers/_autosummary/pyvista.VTKPDataSetReader.html">pyvista.VTKPDataSetReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/readers/_autosummary/pyvista.XMLImageDataReader.html">pyvista.XMLImageDataReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/readers/_autosummary/pyvista.XMLMultiBlockDataReader.html">pyvista.XMLMultiBlockDataReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/readers/_autosummary/pyvista.XMLPImageDataReader.html">pyvista.XMLPImageDataReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/readers/_autosummary/pyvista.XMLPRectilinearGridReader.html">pyvista.XMLPRectilinearGridReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/readers/_autosummary/pyvista.XMLPUnstructuredGridReader.html">pyvista.XMLPUnstructuredGridReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/readers/_autosummary/pyvista.XMLPartitionedDataSetReader.html">pyvista.XMLPartitionedDataSetReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/readers/_autosummary/pyvista.XMLPolyDataReader.html">pyvista.XMLPolyDataReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/readers/_autosummary/pyvista.XMLRectilinearGridReader.html">pyvista.XMLRectilinearGridReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/readers/_autosummary/pyvista.XMLStructuredGridReader.html">pyvista.XMLStructuredGridReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/readers/_autosummary/pyvista.XMLUnstructuredGridReader.html">pyvista.XMLUnstructuredGridReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/readers/_autosummary/pyvista.XdmfReader.html">pyvista.XdmfReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/readers/_autosummary/pyvista.BaseReader.html">pyvista.BaseReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/readers/_autosummary/pyvista.PointCellDataSelection.html">pyvista.PointCellDataSelection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/readers/_autosummary/pyvista.TimeReader.html">pyvista.TimeReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/readers/enums.html">リーダー列挙型</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../api/examples/index.html">例</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../api/examples/dataset_gallery.html">データセットギャラリー</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/examples/_autosummary/pyvista.examples.examples.html">pyvista.examples.examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/examples/_autosummary/pyvista.examples.downloads.html">pyvista.examples.downloads</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/examples/_autosummary/pyvista.examples.planets.html">pyvista.examples.planets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/examples/_autosummary/pyvista.examples.vrml.html">pyvista.examples.vrml</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/examples/_autosummary/pyvista.examples.download_3ds.html">pyvista.examples.download_3ds</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/examples/_autosummary/pyvista.examples.gltf.html">pyvista.examples.gltf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/examples/_autosummary/pyvista.demos.demos.html">pyvista.demos.demos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/examples/_autosummary/pyvista.examples.cells.plot_cell.html">pyvista.examples.cells.plot_cell</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/examples/_autosummary/pyvista.examples.cells.Empty.html">pyvista.examples.cells.Empty</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/examples/_autosummary/pyvista.examples.cells.Vertex.html">pyvista.examples.cells.Vertex</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/examples/_autosummary/pyvista.examples.cells.PolyVertex.html">pyvista.examples.cells.PolyVertex</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/examples/_autosummary/pyvista.examples.cells.Line.html">pyvista.examples.cells.Line</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/examples/_autosummary/pyvista.examples.cells.PolyLine.html">pyvista.examples.cells.PolyLine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/examples/_autosummary/pyvista.examples.cells.Triangle.html">pyvista.examples.cells.Triangle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/examples/_autosummary/pyvista.examples.cells.TriangleStrip.html">pyvista.examples.cells.TriangleStrip</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/examples/_autosummary/pyvista.examples.cells.Polygon.html">pyvista.examples.cells.Polygon</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/examples/_autosummary/pyvista.examples.cells.Pixel.html">pyvista.examples.cells.Pixel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/examples/_autosummary/pyvista.examples.cells.Quadrilateral.html">pyvista.examples.cells.Quadrilateral</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/examples/_autosummary/pyvista.examples.cells.Tetrahedron.html">pyvista.examples.cells.Tetrahedron</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/examples/_autosummary/pyvista.examples.cells.Voxel.html">pyvista.examples.cells.Voxel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/examples/_autosummary/pyvista.examples.cells.Hexahedron.html">pyvista.examples.cells.Hexahedron</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/examples/_autosummary/pyvista.examples.cells.Wedge.html">pyvista.examples.cells.Wedge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/examples/_autosummary/pyvista.examples.cells.Pyramid.html">pyvista.examples.cells.Pyramid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/examples/_autosummary/pyvista.examples.cells.PentagonalPrism.html">pyvista.examples.cells.PentagonalPrism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/examples/_autosummary/pyvista.examples.cells.HexagonalPrism.html">pyvista.examples.cells.HexagonalPrism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/examples/_autosummary/pyvista.examples.cells.QuadraticEdge.html">pyvista.examples.cells.QuadraticEdge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/examples/_autosummary/pyvista.examples.cells.QuadraticTriangle.html">pyvista.examples.cells.QuadraticTriangle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/examples/_autosummary/pyvista.examples.cells.QuadraticQuadrilateral.html">pyvista.examples.cells.QuadraticQuadrilateral</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/examples/_autosummary/pyvista.examples.cells.QuadraticPolygon.html">pyvista.examples.cells.QuadraticPolygon</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/examples/_autosummary/pyvista.examples.cells.QuadraticTetrahedron.html">pyvista.examples.cells.QuadraticTetrahedron</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/examples/_autosummary/pyvista.examples.cells.QuadraticHexahedron.html">pyvista.examples.cells.QuadraticHexahedron</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/examples/_autosummary/pyvista.examples.cells.QuadraticWedge.html">pyvista.examples.cells.QuadraticWedge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/examples/_autosummary/pyvista.examples.cells.QuadraticPyramid.html">pyvista.examples.cells.QuadraticPyramid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/examples/_autosummary/pyvista.examples.cells.BiQuadraticQuadrilateral.html">pyvista.examples.cells.BiQuadraticQuadrilateral</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/examples/_autosummary/pyvista.examples.cells.TriQuadraticHexahedron.html">pyvista.examples.cells.TriQuadraticHexahedron</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/examples/_autosummary/pyvista.examples.cells.TriQuadraticPyramid.html">pyvista.examples.cells.TriQuadraticPyramid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/examples/_autosummary/pyvista.examples.cells.QuadraticLinearQuadrilateral.html">pyvista.examples.cells.QuadraticLinearQuadrilateral</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/examples/_autosummary/pyvista.examples.cells.QuadraticLinearWedge.html">pyvista.examples.cells.QuadraticLinearWedge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/examples/_autosummary/pyvista.examples.cells.BiQuadraticQuadraticWedge.html">pyvista.examples.cells.BiQuadraticQuadraticWedge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/examples/_autosummary/pyvista.examples.cells.BiQuadraticQuadraticHexahedron.html">pyvista.examples.cells.BiQuadraticQuadraticHexahedron</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/examples/_autosummary/pyvista.examples.cells.BiQuadraticTriangle.html">pyvista.examples.cells.BiQuadraticTriangle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/examples/_autosummary/pyvista.examples.cells.CubicLine.html">pyvista.examples.cells.CubicLine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../api/examples/_autosummary/pyvista.examples.cells.Polyhedron.html">pyvista.examples.cells.Polyhedron</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">その他</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="building_vtk.html">VTKの構築</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docker.html">Dockerコンテナ内のPyVista</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyinstaller.html">PyInstallerを使用したPyVistaのフリーズ</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">貢献</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plot_directive.html">Sphinx PyVista Plot ディレクティブ</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="pytest_plugin.html">PyVista pytest プラグイン</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vtk_data.html">ローカルVTKデータの使用</a></li>
+<li class="toctree-l2"><a class="reference internal" href="extending_pyvista.html">PyVistaの拡張</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
 </nav></div>
     </div>
   
@@ -560,105 +1069,278 @@ document.write(`
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
+
+<div class="sbt-scroll-pixel-helper"></div>
+
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item">
-
-
-
-<nav aria-label="Breadcrumb">
-  <ul class="bd-breadcrumbs">
-    
-    <li class="breadcrumb-item breadcrumb-home">
-      <a href="../index.html" class="nav-link" aria-label="Home">
-        <i class="fa-solid fa-home"></i>
-      </a>
-    </li>
-    
-    <li class="breadcrumb-item"><a href="index.html" class="nav-link">その他</a></li>
-    
-    <li class="breadcrumb-item active" aria-current="page">貢献</li>
-  </ul>
-</nav>
-</div>
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
       
     </div>
   
   
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/pyvista/pyvista/edit/main/doc/source/extras/developer_notes.rst" target="_blank"
+   class="btn btn-sm btn-source-edit-button"
+   title="Suggest edit"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="このページをダウンロード">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="ソースファイルをダウンロード"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="PDFに印刷"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="全画面モード"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="検索" aria-label="検索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
 </div>
 </div>
               
               
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>貢献</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> 目次 </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#being-respectful">尊敬の念を抱くこと</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cloning-the-source-repository">ソースリポジトリのクローン作成</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quick-start-development-with-codespaces">Codespacesを使ったクイックスタート開発</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#questions">質問</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reporting-bugs">バグの報告</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#feature-requests">機能の要望</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contributing-new-code">新しいコードの提供</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#licensing">ライセンス</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">開発手法</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#guidelines">ガイドライン</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#contributing-to-pyvista-through-github">GitHub経由でPyVistaにコントリビュートする</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#coding-style">コーディングスタイル</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#documentation-style">ドキュメンテーションスタイル</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Docstrings</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#deprecating-features-or-other-backwards-breaking-changes">非推奨の機能またはその他の後方互換性のない変更</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#branch-naming-conventions">ブランチの命名規則</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#testing">テスト</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unit-testing">ユニットテスト</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#docstring-testing">Docstring Testing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#style-checking">スタイルチェック</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#notes-regarding-image-regression-testing">イメージ回帰テストに関する注意事項</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#notes-regarding-input-validation-testing">入力検証テストに関する注意事項</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#building-the-documentation">ドキュメントの作成</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#clearing-the-local-build">ローカルビルドのクリア</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#parallel-documentation-build">ドキュメントの並列ビルド</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#documentation-image-regression-testing">ドキュメント画像回帰テスト</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#interactive-plot-testing">Interactive Plot Testing</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#controlling-cache-for-ci-documentation-build">CIドキュメントのビルドでキャッシュを制御する</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#contributing-to-the-documentation">ドキュメンテーションへの貢献</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#generating-random-data">ランダムデータの生成</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-a-new-example">新しい例の追加</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-a-new-dataset">新しいデータセットの追加</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#extending-the-dataset-gallery">データセットギャラリーを拡張する</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-new-pull-request">新規Pull Requestの作成</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#preview-the-documentation">ドキュメントをプレビューする</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#branching-model">ブランチモデル</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#minor-release-steps">マイナーリリース手順</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#patch-release-steps">パッチリリース手順</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dependency-version-policy">依存バージョンポリシー</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#python-and-vtk-dependencies">PythonとVTKの依存関係</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section id="contributing">
-<span id="developer-notes"></span><h1>貢献<a class="headerlink" href="#contributing" title="この見出しへのパーマリンク">#</a></h1>
+<span id="developer-notes"></span><h1>貢献<a class="headerlink" href="#contributing" title="Link to this heading">#</a></h1>
 <p><a class="reference external" href="CODE_OF_CONDUCT.md"><img alt="コントリビューター行動規範" src="https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg" /></a>
 <a class="reference external" href="https://www.codetriage.com/pyvista/pyvista"><img alt="Code Triage" src="https://www.codetriage.com/pyvista/pyvista/badges/users.svg" /></a></p>
 <p>私たちは貢献を心から歓迎し，このガイドがPyVistaコードリポジトリの理解を促進することを願っています．PyVistaソフトウェアパッケージはボランティアベースでメンテナンスされていることに注意してください．したがって，このソフトウェアをすべてのユーザにとって有用なツールにするために，ユーザの質問をサポートし，新しい機能を開発できるコミュニティを育成する必要があります．</p>
 <p>このページでは，質問，懸念，機能のリクエスト，または貢献したいことから始めるべき概要を説明します．</p>
 <section id="being-respectful">
-<h2>尊敬の念を抱くこと<a class="headerlink" href="#being-respectful" title="この見出しへのパーマリンク">#</a></h2>
+<h2>尊敬の念を抱くこと<a class="headerlink" href="#being-respectful" title="Link to this heading">#</a></h2>
 <p>他の人々，他のソフトウェア，そして（関連性のない）ツールを作るために熱心に働いてきたコミュニティに対して，共感と優しさを示してください．</p>
 <p>Pull RequestsやIssuesなどで，他人やその作品を否定するような言い方をしないでください．</p>
 </section>
 <section id="cloning-the-source-repository">
-<h2>ソースリポジトリのクローン作成<a class="headerlink" href="#cloning-the-source-repository" title="この見出しへのパーマリンク">#</a></h2>
+<h2>ソースリポジトリのクローン作成<a class="headerlink" href="#cloning-the-source-repository" title="Link to this heading">#</a></h2>
 <p>次のコマンドを実行して， <a class="github reference external" href="https://github.com/pyvista/pyvista">pyvista/pyvista</a> からソースリポジトリをクローンし，最新バージョンをインストールできます．</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/pyvista/pyvista.git
 <span class="nb">cd</span><span class="w"> </span>pyvista
 python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.
 </pre></div>
 </div>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<p>Use <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-e</span> <span class="pre">'.[dev]'</span></code> to also install all of the
+packages required for development.</p>
+</div>
 </section>
 <section id="quick-start-development-with-codespaces">
-<h2>Codespacesを使ったクイックスタート開発<a class="headerlink" href="#quick-start-development-with-codespaces" title="この見出しへのパーマリンク">#</a></h2>
+<h2>Codespacesを使ったクイックスタート開発<a class="headerlink" href="#quick-start-development-with-codespaces" title="Link to this heading">#</a></h2>
 <p><a class="reference external" href="https://codespaces.new/pyvista/pyvista"><img alt="Open in GitHub Codespaces" src="https://github.com/codespaces/badge.svg" /></a></p>
 <p>開発用コンテナが提供されており，すぐに使い始めることができます。デフォルトのコンテナには，リポジトリコードがお好みのブランチでチェックアウトされ，テスト依存関係を含むすべてのpyvista依存関係がプリインストールされています．さらに， <a class="reference external" href="https://github.com/devcontainers/features/tree/main/src/desktop-lite">desktop-lite feature</a> を使用してライブインタラクションウィンドウを提供します．ライブインタラクションを使うには <a class="reference external" href="https://github.com/devcontainers/features/tree/main/src/desktop-lite#connecting-to-the-desktop">Connecting to the desktop</a> の指示に従ってください．</p>
 <p>また，OSMesaライブラリと <code class="docutils literal notranslate"><span class="pre">vtk-osmesa</span></code> を使用したオフスクリーンバージョンも利用できます．</p>
 </section>
 <section id="questions">
-<h2>質問<a class="headerlink" href="#questions" title="この見出しへのパーマリンク">#</a></h2>
+<h2>質問<a class="headerlink" href="#questions" title="Link to this heading">#</a></h2>
 <p>プロジェクト，そのアプリケーション，またはソフトウェアの使用に関する一般的な質問については，コミュニティが共同であなたの質問に対処できる <a class="reference external" href="https://github.com/pyvista/pyvista/discussions">Discussions</a> リポジトリにdiscussionを作成してください．</p>
 <p><a class="reference external" href="https://communityinviter.com/apps/pyvista/pyvista">Slack</a> に参加することも歓迎しますが，Slack は技術的な議論ではなく，その場限りの会話やコミュニティへの参加に使うべきです．</p>
 <p>重要でハイレベルなプロジェクトサポートや関与については， <a class="reference external" href="mailto:info&#37;&#52;&#48;pyvista&#46;org">info<span>&#64;</span>pyvista<span>&#46;</span>org</a> まで電子メールをお送りください．</p>
 <p>全ての技術的な会話については， <a class="reference external" href="https://github.com/pyvista/pyvista/discussions">issues ページ</a> で議論を作成していただければ，すぐに対処いたします．ディスカッションのページに投稿することで，必要な専門知識を持つコミュニティメンバーが問題に対処でき，得られた情報は他のユーザーが見つけるのに引き続き利用できます．</p>
 </section>
 <section id="reporting-bugs">
-<h2>バグの報告<a class="headerlink" href="#reporting-bugs" title="この見出しへのパーマリンク">#</a></h2>
+<h2>バグの報告<a class="headerlink" href="#reporting-bugs" title="Link to this heading">#</a></h2>
 <p>ここで配布されているコードの使用中にバグ，クラッシュ，または奇妙な点に遭遇した場合は，すぐに対処できるよう適切なラベルを付けて <a class="reference external" href="https://github.com/pyvista/pyvista/issues">issues ページ</a> に報告してください．問題を報告する際は，再現できるように，過度に記述してください．可能な限り，トレースバック，スクリーンショット，およびサンプルファイルを提供してください．</p>
 </section>
 <section id="feature-requests">
-<h2>機能の要望<a class="headerlink" href="#feature-requests" title="この見出しへのパーマリンク">#</a></h2>
+<h2>機能の要望<a class="headerlink" href="#feature-requests" title="Link to this heading">#</a></h2>
 <p>PyVistaのコードベースを改善するためのアイデアを投稿することを推奨します． <a class="reference external" href="https://github.com/pyvista/pyvista/issues">issuesページ</a> に <em>Feature Request</em> ラベルをつけて改善を提案してください．説明的なタイトルを使用し，コミュニティがその機能を実装するのに役立つ十分な背景情報を提供してください．たとえば，特定のファイル形式のリーダーが必要な場合は，そのファイル形式のドキュメントへのリンクを提供し，操作するスクリーンショットを含むサンプルファイルを提供してください．問題のスレッドをディスカッションの場として使用し，フィードバックを提供します．</p>
 </section>
 <section id="contributing-new-code">
-<h2>新しいコードの提供<a class="headerlink" href="#contributing-new-code" title="この見出しへのパーマリンク">#</a></h2>
+<h2>新しいコードの提供<a class="headerlink" href="#contributing-new-code" title="Link to this heading">#</a></h2>
 <p>PyVistaを改善する方法についてアイデアがある場合は，まず機能リクエストとして問題を作成してください．これは，コントリビューションの実装方法を検討するためのスレッドとして使用できます．</p>
 <p>PyVista用のコーディングと開発を始める準備ができたら，詳細については <a class="reference external" href="#development-practices">Development Practices</a> セクションを参照してください．</p>
 </section>
 <section id="licensing">
-<h2>ライセンス<a class="headerlink" href="#licensing" title="この見出しへのパーマリンク">#</a></h2>
+<h2>ライセンス<a class="headerlink" href="#licensing" title="Link to this heading">#</a></h2>
 <p>コントリビュートされたコードはすべて，リポジトリーにあるMITライセンスの下でライセンスされます．自分でコードを作成しなかった場合は，既存のライセンスに互換性があり，コントリビュートされたファイルに含まれていることを確認するか，元の作成者からコードを再ライセンスする許可を得る必要があります．</p>
 </section>
 <hr class="docutils" />
 <section id="id2">
-<h2>開発手法<a class="headerlink" href="#id2" title="この見出しへのパーマリンク">#</a></h2>
+<h2>開発手法<a class="headerlink" href="#id2" title="Link to this heading">#</a></h2>
 <p>この節では，PyVistaリポジトリで開発を行う方法について説明します．このリポジトリに直接コントリビュートする場合は，ここで説明するプラクティスに従ってください．</p>
 <section id="guidelines">
-<h3>ガイドライン<a class="headerlink" href="#guidelines" title="この見出しへのパーマリンク">#</a></h3>
+<h3>ガイドライン<a class="headerlink" href="#guidelines" title="Link to this heading">#</a></h3>
 <p>配列への直接アクセスと直感的なPythonプロパティを介したVisualization Toolkit (VTK) への直接アクセスにより，VTKライブラリ全体をあらゆる分野の研究者が容易にアクセスできるようにしたいと考えています．PyVistaをVTKの価値あるPythonインターフェースにするためには，さらに改善するために皆さんの助けが必要です．</p>
 <p>1つか2つの興味深い解析アルゴリズムをフィルタとして追加したい場合，新しいプロットルーチンを実装したい場合，あるいは1-2のタイプミスを修正したい場合，あなたの努力は大歓迎です．</p>
 <p>私たちが信じている3つの一般的なコーディングパラダイムがあります．</p>
@@ -668,32 +1350,29 @@ python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </sp
 <li><p><strong>テストを続ける</strong>． 高いテストカバレッジを目指します．詳細については， テストを参照してください．</p></li>
 </ol>
 <p>著作権に関する2つの重要なガイドラインがあります．</p>
-<ol class="arabic simple" start="4">
+<ol class="arabic simple">
 <li><p>ライセンスが利用できない，または商用使用が禁止されているデータセットは含めないでください．それらはすべてのプロジェクトのライセンスを損なう可能性があります．</p></li>
 <li><p>ライセンスが利用できないコードスニペット(Stack Overflowなど )や商用使用が禁止されているコードスニペットは使用しないでください．それらはすべてのプロジェクトのライセンスを損なう可能性があります．</p></li>
 </ol>
 <p>私達の <a class="reference external" href="https://github.com/pyvista/pyvista/blob/main/CODE_OF_CONDUCT.md">Code of Conduct</a> もご覧ください．</p>
 </section>
 <section id="contributing-to-pyvista-through-github">
-<h3>GitHub経由でPyVistaにコントリビュートする<a class="headerlink" href="#contributing-to-pyvista-through-github" title="この見出しへのパーマリンク">#</a></h3>
+<h3>GitHub経由でPyVistaにコントリビュートする<a class="headerlink" href="#contributing-to-pyvista-through-github" title="Link to this heading">#</a></h3>
 <p>新しいコードをpyvistaに送信するには，まず <a class="reference external" href="https://github.com/pyvista/pyvista">pyvista GitHub リポジトリ</a> をフォークし，フォークしたリポジトリをあなたのコンピュータにクローンします．次に，ローカルリポジトリの <a class="reference external" href="#branch-naming-conventions">Branch Naming Conventions Section</a> に基づいて新しいブランチを作成します．</p>
 <p>次に，新しい機能を追加し，ローカルでコミットします．特に変更が複雑な場合は，過去のコミットに戻すことが役立つことが多いので，頻繁にコミットするようにしてください．また，頻繁に検査をしてください．テストの自動化については，以下の <a class="reference external" href="#testing">テストのセクション</a> を参照してください．</p>
 <p>コードをサブミットする準備ができたら， <a class="reference external" href="#creating-a-new-pull-request">Creating a New Pull Request section</a> の手順に従ってプルリクエストを作成します．</p>
 <section id="coding-style">
-<h4>コーディングスタイル<a class="headerlink" href="#coding-style" title="この見出しへのパーマリンク">#</a></h4>
-<p>行幅が79文字を超えて99文字コードまで許されることを除き，可能な限り <a class="reference external" href="https://www.python.org/dev/peps/pep-0008/">PEP 8</a> に準拠します．これは標準ではなく，むしろ例外となる傾向があるはずです．スタイルの不一致によるエネルギーの浪費を防ぐために， <a class="reference external" href="https://github.com/psf/black">black</a> によって統一されたコードスタイルが強制されます．</p>
-<p>docstringについては，<a class="reference external" href="https://www.python.org/dev/peps/pep-0008/#maximum-line-length">PEP 8 Maximum Line Length</a> で規定されているガイドラインに従って，1行あたり72文字に制限してください．これは指令に従います．</p>
-<blockquote>
-<div><p>チームによっては，より長い行数を強く希望する場合もあります．この問題に関して合意に達することができるチームによってのみ，または主にメンテナンスされているコードについては，コメントとdocstringを72文字で折り返すことを条件に，行の長さの制限を99文字まで増やしてもかまいません．</p>
-</div></blockquote>
+<h4>コーディングスタイル<a class="headerlink" href="#coding-style" title="Link to this heading">#</a></h4>
+<p>行幅が79文字を超えて99文字コードまで許されることを除き，可能な限り <a class="reference external" href="https://www.python.org/dev/peps/pep-0008/">PEP 8</a> に準拠します．これは標準ではなく，むしろ例外となる傾向があるはずです．スタイルの不一致によるエネルギーの浪費を防ぐために， <a class="reference external" href="https://docs.astral.sh/ruff/formatter/#the-ruff-formatter">ruff format</a> によって統一されたコードスタイルが強制されます．</p>
+<p>docstringに関しては，PyVistaは <code class="docutils literal notranslate"><span class="pre">numpydoc</span></code> スタイルに従っています． <a class="reference external" href="#docstrings">Docstrings</a> を参照してください．</p>
 <p>PEP 8以外でコーディングする場合は， <a class="reference external" href="https://www.python.org/dev/peps/pep-0020/">PEP 20 - The Zen of Python</a> を考慮してください．</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">this</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">this</span>
 </pre></div>
 </div>
 <p>PyVistaは <a class="reference external" href="https://pre-commit.com/">pre-commit</a> を使用して，PEP8やその他のスタイルを自動的に強制します．詳しくは <a class="reference external" href="#style-checking">スタイルチェックのセクション</a> を参照してください．</p>
 </section>
 <section id="documentation-style">
-<h4>ドキュメンテーションスタイル<a class="headerlink" href="#documentation-style" title="この見出しへのパーマリンク">#</a></h4>
+<h4>ドキュメンテーションスタイル<a class="headerlink" href="#documentation-style" title="Link to this heading">#</a></h4>
 <p>PyVistaは，以下の例外を除き， <a class="reference external" href="https://developers.google.com/style">Google Developer Documentation Style</a> に従っています．</p>
 <ul class="simple">
 <li><p>一人称の代名詞を許可します．これらの代名詞（例えば &quot;We&quot;）は &quot;PyVista Developers&quot; を指し，PyVistaに貢献するすべての人を指すことができます．</p></li>
@@ -701,17 +1380,17 @@ python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </sp
 </ul>
 <p>これらのルールはすべてのテキストファイル（例えば <code class="docutils literal notranslate"><span class="pre">*.md</span></code>, <code class="docutils literal notranslate"><span class="pre">*.rst</span></code> ）に適用され，Pythonのソースファイルには部分的に適用されます．</p>
 <p>これらのルールは，GitHub Actionsを介して <a class="reference external" href="https://vale.sh/">Vale</a> を使用することで強制され，Valeをローカルで実行することができます．</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">vale</span>
-<span class="n">vale</span> <span class="o">--</span><span class="n">config</span> <span class="n">doc</span><span class="o">/.</span><span class="n">vale</span><span class="o">.</span><span class="n">ini</span> <span class="n">doc</span> <span class="n">pyvista</span> <span class="n">examples</span> <span class="o">./*.</span><span class="n">rst</span> <span class="o">--</span><span class="n">glob</span><span class="o">=</span><span class="s1">&#39;!*{_build,AUTHORS.rst}*&#39;</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>vale
+vale<span class="w"> </span>--config<span class="w"> </span>doc/.vale.ini<span class="w"> </span>doc<span class="w"> </span>pyvista<span class="w"> </span>examples<span class="w"> </span>./*.rst<span class="w"> </span>--glob<span class="o">=</span><span class="s1">&#39;!*{_build,AUTHORS.rst}*&#39;</span>
 </pre></div>
 </div>
 <p>LinuxやmacOSであれば，実行可能です:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">make</span> <span class="n">docstyle</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span>docstyle
 </pre></div>
 </div>
 </section>
-<section id="docstrings">
-<h4>Docstrings<a class="headerlink" href="#docstrings" title="この見出しへのパーマリンク">#</a></h4>
+<section id="id3">
+<h4>Docstrings<a class="headerlink" href="#id3" title="Link to this heading">#</a></h4>
 <p>PyVistaでは，Python docstringsを使用して，Python APIのリファレンスドキュメントを作成しています．Docstringsは，開発者や対話型のPythonユーザー，そしてオンラインドキュメントの読者に読まれます．このセクションでは，PyVista用のdocstringの書き方について説明します．</p>
 <p>PyVistaはdocstringのスタイルとして <code class="docutils literal notranslate"><span class="pre">numpydoc</span></code> に従っています．以下を除き，すべて <a class="reference external" href="https://numpydoc.readthedocs.io/en/latest/format.html">numpydoc Style Guide</a> に従ってください．</p>
 <ul class="simple">
@@ -720,7 +1399,7 @@ python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </sp
 <li><p>オプションのパラメータで， <code class="docutils literal notranslate"><span class="pre">None</span></code> の代わりにデフォルト値がある場合は， <code class="docutils literal notranslate"><span class="pre">optional</span></code> の代わりに <code class="docutils literal notranslate"><span class="pre">default:</span> <span class="pre">&lt;value&gt;</span></code> を使用します．</p></li>
 </ul>
 <p>サンプル docstring は以下の通りです:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">slice_x</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">generate_triangles</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">slice_x</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">generate_triangles</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Create an orthogonal slice through the dataset in the X direction.</span>
 
 <span class="sd">    Parameters</span>
@@ -762,6 +1441,7 @@ python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </sp
 <li><p>関数の戻り値が1つの場合，リターンセクションにはパラメータ名を含めません．複数の戻り値(図示せず)には，入力パラメータと同じ形式で，各戻り値に対して説明的なパラメータ名を付ける必要があります．</p></li>
 <li><p>サンプルセクションは，ギャラリーの &quot;完全なサンプル&quot; が存在する場合，それを参照します．</p></li>
 </ul>
+<p>さらに、ランダムに生成されたデータを使用するdocstringの例は、再現可能でなければなりません。 詳しくは <a class="reference internal" href="#generating-random-data">ランダムデータの生成</a> を参照のこと。</p>
 <p>これらの標準は <code class="docutils literal notranslate"><span class="pre">numpydoc-validate</span></code> を使って <code class="docutils literal notranslate"><span class="pre">pre-commit</span></code> で実施され，エラーは次のように報告されます:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>+-----------------+--------------------------+---------+-------------------------------------------------+
 | file            | item                     | check   | description                                     |
@@ -775,19 +1455,21 @@ python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </sp
 +-----------------+--------------------------+---------+-------------------------------------------------+
 </pre></div>
 </div>
-<p>もし，何らかの理由で関数のルールに例外を設ける必要がある場合は， <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> の <code class="docutils literal notranslate"><span class="pre">[tool.numpydoc_validation]</span></code> セクションに例外を追加するか，インラインコメントを追加して特定のチェックを除外してください．例えば，セッターのドキュメント文字列を強制せず，GL08のチェックをスキップします．</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@strips</span><span class="o">.</span><span class="n">setter</span>
-<span class="k">def</span> <span class="nf">strips</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">strips</span><span class="p">):</span>  <span class="c1"># numpydoc ignore=GL08</span>
-    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">strips</span><span class="p">,</span> <span class="n">CellArray</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">SetStrips</span><span class="p">(</span><span class="n">strips</span><span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">SetStrips</span><span class="p">(</span><span class="n">CellArray</span><span class="p">(</span><span class="n">strips</span><span class="p">))</span>
+<p>If for whatever reason you feel that your function should have an exception to
+any of the rules, add an exception to the function either in the
+<code class="docutils literal notranslate"><span class="pre">[tool.numpydoc_validation]</span></code> section in <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> or add an inline
+comment to exclude a certain check. For example, we can omit the <code class="docutils literal notranslate"><span class="pre">Return</span></code>
+section from docstrings and skip the RT01 check for magic methods like <code class="docutils literal notranslate"><span class="pre">__init__</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">foo</span><span class="p">):</span>  <span class="c1"># numpydoc ignore=RT01</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Initialize A Class.&quot;&quot;&quot;</span>
+    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">foo</span> <span class="o">=</span> <span class="n">foo</span>
 </pre></div>
 </div>
 <p><a class="reference external" href="https://numpydoc.readthedocs.io/en/latest/validation.html">numpydoc Validation</a> で利用可能なバリデーションチェックを参照してください．</p>
 </section>
 <section id="deprecating-features-or-other-backwards-breaking-changes">
-<h4>非推奨の機能またはその他の後方互換性のない変更<a class="headerlink" href="#deprecating-features-or-other-backwards-breaking-changes" title="この見出しへのパーマリンク">#</a></h4>
+<h4>非推奨の機能またはその他の後方互換性のない変更<a class="headerlink" href="#deprecating-features-or-other-backwards-breaking-changes" title="Link to this heading">#</a></h4>
 <p>PyVistaで後方互換性のない変更を実装するときは，ユーザーに新しい変更に適応する機会を与えるよう注意する必要があります．後方互換性のない変更は，次の手順で進める必要があります．</p>
 <ol class="arabic simple">
 <li><p>古い動作を保持し，使用すべき新しいインターフェイスを示す <code class="docutils literal notranslate"><span class="pre">PyVistaDeprecationWarning</span></code> を発行します．</p></li>
@@ -796,10 +1478,11 @@ python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </sp
 </ol>
 <p>可能な限り，PyVistaの開発者は，ユーザーがソフトウェアやスクリプトを更新できるように，少なくとも3つのマイナーバージョンの後方互換性を確保するように努めるべきです．</p>
 <p>これはある関数のソフト非推奨の例です． <code class="docutils literal notranslate"><span class="pre">PyVistaDeprecationWarning</span></code> の警告と <code class="docutils literal notranslate"><span class="pre">..</span> <span class="pre">deprecated</span></code> のSphinxディレクティブの両方を使用していることに注意してください．</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">warnings</span>
-<span class="kn">from</span> <span class="nn">pyvista.core.errors</span> <span class="kn">import</span> <span class="n">PyVistaDeprecationWarning</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pyvista.core.errors</span><span class="w"> </span><span class="kn">import</span> <span class="n">PyVistaDeprecationWarning</span>
 
-<span class="k">def</span> <span class="nf">addition</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">addition</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Add two numbers.</span>
 
 <span class="sd">    .. deprecated:: 0.37.0</span>
@@ -822,12 +1505,12 @@ python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </sp
     <span class="c1"># deprecated 0.37.0, convert to error in 0.40.0, remove 0.41.0</span>
     <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
         <span class="s1">&#39;`addition` has been deprecated. Use pyvista.add instead&#39;</span><span class="p">,</span>
-        <span class="n">PyVistaDeprecationWarning</span>
+        <span class="n">PyVistaDeprecationWarning</span><span class="p">,</span>
     <span class="p">)</span>
     <span class="n">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
 
 
-<span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Add two numbers.&quot;&quot;&quot;</span>
 
     <span class="k">pass</span>  <span class="c1"># implementation goes here</span>
@@ -837,15 +1520,23 @@ python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </sp
 <p>以下は，非推奨の警告メッセージを出すエラーテストコードを追加する例です．</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">pytest</span><span class="o">.</span><span class="n">warns</span><span class="p">(</span><span class="n">PyVistaDeprecationWarning</span><span class="p">):</span>
     <span class="n">addition</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">pv</span><span class="o">.</span><span class="n">_version</span><span class="o">.</span><span class="n">version_info</span> <span class="o">&gt;=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">40</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">pv</span><span class="o">.</span><span class="n">_version</span><span class="o">.</span><span class="n">version_info</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span> <span class="o">&gt;</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">40</span><span class="p">):</span>
         <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Convert error this function&quot;</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">pv</span><span class="o">.</span><span class="n">_version</span><span class="o">.</span><span class="n">version_info</span> <span class="o">&gt;=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">41</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">pv</span><span class="o">.</span><span class="n">_version</span><span class="o">.</span><span class="n">version_info</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span> <span class="o">&gt;</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">41</span><span class="p">):</span>
         <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Remove this function&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>上記のコード例では，古いテストコードはv0.40とv0.41でエラーを発生させます．これによって，バージョンアップ時に非推奨を削除し忘れることを防ぐことができます．</p>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<p>When releasing a new version, we need to update the version number to the next
+development version. For example, if we are releasing version 0.37.0, the next
+development version should be 0.38.0.dev0 which is greater than 0.37.0. This is
+why we need to check if the version is greater than 0.40.0 and 0.41.0 in the
+test code.</p>
+</div>
 <p>既存のメソッドや関数に追加のパラメータを追加する場合には， <code class="docutils literal notranslate"><span class="pre">..</span> <span class="pre">versionadded</span></code> というsphinxディレクティブを使用することが推奨されます．例えば:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">Cube</span><span class="p">(</span><span class="n">clean</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">Cube</span><span class="p">(</span><span class="n">clean</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Create a cube.</span>
 
 <span class="sd">    Parameters</span>
@@ -859,13 +1550,13 @@ python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </sp
 </div>
 </section>
 <section id="branch-naming-conventions">
-<h4>ブランチの命名規則<a class="headerlink" href="#branch-naming-conventions" title="この見出しへのパーマリンク">#</a></h4>
+<h4>ブランチの命名規則<a class="headerlink" href="#branch-naming-conventions" title="Link to this heading">#</a></h4>
 <p>開発を効率化するために，ブランチの命名には次の要件があります．これらの要件は，コア開発者がコードを調べる前に，あるブランチがどのような種類の変更を導入しているかを知るのに役立ちます．</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">fix/</span></code> ， <code class="docutils literal notranslate"><span class="pre">patch/</span></code> ， <code class="docutils literal notranslate"><span class="pre">bug/</span></code> : マイナーなバグ修正，パッチ，または実験的な変更</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">feat/</span></code>: 新しい特徴または重要な追加を導入する変更</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">junk/</span></code>: 古くなったら削除できる実験的な変更について</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">maint/</span></code>: リポジトリまたはCIルーチンの一般的な保守用</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">maint/</span></code> と <code class="docutils literal notranslate"><span class="pre">ci/</span></code>: リポジトリまたはCIルーチンの一般的な保守用</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">doc/</span></code>: 文書のみに関連する変更の場合</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">no-ci/</span></code>: CIルーチンをトリガーしてはならない影響の少ないアクティビティの場合</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">testing/</span></code>: テストの改善または変更</p></li>
@@ -874,18 +1565,18 @@ python<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </sp
 </ul>
 </section>
 <section id="testing">
-<h4>テスト<a class="headerlink" href="#testing" title="この見出しへのパーマリンク">#</a></h4>
+<h4>テスト<a class="headerlink" href="#testing" title="Link to this heading">#</a></h4>
 <p>変更を行った後，プルリクエストを作成する前にローカルで変更をテストしてください．コミットまたはプルリクエストの後に次のテストが実行されます．変更から新しい問題を追跡するには，ローカルで次の手順を実行してください．</p>
-<p>総合的な単体テストを実行するには， <code class="docutils literal notranslate"><span class="pre">requirements_test.txt</span></code> と <code class="docutils literal notranslate"><span class="pre">requirements_docs.txt</span></code> にリストされているすべての依存関係をインストールします:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements_test.txt
-pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements_docs.txt
+<p>To run our comprehensive suite of unit tests, install PyVista with all
+developer dependencies:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span><span class="s1">&#39;.[dev]&#39;</span>
 </pre></div>
 </div>
 <p>すべてをインストールしたら，さまざまなテストスイートを実行できます．</p>
 </section>
 </section>
 <section id="unit-testing">
-<h3>ユニットテスト<a class="headerlink" href="#unit-testing" title="この見出しへのパーマリンク">#</a></h3>
+<h3>ユニットテスト<a class="headerlink" href="#unit-testing" title="Link to this heading">#</a></h3>
 <p>プライマリテストスイートを実行し，カバレッジレポートを生成します．</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>pytest<span class="w"> </span>-v<span class="w"> </span>--cov<span class="w"> </span>pyvista
 </pre></div>
@@ -894,16 +1585,31 @@ pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </s
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>pytest<span class="w"> </span>-n<span class="w"> </span>&lt;NUMCORE&gt;<span class="w"> </span>--cov<span class="w"> </span>pyvista
 </pre></div>
 </div>
+<p>When submitting a PR, it is highly recommended that all modifications are thoroughly tested.
+This is further enforced in the CI by the <a class="reference external" href="https://app.codecov.io/gh/pyvista/pyvista">codecov GitHub action</a>
+which has a 90% target, ie. it ensures that 90% of the code modified in the PR is tested.
+It should be mentioned that branch coverage is measured on the CI, meaning for examples that both
+values of an <code class="docutils literal notranslate"><span class="pre">if</span></code> clause must be tested to ensure full coverage. For more details on branch
+coverage, please refer to the <a class="reference external" href="https://coverage.readthedocs.io/en/latest/branch.html">coverage documentation</a>.</p>
+<p>If needed, code coverage can be deactivated for specific lines by adding the <code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">pragma:</span> <span class="pre">no</span> <span class="pre">cover</span></code> or
+<code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">pragma:</span> <span class="pre">no</span> <span class="pre">branch</span></code> comments. See the documentation <a class="reference external" href="https://coverage.readthedocs.io/en/latest/branch.html#excluding-code">excluding code</a>
+for more details.
+However, code coverage exclusion should rarely be used and has to be carefully justified in the PR thread
+if no simple alternative solution has been found.</p>
 </section>
-<section id="documentation-testing">
-<h3>ドキュメンテーションテスト<a class="headerlink" href="#documentation-testing" title="この見出しへのパーマリンク">#</a></h3>
+<section id="docstring-testing">
+<h3>Docstring Testing<a class="headerlink" href="#docstring-testing" title="Link to this heading">#</a></h3>
 <p>docstring内のすべてのコード例を実行します．</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>pytest<span class="w"> </span>-v<span class="w"> </span>--doctest-modules<span class="w"> </span>pyvista
 </pre></div>
 </div>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<p>また、docstringによって生成された画像に対しても追加のテストが行われる。 詳しくは <a class="reference internal" href="#documentation-image-regression-testing">ドキュメント画像の回帰テスト</a> を参照のこと。</p>
+</div>
 </section>
 <section id="style-checking">
-<h3>スタイルチェック<a class="headerlink" href="#style-checking" title="この見出しへのパーマリンク">#</a></h3>
+<h3>スタイルチェック<a class="headerlink" href="#style-checking" title="Link to this heading">#</a></h3>
 <p>PyVistaは， <a class="reference external" href="#coding-style">コーディングスタイルのセクション</a> で説明されているようにPEP8標準に従っており， <a class="reference external" href="https://pre-commit.com/">pre-commit</a> を使ってスタイルチェックを実装しています．</p>
 <p>コードが最小限のコードスタイリング基準に適合していることを確認するために，以下を実行してください．</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">pre</span><span class="o">-</span><span class="n">commit</span>
@@ -918,17 +1624,15 @@ pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </s
 <p>こうすれば，スタイルチェックに失敗したコードをプッシュすることは不可能になります．例えば，各コミットでスタイル要件を満たしているかどうかが自動的にチェックされます:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ pre-commit install
 $ git commit -m &quot;added my cool feature&quot;
-black....................................................................Passed
-isort....................................................................Passed
-flake8...................................................................Passed
 codespell................................................................Passed
+ruff.....................................................................Passed
 </pre></div>
 </div>
 <p>実際の環境のインストールは， <code class="docutils literal notranslate"><span class="pre">pre-commit</span> <span class="pre">install</span></code> に続く最初のコミットの前に行われます．これは少し時間がかかりますが，それ以降のコミットでは実際のスタイルチェックが行われるだけです．</p>
-<p>上記の作業を実施していない，または実施できる状況であっても，プルリクエストに <cite>pre-commit.ci autofix</cite> とコメントすることで，手動で自動修正をトリガーすることができます．</p>
+<p>上記の作業を実施していない，または実施できる状況であっても，プルリクエストに <code class="docutils literal notranslate"><span class="pre">pre-commit.ci</span> <span class="pre">autofix</span></code> とコメントすることで，手動で自動修正をトリガーすることができます．</p>
 </section>
 <section id="notes-regarding-image-regression-testing">
-<h3>イメージ回帰テストに関する注意事項<a class="headerlink" href="#notes-regarding-image-regression-testing" title="この見出しへのパーマリンク">#</a></h3>
+<h3>イメージ回帰テストに関する注意事項<a class="headerlink" href="#notes-regarding-image-regression-testing" title="Link to this heading">#</a></h3>
 <p>PyVista は基本的に描画モジュールなので，何らかの回帰テストで生成した画像を実際にチェックする必要があります．実際には，これはかなりの作業になります．</p>
 <ul class="simple">
 <li><p>OpenGLソフトウェアとハードウェアレンダリングでは，レンダリングされるイメージがわずかに異なります．</p></li>
@@ -945,7 +1649,7 @@ codespell................................................................Passed
 </div>
 <p><code class="docutils literal notranslate"><span class="pre">--reset_image_cache</span></code> を実行すると， <code class="docutils literal notranslate"><span class="pre">tests/plotting/test_plotting.py</span></code> の各テストに対して新しいイメージが作成されます．テストや，メジャーまたはマイナーリリースの可能性がある場合を除き，推奨されません．Linux上で実行していて，リグレッションテストを一時的に無視したい場合は， <code class="docutils literal notranslate"><span class="pre">--ignore_image_cache</span></code> を使用することができます．CIテストでは，回帰テストが引き続き行われることを理解してください．</p>
 <p>現在のところ，画像は <code class="docutils literal notranslate"><span class="pre">tests/plotting/test_plotting.py</span></code> にあるテストからのみキャッシュされます． デフォルトでは， <code class="docutils literal notranslate"><span class="pre">Plotter.show</span></code> を使用するテストは，自動的に画像をキャッシュします． 画像のキャッシュをスキップするには， <code class="docutils literal notranslate"><span class="pre">verify_image_cache</span></code> フィクスチャを使用します．</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">test_add_background_image_not_global</span><span class="p">(</span><span class="n">verify_image_cache</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">test_add_background_image_not_global</span><span class="p">(</span><span class="n">verify_image_cache</span><span class="p">):</span>
     <span class="n">verify_image_cache</span><span class="o">.</span><span class="n">skip</span> <span class="o">=</span> <span class="kc">True</span>  <span class="c1"># Turn off caching</span>
     <span class="n">plotter</span> <span class="o">=</span> <span class="n">pyvista</span><span class="o">.</span><span class="n">Plotter</span><span class="p">()</span>
     <span class="n">plotter</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">sphere</span><span class="p">)</span>
@@ -965,9 +1669,47 @@ codespell................................................................Passed
 </pre></div>
 </div>
 <p>詳しくは <a class="reference external" href="https://pytest.pyvista.org/">pytest-pyvista</a> を参照してください．</p>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<p>追加の回帰テストもドキュメント画像に対して行われます。 詳しくは <a class="reference internal" href="#documentation-image-regression-testing">ドキュメント画像回帰テスト</a> を参照してください。</p>
+</div>
+</section>
+<section id="notes-regarding-input-validation-testing">
+<h3>入力検証テストに関する注意事項<a class="headerlink" href="#notes-regarding-input-validation-testing" title="Link to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">pyvista.core.validation</span></code> パッケージには2つの異なるテストスイートがあり、 <code class="docutils literal notranslate"><span class="pre">pytest</span></code> で実行されます:</p>
+<ol class="arabic simple">
+<li><p>通常のユニットテストは <code class="docutils literal notranslate"><span class="pre">tests/core/test_validation.py</span></code> で行う。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tests/core/typing</span></code> のユニットテストをカスタマイズして、タイプヒントをテストできるようにしました。</p></li>
+</ol>
+<p>カスタムユニットテストは、検証パッケージのタイプヒントが静的にも動的にも正しいことをチェックします。 これは主に <code class="docutils literal notranslate"><span class="pre">validate_array</span></code> や関連する関数の型ヒントのような、複雑でオーバーロードされた関数のシグネチャをチェックするために使用されます。</p>
+<p>個々のテストケースは、1行のPythonコードとして記述されます:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">reveal_type</span><span class="p">(</span><span class="n">arg</span><span class="p">)</span>  <span class="c1"># EXPECTED_TYPE: &quot;&lt;T&gt;&quot;</span>
+</pre></div>
+</div>
+<p>ここで <code class="docutils literal notranslate"><span class="pre">arg</span></code> は mypy に解析させたい引数で、<code class="docutils literal notranslate"><span class="pre">&quot;&lt;T&gt;&quot;</span></code> は <code class="docutils literal notranslate"><span class="pre">Mypy</span></code> が返すと予想される型です。</p>
+<p>例えば、 <code class="docutils literal notranslate"><span class="pre">validate_array</span></code> 関数は、デフォルトでは、入力に浮動小数点数のリストが与えられると、浮動小数点数のリストを返します。型ヒントはこれを反映する必要がある。 これをテストするために、 <code class="docutils literal notranslate"><span class="pre">validate_array([1.0])</span></code> という関数呼び出しのテストケースを次のように書くことができます:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">reveal_type</span><span class="p">(</span><span class="n">validate_array</span><span class="p">([</span><span class="mf">1.0</span><span class="p">]))</span>  <span class="c1"># EXPECTED_TYPE: &quot;list[float]&quot;</span>
+</pre></div>
+</div>
+<p>このテストで <code class="docutils literal notranslate"><span class="pre">Mypy</span></code> が返す実際の型は、以下のコマンドで生成できます。 <code class="docutils literal notranslate"><span class="pre">grep</span></code> は入力文字列からの出力のみを返す必要があることに注意してください。そうでない場合は、 <code class="docutils literal notranslate"><span class="pre">pyvista</span></code> パッケージのすべての <code class="docutils literal notranslate"><span class="pre">Mypy</span></code> エラーが報告されます。</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mypy<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;from pyvista.core._validation import validate_array; reveal_type(validate_array([1.0]))&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="se">\&lt;</span>string<span class="se">\&gt;</span>
+</pre></div>
+</div>
+<p>このテストケースでは、 <code class="docutils literal notranslate"><span class="pre">Mypy</span></code> によって明らかにされた型は次のとおりです:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;builtins.list[builtins.float]&quot;</span>
+</pre></div>
+</div>
+<p>明らかにされた型は完全修飾されています、つまり <code class="docutils literal notranslate"><span class="pre">builtins</span></code> を含んでいることに注意してください。 簡潔にするために、カスタムテストスイートではこれを省略し、 <code class="docutils literal notranslate"><span class="pre">list</span></code> だけが期待される型に含まれることを要求しています。 したがって、このテストケースでは <code class="docutils literal notranslate"><span class="pre">EXPECTED_TYPE</span></code> 型は <code class="docutils literal notranslate"><span class="pre">&quot;list[float]&quot;</span></code> であり、 <code class="docutils literal notranslate"><span class="pre">&quot;builtins.list[builtins.float]&quot;</span></code> ではありません。 (同様に、 <code class="docutils literal notranslate"><span class="pre">numpy.ndarray</span></code> が期待されるテストでは、パッケージ名 <code class="docutils literal notranslate"><span class="pre">numpy</span></code> も省略する必要があります。)</p>
+<p>任意の数の関連するテストケース(1行に1つのテストケース)を記述し、1つの <code class="docutils literal notranslate"><span class="pre">.py</span></code> ファイルに含めることができます。 テストケースは全て <code class="docutils literal notranslate"><span class="pre">tests/core/typing/validation_cases</span></code> に格納されます。</p>
+<p>テストは次のようにして実行することができます:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pytest<span class="w"> </span>tests/core/typing
+</pre></div>
+</div>
+<p>実行されると <code class="docutils literal notranslate"><span class="pre">Mypy</span></code> のインスタンスが全てのテストケースを静的に解析します。 実際に <code class="docutils literal notranslate"><span class="pre">Mypy</span></code> によって明らかにされた型は、各テストケースで定義された <code class="docutils literal notranslate"><span class="pre">EXPECTED_TYPE</span></code> と比較されます。</p>
+<p>さらに、 <code class="docutils literal notranslate"><span class="pre">pyanalyze</span></code> パッケージは、実行時に実際に返される型が静的に公開された型と一致するかどうかをテストします。 これには <a class="reference external" href="https://pyanalyze.readthedocs.io/en/latest/reference/runtime.html#pyanalyze.runtime.get_compatibility_error">pyanalyze.runtime.get_compatibility_error</a> メソッドが使用されます。 新しい検証関数のために新しいタイピングテストケースが追加された場合、新しい関数は <code class="docutils literal notranslate"><span class="pre">tests/core/typing/test_validation_typing.py</span></code> のインポートリストに追加されなければなりません。</p>
 </section>
 <section id="building-the-documentation">
-<h3>ドキュメントの作成<a class="headerlink" href="#building-the-documentation" title="この見出しへのパーマリンク">#</a></h3>
+<h3>ドキュメントの作成<a class="headerlink" href="#building-the-documentation" title="Link to this heading">#</a></h3>
 <p>LinuxまたはMac OSでドキュメントをビルドします．</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span>-C<span class="w"> </span>doc<span class="w"> </span>html
 </pre></div>
@@ -980,8 +1722,12 @@ python -msphinx -M html . _build
 </div>
 <p>生成されたドキュメントは <code class="docutils literal notranslate"><span class="pre">doc/_build/html</span></code> ディレクトリにあります．</p>
 <p>最初にローカルでドキュメントをビルドするときは，すべてのサンプルをビルドする必要があるため，しばらく時間がかかるでしょう．最初のビルドの後は，ドキュメントの作成にかかる時間はほんのわずかなものになるはずです．</p>
+<p>これをローカルでテストするには、httpサーバーをのhtmlディレクトリで実行する必要があります:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span>serve-html
+</pre></div>
+</div>
 <section id="clearing-the-local-build">
-<h4>ローカルビルドのクリア<a class="headerlink" href="#clearing-the-local-build" title="この見出しへのパーマリンク">#</a></h4>
+<h4>ローカルビルドのクリア<a class="headerlink" href="#clearing-the-local-build" title="Link to this heading">#</a></h4>
 <p>ローカルにビルドしたドキュメントをクリアする必要がある場合は，実行してください．</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span>-C<span class="w"> </span>doc<span class="w"> </span>clean
 </pre></div>
@@ -993,16 +1739,138 @@ python -msphinx -M html . _build
 <p>これにより，すべてのサンプルを強制的に再構築することなく，キャッシュをクリアすることができます．</p>
 </section>
 <section id="parallel-documentation-build">
-<h4>ドキュメントの並列ビルド<a class="headerlink" href="#parallel-documentation-build" title="この見出しへのパーマリンク">#</a></h4>
+<h4>ドキュメントの並列ビルド<a class="headerlink" href="#parallel-documentation-build" title="Link to this heading">#</a></h4>
 <p>以下でLinuxやMac OSでのドキュメントのビルド時間を改善することができます．</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span>-C<span class="w"> </span>doc<span class="w"> </span>phtml
 </pre></div>
 </div>
 <p>これは効果的に <code class="docutils literal notranslate"><span class="pre">SPHINXOPTS=-j</span></code> を呼び出し，特にマルチコアコンピュータで有用です．</p>
 </section>
+<section id="documentation-image-regression-testing">
+<h4>ドキュメント画像回帰テスト<a class="headerlink" href="#documentation-image-regression-testing" title="Link to this heading">#</a></h4>
+<p>画像のリグレッションテストは、公開されているすべてのドキュメント画像に対して実施されます。文書が作成されると、生成された画像はすべて自動的に以下に保存されます</p>
+<blockquote>
+<div><p>ビルド画像ディレクトリ: <code class="docutils literal notranslate"><span class="pre">./doc/_build/html/_images</span></code></p>
+</div></blockquote>
+<p>回帰テストでは、生成された画像と以下に保存されている画像を比較します</p>
+<blockquote>
+<div><p>ドキュメント画像キャッシュ: <code class="docutils literal notranslate"><span class="pre">./tests/doc/doc_image_cache</span></code></p>
+</div></blockquote>
+<p>すべての画像をテストするには、<code class="docutils literal notranslate"><span class="pre">pytest</span></code> を実行します:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pytest<span class="w"> </span>tests/doc/tst_doc_images.py::test_static_images
+</pre></div>
+</div>
+<p>テストはこのコマンドで明示的に実行する必要があります。 テストファイル名の先頭に <code class="docutils literal notranslate"><span class="pre">tst</span></code> をつけるのは、特に <code class="docutils literal notranslate"><span class="pre">pytest</span></code> によって自動的に実行されないようにするためです (<code class="docutils literal notranslate"><span class="pre">pytest</span></code> はデフォルトで <code class="docutils literal notranslate"><span class="pre">test</span></code> を先頭に持つすべてのテストを収集します)。これはテストがドキュメントのビルドを必要とし、テストの主要な形式ではないからです。</p>
+<p>実行されると、テストはまずビルド画像を前処理します。 その画像は:</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Build</span> <span class="pre">Image</span> <span class="pre">Directory</span></code> から収集されます。</p></li>
+<li><p>最大400x400ピクセルにリサイズ。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">./_doc_debug_images</span></code> にJPEG画像としてフラットディレクトリに保存されます。</p></li>
+</ol>
+<p>次に、 <code class="docutils literal notranslate"><span class="pre">./_doc_debug_images</span></code> にある前処理済みの画像と <code class="docutils literal notranslate"><span class="pre">Doc</span> <span class="pre">Image</span> <span class="pre">Cache</span></code> にあるキャッシュ画像を <a class="reference internal" href="../api/utilities/_autosummary/pyvista.compare_images.html#pyvista.compare_images" title="pyvista.compare_images"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyvista.compare_images()</span></code></a> を使って比較します。</p>
+<p>テストは3つの方法で失敗する可能性があります。失敗したテストの画像を簡単に見直せるように、画像のコピーは以下のように作成されます;</p>
+<ol class="arabic">
+<li><p>2つの画像の比較に失敗した場合:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>キャッシュ画像は <code class="docutils literal notranslate"><span class="pre">./_doc_debug_images_failed/from_cache</span></code> にコピーされます。</p></li>
+<li><p>ビルド画像は <code class="docutils literal notranslate"><span class="pre">./_doc_debug_images_failed/from_build</span></code> にコピーされます。</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>画像がキャッシュにあるが、ビルドにない場合:</p>
+<ul class="simple">
+<li><p>キャッシュ画像は <code class="docutils literal notranslate"><span class="pre">./_doc_debug_images_failed/from_cache</span></code> にコピーされます。</p></li>
+</ul>
+</li>
+<li><p>画像はビルド内にあるが、キャッシュにない場合:</p>
+<ul class="simple">
+<li><p>ビルド画像は <code class="docutils literal notranslate"><span class="pre">./_doc_debug_images_failed/from_build</span></code> にコピーされます。</p></li>
+</ul>
+</li>
+</ol>
+<p>失敗したテストを解決するために、<code class="docutils literal notranslate"><span class="pre">from_build</span></code> または <code class="docutils literal notranslate"><span class="pre">from_cache</span></code> にある画像を <code class="docutils literal notranslate"><span class="pre">Doc</span> <span class="pre">Image</span> <span class="pre">Cache</span></code> にコピーしたり、<code class="docutils literal notranslate"><span class="pre">Doc</span> <span class="pre">Image</span> <span class="pre">Cache</span></code> から削除したりすることができます。 例えば、新しいdocstringの例やプロットを追加する場合、最初はテストが失敗し、 <code class="docutils literal notranslate"><span class="pre">from_build</span></code> にある画像が <code class="docutils literal notranslate"><span class="pre">Doc</span> <span class="pre">Image</span> <span class="pre">Cache</span></code> に追加されます。 同様に、例題を削除する場合、 <code class="docutils literal notranslate"><span class="pre">from_cache</span></code> の画像は <code class="docutils literal notranslate"><span class="pre">Doc</span> <span class="pre">Image</span> <span class="pre">Cache</span></code> から削除されます。</p>
+<p>テストが不安定な場合、例えばビルドが同じプロットに対して異なるイメージを生成することがある場合、複数のバージョンのイメージは flaky test ディレクトリ <code class="docutils literal notranslate"><span class="pre">./tests/doc/flaky_tests</span></code> に保存することができます。 テストイメージと同じ名前のフォルダを作成し、すべてのバージョンのイメージをこのディレクトリに保存する必要があります。 このテストでは、まずビルドイメージを通常通り <code class="docutils literal notranslate"><span class="pre">Doc</span> <span class="pre">Image</span> <span class="pre">Cache</span></code> にあるキャッシュイメージと比較します。 この比較が失敗した場合、ビルド画像は flaky test ディレクトリのすべての画像と比較されます。 いずれかの比較が成功すればテストは成功です。</p>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<p>docイメージキャッシュに追加したり更新したりするために、ドキュメントイメージをローカルでビルドする必要はありません。 ドキュメントは CI テストの一環として自動的にビルドされ、(1) 前処理済みのビルドイメージと (2) 失敗したテストケースに対して成果物が生成されます。 これらの成果物は、GitHubからダウンロードして確認することができる。</p>
+<p>アーティファクトと一緒に保存されたデバッグ画像は、ドキュメン画像をローカルでビルドする &quot;simulate&quot; にも使用できます。 画像をローカルの <code class="docutils literal notranslate"><span class="pre">Build</span> <span class="pre">Image</span> <span class="pre">Directory</span></code> にコピーすれば、あたかもドキュメントがすでにビルドされているかのように、ローカルでテストを実行してデバッグすることができます。</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<p>These tests are intended to provide <em>additional</em> test coverage to ensure the
+plots generated by <code class="docutils literal notranslate"><span class="pre">pyvista</span></code> are correct, and should not be used as the
+primary source of testing. See <a class="reference internal" href="#docstring-testing">Docstring Testing</a> and
+<a class="reference internal" href="#notes-regarding-image-regression-testing">Notes Regarding Image Regression Testing</a> for testing methods which should
+be considered first.</p>
+</div>
+</section>
+<section id="interactive-plot-testing">
+<h4>Interactive Plot Testing<a class="headerlink" href="#interactive-plot-testing" title="Link to this heading">#</a></h4>
+<p>PyVista's documentation uses a custom <code class="docutils literal notranslate"><span class="pre">pyvista-plot</span></code> directive to generate
+static images as well as interactive plot files. The interactive files have a
+<code class="docutils literal notranslate"><span class="pre">.vtksz</span></code> extension and can be relatively large when plotting high-resolution
+datasets.</p>
+<p>To ensure that the interactive plots do not unnecessarily inflate the size
+of the documentation build, a limit is placed on the size of <code class="docutils literal notranslate"><span class="pre">.vtksz</span></code> files.
+To test that interactive plots do not exceed this limit, run:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pytest<span class="w"> </span>tests/doc/tst_doc_images.py::test_interactive_plot_file_size
+</pre></div>
+</div>
+<p>If any of these tests fail, the example(s) which generated the plot should be
+modified, e.g.:</p>
+<ol class="arabic">
+<li><p>Simplify any dataset(s) used, e.g. crop, clip, down-sample, decimate, or
+otherwise reduce the complexity of the plot.</p></li>
+<li><p>Force the plot to be static only.
+In docstrings, use the plot directive with the <code class="docutils literal notranslate"><span class="pre">force_static</span></code> option, e.g.:</p>
+<blockquote>
+<div><div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">pyvista-plot</span><span class="p">::</span>
+   <span class="nc">:force_static:</span>
+
+   &gt;&gt;&gt; import pyvista as pv
+   &gt;&gt;&gt; # Your example code here
+   &gt;&gt;&gt; # ...
+   &gt;&gt;&gt; mesh = pv.sphere()
+   &gt;&gt;&gt; mesh.plot()
+</pre></div>
+</div>
+</div></blockquote>
+<p>In sphinx gallery examples use:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># sphinx_gallery_start_ignore</span>
+<span class="n">PYVISTA_GALLERY_FORCE_STATIC_IN_DOCUMENT</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="c1"># sphinx_gallery_end_ignore</span>
+</pre></div>
+</div>
+<p>to disable all plots in the example or use <code class="docutils literal notranslate"><span class="pre">PYVISTA_GALLERY_FORCE_STATIC</span></code>
+before the call to <code class="docutils literal notranslate"><span class="pre">plot()</span></code> or <code class="docutils literal notranslate"><span class="pre">show()</span></code> to force static for a single
+plot. See <a class="reference internal" href="../examples/99-advanced/add_example.html#add-example-example"><span class="std std-ref">新しいギャラリーを追加する例</span></a> for more information.</p>
+</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<p>Reducing the complexity of the plot is preferred as this will also
+also likely reduce the processing times.</p>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">参考</p>
+<p>See <a class="reference internal" href="#documentation-image-regression-testing">Documentation Image Regression Testing</a>. for testing performed on
+the static images generated by the plot directive.</p>
+</div>
+</section>
+<section id="controlling-cache-for-ci-documentation-build">
+<h4>CIドキュメントのビルドでキャッシュを制御する<a class="headerlink" href="#controlling-cache-for-ci-documentation-build" title="Link to this heading">#</a></h4>
+<p>PRのドキュメントのビルド時間を短縮するために、GitHub上のCIではキャッシュされたsphinxギャラリー、サンプルデータ、sphinxビルドディレクトリが使用されています。 場合によっては、キャッシュが特定の PR に対して問題を引き起こすことがあります。 特定のPRのキャッシュを無効にするには、以下のラベルのいずれかをPRに適用します。</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">no-example-data-cache</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">no-gallery-cache</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">no-sphinx-build-cache</span></code></p></li>
+</ul>
+<p>PRは、 <code class="docutils literal notranslate"><span class="pre">main</span></code> からブランチを更新するなどの新しいコミットが必要か、ラベルを適用してCIを再実行するためにクローズ/再オープンする必要があります。</p>
+</section>
 </section>
 <section id="contributing-to-the-documentation">
-<h3>ドキュメンテーションへの貢献<a class="headerlink" href="#contributing-to-the-documentation" title="この見出しへのパーマリンク">#</a></h3>
+<h3>ドキュメンテーションへの貢献<a class="headerlink" href="#contributing-to-the-documentation" title="Link to this heading">#</a></h3>
 <p>PyVistaのドキュメントは，3つのソースから作成されています:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">pyvista</span></code> のクラス，関数，モジュールから， <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html">sphinx.ext.autodoc</a> を使用して，Docstringを取得します．</p></li>
@@ -1010,39 +1878,146 @@ python -msphinx -M html . _build
 <li><p><code class="docutils literal notranslate"><span class="pre">examples/</span></code> からのギャラリー例</p></li>
 </ul>
 <p>一般的な使い方やAPIの説明は <code class="docutils literal notranslate"><span class="pre">doc/api</span></code> と docstrings に記述してください． 完全なギャラリーのサンプルは <code class="docutils literal notranslate"><span class="pre">examples</span></code> に置いてください．</p>
+<section id="generating-random-data">
+<h4>ランダムデータの生成<a class="headerlink" href="#generating-random-data" title="Link to this heading">#</a></h4>
+<p>すべての文書は再現可能でなければなりません。特に、ランダムデータを使用する文書や例は、毎回同じランダムデータが生成されるように適切にシードされるべきです。これにより、ユーザーはドキュメントのコードをコピーして、同じ結果とプロットをローカルに生成することができます。</p>
+<p>NumPyの乱数生成器（RNG）を使用する場合は、スクリプトの最初にRNGを作成し、スクリプトの残りの部分でこのRNGを使用する必要があります。必ずシード値を含めてください。例えば、こうです：</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="n">seed</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">rng</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>  <span class="c1"># generate a floating point number between 0 and 1</span>
+</pre></div>
+</div>
+<p>詳細はScientific Pythonの <a class="reference external" href="https://blog.scientific-python.org/numpy/numpy-rng/">NumPyの乱数生成器を使用するためのベストプラクティス</a> を参照してください。</p>
+</section>
 <section id="adding-a-new-example">
-<h4>新しい例の追加<a class="headerlink" href="#adding-a-new-example" title="この見出しへのパーマリンク">#</a></h4>
+<h4>新しい例の追加<a class="headerlink" href="#adding-a-new-example" title="Link to this heading">#</a></h4>
 <p>PyVistaのサンプルには2つの形式があります．個々のメソッドの機能を示す基本的なコードスニペットと，1つまたは複数のコンセプトを表示する完全なギャラリーの例です． 小さなコードサンプルやスニペットは <code class="docutils literal notranslate"><span class="pre">doc/api</span></code> ディレクトリやドキュメント文字列に含まれています．一方，完全なギャラリーサンプルは，ダウンロード可能なスクリプトとして実行するために，このリポジトリのルートにある <code class="docutils literal notranslate"><span class="pre">examples</span></code> ディレクトリに含まれています．</p>
 <p>本格的なスタンドアロンサンプルを追加するには，<a class="reference external" href="https://github.com/pyvista/pyvista/">PyVista Repository</a> のルートディレクトリにある <code class="docutils literal notranslate"><span class="pre">examples</span></code> ディレクトリに，該当するサブディレクトリのいずれかにあなたのサンプルを追加してください． もし，既存のディレクトリがあなたのサンプルのカテゴリと一致しない場合は，新しいディレクトリを作成し，新しいカテゴリを記述した <code class="docutils literal notranslate"><span class="pre">README.txt</span></code> を記述してください． さらに，これらのサンプルはsphinx gallery 拡張を使って作成されていますので， <a class="reference external" href="https://sphinx-gallery.github.io/stable/index.html">Sphinx-Gallery</a> が定めるコーディングガイドラインに従ってください．</p>
-<p>詳しくは <a class="reference internal" href="../examples/99-advanced/add-example.html#add-example-example"><span class="std std-ref">新しいギャラリーを追加する例</span></a> を参照してください．</p>
+<p>詳しくは <a class="reference internal" href="../examples/99-advanced/add_example.html#add-example-example"><span class="std std-ref">新しいギャラリーを追加する例</span></a> を参照してください．</p>
 </section>
-<section id="add-a-new-example-file">
-<h4>新しいサンプルファイルの追加<a class="headerlink" href="#add-a-new-example-file" title="この見出しへのパーマリンク">#</a></h4>
-<p>もしギャラリーのサンプルに必要なデータセットがあれば，それを <a class="reference external" href="https://github.com/pyvista/vtk-data/">pyvista/vtk-data</a> に追加し，そこにある指示に従ってください．それから，データセットをダウンロードする <code class="docutils literal notranslate"><span class="pre">pyvista/examples/downloads.py</span></code> ための新しい関数を追加する必要があります．これは以下のように簡単です．</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">download_my_dataset</span><span class="p">(</span><span class="n">load</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Download my new dataset.&quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="n">_download_and_read</span><span class="p">(</span><span class="s1">&#39;mydata/my_new_dataset.vtk&#39;</span><span class="p">,</span> <span class="n">load</span><span class="o">=</span><span class="n">load</span><span class="p">)</span>
+<section id="adding-a-new-dataset">
+<h4>新しいデータセットの追加<a class="headerlink" href="#adding-a-new-dataset" title="Link to this heading">#</a></h4>
+<p>もし取り上げたいデータセットがあったり，ギャラリーのサンプルの一部に含めたいデータセットがある場合は，それを <a class="reference external" href="https://github.com/pyvista/vtk-data/">pyvista/vtk-data</a> に追加し，そこにある指示に従ってください．それから， <code class="docutils literal notranslate"><span class="pre">pyvista/examples/downloads.py</span></code> にデータセットをダウンロードするための新しい関数を追加する必要があります．これは以下のように簡単です．</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">download_my_new_mesh</span><span class="p">(</span><span class="n">load</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Download my new mesh.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_download_dataset</span><span class="p">(</span><span class="n">_dataset_my_new_mesh</span><span class="p">,</span> <span class="n">load</span><span class="o">=</span><span class="n">load</span><span class="p">)</span>
+
+
+<span class="n">_dataset_my_new_mesh</span> <span class="o">=</span> <span class="n">_SingleFileDownloadableDatasetLoader</span><span class="p">(</span>
+    <span class="s1">&#39;mydata/my_new_mesh.vtk&#39;</span>
+<span class="p">)</span>
 </pre></div>
 </div>
-<p>以下を可能にします:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pyvista</span> <span class="kn">import</span> <span class="n">examples</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">dataset</span> <span class="o">=</span> <span class="n">examples</span><span class="o">.</span><span class="n">download_my_dataset</span><span class="p">()</span>
+<p>データセットのロードに使用するオブジェクト <code class="docutils literal notranslate"><span class="pre">_dataset_my_new_mesh</span></code> を(モジュールスコープ付き)関数の外側で定義し、新しい <code class="docutils literal notranslate"><span class="pre">download_my_new_mesh</span></code> 関数はこのオブジェクトを使用してデータセットのダウンロードとロードを行う必要があります。データセットローダー変数は <code class="docutils literal notranslate"><span class="pre">_dataset_</span></code> で始まる必要がある。</p>
+<p>これにより以下が有効になります:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">pyvista</span><span class="w"> </span><span class="kn">import</span> <span class="n">examples</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dataset</span> <span class="o">=</span> <span class="n">examples</span><span class="o">.</span><span class="n">download_my_new_mesh</span><span class="p">()</span>
 </pre></div>
 </div>
+<p>複数のファイルを持つ複雑なデータセットをロードする場合や、特別な処理を必要とする場合は、適切なデータセットローダーを作成するための詳細については、プライベートな <code class="docutils literal notranslate"><span class="pre">pyvista/examples/_dataset_loader.py</span></code> モジュールを参照してください。</p>
+<p>このようにデータセットローダーを使うことで、新しいデータセットのメタデータを収集することができます。 <code class="docutils literal notranslate"><span class="pre">My</span> <span class="pre">New</span> <span class="pre">Mesh</span> <span class="pre">Dataset</span></code> というタイトルの新しいデータセットカードが自動的に生成され、 <a class="reference internal" href="../api/examples/dataset_gallery.html#dataset-gallery"><span class="std std-ref">データセットギャラリー</span></a> に含まれます。</p>
+<p>新しい <code class="docutils literal notranslate"><span class="pre">download_my_new_mesh</span></code> 関数の docstring には、次のように記述してください。</p>
+<ol class="arabic simple">
+<li><p>examplesセクションにあるデータセットのプロット例</p></li>
+<li><p>See alsoセクションにあるデータセットの新しい（自動生成された）ギャラリーカードへの参照リンク</p></li>
+</ol>
+<p>例えば:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">download_my_new_mesh</span><span class="p">(</span><span class="n">load</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Download my new mesh.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; from pyvista import examples</span>
+<span class="sd">    &gt;&gt;&gt; dataset = examples.download_my_new_mesh()</span>
+<span class="sd">    &gt;&gt;&gt; dataset.plot()</span>
+
+<span class="sd">    .. seealso::</span>
+
+<span class="sd">       :ref:`My New Mesh Dataset &lt;my_new_mesh_dataset&gt;`</span>
+<span class="sd">           See this dataset in the Dataset Gallery for more info.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">注釈</p>
+<p><code class="docutils literal notranslate"><span class="pre">numpydoc</span></code> が明示的な参照を解析する方法に制限があるため、 <code class="docutils literal notranslate"><span class="pre">See</span> <span class="pre">Also</span></code> の代わりに <code class="docutils literal notranslate"><span class="pre">seealso</span></code> ディレクティブを使用する必要があります。</p>
+</div>
+</section>
+<section id="extending-the-dataset-gallery">
+<h4>データセットギャラリーを拡張する<a class="headerlink" href="#extending-the-dataset-gallery" title="Link to this heading">#</a></h4>
+<p>関連するデータセットが複数ある場合や、似たようなプロパティを持つ既存のデータセットをグループ化したい場合は、 <a class="reference internal" href="../api/examples/dataset_gallery.html#dataset-gallery"><span class="std std-ref">データセットギャラリー</span></a> を拡張することで、これらのデータセットを新しい <a class="reference external" href="https://sphinx-design.readthedocs.io/en/latest/cards.html#card-carousels">card carousel</a> に表示することができます。</p>
+<p>例えば、 <a class="reference internal" href="../api/examples/dataset_gallery.html#dataset-gallery-category"><span class="std std-ref">カテゴリ別にデータセットをブラウズする</span></a> に新しい <code class="docutils literal notranslate"><span class="pre">Instrument</span></code> データセットカテゴリを追加して、楽器のデータセットを2つ並べるには、次のようにします。</p>
+<ol class="arabic simple">
+<li><p><a class="reference internal" href="../api/examples/_autosummary/pyvista.examples.downloads.download_guitar.html#pyvista.examples.downloads.download_guitar" title="pyvista.examples.downloads.download_guitar"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyvista.examples.downloads.download_guitar()</span></code></a></p></li>
+<li><p><a class="reference internal" href="../api/examples/_autosummary/pyvista.examples.downloads.download_trumpet.html#pyvista.examples.downloads.download_trumpet" title="pyvista.examples.downloads.download_trumpet"><code class="xref py py-func docutils literal notranslate"><span class="pre">pyvista.examples.downloads.download_trumpet()</span></code></a></p></li>
+</ol>
+<p>以下のステップを完了します:</p>
+<ol class="arabic">
+<li><p><code class="docutils literal notranslate"><span class="pre">doc/source/make_tables.py</span></code> で新しいカルーセルを定義します、例えば:</p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span><span class="w"> </span><span class="nc">InstrumentCarousel</span><span class="p">(</span><span class="n">DatasetGalleryCarousel</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Class to generate a carousel of instrument dataset cards.&quot;&quot;&quot;</span>
+
+    <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;instrument_carousel&#39;</span>
+    <span class="n">doc</span> <span class="o">=</span> <span class="s1">&#39;Instrument datasets.&#39;</span>
+    <span class="n">badge</span> <span class="o">=</span> <span class="n">CategoryBadge</span><span class="p">(</span><span class="s1">&#39;Instrument&#39;</span><span class="p">,</span> <span class="n">ref</span><span class="o">=</span><span class="s1">&#39;instrument_gallery&#39;</span><span class="p">)</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">fetch_dataset_names</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">sorted</span><span class="p">(</span>
+            <span class="p">(</span>
+                <span class="s1">&#39;guitar&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;trumpet&#39;</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>ここで</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">name</span></code> はカルーセル用に生成される <code class="docutils literal notranslate"><span class="pre">.rst</span></code> ファイルの名前を定義するために内部的に使用される。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">doc</span></code> はカルーセルの上のヘッダーにあるドキュメントに表示されるカルーセルの短い説明です。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">badge</span></code> はカルーセル内の全てのデータセットに参照タグを付与します。バッジの引数 <code class="docutils literal notranslate"><span class="pre">ref</span></code> には新しい参照先を指定する必要があります（詳細は後述します） 。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fetch_dataset_names</span></code> は、カルーセルに含めるデータセット名のリストを返す。データセット名には <code class="docutils literal notranslate"><span class="pre">load_</span></code> 、 <code class="docutils literal notranslate"><span class="pre">download_</span></code> 、 <code class="docutils literal notranslate"><span class="pre">dataset_</span></code> の接頭辞をつけてはならない。</p></li>
+</ul>
+</li>
+<li><p>新しいカルーセルクラスを <code class="docutils literal notranslate"><span class="pre">doc/source/make_tables.py</span></code> で定義した <code class="docutils literal notranslate"><span class="pre">CAROUSEL_LIST</span></code> 変数に追加します。これにより、カルーセルの rst が自動生成されるようになります。</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">doc/source/api/examples/dataset_gallery.rst</span></code> ファイルを更新して、新しく生成された <code class="docutils literal notranslate"><span class="pre">&lt;name&gt;_carousel.rst</span></code> ファイルを含めます。例えば、カルーセルを新しいドロップダウン項目として追加するには、以下を追加します:.</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">dropdown</span><span class="p">::</span> Instrument Datasets
+   <span class="nc">:name:</span> instrument_gallery
+
+<span class="p">   ..</span> <span class="ow">include</span><span class="p">::</span> /api/examples/dataset-gallery/instrument_carousel.rst
+</pre></div>
+</div>
+<p>ここで:</p>
+<ul class="simple">
+<li><p>ドロップダウン名 <code class="docutils literal notranslate"><span class="pre">:name:</span> <span class="pre">&lt;reference&gt;</span></code> は、先ほど定義したバッジの <code class="docutils literal notranslate"><span class="pre">ref</span></code> 変数でなければなりません。これにより、新しいバッジをクリックすると、新しいドロップダウンメニューにリンクするようになります。</p></li>
+<li><p>インクルードされた <code class="docutils literal notranslate"><span class="pre">.rst</span></code> ファイルの名前は、新しい <code class="docutils literal notranslate"><span class="pre">Carousel</span></code> クラスで定義された <code class="docutils literal notranslate"><span class="pre">name</span></code> 変数と一致する必要があります。</p></li>
+</ul>
+</li>
+</ol>
+<p>ドキュメントをビルドしたら、カルーセルがギャラリーの一部になるはずです。</p>
 </section>
 </section>
 <section id="creating-a-new-pull-request">
-<h3>新規Pull Requestの作成<a class="headerlink" href="#creating-a-new-pull-request" title="この見出しへのパーマリンク">#</a></h3>
+<h3>新規Pull Requestの作成<a class="headerlink" href="#creating-a-new-pull-request" title="Link to this heading">#</a></h3>
 <p>ブランチをローカルでテストしたら，mainにマージする際に <a class="reference external" href="https://github.com/pyvista/pyvista">pyvista GitHub</a> でpull requestを作成します．これにより，継続的インテグレーション (CI) テストが自動的に実行され，変更が複数のプラットフォームで機能することが検証されます．</p>
 <p>他のユーザーがコードをレビューできるようにするには，pyvistaコントリビュータグループの他の少なくとも1人のメンバーが，コードがコミュニティの標準を満たしているかどうかをレビューして検証する必要があります．承認後，書き込み権限があればブランチをマージすることができます．書き込みパーミッションがない場合，レビュー担当者または書き込みパーミッションを持つ別のユーザーがブランチをマージし，PRブランチを削除します．</p>
 <p>ブランチをカレントリリースブランチ(下記参照)とマージする必要があるかもしれませんので， <code class="docutils literal notranslate"><span class="pre">fix/</span></code> ブランチであれば削除しないでください．</p>
 </section>
 <section id="preview-the-documentation">
-<h3>ドキュメントをプレビューする<a class="headerlink" href="#preview-the-documentation" title="この見出しへのパーマリンク">#</a></h3>
-<p>Pull Requestを作成します．プルリクエストに <cite>github-actions preview</cite> とコメントすることで，ドキュメントをプレビューすることができます．このコマンドは <a class="reference external" href="https://github.com/orgs/pyvista/teams/developers">&#64;pyvista/developers</a> にしか使えないので，新しい貢献者はコマンドをコメントするよう親切にお願いします．これは，潜在的に有害なコミットからデプロイサイトを守るために不可欠です．</p>
+<h3>ドキュメントをプレビューする<a class="headerlink" href="#preview-the-documentation" title="Link to this heading">#</a></h3>
+<p>For PRs of branches coming from the main pyvista repository, the documentation
+is automatically deployed using <a class="reference external" href="https://github.com/nwtgck/actions-netlify">Netifly GitHub actions</a>.
+However, new contributors that submit PRs from a fork can download a light-weight documentation CI artifact
+that contains a non-interactive subset of the documentation build. It typically weights
+500 Mb and is available from the <code class="docutils literal notranslate"><span class="pre">Upload</span> <span class="pre">non-interactive</span> <span class="pre">HTML</span> <span class="pre">documentation</span></code> step of the
+<code class="docutils literal notranslate"><span class="pre">Build</span> <span class="pre">Documentation</span></code> CI job.</p>
 </section>
 <section id="branching-model">
-<h3>ブランチモデル<a class="headerlink" href="#branching-model" title="この見出しへのパーマリンク">#</a></h3>
+<h3>ブランチモデル<a class="headerlink" href="#branching-model" title="Link to this heading">#</a></h3>
 <p>このプロジェクトは，安定性を犠牲にすることなく機能の迅速な開発を可能にする分岐モデルを持っており， <a class="reference external" href="https://trunkbaseddevelopment.com/">Trunk Based Development</a>  アプローチに厳密に従います．</p>
 <p>ブランチモデルの主な特徴は次のとおりです．</p>
 <ul class="simple">
@@ -1051,7 +2026,7 @@ python -msphinx -M html . _build
 <li><p>マイナーリリース候補が準備できたら， <code class="docutils literal notranslate"><span class="pre">main</span></code> から新しい <code class="docutils literal notranslate"><span class="pre">release</span></code> ブランチが作成され，次のマイナーバージョン(例えば  <code class="docutils literal notranslate"><span class="pre">release/0.25</span></code> )がインクリメントされ，徹底的にテストされます．安定していると判断された場合，リリースブランチにはバージョン(この場合の <code class="docutils literal notranslate"><span class="pre">v0.25.0</span></code> )のタグが付けられ，必要に応じて変更が加えられた場合にはmainとマージされます． <code class="docutils literal notranslate"><span class="pre">main</span></code> で機能開発が継続され，ホットフィックスはこのリリースに統合されます．必要に応じてパッチを適用できるように，古いリリースブランチは削除しないでください．</p></li>
 </ul>
 <section id="minor-release-steps">
-<h4>マイナーリリース手順<a class="headerlink" href="#minor-release-steps" title="この見出しへのパーマリンク">#</a></h4>
+<h4>マイナーリリース手順<a class="headerlink" href="#minor-release-steps" title="Link to this heading">#</a></h4>
 <p>マイナーリリースは， <code class="docutils literal notranslate"><span class="pre">pyvista</span></code> の機能と安定性を改善する機能およびバグリリースです．マイナーリリースが作成される前に，次のことが発生します．</p>
 <ol class="arabic">
 <li><p><code class="docutils literal notranslate"><span class="pre">main</span></code> ブランチから <code class="docutils literal notranslate"><span class="pre">release/MAJOR.MINOR</span></code> という名前の新しいブランチを作成します(例: <code class="docutils literal notranslate"><span class="pre">release/0.25</span></code> )．</p></li>
@@ -1074,7 +2049,7 @@ make<span class="w"> </span>html<span class="w"> </span>-b<span class="w"> </spa
 </li>
 <li><p>タグが正しく作成されたことを再度確認し，ブランチとタグをプッシュしてください．</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>HEAD
-git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>--tags
+git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>v<span class="k">$(</span>python<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;import pyvista as pv; print(pv.__version__)&quot;</span><span class="k">)</span>
 </pre></div>
 </div>
 </li>
@@ -1085,7 +2060,7 @@ git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </
 </ol>
 </section>
 <section id="patch-release-steps">
-<h4>パッチリリース手順<a class="headerlink" href="#patch-release-steps" title="この見出しへのパーマリンク">#</a></h4>
+<h4>パッチリリース手順<a class="headerlink" href="#patch-release-steps" title="Link to this heading">#</a></h4>
 <p>パッチリリースは重要なバグフィックスのためのもので，マイナーリリースまで待つことはできないものです．パッチリリースの手順は</p>
 <ol class="arabic simple">
 <li><p>必要な(複数の)バグフィックスを該当するリリースブランチにプッシュします．これは通常，最新のリリースブランチ(例 <code class="docutils literal notranslate"><span class="pre">release/0.25</span></code>)です．</p></li>
@@ -1096,11 +2071,19 @@ git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </
 </section>
 </section>
 </section>
+<section id="dependency-version-policy">
+<h2>依存バージョンポリシー<a class="headerlink" href="#dependency-version-policy" title="Link to this heading">#</a></h2>
+<section id="python-and-vtk-dependencies">
+<h3>PythonとVTKの依存関係<a class="headerlink" href="#python-and-vtk-dependencies" title="Link to this heading">#</a></h3>
+<p>私たちは、サポートされているすべての <a class="reference external" href="https://endoflife.date/python">Python バージョン</a> と、それらの Python バージョンをサポートしている <a class="reference external" href="https://pypi.org/project/vtk/">VTK バージョン</a> をサポートしています。私たちは <a class="reference external" href="https://scientific-python.org/specs/spec-0000/">SPEC 0</a> に従いたいのですが、VTKのインターフェイスライブラリとして、VTKのバージョンに従います。</p>
+</section>
+</section>
 </section>
 
 
                 </article>
               
+
               
               
               
@@ -1111,10 +2094,10 @@ git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
-  <div class="sidebar-secondary-item">
 
+  <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> On this page
+    <i class="fa-solid fa-list"></i> 目次
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
@@ -1131,24 +2114,30 @@ git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#contributing-to-pyvista-through-github">GitHub経由でPyVistaにコントリビュートする</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#coding-style">コーディングスタイル</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#documentation-style">ドキュメンテーションスタイル</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#docstrings">Docstrings</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Docstrings</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#deprecating-features-or-other-backwards-breaking-changes">非推奨の機能またはその他の後方互換性のない変更</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#branch-naming-conventions">ブランチの命名規則</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#testing">テスト</a></li>
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unit-testing">ユニットテスト</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#documentation-testing">ドキュメンテーションテスト</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#docstring-testing">Docstring Testing</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#style-checking">スタイルチェック</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#notes-regarding-image-regression-testing">イメージ回帰テストに関する注意事項</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#notes-regarding-input-validation-testing">入力検証テストに関する注意事項</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#building-the-documentation">ドキュメントの作成</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#clearing-the-local-build">ローカルビルドのクリア</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#parallel-documentation-build">ドキュメントの並列ビルド</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#documentation-image-regression-testing">ドキュメント画像回帰テスト</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#interactive-plot-testing">Interactive Plot Testing</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#controlling-cache-for-ci-documentation-build">CIドキュメントのビルドでキャッシュを制御する</a></li>
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#contributing-to-the-documentation">ドキュメンテーションへの貢献</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#generating-random-data">ランダムデータの生成</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-a-new-example">新しい例の追加</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#add-a-new-example-file">新しいサンプルファイルの追加</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-a-new-dataset">新しいデータセットの追加</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#extending-the-dataset-gallery">データセットギャラリーを拡張する</a></li>
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-a-new-pull-request">新規Pull Requestの作成</a></li>
@@ -1160,23 +2149,12 @@ git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </
 </li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dependency-version-policy">依存バージョンポリシー</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#python-and-vtk-dependencies">PythonとVTKの依存関係</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
-
-  <div class="sidebar-secondary-item">
-  
-  <div class="tocsection editthispage">
-    <a href="https://github.com/pyvista/pyvista/edit/main/doc/source/extras/developer_notes.rst">
-      <i class="fa-solid fa-pencil"></i>
-      
-      
-        
-          GitHub で編集する
-        
-      
-    </a>
-  </div>
-</div>
 
 </div></div>
               
@@ -1184,46 +2162,49 @@ git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </
           </div>
           <footer class="bd-footer-content">
             
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+著者 Alex Kaszynski and Bane Sullivan
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2017-2025, The PyVista Developers.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
           </footer>
         
+
       </main>
     </div>
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
-<div class="bd-footer__inner bd-page-width">
-  
-    <div class="footer-items__start">
-      
-        <div class="footer-item">
-
-  <p class="copyright">
-    
-      © Copyright 2017-2023, The PyVista Developers.
-      <br/>
-    
-  </p>
-</div>
-      
-    </div>
-  
-  
-  
-    <div class="footer-items__end">
-      
-        <div class="footer-item">
-<p class="theme-version">
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.14.4.
-</p></div>
-      
-    </div>
-  
-</div>
-
   </footer>
   </body>
 </html>

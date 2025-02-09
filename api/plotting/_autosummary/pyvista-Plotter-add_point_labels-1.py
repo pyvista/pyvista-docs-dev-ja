@@ -1,9 +1,7 @@
 import numpy as np
 import pyvista as pv
 pl = pv.Plotter()
-points = np.array(
-    [[0.0, 0.0, 0.0], [1.0, 1.0, 0.0], [2.0, 0.0, 0.0]]
-)
+points = np.array([[0.0, 0.0, 0.0], [1.0, 1.0, 0.0], [2.0, 0.0, 0.0]])
 labels = ['Point A', 'Point B', 'Point C']
 actor = pl.add_point_labels(
     points,

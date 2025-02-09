@@ -1,7 +1,7 @@
 # Create a blue color with half opacity.
 #
 import pyvista as pv
-c = pv.Color("blue", opacity=128)
+c = pv.Color('blue', opacity=128)
 c
 # Expected:
 ## Color(name='blue', hex='#0000ff80', opacity=128)

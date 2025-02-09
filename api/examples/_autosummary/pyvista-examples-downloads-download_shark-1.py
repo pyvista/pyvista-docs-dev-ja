@@ -6,3 +6,13 @@ cpos = [
 ]
 dataset = examples.download_shark()
 dataset.plot(cpos=cpos, smooth_shading=True)
+#
+# .. seealso::
+#
+#     :ref:`Shark Dataset <shark_dataset>`
+#         See this dataset in the Dataset Gallery for more info.
+#
+#     :ref:`Great White Shark Dataset <great_white_shark_dataset>`
+#         Similar dataset.
+#
+#     :ref:`Grey Nurse Shark Dataset <grey_nurse_shark_dataset>`

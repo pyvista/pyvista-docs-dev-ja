@@ -1,7 +1,7 @@
 import pyvista as pv
 from pyvista import examples
 filename = examples.download_wavy(load=False)
-filename.split("/")[-1]  # omit the path
+filename.split('/')[-1]  # omit the path
 # Expected:
 ## 'wavy.pvd'
 reader = pv.get_reader(filename)

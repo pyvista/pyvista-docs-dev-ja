@@ -4,7 +4,7 @@ from pyvista import examples
 import pyvista as pv
 bolt_nut = examples.download_bolt_nut()
 pl = pv.Plotter()
-_ = pl.add_volume(bolt_nut, cmap="coolwarm")
+_ = pl.add_volume(bolt_nut, cmap='coolwarm')
 pl.show()
 #
 # Create a volume from scratch and plot it using single vector of
@@ -24,9 +24,7 @@ import numpy as np
 grid = pv.ImageData(dimensions=(5, 20, 20))
 scalars = grid.points - (grid.origin)
 scalars /= scalars.max()
-opacity = np.linalg.norm(
-    grid.points - grid.center, axis=1
-).reshape(-1, 1)
+opacity = np.linalg.norm(grid.points - grid.center, axis=1).reshape(-1, 1)
 opacity /= opacity.max()
 scalars = np.hstack((scalars, opacity**3))
 scalars *= 255

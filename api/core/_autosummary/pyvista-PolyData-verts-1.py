@@ -2,7 +2,8 @@
 #
 import pyvista as pv
 import numpy as np
-points = np.random.random((5, 3))
+rng = np.random.default_rng(seed=0)
+points = rng.random((5, 3))
 pdata = pv.PolyData(points)
 pdata.verts
 # Expected:
@@ -22,4 +23,11 @@ mesh.plot(
     color='lightblue',
     render_points_as_spheres=True,
     point_size=60,
+)
+#
+# Vertex cells can also be set to a ``CellArray``. The following
+# ``verts`` assignment is equivalent to the one above.
+#
+mesh.verts = pv.CellArray.from_regular_cells(
+    np.arange(mesh.n_points).reshape((-1, 1))
 )

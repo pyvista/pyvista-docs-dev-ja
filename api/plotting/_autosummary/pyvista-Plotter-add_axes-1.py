@@ -6,13 +6,6 @@ actor = pl.add_mesh(pv.Box(), show_edges=True)
 _ = pl.add_axes(line_width=5, labels_off=True)
 pl.show()
 #
-# Use the axes orientation widget instead of the default arrows.
-#
-pl = pv.Plotter()
-actor = pl.add_mesh(pv.Sphere())
-_ = pl.add_axes(box=True)
-pl.show()
-#
 # Specify more parameters for the axes marker.
 #
 import pyvista as pv

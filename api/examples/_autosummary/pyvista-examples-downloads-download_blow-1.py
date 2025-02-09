@@ -12,3 +12,7 @@ dataset.plot(
     show_scalar_bar=False,
     smooth_shading=True,
 )
+#
+# .. seealso::
+#
+#     :ref:`Blow Dataset <blow_dataset>`

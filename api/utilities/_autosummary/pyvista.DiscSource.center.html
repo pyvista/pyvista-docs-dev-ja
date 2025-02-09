@@ -1,0 +1,1324 @@
+
+<!DOCTYPE html>
+
+
+<html lang="ja" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="pyvista.DiscSource.center" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://docs.pyvista.org/api/utilities/_autosummary/pyvista.DiscSource.center.html" />
+<meta property="og:site_name" content="PyVista" />
+<meta property="og:image" content="https://docs.pyvista.org/_static/pyvista_banner_small.png" />
+<meta property="og:image:alt" content="PyVista" />
+
+    <title>pyvista.DiscSource.center &#8212; PyVista 0.45.dev0 ドキュメント</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=d75fae25" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/jupyter-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/thebelab.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/asciinema-player_3.6.3.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/no_search_highlight.css?v=4b20ffad" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery.css?v=d2d258e8" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/cards.css?v=90395a4f" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/no_italic.css?v=82ad2056" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../../_static/documentation_options.js?v=812542be"></script>
+    <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/thebelab-helper.js"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=49e1bf35"></script>
+    <script src="../../../_static/asciinema-player_3.6.3.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../../../_static/translations.js?v=4755f45a"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+    <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-140243896-1"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'UA-140243896-1');
+            </script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'UA-140243896-1');
+            </script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'api/utilities/_autosummary/pyvista.DiscSource.center';</script>
+    <link rel="canonical" href="https://docs.pyvista.org/api/utilities/_autosummary/pyvista.DiscSource.center.html" />
+    <link rel="icon" href="../../../_static/pyvista_logo.svg"/>
+    <link rel="index" title="索引" href="../../../genindex.html" />
+    <link rel="search" title="検索" href="../../../search.html" />
+    <link rel="next" title="pyvista.DiscSource.inner" href="pyvista.DiscSource.inner.html" />
+    <link rel="prev" title="pyvista.DiscSource.c_res" href="pyvista.DiscSource.c_res.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="ja"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/pyvista_logo.svg" class="logo__image only-light" alt="PyVista 0.45.dev0 ドキュメント - Home"/>
+    <script>document.write(`<img src="../../../_static/pyvista_logo.svg" class="logo__image only-dark" alt="PyVista 0.45.dev0 ドキュメント - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/pyvista/pyvista" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://communityinviter.com/apps/pyvista/pyvista" title="Slack Community" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-slack fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Slack Community</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/pyvista/pyvista/discussions" title="Support" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa fa-comment fa-fw fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Support</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/pyvista/pyvista/blob/main/CONTRIBUTING.rst" title="Contributing" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa fa-gavel fa-fw fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Contributing</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://doi.org/10.21105/joss.01450" title="The Paper" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa fa-file-text fa-fw fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">The Paper</span></a>
+        </li>
+</ul></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="検索" aria-label="検索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">検索</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../getting-started/index.html">はじめに</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../getting-started/why.html">なぜPyVistaなのか?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../getting-started/authors.html">著者と引用</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../getting-started/installation.html">インストール</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../getting-started/connections.html">接続</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../getting-started/external_examples.html">外部の例</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../user-guide/index.html">ユーザーガイド</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../user-guide/what-is-a-mesh.html">メッシュとは?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../user-guide/simple.html">APIの基本的な使用方法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../user-guide/data_model.html">PyVistaデータモデル</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../user-guide/vtk_to_pyvista.html">VTKからPyVistaへの移行</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../user-guide/themes.html">プロットテーマ</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../user-guide/jupyter/index.html">Jupyterノートブックプロット</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../user-guide/jupyter/trame.html">PyVista用Jupyterバックエンドをtrame化する</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../user-guide/optional_features.html">オプションの依存関係</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../tags/tagsindex.html">Tags</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../tags/filter.html">filter (45)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/01-filter/boolean_operations.html">ブール演算</a></li>
+
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/01-filter/cell_centers.html">セルの中心を抽出</a></li>
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/01-filter/clipping.html">平面とボックスでクリップします</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/01-filter/clipping_with_surface.html">サーフェスを使用したクリップ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/01-filter/collisions.html">衝突</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/01-filter/compute_normals.html">表面の法線を計算します</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/01-filter/compute_volume.html">ボリューム分析</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/01-filter/connectivity.html">連結度</a></li>
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/01-filter/contouring.html">コンタリング</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/01-filter/decimate.html">間引き</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/01-filter/distance_between_surfaces.html">2つのサーフェス間の距離</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/01-filter/extract_cells_inside_surface.html">サーフェス内のセルを抽出</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/01-filter/extract_edges.html">エッジを抽出</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/01-filter/extract_surface.html">表面を抽出</a></li>
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/01-filter/extrude_rotate.html">押し出し回転</a></li>
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/01-filter/extrude_trim.html">押し出しトリム</a></li>
+
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/01-filter/flying_edges.html">マーチングキューブ</a></li>
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/01-filter/gaussian_smoothing.html">Gaussianスムージング</a></li>
+
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/01-filter/geodesic.html">測地パス</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/01-filter/glyphs.html">字形のプロット (ベクトルかPolyData)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/01-filter/glyphs_table.html">字形表</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/01-filter/gradients.html">フィールドの勾配を計算する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/01-filter/image_fft.html">高速Fourier変換</a></li>
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/01-filter/image_fft_perlin_noise.html">Perlinノイズによる高速フーリエ変換</a></li>
+
+
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/01-filter/image_representations.html">画像データの表現</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/01-filter/integrate_data.html">データの積分</a></li>
+
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/01-filter/interpolate.html">詳細な補間点</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/01-filter/interpolate_sample.html">補間/サンプリング法の比較</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/01-filter/mesh_quality.html">メッシュ品質の計算</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/01-filter/poly_ray_trace.html">レイトレーシング</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/01-filter/project_plane.html">平面に投影</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/01-filter/reflect.html">メッシュを反射</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/01-filter/resample.html">詳細なリサンプリング</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/01-filter/rotate.html">回転</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/01-filter/sampling_functions_2d.html">サンプル関数:2DでのPerlinノイズ</a></li>
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/01-filter/sampling_functions_3d.html">サンプル関数:3DでのPerlinノイズ</a></li>
+
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/01-filter/slicing.html">スライシング</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/01-filter/streamlines.html">流線</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/01-filter/streamlines_2D.html">2D流線</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/01-filter/subdivide.html">セルの細分化</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/01-filter/surface_reconstruction.html">サーフェスの再構築</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/01-filter/surface_smoothing.html">サーフェイススムージング</a></li>
+
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/01-filter/using_filters.html">共通フィルタの使用</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/01-filter/voxelize.html">サーフェスメッシュをボクセル化する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/01-filter/warp_by_vector.html">ベクトルによるワープ</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../tags/lights.html">lights (7)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/04-lights/actors.html">Lightアクター</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/04-lights/attenuation.html">減衰</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/04-lights/beam_shape.html">ビーム形状</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/04-lights/light_types.html">光源タイプ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/04-lights/mesh_lighting.html">メッシュライティングの無効化</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/04-lights/plotter_builtins.html">プロッタ照明システム</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/04-lights/shadows.html">シャドウ</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../tags/load.html">load (29)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/00-load/create_explicit_structured_grid.html">明示的な構造グリッドの作成</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/00-load/create_geometric_objects.html">ジオメトリオブジェクト</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/00-load/create_kochanek_spline.html">Kochanekスプラインの作成</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/00-load/create_parametric_geometric_objects.html">パラメトリックジオメトリオブジェクト</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/00-load/create_pixel_art.html">ALIEN MONSTERSのピクセルアート</a></li>
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/00-load/create_platonic_solids.html">プラトン立体</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/00-load/create_point_cloud.html">点群を作成</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/00-load/create_pointset.html">PointSetの作成</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/00-load/create_poly.html">PolyDataを作成</a></li>
+
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/00-load/create_polydata_strips.html">トライアングル ストリップ</a></li>
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/00-load/create_polyhedron.html">多面体による非構造化グリッド</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/00-load/create_sphere.html">Create Sphere Mesh Multiple Ways</a></li>
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/00-load/create_spline.html">スプラインの作成</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/00-load/create_structured_surface.html">構造化サーフェスを作成する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/00-load/create_surface_draped.html">線分から2 Dサーフェスをまとう</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/00-load/create_tri_surface.html">3角形サーフェスを作成</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/00-load/create_truss.html">円柱を用いたトラス状のFEAソリューションのプロット</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/00-load/create_uniform_grid.html">統合グリッドを作成</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/00-load/create_unstructured_surface.html">非構造化グリッドの作成</a></li>
+
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/00-load/linear_cells.html">線形セル</a></li>
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/00-load/load_gltf.html">glTFファイルの取り扱いについて</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/00-load/load_vrml.html">VRMLファイルの取り扱いについて</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/00-load/read_dolfin.html">FEniCS/Dolfinメッシュを確認．</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/00-load/read_file.html">ファイルからロードおよびプロットする</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/00-load/read_image.html">イメージファイルの読み込み</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/00-load/read_parallel.html">並列フィルタ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/00-load/reader.html">リーダーによるデータの読み込み</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/00-load/terrain_mesh.html">メッシュ後の地形</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/00-load/wrap_trimesh.html">​他のオブジェクトのラップ</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../tags/plot.html">plot (57)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/02-plot/anti_aliasing.html">アンチエイリアシング</a></li>
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/02-plot/backface_props.html">バックフェイスプロパティの設定</a></li>
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/02-plot/background_image.html">背景イメージ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/02-plot/blurring.html">ぼかし</a></li>
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/02-plot/bounds.html">境界のプロット</a></li>
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/02-plot/chart_basics.html">チャートの基本</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/02-plot/chart_overlays.html">チャートのオーバーレイ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/02-plot/clear.html">メッシュまたはプロット全体の消去</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/02-plot/cmap.html">カラーマップの選択肢</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/02-plot/color_cycler.html">カラーサイクリング</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/02-plot/composite_picking.html">Compositeピッキング</a></li>
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/02-plot/depth_of_field.html">被写界深度のプロット</a></li>
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/02-plot/depth_peeling.html">Depth Peeling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/02-plot/distance_along_spline.html">線上の距離に応じたラベル</a></li>
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/02-plot/distance_measurement.html">距離を測る</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/02-plot/edges.html">エッジを表示</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/02-plot/edl.html">Eye Dome Lighting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/02-plot/element_picking.html">メッシュの要素をピックする</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/02-plot/floors.html">床を使用してプロットする</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/02-plot/ghost_cells.html">ゴーストを使用してセルを非表示にする</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/02-plot/gif.html">GIFムービーの作成</a></li>
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/02-plot/image_depth.html">デプスイメージをレンダーする</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/02-plot/interpolate_before_map.html">マッピング前に補間</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/02-plot/isovalue.html">等値移動</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/02-plot/labels.html">ラベルポイント</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/02-plot/legend.html">凡例とグリフ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/02-plot/lighting_mesh.html">照明プロパティ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/02-plot/linked.html">サブプロットのリンクビュー</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/02-plot/lookup_table.html">ルックアップテーブル</a></li>
+
+
+
+
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/02-plot/mesh_picking.html">メッシュのピッキング</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/02-plot/movie.html">MP 4ムービーを作成する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/02-plot/movie_glyphs.html">グリフを使ったムービーの保存</a></li>
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/02-plot/moving_cmap.html">カラーマップが移動する静止物体のGIFムービーを作成します</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/02-plot/multi_window.html">マルチウィンドウプロット</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/02-plot/opacity.html">不透明度を指定してプロット</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/02-plot/orbit.html">オービット</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/02-plot/ortho_slices.html">直交スライス</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/02-plot/pbr.html">物理ベースのレンダリング</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/02-plot/plot_over_circular_arc.html">円形円弧上にスカラーをプロットします</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/02-plot/plot_over_line.html">線上のプロット</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/02-plot/point_cell_scalars.html">ポイントセルスカラー</a></li>
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/02-plot/point_clouds.html">点群のプロット</a></li>
+
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/02-plot/point_picking.html">メッシュ上の点の選択</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/02-plot/points_gaussian_scale.html">スケーリングされたガウスポイント</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/02-plot/scalar_bars.html">スカラーバーをカスタマイズ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/02-plot/screenshot.html">スクリーンショットを保存する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/02-plot/shading.html">シェーディングのタイプ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/02-plot/silhouette.html">シルエットハイライト</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/02-plot/spherical.html">球座標でデータをプロットする</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/02-plot/ssao.html">Surface Space Ambient Occlusion</a></li>
+
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/02-plot/surface_picking.html">メッシュの表面上の点をピックします</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/02-plot/texture.html">テクスチャを適用する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/02-plot/themes.html">グローバルおよびローカルプロットテーマの制御</a></li>
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/02-plot/topo_map.html">地形図</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/02-plot/vector_component.html">プロットベクトルコンポーネント</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/02-plot/vertices.html">可視頂点</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/02-plot/volume.html">ボリュームレンダリング</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../tags/widgets.html">widgets (10)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/03-widgets/animation.html">アニメーション</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/03-widgets/box_widget.html">ボックスウィジェット</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/03-widgets/checkbox_widget.html">チェックボックスウィジェット</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/03-widgets/clip_volume.html">クリップボリュームウィジェット</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/03-widgets/line_widget.html">線ウィジェット</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/03-widgets/multi_slider_widget.html">複数のスライダウィジェット</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/03-widgets/plane_widget.html">平面ウィジェット</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/03-widgets/slider_bar_widget.html">スライダバーウィジェット</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/03-widgets/sphere_widget.html">球体ウィジェット</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/03-widgets/spline_widget.html">スプラインウィジェット</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../examples/index.html">例</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../examples/00-load/index.html">メッシュ作成</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/00-load/create_explicit_structured_grid.html">明示的な構造グリッドの作成</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/00-load/create_geometric_objects.html">ジオメトリオブジェクト</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/00-load/create_kochanek_spline.html">Kochanekスプラインの作成</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/00-load/create_parametric_geometric_objects.html">パラメトリックジオメトリオブジェクト</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/00-load/create_pixel_art.html">ALIEN MONSTERSのピクセルアート</a></li>
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/00-load/create_platonic_solids.html">プラトン立体</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/00-load/create_point_cloud.html">点群を作成</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/00-load/create_pointset.html">PointSetの作成</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/00-load/create_poly.html">PolyDataを作成</a></li>
+
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/00-load/create_polydata_strips.html">トライアングル ストリップ</a></li>
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/00-load/create_polyhedron.html">多面体による非構造化グリッド</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/00-load/create_sphere.html">Create Sphere Mesh Multiple Ways</a></li>
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/00-load/create_spline.html">スプラインの作成</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/00-load/create_structured_surface.html">構造化サーフェスを作成する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/00-load/create_surface_draped.html">線分から2 Dサーフェスをまとう</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/00-load/create_tri_surface.html">3角形サーフェスを作成</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/00-load/create_truss.html">円柱を用いたトラス状のFEAソリューションのプロット</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/00-load/create_uniform_grid.html">統合グリッドを作成</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/00-load/create_unstructured_surface.html">非構造化グリッドの作成</a></li>
+
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/00-load/linear_cells.html">線形セル</a></li>
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/00-load/load_gltf.html">glTFファイルの取り扱いについて</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/00-load/load_vrml.html">VRMLファイルの取り扱いについて</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/00-load/read_dolfin.html">FEniCS/Dolfinメッシュを確認．</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/00-load/read_file.html">ファイルからロードおよびプロットする</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/00-load/read_image.html">イメージファイルの読み込み</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/00-load/read_parallel.html">並列フィルタ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/00-load/reader.html">リーダーによるデータの読み込み</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/00-load/terrain_mesh.html">メッシュ後の地形</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/00-load/wrap_trimesh.html">​他のオブジェクトのラップ</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../examples/01-filter/index.html">フィルタリング</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/01-filter/boolean_operations.html">ブール演算</a></li>
+
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/01-filter/cell_centers.html">セルの中心を抽出</a></li>
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/01-filter/clipping.html">平面とボックスでクリップします</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/01-filter/clipping_with_surface.html">サーフェスを使用したクリップ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/01-filter/collisions.html">衝突</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/01-filter/compute_normals.html">表面の法線を計算します</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/01-filter/compute_volume.html">ボリューム分析</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/01-filter/connectivity.html">連結度</a></li>
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/01-filter/contouring.html">コンタリング</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/01-filter/decimate.html">間引き</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/01-filter/distance_between_surfaces.html">2つのサーフェス間の距離</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/01-filter/extract_cells_inside_surface.html">サーフェス内のセルを抽出</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/01-filter/extract_edges.html">エッジを抽出</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/01-filter/extract_surface.html">表面を抽出</a></li>
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/01-filter/extrude_rotate.html">押し出し回転</a></li>
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/01-filter/extrude_trim.html">押し出しトリム</a></li>
+
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/01-filter/flying_edges.html">マーチングキューブ</a></li>
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/01-filter/gaussian_smoothing.html">Gaussianスムージング</a></li>
+
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/01-filter/geodesic.html">測地パス</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/01-filter/glyphs.html">字形のプロット (ベクトルかPolyData)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/01-filter/glyphs_table.html">字形表</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/01-filter/gradients.html">フィールドの勾配を計算する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/01-filter/image_fft.html">高速Fourier変換</a></li>
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/01-filter/image_fft_perlin_noise.html">Perlinノイズによる高速フーリエ変換</a></li>
+
+
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/01-filter/image_representations.html">画像データの表現</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/01-filter/integrate_data.html">データの積分</a></li>
+
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/01-filter/interpolate.html">詳細な補間点</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/01-filter/interpolate_sample.html">補間/サンプリング法の比較</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/01-filter/mesh_quality.html">メッシュ品質の計算</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/01-filter/poly_ray_trace.html">レイトレーシング</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/01-filter/project_plane.html">平面に投影</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/01-filter/reflect.html">メッシュを反射</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/01-filter/resample.html">詳細なリサンプリング</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/01-filter/rotate.html">回転</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/01-filter/sampling_functions_2d.html">サンプル関数:2DでのPerlinノイズ</a></li>
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/01-filter/sampling_functions_3d.html">サンプル関数:3DでのPerlinノイズ</a></li>
+
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/01-filter/slicing.html">スライシング</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/01-filter/streamlines.html">流線</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/01-filter/streamlines_2D.html">2D流線</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/01-filter/subdivide.html">セルの細分化</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/01-filter/surface_reconstruction.html">サーフェスの再構築</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/01-filter/surface_smoothing.html">サーフェイススムージング</a></li>
+
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/01-filter/using_filters.html">共通フィルタの使用</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/01-filter/voxelize.html">サーフェスメッシュをボクセル化する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/01-filter/warp_by_vector.html">ベクトルによるワープ</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../examples/02-plot/index.html">プロット</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/02-plot/anti_aliasing.html">アンチエイリアシング</a></li>
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/02-plot/backface_props.html">バックフェイスプロパティの設定</a></li>
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/02-plot/background_image.html">背景イメージ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/02-plot/blurring.html">ぼかし</a></li>
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/02-plot/bounds.html">境界のプロット</a></li>
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/02-plot/chart_basics.html">チャートの基本</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/02-plot/chart_overlays.html">チャートのオーバーレイ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/02-plot/clear.html">メッシュまたはプロット全体の消去</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/02-plot/cmap.html">カラーマップの選択肢</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/02-plot/color_cycler.html">カラーサイクリング</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/02-plot/composite_picking.html">Compositeピッキング</a></li>
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/02-plot/depth_of_field.html">被写界深度のプロット</a></li>
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/02-plot/depth_peeling.html">Depth Peeling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/02-plot/distance_along_spline.html">線上の距離に応じたラベル</a></li>
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/02-plot/distance_measurement.html">距離を測る</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/02-plot/edges.html">エッジを表示</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/02-plot/edl.html">Eye Dome Lighting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/02-plot/element_picking.html">メッシュの要素をピックする</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/02-plot/floors.html">床を使用してプロットする</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/02-plot/ghost_cells.html">ゴーストを使用してセルを非表示にする</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/02-plot/gif.html">GIFムービーの作成</a></li>
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/02-plot/image_depth.html">デプスイメージをレンダーする</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/02-plot/interpolate_before_map.html">マッピング前に補間</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/02-plot/isovalue.html">等値移動</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/02-plot/labels.html">ラベルポイント</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/02-plot/legend.html">凡例とグリフ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/02-plot/lighting_mesh.html">照明プロパティ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/02-plot/linked.html">サブプロットのリンクビュー</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/02-plot/lookup_table.html">ルックアップテーブル</a></li>
+
+
+
+
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/02-plot/mesh_picking.html">メッシュのピッキング</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/02-plot/movie.html">MP 4ムービーを作成する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/02-plot/movie_glyphs.html">グリフを使ったムービーの保存</a></li>
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/02-plot/moving_cmap.html">カラーマップが移動する静止物体のGIFムービーを作成します</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/02-plot/multi_window.html">マルチウィンドウプロット</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/02-plot/opacity.html">不透明度を指定してプロット</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/02-plot/orbit.html">オービット</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/02-plot/ortho_slices.html">直交スライス</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/02-plot/pbr.html">物理ベースのレンダリング</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/02-plot/plot_over_circular_arc.html">円形円弧上にスカラーをプロットします</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/02-plot/plot_over_line.html">線上のプロット</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/02-plot/point_cell_scalars.html">ポイントセルスカラー</a></li>
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/02-plot/point_clouds.html">点群のプロット</a></li>
+
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/02-plot/point_picking.html">メッシュ上の点の選択</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/02-plot/points_gaussian_scale.html">スケーリングされたガウスポイント</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/02-plot/scalar_bars.html">スカラーバーをカスタマイズ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/02-plot/screenshot.html">スクリーンショットを保存する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/02-plot/shading.html">シェーディングのタイプ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/02-plot/silhouette.html">シルエットハイライト</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/02-plot/spherical.html">球座標でデータをプロットする</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/02-plot/ssao.html">Surface Space Ambient Occlusion</a></li>
+
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/02-plot/surface_picking.html">メッシュの表面上の点をピックします</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/02-plot/texture.html">テクスチャを適用する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/02-plot/themes.html">グローバルおよびローカルプロットテーマの制御</a></li>
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/02-plot/topo_map.html">地形図</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/02-plot/vector_component.html">プロットベクトルコンポーネント</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/02-plot/vertices.html">可視頂点</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/02-plot/volume.html">ボリュームレンダリング</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../examples/03-widgets/index.html">ウィジェット</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/03-widgets/animation.html">アニメーション</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/03-widgets/box_widget.html">ボックスウィジェット</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/03-widgets/checkbox_widget.html">チェックボックスウィジェット</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/03-widgets/clip_volume.html">クリップボリュームウィジェット</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/03-widgets/line_widget.html">線ウィジェット</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/03-widgets/multi_slider_widget.html">複数のスライダウィジェット</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/03-widgets/plane_widget.html">平面ウィジェット</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/03-widgets/slider_bar_widget.html">スライダバーウィジェット</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/03-widgets/sphere_widget.html">球体ウィジェット</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/03-widgets/spline_widget.html">スプラインウィジェット</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../examples/04-lights/index.html">照明</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/04-lights/actors.html">Lightアクター</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/04-lights/attenuation.html">減衰</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/04-lights/beam_shape.html">ビーム形状</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/04-lights/light_types.html">光源タイプ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/04-lights/mesh_lighting.html">メッシュライティングの無効化</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/04-lights/plotter_builtins.html">プロッタ照明システム</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/04-lights/shadows.html">シャドウ</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../examples/98-common/index.html">共通</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/98-common/project_points_tessellate.html">ポイントを平面に投影して平面充填します．</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../examples/99-advanced/index.html">詳細設定</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/99-advanced/add_example.html">新しいギャラリーを追加する例</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/99-advanced/anatomical_groups.html">Visualize Anatomical Groups</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/99-advanced/antarctica_compare.html">メッシュ領域間でフィールドを比較</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/99-advanced/atomic_orbitals.html">原子軌道のプロット</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/99-advanced/customization_trame_toolbar.html">Trameツールバーのカスタマイズ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/99-advanced/extending_pyvista.html">PyVistaの拡張</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/99-advanced/fea_hertzian_contact_pressure.html">Hertの接触応力を可視化する</a></li>
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/99-advanced/magnetic_fields.html">磁場をプロットする</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/99-advanced/openfoam_cooling.html">電子機器の冷却CFD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/99-advanced/openfoam_example.html">OpenFOAMデータのプロット</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/99-advanced/openfoam_tubes.html">CFDデータをプロットする</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/99-advanced/planets.html">3D地球と天体</a></li>
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/99-advanced/plotting_algorithms.html">VTKアルゴリズムでプロットする</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/99-advanced/pump_bracket.html">ポンプブラケットのモーダル解析の可視化</a></li>
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/99-advanced/ray_trace_moeller.html">Moeller-Trumboreアルゴリズムの可視化</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/99-advanced/sphere_eversion.html">球体を裏返す</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../examples/99-advanced/warp_by_vector_eigenmodes.html">振動の固有振動モードを表示します</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../index.html">APIリファレンス</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../core/index.html">コアAPI</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../core/objects.html">データオブジェクト</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../core/dataset.html">データセット</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../core/pointsets.html">ポイントセット</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../core/grids.html">グリッドデータ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../core/composite.html">複合データセット</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../core/filters.html">フィルタ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../core/camera.html">カメラ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../core/lights.html">ライト</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../core/cells.html">セル</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../core/helpers.html">ヘルパー</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../core/misc.html">その他</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../core/typing.html">タイピング</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../core/partitioned.html">パーティショニングされたデータセット</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../core/_validation.html">Validation</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../plotting/index.html">プロット</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../plotting/plotting.html">プロット</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../plotting/qt_plotting.html">PyVistaとPyQt</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../plotting/theme.html">テーマ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../plotting/trame.html">Trame</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../plotting/_autosummary/pyvista.Actor.html">pyvista.Actor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../plotting/_autosummary/pyvista.Axes.html">pyvista.Axes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../plotting/_autosummary/pyvista.AxesActor.html">pyvista.AxesActor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../plotting/_autosummary/pyvista.AxesAssembly.html">pyvista.AxesAssembly</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../plotting/_autosummary/pyvista.AxesAssemblySymmetric.html">pyvista.AxesAssemblySymmetric</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../plotting/_autosummary/pyvista.CameraPosition.html">pyvista.CameraPosition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../plotting/_autosummary/pyvista.CornerAnnotation.html">pyvista.CornerAnnotation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../plotting/_autosummary/pyvista.CubeAxesActor.html">pyvista.CubeAxesActor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../plotting/_autosummary/pyvista.DataSetMapper.html">pyvista.DataSetMapper</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../plotting/_autosummary/pyvista.Label.html">pyvista.Label</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../plotting/_autosummary/pyvista.LookupTable.html">pyvista.LookupTable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../plotting/_autosummary/pyvista.PlanesAssembly.html">pyvista.PlanesAssembly</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../plotting/_autosummary/pyvista.Plotter.html">pyvista.Plotter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../plotting/_autosummary/pyvista.Prop3D.html">pyvista.Prop3D</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../plotting/_autosummary/pyvista.Property.html">pyvista.Property</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../plotting/_autosummary/pyvista.Renderer.html">pyvista.Renderer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../plotting/_autosummary/pyvista.RenderWindowInteractor.html">pyvista.RenderWindowInteractor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../plotting/_autosummary/pyvista.Text.html">pyvista.Text</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../plotting/_autosummary/pyvista.TextProperty.html">pyvista.TextProperty</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../plotting/_autosummary/pyvista.Timer.html">pyvista.Timer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../plotting/_autosummary/pyvista.plotting.mapper._BaseMapper.html">pyvista.plotting.mapper._BaseMapper</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../plotting/_autosummary/pyvista.plotting.opts.InterpolationType.html">pyvista.plotting.opts.InterpolationType</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../plotting/_autosummary/pyvista.plotting.opts.RepresentationType.html">pyvista.plotting.opts.RepresentationType</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../plotting/_autosummary/pyvista.plotting.opts.ElementType.html">pyvista.plotting.opts.ElementType</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../plotting/_autosummary/pyvista.plotting.volume.Volume.html">pyvista.plotting.volume.Volume</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../plotting/_autosummary/pyvista.plotting.volume_property.VolumeProperty.html">pyvista.plotting.volume_property.VolumeProperty</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../plotting/_autosummary/pyvista.CompositePolyDataMapper.html">pyvista.CompositePolyDataMapper</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../plotting/_autosummary/pyvista.CompositeAttributes.html">pyvista.CompositeAttributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../plotting/_autosummary/pyvista.BlockAttributes.html">pyvista.BlockAttributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../plotting/charts/index.html">チャート</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../plotting/_autosummary/pyvista.plotting.widgets.WidgetHelper.html">pyvista.plotting.widgets.WidgetHelper</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../plotting/_autosummary/pyvista.plotting.widgets.AffineWidget3D.html">pyvista.plotting.widgets.AffineWidget3D</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../plotting/_autosummary/pyvista.plotting.picking.PickingHelper.html">pyvista.plotting.picking.PickingHelper</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../plotting/conv_func.html">便利な機能</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="../index.html">ユーティリティ</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3 current active"><a class="reference internal" href="../geometric.html">ジオメトリー</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../image.html">Image</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../parametric.html">パラメトリックオブジェクト</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../utilities.html">一般ユーティリティ</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../readers/index.html">リーダー</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../readers/_autosummary/pyvista.get_reader.html">pyvista.get_reader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../readers/_autosummary/pyvista.AVSucdReader.html">pyvista.AVSucdReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../readers/_autosummary/pyvista.BMPReader.html">pyvista.BMPReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../readers/_autosummary/pyvista.BYUReader.html">pyvista.BYUReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../readers/_autosummary/pyvista.BinaryMarchingCubesReader.html">pyvista.BinaryMarchingCubesReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../readers/_autosummary/pyvista.CGNSReader.html">pyvista.CGNSReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../readers/_autosummary/pyvista.DEMReader.html">pyvista.DEMReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../readers/_autosummary/pyvista.DICOMReader.html">pyvista.DICOMReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../readers/_autosummary/pyvista.EnSightReader.html">pyvista.EnSightReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../readers/_autosummary/pyvista.ExodusIIBlockSet.html">pyvista.ExodusIIBlockSet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../readers/_autosummary/pyvista.ExodusIIReader.html">pyvista.ExodusIIReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../readers/_autosummary/pyvista.FacetReader.html">pyvista.FacetReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../readers/_autosummary/pyvista.FLUENTCFFReader.html">pyvista.FLUENTCFFReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../readers/_autosummary/pyvista.FluentReader.html">pyvista.FluentReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../readers/_autosummary/pyvista.GambitReader.html">pyvista.GambitReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../readers/_autosummary/pyvista.GaussianCubeReader.html">pyvista.GaussianCubeReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../readers/_autosummary/pyvista.GESignaReader.html">pyvista.GESignaReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../readers/_autosummary/pyvista.GIFReader.html">pyvista.GIFReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../readers/_autosummary/pyvista.GLTFReader.html">pyvista.GLTFReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../readers/_autosummary/pyvista.HDFReader.html">pyvista.HDFReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../readers/_autosummary/pyvista.HDRReader.html">pyvista.HDRReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../readers/_autosummary/pyvista.JPEGReader.html">pyvista.JPEGReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../readers/_autosummary/pyvista.MFIXReader.html">pyvista.MFIXReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../readers/_autosummary/pyvista.MetaImageReader.html">pyvista.MetaImageReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../readers/_autosummary/pyvista.MINCImageReader.html">pyvista.MINCImageReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../readers/_autosummary/pyvista.MultiBlockPlot3DReader.html">pyvista.MultiBlockPlot3DReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../readers/_autosummary/pyvista.Nek5000Reader.html">pyvista.Nek5000Reader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../readers/_autosummary/pyvista.NIFTIReader.html">pyvista.NIFTIReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../readers/_autosummary/pyvista.NRRDReader.html">pyvista.NRRDReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../readers/_autosummary/pyvista.OBJReader.html">pyvista.OBJReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../readers/_autosummary/pyvista.OpenFOAMReader.html">pyvista.OpenFOAMReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../readers/_autosummary/pyvista.ParticleReader.html">pyvista.ParticleReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../readers/_autosummary/pyvista.PDBReader.html">pyvista.PDBReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../readers/_autosummary/pyvista.PLYReader.html">pyvista.PLYReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../readers/_autosummary/pyvista.PNGReader.html">pyvista.PNGReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../readers/_autosummary/pyvista.PNMReader.html">pyvista.PNMReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../readers/_autosummary/pyvista.POpenFOAMReader.html">pyvista.POpenFOAMReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../readers/_autosummary/pyvista.PTSReader.html">pyvista.PTSReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../readers/_autosummary/pyvista.PVDReader.html">pyvista.PVDReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../readers/_autosummary/pyvista.Plot3DMetaReader.html">pyvista.Plot3DMetaReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../readers/_autosummary/pyvista.ProStarReader.html">pyvista.ProStarReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../readers/_autosummary/pyvista.SLCReader.html">pyvista.SLCReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../readers/_autosummary/pyvista.STLReader.html">pyvista.STLReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../readers/_autosummary/pyvista.SegYReader.html">pyvista.SegYReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../readers/_autosummary/pyvista.TIFFReader.html">pyvista.TIFFReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../readers/_autosummary/pyvista.TecplotReader.html">pyvista.TecplotReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../readers/_autosummary/pyvista.VTKDataSetReader.html">pyvista.VTKDataSetReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../readers/_autosummary/pyvista.VTKPDataSetReader.html">pyvista.VTKPDataSetReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../readers/_autosummary/pyvista.XMLImageDataReader.html">pyvista.XMLImageDataReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../readers/_autosummary/pyvista.XMLMultiBlockDataReader.html">pyvista.XMLMultiBlockDataReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../readers/_autosummary/pyvista.XMLPImageDataReader.html">pyvista.XMLPImageDataReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../readers/_autosummary/pyvista.XMLPRectilinearGridReader.html">pyvista.XMLPRectilinearGridReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../readers/_autosummary/pyvista.XMLPUnstructuredGridReader.html">pyvista.XMLPUnstructuredGridReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../readers/_autosummary/pyvista.XMLPartitionedDataSetReader.html">pyvista.XMLPartitionedDataSetReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../readers/_autosummary/pyvista.XMLPolyDataReader.html">pyvista.XMLPolyDataReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../readers/_autosummary/pyvista.XMLRectilinearGridReader.html">pyvista.XMLRectilinearGridReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../readers/_autosummary/pyvista.XMLStructuredGridReader.html">pyvista.XMLStructuredGridReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../readers/_autosummary/pyvista.XMLUnstructuredGridReader.html">pyvista.XMLUnstructuredGridReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../readers/_autosummary/pyvista.XdmfReader.html">pyvista.XdmfReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../readers/_autosummary/pyvista.BaseReader.html">pyvista.BaseReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../readers/_autosummary/pyvista.PointCellDataSelection.html">pyvista.PointCellDataSelection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../readers/_autosummary/pyvista.TimeReader.html">pyvista.TimeReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../readers/enums.html">リーダー列挙型</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../examples/index.html">例</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/dataset_gallery.html">データセットギャラリー</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/_autosummary/pyvista.examples.examples.html">pyvista.examples.examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/_autosummary/pyvista.examples.downloads.html">pyvista.examples.downloads</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/_autosummary/pyvista.examples.planets.html">pyvista.examples.planets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/_autosummary/pyvista.examples.vrml.html">pyvista.examples.vrml</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/_autosummary/pyvista.examples.download_3ds.html">pyvista.examples.download_3ds</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/_autosummary/pyvista.examples.gltf.html">pyvista.examples.gltf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/_autosummary/pyvista.demos.demos.html">pyvista.demos.demos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/_autosummary/pyvista.examples.cells.plot_cell.html">pyvista.examples.cells.plot_cell</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/_autosummary/pyvista.examples.cells.Empty.html">pyvista.examples.cells.Empty</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/_autosummary/pyvista.examples.cells.Vertex.html">pyvista.examples.cells.Vertex</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/_autosummary/pyvista.examples.cells.PolyVertex.html">pyvista.examples.cells.PolyVertex</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/_autosummary/pyvista.examples.cells.Line.html">pyvista.examples.cells.Line</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/_autosummary/pyvista.examples.cells.PolyLine.html">pyvista.examples.cells.PolyLine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/_autosummary/pyvista.examples.cells.Triangle.html">pyvista.examples.cells.Triangle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/_autosummary/pyvista.examples.cells.TriangleStrip.html">pyvista.examples.cells.TriangleStrip</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/_autosummary/pyvista.examples.cells.Polygon.html">pyvista.examples.cells.Polygon</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/_autosummary/pyvista.examples.cells.Pixel.html">pyvista.examples.cells.Pixel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/_autosummary/pyvista.examples.cells.Quadrilateral.html">pyvista.examples.cells.Quadrilateral</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/_autosummary/pyvista.examples.cells.Tetrahedron.html">pyvista.examples.cells.Tetrahedron</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/_autosummary/pyvista.examples.cells.Voxel.html">pyvista.examples.cells.Voxel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/_autosummary/pyvista.examples.cells.Hexahedron.html">pyvista.examples.cells.Hexahedron</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/_autosummary/pyvista.examples.cells.Wedge.html">pyvista.examples.cells.Wedge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/_autosummary/pyvista.examples.cells.Pyramid.html">pyvista.examples.cells.Pyramid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/_autosummary/pyvista.examples.cells.PentagonalPrism.html">pyvista.examples.cells.PentagonalPrism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/_autosummary/pyvista.examples.cells.HexagonalPrism.html">pyvista.examples.cells.HexagonalPrism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/_autosummary/pyvista.examples.cells.QuadraticEdge.html">pyvista.examples.cells.QuadraticEdge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/_autosummary/pyvista.examples.cells.QuadraticTriangle.html">pyvista.examples.cells.QuadraticTriangle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/_autosummary/pyvista.examples.cells.QuadraticQuadrilateral.html">pyvista.examples.cells.QuadraticQuadrilateral</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/_autosummary/pyvista.examples.cells.QuadraticPolygon.html">pyvista.examples.cells.QuadraticPolygon</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/_autosummary/pyvista.examples.cells.QuadraticTetrahedron.html">pyvista.examples.cells.QuadraticTetrahedron</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/_autosummary/pyvista.examples.cells.QuadraticHexahedron.html">pyvista.examples.cells.QuadraticHexahedron</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/_autosummary/pyvista.examples.cells.QuadraticWedge.html">pyvista.examples.cells.QuadraticWedge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/_autosummary/pyvista.examples.cells.QuadraticPyramid.html">pyvista.examples.cells.QuadraticPyramid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/_autosummary/pyvista.examples.cells.BiQuadraticQuadrilateral.html">pyvista.examples.cells.BiQuadraticQuadrilateral</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/_autosummary/pyvista.examples.cells.TriQuadraticHexahedron.html">pyvista.examples.cells.TriQuadraticHexahedron</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/_autosummary/pyvista.examples.cells.TriQuadraticPyramid.html">pyvista.examples.cells.TriQuadraticPyramid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/_autosummary/pyvista.examples.cells.QuadraticLinearQuadrilateral.html">pyvista.examples.cells.QuadraticLinearQuadrilateral</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/_autosummary/pyvista.examples.cells.QuadraticLinearWedge.html">pyvista.examples.cells.QuadraticLinearWedge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/_autosummary/pyvista.examples.cells.BiQuadraticQuadraticWedge.html">pyvista.examples.cells.BiQuadraticQuadraticWedge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/_autosummary/pyvista.examples.cells.BiQuadraticQuadraticHexahedron.html">pyvista.examples.cells.BiQuadraticQuadraticHexahedron</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/_autosummary/pyvista.examples.cells.BiQuadraticTriangle.html">pyvista.examples.cells.BiQuadraticTriangle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/_autosummary/pyvista.examples.cells.CubicLine.html">pyvista.examples.cells.CubicLine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../examples/_autosummary/pyvista.examples.cells.Polyhedron.html">pyvista.examples.cells.Polyhedron</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../extras/index.html">その他</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../extras/building_vtk.html">VTKの構築</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../extras/docker.html">Dockerコンテナ内のPyVista</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../extras/pyinstaller.html">PyInstallerを使用したPyVistaのフリーズ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../extras/developer_notes.html">貢献</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../extras/plot_directive.html">Sphinx PyVista Plot ディレクティブ</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../../extras/pytest_plugin.html">PyVista pytest プラグイン</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../extras/vtk_data.html">ローカルVTKデータの使用</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../extras/extending_pyvista.html">PyVistaの拡張</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/pyvista/pyvista/edit/main/doc/source/api/utilities/_autosummary/pyvista.DiscSource.center.rst" target="_blank"
+   class="btn btn-sm btn-source-edit-button"
+   title="Suggest edit"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="このページをダウンロード">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="ソースファイルをダウンロード"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="PDFに印刷"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="全画面モード"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="検索" aria-label="検索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>pyvista.DiscSource.center</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> 目次 </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pyvista.DiscSource.center"><code class="docutils literal notranslate"><span class="pre">DiscSource.center</span></code></a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="pyvista-discsource-center">
+<h1>pyvista.DiscSource.center<a class="headerlink" href="#pyvista-discsource-center" title="Link to this heading">#</a></h1>
+<dl class="py property">
+<dt class="sig sig-object py" id="pyvista.DiscSource.center">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">DiscSource.</span></span><span class="sig-name descname"><span class="pre">center</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3.11/library/stdtypes.html#tuple" title="(in Python v3.11)"><span class="pre">tuple</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3.11/library/functions.html#float" title="(in Python v3.11)"><span class="pre">float</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3.11/library/functions.html#float" title="(in Python v3.11)"><span class="pre">float</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3.11/library/functions.html#float" title="(in Python v3.11)"><span class="pre">float</span></a><span class="p"><span class="pre">]</span></span></em><a class="reference external" href="http://github.com/pyvista/pyvista/blob/main/pyvista/core/utilities/geometric_sources.py#L1476-L1489"><span class="viewcode-link"><span class="pre">[ソース]</span></span></a><a class="headerlink" href="#pyvista.DiscSource.center" title="Link to this definition">#</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">[x,</span> <span class="pre">y,</span> <span class="pre">z]</span></code> の中心を取得します．</p>
+<dl class="field-list simple">
+<dt class="field-odd">戻り値<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><a class="reference external" href="https://docs.python.org/3.11/library/stdtypes.html#tuple" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">tuple</span></code></a>[<a class="reference external" href="https://docs.python.org/3.11/library/functions.html#float" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a>, <a class="reference external" href="https://docs.python.org/3.11/library/functions.html#float" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a>, <a class="reference external" href="https://docs.python.org/3.11/library/functions.html#float" title="(in Python v3.11)"><code class="docutils literal notranslate"><span class="pre">float</span></code></a>]</dt><dd><p><code class="docutils literal notranslate"><span class="pre">[x,</span> <span class="pre">y,</span> <span class="pre">z]</span></code> の中心．</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> 目次
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pyvista.DiscSource.center"><code class="docutils literal notranslate"><span class="pre">DiscSource.center</span></code></a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+著者 Alex Kaszynski and Bane Sullivan
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2017-2025, The PyVista Developers.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

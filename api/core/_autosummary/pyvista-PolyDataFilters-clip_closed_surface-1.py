@@ -10,7 +10,5 @@ clipped_mesh.plot(show_edges=True, line_width=3)
 # sphere in the positive Z direction.  Shift the clip upwards to
 # leave a smaller mesh behind.
 #
-clipped_mesh = sphere.clip_closed_surface(
-    'z', origin=[0, 0, 0.3]
-)
+clipped_mesh = sphere.clip_closed_surface('z', origin=[0, 0, 0.3])
 clipped_mesh.plot(show_edges=True, line_width=3)

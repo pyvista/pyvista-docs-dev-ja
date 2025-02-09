@@ -28,9 +28,9 @@ import numpy as np
 mesh = pv.Plane(i_resolution=1, j_resolution=1)
 mesh.point_data.set_array(range(4), 'my-data')
 mesh.point_data.set_array(range(5, 9), 'my-other-data')
-vectors0 = np.random.random((4, 3))
+vectors0 = np.random.default_rng().random((4, 3))
 mesh.point_data.set_vectors(vectors0, 'vectors0')
-vectors1 = np.random.random((4, 3))
+vectors1 = np.random.default_rng().random((4, 3))
 mesh.point_data.set_vectors(vectors1, 'vectors1')
 mesh.point_data
 # Expected:

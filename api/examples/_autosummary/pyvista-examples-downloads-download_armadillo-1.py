@@ -8,3 +8,7 @@ cpos = [
 ]
 dataset = examples.download_armadillo()
 dataset.plot(cpos=cpos)
+#
+# .. seealso::
+#
+#     :ref:`Armadillo Dataset <armadillo_dataset>`

@@ -14,10 +14,14 @@ mesh.plot(cpos=cpos)
 mesh
 # Expected:
 ## PolyData (...)
-##   N Cells:    2440707
-##   N Points:   1221756
+##   N Cells:    24407
+##   N Points:   12442
 ##   N Strips:   0
-##   X Bounds:   -5.834e+01, 7.047e+01
-##   Y Bounds:   -7.006e+01, 6.658e+01
-##   Z Bounds:   1.676e+00, 2.013e+02
+##   X Bounds:   -5.834e+01, 7.048e+01
+##   Y Bounds:   -7.005e+01, 6.657e+01
+##   Z Bounds:   1.814e+00, 2.013e+02
 ##   N Arrays:   0
+#
+# .. seealso::
+#
+#     :ref:`Owl Dataset <owl_dataset>`

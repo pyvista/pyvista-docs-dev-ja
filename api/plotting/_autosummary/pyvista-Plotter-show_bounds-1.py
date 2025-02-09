@@ -16,9 +16,7 @@ plotter.show()
 mesh = examples.load_random_hills()
 #
 plotter = pv.Plotter()
-actor = plotter.add_mesh(
-    mesh, cmap='terrain', show_scalar_bar=False
-)
+actor = plotter.add_mesh(mesh, cmap='terrain', show_scalar_bar=False)
 actor = plotter.show_bounds(
     grid='back',
     location='outer',
@@ -35,9 +33,7 @@ plotter.show()
 # Hide labels, but still show axis titles.
 #
 plotter = pv.Plotter()
-actor = plotter.add_mesh(
-    mesh, cmap='terrain', show_scalar_bar=False
-)
+actor = plotter.add_mesh(mesh, cmap='terrain', show_scalar_bar=False)
 actor = plotter.show_bounds(
     grid='back',
     location='outer',

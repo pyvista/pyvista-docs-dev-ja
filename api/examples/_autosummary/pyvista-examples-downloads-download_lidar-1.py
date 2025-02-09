@@ -1,7 +1,12 @@
 from pyvista import examples
 dataset = examples.download_lidar()
-dataset.plot(cmap="gist_earth")
+dataset.plot(cmap='gist_earth')
 #
-# This dataset is used in the following examples:
+# .. seealso::
 #
-# * :ref:`create_point_cloud`
+#     :ref:`Lidar Dataset <lidar_dataset>`
+#         See this dataset in the Dataset Gallery for more info.
+#
+#     This dataset is used in the following examples:
+#
+#     * :ref:`create_point_cloud`

@@ -1,7 +1,7 @@
 # Create a blue color with half opacity.
 #
 import pyvista as pv
-c = pv.Color("blue", default_opacity="#80")
+c = pv.Color('blue', default_opacity='#80')
 c
 # Expected:
 ## Color(name='blue', hex='#0000ff80', opacity=128)
@@ -11,7 +11,7 @@ c.hex_rgb
 #
 # Create a red color using an RGB hexadecimal value.
 #
-c = pv.Color("0xff0000")
+c = pv.Color('0xff0000')
 c
 # Expected:
 ## Color(name='red', hex='#ff0000ff', opacity=255)

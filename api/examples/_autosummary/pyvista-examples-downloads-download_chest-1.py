@@ -1,5 +1,13 @@
 from pyvista import examples
 dataset = examples.download_chest()
-dataset.plot(cpos="xy")
+dataset.plot(cpos='xy')
 #
-# See :ref:`volume_rendering_example` for an example using
+# .. seealso::
+#
+#     :ref:`Chest Dataset <chest_dataset>`
+#         See this dataset in the Dataset Gallery for more info.
+#
+#     :ref:`medical_dataset_gallery`
+#         Browse other medical datasets.
+#
+#     :ref:`volume_rendering_example`

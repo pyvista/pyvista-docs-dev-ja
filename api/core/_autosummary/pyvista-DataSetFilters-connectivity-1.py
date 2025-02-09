@@ -8,9 +8,7 @@ large = pv.Sphere(
 medium = pv.Sphere(
     center=(-2, 0, 0), phi_resolution=15, theta_resolution=15
 )
-small = pv.Sphere(
-    center=(0, 0, 0), phi_resolution=7, theta_resolution=7
-)
+small = pv.Sphere(center=(0, 0, 0), phi_resolution=7, theta_resolution=7)
 mesh = large + medium + small
 #
 # Plot their connectivity.

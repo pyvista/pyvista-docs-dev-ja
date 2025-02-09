@@ -1,5 +1,8 @@
 # Create a pie chart with a thick, dashed red border.
 #
+# .. pyvista-plot::
+#    :force_static:
+#
 import pyvista as pv
 chart = pv.ChartPie([5, 4, 3, 2, 1])
 chart.border_color = 'r'

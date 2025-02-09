@@ -1,12 +1,12 @@
-# Set the x axis color to black.
+# Set the x-axis color to black.
 #
 import pyvista as pv
 pv.global_theme.axes.x_color = 'black'
 #
-# Show axes by default.
+# Show the axes orientation widget by default.
 #
 pv.global_theme.axes.show = True
 #
-# Use the ``vtk.vtkCubeAxesActor``.
+# Use the :func:`axes orientation box <pyvista.create_axes_orientation_box>` as the orientation widget.
 #
 pv.global_theme.axes.box = True

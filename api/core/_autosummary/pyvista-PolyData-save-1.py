@@ -17,9 +17,7 @@ sphere = pv.Sphere()
 texture = np.zeros((sphere.n_points, 3), np.uint8)
 texture[:, 1] = np.arange(sphere.n_points)[::-1]
 sphere.point_data['my_texture'] = texture
-sphere.save(
-    'my_mesh.ply', texture='my_texture'
-)  # doctest:+SKIP
+sphere.save('my_mesh.ply', texture='my_texture')  # doctest:+SKIP
 #
 # Alternatively, provide just the texture array.  This will be
 # written to the file as ``'RGB'`` since it does not contain an

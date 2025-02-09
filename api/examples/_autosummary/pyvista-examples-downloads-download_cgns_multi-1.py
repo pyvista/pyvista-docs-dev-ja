@@ -14,3 +14,8 @@ ugrid.plot(
     cpos='xz',
     show_scalar_bar=False,
 )
+#
+# .. seealso::
+#
+#     :ref:`Cgns Multi Dataset <cgns_multi_dataset>`
+#         See this dataset in the Dataset Gallery for more info.

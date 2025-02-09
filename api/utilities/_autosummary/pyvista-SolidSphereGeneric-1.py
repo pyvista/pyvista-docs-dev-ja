@@ -10,9 +10,7 @@ solid_sphere = pv.SolidSphereGeneric(
     phi=np.linspace(0, 180, 30),
 )
 solid_sphere = solid_sphere.compute_cell_sizes()
-solid_sphere.plot(
-    scalars="Volume", show_edges=True, clim=[3e-5, 5e-4]
-)
+solid_sphere.plot(scalars='Volume', show_edges=True, clim=[3e-5, 5e-4])
 #
 # Sampling the polar angle in a nonlinear manner allows for consistent cell volumes.  See
 # `Sphere Point Picking <https://mathworld.wolfram.com/SpherePointPicking.html>`_.
@@ -24,6 +22,4 @@ solid_sphere = pv.SolidSphereGeneric(
     phi=phi,
 )
 solid_sphere = solid_sphere.compute_cell_sizes()
-solid_sphere.plot(
-    scalars="Volume", show_edges=True, clim=[3e-5, 5e-4]
-)
+solid_sphere.plot(scalars='Volume', show_edges=True, clim=[3e-5, 5e-4])

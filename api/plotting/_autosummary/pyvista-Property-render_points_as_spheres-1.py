@@ -1,17 +1,12 @@
-# Enable rendering points as spheres.
+# Get the default point rendering and visualize it.
 #
 import pyvista as pv
 prop = pv.Property()
-prop.style = 'points'
-prop.point_size = 20
-prop.render_points_as_spheres = True
 prop.render_points_as_spheres
 # Expected:
-## True
-#
-# Visualize default point rendering.
-#
-prop.render_points_as_spheres = False
+## False
+prop.style = 'points'
+prop.point_size = 20
 prop.plot()
 #
 # Visualize rendering points as spheres.

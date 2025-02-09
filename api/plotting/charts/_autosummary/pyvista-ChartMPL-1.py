@@ -1,6 +1,7 @@
 # Plot streamlines of a vector field with varying colors (based on `this example <https://matplotlib.org/stable/gallery/images_contours_and_fields/plot_streamplot.html>`_).
 #
 # .. pyvista-plot::
+#    :force_static:
 #
 import pyvista as pv
 import numpy as np

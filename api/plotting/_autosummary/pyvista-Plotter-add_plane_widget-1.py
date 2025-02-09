@@ -9,15 +9,13 @@ _ = pl.add_mesh(mesh)
 def callback(normal, origin):
     slc = mesh.slice(normal=normal, origin=origin)
     origin = list(origin)
-    origin[2] = slc.bounds[5]
+    origin[2] = slc.bounds.z_max
     peak_plane = pv.Plane(
         center=origin,
         direction=[0, 0, 1],
         i_size=20,
         j_size=20,
     )
-    _ = pl.add_mesh(
-        peak_plane, name="Peak", color='red', opacity=0.4
-    )
+    _ = pl.add_mesh(peak_plane, name='Peak', color='red', opacity=0.4)
 _ = pl.add_plane_widget(callback, normal_rotation=False)
 pl.show()

@@ -2,9 +2,13 @@
 #
 from pyvista import examples
 mesh = examples.load_uniform()
-a = [mesh.bounds[0], mesh.bounds[2], mesh.bounds[5]]
-b = [mesh.bounds[1], mesh.bounds[2], mesh.bounds[4]]
-center = [mesh.bounds[0], mesh.bounds[2], mesh.bounds[4]]
+a = [mesh.bounds.x_min, mesh.bounds.y_min, mesh.bounds.z_max]
+b = [mesh.bounds.x_max, mesh.bounds.y_min, mesh.bounds.z_min]
+center = [
+    mesh.bounds.x_min,
+    mesh.bounds.y_min,
+    mesh.bounds.z_min,
+]
 mesh.plot_over_circular_arc(
     a, b, center, resolution=1000, show=False
 )  # doctest:+SKIP

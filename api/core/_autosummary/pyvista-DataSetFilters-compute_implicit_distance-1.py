@@ -14,9 +14,7 @@ type(dist)
 # plane are positive, and distances below the plane are negative.
 #
 pl = pv.Plotter()
-_ = pl.add_mesh(
-    sphere, scalars='implicit_distance', cmap='bwr'
-)
+_ = pl.add_mesh(sphere, scalars='implicit_distance', cmap='bwr')
 _ = pl.add_mesh(plane, color='w', style='wireframe')
 pl.show()
 #

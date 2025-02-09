@@ -4,8 +4,8 @@ dataset = examples.download_bolt_nut()
 pl = pv.Plotter()
 _ = pl.add_volume(
     dataset,
-    cmap="coolwarm",
-    opacity="sigmoid_5",
+    cmap='coolwarm',
+    opacity='sigmoid_5',
     show_scalar_bar=False,
 )
 pl.camera_position = [
@@ -15,4 +15,9 @@ pl.camera_position = [
 ]
 pl.show()
 #
-# See :ref:`volume_rendering_example` for an example using this
+# .. seealso::
+#
+#     :ref:`Bolt Nut Dataset <bolt_nut_dataset>`
+#         See this dataset in the Dataset Gallery for more info.
+#
+#     :ref:`volume_rendering_example`

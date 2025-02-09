@@ -5,9 +5,7 @@ import pyvista as pv
 sphere = pv.Sphere()
 sphere['Data'] = sphere.points[:, 2]
 plotter = pv.Plotter()
-_ = plotter.add_mesh(
-    sphere, scalar_bar_args={'title': 'Z Position'}
-)
+_ = plotter.add_mesh(sphere, scalar_bar_args={'title': 'Z Position'})
 plotter.show()
 #
 # Plot using RGB on a single cell.  Note that since the number of
@@ -24,9 +22,7 @@ vertices = np.array(
         [0.5, 0.33, 0.667],
     ]
 )
-faces = np.hstack(
-    [[3, 0, 1, 2], [3, 0, 3, 2], [3, 0, 1, 3], [3, 1, 2, 3]]
-)
+faces = np.hstack([[3, 0, 1, 2], [3, 0, 3, 2], [3, 0, 1, 3], [3, 1, 2, 3]])
 mesh = pv.PolyData(vertices, faces)
 mesh.cell_data['colors'] = [
     [255, 255, 255],
@@ -81,4 +77,18 @@ mesh.plot(
     point_size=10,
     render_points_as_spheres=False,
     show_scalar_bar=False,
+)
+#
+# Plot spheres using `points_gaussian` style and scale them by radius.
+#
+N_SPHERES = 1_000_000
+rng = np.random.default_rng(seed=0)
+pos = rng.random((N_SPHERES, 3))
+rad = rng.random(N_SPHERES) * 0.01
+pdata = pv.PolyData(pos)
+pdata['radius'] = rad
+pdata.plot(
+    style='points_gaussian',
+    emissive=False,
+    render_points_as_spheres=True,
 )

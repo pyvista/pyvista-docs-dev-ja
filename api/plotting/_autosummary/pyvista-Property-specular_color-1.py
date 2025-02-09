@@ -1,14 +1,22 @@
-# Set the specular color to blue.
+# Get the default specular color and visualize it with ``specular = 0.5`` and
+# Phong shading.
 #
 import pyvista as pv
 prop = pv.Property()
-prop.specular_color = 'b'
 prop.specular_color
 # Expected:
-## Color(name='blue', hex='#0000ffff', opacity=255)
+## Color(name='lightblue', hex='#add8e6ff', opacity=255)
 #
-# Visualize setting the specular color to blue with ``specular = 0.2``
+prop.specular = 0.5
+prop.interpolation = 'phong'
+prop.plot()
 #
-prop.specular = 0.2
-prop.specular_color = 'r'
+# Visualize red specular color.
+#
+prop.specular_color = 'red'
+prop.plot()
+#
+# Visualize white specular color.
+#
+prop.specular_color = 'white'
 prop.plot()

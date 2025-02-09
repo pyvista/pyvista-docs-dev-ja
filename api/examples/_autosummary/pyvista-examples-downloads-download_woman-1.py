@@ -6,3 +6,7 @@ cpos = [
     (0.23, -0.168, 0.958),
 ]
 dataset.plot(cpos=cpos)
+#
+# .. seealso::
+#
+#     :ref:`Woman Dataset <woman_dataset>`

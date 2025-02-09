@@ -1,4 +1,4 @@
-# Rotate the actor about the y axis 45 degrees. Note how this does not
+# Rotate the actor about the y-axis 45 degrees. Note how this does not
 # change the location of the underlying dataset.
 #
 import pyvista as pv

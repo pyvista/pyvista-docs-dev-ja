@@ -4,9 +4,7 @@ import numpy as np
 import pyvista as pv
 from pyvista import examples
 grid = examples.download_fea_hertzian_contact_cylinder()
-grid.plot(
-    scalars='PartID', cmap=['green', 'blue'], show_scalar_bar=False
-)
+grid.plot(scalars='PartID', cmap=['green', 'blue'], show_scalar_bar=False)
 #
 # Plot the absolute value of the component stress in the Z direction.
 #
@@ -24,3 +22,14 @@ _ = pl.add_mesh(
 pl.camera_position = 'xz'
 pl.camera.zoom(1.4)
 pl.show()
+#
+# .. seealso::
+#
+#     :ref:`Fea Hertzian Contact Cylinder Dataset <fea_hertzian_contact_cylinder_dataset>`
+#         See this dataset in the Dataset Gallery for more info.
+#
+#     :ref:`Fea Bracket Dataset <fea_bracket_dataset>`
+#
+#     :ref:`Aero Bracket Dataset <aero_bracket_dataset>`
+#
+#     :ref:`Notch Stress Dataset <notch_stress_dataset>`

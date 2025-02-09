@@ -11,15 +11,15 @@ mesh.point_neighbors(0)
 pl = pv.Plotter()
 _ = pl.add_mesh(mesh, show_edges=True)
 _ = pl.add_point_labels(
-    mesh.points[0], ["0"], text_color="blue", font_size=40
+    mesh.points[0], ['0'], text_color='blue', font_size=40
 )
 neighbors = mesh.point_neighbors(0)
 _ = pl.add_point_labels(
     mesh.points[neighbors],
-    labels=[f"{i}" for i in neighbors],
-    text_color="red",
+    labels=[f'{i}' for i in neighbors],
+    text_color='red',
     font_size=40,
 )
-pl.camera_position = "xy"
+pl.camera_position = 'xy'
 pl.camera.zoom(7.0)
 pl.show()

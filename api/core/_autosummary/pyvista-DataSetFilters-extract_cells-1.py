@@ -6,8 +6,6 @@ subset.n_cells
 # Expected:
 ## 20
 pl = pv.Plotter()
-actor = pl.add_mesh(
-    grid, style='wireframe', line_width=5, color='black'
-)
+actor = pl.add_mesh(grid, style='wireframe', line_width=5, color='black')
 actor = pl.add_mesh(subset, color='grey')
 pl.show()

@@ -1,12 +1,15 @@
 # Create a bar plot with custom label.
 #
+# .. pyvista-plot::
+#    :force_static:
+#
 import pyvista as pv
 import numpy as np
 chart = pv.Chart2D()
 plot = chart.bar([1, 2, 3], [2, 1, 3])
 chart.show()
 #
-# Modify the label.
+#    Modify the label.
 #
-plot.label = "My awesome plot"
+plot.label = 'My awesome plot'
 chart.show()

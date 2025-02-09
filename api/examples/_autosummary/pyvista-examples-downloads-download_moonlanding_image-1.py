@@ -6,3 +6,10 @@ dataset.plot(
     background='w',
     show_scalar_bar=False,
 )
+#
+# .. seealso::
+#
+#     :ref:`Moonlanding Image Dataset <moonlanding_image_dataset>`
+#         See this dataset in the Dataset Gallery for more info.
+#
+#     :ref:`image_fft_example`

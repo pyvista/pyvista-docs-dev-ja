@@ -9,10 +9,14 @@ mesh.plot()
 mesh
 # Expected:
 ## PolyData (...)
-##   N Cells:    3548473
-##   N Points:   1810012
+##   N Cells:    35483
+##   N Points:   18063
 ##   N Strips:   0
-##   X Bounds:   -1.666e+02, 1.465e+02
-##   Y Bounds:   -1.742e+02, 1.384e+02
-##   Z Bounds:   -1.500e+02, 2.992e+02
+##   X Bounds:   -1.664e+02, 1.463e+02
+##   Y Bounds:   -1.741e+02, 1.382e+02
+##   Z Bounds:   -1.497e+02, 2.992e+02
 ##   N Arrays:   0
+#
+# .. seealso::
+#
+#     :ref:`Sea Vase Dataset <sea_vase_dataset>`

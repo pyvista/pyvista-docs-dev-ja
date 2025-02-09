@@ -4,3 +4,7 @@
 from pyvista import examples
 dataset = examples.download_tetrahedron()
 dataset.shrink(0.85).plot()
+#
+# .. seealso::
+#
+#     :ref:`Tetrahedron Dataset <tetrahedron_dataset>`

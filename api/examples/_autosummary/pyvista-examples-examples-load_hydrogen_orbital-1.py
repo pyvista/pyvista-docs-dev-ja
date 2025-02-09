@@ -6,3 +6,8 @@ grid = examples.load_hydrogen_orbital(3, 2, -2)
 grid.plot(volume=True, opacity=[1, 0, 1], cmap='magma')
 #
 # See :ref:`plot_atomic_orbitals_example` for additional examples using
+# this function.
+#
+# .. seealso::
+#
+#     :ref:`Hydrogen Orbital Dataset <hydrogen_orbital_dataset>`

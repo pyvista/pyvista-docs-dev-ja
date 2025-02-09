@@ -5,9 +5,7 @@
 import pyvista as pv
 plotter = pv.Plotter(lighting='none')
 for offset, exponent in zip([0, 1.5, 3], [1, 2, 5]):
-    _ = plotter.add_mesh(
-        pv.Plane((offset, 0, 0)), color='white'
-    )
+    _ = plotter.add_mesh(pv.Plane((offset, 0, 0)), color='white')
     light = pv.Light(
         position=(offset, 0, 0.1),
         focal_point=(offset, 0, 0),

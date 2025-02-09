@@ -1,9 +1,8 @@
-import pyvista as pv
-from pyvista import examples
-uni = examples.load_uniform()
-
-pl = pv.Plotter(shape=(1, 2), border=False)
-pl.add_mesh(uni, scalars='Spatial Point Data', show_edges=True)
-pl.subplot(0, 1)
-pl.add_mesh(uni, scalars='Spatial Cell Data', show_edges=True)
-pl.show()
+# must have this here as our global backend may not be static
+import pyvista
+pyvista.set_plot_theme('document')
+pyvista.set_jupyter_backend('static')
+pyvista.global_theme.window_size = [600, 400]
+pyvista.global_theme.axes.show = False
+pyvista.global_theme.anti_aliasing = 'fxaa'
+pyvista.global_theme.show_scalar_bar = False

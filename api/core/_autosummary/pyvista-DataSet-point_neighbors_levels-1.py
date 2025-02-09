@@ -22,19 +22,17 @@ pl = pv.Plotter()
 _ = pl.add_mesh(mesh, show_edges=True)
 add_point_labels = partial(
     pl.add_point_labels,
-    text_color="white",
+    text_color='white',
     font_size=40,
     point_size=10,
 )
-_ = add_point_labels(
-    mesh.points[0], labels=["0"], text_color="blue"
-)
+_ = add_point_labels(mesh.points[0], labels=['0'], text_color='blue')
 neighbors = mesh.point_neighbors_levels(0, n_levels=3)
 for i, ids in enumerate(neighbors, start=1):
     _ = add_point_labels(
         mesh.points[ids],
-        labels=[f"{i}"] * len(ids),
-        text_color="red",
+        labels=[f'{i}'] * len(ids),
+        text_color='red',
     )
 pl.view_xy()
 pl.camera.zoom(4.0)

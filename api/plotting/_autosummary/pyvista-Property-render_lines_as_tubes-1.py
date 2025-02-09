@@ -1,20 +1,16 @@
-# Enable rendering lines as tubes.
+# Get the default line rendering and visualize it.
 #
 import pyvista as pv
 prop = pv.Property()
-prop.style = 'wireframe'
-prop.line_width = 10
-prop.render_lines_as_tubes = True
 prop.render_lines_as_tubes
 # Expected:
-## True
-#
-# Visualize default line rendering.
-#
-prop.render_lines_as_tubes = False
+## False
+prop.show_edges = True
+prop.line_width = 10
+prop.edge_color = 'yellow'
 prop.plot()
 #
-# Visualize rendering lines as tubes
+# Visualize rendering lines as tubes.
 #
 prop.render_lines_as_tubes = True
 prop.plot()

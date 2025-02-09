@@ -3,5 +3,5 @@
 import pyvista as pv
 pl = pv.Plotter()
 actor = pl.add_mesh(pv.Cube(), show_edges=True)
-actor = pl.add_orientation_widget(pv.Arrow(), color='r')
+widget = pl.add_orientation_widget(pv.Arrow(), color='r')
 pl.show()

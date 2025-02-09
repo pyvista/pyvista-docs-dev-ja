@@ -1,6 +1,7 @@
 # Create a matplotlib chart with title 'My Chart'.
 #
 # .. pyvista-plot::
+#    :force_static:
 #
 import pyvista as pv
 import matplotlib.pyplot as plt

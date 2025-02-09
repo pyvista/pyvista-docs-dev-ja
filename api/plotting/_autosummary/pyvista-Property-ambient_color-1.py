@@ -1,14 +1,15 @@
-# Set the ambient color to blue.
+# Get the default ambient color and visualize it with ``ambient = 0.5``.
 #
 import pyvista as pv
 prop = pv.Property()
-prop.ambient_color = 'b'
 prop.ambient_color
 # Expected:
-## Color(name='blue', hex='#0000ffff', opacity=255)
+## Color(name='lightblue', hex='#add8e6ff', opacity=255)
 #
-# Visualize setting the ambient color to blue with ``ambient = 0.1``
+prop.ambient = 0.5
+prop.plot()
 #
-prop.ambient = 0.1
-prop.ambient_color = 'b'
+# Visualize red ambient color.
+#
+prop.ambient_color = 'red'
 prop.plot()

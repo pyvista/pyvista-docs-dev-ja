@@ -16,4 +16,4 @@ f'Length is {length:.3f}'
 # You can also plot the arc_length.
 #
 arc = path.compute_arc_length()
-arc.plot(scalars="arc_length")
+arc.plot(scalars='arc_length')

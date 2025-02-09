@@ -6,6 +6,4 @@ pl = pv.Plotter()
 actor = pl.add_mesh(sphere)
 def callback(step):
     actor.position = [step / 100.0, step / 100.0, 0]
-pl.add_timer_event(
-    max_steps=200, duration=500, callback=callback
-)
+pl.add_timer_event(max_steps=200, duration=500, callback=callback)

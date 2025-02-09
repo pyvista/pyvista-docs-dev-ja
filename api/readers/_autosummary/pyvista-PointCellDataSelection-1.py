@@ -1,7 +1,7 @@
 import pyvista as pv
 from pyvista import examples
 filename = examples.download_backward_facing_step(load=False)
-filename.split("/")[-1]  # omit the path
+filename.split('/')[-1]  # omit the path
 # Expected:
 ## 'foam_case_0_0_0_0.case'
 reader = pv.get_reader(filename)

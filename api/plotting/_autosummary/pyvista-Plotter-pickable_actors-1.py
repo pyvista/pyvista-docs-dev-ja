@@ -4,9 +4,7 @@
 import pyvista as pv
 pl = pv.Plotter()
 sphere_actor = pl.add_mesh(pv.Sphere())
-cube_actor = pl.add_mesh(
-    pv.Cube(), pickable=False, style='wireframe'
-)
+cube_actor = pl.add_mesh(pv.Cube(), pickable=False, style='wireframe')
 len(pl.pickable_actors)
 # Expected:
 ## 1

@@ -2,8 +2,8 @@
 #
 import pyvista as pv
 from pyvista import examples
-pl = pv.Plotter(lighting="three lights")
-pl.background_color = "w"
+pl = pv.Plotter(lighting='three lights')
+pl.background_color = 'w'
 for i in range(5):
     mesh = pv.Sphere(center=(-i * 4, 0, 0))
     color = [0, 255 - i * 20, 30 + i * 50]

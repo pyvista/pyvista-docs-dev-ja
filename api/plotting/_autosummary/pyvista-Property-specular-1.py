@@ -1,13 +1,11 @@
+# Get the default specular value and visualize it with Phong shading.
+#
 import pyvista as pv
 prop = pv.Property()
-prop.specular = 0.2
 prop.specular
 # Expected:
-## 0.2
-#
-# Visualize default specular light.
-#
-prop.specular = 0.0
+## 0.0
+prop.interpolation = 'phong'
 prop.plot()
 #
 # Visualize specular at ``0.5``.

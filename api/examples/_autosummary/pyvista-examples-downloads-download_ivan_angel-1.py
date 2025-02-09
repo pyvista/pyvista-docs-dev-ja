@@ -14,10 +14,14 @@ mesh.plot(cpos=cpos)
 mesh
 # Expected:
 ## PolyData (...)
-##   N Cells:    3580454
-##   N Points:   1811531
+##   N Cells:    35804
+##   N Points:   18412
 ##   N Strips:   0
-##   X Bounds:   -1.147e+02, 8.468e+01
-##   Y Bounds:   -6.996e+01, 9.247e+01
-##   Z Bounds:   -1.171e+02, 2.052e+02
+##   X Bounds:   -1.146e+02, 8.470e+01
+##   Y Bounds:   -6.987e+01, 9.254e+01
+##   Z Bounds:   -1.166e+02, 2.052e+02
 ##   N Arrays:   0
+#
+# .. seealso::
+#
+#     :ref:`Ivan Angel Dataset <ivan_angel_dataset>`

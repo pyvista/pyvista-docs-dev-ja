@@ -1,1 +1,2 @@
-ugrid.cell_data['my-data'] = range(ugrid.n_cells)
+grid = pyvista.ImageData(dimensions=(3, 3, 1))
+ugrid = grid.cast_to_unstructured_grid()

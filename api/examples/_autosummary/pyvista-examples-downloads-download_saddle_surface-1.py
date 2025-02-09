@@ -2,4 +2,9 @@ from pyvista import examples
 dataset = examples.download_saddle_surface()
 dataset.plot()
 #
-# See :ref:`interpolate_example` for an example using this
+# .. seealso::
+#
+#     :ref:`Saddle Surface Dataset <saddle_surface_dataset>`
+#         See this dataset in the Dataset Gallery for more info.
+#
+#     :ref:`interpolate_example`

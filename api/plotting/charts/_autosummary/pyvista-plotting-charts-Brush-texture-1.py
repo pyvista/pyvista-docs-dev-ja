@@ -1,5 +1,8 @@
 # Set the brush's texture to the sample puppy texture.
 #
+# .. pyvista-plot::
+#    :force_static:
+#
 import pyvista as pv
 from pyvista import examples
 chart = pv.Chart2D()

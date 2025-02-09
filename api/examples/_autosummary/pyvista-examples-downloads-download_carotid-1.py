@@ -7,8 +7,16 @@ cpos = [
 dataset = examples.download_carotid()
 dataset.plot(volume=True, cpos=cpos)
 #
-# This dataset is used in the following examples:
+# .. seealso::
 #
-# * :ref:`glyph_example`
-# * :ref:`gradients_example`
-# * :ref:`streamlines_example`
+#     :ref:`Carotid Dataset <carotid_dataset>`
+#         See this dataset in the Dataset Gallery for more info.
+#
+#     :ref:`medical_dataset_gallery`
+#         Browse other medical datasets.
+#
+#     This dataset is used in the following examples:
+#
+#     * :ref:`glyph_example`
+#     * :ref:`gradients_example`
+#     * :ref:`streamlines_example`

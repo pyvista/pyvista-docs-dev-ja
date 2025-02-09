@@ -1,14 +1,20 @@
-# Set the diffuse color to blue.
+# Get the default diffuse color and visualize it with ``diffuse = 0.5``.
 #
 import pyvista as pv
 prop = pv.Property()
-prop.diffuse_color = 'b'
-prop.diffuse_color
+prop.ambient_color
 # Expected:
-## Color(name='blue', hex='#0000ffff', opacity=255)
-#
-# Visualize setting the diffuse color to white with ``diffuse = 0.5``
+## Color(name='lightblue', hex='#add8e6ff', opacity=255)
 #
 prop.diffuse = 0.5
-prop.diffuse_color = 'w'
+prop.plot()
+#
+# Visualize red diffuse color.
+#
+prop.diffuse_color = 'red'
+prop.plot()
+#
+# Visualize white diffuse color.
+#
+prop.diffuse_color = 'white'
 prop.plot()

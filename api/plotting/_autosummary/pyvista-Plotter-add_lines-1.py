@@ -13,8 +13,6 @@ pl.show()
 #
 pl = pv.Plotter()
 points = np.array([[0, 1, 0], [1, 0, 0], [1, 1, 0], [2, 0, 0]])
-actor = pl.add_lines(
-    points, color='purple', width=3, connected=True
-)
+actor = pl.add_lines(points, color='purple', width=3, connected=True)
 pl.camera_position = 'xy'
 pl.show()

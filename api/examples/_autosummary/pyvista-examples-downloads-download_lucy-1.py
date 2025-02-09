@@ -25,3 +25,10 @@ pl.add_light(flame_light)
 pl.add_light(scene_light)
 pl.background_color = 'k'
 pl.show()
+#
+# .. seealso::
+#
+#     :ref:`Lucy Dataset <lucy_dataset>`
+#         See this dataset in the Dataset Gallery for more info.
+#
+#     :ref:`jupyter_plotting`

@@ -25,4 +25,11 @@ pc.plot(
     zoom=2,
 )
 #
-# See the :ref:`plotting_point_clouds` for more details on how to plot point
+# .. seealso::
+#
+#     :ref:`Cloud Dark Matter Dense Dataset <cloud_dark_matter_dense_dataset>`
+#         See this dataset in the Dataset Gallery for more info.
+#
+#     :ref:`Cloud Dark Matter Dataset <cloud_dark_matter_dataset>`
+#
+#     :ref:`plotting_point_clouds`

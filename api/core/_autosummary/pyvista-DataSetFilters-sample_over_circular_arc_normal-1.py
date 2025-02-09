@@ -3,13 +3,13 @@
 import pyvista as pv
 from pyvista import examples
 uniform = examples.load_uniform()
-uniform["height"] = uniform.points[:, 2]
+uniform['height'] = uniform.points[:, 2]
 normal = [0, 0, 1]
 polar = [0, 9, 0]
 center = [
-    uniform.bounds[1],
-    uniform.bounds[2],
-    uniform.bounds[5],
+    uniform.bounds.x_max,
+    uniform.bounds.y_min,
+    uniform.bounds.z_max,
 ]
 arc = uniform.sample_over_circular_arc_normal(
     center, normal=normal, polar=polar

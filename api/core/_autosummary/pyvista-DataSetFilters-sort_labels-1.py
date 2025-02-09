@@ -4,7 +4,7 @@
 #
 from pyvista import examples
 import numpy as np
-image_labels = examples.download_frog_tissue()
+image_labels = examples.load_frog_tissues()
 #
 # Show label info for first four labels
 #
@@ -26,7 +26,7 @@ sorted_labels = image_labels.sort_labels()
 # the difference in label size after sorting.
 #
 sorted_label_number, sorted_label_size = np.unique(
-    sorted_labels["packed_labels"], return_counts=True
+    sorted_labels['packed_labels'], return_counts=True
 )
 sorted_label_number[:4]
 # Expected:

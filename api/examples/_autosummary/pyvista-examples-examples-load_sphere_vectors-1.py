@@ -11,3 +11,7 @@ mesh.point_data
 ## Contains arrays :
 ##     Normals                 float32    (842, 3)             NORMALS
 ##     vectors                 float32    (842, 3)             VECTORS
+#
+# .. seealso::
+#
+#     :ref:`Sphere Vectors Dataset <sphere_vectors_dataset>`

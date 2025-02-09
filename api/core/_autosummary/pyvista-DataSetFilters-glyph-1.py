@@ -4,15 +4,13 @@
 import pyvista as pv
 from pyvista import examples
 mesh = examples.load_random_hills()
-arrows = mesh.glyph(
-    scale="Normals", orient="Normals", tolerance=0.05
-)
+arrows = mesh.glyph(scale='Normals', orient='Normals', tolerance=0.05)
 pl = pv.Plotter()
-actor = pl.add_mesh(arrows, color="black")
+actor = pl.add_mesh(arrows, color='black')
 actor = pl.add_mesh(
     mesh,
-    scalars="Elevation",
-    cmap="terrain",
+    scalars='Elevation',
+    cmap='terrain',
     show_scalar_bar=False,
 )
 pl.show()

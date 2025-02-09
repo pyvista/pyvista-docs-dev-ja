@@ -7,7 +7,7 @@ surf = grid.extract_surface()
 type(surf)
 # Expected:
 ## <class 'pyvista.core.pointset.PolyData'>
-surf["vtkOriginalPointIds"]
+surf['vtkOriginalPointIds']
 # Expected:
 ## pyvista_ndarray([ 0,  2, 36, 27,  7,  8, 81,  1, 18,  4, 54,  3,  6, 45,
 ##                  72,  5, 63,  9, 35, 44, 11, 16, 89, 17, 10, 26, 62, 13,
@@ -16,7 +16,7 @@ surf["vtkOriginalPointIds"]
 ##                  82, 29, 83, 30, 84, 31, 85, 32, 86, 33, 87, 34, 88, 46,
 ##                  73, 47, 74, 48, 75, 49, 76, 50, 77, 51, 78, 52, 79, 64,
 ##                  65, 66, 67, 68, 69, 70])
-surf["vtkOriginalCellIds"]
+surf['vtkOriginalCellIds']
 # Expected:
 ## pyvista_ndarray([ 0,  0,  0,  1,  1,  1,  3,  3,  3,  2,  2,  2, 36, 36,
 ##                  36, 37, 37, 37, 39, 39, 39, 38, 38, 38,  5,  5,  9,  9,

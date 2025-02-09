@@ -16,3 +16,7 @@ mesh
 ##   Y Bounds:   -3.535e-32, 1.480e+02
 ##   Z Bounds:   0.000e+00, 2.000e+01
 ##   N Arrays:   2
+#
+# .. seealso::
+#
+#     :ref:`Cad Model Case Dataset <cad_model_case_dataset>`

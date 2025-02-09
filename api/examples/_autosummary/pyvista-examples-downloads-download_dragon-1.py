@@ -1,9 +1,14 @@
 from pyvista import examples
 dataset = examples.download_dragon()
-dataset.plot(cpos="xy")
+dataset.plot(cpos='xy')
 #
-# This dataset is used in the following examples:
+# .. seealso::
 #
-# * :ref:`floors_example`
-# * :ref:`orbiting_example`
-# * :ref:`silhouette_example`
+#     :ref:`Dragon Dataset <dragon_dataset>`
+#         See this dataset in the Dataset Gallery for more info.
+#
+#     This dataset is used in the following examples:
+#
+#     * :ref:`floors_example`
+#     * :ref:`orbiting_example`
+#     * :ref:`silhouette_example`

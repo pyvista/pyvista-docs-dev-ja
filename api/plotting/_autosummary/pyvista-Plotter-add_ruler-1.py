@@ -6,9 +6,9 @@ _ = plotter.add_mesh(cone)
 # Measure x direction of cone and place ruler slightly below.
 #
 _ = plotter.add_ruler(
-    pointa=[cone.bounds[0], cone.bounds[2] - 0.1, 0.0],
-    pointb=[cone.bounds[1], cone.bounds[2] - 0.1, 0.0],
-    title="X Distance",
+    pointa=[cone.bounds.x_min, cone.bounds.y_min - 0.1, 0.0],
+    pointb=[cone.bounds.x_max, cone.bounds.y_min - 0.1, 0.0],
+    title='X Distance',
 )
 #
 # Measure y direction of cone and place ruler slightly to left.
@@ -16,10 +16,10 @@ _ = plotter.add_ruler(
 # traveling from ``pointa`` to ``pointb``.
 #
 _ = plotter.add_ruler(
-    pointa=[cone.bounds[0] - 0.1, cone.bounds[3], 0.0],
-    pointb=[cone.bounds[0] - 0.1, cone.bounds[2], 0.0],
+    pointa=[cone.bounds.x_min - 0.1, cone.bounds.y_max, 0.0],
+    pointb=[cone.bounds.x_min - 0.1, cone.bounds.y_min, 0.0],
     flip_range=True,
-    title="Y Distance",
+    title='Y Distance',
 )
 plotter.enable_parallel_projection()
 plotter.view_xy()

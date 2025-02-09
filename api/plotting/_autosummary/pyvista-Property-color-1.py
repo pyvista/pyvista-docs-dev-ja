@@ -1,18 +1,19 @@
-# Set the color to blue.
+# Get the default color and visualize it.
 #
 import pyvista as pv
 prop = pv.Property()
-prop.color = 'b'
 prop.color
 # Expected:
-## Color(name='blue', hex='#0000ffff', opacity=255)
+## Color(name='lightblue', hex='#add8e6ff', opacity=255)
 #
-# Visualize setting the property to blue.
-#
-prop.color = 'b'
 prop.plot()
 #
-# Visualize setting the color using an RGB value.
+# Visualize a red color.
+#
+prop.color = 'red'
+prop.plot()
+#
+# Visualize an RGB color.
 #
 prop.color = (0.5, 0.5, 0.1)
 prop.plot()

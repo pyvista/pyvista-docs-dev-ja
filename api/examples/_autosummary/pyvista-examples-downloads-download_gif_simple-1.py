@@ -19,3 +19,7 @@ grid.plot(
     show_scalar_bar=False,
     cpos='xy',
 )
+#
+# .. seealso::
+#
+#     :ref:`Gif Simple Dataset <gif_simple_dataset>`

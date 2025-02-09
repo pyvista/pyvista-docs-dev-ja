@@ -3,7 +3,7 @@
 import pyvista as pv
 #
 axes = pv.Axes()
-axes.axes_actor.z_axis_shaft_properties.color = (0, 1, 1)
+axes.axes_actor.z_axis_shaft_properties.color = (0.0, 1.0, 1.0)
 axes.axes_actor.shaft_type = axes.axes_actor.ShaftType.CYLINDER
 pl = pv.Plotter()
 _ = pl.add_actor(axes.axes_actor)
@@ -19,13 +19,13 @@ axes = pv.Axes()
 axes_actor = axes.axes_actor
 axes.axes_actor.shaft_type = 0
 #
-axes_actor.x_axis_shaft_properties.color = (1, 1, 1)
-axes_actor.y_axis_shaft_properties.color = (1, 1, 1)
-axes_actor.z_axis_shaft_properties.color = (1, 1, 1)
+axes_actor.x_axis_shaft_properties.color = (1.0, 1.0, 1.0)
+axes_actor.y_axis_shaft_properties.color = (1.0, 1.0, 1.0)
+axes_actor.z_axis_shaft_properties.color = (1.0, 1.0, 1.0)
 #
-axes_actor.x_axis_label = 'U'
-axes_actor.y_axis_label = 'V'
-axes_actor.z_axis_label = 'W'
+axes_actor.x_label = 'U'
+axes_actor.y_label = 'V'
+axes_actor.z_label = 'W'
 #
 pl = pv.Plotter()
 _ = pl.add_mesh(pv.Cone())

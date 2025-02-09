@@ -12,3 +12,10 @@ pl.camera_position = [
     [0.16, 0.22, 0.96],
 ]
 pl.show()
+#
+# .. seealso::
+#
+#     :ref:`Louis Louvre Dataset <louis_louvre_dataset>`
+#         See this dataset in the Dataset Gallery for more info.
+#
+#     :ref:`pbr_example`

@@ -7,4 +7,4 @@ pl = pv.Plotter()
 actor = pl.add_volume(vol)
 actor.mapper.bounds
 # Expected:
-## (0.0, 9.0, 0.0, 9.0, 0.0, 9.0)
+## BoundsTuple(x_min=0.0, x_max=9.0, y_min=0.0, y_max=9.0, z_min=0.0, z_max=9.0)

@@ -1,6 +1,6 @@
 import pyvista as pv
 import numpy as np
-points = np.random.random((10, 3))
+points = np.random.default_rng().random((10, 3))
 vpoints = pv.vtk_points(points)
 vpoints  # doctest:+SKIP
 # Expected:

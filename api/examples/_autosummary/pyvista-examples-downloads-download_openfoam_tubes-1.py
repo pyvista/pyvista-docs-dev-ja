@@ -15,3 +15,10 @@ _ = pl.add_mesh(
 _ = pl.add_mesh(air, color='w', opacity=0.25)
 pl.enable_anti_aliasing()
 pl.show()
+#
+# .. seealso::
+#
+#     :ref:`Openfoam Tubes Dataset <openfoam_tubes_dataset>`
+#         See this dataset in the Dataset Gallery for more info.
+#
+#     :ref:`openfoam_tubes_example`

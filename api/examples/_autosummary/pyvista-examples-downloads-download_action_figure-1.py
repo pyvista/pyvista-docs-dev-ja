@@ -22,3 +22,7 @@ pl.camera_position = [
     (-0.017, 0.86, -0.51),
 ]
 pl.show()
+#
+# .. seealso::
+#
+#     :ref:`Action Figure Dataset <action_figure_dataset>`

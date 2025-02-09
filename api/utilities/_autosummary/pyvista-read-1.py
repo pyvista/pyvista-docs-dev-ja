@@ -11,4 +11,8 @@ mesh = pv.read('my_mesh.vtk')  # doctest:+SKIP
 #
 # Load a meshio file.
 #
-mesh = pv.read("mesh.obj")  # doctest:+SKIP
+mesh = pv.read('mesh.obj')  # doctest:+SKIP
+#
+# Load a pickled mesh file.
+#
+mesh = pv.read('mesh.pkl')  # doctest:+SKIP

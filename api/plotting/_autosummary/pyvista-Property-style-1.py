@@ -1,23 +1,19 @@
-# Set the representation style to ``'Wireframe'``
+# Get the default style and visualize it.
 #
 import pyvista as pv
 prop = pv.Property()
-prop.style = 'wireframe'
 prop.style
 # Expected:
-## 'Wireframe'
+## 'Surface'
 #
-# Visualize default surface representation style.
-#
-prop.style = 'surface'
 prop.plot()
 #
-# Visualize wireframe representation style.
+# Visualize the wireframe style.
 #
 prop.style = 'wireframe'
 prop.plot()
 #
-# Visualize points representation style.
+# Visualize the points style.
 #
 prop.style = 'points'
 prop.point_size = 5.0

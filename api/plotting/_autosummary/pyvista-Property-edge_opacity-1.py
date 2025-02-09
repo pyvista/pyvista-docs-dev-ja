@@ -1,19 +1,19 @@
-# Set edge opacity to ``0.5``.
+# Get the default edge opacity and visualize it.
 #
 import pyvista as pv
 prop = pv.Property()
-prop.show_edges = True
-prop.edge_opacity = 0.5
 prop.edge_opacity
 # Expected:
-## 0.5
-#
-# Visualize default edge opacity of ``1.0``.
-#
-prop.edge_opacity = 1.0
+## 1.0
+prop.show_edges = True
 prop.plot()
 #
-# Visualize edge opacity of ``0.1``.
+# Visualize an edge opacity of ``0.75``.
 #
-prop.edge_opacity = 0.1
+prop.edge_opacity = 0.75
+prop.plot()
+#
+# Visualize wn edge opacity of ``0.25``.
+#
+prop.edge_opacity = 0.25
 prop.plot()

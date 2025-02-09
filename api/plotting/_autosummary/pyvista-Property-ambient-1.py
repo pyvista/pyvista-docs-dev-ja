@@ -1,21 +1,19 @@
+# Get the default ambient value and visualize it.
+#
 import pyvista as pv
 prop = pv.Property()
-prop.ambient = 0.2
 prop.ambient
 # Expected:
-## 0.2
+## 0.0
 #
-# Visualize default ambient light.
-#
-prop.ambient = 0.0
 prop.plot()
 #
-# Visualize ambient at ``0.5``.
+# Visualize ambient at ``0.25``.
 #
-prop.ambient = 0.5
+prop.ambient = 0.25
 prop.plot()
 #
-# Visualize ambient at ``1.0``.
+# Visualize ambient at ``0.75``.
 #
-prop.ambient = 1.0
+prop.ambient = 0.75
 prop.plot()

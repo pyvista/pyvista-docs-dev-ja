@@ -1,5 +1,5 @@
 # Create a light with a transformation matrix that corresponds
-# to a 90-degree rotation around the z axis and a shift by (0,
+# to a 90-degree rotation around the z-axis and a shift by (0,
 # 0, -1), and check that the light's focal point transforms as
 # expected.
 #

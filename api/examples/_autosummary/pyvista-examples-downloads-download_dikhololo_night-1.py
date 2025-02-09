@@ -6,3 +6,7 @@ pl = pv.Plotter()
 pl.import_gltf(gltf_file)
 pl.set_environment_texture(texture)
 pl.show()
+#
+# .. seealso::
+#
+#     :ref:`Dikhololo Night Dataset <dikhololo_night_dataset>`

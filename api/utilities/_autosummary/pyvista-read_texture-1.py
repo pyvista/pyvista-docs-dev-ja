@@ -1,9 +1,9 @@
 # Read in an example jpg map file as a texture.
 #
-import os
+from pathlib import Path
 import pyvista as pv
 from pyvista import examples
-os.path.basename(examples.mapfile)
+Path(examples.mapfile).name
 # Expected:
 ## '2k_earth_daymap.jpg'
 texture = pv.read_texture(examples.mapfile)

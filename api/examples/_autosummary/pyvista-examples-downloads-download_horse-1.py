@@ -2,4 +2,11 @@ from pyvista import examples
 dataset = examples.download_horse()
 dataset.plot(smooth_shading=True)
 #
-# See :ref:`disabling_mesh_lighting_example` for an example using
+# .. seealso::
+#
+#     :ref:`Horse Dataset <horse_dataset>`
+#         See this dataset in the Dataset Gallery for more info.
+#
+#     :ref:`Horse Points Dataset <horse_points_dataset>`
+#
+#     :ref:`disabling_mesh_lighting_example`

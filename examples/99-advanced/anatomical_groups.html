@@ -1,0 +1,1805 @@
+
+<!DOCTYPE html>
+
+
+<html lang="ja" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta property="og:title" content="Visualize Anatomical Groups" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://docs.pyvista.org/examples/99-advanced/anatomical_groups.html" />
+<meta property="og:site_name" content="PyVista" />
+<meta property="og:description" content="This example visualizes different anatomical groups using the segmentation labels available from the downloadable datasets download_whole_body_ct_female() and download_whole_body_ct_male(). These d..." />
+<meta property="og:image" content="https://docs.pyvista.org/_static/pyvista_banner_small.png" />
+<meta property="og:image:alt" content="PyVista" />
+<meta name="description" content="This example visualizes different anatomical groups using the segmentation labels available from the downloadable datasets download_whole_body_ct_female() and download_whole_body_ct_male(). These d..." />
+
+    <title>Visualize Anatomical Groups &#8212; PyVista 0.45.dev0 ドキュメント</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=d75fae25" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../_static/jupyter-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/thebelab.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/asciinema-player_3.6.3.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/no_search_highlight.css?v=4b20ffad" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css?v=d2d258e8" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-binder.css?v=f4aeca0c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-dataframe.css?v=2082cf3c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-rendered-html.css?v=1277b6f3" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/cards.css?v=90395a4f" />
+    <link rel="stylesheet" type="text/css" href="../../_static/no_italic.css?v=82ad2056" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=812542be"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/thebelab-helper.js"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=49e1bf35"></script>
+    <script src="../../_static/asciinema-player_3.6.3.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../../_static/translations.js?v=4755f45a"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@^1.0.1/dist/embed-amd.js"></script>
+    <script src="../../_static/design-tabs.js?v=f930bc37"></script>
+    <script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-140243896-1"></script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'UA-140243896-1');
+            </script>
+    <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){ dataLayer.push(arguments); }
+                gtag('js', new Date());
+                gtag('config', 'UA-140243896-1');
+            </script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'examples/99-advanced/anatomical_groups';</script>
+    <link rel="canonical" href="https://docs.pyvista.org/examples/99-advanced/anatomical_groups.html" />
+    <link rel="icon" href="../../_static/pyvista_logo.svg"/>
+    <link rel="index" title="索引" href="../../genindex.html" />
+    <link rel="search" title="検索" href="../../search.html" />
+    <link rel="next" title="メッシュ領域間でフィールドを比較" href="antarctica_compare.html" />
+    <link rel="prev" title="新しいギャラリーを追加する例" href="add_example.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="ja"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/pyvista_logo.svg" class="logo__image only-light" alt="PyVista 0.45.dev0 ドキュメント - Home"/>
+    <script>document.write(`<img src="../../_static/pyvista_logo.svg" class="logo__image only-dark" alt="PyVista 0.45.dev0 ドキュメント - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/pyvista/pyvista" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-square-github fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://communityinviter.com/apps/pyvista/pyvista" title="Slack Community" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-slack fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Slack Community</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/pyvista/pyvista/discussions" title="Support" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa fa-comment fa-fw fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Support</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/pyvista/pyvista/blob/main/CONTRIBUTING.rst" title="Contributing" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa fa-gavel fa-fw fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Contributing</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://doi.org/10.21105/joss.01450" title="The Paper" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa fa-file-text fa-fw fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">The Paper</span></a>
+        </li>
+</ul></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="検索" aria-label="検索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">検索</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../getting-started/index.html">はじめに</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started/why.html">なぜPyVistaなのか?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started/authors.html">著者と引用</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started/installation.html">インストール</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started/connections.html">接続</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started/external_examples.html">外部の例</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../user-guide/index.html">ユーザーガイド</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../user-guide/what-is-a-mesh.html">メッシュとは?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../user-guide/simple.html">APIの基本的な使用方法</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../user-guide/data_model.html">PyVistaデータモデル</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../user-guide/vtk_to_pyvista.html">VTKからPyVistaへの移行</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../user-guide/themes.html">プロットテーマ</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../user-guide/jupyter/index.html">Jupyterノートブックプロット</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../user-guide/jupyter/trame.html">PyVista用Jupyterバックエンドをtrame化する</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../user-guide/optional_features.html">オプションの依存関係</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../tags/tagsindex.html">Tags</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../tags/filter.html">filter (45)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../01-filter/boolean_operations.html">ブール演算</a></li>
+
+<li class="toctree-l3"><a class="reference internal" href="../01-filter/cell_centers.html">セルの中心を抽出</a></li>
+
+
+<li class="toctree-l3"><a class="reference internal" href="../01-filter/clipping.html">平面とボックスでクリップします</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-filter/clipping_with_surface.html">サーフェスを使用したクリップ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-filter/collisions.html">衝突</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-filter/compute_normals.html">表面の法線を計算します</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-filter/compute_volume.html">ボリューム分析</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-filter/connectivity.html">連結度</a></li>
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../01-filter/contouring.html">コンタリング</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-filter/decimate.html">間引き</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-filter/distance_between_surfaces.html">2つのサーフェス間の距離</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-filter/extract_cells_inside_surface.html">サーフェス内のセルを抽出</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-filter/extract_edges.html">エッジを抽出</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-filter/extract_surface.html">表面を抽出</a></li>
+
+
+<li class="toctree-l3"><a class="reference internal" href="../01-filter/extrude_rotate.html">押し出し回転</a></li>
+
+
+<li class="toctree-l3"><a class="reference internal" href="../01-filter/extrude_trim.html">押し出しトリム</a></li>
+
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../01-filter/flying_edges.html">マーチングキューブ</a></li>
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../01-filter/gaussian_smoothing.html">Gaussianスムージング</a></li>
+
+<li class="toctree-l3"><a class="reference internal" href="../01-filter/geodesic.html">測地パス</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-filter/glyphs.html">字形のプロット (ベクトルかPolyData)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-filter/glyphs_table.html">字形表</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-filter/gradients.html">フィールドの勾配を計算する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-filter/image_fft.html">高速Fourier変換</a></li>
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../01-filter/image_fft_perlin_noise.html">Perlinノイズによる高速フーリエ変換</a></li>
+
+
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../01-filter/image_representations.html">画像データの表現</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-filter/integrate_data.html">データの積分</a></li>
+
+<li class="toctree-l3"><a class="reference internal" href="../01-filter/interpolate.html">詳細な補間点</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-filter/interpolate_sample.html">補間/サンプリング法の比較</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-filter/mesh_quality.html">メッシュ品質の計算</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-filter/poly_ray_trace.html">レイトレーシング</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-filter/project_plane.html">平面に投影</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-filter/reflect.html">メッシュを反射</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-filter/resample.html">詳細なリサンプリング</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-filter/rotate.html">回転</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-filter/sampling_functions_2d.html">サンプル関数:2DでのPerlinノイズ</a></li>
+
+
+<li class="toctree-l3"><a class="reference internal" href="../01-filter/sampling_functions_3d.html">サンプル関数:3DでのPerlinノイズ</a></li>
+
+<li class="toctree-l3"><a class="reference internal" href="../01-filter/slicing.html">スライシング</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-filter/streamlines.html">流線</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-filter/streamlines_2D.html">2D流線</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-filter/subdivide.html">セルの細分化</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-filter/surface_reconstruction.html">サーフェスの再構築</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-filter/surface_smoothing.html">サーフェイススムージング</a></li>
+
+<li class="toctree-l3"><a class="reference internal" href="../01-filter/using_filters.html">共通フィルタの使用</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-filter/voxelize.html">サーフェスメッシュをボクセル化する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-filter/warp_by_vector.html">ベクトルによるワープ</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../tags/lights.html">lights (7)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../04-lights/actors.html">Lightアクター</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../04-lights/attenuation.html">減衰</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../04-lights/beam_shape.html">ビーム形状</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../04-lights/light_types.html">光源タイプ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../04-lights/mesh_lighting.html">メッシュライティングの無効化</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../04-lights/plotter_builtins.html">プロッタ照明システム</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../04-lights/shadows.html">シャドウ</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../tags/load.html">load (29)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../00-load/create_explicit_structured_grid.html">明示的な構造グリッドの作成</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../00-load/create_geometric_objects.html">ジオメトリオブジェクト</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../00-load/create_kochanek_spline.html">Kochanekスプラインの作成</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../00-load/create_parametric_geometric_objects.html">パラメトリックジオメトリオブジェクト</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../00-load/create_pixel_art.html">ALIEN MONSTERSのピクセルアート</a></li>
+
+
+<li class="toctree-l3"><a class="reference internal" href="../00-load/create_platonic_solids.html">プラトン立体</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../00-load/create_point_cloud.html">点群を作成</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../00-load/create_pointset.html">PointSetの作成</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../00-load/create_poly.html">PolyDataを作成</a></li>
+
+<li class="toctree-l3"><a class="reference internal" href="../00-load/create_polydata_strips.html">トライアングル ストリップ</a></li>
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../00-load/create_polyhedron.html">多面体による非構造化グリッド</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../00-load/create_sphere.html">Create Sphere Mesh Multiple Ways</a></li>
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../00-load/create_spline.html">スプラインの作成</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../00-load/create_structured_surface.html">構造化サーフェスを作成する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../00-load/create_surface_draped.html">線分から2 Dサーフェスをまとう</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../00-load/create_tri_surface.html">3角形サーフェスを作成</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../00-load/create_truss.html">円柱を用いたトラス状のFEAソリューションのプロット</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../00-load/create_uniform_grid.html">統合グリッドを作成</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../00-load/create_unstructured_surface.html">非構造化グリッドの作成</a></li>
+
+<li class="toctree-l3"><a class="reference internal" href="../00-load/linear_cells.html">線形セル</a></li>
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../00-load/load_gltf.html">glTFファイルの取り扱いについて</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../00-load/load_vrml.html">VRMLファイルの取り扱いについて</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../00-load/read_dolfin.html">FEniCS/Dolfinメッシュを確認．</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../00-load/read_file.html">ファイルからロードおよびプロットする</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../00-load/read_image.html">イメージファイルの読み込み</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../00-load/read_parallel.html">並列フィルタ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../00-load/reader.html">リーダーによるデータの読み込み</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../00-load/terrain_mesh.html">メッシュ後の地形</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../00-load/wrap_trimesh.html">​他のオブジェクトのラップ</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../tags/plot.html">plot (57)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../02-plot/anti_aliasing.html">アンチエイリアシング</a></li>
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../02-plot/backface_props.html">バックフェイスプロパティの設定</a></li>
+
+
+<li class="toctree-l3"><a class="reference internal" href="../02-plot/background_image.html">背景イメージ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../02-plot/blurring.html">ぼかし</a></li>
+
+
+<li class="toctree-l3"><a class="reference internal" href="../02-plot/bounds.html">境界のプロット</a></li>
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../02-plot/chart_basics.html">チャートの基本</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../02-plot/chart_overlays.html">チャートのオーバーレイ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../02-plot/clear.html">メッシュまたはプロット全体の消去</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../02-plot/cmap.html">カラーマップの選択肢</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../02-plot/color_cycler.html">カラーサイクリング</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../02-plot/composite_picking.html">Compositeピッキング</a></li>
+
+
+<li class="toctree-l3"><a class="reference internal" href="../02-plot/depth_of_field.html">被写界深度のプロット</a></li>
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../02-plot/depth_peeling.html">Depth Peeling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../02-plot/distance_along_spline.html">線上の距離に応じたラベル</a></li>
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../02-plot/distance_measurement.html">距離を測る</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../02-plot/edges.html">エッジを表示</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../02-plot/edl.html">Eye Dome Lighting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../02-plot/element_picking.html">メッシュの要素をピックする</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../02-plot/floors.html">床を使用してプロットする</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../02-plot/ghost_cells.html">ゴーストを使用してセルを非表示にする</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../02-plot/gif.html">GIFムービーの作成</a></li>
+
+
+<li class="toctree-l3"><a class="reference internal" href="../02-plot/image_depth.html">デプスイメージをレンダーする</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../02-plot/interpolate_before_map.html">マッピング前に補間</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../02-plot/isovalue.html">等値移動</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../02-plot/labels.html">ラベルポイント</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../02-plot/legend.html">凡例とグリフ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../02-plot/lighting_mesh.html">照明プロパティ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../02-plot/linked.html">サブプロットのリンクビュー</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../02-plot/lookup_table.html">ルックアップテーブル</a></li>
+
+
+
+
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../02-plot/mesh_picking.html">メッシュのピッキング</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../02-plot/movie.html">MP 4ムービーを作成する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../02-plot/movie_glyphs.html">グリフを使ったムービーの保存</a></li>
+
+
+<li class="toctree-l3"><a class="reference internal" href="../02-plot/moving_cmap.html">カラーマップが移動する静止物体のGIFムービーを作成します</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../02-plot/multi_window.html">マルチウィンドウプロット</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../02-plot/opacity.html">不透明度を指定してプロット</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../02-plot/orbit.html">オービット</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../02-plot/ortho_slices.html">直交スライス</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../02-plot/pbr.html">物理ベースのレンダリング</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../02-plot/plot_over_circular_arc.html">円形円弧上にスカラーをプロットします</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../02-plot/plot_over_line.html">線上のプロット</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../02-plot/point_cell_scalars.html">ポイントセルスカラー</a></li>
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../02-plot/point_clouds.html">点群のプロット</a></li>
+
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../02-plot/point_picking.html">メッシュ上の点の選択</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../02-plot/points_gaussian_scale.html">スケーリングされたガウスポイント</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../02-plot/scalar_bars.html">スカラーバーをカスタマイズ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../02-plot/screenshot.html">スクリーンショットを保存する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../02-plot/shading.html">シェーディングのタイプ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../02-plot/silhouette.html">シルエットハイライト</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../02-plot/spherical.html">球座標でデータをプロットする</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../02-plot/ssao.html">Surface Space Ambient Occlusion</a></li>
+
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../02-plot/surface_picking.html">メッシュの表面上の点をピックします</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../02-plot/texture.html">テクスチャを適用する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../02-plot/themes.html">グローバルおよびローカルプロットテーマの制御</a></li>
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../02-plot/topo_map.html">地形図</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../02-plot/vector_component.html">プロットベクトルコンポーネント</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../02-plot/vertices.html">可視頂点</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../02-plot/volume.html">ボリュームレンダリング</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../tags/widgets.html">widgets (10)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../03-widgets/animation.html">アニメーション</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-widgets/box_widget.html">ボックスウィジェット</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-widgets/checkbox_widget.html">チェックボックスウィジェット</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-widgets/clip_volume.html">クリップボリュームウィジェット</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-widgets/line_widget.html">線ウィジェット</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-widgets/multi_slider_widget.html">複数のスライダウィジェット</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-widgets/plane_widget.html">平面ウィジェット</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-widgets/slider_bar_widget.html">スライダバーウィジェット</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-widgets/sphere_widget.html">球体ウィジェット</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-widgets/spline_widget.html">スプラインウィジェット</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../index.html">例</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="../00-load/index.html">メッシュ作成</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../00-load/create_explicit_structured_grid.html">明示的な構造グリッドの作成</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../00-load/create_geometric_objects.html">ジオメトリオブジェクト</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../00-load/create_kochanek_spline.html">Kochanekスプラインの作成</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../00-load/create_parametric_geometric_objects.html">パラメトリックジオメトリオブジェクト</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../00-load/create_pixel_art.html">ALIEN MONSTERSのピクセルアート</a></li>
+
+
+<li class="toctree-l3"><a class="reference internal" href="../00-load/create_platonic_solids.html">プラトン立体</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../00-load/create_point_cloud.html">点群を作成</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../00-load/create_pointset.html">PointSetの作成</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../00-load/create_poly.html">PolyDataを作成</a></li>
+
+<li class="toctree-l3"><a class="reference internal" href="../00-load/create_polydata_strips.html">トライアングル ストリップ</a></li>
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../00-load/create_polyhedron.html">多面体による非構造化グリッド</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../00-load/create_sphere.html">Create Sphere Mesh Multiple Ways</a></li>
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../00-load/create_spline.html">スプラインの作成</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../00-load/create_structured_surface.html">構造化サーフェスを作成する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../00-load/create_surface_draped.html">線分から2 Dサーフェスをまとう</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../00-load/create_tri_surface.html">3角形サーフェスを作成</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../00-load/create_truss.html">円柱を用いたトラス状のFEAソリューションのプロット</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../00-load/create_uniform_grid.html">統合グリッドを作成</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../00-load/create_unstructured_surface.html">非構造化グリッドの作成</a></li>
+
+<li class="toctree-l3"><a class="reference internal" href="../00-load/linear_cells.html">線形セル</a></li>
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../00-load/load_gltf.html">glTFファイルの取り扱いについて</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../00-load/load_vrml.html">VRMLファイルの取り扱いについて</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../00-load/read_dolfin.html">FEniCS/Dolfinメッシュを確認．</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../00-load/read_file.html">ファイルからロードおよびプロットする</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../00-load/read_image.html">イメージファイルの読み込み</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../00-load/read_parallel.html">並列フィルタ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../00-load/reader.html">リーダーによるデータの読み込み</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../00-load/terrain_mesh.html">メッシュ後の地形</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../00-load/wrap_trimesh.html">​他のオブジェクトのラップ</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../01-filter/index.html">フィルタリング</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../01-filter/boolean_operations.html">ブール演算</a></li>
+
+<li class="toctree-l3"><a class="reference internal" href="../01-filter/cell_centers.html">セルの中心を抽出</a></li>
+
+
+<li class="toctree-l3"><a class="reference internal" href="../01-filter/clipping.html">平面とボックスでクリップします</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-filter/clipping_with_surface.html">サーフェスを使用したクリップ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-filter/collisions.html">衝突</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-filter/compute_normals.html">表面の法線を計算します</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-filter/compute_volume.html">ボリューム分析</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-filter/connectivity.html">連結度</a></li>
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../01-filter/contouring.html">コンタリング</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-filter/decimate.html">間引き</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-filter/distance_between_surfaces.html">2つのサーフェス間の距離</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-filter/extract_cells_inside_surface.html">サーフェス内のセルを抽出</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-filter/extract_edges.html">エッジを抽出</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-filter/extract_surface.html">表面を抽出</a></li>
+
+
+<li class="toctree-l3"><a class="reference internal" href="../01-filter/extrude_rotate.html">押し出し回転</a></li>
+
+
+<li class="toctree-l3"><a class="reference internal" href="../01-filter/extrude_trim.html">押し出しトリム</a></li>
+
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../01-filter/flying_edges.html">マーチングキューブ</a></li>
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../01-filter/gaussian_smoothing.html">Gaussianスムージング</a></li>
+
+<li class="toctree-l3"><a class="reference internal" href="../01-filter/geodesic.html">測地パス</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-filter/glyphs.html">字形のプロット (ベクトルかPolyData)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-filter/glyphs_table.html">字形表</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-filter/gradients.html">フィールドの勾配を計算する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-filter/image_fft.html">高速Fourier変換</a></li>
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../01-filter/image_fft_perlin_noise.html">Perlinノイズによる高速フーリエ変換</a></li>
+
+
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../01-filter/image_representations.html">画像データの表現</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-filter/integrate_data.html">データの積分</a></li>
+
+<li class="toctree-l3"><a class="reference internal" href="../01-filter/interpolate.html">詳細な補間点</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-filter/interpolate_sample.html">補間/サンプリング法の比較</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-filter/mesh_quality.html">メッシュ品質の計算</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-filter/poly_ray_trace.html">レイトレーシング</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-filter/project_plane.html">平面に投影</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-filter/reflect.html">メッシュを反射</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-filter/resample.html">詳細なリサンプリング</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-filter/rotate.html">回転</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-filter/sampling_functions_2d.html">サンプル関数:2DでのPerlinノイズ</a></li>
+
+
+<li class="toctree-l3"><a class="reference internal" href="../01-filter/sampling_functions_3d.html">サンプル関数:3DでのPerlinノイズ</a></li>
+
+<li class="toctree-l3"><a class="reference internal" href="../01-filter/slicing.html">スライシング</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-filter/streamlines.html">流線</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-filter/streamlines_2D.html">2D流線</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-filter/subdivide.html">セルの細分化</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-filter/surface_reconstruction.html">サーフェスの再構築</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-filter/surface_smoothing.html">サーフェイススムージング</a></li>
+
+<li class="toctree-l3"><a class="reference internal" href="../01-filter/using_filters.html">共通フィルタの使用</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-filter/voxelize.html">サーフェスメッシュをボクセル化する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../01-filter/warp_by_vector.html">ベクトルによるワープ</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../02-plot/index.html">プロット</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../02-plot/anti_aliasing.html">アンチエイリアシング</a></li>
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../02-plot/backface_props.html">バックフェイスプロパティの設定</a></li>
+
+
+<li class="toctree-l3"><a class="reference internal" href="../02-plot/background_image.html">背景イメージ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../02-plot/blurring.html">ぼかし</a></li>
+
+
+<li class="toctree-l3"><a class="reference internal" href="../02-plot/bounds.html">境界のプロット</a></li>
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../02-plot/chart_basics.html">チャートの基本</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../02-plot/chart_overlays.html">チャートのオーバーレイ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../02-plot/clear.html">メッシュまたはプロット全体の消去</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../02-plot/cmap.html">カラーマップの選択肢</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../02-plot/color_cycler.html">カラーサイクリング</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../02-plot/composite_picking.html">Compositeピッキング</a></li>
+
+
+<li class="toctree-l3"><a class="reference internal" href="../02-plot/depth_of_field.html">被写界深度のプロット</a></li>
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../02-plot/depth_peeling.html">Depth Peeling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../02-plot/distance_along_spline.html">線上の距離に応じたラベル</a></li>
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../02-plot/distance_measurement.html">距離を測る</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../02-plot/edges.html">エッジを表示</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../02-plot/edl.html">Eye Dome Lighting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../02-plot/element_picking.html">メッシュの要素をピックする</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../02-plot/floors.html">床を使用してプロットする</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../02-plot/ghost_cells.html">ゴーストを使用してセルを非表示にする</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../02-plot/gif.html">GIFムービーの作成</a></li>
+
+
+<li class="toctree-l3"><a class="reference internal" href="../02-plot/image_depth.html">デプスイメージをレンダーする</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../02-plot/interpolate_before_map.html">マッピング前に補間</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../02-plot/isovalue.html">等値移動</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../02-plot/labels.html">ラベルポイント</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../02-plot/legend.html">凡例とグリフ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../02-plot/lighting_mesh.html">照明プロパティ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../02-plot/linked.html">サブプロットのリンクビュー</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../02-plot/lookup_table.html">ルックアップテーブル</a></li>
+
+
+
+
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../02-plot/mesh_picking.html">メッシュのピッキング</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../02-plot/movie.html">MP 4ムービーを作成する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../02-plot/movie_glyphs.html">グリフを使ったムービーの保存</a></li>
+
+
+<li class="toctree-l3"><a class="reference internal" href="../02-plot/moving_cmap.html">カラーマップが移動する静止物体のGIFムービーを作成します</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../02-plot/multi_window.html">マルチウィンドウプロット</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../02-plot/opacity.html">不透明度を指定してプロット</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../02-plot/orbit.html">オービット</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../02-plot/ortho_slices.html">直交スライス</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../02-plot/pbr.html">物理ベースのレンダリング</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../02-plot/plot_over_circular_arc.html">円形円弧上にスカラーをプロットします</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../02-plot/plot_over_line.html">線上のプロット</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../02-plot/point_cell_scalars.html">ポイントセルスカラー</a></li>
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../02-plot/point_clouds.html">点群のプロット</a></li>
+
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../02-plot/point_picking.html">メッシュ上の点の選択</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../02-plot/points_gaussian_scale.html">スケーリングされたガウスポイント</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../02-plot/scalar_bars.html">スカラーバーをカスタマイズ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../02-plot/screenshot.html">スクリーンショットを保存する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../02-plot/shading.html">シェーディングのタイプ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../02-plot/silhouette.html">シルエットハイライト</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../02-plot/spherical.html">球座標でデータをプロットする</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../02-plot/ssao.html">Surface Space Ambient Occlusion</a></li>
+
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../02-plot/surface_picking.html">メッシュの表面上の点をピックします</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../02-plot/texture.html">テクスチャを適用する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../02-plot/themes.html">グローバルおよびローカルプロットテーマの制御</a></li>
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="../02-plot/topo_map.html">地形図</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../02-plot/vector_component.html">プロットベクトルコンポーネント</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../02-plot/vertices.html">可視頂点</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../02-plot/volume.html">ボリュームレンダリング</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../03-widgets/index.html">ウィジェット</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../03-widgets/animation.html">アニメーション</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-widgets/box_widget.html">ボックスウィジェット</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-widgets/checkbox_widget.html">チェックボックスウィジェット</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-widgets/clip_volume.html">クリップボリュームウィジェット</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-widgets/line_widget.html">線ウィジェット</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-widgets/multi_slider_widget.html">複数のスライダウィジェット</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-widgets/plane_widget.html">平面ウィジェット</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-widgets/slider_bar_widget.html">スライダバーウィジェット</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-widgets/sphere_widget.html">球体ウィジェット</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../03-widgets/spline_widget.html">スプラインウィジェット</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../04-lights/index.html">照明</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../04-lights/actors.html">Lightアクター</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../04-lights/attenuation.html">減衰</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../04-lights/beam_shape.html">ビーム形状</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../04-lights/light_types.html">光源タイプ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../04-lights/mesh_lighting.html">メッシュライティングの無効化</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../04-lights/plotter_builtins.html">プロッタ照明システム</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../04-lights/shadows.html">シャドウ</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../98-common/index.html">共通</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../98-common/project_points_tessellate.html">ポイントを平面に投影して平面充填します．</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="index.html">詳細設定</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="add_example.html">新しいギャラリーを追加する例</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">Visualize Anatomical Groups</a></li>
+<li class="toctree-l3"><a class="reference internal" href="antarctica_compare.html">メッシュ領域間でフィールドを比較</a></li>
+<li class="toctree-l3"><a class="reference internal" href="atomic_orbitals.html">原子軌道のプロット</a></li>
+<li class="toctree-l3"><a class="reference internal" href="customization_trame_toolbar.html">Trameツールバーのカスタマイズ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="extending_pyvista.html">PyVistaの拡張</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fea_hertzian_contact_pressure.html">Hertの接触応力を可視化する</a></li>
+
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="magnetic_fields.html">磁場をプロットする</a></li>
+<li class="toctree-l3"><a class="reference internal" href="openfoam_cooling.html">電子機器の冷却CFD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="openfoam_example.html">OpenFOAMデータのプロット</a></li>
+<li class="toctree-l3"><a class="reference internal" href="openfoam_tubes.html">CFDデータをプロットする</a></li>
+<li class="toctree-l3"><a class="reference internal" href="planets.html">3D地球と天体</a></li>
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="plotting_algorithms.html">VTKアルゴリズムでプロットする</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pump_bracket.html">ポンプブラケットのモーダル解析の可視化</a></li>
+
+
+
+
+<li class="toctree-l3"><a class="reference internal" href="ray_trace_moeller.html">Moeller-Trumboreアルゴリズムの可視化</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sphere_eversion.html">球体を裏返す</a></li>
+<li class="toctree-l3"><a class="reference internal" href="warp_by_vector_eigenmodes.html">振動の固有振動モードを表示します</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../api/index.html">APIリファレンス</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../api/core/index.html">コアAPI</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../api/core/objects.html">データオブジェクト</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/core/dataset.html">データセット</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/core/pointsets.html">ポイントセット</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/core/grids.html">グリッドデータ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/core/composite.html">複合データセット</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/core/filters.html">フィルタ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/core/camera.html">カメラ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/core/lights.html">ライト</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/core/cells.html">セル</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/core/helpers.html">ヘルパー</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/core/misc.html">その他</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/core/typing.html">タイピング</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/core/partitioned.html">パーティショニングされたデータセット</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/core/_validation.html">Validation</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../api/plotting/index.html">プロット</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../api/plotting/plotting.html">プロット</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/plotting/qt_plotting.html">PyVistaとPyQt</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/plotting/theme.html">テーマ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/plotting/trame.html">Trame</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/plotting/_autosummary/pyvista.Actor.html">pyvista.Actor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/plotting/_autosummary/pyvista.Axes.html">pyvista.Axes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/plotting/_autosummary/pyvista.AxesActor.html">pyvista.AxesActor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/plotting/_autosummary/pyvista.AxesAssembly.html">pyvista.AxesAssembly</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/plotting/_autosummary/pyvista.AxesAssemblySymmetric.html">pyvista.AxesAssemblySymmetric</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/plotting/_autosummary/pyvista.CameraPosition.html">pyvista.CameraPosition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/plotting/_autosummary/pyvista.CornerAnnotation.html">pyvista.CornerAnnotation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/plotting/_autosummary/pyvista.CubeAxesActor.html">pyvista.CubeAxesActor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/plotting/_autosummary/pyvista.DataSetMapper.html">pyvista.DataSetMapper</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/plotting/_autosummary/pyvista.Label.html">pyvista.Label</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/plotting/_autosummary/pyvista.LookupTable.html">pyvista.LookupTable</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/plotting/_autosummary/pyvista.PlanesAssembly.html">pyvista.PlanesAssembly</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/plotting/_autosummary/pyvista.Plotter.html">pyvista.Plotter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/plotting/_autosummary/pyvista.Prop3D.html">pyvista.Prop3D</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/plotting/_autosummary/pyvista.Property.html">pyvista.Property</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/plotting/_autosummary/pyvista.Renderer.html">pyvista.Renderer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/plotting/_autosummary/pyvista.RenderWindowInteractor.html">pyvista.RenderWindowInteractor</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/plotting/_autosummary/pyvista.Text.html">pyvista.Text</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/plotting/_autosummary/pyvista.TextProperty.html">pyvista.TextProperty</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/plotting/_autosummary/pyvista.Timer.html">pyvista.Timer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/plotting/_autosummary/pyvista.plotting.mapper._BaseMapper.html">pyvista.plotting.mapper._BaseMapper</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/plotting/_autosummary/pyvista.plotting.opts.InterpolationType.html">pyvista.plotting.opts.InterpolationType</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/plotting/_autosummary/pyvista.plotting.opts.RepresentationType.html">pyvista.plotting.opts.RepresentationType</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/plotting/_autosummary/pyvista.plotting.opts.ElementType.html">pyvista.plotting.opts.ElementType</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/plotting/_autosummary/pyvista.plotting.volume.Volume.html">pyvista.plotting.volume.Volume</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/plotting/_autosummary/pyvista.plotting.volume_property.VolumeProperty.html">pyvista.plotting.volume_property.VolumeProperty</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/plotting/_autosummary/pyvista.CompositePolyDataMapper.html">pyvista.CompositePolyDataMapper</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/plotting/_autosummary/pyvista.CompositeAttributes.html">pyvista.CompositeAttributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/plotting/_autosummary/pyvista.BlockAttributes.html">pyvista.BlockAttributes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/plotting/charts/index.html">チャート</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/plotting/_autosummary/pyvista.plotting.widgets.WidgetHelper.html">pyvista.plotting.widgets.WidgetHelper</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/plotting/_autosummary/pyvista.plotting.widgets.AffineWidget3D.html">pyvista.plotting.widgets.AffineWidget3D</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/plotting/_autosummary/pyvista.plotting.picking.PickingHelper.html">pyvista.plotting.picking.PickingHelper</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/plotting/conv_func.html">便利な機能</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../api/utilities/index.html">ユーティリティ</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../api/utilities/geometric.html">ジオメトリー</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/utilities/image.html">Image</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/utilities/parametric.html">パラメトリックオブジェクト</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/utilities/utilities.html">一般ユーティリティ</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../api/readers/index.html">リーダー</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../api/readers/_autosummary/pyvista.get_reader.html">pyvista.get_reader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/readers/_autosummary/pyvista.AVSucdReader.html">pyvista.AVSucdReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/readers/_autosummary/pyvista.BMPReader.html">pyvista.BMPReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/readers/_autosummary/pyvista.BYUReader.html">pyvista.BYUReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/readers/_autosummary/pyvista.BinaryMarchingCubesReader.html">pyvista.BinaryMarchingCubesReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/readers/_autosummary/pyvista.CGNSReader.html">pyvista.CGNSReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/readers/_autosummary/pyvista.DEMReader.html">pyvista.DEMReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/readers/_autosummary/pyvista.DICOMReader.html">pyvista.DICOMReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/readers/_autosummary/pyvista.EnSightReader.html">pyvista.EnSightReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/readers/_autosummary/pyvista.ExodusIIBlockSet.html">pyvista.ExodusIIBlockSet</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/readers/_autosummary/pyvista.ExodusIIReader.html">pyvista.ExodusIIReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/readers/_autosummary/pyvista.FacetReader.html">pyvista.FacetReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/readers/_autosummary/pyvista.FLUENTCFFReader.html">pyvista.FLUENTCFFReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/readers/_autosummary/pyvista.FluentReader.html">pyvista.FluentReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/readers/_autosummary/pyvista.GambitReader.html">pyvista.GambitReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/readers/_autosummary/pyvista.GaussianCubeReader.html">pyvista.GaussianCubeReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/readers/_autosummary/pyvista.GESignaReader.html">pyvista.GESignaReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/readers/_autosummary/pyvista.GIFReader.html">pyvista.GIFReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/readers/_autosummary/pyvista.GLTFReader.html">pyvista.GLTFReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/readers/_autosummary/pyvista.HDFReader.html">pyvista.HDFReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/readers/_autosummary/pyvista.HDRReader.html">pyvista.HDRReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/readers/_autosummary/pyvista.JPEGReader.html">pyvista.JPEGReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/readers/_autosummary/pyvista.MFIXReader.html">pyvista.MFIXReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/readers/_autosummary/pyvista.MetaImageReader.html">pyvista.MetaImageReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/readers/_autosummary/pyvista.MINCImageReader.html">pyvista.MINCImageReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/readers/_autosummary/pyvista.MultiBlockPlot3DReader.html">pyvista.MultiBlockPlot3DReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/readers/_autosummary/pyvista.Nek5000Reader.html">pyvista.Nek5000Reader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/readers/_autosummary/pyvista.NIFTIReader.html">pyvista.NIFTIReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/readers/_autosummary/pyvista.NRRDReader.html">pyvista.NRRDReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/readers/_autosummary/pyvista.OBJReader.html">pyvista.OBJReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/readers/_autosummary/pyvista.OpenFOAMReader.html">pyvista.OpenFOAMReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/readers/_autosummary/pyvista.ParticleReader.html">pyvista.ParticleReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/readers/_autosummary/pyvista.PDBReader.html">pyvista.PDBReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/readers/_autosummary/pyvista.PLYReader.html">pyvista.PLYReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/readers/_autosummary/pyvista.PNGReader.html">pyvista.PNGReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/readers/_autosummary/pyvista.PNMReader.html">pyvista.PNMReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/readers/_autosummary/pyvista.POpenFOAMReader.html">pyvista.POpenFOAMReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/readers/_autosummary/pyvista.PTSReader.html">pyvista.PTSReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/readers/_autosummary/pyvista.PVDReader.html">pyvista.PVDReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/readers/_autosummary/pyvista.Plot3DMetaReader.html">pyvista.Plot3DMetaReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/readers/_autosummary/pyvista.ProStarReader.html">pyvista.ProStarReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/readers/_autosummary/pyvista.SLCReader.html">pyvista.SLCReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/readers/_autosummary/pyvista.STLReader.html">pyvista.STLReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/readers/_autosummary/pyvista.SegYReader.html">pyvista.SegYReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/readers/_autosummary/pyvista.TIFFReader.html">pyvista.TIFFReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/readers/_autosummary/pyvista.TecplotReader.html">pyvista.TecplotReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/readers/_autosummary/pyvista.VTKDataSetReader.html">pyvista.VTKDataSetReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/readers/_autosummary/pyvista.VTKPDataSetReader.html">pyvista.VTKPDataSetReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/readers/_autosummary/pyvista.XMLImageDataReader.html">pyvista.XMLImageDataReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/readers/_autosummary/pyvista.XMLMultiBlockDataReader.html">pyvista.XMLMultiBlockDataReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/readers/_autosummary/pyvista.XMLPImageDataReader.html">pyvista.XMLPImageDataReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/readers/_autosummary/pyvista.XMLPRectilinearGridReader.html">pyvista.XMLPRectilinearGridReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/readers/_autosummary/pyvista.XMLPUnstructuredGridReader.html">pyvista.XMLPUnstructuredGridReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/readers/_autosummary/pyvista.XMLPartitionedDataSetReader.html">pyvista.XMLPartitionedDataSetReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/readers/_autosummary/pyvista.XMLPolyDataReader.html">pyvista.XMLPolyDataReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/readers/_autosummary/pyvista.XMLRectilinearGridReader.html">pyvista.XMLRectilinearGridReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/readers/_autosummary/pyvista.XMLStructuredGridReader.html">pyvista.XMLStructuredGridReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/readers/_autosummary/pyvista.XMLUnstructuredGridReader.html">pyvista.XMLUnstructuredGridReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/readers/_autosummary/pyvista.XdmfReader.html">pyvista.XdmfReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/readers/_autosummary/pyvista.BaseReader.html">pyvista.BaseReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/readers/_autosummary/pyvista.PointCellDataSelection.html">pyvista.PointCellDataSelection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/readers/_autosummary/pyvista.TimeReader.html">pyvista.TimeReader</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/readers/enums.html">リーダー列挙型</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../api/examples/index.html">例</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../api/examples/dataset_gallery.html">データセットギャラリー</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/examples/_autosummary/pyvista.examples.examples.html">pyvista.examples.examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/examples/_autosummary/pyvista.examples.downloads.html">pyvista.examples.downloads</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/examples/_autosummary/pyvista.examples.planets.html">pyvista.examples.planets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/examples/_autosummary/pyvista.examples.vrml.html">pyvista.examples.vrml</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/examples/_autosummary/pyvista.examples.download_3ds.html">pyvista.examples.download_3ds</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/examples/_autosummary/pyvista.examples.gltf.html">pyvista.examples.gltf</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/examples/_autosummary/pyvista.demos.demos.html">pyvista.demos.demos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/examples/_autosummary/pyvista.examples.cells.plot_cell.html">pyvista.examples.cells.plot_cell</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/examples/_autosummary/pyvista.examples.cells.Empty.html">pyvista.examples.cells.Empty</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/examples/_autosummary/pyvista.examples.cells.Vertex.html">pyvista.examples.cells.Vertex</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/examples/_autosummary/pyvista.examples.cells.PolyVertex.html">pyvista.examples.cells.PolyVertex</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/examples/_autosummary/pyvista.examples.cells.Line.html">pyvista.examples.cells.Line</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/examples/_autosummary/pyvista.examples.cells.PolyLine.html">pyvista.examples.cells.PolyLine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/examples/_autosummary/pyvista.examples.cells.Triangle.html">pyvista.examples.cells.Triangle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/examples/_autosummary/pyvista.examples.cells.TriangleStrip.html">pyvista.examples.cells.TriangleStrip</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/examples/_autosummary/pyvista.examples.cells.Polygon.html">pyvista.examples.cells.Polygon</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/examples/_autosummary/pyvista.examples.cells.Pixel.html">pyvista.examples.cells.Pixel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/examples/_autosummary/pyvista.examples.cells.Quadrilateral.html">pyvista.examples.cells.Quadrilateral</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/examples/_autosummary/pyvista.examples.cells.Tetrahedron.html">pyvista.examples.cells.Tetrahedron</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/examples/_autosummary/pyvista.examples.cells.Voxel.html">pyvista.examples.cells.Voxel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/examples/_autosummary/pyvista.examples.cells.Hexahedron.html">pyvista.examples.cells.Hexahedron</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/examples/_autosummary/pyvista.examples.cells.Wedge.html">pyvista.examples.cells.Wedge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/examples/_autosummary/pyvista.examples.cells.Pyramid.html">pyvista.examples.cells.Pyramid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/examples/_autosummary/pyvista.examples.cells.PentagonalPrism.html">pyvista.examples.cells.PentagonalPrism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/examples/_autosummary/pyvista.examples.cells.HexagonalPrism.html">pyvista.examples.cells.HexagonalPrism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/examples/_autosummary/pyvista.examples.cells.QuadraticEdge.html">pyvista.examples.cells.QuadraticEdge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/examples/_autosummary/pyvista.examples.cells.QuadraticTriangle.html">pyvista.examples.cells.QuadraticTriangle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/examples/_autosummary/pyvista.examples.cells.QuadraticQuadrilateral.html">pyvista.examples.cells.QuadraticQuadrilateral</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/examples/_autosummary/pyvista.examples.cells.QuadraticPolygon.html">pyvista.examples.cells.QuadraticPolygon</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/examples/_autosummary/pyvista.examples.cells.QuadraticTetrahedron.html">pyvista.examples.cells.QuadraticTetrahedron</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/examples/_autosummary/pyvista.examples.cells.QuadraticHexahedron.html">pyvista.examples.cells.QuadraticHexahedron</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/examples/_autosummary/pyvista.examples.cells.QuadraticWedge.html">pyvista.examples.cells.QuadraticWedge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/examples/_autosummary/pyvista.examples.cells.QuadraticPyramid.html">pyvista.examples.cells.QuadraticPyramid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/examples/_autosummary/pyvista.examples.cells.BiQuadraticQuadrilateral.html">pyvista.examples.cells.BiQuadraticQuadrilateral</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/examples/_autosummary/pyvista.examples.cells.TriQuadraticHexahedron.html">pyvista.examples.cells.TriQuadraticHexahedron</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/examples/_autosummary/pyvista.examples.cells.TriQuadraticPyramid.html">pyvista.examples.cells.TriQuadraticPyramid</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/examples/_autosummary/pyvista.examples.cells.QuadraticLinearQuadrilateral.html">pyvista.examples.cells.QuadraticLinearQuadrilateral</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/examples/_autosummary/pyvista.examples.cells.QuadraticLinearWedge.html">pyvista.examples.cells.QuadraticLinearWedge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/examples/_autosummary/pyvista.examples.cells.BiQuadraticQuadraticWedge.html">pyvista.examples.cells.BiQuadraticQuadraticWedge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/examples/_autosummary/pyvista.examples.cells.BiQuadraticQuadraticHexahedron.html">pyvista.examples.cells.BiQuadraticQuadraticHexahedron</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/examples/_autosummary/pyvista.examples.cells.BiQuadraticTriangle.html">pyvista.examples.cells.BiQuadraticTriangle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/examples/_autosummary/pyvista.examples.cells.CubicLine.html">pyvista.examples.cells.CubicLine</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/examples/_autosummary/pyvista.examples.cells.Polyhedron.html">pyvista.examples.cells.Polyhedron</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../extras/index.html">その他</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../extras/building_vtk.html">VTKの構築</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../extras/docker.html">Dockerコンテナ内のPyVista</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../extras/pyinstaller.html">PyInstallerを使用したPyVistaのフリーズ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../extras/developer_notes.html">貢献</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../extras/plot_directive.html">Sphinx PyVista Plot ディレクティブ</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../extras/pytest_plugin.html">PyVista pytest プラグイン</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../extras/vtk_data.html">ローカルVTKデータの使用</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../extras/extending_pyvista.html">PyVistaの拡張</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/pyvista/pyvista/edit/main/doc/source/examples/99-advanced/anatomical_groups.rst" target="_blank"
+   class="btn btn-sm btn-source-edit-button"
+   title="Suggest edit"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="このページをダウンロード">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="ソースファイルをダウンロード"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="PDFに印刷"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="全画面モード"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="検索" aria-label="検索" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Visualize Anatomical Groups</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> 目次 </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-dataset">Load Dataset</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#color-mapping">Color Mapping</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#utility-functions">Utility Functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#filter-labels">filter_labels</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-anatomy">plot_anatomy</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anatomical-groups">Anatomical Groups</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cardiovascular-system">Cardiovascular System</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gastrointestinal-system">Gastrointestinal System</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spine">Spine</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other-organs">Other Organs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#muscles">Muscles</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ribs">Ribs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#skeleton">Skeleton</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <div class="sphx-glr-download-link-note admonition note">
+<p class="admonition-title">注釈</p>
+<p><a class="reference internal" href="#sphx-glr-download-examples-99-advanced-anatomical-groups-py"><span class="std std-ref">Go to the end</span></a>
+to download the full example code.</p>
+</div>
+<section class="sphx-glr-example-title" id="visualize-anatomical-groups">
+<span id="anatomical-groups-example"></span><span id="sphx-glr-examples-99-advanced-anatomical-groups-py"></span><h1>Visualize Anatomical Groups<a class="headerlink" href="#visualize-anatomical-groups" title="Link to this heading">#</a></h1>
+<p>This example visualizes different anatomical groups using the segmentation
+labels available from the downloadable datasets
+<a class="reference internal" href="../../api/examples/_autosummary/pyvista.examples.downloads.download_whole_body_ct_female.html#pyvista.examples.downloads.download_whole_body_ct_female" title="pyvista.examples.downloads.download_whole_body_ct_female"><code class="xref py py-func docutils literal notranslate"><span class="pre">download_whole_body_ct_female()</span></code></a> and
+<a class="reference internal" href="../../api/examples/_autosummary/pyvista.examples.downloads.download_whole_body_ct_male.html#pyvista.examples.downloads.download_whole_body_ct_male" title="pyvista.examples.downloads.download_whole_body_ct_male"><code class="xref py py-func docutils literal notranslate"><span class="pre">download_whole_body_ct_male()</span></code></a>.</p>
+<p>These datasets include labels for 117 anatomical structures. In this example,
+the labels are grouped by filtering the list of labels and coloring the
+labels with the recommended RGB values used by the 3DSlicer
+<a class="reference external" href="https://github.com/lassoan/SlicerTotalSegmentator">TotalSegmentator Extension</a>.</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">pyvista</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pv</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pyvista</span><span class="w"> </span><span class="kn">import</span> <span class="n">examples</span>
+</pre></div>
+</div>
+<section id="load-dataset">
+<h2>Load Dataset<a class="headerlink" href="#load-dataset" title="Link to this heading">#</a></h2>
+<p>Load a TotalSegmentator dataset. Can be the
+<a class="reference internal" href="../../api/examples/_autosummary/pyvista.examples.downloads.download_whole_body_ct_male.html#pyvista.examples.downloads.download_whole_body_ct_male" title="pyvista.examples.downloads.download_whole_body_ct_male"><code class="xref py py-func docutils literal notranslate"><span class="pre">male</span></code></a> or
+<a class="reference internal" href="../../api/examples/_autosummary/pyvista.examples.downloads.download_whole_body_ct_female.html#pyvista.examples.downloads.download_whole_body_ct_female" title="pyvista.examples.downloads.download_whole_body_ct_female"><code class="xref py py-func docutils literal notranslate"><span class="pre">female</span></code></a> female
+subjects included with <cite>PyVista</cite>, or any other subject from the
+<a class="reference external" href="https://zenodo.org/records/10047292">TotalSegmentator dataset</a>.</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">dataset</span> <span class="o">=</span> <span class="n">examples</span><span class="o">.</span><span class="n">download_whole_body_ct_female</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Get the label map used for plotting different anatomical groups.</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="n">label_map</span> <span class="o">=</span> <span class="n">dataset</span><span class="p">[</span><span class="s1">&#39;label_map&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Get metadata associated with the dataset</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get a list of all label names. This list will be filtered by group.</span>
+<a href="https://docs.python.org/3.11/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">label_names</span></a> <span class="o">=</span> <span class="n">dataset</span><span class="p">[</span><span class="s1">&#39;segmentations&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+
+<span class="c1"># Get color and id mappings included with the dataset. These are used to filter and</span>
+<span class="c1"># color the contours.</span>
+<a href="https://docs.python.org/3.11/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">names_to_colors</span></a> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">user_dict</span><span class="p">[</span><span class="s1">&#39;names_to_colors&#39;</span><span class="p">]</span>
+<a href="https://docs.python.org/3.11/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">names_to_ids</span></a> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">user_dict</span><span class="p">[</span><span class="s1">&#39;names_to_ids&#39;</span><span class="p">]</span>
+<a href="https://docs.python.org/3.11/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">ids_to_colors</span></a> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">user_dict</span><span class="p">[</span><span class="s1">&#39;ids_to_colors&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<section id="color-mapping">
+<h3>Color Mapping<a class="headerlink" href="#color-mapping" title="Link to this heading">#</a></h3>
+<p>Show the color mapping included with the dataset. Print the dictionary and format
+it to visually align the RGB values. The formatted dictionary is valid python code.</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span>
+    <span class="s1">&#39;{</span><span class="se">\n</span><span class="s1">&#39;</span>
+    <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+        <span class="sa">f</span><span class="s1">&#39;    </span><span class="si">{</span><span class="s2">&quot;&#39;&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="s2">&quot;&#39;:&quot;</span><span class="si">:</span><span class="s1">&lt;32</span><span class="si">}</span><span class="s1"> (</span><span class="si">{</span><span class="n">R</span><span class="si">:</span><span class="s1">&gt;3</span><span class="si">}</span><span class="s1">, </span><span class="si">{</span><span class="n">G</span><span class="si">:</span><span class="s1">&gt;3</span><span class="si">}</span><span class="s1">, </span><span class="si">{</span><span class="n">B</span><span class="si">:</span><span class="s1">&gt;3</span><span class="si">}</span><span class="s1">),&#39;</span>
+        <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="p">(</span><span class="n">R</span><span class="p">,</span> <span class="n">G</span><span class="p">,</span> <span class="n">B</span><span class="p">)</span> <span class="ow">in</span> <a href="https://docs.python.org/3.11/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">names_to_colors</span></a><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+    <span class="p">)</span>
+    <span class="o">+</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">}&#39;</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>{
+    &#39;adrenal_gland_left&#39;:            (249, 186, 150),
+    &#39;adrenal_gland_right&#39;:           (249, 186, 150),
+    &#39;aorta&#39;:                         (224,  97,  76),
+    &#39;atrial_appendage_left&#39;:         (  0, 161, 196),
+    &#39;autochthon_left&#39;:               (171,  85,  68),
+    &#39;autochthon_right&#39;:              (171,  85,  68),
+    &#39;brachiocephalic_trunk&#39;:         (196, 121,  79),
+    &#39;brachiocephalic_vein_left&#39;:     (  0, 161, 196),
+    &#39;brachiocephalic_vein_right&#39;:    (  0, 151, 206),
+    &#39;brain&#39;:                         (250, 250, 225),
+    &#39;clavicula_left&#39;:                (205, 179, 108),
+    &#39;clavicula_right&#39;:               (205, 179, 108),
+    &#39;colon&#39;:                         (204, 168, 143),
+    &#39;common_carotid_artery_left&#39;:    (  0, 112, 165),
+    &#39;common_carotid_artery_right&#39;:   ( 10, 105, 155),
+    &#39;costal_cartilages&#39;:             (111, 184, 210),
+    &#39;duodenum&#39;:                      (255, 253, 229),
+    &#39;esophagus&#39;:                     (211, 171, 143),
+    &#39;femur_left&#39;:                    (255, 238, 170),
+    &#39;femur_right&#39;:                   (255, 238, 170),
+    &#39;gallbladder&#39;:                   (139, 150,  98),
+    &#39;gluteus_maximus_left&#39;:          (188,  95,  76),
+    &#39;gluteus_maximus_right&#39;:         (188,  95,  76),
+    &#39;gluteus_medius_left&#39;:           (178, 105,  76),
+    &#39;gluteus_medius_right&#39;:          (178, 105,  76),
+    &#39;gluteus_minimus_left&#39;:          (178,  95,  86),
+    &#39;gluteus_minimus_right&#39;:         (178,  95,  86),
+    &#39;heart&#39;:                         (206, 110,  84),
+    &#39;hip_left&#39;:                      (212, 188, 102),
+    &#39;hip_right&#39;:                     (212, 188, 102),
+    &#39;humerus_left&#39;:                  (205, 179, 108),
+    &#39;humerus_right&#39;:                 (205, 179, 108),
+    &#39;iliac_artery_left&#39;:             (216, 101,  79),
+    &#39;iliac_artery_right&#39;:            (216, 101,  79),
+    &#39;iliac_vena_left&#39;:               (  0, 151, 206),
+    &#39;iliac_vena_right&#39;:              (  0, 151, 206),
+    &#39;iliopsoas_left&#39;:                (188,  95,  76),
+    &#39;iliopsoas_right&#39;:               (188,  95,  76),
+    &#39;inferior_vena_cava&#39;:            (  0, 151, 206),
+    &#39;kidney_cyst_left&#39;:              (205, 205, 100),
+    &#39;kidney_cyst_right&#39;:             (205, 205, 100),
+    &#39;kidney_left&#39;:                   (185, 102,  83),
+    &#39;kidney_right&#39;:                  (185, 102,  83),
+    &#39;liver&#39;:                         (221, 130, 101),
+    &#39;lung_lower_lobe_left&#39;:          (224, 186, 162),
+    &#39;lung_lower_lobe_right&#39;:         (224, 186, 162),
+    &#39;lung_middle_lobe_right&#39;:        (202, 164, 140),
+    &#39;lung_upper_lobe_left&#39;:          (172, 138, 115),
+    &#39;lung_upper_lobe_right&#39;:         (172, 138, 115),
+    &#39;pancreas&#39;:                      (249, 180, 111),
+    &#39;portal_vein_and_splenic_vein&#39;:  (  0, 151, 206),
+    &#39;prostate&#39;:                      (230, 158, 140),
+    &#39;pulmonary_vein&#39;:                (  0, 122, 171),
+    &#39;rib_left_1&#39;:                    (253, 232, 158),
+    &#39;rib_left_10&#39;:                   (253, 232, 158),
+    &#39;rib_left_11&#39;:                   (253, 232, 158),
+    &#39;rib_left_12&#39;:                   (253, 232, 158),
+    &#39;rib_left_2&#39;:                    (253, 232, 158),
+    &#39;rib_left_3&#39;:                    (253, 232, 158),
+    &#39;rib_left_4&#39;:                    (253, 232, 158),
+    &#39;rib_left_5&#39;:                    (253, 232, 158),
+    &#39;rib_left_6&#39;:                    (253, 232, 158),
+    &#39;rib_left_7&#39;:                    (253, 232, 158),
+    &#39;rib_left_8&#39;:                    (253, 232, 158),
+    &#39;rib_left_9&#39;:                    (253, 232, 158),
+    &#39;rib_right_1&#39;:                   (253, 232, 158),
+    &#39;rib_right_10&#39;:                  (253, 232, 158),
+    &#39;rib_right_11&#39;:                  (253, 232, 158),
+    &#39;rib_right_12&#39;:                  (253, 232, 158),
+    &#39;rib_right_2&#39;:                   (253, 232, 158),
+    &#39;rib_right_3&#39;:                   (253, 232, 158),
+    &#39;rib_right_4&#39;:                   (253, 232, 158),
+    &#39;rib_right_5&#39;:                   (253, 232, 158),
+    &#39;rib_right_6&#39;:                   (253, 232, 158),
+    &#39;rib_right_7&#39;:                   (253, 232, 158),
+    &#39;rib_right_8&#39;:                   (253, 232, 158),
+    &#39;rib_right_9&#39;:                   (253, 232, 158),
+    &#39;sacrum&#39;:                        (212, 188, 102),
+    &#39;scapula_left&#39;:                  (212, 188, 102),
+    &#39;scapula_right&#39;:                 (212, 188, 102),
+    &#39;skull&#39;:                         (241, 213, 144),
+    &#39;small_bowel&#39;:                   (205, 167, 142),
+    &#39;spinal_cord&#39;:                   (244, 214,  49),
+    &#39;spleen&#39;:                        (157, 108, 162),
+    &#39;sternum&#39;:                       (244, 217, 154),
+    &#39;stomach&#39;:                       (216, 132, 105),
+    &#39;subclavian_artery_left&#39;:        (216, 101,  69),
+    &#39;subclavian_artery_right&#39;:       (216, 101,  89),
+    &#39;superior_vena_cava&#39;:            (  0, 141, 226),
+    &#39;thyroid_gland&#39;:                 (220, 160,  30),
+    &#39;trachea&#39;:                       (182, 228, 255),
+    &#39;urinary_bladder&#39;:               (222, 154, 132),
+    &#39;vertebrae_C1&#39;:                  (255, 255, 207),
+    &#39;vertebrae_C2&#39;:                  (255, 255, 207),
+    &#39;vertebrae_C3&#39;:                  (255, 255, 207),
+    &#39;vertebrae_C4&#39;:                  (255, 255, 207),
+    &#39;vertebrae_C5&#39;:                  (255, 255, 207),
+    &#39;vertebrae_C6&#39;:                  (255, 255, 207),
+    &#39;vertebrae_C7&#39;:                  (255, 255, 207),
+    &#39;vertebrae_L1&#39;:                  (212, 188, 102),
+    &#39;vertebrae_L2&#39;:                  (212, 188, 102),
+    &#39;vertebrae_L3&#39;:                  (212, 188, 102),
+    &#39;vertebrae_L4&#39;:                  (212, 188, 102),
+    &#39;vertebrae_L5&#39;:                  (212, 188, 102),
+    &#39;vertebrae_S1&#39;:                  (212, 208, 122),
+    &#39;vertebrae_T1&#39;:                  (226, 202, 134),
+    &#39;vertebrae_T10&#39;:                 (226, 202, 134),
+    &#39;vertebrae_T11&#39;:                 (226, 202, 134),
+    &#39;vertebrae_T12&#39;:                 (226, 202, 134),
+    &#39;vertebrae_T2&#39;:                  (226, 202, 134),
+    &#39;vertebrae_T3&#39;:                  (226, 202, 134),
+    &#39;vertebrae_T4&#39;:                  (226, 202, 134),
+    &#39;vertebrae_T5&#39;:                  (226, 202, 134),
+    &#39;vertebrae_T6&#39;:                  (226, 202, 134),
+    &#39;vertebrae_T7&#39;:                  (226, 202, 134),
+    &#39;vertebrae_T8&#39;:                  (226, 202, 134),
+    &#39;vertebrae_T9&#39;:                  (226, 202, 134),
+}
+</pre></div>
+</div>
+</section>
+</section>
+<section id="utility-functions">
+<h2>Utility Functions<a class="headerlink" href="#utility-functions" title="Link to this heading">#</a></h2>
+<p>Define helper functions to visualize the data.</p>
+<section id="filter-labels">
+<h3>filter_labels<a class="headerlink" href="#filter-labels" title="Link to this heading">#</a></h3>
+<p>To visualize a particular group of anatomic regions, we first define a function
+to filter the labels by name. Given a list of terms, the function returns
+any label which contains any of the search terms.</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">filter_labels</span><span class="p">(</span><a href="https://docs.python.org/3.11/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">label_names</span></a><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">search_terms</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">include_label</span><span class="p">(</span><span class="n">label_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">any</span><span class="p">(</span><span class="n">target</span> <span class="ow">in</span> <span class="n">label_name</span> <span class="k">for</span> <span class="n">target</span> <span class="ow">in</span> <span class="n">search_terms</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="p">[</span><span class="n">label</span> <span class="k">for</span> <span class="n">label</span> <span class="ow">in</span> <a href="https://docs.python.org/3.11/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">label_names</span></a> <span class="k">if</span> <span class="n">include_label</span><span class="p">(</span><span class="n">label</span><span class="p">)]</span>
+</pre></div>
+</div>
+</section>
+<section id="plot-anatomy">
+<h3>plot_anatomy<a class="headerlink" href="#plot-anatomy" title="Link to this heading">#</a></h3>
+<p>Define a function which, given a list of terms, will look up labels associated
+with those terms, generate contours for the labels, and plot the result. The function
+uses <a class="reference internal" href="../../api/core/_autosummary/pyvista.ImageDataFilters.contour_labels.html#pyvista.ImageDataFilters.contour_labels" title="pyvista.ImageDataFilters.contour_labels"><code class="xref py py-meth docutils literal notranslate"><span class="pre">contour_labels()</span></code></a> for generating contours and
+<a class="reference internal" href="../../api/core/_autosummary/pyvista.DataSetFilters.color_labels.html#pyvista.DataSetFilters.color_labels" title="pyvista.DataSetFilters.color_labels"><code class="xref py py-meth docutils literal notranslate"><span class="pre">color_labels()</span></code></a> for coloring them.</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot_anatomy</span><span class="p">(</span><span class="n">search_terms</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]):</span>
+    <span class="c1"># Get a list of labels which contain any of the listed terms.</span>
+    <span class="n">group_names</span> <span class="o">=</span> <span class="n">filter_labels</span><span class="p">(</span><a href="https://docs.python.org/3.11/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">label_names</span></a><span class="p">,</span> <span class="n">search_terms</span><span class="p">)</span>
+
+    <span class="c1"># Get the label ids corresponding to the matched labels.</span>
+    <span class="n">group_ids</span> <span class="o">=</span> <span class="p">[</span><a href="https://docs.python.org/3.11/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">names_to_ids</span></a><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">group_names</span><span class="p">]</span>
+
+    <span class="c1"># Selectively generate surfaces for the specified labels</span>
+    <span class="n">group_surface</span> <span class="o">=</span> <span class="n">dataset</span><span class="p">[</span><span class="s1">&#39;label_map&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">contour_labels</span><span class="p">(</span><span class="n">select_inputs</span><span class="o">=</span><span class="n">group_ids</span><span class="p">)</span>
+
+    <span class="c1"># Color the labels with the color mapping</span>
+    <span class="n">colored_surface</span> <span class="o">=</span> <span class="n">group_surface</span><span class="o">.</span><span class="n">color_labels</span><span class="p">(</span><span class="n">colors</span><span class="o">=</span><a href="https://docs.python.org/3.11/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">ids_to_colors</span></a><span class="p">)</span>
+
+    <span class="c1"># Plot the label map.</span>
+    <span class="n">pl</span> <span class="o">=</span> <span class="n">pv</span><span class="o">.</span><span class="n">Plotter</span><span class="p">()</span>
+    <span class="n">pl</span><span class="o">.</span><span class="n">add_mesh</span><span class="p">(</span><span class="n">colored_surface</span><span class="p">)</span>
+    <span class="n">pl</span><span class="o">.</span><span class="n">view_zx</span><span class="p">()</span>
+    <span class="n">pl</span><span class="o">.</span><span class="n">camera</span><span class="o">.</span><span class="n">up</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">pl</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="anatomical-groups">
+<h2>Anatomical Groups<a class="headerlink" href="#anatomical-groups" title="Link to this heading">#</a></h2>
+<p>Group the labels and visualize the result.</p>
+<section id="cardiovascular-system">
+<h3>Cardiovascular System<a class="headerlink" href="#cardiovascular-system" title="Link to this heading">#</a></h3>
+<p>Show segments of the cardiovascular system.</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define terms which describe all relevant segments.</span>
+<a href="https://docs.python.org/3.11/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">cardio</span></a> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;heart&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;aorta&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;artery&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;brachiocephalic_trunk&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;vein&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;atrial_appendage&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;vena_cava&#39;</span><span class="p">,</span>
+<span class="p">]</span>
+
+<span class="c1"># Plot the labels associated with these terms.</span>
+<span class="n">plot_anatomy</span><span class="p">(</span><a href="https://docs.python.org/3.11/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">cardio</span></a><span class="p">)</span>
+</pre></div>
+</div>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-0">
+スタティックシーン</label><div class="sd-tab-content docutils">
+<img src="../../_images/sphx_glr_anatomical_groups_001.png" srcset="../../_images/sphx_glr_anatomical_groups_001.png" alt="anatomical groups" class = "sphx-glr-single-img"/></div>
+<input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-1">
+インタラクティブなシーン</label><div class="sd-tab-content docutils">
+
+    <iframe src='../../_static/static_viewer.html?fileURL=../_images/examples/99-advanced/images/sphx_glr_anatomical_groups_001.vtksz' width='100%%' height='400px' frameborder='0'></iframe>
+</div>
+</div>
+</section>
+<section id="gastrointestinal-system">
+<h3>Gastrointestinal System<a class="headerlink" href="#gastrointestinal-system" title="Link to this heading">#</a></h3>
+<p>Show segments of the gastrointestinal system.</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define terms which describe all relevant segments.</span>
+<a href="https://docs.python.org/3.11/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">gastro</span></a> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;esophagus&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;stomach&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;duodenum&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;small_bowel&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;colon&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;urinary_bladder&#39;</span><span class="p">,</span>
+<span class="p">]</span>
+
+<span class="c1"># Plot the labels associated with these terms.</span>
+<span class="n">plot_anatomy</span><span class="p">(</span><a href="https://docs.python.org/3.11/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">gastro</span></a><span class="p">)</span>
+</pre></div>
+</div>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-2" name="sd-tab-set-1" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-2">
+スタティックシーン</label><div class="sd-tab-content docutils">
+<img src="../../_images/sphx_glr_anatomical_groups_002.png" srcset="../../_images/sphx_glr_anatomical_groups_002.png" alt="anatomical groups" class = "sphx-glr-single-img"/></div>
+<input id="sd-tab-item-3" name="sd-tab-set-1" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-3">
+インタラクティブなシーン</label><div class="sd-tab-content docutils">
+
+    <iframe src='../../_static/static_viewer.html?fileURL=../_images/examples/99-advanced/images/sphx_glr_anatomical_groups_002.vtksz' width='100%%' height='400px' frameborder='0'></iframe>
+</div>
+</div>
+</section>
+<section id="spine">
+<h3>Spine<a class="headerlink" href="#spine" title="Link to this heading">#</a></h3>
+<p>Show segments of the spinal.</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define terms which describe all relevant segments.</span>
+<a href="https://docs.python.org/3.11/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">spine</span></a> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;spinal_cord&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;vertebrae&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;sacrum&#39;</span><span class="p">,</span>
+<span class="p">]</span>
+
+<span class="c1"># Plot the labels associated with these terms.</span>
+<span class="n">plot_anatomy</span><span class="p">(</span><a href="https://docs.python.org/3.11/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">spine</span></a><span class="p">)</span>
+</pre></div>
+</div>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-4" name="sd-tab-set-2" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-4">
+スタティックシーン</label><div class="sd-tab-content docutils">
+<img src="../../_images/sphx_glr_anatomical_groups_003.png" srcset="../../_images/sphx_glr_anatomical_groups_003.png" alt="anatomical groups" class = "sphx-glr-single-img"/></div>
+<input id="sd-tab-item-5" name="sd-tab-set-2" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-5">
+インタラクティブなシーン</label><div class="sd-tab-content docutils">
+
+    <iframe src='../../_static/static_viewer.html?fileURL=../_images/examples/99-advanced/images/sphx_glr_anatomical_groups_003.vtksz' width='100%%' height='400px' frameborder='0'></iframe>
+</div>
+</div>
+</section>
+<section id="other-organs">
+<h3>Other Organs<a class="headerlink" href="#other-organs" title="Link to this heading">#</a></h3>
+<p>Show other organs not included in the cardiovascular or gastrointestinal
+systems.</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define terms which describe all relevant segments.</span>
+<a href="https://docs.python.org/3.11/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">other_organs</span></a> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;brain&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;spinal_cord&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;thyroid_gland&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;trachea&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;lung&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;adrenal_gland&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;spleen&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;liver&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;gallbladder&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;kidney&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;pancreas&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;prostate&#39;</span><span class="p">,</span>
+<span class="p">]</span>
+
+<span class="c1"># Plot the labels associated with these terms.</span>
+<span class="n">plot_anatomy</span><span class="p">(</span><a href="https://docs.python.org/3.11/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">other_organs</span></a><span class="p">)</span>
+</pre></div>
+</div>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-6" name="sd-tab-set-3" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-6">
+スタティックシーン</label><div class="sd-tab-content docutils">
+<img src="../../_images/sphx_glr_anatomical_groups_004.png" srcset="../../_images/sphx_glr_anatomical_groups_004.png" alt="anatomical groups" class = "sphx-glr-single-img"/></div>
+<input id="sd-tab-item-7" name="sd-tab-set-3" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-7">
+インタラクティブなシーン</label><div class="sd-tab-content docutils">
+
+    <iframe src='../../_static/static_viewer.html?fileURL=../_images/examples/99-advanced/images/sphx_glr_anatomical_groups_004.vtksz' width='100%%' height='400px' frameborder='0'></iframe>
+</div>
+</div>
+</section>
+<section id="muscles">
+<h3>Muscles<a class="headerlink" href="#muscles" title="Link to this heading">#</a></h3>
+<p>Show the muscles.</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define terms which describe all relevant segments.</span>
+<a href="https://docs.python.org/3.11/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">muscles</span></a> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;gluteus&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;autochthon&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;iliopsoas&#39;</span><span class="p">,</span>
+<span class="p">]</span>
+
+<span class="c1"># Plot the labels associated with these terms.</span>
+<span class="n">plot_anatomy</span><span class="p">(</span><a href="https://docs.python.org/3.11/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">muscles</span></a><span class="p">)</span>
+</pre></div>
+</div>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-8" name="sd-tab-set-4" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-8">
+スタティックシーン</label><div class="sd-tab-content docutils">
+<img src="../../_images/sphx_glr_anatomical_groups_005.png" srcset="../../_images/sphx_glr_anatomical_groups_005.png" alt="anatomical groups" class = "sphx-glr-single-img"/></div>
+<input id="sd-tab-item-9" name="sd-tab-set-4" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-9">
+インタラクティブなシーン</label><div class="sd-tab-content docutils">
+
+    <iframe src='../../_static/static_viewer.html?fileURL=../_images/examples/99-advanced/images/sphx_glr_anatomical_groups_005.vtksz' width='100%%' height='400px' frameborder='0'></iframe>
+</div>
+</div>
+</section>
+<section id="ribs">
+<h3>Ribs<a class="headerlink" href="#ribs" title="Link to this heading">#</a></h3>
+<p>Show the ribs.</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define terms which describe all relevant segments.</span>
+<a href="https://docs.python.org/3.11/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">ribs</span></a> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;rib&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;sternum&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;costal_cartilages&#39;</span><span class="p">,</span>
+<span class="p">]</span>
+
+<span class="c1"># Plot the labels associated with these terms.</span>
+<span class="n">plot_anatomy</span><span class="p">(</span><a href="https://docs.python.org/3.11/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">ribs</span></a><span class="p">)</span>
+</pre></div>
+</div>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-10" name="sd-tab-set-5" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-10">
+スタティックシーン</label><div class="sd-tab-content docutils">
+<img src="../../_images/sphx_glr_anatomical_groups_006.png" srcset="../../_images/sphx_glr_anatomical_groups_006.png" alt="anatomical groups" class = "sphx-glr-single-img"/></div>
+<input id="sd-tab-item-11" name="sd-tab-set-5" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-11">
+インタラクティブなシーン</label><div class="sd-tab-content docutils">
+
+    <iframe src='../../_static/static_viewer.html?fileURL=../_images/examples/99-advanced/images/sphx_glr_anatomical_groups_006.vtksz' width='100%%' height='400px' frameborder='0'></iframe>
+</div>
+</div>
+</section>
+<section id="skeleton">
+<h3>Skeleton<a class="headerlink" href="#skeleton" title="Link to this heading">#</a></h3>
+<p>Show the skeleton.</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define terms which describe all relevant segments.</span>
+<a href="https://docs.python.org/3.11/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">skeleton</span></a> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;skull&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;clavicula&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;scapula&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;humerus&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;vertebrae&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;sternum&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;rib&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;costal_cartilages&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;hip&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;sacrum&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;femur&#39;</span><span class="p">,</span>
+<span class="p">]</span>
+
+<span class="c1"># Plot the labels associated with these terms.</span>
+<span class="n">plot_anatomy</span><span class="p">(</span><a href="https://docs.python.org/3.11/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">skeleton</span></a><span class="p">)</span>
+</pre></div>
+</div>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-12" name="sd-tab-set-6" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-12">
+スタティックシーン</label><div class="sd-tab-content docutils">
+<img src="../../_images/sphx_glr_anatomical_groups_007.png" srcset="../../_images/sphx_glr_anatomical_groups_007.png" alt="anatomical groups" class = "sphx-glr-single-img"/></div>
+<input id="sd-tab-item-13" name="sd-tab-set-6" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-13">
+インタラクティブなシーン</label><div class="sd-tab-content docutils">
+
+    <iframe src='../../_static/static_viewer.html?fileURL=../_images/examples/99-advanced/images/sphx_glr_anatomical_groups_007.vtksz' width='100%%' height='400px' frameborder='0'></iframe>
+</div>
+</div>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> (0 minutes 11.639 seconds)</p>
+<div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-examples-99-advanced-anatomical-groups-py">
+<div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/dde07127f6ac4fab49f10b2eae46e4b9/anatomical_groups.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">anatomical_groups.ipynb</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-python docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/0d986a7f643889a7ae6bf580855d009c/anatomical_groups.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">anatomical_groups.py</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-zip docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/1088bdd12bafceea8735d4fd153baa8b/anatomical_groups.zip"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">zipped:</span> <span class="pre">anatomical_groups.zip</span></code></a></p>
+</div>
+</div>
+<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Sphinx-Galleryによるギャラリー</a></p>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> 目次
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-dataset">Load Dataset</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#color-mapping">Color Mapping</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#utility-functions">Utility Functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#filter-labels">filter_labels</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-anatomy">plot_anatomy</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#anatomical-groups">Anatomical Groups</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cardiovascular-system">Cardiovascular System</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gastrointestinal-system">Gastrointestinal System</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#spine">Spine</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#other-organs">Other Organs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#muscles">Muscles</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ribs">Ribs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#skeleton">Skeleton</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+著者 Alex Kaszynski and Bane Sullivan
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2017-2025, The PyVista Developers.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

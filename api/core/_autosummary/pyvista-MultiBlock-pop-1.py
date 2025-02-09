@@ -2,14 +2,14 @@
 #
 import pyvista as pv
 data = {
-    "cube": pv.Cube(),
-    "sphere": pv.Sphere(center=(2, 2, 0)),
+    'cube': pv.Cube(),
+    'sphere': pv.Sphere(center=(2, 2, 0)),
 }
 blocks = pv.MultiBlock(data)
 blocks.keys()
 # Expected:
 ## ['cube', 'sphere']
-cube = blocks.pop("cube")
+cube = blocks.pop('cube')
 blocks.keys()
 # Expected:
 ## ['sphere']

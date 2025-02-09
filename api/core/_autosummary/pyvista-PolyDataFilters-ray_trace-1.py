@@ -4,9 +4,7 @@
 #
 import pyvista as pv
 sphere = pv.Sphere()
-point, cell = sphere.ray_trace(
-    [0, 0, 0], [1, 0, 0], first_point=True
-)
+point, cell = sphere.ray_trace([0, 0, 0], [1, 0, 0], first_point=True)
 f'Intersected at {point[0]:.3f} {point[1]:.3f} {point[2]:.3f}'
 # Expected:
 ## 'Intersected at 0.499 0.000 0.000'

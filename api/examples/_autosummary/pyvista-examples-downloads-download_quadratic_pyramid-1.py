@@ -4,3 +4,7 @@
 from pyvista import examples
 dataset = examples.download_quadratic_pyramid()
 dataset.shrink(0.4).plot()
+#
+# .. seealso::
+#
+#     :ref:`Quadratic Pyramid Dataset <quadratic_pyramid_dataset>`

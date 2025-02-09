@@ -11,12 +11,18 @@ grid.extent
 # Expected:
 ## (2, 5, 2, 5, 2, 5)
 #
-# Note how this also modifies the grid bounds and dimensions. Since we
-# use default spacing of 1 here, the bounds match the extent exactly.
+# Note how this also modifies the grid's :attr:`offset`, :attr:`dimensions`,
+# and :attr:`bounds`. Since we use default spacing of 1 here, the bounds
+# match the extent exactly.
 #
-grid.bounds
+grid.offset
 # Expected:
-## (2.0, 5.0, 2.0, 5.0, 2.0, 5.0)
+## (2, 2, 2)
+#
 grid.dimensions
 # Expected:
 ## (4, 4, 4)
+#
+grid.bounds
+# Expected:
+## BoundsTuple(x_min=2.0, x_max=5.0, y_min=2.0, y_max=5.0, z_min=2.0, z_max=5.0)

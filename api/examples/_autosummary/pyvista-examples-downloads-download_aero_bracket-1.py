@@ -42,3 +42,14 @@ dataset.plot(
     cpos=cpos,
     anti_aliasing='fxaa',
 )
+#
+# .. seealso::
+#
+#     :ref:`Aero Bracket Dataset <aero_bracket_dataset>`
+#         See this dataset in the Dataset Gallery for more info.
+#
+#     :ref:`Notch Stress Dataset <notch_stress_dataset>`
+#
+#     :ref:`Notch Displacement Dataset <notch_displacement_dataset>`
+#
+#     :ref:`Fea Bracket Dataset <fea_bracket_dataset>`

@@ -4,7 +4,7 @@ import pyvista as pv
 import numpy as np
 mesh = pv.Cube()
 mesh.clear_data()
-vectors = np.random.random((mesh.n_points, 3))
+vectors = np.random.default_rng().random((mesh.n_points, 3))
 mesh.point_data.set_vectors(vectors, 'my-vectors')
 mesh.point_data
 # Expected:

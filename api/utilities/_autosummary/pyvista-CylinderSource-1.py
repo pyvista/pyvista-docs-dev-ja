@@ -14,7 +14,5 @@ pl.show()
 # Visualize the output of :class:`CylinderSource` in a 3D plot.
 #
 pl = pv.Plotter()
-_ = pl.add_mesh(
-    pv.CylinderSource().output, show_edges=True, line_width=5
-)
+_ = pl.add_mesh(pv.CylinderSource().output, show_edges=True, line_width=5)
 pl.show()

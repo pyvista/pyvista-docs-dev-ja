@@ -1,8 +1,10 @@
-# Set anisotropy to 0.1
+# Get the default anisotropy and visualize it with physically-based rendering.
 #
 import pyvista as pv
 prop = pv.Property()
-prop.interpolation = 'pbr'
 prop.anisotropy
 # Expected:
-## 0.1
+## 0.0
+#
+prop.interpolation = 'pbr'  # required
+prop.plot()

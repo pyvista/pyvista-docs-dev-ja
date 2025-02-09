@@ -11,9 +11,7 @@ solid_sphere.plot(show_edges=True)
 isinstance(solid_sphere, pv.UnstructuredGrid)
 # Expected:
 ## True
-partial_solid_sphere = pv.SolidSphere(
-    start_theta=180, end_theta=360
-)
+partial_solid_sphere = pv.SolidSphere(start_theta=180, end_theta=360)
 partial_solid_sphere.plot(show_edges=True)
 #
 # To see the cell structure inside the solid sphere,
@@ -29,7 +27,7 @@ partial_solid_sphere = pv.SolidSphere(
     theta_resolution=8,
     phi_resolution=8,
 )
-partial_solid_sphere["cell_radial_pos"] = np.linalg.norm(
+partial_solid_sphere['cell_radial_pos'] = np.linalg.norm(
     partial_solid_sphere.cell_centers().points, axis=-1
 )
 partial_solid_sphere.explode(1).plot()

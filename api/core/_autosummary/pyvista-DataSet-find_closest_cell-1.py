@@ -18,12 +18,12 @@ relative_position = cell_centers.points - point
 distance = np.linalg.norm(relative_position, axis=1)
 np.argmin(distance)
 # Expected:
-## 338
+## np.int64(338)
 #
 # Find the nearest cells to several random points that
 # are centered on the origin.
 #
-points = 2 * np.random.random((5000, 3)) - 1
+points = 2 * np.random.default_rng().random((5000, 3)) - 1
 indices = mesh.find_closest_cell(points)
 indices.shape
 # Expected:

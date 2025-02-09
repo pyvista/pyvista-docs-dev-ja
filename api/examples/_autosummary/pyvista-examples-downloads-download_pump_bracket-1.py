@@ -27,3 +27,10 @@ dataset.plot(
     ambient=0.2,
     anti_aliasing='fxaa',
 )
+#
+# .. seealso::
+#
+#     :ref:`Pump Bracket Dataset <pump_bracket_dataset>`
+#         See this dataset in the Dataset Gallery for more info.
+#
+#     :ref:`pump_bracket_example`

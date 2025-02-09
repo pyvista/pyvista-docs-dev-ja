@@ -3,6 +3,9 @@
 import pyvista as pv
 from pyvista import examples
 structure, air = examples.download_electronics_cooling()
+#
+# Show the type and bounds of the datasets.
+#
 structure, air
 # Expected:
 ## (PolyData (...)
@@ -40,4 +43,9 @@ pl.camera.roll = 90
 pl.enable_anti_aliasing('fxaa')
 pl.show()
 #
-# Show the type and bounds of the datasets.
+# .. seealso::
+#
+#     :ref:`Electronics Cooling Dataset <electronics_cooling_dataset>`
+#         See this dataset in the Dataset Gallery for more info.
+#
+#     :ref:`openfoam_cooling_example`

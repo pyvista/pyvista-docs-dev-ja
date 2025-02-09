@@ -1,8 +1,8 @@
 # Reorient just the actor and plot it. Note how the actor is rotated
-# about its own axes as defined by its position.
+# about the origin ``(0, 0, 0)`` by default.
 #
 import pyvista as pv
-mesh = pv.Cube()
+mesh = pv.Cube(center=(0, 0, 3))
 pl = pv.Plotter()
 _ = pl.add_mesh(mesh, color='b')
 actor = pl.add_mesh(
@@ -12,9 +12,27 @@ actor = pl.add_mesh(
     line_width=5,
     lighting=False,
 )
-actor.position = (0, 0, 1)
 actor.orientation = (45, 0, 0)
-pl.show_axes()
+_ = pl.add_axes_at_origin()
+pl.show()
+#
+# Repeat the last example, but this time reorient the actor about
+# its center by specifying its :attr:`~origin`.
+#
+import pyvista as pv
+mesh = pv.Cube(center=(0, 0, 3))
+pl = pv.Plotter()
+_ = pl.add_mesh(mesh, color='b')
+actor = pl.add_mesh(
+    mesh,
+    color='r',
+    style='wireframe',
+    line_width=5,
+    lighting=False,
+)
+actor.origin = actor.center
+actor.orientation = (45, 0, 0)
+_ = pl.add_axes_at_origin()
 pl.show()
 #
 # Show that the orientation changes with rotation.

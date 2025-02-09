@@ -6,4 +6,9 @@ texture = examples.download_masonry_texture()
 surf = pv.Cylinder()
 surf.plot(texture=texture)
 #
-# See :ref:`texture_example` for an example using this
+# .. seealso::
+#
+#     :ref:`Masonry Texture Dataset <masonry_texture_dataset>`
+#         See this dataset in the Dataset Gallery for more info.
+#
+#     :ref:`texture_example`

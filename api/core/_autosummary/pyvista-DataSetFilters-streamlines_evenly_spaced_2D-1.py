@@ -11,8 +11,6 @@ streams = mesh[0].streamlines_evenly_spaced_2D(
     separating_distance_ratio=0.2,
 )
 plotter = pv.Plotter()
-_ = plotter.add_mesh(
-    streams.tube(radius=0.02), scalars="vorticity_mag"
-)
+_ = plotter.add_mesh(streams.tube(radius=0.02), scalars='vorticity_mag')
 plotter.view_xy()
 plotter.show()

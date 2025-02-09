@@ -24,3 +24,12 @@ pc.plot(
     show_scalar_bar=False,
     zoom=2,
 )
+#
+# .. seealso::
+#
+#     :ref:`Cloud Dark Matter Dataset <cloud_dark_matter_dataset>`
+#         See this dataset in the Dataset Gallery for more info.
+#
+#     :ref:`Cloud Dark Matter Dense Dataset <cloud_dark_matter_dense_dataset>`
+#
+#     :ref:`plotting_point_clouds`

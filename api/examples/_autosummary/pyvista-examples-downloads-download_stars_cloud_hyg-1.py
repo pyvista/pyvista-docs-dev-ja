@@ -24,4 +24,9 @@ stars
 ##   Z Bounds:   -9.788e+02, 9.702e+02
 ##   N Arrays:   3
 #
-# See the :ref:`plotting_point_clouds` for more details on how to plot point
+# .. seealso::
+#
+#     :ref:`Stars Cloud Hyg Dataset <stars_cloud_hyg_dataset>`
+#         See this dataset in the Dataset Gallery for more info.
+#
+#     :ref:`plotting_point_clouds`

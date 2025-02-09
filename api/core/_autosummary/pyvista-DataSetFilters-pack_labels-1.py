@@ -4,13 +4,13 @@
 #
 from pyvista import examples
 import numpy as np
-image_labels = examples.download_frog_tissue()
+image_labels = examples.load_frog_tissues()
 #
 # Show range of labels
 #
 image_labels.get_data_range()
 # Expected:
-## (0, 29)
+## (np.uint8(0), np.uint8(29))
 #
 # Find 'gaps' in the labels
 #
@@ -29,4 +29,4 @@ packed_labels = image_labels.pack_labels()
 #
 packed_labels.get_data_range()
 # Expected:
-## (0, 25)
+## (np.uint8(0), np.uint8(25))

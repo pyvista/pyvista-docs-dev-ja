@@ -7,5 +7,15 @@ cpos = [
 dataset = examples.download_frog()
 dataset.plot(volume=True, cpos=cpos)
 #
-# See :func:`download_frog_tissue` for segmentation labels associated
-# with this dataset.
+# .. seealso::
+#
+#     :ref:`Frog Dataset <frog_dataset>`
+#         See this dataset in the Dataset Gallery for more info.
+#
+#     :ref:`Frog Tissue Dataset <frog_tissue_dataset>`
+#         Segmentation labels associated with this dataset.
+#
+#     :ref:`medical_dataset_gallery`
+#         Browse other medical datasets.
+#
+#     :ref:`volume_rendering_example`

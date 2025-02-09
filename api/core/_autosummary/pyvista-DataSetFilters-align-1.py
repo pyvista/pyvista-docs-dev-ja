@@ -15,15 +15,11 @@ dist = np.linalg.norm(source.points - closest_points, axis=1)
 #
 pl = pv.Plotter(shape=(1, 2))
 _ = pl.add_text('Before Alignment')
-_ = pl.add_mesh(
-    source, style='wireframe', opacity=0.5, line_width=2
-)
+_ = pl.add_mesh(source, style='wireframe', opacity=0.5, line_width=2)
 _ = pl.add_mesh(transformed)
 pl.subplot(0, 1)
 _ = pl.add_text('After Alignment')
-_ = pl.add_mesh(
-    source, style='wireframe', opacity=0.5, line_width=2
-)
+_ = pl.add_mesh(source, style='wireframe', opacity=0.5, line_width=2)
 _ = pl.add_mesh(
     aligned,
     scalars=dist,

@@ -7,5 +7,9 @@ bodies = dataset.split_bodies()
 for i, body in enumerate(bodies):  # pragma: no cover
     bid = np.empty(body.n_points)
     bid[:] = i
-    body.point_data["Body ID"] = bid
+    body.point_data['Body ID'] = bid
 bodies.plot(cmap='jet')
+#
+# .. seealso::
+#
+#     :ref:`Gears Dataset <gears_dataset>`

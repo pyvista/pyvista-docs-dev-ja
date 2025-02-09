@@ -1,16 +1,11 @@
-# Set metallic to 0.1
+# Get the default metallic value and visualize it.
 #
 import pyvista as pv
 prop = pv.Property()
-prop.interpolation = 'pbr'
-prop.metallic = 0.1
+prop.interpolation = 'pbr'  # required
 prop.metallic
 # Expected:
-## 0.1
-#
-# Visualize default metallic.
-#
-prop.metallic = 0.0
+## 0.0
 prop.plot()
 #
 # Visualize metallic at ``0.5``.

@@ -9,9 +9,9 @@ points, rays, cells = sphere.multi_ray_trace(
     [[1, 0, 0], [0, 1, 0], [0, 0, 1]],
     first_point=True,
 )  # doctest:+SKIP
-string = ", ".join(
+string = ', '.join(
     [
-        f"({point[0]:.3f}, {point[1]:.3f}, {point[2]:.3f})"
+        f'({point[0]:.3f}, {point[1]:.3f}, {point[2]:.3f})'
         for point in points
     ]
 )  # doctest:+SKIP

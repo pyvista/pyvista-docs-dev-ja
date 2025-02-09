@@ -1,28 +1,23 @@
-# Set interpolation to physically based rendering.
+# Get the default interpolation and visualize it.
 #
 import pyvista as pv
 prop = pv.Property()
-prop.interpolation = 'pbr'
 prop.interpolation
 # Expected:
-## <InterpolationType.PBR: 3>
-#
-# Visualize default flat shading.
-#
-prop.interpolation = 'Flat'
+## <InterpolationType.FLAT: 0>
 prop.plot()
 #
 # Visualize gouraud shading.
 #
-prop.interpolation = 'Gouraud'
+prop.interpolation = 'gouraud'
 prop.plot()
 #
 # Visualize phong shading.
 #
-prop.interpolation = 'Phong'
+prop.interpolation = 'phong'
 prop.plot()
 #
 # Visualize physically based rendering.
 #
-prop.interpolation = 'Physically based rendering'
+prop.interpolation = 'pbr'
 prop.plot()

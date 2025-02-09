@@ -1,10 +1,10 @@
 # Load a texture from file. File should be a "image" or "image-like" file.
 #
-import os
+from pathlib import Path
 import pyvista as pv
 from pyvista import examples
 path = examples.download_masonry_texture(load=False)
-os.path.basename(path)
+Path(path).name
 # Expected:
 ## 'masonry.bmp'
 texture = pv.Texture(path)

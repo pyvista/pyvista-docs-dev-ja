@@ -1,5 +1,10 @@
 from pyvista import examples
 dataset = examples.download_doorman()
-dataset.plot(cpos="xy")
+dataset.plot(cpos='xy')
 #
-# See :ref:`read_file_example` for an example using
+# .. seealso::
+#
+#     :ref:`Doorman Dataset <doorman_dataset>`
+#         See this dataset in the Dataset Gallery for more info.
+#
+#     :ref:`read_file_example`

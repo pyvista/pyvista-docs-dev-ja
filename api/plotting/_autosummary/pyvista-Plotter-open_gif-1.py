@@ -3,6 +3,4 @@
 #
 import pyvista as pv
 pl = pv.Plotter()
-pl.open_gif(
-    'movie.gif', fps=8, palettesize=64
-)  # doctest:+SKIP
+pl.open_gif('movie.gif', fps=8, palettesize=64)  # doctest:+SKIP
