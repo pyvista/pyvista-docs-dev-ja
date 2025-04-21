@@ -10,18 +10,12 @@ on:
       - main
 jobs:
   script:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     steps:
     - name: Setup Python
       uses: actions/setup-python@v5
       with:
         python-version: 3.12
-    - name: Get Job URL
-      uses: Tiryoh/gha-jobid-action@v1
-      id: jobs
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        job_name: script
     - name: Checkout with submodule
       uses: actions/checkout@v4
       with:
@@ -29,18 +23,7 @@ jobs:
         repository: pyvista/pyvista-doc-translations
         submodules: true
         path: pyvista-doc-translations
-    - name: Checkout other repo
-      uses: actions/checkout@v4
-      with:
-        fetch-depth: 0
-        ref: 'gh-pages'
-        path: pyvista-docs-dev-ja
-    - name: Setup SSH
-      uses: MrSquaare/ssh-setup-action@v3
-      with:
-        host: github.com
-        private-key: ${{ secrets.SSH_PRIVATE_KEY }}
-    - name: install
+    - name: Install dependencies
       run: |
         sudo apt-get update
         sudo apt-get install -y --no-install-recommends python3-setuptools
@@ -52,15 +35,13 @@ jobs:
         cd pyvista-doc-translations
         pip install -r ./requirements.txt
         cd ../
-    - name: build
+    - name: Build project
       env:
-        JOB_ID: ${{ steps.jobs.outputs.job_id }}
-        HTML_URL: ${{ steps.jobs.outputs.html_url }}
+        DISPLAY: :99.0
+        PYVISTA_OFF_SCREEN: True
       run: |
         cd pyvista-doc-translations
         set -x
-        export DISPLAY=:99.0
-        export PYVISTA_OFF_SCREEN=True
         Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 &
         sleep 3
         set +x
@@ -68,24 +49,11 @@ jobs:
         cd pyvista
         cd doc
         make phtml DEFAULTS="" SPHINXOPTS="-D language=ja -D locale_dirs='../../../locale'"
-        cd ../
-        cd ../
-        cd ../
-    - name: commit
-      if: contains(github.ref, 'main')
+        cd ../../..
+    - name: Deploy to Netlify
       env:
-        JOB_ID: ${{ steps.jobs.outputs.job_id }}
-        HTML_URL: ${{ steps.jobs.outputs.html_url }}
+        NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+        NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
       run: |
-        cd pyvista-docs-dev-ja
-        git checkout gh-pages
-        git rm -rf --ignore-unmatch *
-        mv ../pyvista-doc-translations/pyvista/doc/_build/html/* .
-        touch .nojekyll
-        git config --global user.email $GITHUB_REPOSITORY
-        git config --global user.name $GITHUB_REPOSITORY
-        git add .
-        git commit --allow-empty -m "[ci skip] $JOB_ID
-        $HTML_URL"
-        git push origin gh-pages
-        cd ../
+        npm install -g netlify-cli
+        netlify deploy --prod --dir=pyvista-doc-translations/pyvista/doc/_build/html
